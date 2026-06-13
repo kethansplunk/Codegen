@@ -1,0 +1,8 @@
+data/
+models/
+indexes/
+.env
+__pycache__/
+*.ckpt
+*.pyc
+.DS_Store
