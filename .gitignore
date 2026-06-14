@@ -1,0 +1,11 @@
+data/
+models/
+indexes/
+.env
+__pycache__/
+*.pyc
+*.ckpt
+*.pt
+.DS_Store
+*.docx
+*.pdf

@@ -1,0 +1,49 @@
+dataset:
+  name: spider
+  train_path: data/spider/train_spider.json
+  dev_path: data/spider/dev.json
+  db_path: data/spider/database/
+  tables_path: data/spider/tables.json
+
+fk_graph:
+  cache_path: data/fk_graphs/
+  max_hops: 2
+  fuzzy_threshold: 75
+  top_k_seeds: 3
+
+prompt_schema:
+  sql_cache: data/prompt_schema/sql/
+  nosql_cache: data/prompt_schema/nosql/
+  top_k_values: 3
+
+schema_linker:
+  base_model: Qwen/Qwen3-8B
+  sql_checkpoint: models/schema_linker_sql/
+  nosql_checkpoint: models/schema_linker_nosql/
+  self_consistency_k: 5
+
+sar:
+  encoder_model: BAAI/bge-large-en-v1.5
+  sql_checkpoint: models/sar_sql/
+  nosql_checkpoint: models/sar_nosql/
+  top_k: 3
+
+generator:
+  base_model: Qwen/Qwen2.5-Coder-7B-Instruct
+  sql_checkpoint: models/generator_sql/
+  nosql_checkpoint: models/generator_nosql/
+  n_candidates: 5
+  temperature: 0.8
+  max_new_tokens: 2048
+
+indexes:
+  sql_chroma: indexes/chroma_sql/
+  nosql_chroma: indexes/chroma_nosql/
+
+mongodb:
+  host: localhost
+  port: 27017
+  schema_cache: data/mongodb/
+
+evaluation:
+  results_dir: evaluation/results/
