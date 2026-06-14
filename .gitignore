@@ -6,3 +6,5 @@ __pycache__/
 *.ckpt
 *.pyc
 .DS_Store
+external/
+.claude/
