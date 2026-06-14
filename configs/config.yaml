@@ -18,6 +18,7 @@ prompt_schema:
 
 schema_linker:
   base_model: Qwen/Qwen3-8B
+  local_model_path: models/qwen3-8b/
   sql_checkpoint: models/schema_linker_sql/
   nosql_checkpoint: models/schema_linker_nosql/
   self_consistency_k: 5
