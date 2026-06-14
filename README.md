@@ -1,15 +1,16 @@
-# Codegen — Natural Language to Query Generator
+# CodeGen — Natural Language to Query Generator
 
-A dual-track system that translates natural language questions into SQL (relational databases) and NoSQL (MongoDB) queries using fine-tuned LLMs.
+A dual-track system that translates natural language questions into SQL (PostgreSQL) and NoSQL (MongoDB MQL) queries using fine-tuned LLMs.
 
 ## What it does
 
-Given a natural language question and a database schema, the system produces the correct SQL or MQL query by routing through a multi-stage pipeline:
+Given a natural language question and a database, the system produces the correct query by routing through a multi-stage pipeline:
 
-1. **Router** — detects whether the target is a SQL or NoSQL database (`src/router/`)
-2. **Schema Linker** — identifies the relevant tables/collections and columns from the schema (`src/schema_linker/`)
-3. **SAR (Schema-Aware Retrieval)** — retrieves similar examples from a vector index to guide generation (`src/sar/`)
-4. **Generator** — produces the final query using a fine-tuned Qwen2.5-Coder-7B-Instruct model (`src/generator/`)
+1. **PromptSchema** — enriches the schema with sample values per column so the LLM understands what each column contains
+2. **Schema Linker** — identifies the relevant tables and columns from the schema
+3. **SAR (Schema-Aware Retrieval)** — retrieves structurally similar past examples to guide generation
+4. **Generator** — produces the final query using a fine-tuned Qwen2.5-Coder-7B model
+5. **POSG** — generates 5 candidates and selects the best one
 
 ## Models
 
@@ -19,41 +20,58 @@ Given a natural language question and a database schema, the system produces the
 | SAR encoder | BAAI/bge-large-en-v1.5 |
 | Query Generator | Qwen/Qwen2.5-Coder-7B-Instruct |
 
-## Project structure
-
-```
-src/
-  device.py            # MPS / CUDA / CPU detection
-  fk_graph.py          # Foreign-key graph builder
-  prompt_schema.py     # Schema → prompt formatter
-  mongodb_converter.py # Converts relational schema to MongoDB format
-  router/              # LangGraph-based SQL vs NoSQL router
-  schema_linker/       # 3-stage training (SFT → DPO → GRPO)
-  sar/                 # Schema-aware retrieval model
-  generator/           # Fine-tuned query generator
-configs/
-  config.yaml          # All model paths, hyperparameters, dataset paths
-Data/
-  Spider/              # Spider Text-to-SQL benchmark
-  cot_data/            # Chain-of-thought training data
-  fk_graphs/           # Cached FK graphs
-  mongodb/             # MongoDB schema cache
-external/
-  SchemaRAG/           # Reference implementation (SchemaRAG paper)
-```
-
 ## Current status
 
-- Project structure and configuration complete (Phase 3E)
-- Source file stubs in place for all pipeline components
-- Schema linker training planned as 3-stage: SFT → DPO → GRPO
-- Dataset: Spider (SQL) + MongoDB-converted equivalent (NoSQL)
-- Hardware target: Apple Silicon (MPS) locally, Google Colab for heavy training
+| Phase | Description | Status |
+|---|---|---|
+| 1–3 | Planning, architecture, environment setup | ✅ Done |
+| 4 | Spider dataset — 7000 Q-SQL pairs + 166 SQLite databases | ✅ Done |
+| 5A | FK graph builder — NetworkX graphs for all 166 databases | ✅ Done |
+| 5B | MongoDB converter — all 166 databases converted and verified | ✅ Done |
+| 6 | PromptSchema — BM25S column annotations for SQL and NoSQL | ✅ Done |
+| 7A | SQL RAG corpus — 7000 Q-SQL pairs with 57 structural type labels | ✅ Done |
+| 7B | NoSQL RAG corpus — Q-MQL pair generation via DeepSeek API | ⏳ Pending |
+| 8–20 | CoT generation, model training, evaluation, demo | ⏳ Pending |
 
 ## Setup
 
 ```bash
-pip install torch transformers datasets peft trl langgraph chromadb pymongo rapidfuzz
+conda activate text2sql
+pip install torch transformers datasets peft trl langgraph chromadb pymongo rapidfuzz bm25s sqlglot networkx
 ```
 
-Configure paths in `configs/config.yaml` before running any training or inference scripts.
+Configure paths in `configs/config.yaml` before running any scripts.
+
+## Project structure
+
+```
+src/                    reusable library code
+  device.py             MPS / CUDA / CPU detection
+  fk_graph.py           FK graph builder
+  prompt_schema.py      BM25S column annotation
+  mongodb_converter.py  SQLite → MongoDB converter
+  schema_linker/        3-stage SchemaLinker (pending)
+  sar/                  Schema-Aware Retriever (pending)
+  generator/            Query generator (pending)
+scripts/
+  validate_spider.py              Spider download validation
+  Validate_sql2mongo_conversion.py MongoDB conversion validation
+  build_rag_corpus.py             SQL RAG corpus builder
+Data/
+  Spider/               7000 Q-SQL pairs + 166 SQLite databases
+  fk_graphs/            FK graphs for all 166 databases
+  mongodb/              MongoDB schema cache
+  prompt_schema/        BM25S column annotations (SQL + NoSQL)
+  rag_corpus/           Annotated Q-SQL corpus for SAR training
+configs/
+  config.yaml           All paths and hyperparameters
+docs/
+  architecture.md       Full architecture documentation
+```
+
+## Reference documents
+
+- `docs/architecture.md` — detailed architecture with design decisions
+- `CodeGen_Plan_v5_DualTrack.md` — full 20-phase implementation plan
+- `docs/SchemaRAG.pdf` — primary SQL track paper (SIGMOD 2026)
+- `docs/Text_to_NoSQL.pdf` — NoSQL track paper (TEND)
