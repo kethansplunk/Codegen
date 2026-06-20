@@ -1,0 +1,217 @@
+{
+  "Documents_to_be_Destroyed.Planned_Destruction_Date": {
+    "sample_values": [
+      "2010-11-26 19:22:50",
+      "1976-06-15 03:40:06",
+      "1988-02-01 14:41:52"
+    ],
+    "inferred_type": "string"
+  },
+  "Documents_to_be_Destroyed.Destruction_Authorised_by_Employee_ID": {
+    "sample_values": [
+      "30",
+      "38",
+      "55"
+    ],
+    "inferred_type": "integer"
+  },
+  "Documents_to_be_Destroyed.Document_ID": {
+    "sample_values": [
+      "260",
+      "25",
+      "166"
+    ],
+    "inferred_type": "integer"
+  },
+  "Documents_to_be_Destroyed.Destroyed_by_Employee_ID": {
+    "sample_values": [
+      "138",
+      "173",
+      "55"
+    ],
+    "inferred_type": "integer"
+  },
+  "Documents_to_be_Destroyed.Actual_Destruction_Date": {
+    "sample_values": [
+      "1995-01-01 03:52:11",
+      "2017-01-06 23:17:22",
+      "2012-07-03 09:48:46"
+    ],
+    "inferred_type": "string"
+  },
+  "Roles.Role_Description": {
+    "sample_values": [
+      "Ut sed quae eaque mollitia qui hic. Natus ea expedita et odio illum fugiat qui natus. Consequatur velit ut dolorem cum ullam esse deserunt dignissimos. Enim non non rem officiis quis.",
+      "Vero harum corrupti odit ipsa vero et odio. Iste et recusandae temporibus maxime. Magni aspernatur fugit quis explicabo totam esse corrupti.",
+      "Aut modi nihil molestias temporibus sit rerum. Sit neque eaque odio omnis incidunt."
+    ],
+    "inferred_type": "string"
+  },
+  "Roles.Role_Name": {
+    "sample_values": [
+      "Photo",
+      "Manager",
+      "Editor"
+    ],
+    "inferred_type": "string"
+  },
+  "Roles.Role_Code": {
+    "sample_values": [
+      "MG",
+      "ED",
+      "PR"
+    ],
+    "inferred_type": "string"
+  },
+  "Employees.Employee_Name": {
+    "sample_values": [
+      "Stephanie",
+      "Ettie",
+      "Diego"
+    ],
+    "inferred_type": "string"
+  },
+  "Employees.Employee_ID": {
+    "sample_values": [
+      "99",
+      "181",
+      "55"
+    ],
+    "inferred_type": "integer"
+  },
+  "Employees.Gender_MFU": {
+    "sample_values": [
+      "",
+      "1"
+    ],
+    "inferred_type": "string"
+  },
+  "Employees.Role_Code": {
+    "sample_values": [
+      "MG",
+      "ED",
+      "PR"
+    ],
+    "inferred_type": "string"
+  },
+  "Employees.Date_of_Birth": {
+    "sample_values": [
+      "2010-03-15 00:17:13",
+      "1973-04-04 21:41:22",
+      "1973-02-15 17:16:00"
+    ],
+    "inferred_type": "string"
+  },
+  "Ref_Calendar.Day_Number": {
+    "sample_values": [
+      "5",
+      "1",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "Ref_Calendar.Calendar_Date": {
+    "sample_values": [
+      "2010-11-26 19:22:50",
+      "2012-07-03 09:48:46",
+      "1976-06-15 03:40:06"
+    ],
+    "inferred_type": "string"
+  },
+  "Ref_Document_Types.Document_Type_Name": {
+    "sample_values": [
+      "Book",
+      "Review",
+      "Paper"
+    ],
+    "inferred_type": "string"
+  },
+  "Ref_Document_Types.Document_Type_Code": {
+    "sample_values": [
+      "BK",
+      "RV",
+      "CV"
+    ],
+    "inferred_type": "string"
+  },
+  "Ref_Locations.Location_Name": {
+    "sample_values": [
+      "Nanjing",
+      "Edinburgh",
+      "Xiamen"
+    ],
+    "inferred_type": "string"
+  },
+  "Ref_Locations.Location_Code": {
+    "sample_values": [
+      "x",
+      "e",
+      "c"
+    ],
+    "inferred_type": "string"
+  },
+  "Document_Locations.Date_in_Locaton_To": {
+    "sample_values": [
+      "2010-11-26 19:22:50",
+      "2012-07-03 09:48:46",
+      "2008-06-08 12:45:38"
+    ],
+    "inferred_type": "string"
+  },
+  "Document_Locations.Date_in_Location_From": {
+    "sample_values": [
+      "2010-11-26 19:22:50",
+      "2017-01-06 23:17:22",
+      "2008-06-08 12:45:38"
+    ],
+    "inferred_type": "string"
+  },
+  "Document_Locations.Location_Code": {
+    "sample_values": [
+      "x",
+      "e",
+      "c"
+    ],
+    "inferred_type": "string"
+  },
+  "Document_Locations.Document_ID": {
+    "sample_values": [
+      "230",
+      "170",
+      "166"
+    ],
+    "inferred_type": "integer"
+  },
+  "All_Documents.Document_ID": {
+    "sample_values": [
+      "230",
+      "25",
+      "166"
+    ],
+    "inferred_type": "integer"
+  },
+  "All_Documents.Document_Type_Code": {
+    "sample_values": [
+      "BK",
+      "RV",
+      "CV"
+    ],
+    "inferred_type": "string"
+  },
+  "All_Documents.Date_Stored": {
+    "sample_values": [
+      "1995-01-01 03:52:11",
+      "1976-06-15 03:40:06",
+      "2012-07-03 09:48:46"
+    ],
+    "inferred_type": "string"
+  },
+  "All_Documents.Document_Name": {
+    "sample_values": [
+      "Cats and me",
+      "Hua Mulan",
+      "Alan CV"
+    ],
+    "inferred_type": "string"
+  }
+}

@@ -1,0 +1,136 @@
+{
+  "Customer_Master_Index.master_customer_id": {
+    "sample_values": [
+      1,
+      4,
+      7
+    ],
+    "inferred_type": "integer"
+  },
+  "Customer_Master_Index.cmi_details": {
+    "sample_values": [
+      "Reynolds-McClure",
+      "Gusikowski PLC",
+      "Volkman, Mills and Ferry"
+    ],
+    "inferred_type": "string"
+  },
+  "CMI_Cross_References.cmi_cross_ref_id": {
+    "sample_values": [
+      2,
+      59,
+      95
+    ],
+    "inferred_type": "integer"
+  },
+  "CMI_Cross_References.master_customer_id": {
+    "sample_values": [
+      4,
+      1,
+      3
+    ],
+    "inferred_type": "integer"
+  },
+  "CMI_Cross_References.source_system_code": {
+    "sample_values": [
+      "Tax",
+      "Parking",
+      "Business"
+    ],
+    "inferred_type": "string"
+  },
+  "Council_Tax.council_tax_id": {
+    "sample_values": [
+      1,
+      3,
+      8
+    ],
+    "inferred_type": "integer"
+  },
+  "Council_Tax.cmi_cross_ref_id": {
+    "sample_values": [
+      101,
+      104,
+      106
+    ],
+    "inferred_type": "integer"
+  },
+  "Business_Rates.business_rates_id": {
+    "sample_values": [
+      2,
+      5,
+      8
+    ],
+    "inferred_type": "integer"
+  },
+  "Business_Rates.cmi_cross_ref_id": {
+    "sample_values": [
+      99,
+      49,
+      95
+    ],
+    "inferred_type": "integer"
+  },
+  "Benefits_Overpayments.council_tax_id": {
+    "sample_values": [
+      3,
+      6,
+      7
+    ],
+    "inferred_type": "integer"
+  },
+  "Benefits_Overpayments.cmi_cross_ref_id": {
+    "sample_values": [
+      65,
+      41,
+      83
+    ],
+    "inferred_type": "integer"
+  },
+  "Parking_Fines.council_tax_id": {
+    "sample_values": [
+      9,
+      10
+    ],
+    "inferred_type": "integer"
+  },
+  "Parking_Fines.cmi_cross_ref_id": {
+    "sample_values": [
+      4,
+      81
+    ],
+    "inferred_type": "integer"
+  },
+  "Rent_Arrears.council_tax_id": {
+    "sample_values": [
+      1,
+      2,
+      6
+    ],
+    "inferred_type": "integer"
+  },
+  "Rent_Arrears.cmi_cross_ref_id": {
+    "sample_values": [
+      100,
+      8,
+      59
+    ],
+    "inferred_type": "integer"
+  },
+  "Electoral_Register.electoral_register_id": {
+    "sample_values": [
+      2,
+      4,
+      7
+    ],
+    "inferred_type": "integer"
+  },
+  "Electoral_Register.cmi_cross_ref_id": {
+    "sample_values": [
+      83,
+      65,
+      100
+    ],
+    "inferred_type": "integer"
+  }
+}

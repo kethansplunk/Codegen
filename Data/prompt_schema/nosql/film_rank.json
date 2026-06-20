@@ -1,0 +1,122 @@
+{
+  "market.Market_ID": {
+    "sample_values": [
+      "5",
+      "2",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "market.Country": {
+    "sample_values": [
+      "Russia",
+      "Japan",
+      "USA"
+    ],
+    "inferred_type": "string"
+  },
+  "market.Number_cities": {
+    "sample_values": [
+      "700",
+      "212",
+      "540"
+    ],
+    "inferred_type": "integer"
+  },
+  "film_market_estimation.Market_ID": {
+    "sample_values": [
+      "1",
+      "3",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "film_market_estimation.Type": {
+    "sample_values": [
+      "Mass suicide",
+      "Mass human sacrifice",
+      "Mass suicide murder"
+    ],
+    "inferred_type": "string"
+  },
+  "film_market_estimation.Year": {
+    "sample_values": [
+      "1945",
+      "1487",
+      "1944"
+    ],
+    "inferred_type": "integer"
+  },
+  "film_market_estimation.Estimation_ID": {
+    "sample_values": [
+      "5",
+      "2",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "film_market_estimation.Film_ID": {
+    "sample_values": [
+      "1",
+      "3",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "film_market_estimation.Low_Estimate": {
+    "sample_values": [
+      "39.0",
+      "960.0",
+      "913.0"
+    ],
+    "inferred_type": "float"
+  },
+  "film_market_estimation.High_Estimate": {
+    "sample_values": [
+      "39.0",
+      "960.0",
+      "16.0"
+    ],
+    "inferred_type": "float"
+  },
+  "film.Title": {
+    "sample_values": [
+      "Annie",
+      "First Blood",
+      "Poltergeist"
+    ],
+    "inferred_type": "string"
+  },
+  "film.Director": {
+    "sample_values": [
+      "John Huston",
+      "Bob Clark",
+      "Taylor Hackford"
+    ],
+    "inferred_type": "string"
+  },
+  "film.Film_ID": {
+    "sample_values": [
+      "5",
+      "1",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "film.Gross_in_dollar": {
+    "sample_values": [
+      "57059003",
+      "129795554",
+      "79912963"
+    ],
+    "inferred_type": "integer"
+  },
+  "film.Studio": {
+    "sample_values": [
+      "Universal / RKO",
+      "20th Century Fox",
+      "Paramount"
+    ],
+    "inferred_type": "string"
+  }
+}

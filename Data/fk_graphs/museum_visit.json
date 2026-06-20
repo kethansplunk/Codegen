@@ -1,0 +1,97 @@
+{
+  "db_name": "museum_visit",
+  "nodes": [
+    {
+      "name": "museum",
+      "columns": [
+        {
+          "name": "Museum_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Num_of_Staff",
+          "type": "INT"
+        },
+        {
+          "name": "Open_Year",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "Museum_ID"
+      ]
+    },
+    {
+      "name": "visitor",
+      "columns": [
+        {
+          "name": "ID",
+          "type": "INT"
+        },
+        {
+          "name": "Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Level_of_membership",
+          "type": "INT"
+        },
+        {
+          "name": "Age",
+          "type": "INT"
+        }
+      ],
+      "pk": [
+        "ID"
+      ]
+    },
+    {
+      "name": "visit",
+      "columns": [
+        {
+          "name": "Museum_ID",
+          "type": "INT"
+        },
+        {
+          "name": "visitor_ID",
+          "type": "TEXT"
+        },
+        {
+          "name": "Num_of_Ticket",
+          "type": "INT"
+        },
+        {
+          "name": "Total_spent",
+          "type": "REAL"
+        }
+      ],
+      "pk": [
+        "Museum_ID",
+        "visitor_ID"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "visit",
+      "to": "visitor",
+      "child_col": "visitor_ID",
+      "parent_col": "ID"
+    },
+    {
+      "from": "visit",
+      "to": "museum",
+      "child_col": "Museum_ID",
+      "parent_col": "Museum_ID"
+    }
+  ],
+  "centrality": {
+    "museum": 0.5,
+    "visitor": 0.5,
+    "visit": 0.0
+  }
+}

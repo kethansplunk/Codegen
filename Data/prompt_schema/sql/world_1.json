@@ -1,0 +1,193 @@
+{
+  "city.ID": {
+    "sample_values": [
+      129,
+      57,
+      34
+    ],
+    "inferred_type": "integer"
+  },
+  "city.Name": {
+    "sample_values": [
+      "\u00b4s-Hertogenbosch",
+      "Utrecht",
+      "Eindhoven"
+    ],
+    "inferred_type": "string"
+  },
+  "city.CountryCode": {
+    "sample_values": [
+      "BGD",
+      "ARE",
+      "ARG"
+    ],
+    "inferred_type": "string"
+  },
+  "city.District": {
+    "sample_values": [
+      "Annaba",
+      "Noord-Brabant",
+      "Groningen"
+    ],
+    "inferred_type": "string"
+  },
+  "city.Population": {
+    "sample_values": [
+      1780000,
+      440900,
+      153491
+    ],
+    "inferred_type": "integer"
+  },
+  "country.Code": {
+    "sample_values": [
+      "BEN",
+      "ARE",
+      "ARG"
+    ],
+    "inferred_type": "string"
+  },
+  "country.Name": {
+    "sample_values": [
+      "Benin",
+      "United Arab Emirates",
+      "Argentina"
+    ],
+    "inferred_type": "string"
+  },
+  "country.Continent": {
+    "sample_values": [
+      "Antarctica",
+      "Asia",
+      "Africa"
+    ],
+    "inferred_type": "string"
+  },
+  "country.Region": {
+    "sample_values": [
+      "Northern Africa",
+      "Antarctica",
+      "Australia and New Zealand"
+    ],
+    "inferred_type": "string"
+  },
+  "country.SurfaceArea": {
+    "sample_values": [
+      193.0,
+      800.0,
+      7780.0
+    ],
+    "inferred_type": "float"
+  },
+  "country.IndepYear": {
+    "sample_values": [
+      1919,
+      1991,
+      1960
+    ],
+    "inferred_type": "integer"
+  },
+  "country.Population": {
+    "sample_values": [
+      103000,
+      217000,
+      18886000
+    ],
+    "inferred_type": "integer"
+  },
+  "country.LifeExpectancy": {
+    "sample_values": [
+      78.4,
+      74.7,
+      77.7
+    ],
+    "inferred_type": "float"
+  },
+  "country.GNP": {
+    "sample_values": [
+      828.0,
+      1941.0,
+      612.0
+    ],
+    "inferred_type": "float"
+  },
+  "country.GNPOld": {
+    "sample_values": [
+      793.0,
+      584.0,
+      2141.0
+    ],
+    "inferred_type": "float"
+  },
+  "country.LocalName": {
+    "sample_values": [
+      "B\u00e9nin",
+      "Al-Imarat al-\u00b4Arabiya al-Muttahida",
+      "Argentina"
+    ],
+    "inferred_type": "string"
+  },
+  "country.GovernmentForm": {
+    "sample_values": [
+      "Nonmetropolitan Territory of New Zealand",
+      "US Territory",
+      "Co-administrated"
+    ],
+    "inferred_type": "string"
+  },
+  "country.HeadOfState": {
+    "sample_values": [
+      "Hamad ibn Isa al-Khalifa",
+      "Fernando de la R\u00faa",
+      "Robert Kot\u0161arjan"
+    ],
+    "inferred_type": "string"
+  },
+  "country.Capital": {
+    "sample_values": [
+      129,
+      33,
+      135
+    ],
+    "inferred_type": "integer"
+  },
+  "country.Code2": {
+    "sample_values": [
+      "BJ",
+      "AE",
+      "AR"
+    ],
+    "inferred_type": "string"
+  },
+  "countrylanguage.CountryCode": {
+    "sample_values": [
+      "BGD",
+      "ARE",
+      "ARG"
+    ],
+    "inferred_type": "string"
+  },
+  "countrylanguage.Language": {
+    "sample_values": [
+      "Greek",
+      "Turkmenian",
+      "Uzbek"
+    ],
+    "inferred_type": "string"
+  },
+  "countrylanguage.IsOfficial": {
+    "sample_values": [
+      "T",
+      "F"
+    ],
+    "inferred_type": "string"
+  },
+  "countrylanguage.Percentage": {
+    "sample_values": [
+      5.3,
+      52.4,
+      5.4
+    ],
+    "inferred_type": "float"
+  }
+}

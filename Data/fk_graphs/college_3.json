@@ -1,0 +1,285 @@
+{
+  "db_name": "college_3",
+  "nodes": [
+    {
+      "name": "Student",
+      "columns": [
+        {
+          "name": "StuID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "LName",
+          "type": "VARCHAR(12)"
+        },
+        {
+          "name": "Fname",
+          "type": "VARCHAR(12)"
+        },
+        {
+          "name": "Age",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Sex",
+          "type": "VARCHAR(1)"
+        },
+        {
+          "name": "Major",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Advisor",
+          "type": "INTEGER"
+        },
+        {
+          "name": "city_code",
+          "type": "VARCHAR(3)"
+        }
+      ],
+      "pk": [
+        "StuID"
+      ]
+    },
+    {
+      "name": "Faculty",
+      "columns": [
+        {
+          "name": "FacID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Lname",
+          "type": "VARCHAR(15)"
+        },
+        {
+          "name": "Fname",
+          "type": "VARCHAR(15)"
+        },
+        {
+          "name": "Rank",
+          "type": "VARCHAR(15)"
+        },
+        {
+          "name": "Sex",
+          "type": "VARCHAR(1)"
+        },
+        {
+          "name": "Phone",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Room",
+          "type": "VARCHAR(5)"
+        },
+        {
+          "name": "Building",
+          "type": "VARCHAR(13)"
+        }
+      ],
+      "pk": [
+        "FacID"
+      ]
+    },
+    {
+      "name": "Department",
+      "columns": [
+        {
+          "name": "DNO",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Division",
+          "type": "VARCHAR(2)"
+        },
+        {
+          "name": "DName",
+          "type": "VARCHAR(25)"
+        },
+        {
+          "name": "Room",
+          "type": "VARCHAR(5)"
+        },
+        {
+          "name": "Building",
+          "type": "VARCHAR(13)"
+        },
+        {
+          "name": "DPhone",
+          "type": "INTEGER"
+        }
+      ],
+      "pk": [
+        "DNO"
+      ]
+    },
+    {
+      "name": "Member_of",
+      "columns": [
+        {
+          "name": "FacID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "DNO",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Appt_Type",
+          "type": "VARCHAR(15)"
+        }
+      ],
+      "pk": []
+    },
+    {
+      "name": "Course",
+      "columns": [
+        {
+          "name": "CID",
+          "type": "VARCHAR(7)"
+        },
+        {
+          "name": "CName",
+          "type": "VARCHAR(40)"
+        },
+        {
+          "name": "Credits",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Instructor",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Days",
+          "type": "VARCHAR(5)"
+        },
+        {
+          "name": "Hours",
+          "type": "VARCHAR(11)"
+        },
+        {
+          "name": "DNO",
+          "type": "INTEGER"
+        }
+      ],
+      "pk": [
+        "CID"
+      ]
+    },
+    {
+      "name": "Minor_in",
+      "columns": [
+        {
+          "name": "StuID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "DNO",
+          "type": "INTEGER"
+        }
+      ],
+      "pk": []
+    },
+    {
+      "name": "Enrolled_in",
+      "columns": [
+        {
+          "name": "StuID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "CID",
+          "type": "VARCHAR(7)"
+        },
+        {
+          "name": "Grade",
+          "type": "VARCHAR(2)"
+        }
+      ],
+      "pk": []
+    },
+    {
+      "name": "Gradeconversion",
+      "columns": [
+        {
+          "name": "lettergrade",
+          "type": "VARCHAR(2)"
+        },
+        {
+          "name": "gradepoint",
+          "type": "FLOAT"
+        }
+      ],
+      "pk": [
+        "lettergrade"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "Member_of",
+      "to": "Department",
+      "child_col": "DNO",
+      "parent_col": "DNO"
+    },
+    {
+      "from": "Member_of",
+      "to": "Faculty",
+      "child_col": "FacID",
+      "parent_col": "FacID"
+    },
+    {
+      "from": "Course",
+      "to": "Department",
+      "child_col": "DNO",
+      "parent_col": "DNO"
+    },
+    {
+      "from": "Course",
+      "to": "Faculty",
+      "child_col": "Instructor",
+      "parent_col": "FacID"
+    },
+    {
+      "from": "Minor_in",
+      "to": "Department",
+      "child_col": "DNO",
+      "parent_col": "DNO"
+    },
+    {
+      "from": "Minor_in",
+      "to": "Student",
+      "child_col": "StuID",
+      "parent_col": "StuID"
+    },
+    {
+      "from": "Enrolled_in",
+      "to": "Gradeconversion",
+      "child_col": "Grade",
+      "parent_col": "lettergrade"
+    },
+    {
+      "from": "Enrolled_in",
+      "to": "Course",
+      "child_col": "CID",
+      "parent_col": "CID"
+    },
+    {
+      "from": "Enrolled_in",
+      "to": "Student",
+      "child_col": "StuID",
+      "parent_col": "StuID"
+    }
+  ],
+  "centrality": {
+    "Student": 0.2857142857142857,
+    "Faculty": 0.2857142857142857,
+    "Department": 0.42857142857142855,
+    "Member_of": 0.0,
+    "Course": 0.14285714285714285,
+    "Minor_in": 0.0,
+    "Enrolled_in": 0.0,
+    "Gradeconversion": 0.14285714285714285
+  }
+}

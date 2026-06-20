@@ -1,0 +1,58 @@
+{
+  "Scientists.SSN": {
+    "sample_values": [
+      "332569843",
+      "654873219",
+      "326587417"
+    ],
+    "inferred_type": "integer"
+  },
+  "Scientists.Name": {
+    "sample_values": [
+      "David Smith",
+      "Anand Manikutty",
+      "Carol Smith"
+    ],
+    "inferred_type": "string"
+  },
+  "Projects.Hours": {
+    "sample_values": [
+      "778",
+      "89",
+      "299"
+    ],
+    "inferred_type": "integer"
+  },
+  "Projects.Code": {
+    "sample_values": [
+      "AeH3",
+      "AeH6",
+      "Ast3"
+    ],
+    "inferred_type": "string"
+  },
+  "Projects.Name": {
+    "sample_values": [
+      "Aerodynamics and Gas Mileage",
+      "Winds: Studying Bernoullis Principle",
+      "Aerodynamics and Ice Hockey"
+    ],
+    "inferred_type": "string"
+  },
+  "AssignedTo.Project": {
+    "sample_values": [
+      "AeH3",
+      "Ast3",
+      "Che1"
+    ],
+    "inferred_type": "string"
+  },
+  "AssignedTo.Scientist": {
+    "sample_values": [
+      "546523478",
+      "654873219",
+      "326587417"
+    ],
+    "inferred_type": "integer"
+  }
+}

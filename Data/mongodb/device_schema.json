@@ -1,0 +1,102 @@
+{
+  "db_name": "device",
+  "collections": {
+    "device": {
+      "primary_key": [
+        "Device_ID"
+      ],
+      "columns": [
+        {
+          "name": "Device_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Device",
+          "type": "TEXT"
+        },
+        {
+          "name": "Carrier",
+          "type": "TEXT"
+        },
+        {
+          "name": "Package_Version",
+          "type": "TEXT"
+        },
+        {
+          "name": "Applications",
+          "type": "TEXT"
+        },
+        {
+          "name": "Software_Platform",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 6
+    },
+    "shop": {
+      "primary_key": [
+        "Shop_ID"
+      ],
+      "columns": [
+        {
+          "name": "Shop_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Shop_Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Location",
+          "type": "TEXT"
+        },
+        {
+          "name": "Open_Date",
+          "type": "TEXT"
+        },
+        {
+          "name": "Open_Year",
+          "type": "INT"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 12
+    },
+    "stock": {
+      "primary_key": [
+        "Shop_ID",
+        "Device_ID"
+      ],
+      "columns": [
+        {
+          "name": "Shop_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Device_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Quantity",
+          "type": "INT"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "stock",
+          "to": "device",
+          "child_col": "Device_ID",
+          "parent_col": "Device_ID"
+        },
+        {
+          "from": "stock",
+          "to": "shop",
+          "child_col": "Shop_ID",
+          "parent_col": "Shop_ID"
+        }
+      ],
+      "row_count": 8
+    }
+  }
+}

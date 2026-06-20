@@ -1,0 +1,74 @@
+{
+  "AREA_CODE_STATE.state": {
+    "sample_values": [
+      "WI",
+      "MI",
+      "KY"
+    ],
+    "inferred_type": "string"
+  },
+  "AREA_CODE_STATE.area_code": {
+    "sample_values": [
+      "215",
+      "209",
+      "310"
+    ],
+    "inferred_type": "integer"
+  },
+  "VOTES.phone_number": {
+    "sample_values": [
+      "6209222712",
+      "5112677315",
+      "7148407040"
+    ],
+    "inferred_type": "integer"
+  },
+  "VOTES.state": {
+    "sample_values": [
+      "NY",
+      "NJ\n",
+      "CA"
+    ],
+    "inferred_type": "string"
+  },
+  "VOTES.contestant_number": {
+    "sample_values": [
+      "5",
+      "3",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "VOTES.created": {
+    "sample_values": [
+      "2018-03-09 19:03:40",
+      "2018-03-09 19:03:39",
+      "2018-03-09 19:03:21"
+    ],
+    "inferred_type": "string"
+  },
+  "VOTES.vote_id": {
+    "sample_values": [
+      "1",
+      "3",
+      "5"
+    ],
+    "inferred_type": "integer"
+  },
+  "CONTESTANTS.contestant_number": {
+    "sample_values": [
+      "5",
+      "1",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "CONTESTANTS.contestant_name": {
+    "sample_values": [
+      "Allie Rogalski",
+      "Kelly Clauss",
+      "Jessie Eichman"
+    ],
+    "inferred_type": "string"
+  }
+}

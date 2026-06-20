@@ -1,0 +1,106 @@
+{
+  "news_report.journalist_ID": {
+    "sample_values": [
+      "8",
+      "4",
+      "11"
+    ],
+    "inferred_type": "integer"
+  },
+  "news_report.Event_ID": {
+    "sample_values": [
+      "5",
+      "1",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "news_report.Work_Type": {
+    "sample_values": [
+      "Host",
+      "Music",
+      "Screening"
+    ],
+    "inferred_type": "string"
+  },
+  "event.Name": {
+    "sample_values": [
+      "Global Awarding",
+      "Olympia Games Openning",
+      "Government Hearing"
+    ],
+    "inferred_type": "string"
+  },
+  "event.Date": {
+    "sample_values": [
+      "13 October 2008",
+      "11 October 2007",
+      "20 June 2018"
+    ],
+    "inferred_type": "string"
+  },
+  "event.Event_Attendance": {
+    "sample_values": [
+      "1675",
+      "369",
+      "2356"
+    ],
+    "inferred_type": "integer"
+  },
+  "event.Venue": {
+    "sample_values": [
+      "Marathon",
+      "Hispano",
+      "Platense"
+    ],
+    "inferred_type": "string"
+  },
+  "event.Event_ID": {
+    "sample_values": [
+      "5",
+      "1",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "journalist.Age": {
+    "sample_values": [
+      "34",
+      "37",
+      "33"
+    ],
+    "inferred_type": "integer"
+  },
+  "journalist.Nationality": {
+    "sample_values": [
+      "England",
+      "Northern Ireland",
+      "Wales"
+    ],
+    "inferred_type": "string"
+  },
+  "journalist.Name": {
+    "sample_values": [
+      "George Gilchrist",
+      "Fred Chandler",
+      "Tom Briggs"
+    ],
+    "inferred_type": "string"
+  },
+  "journalist.journalist_ID": {
+    "sample_values": [
+      "5",
+      "1",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "journalist.Years_working": {
+    "sample_values": [
+      "5",
+      "12",
+      "21"
+    ],
+    "inferred_type": "integer"
+  }
+}

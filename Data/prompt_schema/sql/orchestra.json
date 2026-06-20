@@ -1,0 +1,185 @@
+{
+  "conductor.Conductor_ID": {
+    "sample_values": [
+      1,
+      5,
+      9
+    ],
+    "inferred_type": "integer"
+  },
+  "conductor.Name": {
+    "sample_values": [
+      "Michael Tilson Thomas",
+      "Antal Brown",
+      "Igor Stravinsky"
+    ],
+    "inferred_type": "string"
+  },
+  "conductor.Age": {
+    "sample_values": [
+      40,
+      42,
+      50
+    ],
+    "inferred_type": "integer"
+  },
+  "conductor.Nationality": {
+    "sample_values": [
+      "USA",
+      "UK",
+      "France"
+    ],
+    "inferred_type": "string"
+  },
+  "conductor.Year_of_Work": {
+    "sample_values": [
+      10,
+      6,
+      12
+    ],
+    "inferred_type": "integer"
+  },
+  "orchestra.Orchestra_ID": {
+    "sample_values": [
+      1,
+      5,
+      9
+    ],
+    "inferred_type": "integer"
+  },
+  "orchestra.Orchestra": {
+    "sample_values": [
+      "Kirov Orchestra",
+      "Philharmonia Orchestra",
+      "Royal Danish Orchestra"
+    ],
+    "inferred_type": "string"
+  },
+  "orchestra.Conductor_ID": {
+    "sample_values": [
+      1,
+      5,
+      9
+    ],
+    "inferred_type": "integer"
+  },
+  "orchestra.Record_Company": {
+    "sample_values": [
+      "RCA",
+      "Decca Records",
+      "Columbia Masterworks"
+    ],
+    "inferred_type": "string"
+  },
+  "orchestra.Year_of_Founded": {
+    "sample_values": [
+      2003.0,
+      2008.0,
+      2004.0
+    ],
+    "inferred_type": "float"
+  },
+  "orchestra.Major_Record_Format": {
+    "sample_values": [
+      "CD",
+      "CD / LP",
+      "DVD"
+    ],
+    "inferred_type": "string"
+  },
+  "performance.Performance_ID": {
+    "sample_values": [
+      1,
+      4,
+      7
+    ],
+    "inferred_type": "integer"
+  },
+  "performance.Orchestra_ID": {
+    "sample_values": [
+      1,
+      4,
+      6
+    ],
+    "inferred_type": "integer"
+  },
+  "performance.Type": {
+    "sample_values": [
+      "Series average",
+      "Auditions 5",
+      "Auditions 2"
+    ],
+    "inferred_type": "string"
+  },
+  "performance.Date": {
+    "sample_values": [
+      "2007",
+      "11 June",
+      "10 June"
+    ],
+    "inferred_type": "string"
+  },
+  "performance.Official_ratings_(millions)": {
+    "sample_values": [
+      5.2,
+      7.39,
+      9.28
+    ],
+    "inferred_type": "float"
+  },
+  "performance.Weekly_rank": {
+    "sample_values": [
+      "TBC",
+      "15",
+      "8"
+    ],
+    "inferred_type": "string"
+  },
+  "performance.Share": {
+    "sample_values": [
+      "34%",
+      "29.2%",
+      "28.0%"
+    ],
+    "inferred_type": "string"
+  },
+  "show.Show_ID": {
+    "sample_values": [
+      1,
+      2,
+      3
+    ],
+    "inferred_type": "integer"
+  },
+  "show.Performance_ID": {
+    "sample_values": [
+      1,
+      2,
+      3
+    ],
+    "inferred_type": "integer"
+  },
+  "show.If_first_show": {
+    "sample_values": [
+      "Hampden Park",
+      "St. Mirren Park",
+      "Fir Park"
+    ],
+    "inferred_type": "string"
+  },
+  "show.Result": {
+    "sample_values": [
+      "T",
+      "F"
+    ],
+    "inferred_type": "string"
+  },
+  "show.Attendance": {
+    "sample_values": [
+      1026.0,
+      695.0,
+      555.0
+    ],
+    "inferred_type": "float"
+  }
+}

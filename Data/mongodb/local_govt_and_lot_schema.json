@@ -1,0 +1,377 @@
+{
+  "db_name": "local_govt_and_lot",
+  "collections": {
+    "Customers": {
+      "primary_key": [
+        "customer_id"
+      ],
+      "columns": [
+        {
+          "name": "customer_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "customer_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 15
+    },
+    "Properties": {
+      "primary_key": [
+        "property_id"
+      ],
+      "columns": [
+        {
+          "name": "property_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "property_type_code",
+          "type": "CHAR(15)"
+        },
+        {
+          "name": "property_address",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "other_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 15
+    },
+    "Residents": {
+      "primary_key": [
+        "resident_id",
+        "property_id",
+        "date_moved_in"
+      ],
+      "columns": [
+        {
+          "name": "resident_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "property_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "date_moved_in",
+          "type": "DATETIME"
+        },
+        {
+          "name": "date_moved_out",
+          "type": "DATETIME"
+        },
+        {
+          "name": "other_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Residents",
+          "to": "Properties",
+          "child_col": "property_id",
+          "parent_col": "property_id"
+        }
+      ],
+      "row_count": 15
+    },
+    "Organizations": {
+      "primary_key": [
+        "organization_id"
+      ],
+      "columns": [
+        {
+          "name": "organization_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "parent_organization_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "organization_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 3
+    },
+    "Services": {
+      "primary_key": [
+        "service_id"
+      ],
+      "columns": [
+        {
+          "name": "service_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "organization_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "service_type_code",
+          "type": "CHAR(15)"
+        },
+        {
+          "name": "service_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Services",
+          "to": "Organizations",
+          "child_col": "organization_id",
+          "parent_col": "organization_id"
+        }
+      ],
+      "row_count": 15
+    },
+    "Residents_Services": {
+      "primary_key": [
+        "resident_id",
+        "service_id"
+      ],
+      "columns": [
+        {
+          "name": "resident_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "service_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "date_moved_in",
+          "type": "DATETIME"
+        },
+        {
+          "name": "property_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "date_requested",
+          "type": "DATETIME"
+        },
+        {
+          "name": "date_provided",
+          "type": "DATETIME"
+        },
+        {
+          "name": "other_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Residents_Services",
+          "to": "Residents",
+          "child_col": "date_moved_in",
+          "parent_col": "date_moved_in"
+        },
+        {
+          "from": "Residents_Services",
+          "to": "Services",
+          "child_col": "service_id",
+          "parent_col": "service_id"
+        }
+      ],
+      "row_count": 11
+    },
+    "Things": {
+      "primary_key": [
+        "thing_id"
+      ],
+      "columns": [
+        {
+          "name": "thing_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "organization_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Type_of_Thing_Code",
+          "type": "CHAR(15)"
+        },
+        {
+          "name": "service_type_code",
+          "type": "CHAR(10)"
+        },
+        {
+          "name": "service_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Things",
+          "to": "Organizations",
+          "child_col": "organization_id",
+          "parent_col": "organization_id"
+        }
+      ],
+      "row_count": 15
+    },
+    "Customer_Events": {
+      "primary_key": [
+        "Customer_Event_ID"
+      ],
+      "columns": [
+        {
+          "name": "Customer_Event_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "customer_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "date_moved_in",
+          "type": "DATETIME"
+        },
+        {
+          "name": "property_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "resident_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "thing_id",
+          "type": "INTEGER"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Customer_Events",
+          "to": "Residents",
+          "child_col": "date_moved_in",
+          "parent_col": "date_moved_in"
+        },
+        {
+          "from": "Customer_Events",
+          "to": "Customers",
+          "child_col": "customer_id",
+          "parent_col": "customer_id"
+        },
+        {
+          "from": "Customer_Events",
+          "to": "Things",
+          "child_col": "thing_id",
+          "parent_col": "thing_id"
+        }
+      ],
+      "row_count": 13
+    },
+    "Customer_Event_Notes": {
+      "primary_key": [
+        "Customer_Event_Note_ID"
+      ],
+      "columns": [
+        {
+          "name": "Customer_Event_Note_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Customer_Event_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "service_type_code",
+          "type": "CHAR(15)"
+        },
+        {
+          "name": "resident_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "property_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "date_moved_in",
+          "type": "DATETIME"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Customer_Event_Notes",
+          "to": "Customer_Events",
+          "child_col": "Customer_Event_ID",
+          "parent_col": "Customer_Event_ID"
+        }
+      ],
+      "row_count": 13
+    },
+    "Timed_Status_of_Things": {
+      "primary_key": [
+        "thing_id",
+        "Date_and_Date",
+        "Status_of_Thing_Code"
+      ],
+      "columns": [
+        {
+          "name": "thing_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Date_and_Date",
+          "type": "DATETIME"
+        },
+        {
+          "name": "Status_of_Thing_Code",
+          "type": "CHAR(15)"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Timed_Status_of_Things",
+          "to": "Things",
+          "child_col": "thing_id",
+          "parent_col": "thing_id"
+        }
+      ],
+      "row_count": 18
+    },
+    "Timed_Locations_of_Things": {
+      "primary_key": [
+        "thing_id",
+        "Date_and_Time",
+        "Location_Code"
+      ],
+      "columns": [
+        {
+          "name": "thing_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Date_and_Time",
+          "type": "DATETIME"
+        },
+        {
+          "name": "Location_Code",
+          "type": "CHAR(15)"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Timed_Locations_of_Things",
+          "to": "Things",
+          "child_col": "thing_id",
+          "parent_col": "thing_id"
+        }
+      ],
+      "row_count": 15
+    }
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "db_name": "manufactory_1",
+  "nodes": [
+    {
+      "name": "Manufacturers",
+      "columns": [
+        {
+          "name": "Code",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Name",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "Headquarter",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "Founder",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "Revenue",
+          "type": "REAL"
+        }
+      ],
+      "pk": [
+        "Code"
+      ]
+    },
+    {
+      "name": "Products",
+      "columns": [
+        {
+          "name": "Code",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Name",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "Price",
+          "type": "DECIMAL"
+        },
+        {
+          "name": "Manufacturer",
+          "type": "INTEGER"
+        }
+      ],
+      "pk": [
+        "Code"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "Products",
+      "to": "Manufacturers",
+      "child_col": "Manufacturer",
+      "parent_col": "Code"
+    }
+  ],
+  "centrality": {
+    "Manufacturers": 1.0,
+    "Products": 0.0
+  }
+}

@@ -1,0 +1,106 @@
+{
+  "gymnast.Gymnast_ID": {
+    "sample_values": [
+      1,
+      4,
+      7
+    ],
+    "inferred_type": "integer"
+  },
+  "gymnast.Floor_Exercise_Points": {
+    "sample_values": [
+      9.725,
+      8.987,
+      9.687
+    ],
+    "inferred_type": "float"
+  },
+  "gymnast.Pommel_Horse_Points": {
+    "sample_values": [
+      9.737,
+      9.75,
+      9.675
+    ],
+    "inferred_type": "float"
+  },
+  "gymnast.Rings_Points": {
+    "sample_values": [
+      9.512,
+      9.75,
+      9.3
+    ],
+    "inferred_type": "float"
+  },
+  "gymnast.Vault_Points": {
+    "sample_values": [
+      9.575,
+      9.762,
+      9.637
+    ],
+    "inferred_type": "float"
+  },
+  "gymnast.Parallel_Bars_Points": {
+    "sample_values": [
+      9.762,
+      9.787,
+      9.725
+    ],
+    "inferred_type": "float"
+  },
+  "gymnast.Horizontal_Bar_Points": {
+    "sample_values": [
+      9.75,
+      9.725,
+      9.5
+    ],
+    "inferred_type": "float"
+  },
+  "gymnast.Total_Points": {
+    "sample_values": [
+      58.061,
+      57.649,
+      57.424
+    ],
+    "inferred_type": "float"
+  },
+  "people.People_ID": {
+    "sample_values": [
+      1,
+      4,
+      7
+    ],
+    "inferred_type": "integer"
+  },
+  "people.Name": {
+    "sample_values": [
+      "Endis de los Santos \u00c1lvarez",
+      "Ashley P\u00e9rez Cabrera",
+      "Lorraine S\u00faarez Carmona"
+    ],
+    "inferred_type": "string"
+  },
+  "people.Age": {
+    "sample_values": [
+      24.0,
+      19.0,
+      22.0
+    ],
+    "inferred_type": "float"
+  },
+  "people.Height": {
+    "sample_values": [
+      1.71,
+      1.7,
+      1.79
+    ],
+    "inferred_type": "float"
+  },
+  "people.Hometown": {
+    "sample_values": [
+      "Los Alcarrizos",
+      "Bonao",
+      "Santiago de los Caballeros"
+    ],
+    "inferred_type": "string"
+  }
+}

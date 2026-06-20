@@ -1,0 +1,197 @@
+{
+  "db_name": "insurance_fnol",
+  "nodes": [
+    {
+      "name": "Customers",
+      "columns": [
+        {
+          "name": "Customer_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Customer_name",
+          "type": "VARCHAR(40)"
+        }
+      ],
+      "pk": [
+        "Customer_ID"
+      ]
+    },
+    {
+      "name": "Services",
+      "columns": [
+        {
+          "name": "Service_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Service_name",
+          "type": "VARCHAR(40)"
+        }
+      ],
+      "pk": [
+        "Service_ID"
+      ]
+    },
+    {
+      "name": "Available_Policies",
+      "columns": [
+        {
+          "name": "Policy_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "policy_type_code",
+          "type": "CHAR(15)"
+        },
+        {
+          "name": "Customer_Phone",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "pk": [
+        "Policy_ID"
+      ]
+    },
+    {
+      "name": "Customers_Policies",
+      "columns": [
+        {
+          "name": "Customer_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Policy_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Date_Opened",
+          "type": "DATE"
+        },
+        {
+          "name": "Date_Closed",
+          "type": "DATE"
+        }
+      ],
+      "pk": [
+        "Customer_ID",
+        "Policy_ID"
+      ]
+    },
+    {
+      "name": "First_Notification_of_Loss",
+      "columns": [
+        {
+          "name": "FNOL_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Customer_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Policy_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Service_ID",
+          "type": "INTEGER"
+        }
+      ],
+      "pk": [
+        "FNOL_ID"
+      ]
+    },
+    {
+      "name": "Claims",
+      "columns": [
+        {
+          "name": "Claim_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "FNOL_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Effective_Date",
+          "type": "DATE"
+        }
+      ],
+      "pk": [
+        "Claim_ID"
+      ]
+    },
+    {
+      "name": "Settlements",
+      "columns": [
+        {
+          "name": "Settlement_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Claim_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Effective_Date",
+          "type": "DATE"
+        },
+        {
+          "name": "Settlement_Amount",
+          "type": "REAL"
+        }
+      ],
+      "pk": [
+        "Settlement_ID"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "Customers_Policies",
+      "to": "Available_Policies",
+      "child_col": "Policy_ID",
+      "parent_col": "Policy_ID"
+    },
+    {
+      "from": "Customers_Policies",
+      "to": "Customers",
+      "child_col": "Customer_ID",
+      "parent_col": "Customer_ID"
+    },
+    {
+      "from": "First_Notification_of_Loss",
+      "to": "Customers_Policies",
+      "child_col": "Policy_ID",
+      "parent_col": "Policy_ID"
+    },
+    {
+      "from": "First_Notification_of_Loss",
+      "to": "Services",
+      "child_col": "Service_ID",
+      "parent_col": "Service_ID"
+    },
+    {
+      "from": "Claims",
+      "to": "First_Notification_of_Loss",
+      "child_col": "FNOL_ID",
+      "parent_col": "FNOL_ID"
+    },
+    {
+      "from": "Settlements",
+      "to": "Claims",
+      "child_col": "Claim_ID",
+      "parent_col": "Claim_ID"
+    }
+  ],
+  "centrality": {
+    "Customers": 0.16666666666666666,
+    "Services": 0.16666666666666666,
+    "Available_Policies": 0.16666666666666666,
+    "Customers_Policies": 0.16666666666666666,
+    "First_Notification_of_Loss": 0.16666666666666666,
+    "Claims": 0.16666666666666666,
+    "Settlements": 0.0
+  }
+}

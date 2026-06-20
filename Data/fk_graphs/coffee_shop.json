@@ -1,0 +1,136 @@
+{
+  "db_name": "coffee_shop",
+  "nodes": [
+    {
+      "name": "shop",
+      "columns": [
+        {
+          "name": "Shop_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Address",
+          "type": "TEXT"
+        },
+        {
+          "name": "Num_of_staff",
+          "type": "TEXT"
+        },
+        {
+          "name": "Score",
+          "type": "REAL"
+        },
+        {
+          "name": "Open_Year",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "Shop_ID"
+      ]
+    },
+    {
+      "name": "member",
+      "columns": [
+        {
+          "name": "Member_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Membership_card",
+          "type": "TEXT"
+        },
+        {
+          "name": "Age",
+          "type": "INT"
+        },
+        {
+          "name": "Time_of_purchase",
+          "type": "INT"
+        },
+        {
+          "name": "Level_of_membership",
+          "type": "INT"
+        },
+        {
+          "name": "Address",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "Member_ID"
+      ]
+    },
+    {
+      "name": "happy_hour",
+      "columns": [
+        {
+          "name": "HH_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Shop_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Month",
+          "type": "TEXT"
+        },
+        {
+          "name": "Num_of_shaff_in_charge",
+          "type": "INT"
+        }
+      ],
+      "pk": [
+        "HH_ID",
+        "Shop_ID",
+        "Month"
+      ]
+    },
+    {
+      "name": "happy_hour_member",
+      "columns": [
+        {
+          "name": "HH_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Member_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Total_amount",
+          "type": "REAL"
+        }
+      ],
+      "pk": [
+        "HH_ID",
+        "Member_ID"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "happy_hour",
+      "to": "shop",
+      "child_col": "Shop_ID",
+      "parent_col": "Shop_ID"
+    },
+    {
+      "from": "happy_hour_member",
+      "to": "member",
+      "child_col": "Member_ID",
+      "parent_col": "Member_ID"
+    }
+  ],
+  "centrality": {
+    "shop": 0.3333333333333333,
+    "member": 0.3333333333333333,
+    "happy_hour": 0.0,
+    "happy_hour_member": 0.0
+  }
+}

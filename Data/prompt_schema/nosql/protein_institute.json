@@ -1,0 +1,178 @@
+{
+  "building.Street_address": {
+    "sample_values": [
+      "905 Franklin Street",
+      "655 North Franklin Street",
+      "201 North Franklin Street"
+    ],
+    "inferred_type": "string"
+  },
+  "building.Floors": {
+    "sample_values": [
+      "17",
+      "42",
+      "12"
+    ],
+    "inferred_type": "integer"
+  },
+  "building.Name": {
+    "sample_values": [
+      "Bank of America Tower",
+      "One Tampa City Center",
+      "Tampa City Hall"
+    ],
+    "inferred_type": "string"
+  },
+  "building.Years_as_tallest": {
+    "sample_values": [
+      "1926\u20131966",
+      "1981\u20131986",
+      "1915\u20131926"
+    ],
+    "inferred_type": "string"
+  },
+  "building.building_id": {
+    "sample_values": [
+      "5",
+      "1",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "building.Height_feet": {
+    "sample_values": [
+      "204",
+      "458",
+      "280"
+    ],
+    "inferred_type": "integer"
+  },
+  "Institution.Institution_id": {
+    "sample_values": [
+      "5",
+      "8",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "Institution.Type": {
+    "sample_values": [
+      "Tribal",
+      "Private",
+      "Public"
+    ],
+    "inferred_type": "string"
+  },
+  "Institution.Founded": {
+    "sample_values": [
+      "1937.0",
+      "1927.0",
+      "1890.0"
+    ],
+    "inferred_type": "float"
+  },
+  "Institution.Location": {
+    "sample_values": [
+      "Mayville, North Dakota",
+      "Jacksonville, Florida",
+      "Belleville, Illinois"
+    ],
+    "inferred_type": "string"
+  },
+  "Institution.Enrollment": {
+    "sample_values": [
+      "1035",
+      "1200",
+      "650"
+    ],
+    "inferred_type": "integer"
+  },
+  "Institution.building_id": {
+    "sample_values": [
+      "5",
+      "1",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "Institution.Institution": {
+    "sample_values": [
+      "Lindenwood University\u2013Belleville",
+      "Webber International University",
+      "Jamestown College"
+    ],
+    "inferred_type": "string"
+  },
+  "Institution.Team": {
+    "sample_values": [
+      "Tigers",
+      "Gyrenes",
+      "Oaks"
+    ],
+    "inferred_type": "string"
+  },
+  "Institution.Primary_Conference": {
+    "sample_values": [
+      "AAC",
+      "MCAC",
+      "Gulf Coast (GCAC)"
+    ],
+    "inferred_type": "string"
+  },
+  "protein.sequence_identity_to_human_protein": {
+    "sample_values": [
+      "32%",
+      "39%",
+      "47%"
+    ],
+    "inferred_type": "string"
+  },
+  "protein.Institution_id": {
+    "sample_values": [
+      "1",
+      "3",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "protein.common_name": {
+    "sample_values": [
+      "body louse",
+      "Tropical Clawed Frog",
+      "porkworm"
+    ],
+    "inferred_type": "string"
+  },
+  "protein.divergence_from_human_lineage": {
+    "sample_values": [
+      "937.5",
+      "782.7",
+      "371.2"
+    ],
+    "inferred_type": "float"
+  },
+  "protein.sequence_length": {
+    "sample_values": [
+      "2086.0",
+      "2030.0",
+      "1878.0"
+    ],
+    "inferred_type": "float"
+  },
+  "protein.accession_number": {
+    "sample_values": [
+      "XP_003380263.1",
+      "XP_002429877.1",
+      "XP_002942331.1"
+    ],
+    "inferred_type": "string"
+  },
+  "protein.protein_name": {
+    "sample_values": [
+      "conserved hypothetical protein",
+      "Centromeric protein E, putative",
+      "uncharacterized protein LOC578090"
+    ],
+    "inferred_type": "string"
+  }
+}

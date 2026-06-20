@@ -1,0 +1,135 @@
+{
+  "db_name": "game_1",
+  "nodes": [
+    {
+      "name": "Student",
+      "columns": [
+        {
+          "name": "StuID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "LName",
+          "type": "VARCHAR(12)"
+        },
+        {
+          "name": "Fname",
+          "type": "VARCHAR(12)"
+        },
+        {
+          "name": "Age",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Sex",
+          "type": "VARCHAR(1)"
+        },
+        {
+          "name": "Major",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Advisor",
+          "type": "INTEGER"
+        },
+        {
+          "name": "city_code",
+          "type": "VARCHAR(3)"
+        }
+      ],
+      "pk": [
+        "StuID"
+      ]
+    },
+    {
+      "name": "Video_Games",
+      "columns": [
+        {
+          "name": "GameID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "GName",
+          "type": "VARCHAR(40)"
+        },
+        {
+          "name": "GType",
+          "type": "VARCHAR(40)"
+        }
+      ],
+      "pk": [
+        "GameID"
+      ]
+    },
+    {
+      "name": "Plays_Games",
+      "columns": [
+        {
+          "name": "StuID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "GameID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Hours_Played",
+          "type": "INTEGER"
+        }
+      ],
+      "pk": []
+    },
+    {
+      "name": "SportsInfo",
+      "columns": [
+        {
+          "name": "StuID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "SportName",
+          "type": "VARCHAR(32)"
+        },
+        {
+          "name": "HoursPerWeek",
+          "type": "INTEGER"
+        },
+        {
+          "name": "GamesPlayed",
+          "type": "INTEGER"
+        },
+        {
+          "name": "OnScholarship",
+          "type": "VARCHAR(1)"
+        }
+      ],
+      "pk": []
+    }
+  ],
+  "edges": [
+    {
+      "from": "Plays_Games",
+      "to": "Student",
+      "child_col": "StuID",
+      "parent_col": "StuID"
+    },
+    {
+      "from": "Plays_Games",
+      "to": "Video_Games",
+      "child_col": "GameID",
+      "parent_col": "GameID"
+    },
+    {
+      "from": "SportsInfo",
+      "to": "Student",
+      "child_col": "StuID",
+      "parent_col": "StuID"
+    }
+  ],
+  "centrality": {
+    "Student": 0.6666666666666666,
+    "Video_Games": 0.3333333333333333,
+    "Plays_Games": 0.0,
+    "SportsInfo": 0.0
+  }
+}

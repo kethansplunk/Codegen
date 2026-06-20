@@ -1,0 +1,141 @@
+{
+  "db_name": "station_weather",
+  "nodes": [
+    {
+      "name": "train",
+      "columns": [
+        {
+          "name": "id",
+          "type": "INT"
+        },
+        {
+          "name": "train_number",
+          "type": "INT"
+        },
+        {
+          "name": "name",
+          "type": "TEXT"
+        },
+        {
+          "name": "origin",
+          "type": "TEXT"
+        },
+        {
+          "name": "destination",
+          "type": "TEXT"
+        },
+        {
+          "name": "time",
+          "type": "TEXT"
+        },
+        {
+          "name": "interval",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "id"
+      ]
+    },
+    {
+      "name": "station",
+      "columns": [
+        {
+          "name": "id",
+          "type": "INT"
+        },
+        {
+          "name": "network_name",
+          "type": "TEXT"
+        },
+        {
+          "name": "services",
+          "type": "TEXT"
+        },
+        {
+          "name": "local_authority",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "id"
+      ]
+    },
+    {
+      "name": "route",
+      "columns": [
+        {
+          "name": "train_id",
+          "type": "INT"
+        },
+        {
+          "name": "station_id",
+          "type": "INT"
+        }
+      ],
+      "pk": [
+        "train_id",
+        "station_id"
+      ]
+    },
+    {
+      "name": "weekly_weather",
+      "columns": [
+        {
+          "name": "station_id",
+          "type": "INT"
+        },
+        {
+          "name": "day_of_week",
+          "type": "TEXT"
+        },
+        {
+          "name": "high_temperature",
+          "type": "INT"
+        },
+        {
+          "name": "low_temperature",
+          "type": "INT"
+        },
+        {
+          "name": "precipitation",
+          "type": "REAL"
+        },
+        {
+          "name": "wind_speed_mph",
+          "type": "INT"
+        }
+      ],
+      "pk": [
+        "station_id",
+        "day_of_week"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "route",
+      "to": "station",
+      "child_col": "station_id",
+      "parent_col": "id"
+    },
+    {
+      "from": "route",
+      "to": "train",
+      "child_col": "train_id",
+      "parent_col": "id"
+    },
+    {
+      "from": "weekly_weather",
+      "to": "station",
+      "child_col": "station_id",
+      "parent_col": "id"
+    }
+  ],
+  "centrality": {
+    "train": 0.3333333333333333,
+    "station": 0.6666666666666666,
+    "route": 0.0,
+    "weekly_weather": 0.0
+  }
+}

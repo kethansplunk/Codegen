@@ -1,0 +1,159 @@
+{
+  "Statements.Statement_Details": {
+    "sample_values": [
+      "Private Project",
+      "Open Project"
+    ],
+    "inferred_type": "string"
+  },
+  "Statements.Statement_ID": {
+    "sample_values": [
+      "192",
+      "57"
+    ],
+    "inferred_type": "integer"
+  },
+  "Accounts.Account_ID": {
+    "sample_values": [
+      "209",
+      "98",
+      "414"
+    ],
+    "inferred_type": "integer"
+  },
+  "Accounts.Account_Details": {
+    "sample_values": [
+      "12223.93",
+      "1230.454",
+      "6352.31"
+    ],
+    "inferred_type": "float"
+  },
+  "Accounts.Statement_ID": {
+    "sample_values": [
+      "192",
+      "57"
+    ],
+    "inferred_type": "integer"
+  },
+  "Ref_Document_Types.Document_Type_Name": {
+    "sample_values": [
+      "Paper",
+      "Book",
+      "Film"
+    ],
+    "inferred_type": "string"
+  },
+  "Ref_Document_Types.Document_Type_Description": {
+    "sample_values": [
+      "good",
+      "excellent",
+      "very good"
+    ],
+    "inferred_type": "string"
+  },
+  "Ref_Document_Types.Document_Type_Code": {
+    "sample_values": [
+      "FM",
+      "PT",
+      "BK"
+    ],
+    "inferred_type": "string"
+  },
+  "Ref_Budget_Codes.Budget_Type_Code": {
+    "sample_values": [
+      "ORG",
+      "GV",
+      "SF"
+    ],
+    "inferred_type": "string"
+  },
+  "Ref_Budget_Codes.Budget_Type_Description": {
+    "sample_values": [
+      "Self founded",
+      "Government",
+      "Organisation"
+    ],
+    "inferred_type": "string"
+  },
+  "Documents.Project_ID": {
+    "sample_values": [
+      "105",
+      "30",
+      "134"
+    ],
+    "inferred_type": "integer"
+  },
+  "Documents.Document_Date": {
+    "sample_values": [
+      "2005-10-28 03:17:16",
+      "1970-01-30 10:53:35",
+      "1978-10-15 10:33:17"
+    ],
+    "inferred_type": "string"
+  },
+  "Documents.Document_ID": {
+    "sample_values": [
+      "300",
+      "226",
+      "371"
+    ],
+    "inferred_type": "integer"
+  },
+  "Documents.Document_Type_Code": {
+    "sample_values": [
+      "BK",
+      "FM",
+      "CV"
+    ],
+    "inferred_type": "string"
+  },
+  "Documents.Document_Name": {
+    "sample_values": [
+      "Noel CV",
+      "Review on Canadian files",
+      "Jevon Paper"
+    ],
+    "inferred_type": "string"
+  },
+  "Projects.Project_ID": {
+    "sample_values": [
+      "105",
+      "30",
+      "134"
+    ],
+    "inferred_type": "integer"
+  },
+  "Projects.Project_Details": {
+    "sample_values": [
+      "Internet of Things project",
+      "Human Resource project",
+      "Population Research project"
+    ],
+    "inferred_type": "string"
+  },
+  "Documents_with_Expenses.Budget_Type_Code": {
+    "sample_values": [
+      "ORG",
+      "GV",
+      "SF"
+    ],
+    "inferred_type": "string"
+  },
+  "Documents_with_Expenses.Document_Details": {
+    "sample_values": [
+      "government",
+      "safety",
+      "organization"
+    ],
+    "inferred_type": "string"
+  },
+  "Documents_with_Expenses.Document_ID": {
+    "sample_values": [
+      "300",
+      "240",
+      "371"
+    ],
+    "inferred_type": "integer"
+  }
+}

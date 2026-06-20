@@ -1,0 +1,105 @@
+{
+  "db_name": "county_public_safety",
+  "nodes": [
+    {
+      "name": "county_public_safety",
+      "columns": [
+        {
+          "name": "County_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Population",
+          "type": "INT"
+        },
+        {
+          "name": "Police_officers",
+          "type": "INT"
+        },
+        {
+          "name": "Residents_per_officer",
+          "type": "INT"
+        },
+        {
+          "name": "Case_burden",
+          "type": "INT"
+        },
+        {
+          "name": "Crime_rate",
+          "type": "REAL"
+        },
+        {
+          "name": "Police_force",
+          "type": "TEXT"
+        },
+        {
+          "name": "Location",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "County_ID"
+      ]
+    },
+    {
+      "name": "city",
+      "columns": [
+        {
+          "name": "City_ID",
+          "type": "INT"
+        },
+        {
+          "name": "County_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "White",
+          "type": "REAL"
+        },
+        {
+          "name": "Black",
+          "type": "REAL"
+        },
+        {
+          "name": "Amerindian",
+          "type": "REAL"
+        },
+        {
+          "name": "Asian",
+          "type": "REAL"
+        },
+        {
+          "name": "Multiracial",
+          "type": "REAL"
+        },
+        {
+          "name": "Hispanic",
+          "type": "REAL"
+        }
+      ],
+      "pk": [
+        "City_ID"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "city",
+      "to": "county_public_safety",
+      "child_col": "County_ID",
+      "parent_col": "County_ID"
+    }
+  ],
+  "centrality": {
+    "county_public_safety": 1.0,
+    "city": 0.0
+  }
+}

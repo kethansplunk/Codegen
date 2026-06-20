@@ -1,0 +1,89 @@
+{
+  "workshop.Workshop_ID": {
+    "sample_values": [
+      1,
+      3,
+      5
+    ],
+    "inferred_type": "integer"
+  },
+  "workshop.Date": {
+    "sample_values": [
+      "July 5, 2011",
+      "August 21, 2007",
+      "October 8, 2007"
+    ],
+    "inferred_type": "string"
+  },
+  "workshop.Venue": {
+    "sample_values": [
+      "Istanbul Turkey",
+      "New York USA",
+      "New Jersey USA"
+    ],
+    "inferred_type": "string"
+  },
+  "workshop.Name": {
+    "sample_values": [
+      "Anual Workshop 2011",
+      "Conference 2007",
+      "2007 qualification"
+    ],
+    "inferred_type": "string"
+  },
+  "submission.Submission_ID": {
+    "sample_values": [
+      1,
+      4,
+      7
+    ],
+    "inferred_type": "integer"
+  },
+  "submission.Scores": {
+    "sample_values": [
+      72.0,
+      78.0,
+      89.0
+    ],
+    "inferred_type": "float"
+  },
+  "submission.Author": {
+    "sample_values": [
+      "Andy Bolton",
+      "Sherman Smith",
+      "Sammy Green"
+    ],
+    "inferred_type": "string"
+  },
+  "submission.College": {
+    "sample_values": [
+      "Fisk",
+      "Miami (OH)",
+      "Florida"
+    ],
+    "inferred_type": "string"
+  },
+  "Acceptance.Submission_ID": {
+    "sample_values": [
+      1,
+      2,
+      3
+    ],
+    "inferred_type": "integer"
+  },
+  "Acceptance.Workshop_ID": {
+    "sample_values": [
+      1,
+      3,
+      5
+    ],
+    "inferred_type": "integer"
+  },
+  "Acceptance.Result": {
+    "sample_values": [
+      "Accepted",
+      "Rejected"
+    ],
+    "inferred_type": "string"
+  }
+}

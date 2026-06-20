@@ -1,0 +1,113 @@
+{
+  "people.Name": {
+    "sample_values": [
+      "Philippe Bar\u00e7a-Cysique",
+      "Vincent Montm\u00e9at",
+      "Lo\u00efc De Kergret"
+    ],
+    "inferred_type": "string"
+  },
+  "people.Height": {
+    "sample_values": [
+      "193.0",
+      "196.0",
+      "202.0"
+    ],
+    "inferred_type": "float"
+  },
+  "people.Sex": {
+    "sample_values": [
+      "F",
+      "M"
+    ],
+    "inferred_type": "string"
+  },
+  "people.Weight": {
+    "sample_values": [
+      "82.0",
+      "90.0",
+      "94.0"
+    ],
+    "inferred_type": "float"
+  },
+  "people.People_ID": {
+    "sample_values": [
+      "5",
+      "2",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "people.Date_of_Birth": {
+    "sample_values": [
+      "06.10.1976",
+      "10.11.1972",
+      "28.09.1981"
+    ],
+    "inferred_type": "string"
+  },
+  "candidate.Unsure_rate": {
+    "sample_values": [
+      "0.2",
+      "0.9",
+      "0.4"
+    ],
+    "inferred_type": "float"
+  },
+  "candidate.Candidate_ID": {
+    "sample_values": [
+      "5",
+      "2",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "candidate.Date": {
+    "sample_values": [
+      "Nov 9\u201310, 2006",
+      "Feb 13\u201314, 2007",
+      "Feb 12\u201315, 2007"
+    ],
+    "inferred_type": "string"
+  },
+  "candidate.Oppose_rate": {
+    "sample_values": [
+      "0.32",
+      "0.44",
+      "0.45"
+    ],
+    "inferred_type": "float"
+  },
+  "candidate.Support_rate": {
+    "sample_values": [
+      "0.24",
+      "0.33",
+      "0.25"
+    ],
+    "inferred_type": "float"
+  },
+  "candidate.Poll_Source": {
+    "sample_values": [
+      "Newsweek Poll",
+      "FOX News/Opinion Dynamics Poll",
+      "WNBC/Marist Poll"
+    ],
+    "inferred_type": "string"
+  },
+  "candidate.People_ID": {
+    "sample_values": [
+      "1",
+      "4",
+      "3"
+    ],
+    "inferred_type": "integer"
+  },
+  "candidate.Consider_rate": {
+    "sample_values": [
+      "0.34",
+      "0.42",
+      "0.2"
+    ],
+    "inferred_type": "float"
+  }
+}

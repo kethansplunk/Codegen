@@ -1,0 +1,121 @@
+{
+  "db_name": "gas_company",
+  "nodes": [
+    {
+      "name": "company",
+      "columns": [
+        {
+          "name": "Company_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Rank",
+          "type": "INT"
+        },
+        {
+          "name": "Company",
+          "type": "TEXT"
+        },
+        {
+          "name": "Headquarters",
+          "type": "TEXT"
+        },
+        {
+          "name": "Main_Industry",
+          "type": "TEXT"
+        },
+        {
+          "name": "Sales_billion",
+          "type": "REAL"
+        },
+        {
+          "name": "Profits_billion",
+          "type": "REAL"
+        },
+        {
+          "name": "Assets_billion",
+          "type": "REAL"
+        },
+        {
+          "name": "Market_Value",
+          "type": "REAL"
+        }
+      ],
+      "pk": [
+        "Company_ID"
+      ]
+    },
+    {
+      "name": "gas_station",
+      "columns": [
+        {
+          "name": "Station_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Open_Year",
+          "type": "INT"
+        },
+        {
+          "name": "Location",
+          "type": "TEXT"
+        },
+        {
+          "name": "Manager_Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Vice_Manager_Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Representative_Name",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "Station_ID"
+      ]
+    },
+    {
+      "name": "station_company",
+      "columns": [
+        {
+          "name": "Station_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Company_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Rank_of_the_Year",
+          "type": "INT"
+        }
+      ],
+      "pk": [
+        "Station_ID",
+        "Company_ID"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "station_company",
+      "to": "company",
+      "child_col": "Company_ID",
+      "parent_col": "Company_ID"
+    },
+    {
+      "from": "station_company",
+      "to": "gas_station",
+      "child_col": "Station_ID",
+      "parent_col": "Station_ID"
+    }
+  ],
+  "centrality": {
+    "company": 0.5,
+    "gas_station": 0.5,
+    "station_company": 0.0
+  }
+}

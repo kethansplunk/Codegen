@@ -1,0 +1,128 @@
+{
+  "architect.id": {
+    "sample_values": [
+      "1",
+      "2",
+      "3"
+    ],
+    "inferred_type": "integer"
+  },
+  "architect.name": {
+    "sample_values": [
+      "Le Corbusier",
+      "Mies Van Der Rohe",
+      "Zaha Hadid"
+    ],
+    "inferred_type": "string"
+  },
+  "architect.nationality": {
+    "sample_values": [
+      "Swiss, French",
+      "German, American",
+      "Iraqi, British"
+    ],
+    "inferred_type": "string"
+  },
+  "architect.gender": {
+    "sample_values": [
+      "male",
+      "female"
+    ],
+    "inferred_type": "string"
+  },
+  "bridge.architect_id": {
+    "sample_values": [
+      1,
+      2,
+      3
+    ],
+    "inferred_type": "integer"
+  },
+  "bridge.id": {
+    "sample_values": [
+      1,
+      6,
+      11
+    ],
+    "inferred_type": "integer"
+  },
+  "bridge.name": {
+    "sample_values": [
+      "Wrather Arch",
+      "Gaotun Natural Bridge",
+      "Rainbow Bridge"
+    ],
+    "inferred_type": "string"
+  },
+  "bridge.location": {
+    "sample_values": [
+      "Wrather Canyon , Arizona , USA",
+      "Glen Canyon National Recreation Area , Utah , USA",
+      "Ennedi Plateau , Chad"
+    ],
+    "inferred_type": "string"
+  },
+  "bridge.length_meters": {
+    "sample_values": [
+      121.0,
+      74.0,
+      67.0
+    ],
+    "inferred_type": "float"
+  },
+  "bridge.length_feet": {
+    "sample_values": [
+      400.0,
+      243.0,
+      220.0
+    ],
+    "inferred_type": "float"
+  },
+  "mill.architect_id": {
+    "sample_values": [
+      1,
+      2,
+      3
+    ],
+    "inferred_type": "integer"
+  },
+  "mill.id": {
+    "sample_values": [
+      1,
+      3,
+      5
+    ],
+    "inferred_type": "integer"
+  },
+  "mill.location": {
+    "sample_values": [
+      "Pousset",
+      "Donceel",
+      "Momalle"
+    ],
+    "inferred_type": "string"
+  },
+  "mill.name": {
+    "sample_values": [
+      "Moulin de Pousset",
+      "Moulin Bertrand",
+      "Moulin de Momalle"
+    ],
+    "inferred_type": "string"
+  },
+  "mill.type": {
+    "sample_values": [
+      "Grondzeiler",
+      "Bergmolen"
+    ],
+    "inferred_type": "string"
+  },
+  "mill.built_year": {
+    "sample_values": [
+      1840,
+      1843,
+      1856
+    ],
+    "inferred_type": "integer"
+  }
+}

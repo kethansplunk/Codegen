@@ -1,0 +1,146 @@
+{
+  "station_company.Rank_of_the_Year": {
+    "sample_values": [
+      "1",
+      "2",
+      "13"
+    ],
+    "inferred_type": "integer"
+  },
+  "station_company.Station_ID": {
+    "sample_values": [
+      "10",
+      "4",
+      "11"
+    ],
+    "inferred_type": "integer"
+  },
+  "station_company.Company_ID": {
+    "sample_values": [
+      "10",
+      "1",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "gas_station.Open_Year": {
+    "sample_values": [
+      "2005",
+      "2003",
+      "1999"
+    ],
+    "inferred_type": "integer"
+  },
+  "gas_station.Location": {
+    "sample_values": [
+      "Newport Rd",
+      "Reading",
+      "Herne Ave"
+    ],
+    "inferred_type": "string"
+  },
+  "gas_station.Representative_Name": {
+    "sample_values": [
+      "Clive Burr",
+      "Rob Jefferies ",
+      "Dave Edwards Roger "
+    ],
+    "inferred_type": "string"
+  },
+  "gas_station.Manager_Name": {
+    "sample_values": [
+      "Simon Cope Derek Marloe",
+      "SimonMarloe",
+      "Luke Rowe"
+    ],
+    "inferred_type": "string"
+  },
+  "gas_station.Vice_Manager_Name": {
+    "sample_values": [
+      "TonyBristow",
+      "JameMarloe",
+      "Martin Freeman"
+    ],
+    "inferred_type": "string"
+  },
+  "gas_station.Station_ID": {
+    "sample_values": [
+      "5",
+      "1",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "company.Rank": {
+    "sample_values": [
+      "5",
+      "1",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "company.Profits_billion": {
+    "sample_values": [
+      "15.9",
+      "20.1",
+      "30.9"
+    ],
+    "inferred_type": "float"
+  },
+  "company.Main_Industry": {
+    "sample_values": [
+      "Banking",
+      "Oil and gas",
+      "Conglomerate"
+    ],
+    "inferred_type": "string"
+  },
+  "company.Sales_billion": {
+    "sample_values": [
+      "433.5",
+      "145.9",
+      "375.5"
+    ],
+    "inferred_type": "float"
+  },
+  "company.Assets_billion": {
+    "sample_values": [
+      "2550.0",
+      "2039.1",
+      "331.1"
+    ],
+    "inferred_type": "float"
+  },
+  "company.Company": {
+    "sample_values": [
+      "ExxonMobil",
+      "PetroChina",
+      "General Electric"
+    ],
+    "inferred_type": "string"
+  },
+  "company.Market_Value": {
+    "sample_values": [
+      "202.2",
+      "180.0",
+      "147.4"
+    ],
+    "inferred_type": "float"
+  },
+  "company.Company_ID": {
+    "sample_values": [
+      "5",
+      "1",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "company.Headquarters": {
+    "sample_values": [
+      "China",
+      "USA",
+      "Brazil"
+    ],
+    "inferred_type": "string"
+  }
+}

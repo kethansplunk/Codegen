@@ -1,0 +1,184 @@
+{
+  "TV_Channel.Language": {
+    "sample_values": [
+      "English",
+      "Italian"
+    ],
+    "inferred_type": "string"
+  },
+  "TV_Channel.Country": {
+    "sample_values": [
+      "Poland",
+      "Italy",
+      "United Kingdom"
+    ],
+    "inferred_type": "string"
+  },
+  "TV_Channel.Package_Option": {
+    "sample_values": [
+      "Option",
+      "Sky Famiglia",
+      "no ( FTV )"
+    ],
+    "inferred_type": "string"
+  },
+  "TV_Channel.Hight_definition_TV": {
+    "sample_values": [
+      "no",
+      "yes"
+    ],
+    "inferred_type": "string"
+  },
+  "TV_Channel.series_name": {
+    "sample_values": [
+      "Classica",
+      "MTV Hits",
+      "MTV Classic"
+    ],
+    "inferred_type": "string"
+  },
+  "TV_Channel.Pixel_aspect_ratio_PAR": {
+    "sample_values": [
+      "16:9",
+      "4:3 / 16:9",
+      "4:3"
+    ],
+    "inferred_type": "string"
+  },
+  "TV_Channel.id": {
+    "sample_values": [
+      "700",
+      "719",
+      "709"
+    ],
+    "inferred_type": "integer"
+  },
+  "Cartoon.Title": {
+    "sample_values": [
+      "Fall of the Blue Beetle!",
+      "Terror on Dinosaur Island!",
+      "The Eyes of Despero!"
+    ],
+    "inferred_type": "string"
+  },
+  "Cartoon.Written_by": {
+    "sample_values": [
+      "Todd Casey",
+      "J. M. DeMatteis",
+      "James Krieg"
+    ],
+    "inferred_type": "string"
+  },
+  "Cartoon.Original_air_date": {
+    "sample_values": [
+      "January30,2009",
+      "November14,2008",
+      "December12,2008"
+    ],
+    "inferred_type": "string"
+  },
+  "Cartoon.Directed_by": {
+    "sample_values": [
+      "Brandon Vietti",
+      "Ben Jones",
+      "Michael Chang"
+    ],
+    "inferred_type": "string"
+  },
+  "Cartoon.Channel": {
+    "sample_values": [
+      "700",
+      "707",
+      "728"
+    ],
+    "inferred_type": "integer"
+  },
+  "Cartoon.id": {
+    "sample_values": [
+      "12.0",
+      "7.0",
+      "9.0"
+    ],
+    "inferred_type": "float"
+  },
+  "Cartoon.Production_code": {
+    "sample_values": [
+      "101.0",
+      "103.0",
+      "111.0"
+    ],
+    "inferred_type": "float"
+  },
+  "TV_series.Air_Date": {
+    "sample_values": [
+      "November 19, 2007",
+      "November 12, 2007",
+      "October 22, 2007"
+    ],
+    "inferred_type": "string"
+  },
+  "TV_series.Weekly_Rank": {
+    "sample_values": [
+      "66.0",
+      "62.0",
+      "68.0"
+    ],
+    "inferred_type": "float"
+  },
+  "TV_series.Viewers_m": {
+    "sample_values": [
+      "5.13",
+      "6.09",
+      "5.61"
+    ],
+    "inferred_type": "float"
+  },
+  "TV_series.Share": {
+    "sample_values": [
+      "6.0",
+      "9.0",
+      "5.0"
+    ],
+    "inferred_type": "float"
+  },
+  "TV_series.18_49_Rating_Share": {
+    "sample_values": [
+      "2.4/6",
+      "2.9/7",
+      "3.2/8"
+    ],
+    "inferred_type": "string"
+  },
+  "TV_series.Rating": {
+    "sample_values": [
+      "3.4",
+      "5.3",
+      "4.3"
+    ],
+    "inferred_type": "float"
+  },
+  "TV_series.Channel": {
+    "sample_values": [
+      "700",
+      "707",
+      "728"
+    ],
+    "inferred_type": "integer"
+  },
+  "TV_series.id": {
+    "sample_values": [
+      "12.0",
+      "7.0",
+      "9.0"
+    ],
+    "inferred_type": "float"
+  },
+  "TV_series.Episode": {
+    "sample_values": [
+      "Emily",
+      "Double Down",
+      "A Love of a Lifetime"
+    ],
+    "inferred_type": "string"
+  }
+}

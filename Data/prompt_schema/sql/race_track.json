@@ -1,0 +1,81 @@
+{
+  "race.Race_ID": {
+    "sample_values": [
+      1,
+      3,
+      5
+    ],
+    "inferred_type": "integer"
+  },
+  "race.Name": {
+    "sample_values": [
+      "Sahlen's Six Hours of the Glen",
+      "Gainsco Grand Prix of Miami",
+      "Mexico City 250"
+    ],
+    "inferred_type": "string"
+  },
+  "race.Class": {
+    "sample_values": [
+      "DP/GT",
+      "GT"
+    ],
+    "inferred_type": "string"
+  },
+  "race.Date": {
+    "sample_values": [
+      "June 7",
+      "March 29",
+      "April 19"
+    ],
+    "inferred_type": "string"
+  },
+  "race.Track_ID": {
+    "sample_values": [
+      "1",
+      "4",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "track.Track_ID": {
+    "sample_values": [
+      1,
+      4,
+      7
+    ],
+    "inferred_type": "integer"
+  },
+  "track.Name": {
+    "sample_values": [
+      "Phoenix International Raceway",
+      "Darlington Raceway",
+      "Chicagoland Speedway"
+    ],
+    "inferred_type": "string"
+  },
+  "track.Location": {
+    "sample_values": [
+      "Avondale, AZ",
+      "Darlington, SC",
+      "Joliet, IL"
+    ],
+    "inferred_type": "string"
+  },
+  "track.Seating": {
+    "sample_values": [
+      92000.0,
+      63000.0,
+      65000.0
+    ],
+    "inferred_type": "float"
+  },
+  "track.Year_Opened": {
+    "sample_values": [
+      1997.0,
+      1950.0,
+      1995.0
+    ],
+    "inferred_type": "float"
+  }
+}

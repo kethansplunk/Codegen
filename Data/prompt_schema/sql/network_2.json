@@ -1,0 +1,65 @@
+{
+  "Person.name": {
+    "sample_values": [
+      "Zach",
+      "Dan",
+      "Bob"
+    ],
+    "inferred_type": "string"
+  },
+  "Person.age": {
+    "sample_values": [
+      25,
+      35,
+      45
+    ],
+    "inferred_type": "integer"
+  },
+  "Person.city": {
+    "sample_values": [
+      "salt lake city",
+      "new york city",
+      "chicago"
+    ],
+    "inferred_type": "string"
+  },
+  "Person.gender": {
+    "sample_values": [
+      "female",
+      "male"
+    ],
+    "inferred_type": "string"
+  },
+  "Person.job": {
+    "sample_values": [
+      "student",
+      "engineer",
+      "doctor"
+    ],
+    "inferred_type": "string"
+  },
+  "PersonFriend.name": {
+    "sample_values": [
+      "Alice",
+      "Zach",
+      "Bob"
+    ],
+    "inferred_type": "string"
+  },
+  "PersonFriend.friend": {
+    "sample_values": [
+      "Alice",
+      "Zach",
+      "Dan"
+    ],
+    "inferred_type": "string"
+  },
+  "PersonFriend.year": {
+    "sample_values": [
+      10,
+      12,
+      5
+    ],
+    "inferred_type": "integer"
+  }
+}

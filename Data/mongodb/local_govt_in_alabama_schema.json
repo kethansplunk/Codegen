@@ -1,0 +1,102 @@
+{
+  "db_name": "local_govt_in_alabama",
+  "collections": {
+    "Services": {
+      "primary_key": [
+        "Service_ID"
+      ],
+      "columns": [
+        {
+          "name": "Service_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Service_Type_Code",
+          "type": "CHAR(15)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 4
+    },
+    "Participants": {
+      "primary_key": [
+        "Participant_ID"
+      ],
+      "columns": [
+        {
+          "name": "Participant_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Participant_Type_Code",
+          "type": "CHAR(15)"
+        },
+        {
+          "name": "Participant_Details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 15
+    },
+    "Events": {
+      "primary_key": [
+        "Event_ID"
+      ],
+      "columns": [
+        {
+          "name": "Event_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Service_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Event_Details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Events",
+          "to": "Services",
+          "child_col": "Service_ID",
+          "parent_col": "Service_ID"
+        }
+      ],
+      "row_count": 15
+    },
+    "Participants_in_Events": {
+      "primary_key": [
+        "Event_ID",
+        "Participant_ID"
+      ],
+      "columns": [
+        {
+          "name": "Event_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Participant_ID",
+          "type": "INTEGER"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Participants_in_Events",
+          "to": "Events",
+          "child_col": "Event_ID",
+          "parent_col": "Event_ID"
+        },
+        {
+          "from": "Participants_in_Events",
+          "to": "Participants",
+          "child_col": "Participant_ID",
+          "parent_col": "Participant_ID"
+        }
+      ],
+      "row_count": 18
+    }
+  }
+}

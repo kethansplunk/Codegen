@@ -1,0 +1,209 @@
+{
+  "db_name": "tracking_software_problems",
+  "collections": {
+    "Problem_Category_Codes": {
+      "primary_key": [
+        "problem_category_code"
+      ],
+      "columns": [
+        {
+          "name": "problem_category_code",
+          "type": "VARCHAR(20)"
+        },
+        {
+          "name": "problem_category_description",
+          "type": "VARCHAR(80)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 3
+    },
+    "Problem_Log": {
+      "primary_key": [
+        "problem_log_id"
+      ],
+      "columns": [
+        {
+          "name": "problem_log_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "assigned_to_staff_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "problem_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "problem_category_code",
+          "type": "VARCHAR(20)"
+        },
+        {
+          "name": "problem_status_code",
+          "type": "VARCHAR(20)"
+        },
+        {
+          "name": "log_entry_date",
+          "type": "DATETIME"
+        },
+        {
+          "name": "log_entry_description",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "log_entry_fix",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "other_log_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Problem_Log",
+          "to": "Problem_Status_Codes",
+          "child_col": "problem_status_code",
+          "parent_col": "problem_status_code"
+        },
+        {
+          "from": "Problem_Log",
+          "to": "Problems",
+          "child_col": "problem_id",
+          "parent_col": "problem_id"
+        },
+        {
+          "from": "Problem_Log",
+          "to": "Staff",
+          "child_col": "assigned_to_staff_id",
+          "parent_col": "staff_id"
+        },
+        {
+          "from": "Problem_Log",
+          "to": "Problem_Category_Codes",
+          "child_col": "problem_category_code",
+          "parent_col": "problem_category_code"
+        }
+      ],
+      "row_count": 15
+    },
+    "Problem_Status_Codes": {
+      "primary_key": [
+        "problem_status_code"
+      ],
+      "columns": [
+        {
+          "name": "problem_status_code",
+          "type": "VARCHAR(20)"
+        },
+        {
+          "name": "problem_status_description",
+          "type": "VARCHAR(80)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 2
+    },
+    "Product": {
+      "primary_key": [
+        "product_id"
+      ],
+      "columns": [
+        {
+          "name": "product_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "product_name",
+          "type": "VARCHAR(80)"
+        },
+        {
+          "name": "product_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 15
+    },
+    "Staff": {
+      "primary_key": [
+        "staff_id"
+      ],
+      "columns": [
+        {
+          "name": "staff_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "staff_first_name",
+          "type": "VARCHAR(80)"
+        },
+        {
+          "name": "staff_last_name",
+          "type": "VARCHAR(80)"
+        },
+        {
+          "name": "other_staff_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 15
+    },
+    "Problems": {
+      "primary_key": [
+        "problem_id"
+      ],
+      "columns": [
+        {
+          "name": "problem_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "product_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "closure_authorised_by_staff_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "reported_by_staff_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "date_problem_reported",
+          "type": "DATETIME"
+        },
+        {
+          "name": "date_problem_closed",
+          "type": "DATETIME"
+        },
+        {
+          "name": "problem_description",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "other_problem_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Problems",
+          "to": "Staff",
+          "child_col": "closure_authorised_by_staff_id",
+          "parent_col": "staff_id"
+        },
+        {
+          "from": "Problems",
+          "to": "Product",
+          "child_col": "product_id",
+          "parent_col": "product_id"
+        }
+      ],
+      "row_count": 15
+    }
+  }
+}

@@ -1,0 +1,177 @@
+{
+  "db_name": "company_1",
+  "nodes": [
+    {
+      "name": "works_on",
+      "columns": [
+        {
+          "name": "Essn",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Pno",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Hours",
+          "type": "REAL"
+        }
+      ],
+      "pk": [
+        "Essn",
+        "Pno"
+      ]
+    },
+    {
+      "name": "employee",
+      "columns": [
+        {
+          "name": "Fname",
+          "type": "TEXT"
+        },
+        {
+          "name": "Minit",
+          "type": "TEXT"
+        },
+        {
+          "name": "Lname",
+          "type": "TEXT"
+        },
+        {
+          "name": "Ssn",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Bdate",
+          "type": "TEXT"
+        },
+        {
+          "name": "Address",
+          "type": "TEXT"
+        },
+        {
+          "name": "Sex",
+          "type": "TEXT"
+        },
+        {
+          "name": "Salary",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Super_ssn",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Dno",
+          "type": "INTEGER"
+        }
+      ],
+      "pk": [
+        "Ssn"
+      ]
+    },
+    {
+      "name": "department",
+      "columns": [
+        {
+          "name": "Dname",
+          "type": "TEXT"
+        },
+        {
+          "name": "Dnumber",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Mgr_ssn",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Mgr_start_date",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "Dnumber"
+      ]
+    },
+    {
+      "name": "project",
+      "columns": [
+        {
+          "name": "Pname",
+          "type": "TEXT"
+        },
+        {
+          "name": "Pnumber",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Plocation",
+          "type": "TEXT"
+        },
+        {
+          "name": "Dnum",
+          "type": "INTEGER"
+        }
+      ],
+      "pk": [
+        "Pnumber"
+      ]
+    },
+    {
+      "name": "dependent",
+      "columns": [
+        {
+          "name": "Essn",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Dependent_name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Sex",
+          "type": "TEXT"
+        },
+        {
+          "name": "Bdate",
+          "type": "TEXT"
+        },
+        {
+          "name": "Relationship",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "Essn",
+        "Dependent_name"
+      ]
+    },
+    {
+      "name": "dept_locations",
+      "columns": [
+        {
+          "name": "Dnumber",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Dlocation",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "Dnumber",
+        "Dlocation"
+      ]
+    }
+  ],
+  "edges": [],
+  "centrality": {
+    "works_on": 0.0,
+    "employee": 0.0,
+    "department": 0.0,
+    "project": 0.0,
+    "dependent": 0.0,
+    "dept_locations": 0.0
+  }
+}

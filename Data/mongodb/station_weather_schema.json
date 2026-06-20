@@ -1,0 +1,139 @@
+{
+  "db_name": "station_weather",
+  "collections": {
+    "train": {
+      "primary_key": [
+        "id"
+      ],
+      "columns": [
+        {
+          "name": "id",
+          "type": "INT"
+        },
+        {
+          "name": "train_number",
+          "type": "INT"
+        },
+        {
+          "name": "name",
+          "type": "TEXT"
+        },
+        {
+          "name": "origin",
+          "type": "TEXT"
+        },
+        {
+          "name": "destination",
+          "type": "TEXT"
+        },
+        {
+          "name": "time",
+          "type": "TEXT"
+        },
+        {
+          "name": "interval",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 11
+    },
+    "station": {
+      "primary_key": [
+        "id"
+      ],
+      "columns": [
+        {
+          "name": "id",
+          "type": "INT"
+        },
+        {
+          "name": "network_name",
+          "type": "TEXT"
+        },
+        {
+          "name": "services",
+          "type": "TEXT"
+        },
+        {
+          "name": "local_authority",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 11
+    },
+    "route": {
+      "primary_key": [
+        "train_id",
+        "station_id"
+      ],
+      "columns": [
+        {
+          "name": "train_id",
+          "type": "INT"
+        },
+        {
+          "name": "station_id",
+          "type": "INT"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "route",
+          "to": "station",
+          "child_col": "station_id",
+          "parent_col": "id"
+        },
+        {
+          "from": "route",
+          "to": "train",
+          "child_col": "train_id",
+          "parent_col": "id"
+        }
+      ],
+      "row_count": 18
+    },
+    "weekly_weather": {
+      "primary_key": [
+        "station_id",
+        "day_of_week"
+      ],
+      "columns": [
+        {
+          "name": "station_id",
+          "type": "INT"
+        },
+        {
+          "name": "day_of_week",
+          "type": "TEXT"
+        },
+        {
+          "name": "high_temperature",
+          "type": "INT"
+        },
+        {
+          "name": "low_temperature",
+          "type": "INT"
+        },
+        {
+          "name": "precipitation",
+          "type": "REAL"
+        },
+        {
+          "name": "wind_speed_mph",
+          "type": "INT"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "weekly_weather",
+          "to": "station",
+          "child_col": "station_id",
+          "parent_col": "id"
+        }
+      ],
+      "row_count": 16
+    }
+  }
+}

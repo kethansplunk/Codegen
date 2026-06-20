@@ -1,0 +1,81 @@
+{
+  "singer.Birth_Year": {
+    "sample_values": [
+      "1961.0",
+      "1949.0",
+      "1948.0"
+    ],
+    "inferred_type": "float"
+  },
+  "singer.Citizenship": {
+    "sample_values": [
+      "Australia",
+      "Germany",
+      "France"
+    ],
+    "inferred_type": "string"
+  },
+  "singer.Name": {
+    "sample_values": [
+      "Liliane Bettencourt",
+      "Alice Walton",
+      "Jacqueline Mars"
+    ],
+    "inferred_type": "string"
+  },
+  "singer.Singer_ID": {
+    "sample_values": [
+      "5",
+      "1",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "singer.Net_Worth_Millions": {
+    "sample_values": [
+      "28.8",
+      "17.0",
+      "12.7"
+    ],
+    "inferred_type": "float"
+  },
+  "song.Title": {
+    "sample_values": [
+      "Mysterious Girl",
+      "Left Outside Alone",
+      "All This Time"
+    ],
+    "inferred_type": "string"
+  },
+  "song.Highest_Position": {
+    "sample_values": [
+      "3.0",
+      "1.0"
+    ],
+    "inferred_type": "float"
+  },
+  "song.Song_ID": {
+    "sample_values": [
+      "5",
+      "1",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "song.Singer_ID": {
+    "sample_values": [
+      "5",
+      "2",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "song.Sales": {
+    "sample_values": [
+      "292000.0",
+      "351421.0",
+      "261000.0"
+    ],
+    "inferred_type": "float"
+  }
+}

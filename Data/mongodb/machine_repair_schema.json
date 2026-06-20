@@ -1,0 +1,138 @@
+{
+  "db_name": "machine_repair",
+  "collections": {
+    "repair": {
+      "primary_key": [
+        "repair_ID"
+      ],
+      "columns": [
+        {
+          "name": "repair_ID",
+          "type": "INT"
+        },
+        {
+          "name": "name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Launch_Date",
+          "type": "TEXT"
+        },
+        {
+          "name": "Notes",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 9
+    },
+    "machine": {
+      "primary_key": [
+        "Machine_ID"
+      ],
+      "columns": [
+        {
+          "name": "Machine_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Making_Year",
+          "type": "INT"
+        },
+        {
+          "name": "Class",
+          "type": "TEXT"
+        },
+        {
+          "name": "Team",
+          "type": "TEXT"
+        },
+        {
+          "name": "Machine_series",
+          "type": "TEXT"
+        },
+        {
+          "name": "value_points",
+          "type": "REAL"
+        },
+        {
+          "name": "quality_rank",
+          "type": "INT"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 9
+    },
+    "technician": {
+      "primary_key": [
+        "technician_id"
+      ],
+      "columns": [
+        {
+          "name": "technician_id",
+          "type": "REAL"
+        },
+        {
+          "name": "Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Team",
+          "type": "TEXT"
+        },
+        {
+          "name": "Starting_Year",
+          "type": "REAL"
+        },
+        {
+          "name": "Age",
+          "type": "INT"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 10
+    },
+    "repair_assignment": {
+      "primary_key": [
+        "technician_id",
+        "repair_ID",
+        "Machine_ID"
+      ],
+      "columns": [
+        {
+          "name": "technician_id",
+          "type": "INT"
+        },
+        {
+          "name": "repair_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Machine_ID",
+          "type": "INT"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "repair_assignment",
+          "to": "machine",
+          "child_col": "Machine_ID",
+          "parent_col": "Machine_ID"
+        },
+        {
+          "from": "repair_assignment",
+          "to": "repair",
+          "child_col": "repair_ID",
+          "parent_col": "repair_ID"
+        },
+        {
+          "from": "repair_assignment",
+          "to": "technician",
+          "child_col": "technician_id",
+          "parent_col": "technician_id"
+        }
+      ],
+      "row_count": 9
+    }
+  }
+}

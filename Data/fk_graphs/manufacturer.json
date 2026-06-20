@@ -1,0 +1,97 @@
+{
+  "db_name": "manufacturer",
+  "nodes": [
+    {
+      "name": "manufacturer",
+      "columns": [
+        {
+          "name": "Manufacturer_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Open_Year",
+          "type": "REAL"
+        },
+        {
+          "name": "Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Num_of_Factories",
+          "type": "INT"
+        },
+        {
+          "name": "Num_of_Shops",
+          "type": "INT"
+        }
+      ],
+      "pk": [
+        "Manufacturer_ID"
+      ]
+    },
+    {
+      "name": "furniture",
+      "columns": [
+        {
+          "name": "Furniture_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Num_of_Component",
+          "type": "INT"
+        },
+        {
+          "name": "Market_Rate",
+          "type": "REAL"
+        }
+      ],
+      "pk": [
+        "Furniture_ID"
+      ]
+    },
+    {
+      "name": "furniture_manufacte",
+      "columns": [
+        {
+          "name": "Manufacturer_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Furniture_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Price_in_Dollar",
+          "type": "REAL"
+        }
+      ],
+      "pk": [
+        "Manufacturer_ID",
+        "Furniture_ID"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "furniture_manufacte",
+      "to": "furniture",
+      "child_col": "Furniture_ID",
+      "parent_col": "Furniture_ID"
+    },
+    {
+      "from": "furniture_manufacte",
+      "to": "manufacturer",
+      "child_col": "Manufacturer_ID",
+      "parent_col": "Manufacturer_ID"
+    }
+  ],
+  "centrality": {
+    "manufacturer": 0.5,
+    "furniture": 0.5,
+    "furniture_manufacte": 0.0
+  }
+}

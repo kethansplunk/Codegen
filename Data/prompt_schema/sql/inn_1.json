@@ -1,0 +1,128 @@
+{
+  "Rooms.RoomId": {
+    "sample_values": [
+      "TAA",
+      "FNA",
+      "CAS"
+    ],
+    "inferred_type": "string"
+  },
+  "Rooms.roomName": {
+    "sample_values": [
+      "Frugal not apropos",
+      "Abscond or bolster",
+      "Interim but salutary"
+    ],
+    "inferred_type": "string"
+  },
+  "Rooms.beds": {
+    "sample_values": [
+      1,
+      2
+    ],
+    "inferred_type": "integer"
+  },
+  "Rooms.bedType": {
+    "sample_values": [
+      "King",
+      "Queen",
+      "Double"
+    ],
+    "inferred_type": "string"
+  },
+  "Rooms.maxOccupancy": {
+    "sample_values": [
+      2,
+      4
+    ],
+    "inferred_type": "integer"
+  },
+  "Rooms.basePrice": {
+    "sample_values": [
+      150,
+      125,
+      75
+    ],
+    "inferred_type": "integer"
+  },
+  "Rooms.decor": {
+    "sample_values": [
+      "modern",
+      "traditional",
+      "rustic"
+    ],
+    "inferred_type": "string"
+  },
+  "Reservations.Code": {
+    "sample_values": [
+      10105,
+      10984,
+      11857
+    ],
+    "inferred_type": "integer"
+  },
+  "Reservations.Room": {
+    "sample_values": [
+      "MWC",
+      "RND",
+      "IBD"
+    ],
+    "inferred_type": "string"
+  },
+  "Reservations.CheckIn": {
+    "sample_values": [
+      "22-JUL-10",
+      "21-SEP-10",
+      "10-APR-10"
+    ],
+    "inferred_type": "string"
+  },
+  "Reservations.CheckOut": {
+    "sample_values": [
+      "25-JUL-10",
+      "27-SEP-10",
+      "12-APR-10"
+    ],
+    "inferred_type": "string"
+  },
+  "Reservations.Rate": {
+    "sample_values": [
+      100.0,
+      175.0,
+      85.0
+    ],
+    "inferred_type": "float"
+  },
+  "Reservations.LastName": {
+    "sample_values": [
+      "GROWNEY",
+      "TRACHSEL",
+      "ESPINO"
+    ],
+    "inferred_type": "string"
+  },
+  "Reservations.FirstName": {
+    "sample_values": [
+      "CATHRYN",
+      "DAMIEN",
+      "MARCELINA"
+    ],
+    "inferred_type": "string"
+  },
+  "Reservations.Adults": {
+    "sample_values": [
+      1,
+      2,
+      4
+    ],
+    "inferred_type": "integer"
+  },
+  "Reservations.Kids": {
+    "sample_values": [
+      0,
+      1,
+      3
+    ],
+    "inferred_type": "integer"
+  }
+}

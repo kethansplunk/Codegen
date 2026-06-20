@@ -1,0 +1,58 @@
+{
+  "list.Classroom": {
+    "sample_values": [
+      "108",
+      "103",
+      "102"
+    ],
+    "inferred_type": "integer"
+  },
+  "list.FirstName": {
+    "sample_values": [
+      " TOBIE",
+      " LANELLE",
+      " SHANAE"
+    ],
+    "inferred_type": "string"
+  },
+  "list.LastName": {
+    "sample_values": [
+      "MACIAG",
+      "RUNKLE",
+      "MADLOCK"
+    ],
+    "inferred_type": "string"
+  },
+  "list.Grade": {
+    "sample_values": [
+      "5",
+      "1",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "teachers.Classroom": {
+    "sample_values": [
+      "108",
+      "104",
+      "102"
+    ],
+    "inferred_type": "integer"
+  },
+  "teachers.FirstName": {
+    "sample_values": [
+      " GEORGETTA",
+      " BILLIE",
+      " MIN"
+    ],
+    "inferred_type": "string"
+  },
+  "teachers.LastName": {
+    "sample_values": [
+      "MARROTTE",
+      "SUMPTION",
+      "KAWA"
+    ],
+    "inferred_type": "string"
+  }
+}

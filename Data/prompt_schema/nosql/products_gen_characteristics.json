@@ -1,0 +1,166 @@
+{
+  "Ref_Characteristic_Types.characteristic_type_description": {
+    "sample_values": [
+      "Purity",
+      "Grade"
+    ],
+    "inferred_type": "string"
+  },
+  "Ref_Characteristic_Types.characteristic_type_code": {
+    "sample_values": [
+      "Purity",
+      "Grade"
+    ],
+    "inferred_type": "string"
+  },
+  "Ref_Colors.color_description": {
+    "sample_values": [
+      "gray",
+      "black",
+      "white"
+    ],
+    "inferred_type": "string"
+  },
+  "Ref_Colors.color_code": {
+    "sample_values": [
+      "5",
+      "1",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "Products.typical_buying_price": {
+    "sample_values": [
+      "43221310.465574",
+      "352447.2874677",
+      "12008702.623"
+    ],
+    "inferred_type": "string"
+  },
+  "Products.color_code": {
+    "sample_values": [
+      "5",
+      "9",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "Products.product_name": {
+    "sample_values": [
+      "caraway",
+      "lotus",
+      "basil"
+    ],
+    "inferred_type": "string"
+  },
+  "Products.product_category_code": {
+    "sample_values": [
+      "Seeds",
+      "Herbs",
+      "Spices"
+    ],
+    "inferred_type": "string"
+  },
+  "Products.product_description": {
+    "sample_values": [
+      "nulla",
+      "nisi",
+      "et"
+    ],
+    "inferred_type": "string"
+  },
+  "Products.product_id": {
+    "sample_values": [
+      "5",
+      "8",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Products.typical_selling_price": {
+    "sample_values": [
+      "0.1859512",
+      "17595111.4",
+      "52735.6101"
+    ],
+    "inferred_type": "string"
+  },
+  "Characteristics.characteristic_type_code": {
+    "sample_values": [
+      "Purity",
+      "Grade"
+    ],
+    "inferred_type": "string"
+  },
+  "Characteristics.characteristic_data_type": {
+    "sample_values": [
+      "placeat",
+      "velit",
+      "mollitia"
+    ],
+    "inferred_type": "string"
+  },
+  "Characteristics.characteristic_id": {
+    "sample_values": [
+      "5",
+      "8",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Characteristics.characteristic_name": {
+    "sample_values": [
+      "error",
+      "warm",
+      "fast"
+    ],
+    "inferred_type": "string"
+  },
+  "Product_Characteristics.product_characteristic_value": {
+    "sample_values": [
+      "high",
+      "low",
+      "medium"
+    ],
+    "inferred_type": "string"
+  },
+  "Product_Characteristics.product_id": {
+    "sample_values": [
+      "5",
+      "8",
+      "13"
+    ],
+    "inferred_type": "integer"
+  },
+  "Product_Characteristics.characteristic_id": {
+    "sample_values": [
+      "10",
+      "12",
+      "13"
+    ],
+    "inferred_type": "integer"
+  },
+  "Ref_Product_Categories.product_category_code": {
+    "sample_values": [
+      "Herbs",
+      "Seeds",
+      "Spices"
+    ],
+    "inferred_type": "string"
+  },
+  "Ref_Product_Categories.product_category_description": {
+    "sample_values": [
+      "Herbs",
+      "Seeds",
+      "Spices"
+    ],
+    "inferred_type": "string"
+  },
+  "Ref_Product_Categories.unit_of_measure": {
+    "sample_values": [
+      "Handful             ",
+      "Weight - pound,kilo."
+    ],
+    "inferred_type": "string"
+  }
+}

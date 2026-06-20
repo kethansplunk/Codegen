@@ -1,0 +1,112 @@
+{
+  "driver.Driver_ID": {
+    "sample_values": [
+      1,
+      5,
+      9
+    ],
+    "inferred_type": "integer"
+  },
+  "driver.Name": {
+    "sample_values": [
+      "Geoff Luxenberg",
+      "Brandon McGee",
+      "Dan Carter"
+    ],
+    "inferred_type": "string"
+  },
+  "driver.Party": {
+    "sample_values": [
+      "Dem",
+      "Rep"
+    ],
+    "inferred_type": "string"
+  },
+  "driver.Home_city": {
+    "sample_values": [
+      "Manchester",
+      "East Hartford",
+      "Coventry"
+    ],
+    "inferred_type": "string"
+  },
+  "driver.Age": {
+    "sample_values": [
+      40,
+      42,
+      36
+    ],
+    "inferred_type": "integer"
+  },
+  "school.School_ID": {
+    "sample_values": [
+      1,
+      3,
+      5
+    ],
+    "inferred_type": "integer"
+  },
+  "school.Grade": {
+    "sample_values": [
+      "4th grade",
+      "1st-3rd grade",
+      "5th-12th grade"
+    ],
+    "inferred_type": "string"
+  },
+  "school.School": {
+    "sample_values": [
+      "Punahou School",
+      "Noelani Elementary School",
+      "Harvard Law School"
+    ],
+    "inferred_type": "string"
+  },
+  "school.Location": {
+    "sample_values": [
+      "Cambridge, Massachusetts",
+      "New York City",
+      "Los Angeles, California"
+    ],
+    "inferred_type": "string"
+  },
+  "school.Type": {
+    "sample_values": [
+      "Public",
+      "Private Catholic",
+      "Private"
+    ],
+    "inferred_type": "string"
+  },
+  "school_bus.School_ID": {
+    "sample_values": [
+      1,
+      3,
+      4
+    ],
+    "inferred_type": "integer"
+  },
+  "school_bus.Driver_ID": {
+    "sample_values": [
+      10,
+      4,
+      3
+    ],
+    "inferred_type": "integer"
+  },
+  "school_bus.Years_Working": {
+    "sample_values": [
+      10,
+      8,
+      6
+    ],
+    "inferred_type": "integer"
+  },
+  "school_bus.If_full_time": {
+    "sample_values": [
+      "F",
+      "T"
+    ],
+    "inferred_type": "string"
+  }
+}

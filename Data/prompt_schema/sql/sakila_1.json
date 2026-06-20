@@ -1,0 +1,427 @@
+{
+  "actor.actor_id": {
+    "sample_values": [
+      1,
+      7,
+      13
+    ],
+    "inferred_type": "integer"
+  },
+  "actor.first_name": {
+    "sample_values": [
+      "LUCILLE",
+      "MATTHEW",
+      "JOE"
+    ],
+    "inferred_type": "string"
+  },
+  "actor.last_name": {
+    "sample_values": [
+      "TRACY",
+      "JOHANSSON",
+      "SWANK"
+    ],
+    "inferred_type": "string"
+  },
+  "address.address_id": {
+    "sample_values": [
+      1,
+      7,
+      13
+    ],
+    "inferred_type": "integer"
+  },
+  "address.address": {
+    "sample_values": [
+      "360 Toulouse Parkway",
+      "1566 Inegl Manor",
+      "53 Idfu Parkway"
+    ],
+    "inferred_type": "string"
+  },
+  "address.district": {
+    "sample_values": [
+      "Northern Cape",
+      "Texas",
+      "Central Serbia"
+    ],
+    "inferred_type": "string"
+  },
+  "address.city_id": {
+    "sample_values": [
+      300,
+      361,
+      440
+    ],
+    "inferred_type": "integer"
+  },
+  "address.postal_code": {
+    "sample_values": [
+      "72192",
+      "93896",
+      "77948"
+    ],
+    "inferred_type": "string"
+  },
+  "address.phone": {
+    "sample_values": [
+      "407752414682",
+      "10655648674",
+      "860452626434"
+    ],
+    "inferred_type": "string"
+  },
+  "category.category_id": {
+    "sample_values": [
+      1,
+      6,
+      11
+    ],
+    "inferred_type": "integer"
+  },
+  "category.name": {
+    "sample_values": [
+      "Travel",
+      "Drama",
+      "Documentary"
+    ],
+    "inferred_type": "string"
+  },
+  "city.city_id": {
+    "sample_values": [
+      1,
+      7,
+      13
+    ],
+    "inferred_type": "integer"
+  },
+  "city.city": {
+    "sample_values": [
+      "Almirante Brown",
+      "Adoni",
+      "Ahmadnagar"
+    ],
+    "inferred_type": "string"
+  },
+  "city.country_id": {
+    "sample_values": [
+      87,
+      107,
+      49
+    ],
+    "inferred_type": "integer"
+  },
+  "country.country_id": {
+    "sample_values": [
+      1,
+      7,
+      13
+    ],
+    "inferred_type": "integer"
+  },
+  "country.country": {
+    "sample_values": [
+      "Canada",
+      "Australia",
+      "Austria"
+    ],
+    "inferred_type": "string"
+  },
+  "customer.customer_id": {
+    "sample_values": [
+      1,
+      7,
+      13
+    ],
+    "inferred_type": "integer"
+  },
+  "customer.store_id": {
+    "sample_values": [
+      1,
+      2
+    ],
+    "inferred_type": "integer"
+  },
+  "customer.first_name": {
+    "sample_values": [
+      "SHARON",
+      "SUSAN",
+      "MARGARET"
+    ],
+    "inferred_type": "string"
+  },
+  "customer.last_name": {
+    "sample_values": [
+      "ROBINSON",
+      "WILSON",
+      "MOORE"
+    ],
+    "inferred_type": "string"
+  },
+  "customer.email": {
+    "sample_values": [
+      "SHARON.ROBINSON@sakilacustomer.org",
+      "SUSAN.WILSON@sakilacustomer.org",
+      "MARGARET.MOORE@sakilacustomer.org"
+    ],
+    "inferred_type": "string"
+  },
+  "customer.address_id": {
+    "sample_values": [
+      5,
+      11,
+      17
+    ],
+    "inferred_type": "integer"
+  },
+  "customer.active": {
+    "sample_values": [
+      1,
+      0
+    ],
+    "inferred_type": "integer"
+  },
+  "customer.create_date": {
+    "sample_values": [
+      "2006-02-14 22:04:36",
+      "2006-02-14 22:04:37"
+    ],
+    "inferred_type": "string"
+  },
+  "film.film_id": {
+    "sample_values": [
+      1,
+      7,
+      13
+    ],
+    "inferred_type": "integer"
+  },
+  "film.title": {
+    "sample_values": [
+      "AMELIE HELLFIGHTERS",
+      "AIRPORT POLLOCK",
+      "ALABAMA DEVIL"
+    ],
+    "inferred_type": "string"
+  },
+  "film.description": {
+    "sample_values": [
+      "A Boring Drama of a Woman And a Squirrel who must Conquer a Student in A Baloon",
+      "A Epic Tale of a Moose And a Girl who must Confront a Monkey in Ancient India",
+      "A Thoughtful Panorama of a Database Administrator And a Mad Scientist who must Outgun a Mad Scientist in A Jet Boat"
+    ],
+    "inferred_type": "string"
+  },
+  "film.rental_duration": {
+    "sample_values": [
+      6,
+      3,
+      7
+    ],
+    "inferred_type": "integer"
+  },
+  "film.rental_rate": {
+    "sample_values": [
+      0.99,
+      4.99,
+      2.99
+    ],
+    "inferred_type": "float"
+  },
+  "film.length": {
+    "sample_values": [
+      86,
+      62,
+      150
+    ],
+    "inferred_type": "integer"
+  },
+  "film.replacement_cost": {
+    "sample_values": [
+      20.99,
+      28.99,
+      10.99
+    ],
+    "inferred_type": "float"
+  },
+  "film.rating": {
+    "sample_values": [
+      "R",
+      "PG-13",
+      "NC-17"
+    ],
+    "inferred_type": "string"
+  },
+  "film.special_features": {
+    "sample_values": [
+      "Commentaries",
+      "Trailers,Deleted Scenes,Behind the Scenes",
+      "Commentaries,Deleted Scenes"
+    ],
+    "inferred_type": "string"
+  },
+  "film_actor.actor_id": {
+    "sample_values": [
+      1,
+      7,
+      13
+    ],
+    "inferred_type": "integer"
+  },
+  "film_actor.film_id": {
+    "sample_values": [
+      1,
+      277,
+      605
+    ],
+    "inferred_type": "integer"
+  },
+  "film_category.film_id": {
+    "sample_values": [
+      1,
+      7,
+      13
+    ],
+    "inferred_type": "integer"
+  },
+  "film_category.category_id": {
+    "sample_values": [
+      6,
+      15,
+      13
+    ],
+    "inferred_type": "integer"
+  },
+  "inventory.inventory_id": {
+    "sample_values": [
+      1,
+      7,
+      13
+    ],
+    "inferred_type": "integer"
+  },
+  "inventory.film_id": {
+    "sample_values": [
+      1,
+      7,
+      13
+    ],
+    "inferred_type": "integer"
+  },
+  "inventory.store_id": {
+    "sample_values": [
+      1,
+      2
+    ],
+    "inferred_type": "integer"
+  },
+  "payment.payment_id": {
+    "sample_values": [
+      1,
+      7,
+      13
+    ],
+    "inferred_type": "integer"
+  },
+  "payment.customer_id": {
+    "sample_values": [
+      1,
+      7,
+      13
+    ],
+    "inferred_type": "integer"
+  },
+  "payment.staff_id": {
+    "sample_values": [
+      1,
+      2
+    ],
+    "inferred_type": "integer"
+  },
+  "payment.rental_id": {
+    "sample_values": [
+      76,
+      2308,
+      5326
+    ],
+    "inferred_type": "integer"
+  },
+  "payment.amount": {
+    "sample_values": [
+      2.99,
+      7.99,
+      3.98
+    ],
+    "inferred_type": "numeric"
+  },
+  "payment.payment_date": {
+    "sample_values": [
+      "2005-07-29 03:58:49",
+      "2005-06-18 13:33:59",
+      "2005-06-21 06:24:45"
+    ],
+    "inferred_type": "string"
+  },
+  "payment.last_update": {
+    "sample_values": [
+      "2006-02-15 22:12:49",
+      "2006-02-15 22:12:37",
+      "2006-02-15 22:12:38"
+    ],
+    "inferred_type": "string"
+  },
+  "rental.rental_id": {
+    "sample_values": [
+      1,
+      7,
+      13
+    ],
+    "inferred_type": "integer"
+  },
+  "rental.rental_date": {
+    "sample_values": [
+      "2005-05-25 01:48:41",
+      "2005-05-24 23:31:46",
+      "2005-05-25 00:00:40"
+    ],
+    "inferred_type": "string"
+  },
+  "rental.inventory_id": {
+    "sample_values": [
+      367,
+      3995,
+      2294
+    ],
+    "inferred_type": "integer"
+  },
+  "rental.customer_id": {
+    "sample_values": [
+      130,
+      269,
+      334
+    ],
+    "inferred_type": "integer"
+  },
+  "rental.return_date": {
+    "sample_values": [
+      "2005-05-27 02:20:41",
+      "2005-05-27 23:33:46",
+      "2005-05-28 00:22:40"
+    ],
+    "inferred_type": "string"
+  },
+  "rental.staff_id": {
+    "sample_values": [
+      1,
+      2
+    ],
+    "inferred_type": "integer"
+  },
+  "rental.last_update": {
+    "sample_values": [
+      "2006-02-15 21:30:53",
+      "2006-02-23 04:12:08"
+    ],
+    "inferred_type": "string"
+  }
+}

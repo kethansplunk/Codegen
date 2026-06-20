@@ -1,0 +1,134 @@
+{
+  "db_name": "coffee_shop",
+  "collections": {
+    "shop": {
+      "primary_key": [
+        "Shop_ID"
+      ],
+      "columns": [
+        {
+          "name": "Shop_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Address",
+          "type": "TEXT"
+        },
+        {
+          "name": "Num_of_staff",
+          "type": "TEXT"
+        },
+        {
+          "name": "Score",
+          "type": "REAL"
+        },
+        {
+          "name": "Open_Year",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 10
+    },
+    "member": {
+      "primary_key": [
+        "Member_ID"
+      ],
+      "columns": [
+        {
+          "name": "Member_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Membership_card",
+          "type": "TEXT"
+        },
+        {
+          "name": "Age",
+          "type": "INT"
+        },
+        {
+          "name": "Time_of_purchase",
+          "type": "INT"
+        },
+        {
+          "name": "Level_of_membership",
+          "type": "INT"
+        },
+        {
+          "name": "Address",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 10
+    },
+    "happy_hour": {
+      "primary_key": [
+        "HH_ID",
+        "Shop_ID",
+        "Month"
+      ],
+      "columns": [
+        {
+          "name": "HH_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Shop_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Month",
+          "type": "TEXT"
+        },
+        {
+          "name": "Num_of_shaff_in_charge",
+          "type": "INT"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "happy_hour",
+          "to": "shop",
+          "child_col": "Shop_ID",
+          "parent_col": "Shop_ID"
+        }
+      ],
+      "row_count": 10
+    },
+    "happy_hour_member": {
+      "primary_key": [
+        "HH_ID",
+        "Member_ID"
+      ],
+      "columns": [
+        {
+          "name": "HH_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Member_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Total_amount",
+          "type": "REAL"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "happy_hour_member",
+          "to": "member",
+          "child_col": "Member_ID",
+          "parent_col": "Member_ID"
+        }
+      ],
+      "row_count": 6
+    }
+  }
+}

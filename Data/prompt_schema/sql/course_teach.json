@@ -1,0 +1,82 @@
+{
+  "course.Course_ID": {
+    "sample_values": [
+      1,
+      4,
+      7
+    ],
+    "inferred_type": "integer"
+  },
+  "course.Staring_Date": {
+    "sample_values": [
+      "17 May",
+      "7 May",
+      "6 May"
+    ],
+    "inferred_type": "string"
+  },
+  "course.Course": {
+    "sample_values": [
+      "Music",
+      "Science",
+      "Math"
+    ],
+    "inferred_type": "string"
+  },
+  "teacher.Teacher_ID": {
+    "sample_values": [
+      1,
+      3,
+      5
+    ],
+    "inferred_type": "integer"
+  },
+  "teacher.Name": {
+    "sample_values": [
+      "Lucy Wong",
+      "Gustaaf Deloor",
+      "Vicente Carretero"
+    ],
+    "inferred_type": "string"
+  },
+  "teacher.Age": {
+    "sample_values": [
+      "32",
+      "26",
+      "45"
+    ],
+    "inferred_type": "integer"
+  },
+  "teacher.Hometown": {
+    "sample_values": [
+      "Turton Urban District",
+      "Bolton County Borough",
+      "Farnworth Municipal Borough"
+    ],
+    "inferred_type": "string"
+  },
+  "course_arrange.Course_ID": {
+    "sample_values": [
+      2,
+      3,
+      4
+    ],
+    "inferred_type": "integer"
+  },
+  "course_arrange.Teacher_ID": {
+    "sample_values": [
+      5,
+      3,
+      2
+    ],
+    "inferred_type": "integer"
+  },
+  "course_arrange.Grade": {
+    "sample_values": [
+      1,
+      3,
+      5
+    ],
+    "inferred_type": "integer"
+  }
+}

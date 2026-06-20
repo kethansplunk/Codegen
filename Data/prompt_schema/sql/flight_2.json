@@ -1,0 +1,89 @@
+{
+  "airlines.uid": {
+    "sample_values": [
+      1,
+      5,
+      9
+    ],
+    "inferred_type": "integer"
+  },
+  "airlines.Airline": {
+    "sample_values": [
+      "Virgin America",
+      "American Airlines",
+      "US Airways"
+    ],
+    "inferred_type": "string"
+  },
+  "airlines.Abbreviation": {
+    "sample_values": [
+      "Virgin",
+      "American",
+      "USAir"
+    ],
+    "inferred_type": "string"
+  },
+  "airports.City": {
+    "sample_values": [
+      "Alamosa ",
+      "Aiken ",
+      "Ainsworth "
+    ],
+    "inferred_type": "string"
+  },
+  "airports.AirportCode": {
+    "sample_values": [
+      "AHF",
+      "ADG",
+      "ADK"
+    ],
+    "inferred_type": "string"
+  },
+  "airports.AirportName": {
+    "sample_values": [
+      "Dougherty County ",
+      "Ainsworth ",
+      "Akhiok SPB "
+    ],
+    "inferred_type": "string"
+  },
+  "airports.CountryAbbrev": {
+    "sample_values": [
+      "US ",
+      "US"
+    ],
+    "inferred_type": "string"
+  },
+  "flights.Airline": {
+    "sample_values": [
+      1,
+      5,
+      9
+    ],
+    "inferred_type": "integer"
+  },
+  "flights.FlightNo": {
+    "sample_values": [
+      28,
+      90,
+      148
+    ],
+    "inferred_type": "integer"
+  },
+  "flights.SourceAirport": {
+    "sample_values": [
+      " ALX",
+      " ABR",
+      " ANV"
+    ],
+    "inferred_type": "string"
+  },
+  "flights.DestAirport": {
+    "sample_values": [
+      " ALX",
+      " ATO",
+      " MMI"
+    ],
+    "inferred_type": "string"
+  }
+}

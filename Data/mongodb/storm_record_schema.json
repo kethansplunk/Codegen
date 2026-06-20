@@ -1,0 +1,94 @@
+{
+  "db_name": "storm_record",
+  "collections": {
+    "storm": {
+      "primary_key": [
+        "Storm_ID"
+      ],
+      "columns": [
+        {
+          "name": "Storm_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Dates_active",
+          "type": "TEXT"
+        },
+        {
+          "name": "Max_speed",
+          "type": "INT"
+        },
+        {
+          "name": "Damage_millions_USD",
+          "type": "REAL"
+        },
+        {
+          "name": "Number_Deaths",
+          "type": "INT"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 10
+    },
+    "region": {
+      "primary_key": [
+        "Region_id"
+      ],
+      "columns": [
+        {
+          "name": "Region_id",
+          "type": "INT"
+        },
+        {
+          "name": "Region_code",
+          "type": "TEXT"
+        },
+        {
+          "name": "Region_name",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 13
+    },
+    "affected_region": {
+      "primary_key": [
+        "Region_id",
+        "Storm_ID"
+      ],
+      "columns": [
+        {
+          "name": "Region_id",
+          "type": "INT"
+        },
+        {
+          "name": "Storm_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Number_city_affected",
+          "type": "REAL"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "affected_region",
+          "to": "storm",
+          "child_col": "Storm_ID",
+          "parent_col": "Storm_ID"
+        },
+        {
+          "from": "affected_region",
+          "to": "region",
+          "child_col": "Region_id",
+          "parent_col": "Region_id"
+        }
+      ],
+      "row_count": 6
+    }
+  }
+}

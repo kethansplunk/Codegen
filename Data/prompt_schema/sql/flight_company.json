@@ -1,0 +1,159 @@
+{
+  "airport.id": {
+    "sample_values": [
+      1,
+      4,
+      7
+    ],
+    "inferred_type": "integer"
+  },
+  "airport.City": {
+    "sample_values": [
+      "Brussels",
+      "Anchorage",
+      "Amsterdam"
+    ],
+    "inferred_type": "string"
+  },
+  "airport.Country": {
+    "sample_values": [
+      "Belgium",
+      "Netherlands",
+      "United States"
+    ],
+    "inferred_type": "string"
+  },
+  "airport.IATA": {
+    "sample_values": [
+      "BRU",
+      "ANC",
+      "AMS"
+    ],
+    "inferred_type": "string"
+  },
+  "airport.ICAO": {
+    "sample_values": [
+      "EBBR",
+      "PANC",
+      "EHAM"
+    ],
+    "inferred_type": "string"
+  },
+  "airport.name": {
+    "sample_values": [
+      "National Airport",
+      "Ted Stevens Airport",
+      "Schiphol Airport"
+    ],
+    "inferred_type": "string"
+  },
+  "operate_company.id": {
+    "sample_values": [
+      1,
+      5,
+      9
+    ],
+    "inferred_type": "integer"
+  },
+  "operate_company.name": {
+    "sample_values": [
+      "CLS Catering Services Limited",
+      "Cathay Pacific Catering Services (HK) Limited",
+      "Dragonair"
+    ],
+    "inferred_type": "string"
+  },
+  "operate_company.Type": {
+    "sample_values": [
+      "Corporate",
+      "Joint Venture",
+      "Subsidiary"
+    ],
+    "inferred_type": "string"
+  },
+  "operate_company.Principal_activities": {
+    "sample_values": [
+      "Laundry",
+      "Cargo airline",
+      "Catering services"
+    ],
+    "inferred_type": "string"
+  },
+  "operate_company.Incorporated_in": {
+    "sample_values": [
+      "Canada",
+      "Vietnam",
+      "Taiwan"
+    ],
+    "inferred_type": "string"
+  },
+  "operate_company.Group_Equity_Shareholding": {
+    "sample_values": [
+      18.77,
+      60.0,
+      45.0
+    ],
+    "inferred_type": "float"
+  },
+  "flight.id": {
+    "sample_values": [
+      1,
+      5,
+      9
+    ],
+    "inferred_type": "integer"
+  },
+  "flight.Vehicle_Flight_number": {
+    "sample_values": [
+      "M2-F1 #73",
+      "M2-F1 #21",
+      "M2-F1 #13"
+    ],
+    "inferred_type": "string"
+  },
+  "flight.Date": {
+    "sample_values": [
+      "August 4, 1966",
+      "January 29, 1964",
+      "October 25, 1963"
+    ],
+    "inferred_type": "string"
+  },
+  "flight.Pilot": {
+    "sample_values": [
+      "Thompson",
+      "Peterson"
+    ],
+    "inferred_type": "string"
+  },
+  "flight.Velocity": {
+    "sample_values": [
+      135.0,
+      240.0
+    ],
+    "inferred_type": "float"
+  },
+  "flight.Altitude": {
+    "sample_values": [
+      0.0,
+      3650.0
+    ],
+    "inferred_type": "float"
+  },
+  "flight.airport_id": {
+    "sample_values": [
+      1,
+      3,
+      5
+    ],
+    "inferred_type": "integer"
+  },
+  "flight.company_id": {
+    "sample_values": [
+      2,
+      5,
+      13
+    ],
+    "inferred_type": "integer"
+  }
+}

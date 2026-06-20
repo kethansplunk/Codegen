@@ -1,0 +1,74 @@
+{
+  "AREA_CODE_STATE.area_code": {
+    "sample_values": [
+      201,
+      208,
+      215
+    ],
+    "inferred_type": "integer"
+  },
+  "AREA_CODE_STATE.state": {
+    "sample_values": [
+      "VA",
+      "CA",
+      "TX"
+    ],
+    "inferred_type": "string"
+  },
+  "CONTESTANTS.contestant_number": {
+    "sample_values": [
+      1,
+      4,
+      7
+    ],
+    "inferred_type": "integer"
+  },
+  "CONTESTANTS.contestant_name": {
+    "sample_values": [
+      "Loraine NygrenTania Mattioli",
+      "Alana Bregman",
+      "Tabatha Gehling"
+    ],
+    "inferred_type": "string"
+  },
+  "VOTES.vote_id": {
+    "sample_values": [
+      5,
+      3,
+      2
+    ],
+    "inferred_type": "integer"
+  },
+  "VOTES.phone_number": {
+    "sample_values": [
+      5112677315,
+      6209222712,
+      7148407040
+    ],
+    "inferred_type": "integer"
+  },
+  "VOTES.state": {
+    "sample_values": [
+      "NY",
+      "CA",
+      "NJ\n"
+    ],
+    "inferred_type": "string"
+  },
+  "VOTES.contestant_number": {
+    "sample_values": [
+      2,
+      3,
+      5
+    ],
+    "inferred_type": "integer"
+  },
+  "VOTES.created": {
+    "sample_values": [
+      "2018-03-09 19:03:40",
+      "2018-03-09 19:03:39",
+      "2018-03-09 19:03:36"
+    ],
+    "inferred_type": "string"
+  }
+}

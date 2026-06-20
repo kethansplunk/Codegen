@@ -1,0 +1,114 @@
+{
+  "Ref_Template_Types.Template_Type_Code": {
+    "sample_values": [
+      "PPT",
+      "PP",
+      "CV"
+    ],
+    "inferred_type": "string"
+  },
+  "Ref_Template_Types.Template_Type_Description": {
+    "sample_values": [
+      "Book",
+      "Paper",
+      "Advertisement"
+    ],
+    "inferred_type": "string"
+  },
+  "Templates.Template_ID": {
+    "sample_values": [
+      0,
+      9,
+      18
+    ],
+    "inferred_type": "integer"
+  },
+  "Templates.Version_Number": {
+    "sample_values": [
+      5,
+      2,
+      1
+    ],
+    "inferred_type": "integer"
+  },
+  "Templates.Template_Type_Code": {
+    "sample_values": [
+      "CV",
+      "AD",
+      "PPT"
+    ],
+    "inferred_type": "string"
+  },
+  "Templates.Date_Effective_From": {
+    "sample_values": [
+      "1979-10-20 21:23:20",
+      "2003-06-05 04:03:45",
+      "1996-02-04 11:27:24"
+    ],
+    "inferred_type": "string"
+  },
+  "Templates.Date_Effective_To": {
+    "sample_values": [
+      "2006-02-06 23:52:04",
+      "2007-06-06 06:18:53",
+      "1995-09-19 22:27:48"
+    ],
+    "inferred_type": "string"
+  },
+  "Documents.Document_ID": {
+    "sample_values": [
+      0,
+      82,
+      651512
+    ],
+    "inferred_type": "integer"
+  },
+  "Documents.Template_ID": {
+    "sample_values": [
+      7,
+      14,
+      22
+    ],
+    "inferred_type": "integer"
+  },
+  "Documents.Document_Name": {
+    "sample_values": [
+      "About Korea",
+      "Customer reviews",
+      "Data base"
+    ],
+    "inferred_type": "string"
+  },
+  "Documents.Document_Description": {
+    "sample_values": [
+      "n",
+      "h",
+      "z"
+    ],
+    "inferred_type": "string"
+  },
+  "Paragraphs.Paragraph_ID": {
+    "sample_values": [
+      7,
+      9946,
+      510442723
+    ],
+    "inferred_type": "integer"
+  },
+  "Paragraphs.Document_ID": {
+    "sample_values": [
+      2394,
+      651512,
+      80
+    ],
+    "inferred_type": "integer"
+  },
+  "Paragraphs.Paragraph_Text": {
+    "sample_values": [
+      "Papua New Guinea",
+      "Fiji",
+      "Jersey"
+    ],
+    "inferred_type": "string"
+  }
+}

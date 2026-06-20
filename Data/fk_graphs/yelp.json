@@ -1,0 +1,266 @@
+{
+  "db_name": "yelp",
+  "nodes": [
+    {
+      "name": "business",
+      "columns": [
+        {
+          "name": "bid",
+          "type": "INT"
+        },
+        {
+          "name": "business_id",
+          "type": "TEXT"
+        },
+        {
+          "name": "name",
+          "type": "TEXT"
+        },
+        {
+          "name": "full_address",
+          "type": "TEXT"
+        },
+        {
+          "name": "city",
+          "type": "TEXT"
+        },
+        {
+          "name": "latitude",
+          "type": "TEXT"
+        },
+        {
+          "name": "longitude",
+          "type": "TEXT"
+        },
+        {
+          "name": "review_count",
+          "type": "INT"
+        },
+        {
+          "name": "is_open",
+          "type": "INT"
+        },
+        {
+          "name": "rating",
+          "type": "REAL"
+        },
+        {
+          "name": "state",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "bid"
+      ]
+    },
+    {
+      "name": "category",
+      "columns": [
+        {
+          "name": "id",
+          "type": "INT"
+        },
+        {
+          "name": "business_id",
+          "type": "TEXT"
+        },
+        {
+          "name": "category_name",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "id"
+      ]
+    },
+    {
+      "name": "user",
+      "columns": [
+        {
+          "name": "uid",
+          "type": "INT"
+        },
+        {
+          "name": "user_id",
+          "type": "TEXT"
+        },
+        {
+          "name": "name",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "uid"
+      ]
+    },
+    {
+      "name": "checkin",
+      "columns": [
+        {
+          "name": "cid",
+          "type": "INT"
+        },
+        {
+          "name": "business_id",
+          "type": "TEXT"
+        },
+        {
+          "name": "count",
+          "type": "INT"
+        },
+        {
+          "name": "day",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "cid"
+      ]
+    },
+    {
+      "name": "neighbourhood",
+      "columns": [
+        {
+          "name": "id",
+          "type": "INT"
+        },
+        {
+          "name": "business_id",
+          "type": "TEXT"
+        },
+        {
+          "name": "neighbourhood_name",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "id"
+      ]
+    },
+    {
+      "name": "review",
+      "columns": [
+        {
+          "name": "rid",
+          "type": "INT"
+        },
+        {
+          "name": "business_id",
+          "type": "TEXT"
+        },
+        {
+          "name": "user_id",
+          "type": "TEXT"
+        },
+        {
+          "name": "rating",
+          "type": "REAL"
+        },
+        {
+          "name": "text",
+          "type": "TEXT"
+        },
+        {
+          "name": "year",
+          "type": "INT"
+        },
+        {
+          "name": "month",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "rid"
+      ]
+    },
+    {
+      "name": "tip",
+      "columns": [
+        {
+          "name": "tip_id",
+          "type": "INT"
+        },
+        {
+          "name": "business_id",
+          "type": "TEXT"
+        },
+        {
+          "name": "text",
+          "type": "TEXT"
+        },
+        {
+          "name": "user_id",
+          "type": "TEXT"
+        },
+        {
+          "name": "likes",
+          "type": "INT"
+        },
+        {
+          "name": "year",
+          "type": "INT"
+        },
+        {
+          "name": "month",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "tip_id"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "category",
+      "to": "business",
+      "child_col": "business_id",
+      "parent_col": "business_id"
+    },
+    {
+      "from": "checkin",
+      "to": "business",
+      "child_col": "business_id",
+      "parent_col": "business_id"
+    },
+    {
+      "from": "neighbourhood",
+      "to": "business",
+      "child_col": "business_id",
+      "parent_col": "business_id"
+    },
+    {
+      "from": "review",
+      "to": "user",
+      "child_col": "user_id",
+      "parent_col": "user_id"
+    },
+    {
+      "from": "review",
+      "to": "business",
+      "child_col": "business_id",
+      "parent_col": "business_id"
+    },
+    {
+      "from": "tip",
+      "to": "user",
+      "child_col": "user_id",
+      "parent_col": "user_id"
+    },
+    {
+      "from": "tip",
+      "to": "business",
+      "child_col": "business_id",
+      "parent_col": "business_id"
+    }
+  ],
+  "centrality": {
+    "business": 0.8333333333333333,
+    "category": 0.0,
+    "user": 0.3333333333333333,
+    "checkin": 0.0,
+    "neighbourhood": 0.0,
+    "review": 0.0,
+    "tip": 0.0
+  }
+}

@@ -1,0 +1,102 @@
+{
+  "db_name": "pets_1",
+  "nodes": [
+    {
+      "name": "Student",
+      "columns": [
+        {
+          "name": "StuID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "LName",
+          "type": "VARCHAR(12)"
+        },
+        {
+          "name": "Fname",
+          "type": "VARCHAR(12)"
+        },
+        {
+          "name": "Age",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Sex",
+          "type": "VARCHAR(1)"
+        },
+        {
+          "name": "Major",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Advisor",
+          "type": "INTEGER"
+        },
+        {
+          "name": "city_code",
+          "type": "VARCHAR(3)"
+        }
+      ],
+      "pk": [
+        "StuID"
+      ]
+    },
+    {
+      "name": "Has_Pet",
+      "columns": [
+        {
+          "name": "StuID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "PetID",
+          "type": "INTEGER"
+        }
+      ],
+      "pk": []
+    },
+    {
+      "name": "Pets",
+      "columns": [
+        {
+          "name": "PetID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "PetType",
+          "type": "VARCHAR(20)"
+        },
+        {
+          "name": "pet_age",
+          "type": "INTEGER"
+        },
+        {
+          "name": "weight",
+          "type": "REAL"
+        }
+      ],
+      "pk": [
+        "PetID"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "Has_Pet",
+      "to": "Student",
+      "child_col": "StuID",
+      "parent_col": "StuID"
+    },
+    {
+      "from": "Has_Pet",
+      "to": "Pets",
+      "child_col": "PetID",
+      "parent_col": "PetID"
+    }
+  ],
+  "centrality": {
+    "Student": 0.5,
+    "Has_Pet": 0.0,
+    "Pets": 0.5
+  }
+}

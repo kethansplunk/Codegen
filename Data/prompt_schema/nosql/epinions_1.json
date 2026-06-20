@@ -1,0 +1,97 @@
+{
+  "item.title": {
+    "sample_values": [
+      "comb",
+      "blue hoodie",
+      "pear"
+    ],
+    "inferred_type": "string"
+  },
+  "item.i_id": {
+    "sample_values": [
+      "5",
+      "1",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "review.u_id": {
+    "sample_values": [
+      "1",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "review.i_id": {
+    "sample_values": [
+      "5",
+      "1",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "review.rank": {
+    "sample_values": [
+      "5",
+      "2",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "review.a_id": {
+    "sample_values": [
+      "5",
+      "2",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "review.rating": {
+    "sample_values": [
+      "7",
+      "6",
+      "5"
+    ],
+    "inferred_type": "integer"
+  },
+  "useracct.name": {
+    "sample_values": [
+      "Nancy",
+      "Terry",
+      "Roxi"
+    ],
+    "inferred_type": "string"
+  },
+  "useracct.u_id": {
+    "sample_values": [
+      "5",
+      "2",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "trust.trust": {
+    "sample_values": [
+      "10",
+      "1",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "trust.target_u_id": {
+    "sample_values": [
+      "5",
+      "2",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "trust.source_u_id": {
+    "sample_values": [
+      "1",
+      "2",
+      "6"
+    ],
+    "inferred_type": "integer"
+  }
+}

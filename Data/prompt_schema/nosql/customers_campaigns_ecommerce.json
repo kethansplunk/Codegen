@@ -1,0 +1,310 @@
+{
+  "Mailshot_Customers.customer_id": {
+    "sample_values": [
+      "14",
+      "4",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "Mailshot_Customers.mailshot_id": {
+    "sample_values": [
+      "17",
+      "20",
+      "18"
+    ],
+    "inferred_type": "integer"
+  },
+  "Mailshot_Customers.outcome_code": {
+    "sample_values": [
+      "No Response",
+      "Order"
+    ],
+    "inferred_type": "string"
+  },
+  "Mailshot_Customers.mailshot_customer_date": {
+    "sample_values": [
+      "2018-03-13 05:18:16",
+      "2018-03-15 15:43:14",
+      "2018-03-15 04:05:08"
+    ],
+    "inferred_type": "string"
+  },
+  "Products.product_category": {
+    "sample_values": [
+      "Electronics",
+      "Hardware",
+      "Books"
+    ],
+    "inferred_type": "string"
+  },
+  "Products.product_name": {
+    "sample_values": [
+      "Everything about Amazon",
+      "MP3",
+      "Learning French"
+    ],
+    "inferred_type": "string"
+  },
+  "Products.product_id": {
+    "sample_values": [
+      "5",
+      "8",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Customers.customer_email": {
+    "sample_values": [
+      "fstanton@example.net",
+      "yoshiko.balistreri@example.org",
+      "vpowlowski@example.net"
+    ],
+    "inferred_type": "string"
+  },
+  "Customers.customer_phone": {
+    "sample_values": [
+      "698-327-5792",
+      "291-425-7193",
+      "+43(3)1861877192"
+    ],
+    "inferred_type": "string"
+  },
+  "Customers.customer_password": {
+    "sample_values": [
+      "bdfdc8e91a",
+      "22dc8bfaf5",
+      "280160b7b3"
+    ],
+    "inferred_type": "string"
+  },
+  "Customers.payment_method": {
+    "sample_values": [
+      "Direct Debit",
+      "Credit Card"
+    ],
+    "inferred_type": "string"
+  },
+  "Customers.customer_id": {
+    "sample_values": [
+      "5",
+      "8",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Customers.customer_name": {
+    "sample_values": [
+      "Elvera",
+      "Osborne",
+      "Carlotta"
+    ],
+    "inferred_type": "string"
+  },
+  "Customers.customer_address": {
+    "sample_values": [
+      "115 Farrell Squares Suite 599",
+      "0260 Walker Trace",
+      "94105 Bahringer Oval Suite 178"
+    ],
+    "inferred_type": "string"
+  },
+  "Customer_Addresses.date_address_from": {
+    "sample_values": [
+      "1995-03-26 17:39:46",
+      "1985-03-18 20:46:30",
+      "1975-12-24 10:01:37"
+    ],
+    "inferred_type": "string"
+  },
+  "Customer_Addresses.date_address_to": {
+    "sample_values": [
+      "2018-03-24 07:12:35",
+      "2018-03-08 08:03:51",
+      "2018-03-15 18:34:41"
+    ],
+    "inferred_type": "string"
+  },
+  "Customer_Addresses.address_type_code": {
+    "sample_values": [
+      "Shipping",
+      "Billing"
+    ],
+    "inferred_type": "string"
+  },
+  "Customer_Addresses.premise_id": {
+    "sample_values": [
+      "5",
+      "8",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "Customer_Addresses.customer_id": {
+    "sample_values": [
+      "5",
+      "8",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "Customer_Orders.shipping_method_code": {
+    "sample_values": [
+      "Unspecified",
+      "FedEx",
+      "UPS"
+    ],
+    "inferred_type": "string"
+  },
+  "Customer_Orders.order_shipping_charges": {
+    "sample_values": [
+      "35.63",
+      "74.28",
+      "33.58"
+    ],
+    "inferred_type": "float"
+  },
+  "Customer_Orders.customer_id": {
+    "sample_values": [
+      "5",
+      "8",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Customer_Orders.order_placed_datetime": {
+    "sample_values": [
+      "2016-10-20 20:59:35",
+      "2012-06-05 09:05:34",
+      "2015-12-29 10:39:56"
+    ],
+    "inferred_type": "string"
+  },
+  "Customer_Orders.order_id": {
+    "sample_values": [
+      "5",
+      "8",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Customer_Orders.order_status_code": {
+    "sample_values": [
+      "Delivered",
+      "Cancelled",
+      "Paid"
+    ],
+    "inferred_type": "string"
+  },
+  "Order_Items.order_item_status_code": {
+    "sample_values": [
+      "Delivered",
+      "Paid",
+      "Cancelled"
+    ],
+    "inferred_type": "string"
+  },
+  "Order_Items.item_order_quantity": {
+    "sample_values": [
+      "5",
+      "2",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Order_Items.item_id": {
+    "sample_values": [
+      "5",
+      "8",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Order_Items.item_delivered_datetime": {
+    "sample_values": [
+      "2018-03-05 12:04:23",
+      "2018-03-04 18:19:12",
+      "2018-02-27 18:04:55"
+    ],
+    "inferred_type": "string"
+  },
+  "Order_Items.product_id": {
+    "sample_values": [
+      "5",
+      "6",
+      "13"
+    ],
+    "inferred_type": "integer"
+  },
+  "Order_Items.order_id": {
+    "sample_values": [
+      "10",
+      "8",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "Mailshot_Campaigns.mailshot_id": {
+    "sample_values": [
+      "13",
+      "3",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Mailshot_Campaigns.mailshot_start_date": {
+    "sample_values": [
+      "2017-06-25 11:43:09",
+      "2018-01-14 21:03:10",
+      "2018-02-04 13:13:36"
+    ],
+    "inferred_type": "string"
+  },
+  "Mailshot_Campaigns.mailshot_name": {
+    "sample_values": [
+      "US",
+      "USPS",
+      "FED"
+    ],
+    "inferred_type": "string"
+  },
+  "Mailshot_Campaigns.product_category": {
+    "sample_values": [
+      "food",
+      "clothes"
+    ],
+    "inferred_type": "string"
+  },
+  "Mailshot_Campaigns.mailshot_end_date": {
+    "sample_values": [
+      "2018-03-05 03:08:48",
+      "2018-03-23 03:36:49",
+      "2018-03-13 14:42:26"
+    ],
+    "inferred_type": "string"
+  },
+  "Premises.premise_details": {
+    "sample_values": [
+      "00100 Green Mountains Apt. 653",
+      "5510 Veum Green",
+      "33294 William Lodge Apt. 953"
+    ],
+    "inferred_type": "string"
+  },
+  "Premises.premise_id": {
+    "sample_values": [
+      "5",
+      "8",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Premises.premises_type": {
+    "sample_values": [
+      "Office",
+      "Residence",
+      "Warehouse"
+    ],
+    "inferred_type": "string"
+  }
+}

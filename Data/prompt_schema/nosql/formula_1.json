@@ -1,0 +1,640 @@
+{
+  "constructorStandings.wins": {
+    "sample_values": [
+      "0",
+      "1",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "constructorStandings.points": {
+    "sample_values": [
+      "1.0",
+      "30.0",
+      "6.0"
+    ],
+    "inferred_type": "float"
+  },
+  "constructorStandings.positionText": {
+    "sample_values": [
+      "5",
+      "1",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "constructorStandings.constructorId": {
+    "sample_values": [
+      "5",
+      "1",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "constructorStandings.raceId": {
+    "sample_values": [
+      "20",
+      "18",
+      "22"
+    ],
+    "inferred_type": "integer"
+  },
+  "constructorStandings.constructorStandingsId": {
+    "sample_values": [
+      "34",
+      "25",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "constructorStandings.position": {
+    "sample_values": [
+      "5",
+      "1",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "qualifying.q2": {
+    "sample_values": [
+      "1:26.063",
+      "1:26.413",
+      "1:35.140"
+    ],
+    "inferred_type": "string"
+  },
+  "qualifying.position": {
+    "sample_values": [
+      "22",
+      "12",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "qualifying.q1": {
+    "sample_values": [
+      "1:32.893",
+      "1:36.058",
+      "1:28.330"
+    ],
+    "inferred_type": "string"
+  },
+  "qualifying.q3": {
+    "sample_values": [
+      "1:36.613",
+      "1:36.753",
+      "1:33.123"
+    ],
+    "inferred_type": "string"
+  },
+  "qualifying.constructorId": {
+    "sample_values": [
+      "5",
+      "1",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "qualifying.raceId": {
+    "sample_values": [
+      "19",
+      "18",
+      "20"
+    ],
+    "inferred_type": "integer"
+  },
+  "qualifying.number": {
+    "sample_values": [
+      "23",
+      "12",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "qualifying.driverId": {
+    "sample_values": [
+      "22",
+      "12",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "qualifying.qualifyId": {
+    "sample_values": [
+      "34",
+      "25",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "drivers.surname": {
+    "sample_values": [
+      "Zonta",
+      "Heidfeld",
+      "Rosberg"
+    ],
+    "inferred_type": "string"
+  },
+  "drivers.forename": {
+    "sample_values": [
+      "Juan",
+      "Gianmaria",
+      "Kazuki"
+    ],
+    "inferred_type": "string"
+  },
+  "drivers.nationality": {
+    "sample_values": [
+      "Portuguese",
+      "French",
+      "Indian"
+    ],
+    "inferred_type": "string"
+  },
+  "drivers.number": {
+    "sample_values": [
+      "99",
+      "14",
+      "5"
+    ],
+    "inferred_type": "string"
+  },
+  "drivers.code": {
+    "sample_values": [
+      "VIL",
+      "BOU",
+      "DLR"
+    ],
+    "inferred_type": "string"
+  },
+  "drivers.driverRef": {
+    "sample_values": [
+      "hamilton",
+      "karthikeyan",
+      "markus_winkelhock"
+    ],
+    "inferred_type": "string"
+  },
+  "drivers.driverId": {
+    "sample_values": [
+      "34",
+      "25",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "drivers.url": {
+    "sample_values": [
+      "http://en.wikipedia.org/wiki/Ricardo_Zonta",
+      "http://en.wikipedia.org/wiki/Robert_Kubica",
+      "http://en.wikipedia.org/wiki/Marc_Gen%C3%A9"
+    ],
+    "inferred_type": "string"
+  },
+  "drivers.dob": {
+    "sample_values": [
+      "11/09/1980",
+      "04/03/1972",
+      "05/01/1978"
+    ],
+    "inferred_type": "string"
+  },
+  "races.date": {
+    "sample_values": [
+      "2009-07-12",
+      "2008-11-02",
+      "2008-09-28"
+    ],
+    "inferred_type": "string"
+  },
+  "races.name": {
+    "sample_values": [
+      "Italian Grand Prix",
+      "Australian Grand Prix",
+      "German Grand Prix"
+    ],
+    "inferred_type": "string"
+  },
+  "races.time": {
+    "sample_values": [
+      "17:00:00",
+      "05:00:00",
+      "16:00:00"
+    ],
+    "inferred_type": "string"
+  },
+  "races.round": {
+    "sample_values": [
+      "17",
+      "16",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "races.year": {
+    "sample_values": [
+      "2007",
+      "2009",
+      "2008"
+    ],
+    "inferred_type": "integer"
+  },
+  "races.raceId": {
+    "sample_values": [
+      "34",
+      "25",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "races.url": {
+    "sample_values": [
+      "http://en.wikipedia.org/wiki/2008_Japanese_Grand_Prix",
+      "http://en.wikipedia.org/wiki/2008_Belgian_Grand_Prix",
+      "http://en.wikipedia.org/wiki/2009_Monaco_Grand_Prix"
+    ],
+    "inferred_type": "string"
+  },
+  "races.circuitId": {
+    "sample_values": [
+      "22",
+      "3",
+      "7"
+    ],
+    "inferred_type": "integer"
+  },
+  "status.status": {
+    "sample_values": [
+      "+5 Laps",
+      "Track rod",
+      "Driveshaft"
+    ],
+    "inferred_type": "string"
+  },
+  "status.statusId": {
+    "sample_values": [
+      "34",
+      "25",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "constructors.constructorRef": {
+    "sample_values": [
+      "bmw_sauber",
+      "alfa",
+      "larrousse"
+    ],
+    "inferred_type": "string"
+  },
+  "constructors.name": {
+    "sample_values": [
+      "Brawn",
+      "McLaren",
+      "Onyx"
+    ],
+    "inferred_type": "string"
+  },
+  "constructors.nationality": {
+    "sample_values": [
+      "Italian",
+      "French",
+      "Austrian"
+    ],
+    "inferred_type": "string"
+  },
+  "constructors.constructorId": {
+    "sample_values": [
+      "34",
+      "15",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "constructors.url": {
+    "sample_values": [
+      "http://en.wikipedia.org/wiki/Benetton_Formula",
+      "http://en.wikipedia.org/wiki/Jaguar_Racing",
+      "http://en.wikipedia.org/wiki/Rial_%28racing_team%29"
+    ],
+    "inferred_type": "string"
+  },
+  "circuits.location": {
+    "sample_values": [
+      "Buenos Aires",
+      "Madrid",
+      "California"
+    ],
+    "inferred_type": "string"
+  },
+  "circuits.lng": {
+    "sample_values": [
+      "-0.331667",
+      "138.617",
+      "-73.5228"
+    ],
+    "inferred_type": "float"
+  },
+  "circuits.name": {
+    "sample_values": [
+      "Hungaroring",
+      "N_rburgring",
+      "Fair Park"
+    ],
+    "inferred_type": "string"
+  },
+  "circuits.country": {
+    "sample_values": [
+      "Italy",
+      "Belgium",
+      "Hungary"
+    ],
+    "inferred_type": "string"
+  },
+  "circuits.circuitRef": {
+    "sample_values": [
+      "spa",
+      "adelaide",
+      "nivelles"
+    ],
+    "inferred_type": "string"
+  },
+  "circuits.alt": {
+    "sample_values": [
+      "",
+      "10"
+    ],
+    "inferred_type": "string"
+  },
+  "circuits.lat": {
+    "sample_values": [
+      "44.3439",
+      "34.8431",
+      "35.3717"
+    ],
+    "inferred_type": "float"
+  },
+  "circuits.url": {
+    "sample_values": [
+      "http://en.wikipedia.org/wiki/Circuit_de_Spa-Francorchamps",
+      "http://en.wikipedia.org/wiki/Dijon-Prenois",
+      "http://en.wikipedia.org/wiki/Valencia_Street_Circuit"
+    ],
+    "inferred_type": "string"
+  },
+  "circuits.circuitId": {
+    "sample_values": [
+      "34",
+      "25",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "constructorResults.points": {
+    "sample_values": [
+      "6.0",
+      "1.0",
+      "5.0"
+    ],
+    "inferred_type": "float"
+  },
+  "constructorResults.constructorId": {
+    "sample_values": [
+      "5",
+      "1",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "constructorResults.raceId": {
+    "sample_values": [
+      "20",
+      "18",
+      "22"
+    ],
+    "inferred_type": "integer"
+  },
+  "constructorResults.constructorResultsId": {
+    "sample_values": [
+      "34",
+      "25",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "driverStandings.wins": {
+    "sample_values": [
+      "1",
+      "0"
+    ],
+    "inferred_type": "integer"
+  },
+  "driverStandings.points": {
+    "sample_values": [
+      "11.0",
+      "0.0",
+      "3.0"
+    ],
+    "inferred_type": "float"
+  },
+  "driverStandings.positionText": {
+    "sample_values": [
+      "21",
+      "3",
+      "7"
+    ],
+    "inferred_type": "integer"
+  },
+  "driverStandings.raceId": {
+    "sample_values": [
+      "21",
+      "19",
+      "18"
+    ],
+    "inferred_type": "integer"
+  },
+  "driverStandings.driverStandingsId": {
+    "sample_values": [
+      "34",
+      "25",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "driverStandings.driverId": {
+    "sample_values": [
+      "22",
+      "12",
+      "7"
+    ],
+    "inferred_type": "integer"
+  },
+  "driverStandings.position": {
+    "sample_values": [
+      "21",
+      "3",
+      "7"
+    ],
+    "inferred_type": "integer"
+  },
+  "results.milliseconds": {
+    "sample_values": [
+      "5524387",
+      "5517005",
+      "5508284"
+    ],
+    "inferred_type": "string"
+  },
+  "results.resultId": {
+    "sample_values": [
+      "34",
+      "25",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "results.positionOrder": {
+    "sample_values": [
+      "22",
+      "12",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "results.fastestLap": {
+    "sample_values": [
+      "55",
+      "15",
+      "43"
+    ],
+    "inferred_type": "string"
+  },
+  "results.time": {
+    "sample_values": [
+      "5.478",
+      "+1:08.130",
+      "46.548"
+    ],
+    "inferred_type": "string"
+  },
+  "results.fastestLapTime": {
+    "sample_values": [
+      "01:34.2",
+      "01:27.5",
+      "01:27.4"
+    ],
+    "inferred_type": "string"
+  },
+  "results.points": {
+    "sample_values": [
+      "10.0",
+      "8.0",
+      "6.0"
+    ],
+    "inferred_type": "float"
+  },
+  "results.statusId": {
+    "sample_values": [
+      "5",
+      "1",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "results.fastestLapSpeed": {
+    "sample_values": [
+      "209.244",
+      "213.224",
+      "208.033"
+    ],
+    "inferred_type": "string"
+  },
+  "results.constructorId": {
+    "sample_values": [
+      "5",
+      "1",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "results.raceId": {
+    "sample_values": [
+      "19",
+      "18",
+      "20"
+    ],
+    "inferred_type": "integer"
+  },
+  "results.number": {
+    "sample_values": [
+      "23",
+      "12",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "results.grid": {
+    "sample_values": [
+      "22",
+      "12",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "results.rank": {
+    "sample_values": [
+      "11",
+      "16",
+      "20"
+    ],
+    "inferred_type": "string"
+  },
+  "results.positionText": {
+    "sample_values": [
+      "11",
+      "16",
+      "6"
+    ],
+    "inferred_type": "string"
+  },
+  "results.laps": {
+    "sample_values": [
+      "47",
+      "54",
+      "55"
+    ],
+    "inferred_type": "integer"
+  },
+  "results.driverId": {
+    "sample_values": [
+      "22",
+      "12",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "results.position": {
+    "sample_values": [
+      "7",
+      "16",
+      "15"
+    ],
+    "inferred_type": "string"
+  },
+  "seasons.url": {
+    "sample_values": [
+      "http://en.wikipedia.org/wiki/1982_Formula_One_season",
+      "http://en.wikipedia.org/wiki/1960_Formula_One_season",
+      "http://en.wikipedia.org/wiki/1979_Formula_One_season"
+    ],
+    "inferred_type": "string"
+  },
+  "seasons.year": {
+    "sample_values": [
+      "1956",
+      "1972",
+      "1976"
+    ],
+    "inferred_type": "integer"
+  }
+}

@@ -1,0 +1,96 @@
+{
+  "ship.Nationality": {
+    "sample_values": [
+      "United States",
+      "United Kingdom"
+    ],
+    "inferred_type": "string"
+  },
+  "ship.Type": {
+    "sample_values": [
+      "Cargo ship",
+      "Battle ship"
+    ],
+    "inferred_type": "string"
+  },
+  "ship.Ship_ID": {
+    "sample_values": [
+      "5",
+      "1",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "ship.Name": {
+    "sample_values": [
+      "Clan McTavish",
+      "Author",
+      "Corbridge"
+    ],
+    "inferred_type": "string"
+  },
+  "ship.Tonnage": {
+    "sample_values": [
+      "3035",
+      "3146",
+      "5816"
+    ],
+    "inferred_type": "integer"
+  },
+  "mission.Speed_knots": {
+    "sample_values": [
+      "16",
+      "23",
+      "25"
+    ],
+    "inferred_type": "integer"
+  },
+  "mission.Ship_ID": {
+    "sample_values": [
+      "5",
+      "1",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "mission.Location": {
+    "sample_values": [
+      "Norway",
+      "Germany",
+      "Uusikaupunki , Finland"
+    ],
+    "inferred_type": "string"
+  },
+  "mission.Launched_Year": {
+    "sample_values": [
+      "1932",
+      "1930",
+      "1916"
+    ],
+    "inferred_type": "integer"
+  },
+  "mission.Mission_ID": {
+    "sample_values": [
+      "5",
+      "2",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "mission.Fate": {
+    "sample_values": [
+      "Decommissioned 1959",
+      "Lost (burned) 1931",
+      "Retired 1939"
+    ],
+    "inferred_type": "string"
+  },
+  "mission.Code": {
+    "sample_values": [
+      "VMV-4 Former: Sterling",
+      "VMV-5",
+      "VMV-6"
+    ],
+    "inferred_type": "string"
+  }
+}

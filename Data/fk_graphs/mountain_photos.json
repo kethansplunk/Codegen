@@ -1,0 +1,112 @@
+{
+  "db_name": "mountain_photos",
+  "nodes": [
+    {
+      "name": "mountain",
+      "columns": [
+        {
+          "name": "id",
+          "type": "INT"
+        },
+        {
+          "name": "name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Height",
+          "type": "REAL"
+        },
+        {
+          "name": "Prominence",
+          "type": "REAL"
+        },
+        {
+          "name": "Range",
+          "type": "TEXT"
+        },
+        {
+          "name": "Country",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "id"
+      ]
+    },
+    {
+      "name": "camera_lens",
+      "columns": [
+        {
+          "name": "id",
+          "type": "INT"
+        },
+        {
+          "name": "brand",
+          "type": "TEXT"
+        },
+        {
+          "name": "name",
+          "type": "TEXT"
+        },
+        {
+          "name": "focal_length_mm",
+          "type": "REAL"
+        },
+        {
+          "name": "max_aperture",
+          "type": "REAL"
+        }
+      ],
+      "pk": [
+        "id"
+      ]
+    },
+    {
+      "name": "photos",
+      "columns": [
+        {
+          "name": "id",
+          "type": "INT"
+        },
+        {
+          "name": "camera_lens_id",
+          "type": "INT"
+        },
+        {
+          "name": "mountain_id",
+          "type": "INT"
+        },
+        {
+          "name": "color",
+          "type": "TEXT"
+        },
+        {
+          "name": "name",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "id"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "photos",
+      "to": "mountain",
+      "child_col": "mountain_id",
+      "parent_col": "id"
+    },
+    {
+      "from": "photos",
+      "to": "camera_lens",
+      "child_col": "camera_lens_id",
+      "parent_col": "id"
+    }
+  ],
+  "centrality": {
+    "mountain": 0.5,
+    "camera_lens": 0.5,
+    "photos": 0.0
+  }
+}

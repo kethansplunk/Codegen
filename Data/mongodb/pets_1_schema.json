@@ -1,0 +1,99 @@
+{
+  "db_name": "pets_1",
+  "collections": {
+    "Student": {
+      "primary_key": [
+        "StuID"
+      ],
+      "columns": [
+        {
+          "name": "StuID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "LName",
+          "type": "VARCHAR(12)"
+        },
+        {
+          "name": "Fname",
+          "type": "VARCHAR(12)"
+        },
+        {
+          "name": "Age",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Sex",
+          "type": "VARCHAR(1)"
+        },
+        {
+          "name": "Major",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Advisor",
+          "type": "INTEGER"
+        },
+        {
+          "name": "city_code",
+          "type": "VARCHAR(3)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 34
+    },
+    "Has_Pet": {
+      "primary_key": [],
+      "columns": [
+        {
+          "name": "StuID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "PetID",
+          "type": "INTEGER"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Has_Pet",
+          "to": "Student",
+          "child_col": "StuID",
+          "parent_col": "StuID"
+        },
+        {
+          "from": "Has_Pet",
+          "to": "Pets",
+          "child_col": "PetID",
+          "parent_col": "PetID"
+        }
+      ],
+      "row_count": 3
+    },
+    "Pets": {
+      "primary_key": [
+        "PetID"
+      ],
+      "columns": [
+        {
+          "name": "PetID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "PetType",
+          "type": "VARCHAR(20)"
+        },
+        {
+          "name": "pet_age",
+          "type": "INTEGER"
+        },
+        {
+          "name": "weight",
+          "type": "REAL"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 3
+    }
+  }
+}

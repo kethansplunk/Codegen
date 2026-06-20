@@ -1,0 +1,245 @@
+{
+  "db_name": "scholar",
+  "collections": {
+    "venue": {
+      "primary_key": [
+        "venueId"
+      ],
+      "columns": [
+        {
+          "name": "venueId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "venueName",
+          "type": "varchar(100)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 0
+    },
+    "author": {
+      "primary_key": [
+        "authorId"
+      ],
+      "columns": [
+        {
+          "name": "authorId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "authorName",
+          "type": "varchar(50)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 0
+    },
+    "dataset": {
+      "primary_key": [
+        "datasetId"
+      ],
+      "columns": [
+        {
+          "name": "datasetId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "datasetName",
+          "type": "varchar(50)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 0
+    },
+    "journal": {
+      "primary_key": [
+        "journalId"
+      ],
+      "columns": [
+        {
+          "name": "journalId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "journalName",
+          "type": "varchar(100)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 0
+    },
+    "keyphrase": {
+      "primary_key": [
+        "keyphraseId"
+      ],
+      "columns": [
+        {
+          "name": "keyphraseId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "keyphraseName",
+          "type": "varchar(50)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 0
+    },
+    "paper": {
+      "primary_key": [
+        "paperId"
+      ],
+      "columns": [
+        {
+          "name": "paperId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "title",
+          "type": "varchar(300)"
+        },
+        {
+          "name": "venueId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "year",
+          "type": "INTEGER"
+        },
+        {
+          "name": "numCiting",
+          "type": "INTEGER"
+        },
+        {
+          "name": "numCitedBy",
+          "type": "INTEGER"
+        },
+        {
+          "name": "journalId",
+          "type": "INTEGER"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "paper",
+          "to": "venue",
+          "child_col": "venueId",
+          "parent_col": "venueId"
+        },
+        {
+          "from": "paper",
+          "to": "journal",
+          "child_col": "journalId",
+          "parent_col": "journalId"
+        }
+      ],
+      "row_count": 0
+    },
+    "cite": {
+      "primary_key": [
+        "citingPaperId",
+        "citedPaperId"
+      ],
+      "columns": [
+        {
+          "name": "citingPaperId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "citedPaperId",
+          "type": "INTEGER"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "cite",
+          "to": "paper",
+          "child_col": "citedPaperId",
+          "parent_col": "paperId"
+        }
+      ],
+      "row_count": 0
+    },
+    "paperDataset": {
+      "primary_key": [
+        "paperId",
+        "datasetId"
+      ],
+      "columns": [
+        {
+          "name": "paperId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "datasetId",
+          "type": "INTEGER"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 0
+    },
+    "paperKeyphrase": {
+      "primary_key": [
+        "paperId",
+        "keyphraseId"
+      ],
+      "columns": [
+        {
+          "name": "paperId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "keyphraseId",
+          "type": "INTEGER"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "paperKeyphrase",
+          "to": "keyphrase",
+          "child_col": "keyphraseId",
+          "parent_col": "keyphraseId"
+        },
+        {
+          "from": "paperKeyphrase",
+          "to": "paper",
+          "child_col": "paperId",
+          "parent_col": "paperId"
+        }
+      ],
+      "row_count": 0
+    },
+    "writes": {
+      "primary_key": [
+        "paperId",
+        "authorId"
+      ],
+      "columns": [
+        {
+          "name": "paperId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "authorId",
+          "type": "INTEGER"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "writes",
+          "to": "author",
+          "child_col": "authorId",
+          "parent_col": "authorId"
+        },
+        {
+          "from": "writes",
+          "to": "paper",
+          "child_col": "paperId",
+          "parent_col": "paperId"
+        }
+      ],
+      "row_count": 0
+    }
+  }
+}

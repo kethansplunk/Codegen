@@ -1,0 +1,69 @@
+{
+  "db_name": "book_2",
+  "nodes": [
+    {
+      "name": "publication",
+      "columns": [
+        {
+          "name": "Publication_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Book_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Publisher",
+          "type": "TEXT"
+        },
+        {
+          "name": "Publication_Date",
+          "type": "TEXT"
+        },
+        {
+          "name": "Price",
+          "type": "REAL"
+        }
+      ],
+      "pk": [
+        "Publication_ID"
+      ]
+    },
+    {
+      "name": "book",
+      "columns": [
+        {
+          "name": "Book_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Title",
+          "type": "TEXT"
+        },
+        {
+          "name": "Issues",
+          "type": "REAL"
+        },
+        {
+          "name": "Writer",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "Book_ID"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "publication",
+      "to": "book",
+      "child_col": "Book_ID",
+      "parent_col": "Book_ID"
+    }
+  ],
+  "centrality": {
+    "publication": 0.0,
+    "book": 1.0
+  }
+}

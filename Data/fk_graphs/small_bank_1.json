@@ -1,0 +1,72 @@
+{
+  "db_name": "small_bank_1",
+  "nodes": [
+    {
+      "name": "ACCOUNTS",
+      "columns": [
+        {
+          "name": "custid",
+          "type": "BIGINT"
+        },
+        {
+          "name": "name",
+          "type": "VARCHAR(64)"
+        }
+      ],
+      "pk": [
+        "custid"
+      ]
+    },
+    {
+      "name": "SAVINGS",
+      "columns": [
+        {
+          "name": "custid",
+          "type": "BIGINT"
+        },
+        {
+          "name": "balance",
+          "type": "FLOAT"
+        }
+      ],
+      "pk": [
+        "custid"
+      ]
+    },
+    {
+      "name": "CHECKING",
+      "columns": [
+        {
+          "name": "custid",
+          "type": "BIGINT"
+        },
+        {
+          "name": "balance",
+          "type": "FLOAT"
+        }
+      ],
+      "pk": [
+        "custid"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "SAVINGS",
+      "to": "ACCOUNTS",
+      "child_col": "custid",
+      "parent_col": "custid"
+    },
+    {
+      "from": "CHECKING",
+      "to": "ACCOUNTS",
+      "child_col": "custid",
+      "parent_col": "custid"
+    }
+  ],
+  "centrality": {
+    "ACCOUNTS": 1.0,
+    "SAVINGS": 0.0,
+    "CHECKING": 0.0
+  }
+}

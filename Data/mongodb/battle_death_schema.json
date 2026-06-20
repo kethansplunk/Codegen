@@ -1,0 +1,118 @@
+{
+  "db_name": "battle_death",
+  "collections": {
+    "battle": {
+      "primary_key": [
+        "id"
+      ],
+      "columns": [
+        {
+          "name": "id",
+          "type": "INT"
+        },
+        {
+          "name": "name",
+          "type": "TEXT"
+        },
+        {
+          "name": "date",
+          "type": "TEXT"
+        },
+        {
+          "name": "bulgarian_commander",
+          "type": "TEXT"
+        },
+        {
+          "name": "latin_commander",
+          "type": "TEXT"
+        },
+        {
+          "name": "result",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 8
+    },
+    "ship": {
+      "primary_key": [
+        "id"
+      ],
+      "columns": [
+        {
+          "name": "lost_in_battle",
+          "type": "INT"
+        },
+        {
+          "name": "id",
+          "type": "INT"
+        },
+        {
+          "name": "name",
+          "type": "TEXT"
+        },
+        {
+          "name": "tonnage",
+          "type": "TEXT"
+        },
+        {
+          "name": "ship_type",
+          "type": "TEXT"
+        },
+        {
+          "name": "location",
+          "type": "TEXT"
+        },
+        {
+          "name": "disposition_of_ship",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "ship",
+          "to": "battle",
+          "child_col": "lost_in_battle",
+          "parent_col": "id"
+        }
+      ],
+      "row_count": 7
+    },
+    "death": {
+      "primary_key": [
+        "id"
+      ],
+      "columns": [
+        {
+          "name": "caused_by_ship_id",
+          "type": "INT"
+        },
+        {
+          "name": "id",
+          "type": "INT"
+        },
+        {
+          "name": "note",
+          "type": "TEXT"
+        },
+        {
+          "name": "killed",
+          "type": "INT"
+        },
+        {
+          "name": "injured",
+          "type": "INT"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "death",
+          "to": "ship",
+          "child_col": "caused_by_ship_id",
+          "parent_col": "id"
+        }
+      ],
+      "row_count": 13
+    }
+  }
+}

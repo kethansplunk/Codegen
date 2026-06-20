@@ -1,0 +1,95 @@
+{
+  "musical.Musical_ID": {
+    "sample_values": [
+      1,
+      3,
+      5
+    ],
+    "inferred_type": "integer"
+  },
+  "musical.Name": {
+    "sample_values": [
+      "Chicago",
+      "Les Mis\u00e9rables",
+      "Wicked"
+    ],
+    "inferred_type": "string"
+  },
+  "musical.Award": {
+    "sample_values": [
+      "Tony Award",
+      "Drama Desk Award"
+    ],
+    "inferred_type": "string"
+  },
+  "musical.Category": {
+    "sample_values": [
+      "Outstanding Choreography",
+      "Best Performance by a Leading Actor in a Musical",
+      "Best Direction of a Musical"
+    ],
+    "inferred_type": "string"
+  },
+  "musical.Nominee": {
+    "sample_values": [
+      "Bob Fosse",
+      "Cleavant Derricks"
+    ],
+    "inferred_type": "string"
+  },
+  "musical.Result": {
+    "sample_values": [
+      "Nominated",
+      "Won"
+    ],
+    "inferred_type": "string"
+  },
+  "actor.Actor_ID": {
+    "sample_values": [
+      1,
+      4,
+      7
+    ],
+    "inferred_type": "integer"
+  },
+  "actor.Name": {
+    "sample_values": [
+      "Stefan Dennis",
+      "Lynne McGranger",
+      "Tom Oliver"
+    ],
+    "inferred_type": "string"
+  },
+  "actor.Musical_ID": {
+    "sample_values": [
+      1,
+      2,
+      4
+    ],
+    "inferred_type": "integer"
+  },
+  "actor.Character": {
+    "sample_values": [
+      "Paul Robinson",
+      "Irene Roberts",
+      "Lou Carpenter"
+    ],
+    "inferred_type": "string"
+  },
+  "actor.Duration": {
+    "sample_values": [
+      "1985\u20131992, 1993, 2004\u2014",
+      "1988, 1992\u2014",
+      "1993\u2014"
+    ],
+    "inferred_type": "string"
+  },
+  "actor.age": {
+    "sample_values": [
+      26,
+      21,
+      18
+    ],
+    "inferred_type": "integer"
+  }
+}

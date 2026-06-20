@@ -1,0 +1,434 @@
+{
+  "db_name": "chinook_1",
+  "collections": {
+    "Album": {
+      "primary_key": [
+        "AlbumId"
+      ],
+      "columns": [
+        {
+          "name": "AlbumId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Title",
+          "type": "varchar(160)"
+        },
+        {
+          "name": "ArtistId",
+          "type": "INTEGER"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Album",
+          "to": "Artist",
+          "child_col": "ArtistId",
+          "parent_col": "ArtistId"
+        }
+      ],
+      "row_count": 347
+    },
+    "Artist": {
+      "primary_key": [
+        "ArtistId"
+      ],
+      "columns": [
+        {
+          "name": "ArtistId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Name",
+          "type": "varchar(120)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 275
+    },
+    "Customer": {
+      "primary_key": [
+        "CustomerId"
+      ],
+      "columns": [
+        {
+          "name": "CustomerId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "FirstName",
+          "type": "varchar(40)"
+        },
+        {
+          "name": "LastName",
+          "type": "varchar(20)"
+        },
+        {
+          "name": "Company",
+          "type": "varchar(80)"
+        },
+        {
+          "name": "Address",
+          "type": "varchar(70)"
+        },
+        {
+          "name": "City",
+          "type": "varchar(40)"
+        },
+        {
+          "name": "State",
+          "type": "varchar(40)"
+        },
+        {
+          "name": "Country",
+          "type": "varchar(40)"
+        },
+        {
+          "name": "PostalCode",
+          "type": "varchar(10)"
+        },
+        {
+          "name": "Phone",
+          "type": "varchar(24)"
+        },
+        {
+          "name": "Fax",
+          "type": "varchar(24)"
+        },
+        {
+          "name": "Email",
+          "type": "varchar(60)"
+        },
+        {
+          "name": "SupportRepId",
+          "type": "INTEGER"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Customer",
+          "to": "Employee",
+          "child_col": "SupportRepId",
+          "parent_col": "EmployeeId"
+        }
+      ],
+      "row_count": 59
+    },
+    "Employee": {
+      "primary_key": [
+        "EmployeeId"
+      ],
+      "columns": [
+        {
+          "name": "EmployeeId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "LastName",
+          "type": "varchar(20)"
+        },
+        {
+          "name": "FirstName",
+          "type": "varchar(20)"
+        },
+        {
+          "name": "Title",
+          "type": "varchar(30)"
+        },
+        {
+          "name": "ReportsTo",
+          "type": "INTEGER"
+        },
+        {
+          "name": "BirthDate",
+          "type": "datetime"
+        },
+        {
+          "name": "HireDate",
+          "type": "datetime"
+        },
+        {
+          "name": "Address",
+          "type": "varchar(70)"
+        },
+        {
+          "name": "City",
+          "type": "varchar(40)"
+        },
+        {
+          "name": "State",
+          "type": "varchar(40)"
+        },
+        {
+          "name": "Country",
+          "type": "varchar(40)"
+        },
+        {
+          "name": "PostalCode",
+          "type": "varchar(10)"
+        },
+        {
+          "name": "Phone",
+          "type": "varchar(24)"
+        },
+        {
+          "name": "Fax",
+          "type": "varchar(24)"
+        },
+        {
+          "name": "Email",
+          "type": "varchar(60)"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Employee",
+          "to": "Employee",
+          "child_col": "ReportsTo",
+          "parent_col": "EmployeeId"
+        }
+      ],
+      "row_count": 8
+    },
+    "Genre": {
+      "primary_key": [
+        "GenreId"
+      ],
+      "columns": [
+        {
+          "name": "GenreId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Name",
+          "type": "varchar(120)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 25
+    },
+    "Invoice": {
+      "primary_key": [
+        "InvoiceId"
+      ],
+      "columns": [
+        {
+          "name": "InvoiceId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "CustomerId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "InvoiceDate",
+          "type": "datetime"
+        },
+        {
+          "name": "BillingAddress",
+          "type": "varchar(70)"
+        },
+        {
+          "name": "BillingCity",
+          "type": "varchar(40)"
+        },
+        {
+          "name": "BillingState",
+          "type": "varchar(40)"
+        },
+        {
+          "name": "BillingCountry",
+          "type": "varchar(40)"
+        },
+        {
+          "name": "BillingPostalCode",
+          "type": "varchar(10)"
+        },
+        {
+          "name": "Total",
+          "type": "decimal(10,2)"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Invoice",
+          "to": "Customer",
+          "child_col": "CustomerId",
+          "parent_col": "CustomerId"
+        }
+      ],
+      "row_count": 412
+    },
+    "InvoiceLine": {
+      "primary_key": [
+        "InvoiceLineId"
+      ],
+      "columns": [
+        {
+          "name": "InvoiceLineId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "InvoiceId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "TrackId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "UnitPrice",
+          "type": "decimal(10,2)"
+        },
+        {
+          "name": "Quantity",
+          "type": "INTEGER"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "InvoiceLine",
+          "to": "Track",
+          "child_col": "TrackId",
+          "parent_col": "TrackId"
+        },
+        {
+          "from": "InvoiceLine",
+          "to": "Invoice",
+          "child_col": "InvoiceId",
+          "parent_col": "InvoiceId"
+        }
+      ],
+      "row_count": 2240
+    },
+    "MediaType": {
+      "primary_key": [
+        "MediaTypeId"
+      ],
+      "columns": [
+        {
+          "name": "MediaTypeId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Name",
+          "type": "varchar(120)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 5
+    },
+    "Playlist": {
+      "primary_key": [
+        "PlaylistId"
+      ],
+      "columns": [
+        {
+          "name": "PlaylistId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Name",
+          "type": "varchar(120)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 18
+    },
+    "PlaylistTrack": {
+      "primary_key": [
+        "PlaylistId",
+        "TrackId"
+      ],
+      "columns": [
+        {
+          "name": "PlaylistId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "TrackId",
+          "type": "INTEGER"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "PlaylistTrack",
+          "to": "Track",
+          "child_col": "TrackId",
+          "parent_col": "TrackId"
+        },
+        {
+          "from": "PlaylistTrack",
+          "to": "Playlist",
+          "child_col": "PlaylistId",
+          "parent_col": "PlaylistId"
+        }
+      ],
+      "row_count": 8715
+    },
+    "Track": {
+      "primary_key": [
+        "TrackId"
+      ],
+      "columns": [
+        {
+          "name": "TrackId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Name",
+          "type": "varchar(200)"
+        },
+        {
+          "name": "AlbumId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "MediaTypeId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "GenreId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Composer",
+          "type": "varchar(220)"
+        },
+        {
+          "name": "Milliseconds",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Bytes",
+          "type": "INTEGER"
+        },
+        {
+          "name": "UnitPrice",
+          "type": "decimal(10,2)"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Track",
+          "to": "MediaType",
+          "child_col": "MediaTypeId",
+          "parent_col": "MediaTypeId"
+        },
+        {
+          "from": "Track",
+          "to": "Genre",
+          "child_col": "GenreId",
+          "parent_col": "GenreId"
+        },
+        {
+          "from": "Track",
+          "to": "Album",
+          "child_col": "AlbumId",
+          "parent_col": "AlbumId"
+        }
+      ],
+      "row_count": 3503
+    }
+  }
+}

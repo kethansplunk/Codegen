@@ -1,0 +1,112 @@
+{
+  "school.Type": {
+    "sample_values": [
+      "Public",
+      "Private Catholic",
+      "Private"
+    ],
+    "inferred_type": "string"
+  },
+  "school.Location": {
+    "sample_values": [
+      "Cambridge, Massachusetts",
+      "New York City",
+      "Jakarta, Indonesia"
+    ],
+    "inferred_type": "string"
+  },
+  "school.School_ID": {
+    "sample_values": [
+      "5",
+      "2",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "school.School": {
+    "sample_values": [
+      "Punahou School",
+      "Harvard Law School",
+      "Noelani Elementary School"
+    ],
+    "inferred_type": "string"
+  },
+  "school.Grade": {
+    "sample_values": [
+      "4th grade",
+      "5th-12th grade",
+      "1st-3rd grade"
+    ],
+    "inferred_type": "string"
+  },
+  "driver.Driver_ID": {
+    "sample_values": [
+      "5",
+      "12",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "driver.Age": {
+    "sample_values": [
+      "30",
+      "45",
+      "36"
+    ],
+    "inferred_type": "integer"
+  },
+  "driver.Party": {
+    "sample_values": [
+      "Dem",
+      "Rep"
+    ],
+    "inferred_type": "string"
+  },
+  "driver.Name": {
+    "sample_values": [
+      "Angel Acre",
+      "Matthew Ritter",
+      "Edwin Vargas"
+    ],
+    "inferred_type": "string"
+  },
+  "driver.Home_city": {
+    "sample_values": [
+      "Manchester",
+      "Hartford",
+      "East Hartford"
+    ],
+    "inferred_type": "string"
+  },
+  "school_bus.Years_Working": {
+    "sample_values": [
+      "10",
+      "8",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "school_bus.Driver_ID": {
+    "sample_values": [
+      "10",
+      "9",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "school_bus.School_ID": {
+    "sample_values": [
+      "5",
+      "1",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "school_bus.If_full_time": {
+    "sample_values": [
+      "F",
+      "T"
+    ],
+    "inferred_type": "string"
+  }
+}

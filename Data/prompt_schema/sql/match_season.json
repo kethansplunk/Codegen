@@ -1,0 +1,170 @@
+{
+  "country.Country_id": {
+    "sample_values": [
+      1,
+      3,
+      5
+    ],
+    "inferred_type": "integer"
+  },
+  "country.Country_name": {
+    "sample_values": [
+      "United States",
+      "Iran",
+      "Ireland"
+    ],
+    "inferred_type": "string"
+  },
+  "country.Capital": {
+    "sample_values": [
+      "Washington",
+      "Tehran",
+      "Dublin"
+    ],
+    "inferred_type": "string"
+  },
+  "country.Official_native_language": {
+    "sample_values": [
+      "English",
+      "Persian ( Arabic script )",
+      "Irish English"
+    ],
+    "inferred_type": "string"
+  },
+  "team.Team_id": {
+    "sample_values": [
+      1,
+      4,
+      7
+    ],
+    "inferred_type": "integer"
+  },
+  "team.Name": {
+    "sample_values": [
+      "D.C. United",
+      "Anais VonRueden",
+      "Evalyn Feil"
+    ],
+    "inferred_type": "string"
+  },
+  "match_season.Season": {
+    "sample_values": [
+      1996.0,
+      2001.0,
+      2006.0
+    ],
+    "inferred_type": "float"
+  },
+  "match_season.Player": {
+    "sample_values": [
+      "C. J. Sapong Category:Articles with hCards",
+      "Kyle Martino Category:Articles with hCards",
+      "Rodrigo Faria Category:Articles with hCards"
+    ],
+    "inferred_type": "string"
+  },
+  "match_season.Position": {
+    "sample_values": [
+      "Midfielder",
+      "Defender",
+      "Forward"
+    ],
+    "inferred_type": "string"
+  },
+  "match_season.Country": {
+    "sample_values": [
+      6,
+      4,
+      5
+    ],
+    "inferred_type": "integer"
+  },
+  "match_season.Team": {
+    "sample_values": [
+      1,
+      3,
+      5
+    ],
+    "inferred_type": "integer"
+  },
+  "match_season.Draft_Pick_Number": {
+    "sample_values": [
+      18,
+      4,
+      37
+    ],
+    "inferred_type": "integer"
+  },
+  "match_season.Draft_Class": {
+    "sample_values": [
+      "1996 MLS College Draft",
+      "1999 MLS College Draft",
+      "1996 MLS Inaugural Player Draft"
+    ],
+    "inferred_type": "string"
+  },
+  "match_season.College": {
+    "sample_values": [
+      "Concordia College",
+      "James Madison",
+      "Duke"
+    ],
+    "inferred_type": "string"
+  },
+  "player.Player_ID": {
+    "sample_values": [
+      1,
+      4,
+      7
+    ],
+    "inferred_type": "integer"
+  },
+  "player.Player": {
+    "sample_values": [
+      "Bae Nam-Ju",
+      "Im Kyu-tae (492)",
+      "Chung Hong (717)"
+    ],
+    "inferred_type": "string"
+  },
+  "player.Years_Played": {
+    "sample_values": [
+      "2 (1988, 1990)",
+      "8 (2003\u20132005, 2007\u20132011)",
+      "2 (2010\u20132011)"
+    ],
+    "inferred_type": "string"
+  },
+  "player.Total_WL": {
+    "sample_values": [
+      "2\u20130",
+      "1\u20132",
+      "7\u20136"
+    ],
+    "inferred_type": "string"
+  },
+  "player.Singles_WL": {
+    "sample_values": [
+      "1\u20130",
+      "1\u20132",
+      "5\u20136"
+    ],
+    "inferred_type": "string"
+  },
+  "player.Doubles_WL": {
+    "sample_values": [
+      "1\u20130",
+      "1\u20132",
+      "0\u20131"
+    ],
+    "inferred_type": "string"
+  },
+  "player.Team": {
+    "sample_values": [
+      1,
+      2,
+      4
+    ],
+    "inferred_type": "integer"
+  }
+}

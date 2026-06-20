@@ -1,0 +1,143 @@
+{
+  "db_name": "shop_membership",
+  "nodes": [
+    {
+      "name": "member",
+      "columns": [
+        {
+          "name": "Member_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Card_Number",
+          "type": "TEXT"
+        },
+        {
+          "name": "Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Hometown",
+          "type": "TEXT"
+        },
+        {
+          "name": "Level",
+          "type": "INT"
+        }
+      ],
+      "pk": [
+        "Member_ID"
+      ]
+    },
+    {
+      "name": "branch",
+      "columns": [
+        {
+          "name": "Branch_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Open_year",
+          "type": "TEXT"
+        },
+        {
+          "name": "Address_road",
+          "type": "TEXT"
+        },
+        {
+          "name": "City",
+          "type": "TEXT"
+        },
+        {
+          "name": "membership_amount",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "Branch_ID"
+      ]
+    },
+    {
+      "name": "membership_register_branch",
+      "columns": [
+        {
+          "name": "Member_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Branch_ID",
+          "type": "TEXT"
+        },
+        {
+          "name": "Register_Year",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "Member_ID"
+      ]
+    },
+    {
+      "name": "purchase",
+      "columns": [
+        {
+          "name": "Member_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Branch_ID",
+          "type": "TEXT"
+        },
+        {
+          "name": "Year",
+          "type": "TEXT"
+        },
+        {
+          "name": "Total_pounds",
+          "type": "REAL"
+        }
+      ],
+      "pk": [
+        "Member_ID",
+        "Branch_ID",
+        "Year"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "membership_register_branch",
+      "to": "branch",
+      "child_col": "Branch_ID",
+      "parent_col": "Branch_ID"
+    },
+    {
+      "from": "membership_register_branch",
+      "to": "member",
+      "child_col": "Member_ID",
+      "parent_col": "Member_ID"
+    },
+    {
+      "from": "purchase",
+      "to": "branch",
+      "child_col": "Branch_ID",
+      "parent_col": "Branch_ID"
+    },
+    {
+      "from": "purchase",
+      "to": "member",
+      "child_col": "Member_ID",
+      "parent_col": "Member_ID"
+    }
+  ],
+  "centrality": {
+    "member": 0.6666666666666666,
+    "branch": 0.6666666666666666,
+    "membership_register_branch": 0.0,
+    "purchase": 0.0
+  }
+}

@@ -1,19 +1,19 @@
 dataset:
   name: spider
-  train_path: data/spider/train_spider.json
-  dev_path: data/spider/dev.json
-  db_path: data/spider/database/
-  tables_path: data/spider/tables.json
+  train_path: Data/Spider/train_spider.json
+  dev_path: Data/Spider/dev.json
+  db_path: Data/Spider/database/
+  tables_path: Data/Spider/tables.json
 
 fk_graph:
-  cache_path: data/fk_graphs/
+  cache_path: Data/fk_graphs/
   max_hops: 2
   fuzzy_threshold: 75
   top_k_seeds: 3
 
 prompt_schema:
-  sql_cache: data/prompt_schema/sql/
-  nosql_cache: data/prompt_schema/nosql/
+  sql_cache: Data/prompt_schema/sql/
+  nosql_cache: Data/prompt_schema/nosql/
   top_k_values: 3
 
 schema_linker:
@@ -27,12 +27,14 @@ sar:
   sql_checkpoint: models/sar_sql/
   nosql_checkpoint: models/sar_nosql/
   top_k: 3
-  transformer_layers_sql: 3    # from SchemaRAG Fig 14: deeper for Spider
-  transformer_heads_sql: 8
-  transformer_layers_nosql: 2  # leaner for smaller NoSQL dataset
-  transformer_heads_nosql: 2
+  # SchemaAwareModel has exactly 2 fixed stages (table_column + question_table attention).
+  # num_heads is the only architectural param; SQL uses 8, NoSQL uses 2 (smaller dataset).
+  num_heads_sql: 8
+  num_heads_nosql: 2
+  embed_dim: 1024
+  dropout: 0.1
   lr: 1.0e-4
-  contrastive_temperature: 0.05
+  triplet_margin: 0.3          # triplet loss margin used in src/sar/train.py
 
 generator:
   base_model: Qwen/Qwen2.5-Coder-7B-Instruct
@@ -50,7 +52,7 @@ indexes:
 mongodb:
   host: localhost
   port: 27017
-  schema_cache: data/mongodb/
+  schema_cache: Data/mongodb/
 
 evaluation:
   results_dir: evaluation/results/

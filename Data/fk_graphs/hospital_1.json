@@ -1,0 +1,567 @@
+{
+  "db_name": "hospital_1",
+  "nodes": [
+    {
+      "name": "Physician",
+      "columns": [
+        {
+          "name": "EmployeeID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Name",
+          "type": "VARCHAR(30)"
+        },
+        {
+          "name": "Position",
+          "type": "VARCHAR(30)"
+        },
+        {
+          "name": "SSN",
+          "type": "INTEGER"
+        }
+      ],
+      "pk": [
+        "EmployeeID"
+      ]
+    },
+    {
+      "name": "Department",
+      "columns": [
+        {
+          "name": "DepartmentID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Name",
+          "type": "VARCHAR(30)"
+        },
+        {
+          "name": "Head",
+          "type": "INTEGER"
+        }
+      ],
+      "pk": [
+        "DepartmentID"
+      ]
+    },
+    {
+      "name": "Affiliated_With",
+      "columns": [
+        {
+          "name": "Physician",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Department",
+          "type": "INTEGER"
+        },
+        {
+          "name": "PrimaryAffiliation",
+          "type": "BOOLEAN"
+        }
+      ],
+      "pk": [
+        "Physician",
+        "Department"
+      ]
+    },
+    {
+      "name": "Procedures",
+      "columns": [
+        {
+          "name": "Code",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Name",
+          "type": "VARCHAR(30)"
+        },
+        {
+          "name": "Cost",
+          "type": "REAL"
+        }
+      ],
+      "pk": [
+        "Code"
+      ]
+    },
+    {
+      "name": "Trained_In",
+      "columns": [
+        {
+          "name": "Physician",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Treatment",
+          "type": "INTEGER"
+        },
+        {
+          "name": "CertificationDate",
+          "type": "DATETIME"
+        },
+        {
+          "name": "CertificationExpires",
+          "type": "DATETIME"
+        }
+      ],
+      "pk": [
+        "Physician",
+        "Treatment"
+      ]
+    },
+    {
+      "name": "Patient",
+      "columns": [
+        {
+          "name": "SSN",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Name",
+          "type": "VARCHAR(30)"
+        },
+        {
+          "name": "Address",
+          "type": "VARCHAR(30)"
+        },
+        {
+          "name": "Phone",
+          "type": "VARCHAR(30)"
+        },
+        {
+          "name": "InsuranceID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "PCP",
+          "type": "INTEGER"
+        }
+      ],
+      "pk": [
+        "SSN"
+      ]
+    },
+    {
+      "name": "Nurse",
+      "columns": [
+        {
+          "name": "EmployeeID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Name",
+          "type": "VARCHAR(30)"
+        },
+        {
+          "name": "Position",
+          "type": "VARCHAR(30)"
+        },
+        {
+          "name": "Registered",
+          "type": "BOOLEAN"
+        },
+        {
+          "name": "SSN",
+          "type": "INTEGER"
+        }
+      ],
+      "pk": [
+        "EmployeeID"
+      ]
+    },
+    {
+      "name": "Appointment",
+      "columns": [
+        {
+          "name": "AppointmentID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Patient",
+          "type": "INTEGER"
+        },
+        {
+          "name": "PrepNurse",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Physician",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Start",
+          "type": "DATETIME"
+        },
+        {
+          "name": "End",
+          "type": "DATETIME"
+        },
+        {
+          "name": "ExaminationRoom",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "AppointmentID"
+      ]
+    },
+    {
+      "name": "Medication",
+      "columns": [
+        {
+          "name": "Code",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Name",
+          "type": "VARCHAR(30)"
+        },
+        {
+          "name": "Brand",
+          "type": "VARCHAR(30)"
+        },
+        {
+          "name": "Description",
+          "type": "VARCHAR(30)"
+        }
+      ],
+      "pk": [
+        "Code"
+      ]
+    },
+    {
+      "name": "Prescribes",
+      "columns": [
+        {
+          "name": "Physician",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Patient",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Medication",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Date",
+          "type": "DATETIME"
+        },
+        {
+          "name": "Appointment",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Dose",
+          "type": "VARCHAR(30)"
+        }
+      ],
+      "pk": [
+        "Physician",
+        "Patient",
+        "Medication",
+        "Date"
+      ]
+    },
+    {
+      "name": "Block",
+      "columns": [
+        {
+          "name": "BlockFloor",
+          "type": "INTEGER"
+        },
+        {
+          "name": "BlockCode",
+          "type": "INTEGER"
+        }
+      ],
+      "pk": [
+        "BlockFloor",
+        "BlockCode"
+      ]
+    },
+    {
+      "name": "Room",
+      "columns": [
+        {
+          "name": "RoomNumber",
+          "type": "INTEGER"
+        },
+        {
+          "name": "RoomType",
+          "type": "VARCHAR(30)"
+        },
+        {
+          "name": "BlockFloor",
+          "type": "INTEGER"
+        },
+        {
+          "name": "BlockCode",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Unavailable",
+          "type": "BOOLEAN"
+        }
+      ],
+      "pk": [
+        "RoomNumber"
+      ]
+    },
+    {
+      "name": "On_Call",
+      "columns": [
+        {
+          "name": "Nurse",
+          "type": "INTEGER"
+        },
+        {
+          "name": "BlockFloor",
+          "type": "INTEGER"
+        },
+        {
+          "name": "BlockCode",
+          "type": "INTEGER"
+        },
+        {
+          "name": "OnCallStart",
+          "type": "DATETIME"
+        },
+        {
+          "name": "OnCallEnd",
+          "type": "DATETIME"
+        }
+      ],
+      "pk": [
+        "Nurse",
+        "BlockFloor",
+        "BlockCode",
+        "OnCallStart",
+        "OnCallEnd"
+      ]
+    },
+    {
+      "name": "Stay",
+      "columns": [
+        {
+          "name": "StayID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Patient",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Room",
+          "type": "INTEGER"
+        },
+        {
+          "name": "StayStart",
+          "type": "DATETIME"
+        },
+        {
+          "name": "StayEnd",
+          "type": "DATETIME"
+        }
+      ],
+      "pk": [
+        "StayID"
+      ]
+    },
+    {
+      "name": "Undergoes",
+      "columns": [
+        {
+          "name": "Patient",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Procedures",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Stay",
+          "type": "INTEGER"
+        },
+        {
+          "name": "DateUndergoes",
+          "type": "DATETIME"
+        },
+        {
+          "name": "Physician",
+          "type": "INTEGER"
+        },
+        {
+          "name": "AssistingNurse",
+          "type": "INTEGER"
+        }
+      ],
+      "pk": [
+        "Patient",
+        "Procedures",
+        "Stay",
+        "DateUndergoes"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "Department",
+      "to": "Physician",
+      "child_col": "Head",
+      "parent_col": "EmployeeID"
+    },
+    {
+      "from": "Affiliated_With",
+      "to": "Department",
+      "child_col": "Department",
+      "parent_col": "DepartmentID"
+    },
+    {
+      "from": "Affiliated_With",
+      "to": "Physician",
+      "child_col": "Physician",
+      "parent_col": "EmployeeID"
+    },
+    {
+      "from": "Trained_In",
+      "to": "Procedures",
+      "child_col": "Treatment",
+      "parent_col": "Code"
+    },
+    {
+      "from": "Trained_In",
+      "to": "Physician",
+      "child_col": "Physician",
+      "parent_col": "EmployeeID"
+    },
+    {
+      "from": "Patient",
+      "to": "Physician",
+      "child_col": "PCP",
+      "parent_col": "EmployeeID"
+    },
+    {
+      "from": "Appointment",
+      "to": "Physician",
+      "child_col": "Physician",
+      "parent_col": "EmployeeID"
+    },
+    {
+      "from": "Appointment",
+      "to": "Nurse",
+      "child_col": "PrepNurse",
+      "parent_col": "EmployeeID"
+    },
+    {
+      "from": "Appointment",
+      "to": "Patient",
+      "child_col": "Patient",
+      "parent_col": "SSN"
+    },
+    {
+      "from": "Prescribes",
+      "to": "Appointment",
+      "child_col": "Appointment",
+      "parent_col": "AppointmentID"
+    },
+    {
+      "from": "Prescribes",
+      "to": "Medication",
+      "child_col": "Medication",
+      "parent_col": "Code"
+    },
+    {
+      "from": "Prescribes",
+      "to": "Patient",
+      "child_col": "Patient",
+      "parent_col": "SSN"
+    },
+    {
+      "from": "Prescribes",
+      "to": "Physician",
+      "child_col": "Physician",
+      "parent_col": "EmployeeID"
+    },
+    {
+      "from": "Room",
+      "to": "Block",
+      "child_col": "BlockCode",
+      "parent_col": "BlockCode"
+    },
+    {
+      "from": "On_Call",
+      "to": "Block",
+      "child_col": "BlockCode",
+      "parent_col": "BlockCode"
+    },
+    {
+      "from": "On_Call",
+      "to": "Nurse",
+      "child_col": "Nurse",
+      "parent_col": "EmployeeID"
+    },
+    {
+      "from": "Stay",
+      "to": "Room",
+      "child_col": "Room",
+      "parent_col": "RoomNumber"
+    },
+    {
+      "from": "Stay",
+      "to": "Patient",
+      "child_col": "Patient",
+      "parent_col": "SSN"
+    },
+    {
+      "from": "Undergoes",
+      "to": "Nurse",
+      "child_col": "AssistingNurse",
+      "parent_col": "EmployeeID"
+    },
+    {
+      "from": "Undergoes",
+      "to": "Physician",
+      "child_col": "Physician",
+      "parent_col": "EmployeeID"
+    },
+    {
+      "from": "Undergoes",
+      "to": "Stay",
+      "child_col": "Stay",
+      "parent_col": "StayID"
+    },
+    {
+      "from": "Undergoes",
+      "to": "Procedures",
+      "child_col": "Procedures",
+      "parent_col": "Code"
+    },
+    {
+      "from": "Undergoes",
+      "to": "Patient",
+      "child_col": "Patient",
+      "parent_col": "SSN"
+    }
+  ],
+  "centrality": {
+    "Physician": 0.5,
+    "Department": 0.07142857142857142,
+    "Affiliated_With": 0.0,
+    "Procedures": 0.14285714285714285,
+    "Trained_In": 0.0,
+    "Patient": 0.2857142857142857,
+    "Nurse": 0.21428571428571427,
+    "Appointment": 0.07142857142857142,
+    "Medication": 0.07142857142857142,
+    "Prescribes": 0.0,
+    "Block": 0.14285714285714285,
+    "Room": 0.07142857142857142,
+    "On_Call": 0.0,
+    "Stay": 0.07142857142857142,
+    "Undergoes": 0.0
+  }
+}

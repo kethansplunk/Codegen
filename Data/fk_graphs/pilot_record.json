@@ -1,0 +1,126 @@
+{
+  "db_name": "pilot_record",
+  "nodes": [
+    {
+      "name": "aircraft",
+      "columns": [
+        {
+          "name": "Aircraft_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Order_Year",
+          "type": "INT"
+        },
+        {
+          "name": "Manufacturer",
+          "type": "TEXT"
+        },
+        {
+          "name": "Model",
+          "type": "TEXT"
+        },
+        {
+          "name": "Fleet_Series",
+          "type": "TEXT"
+        },
+        {
+          "name": "Powertrain",
+          "type": "TEXT"
+        },
+        {
+          "name": "Fuel_Propulsion",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "Aircraft_ID"
+      ]
+    },
+    {
+      "name": "pilot",
+      "columns": [
+        {
+          "name": "Pilot_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Pilot_name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Rank",
+          "type": "INT"
+        },
+        {
+          "name": "Age",
+          "type": "INT"
+        },
+        {
+          "name": "Nationality",
+          "type": "TEXT"
+        },
+        {
+          "name": "Position",
+          "type": "TEXT"
+        },
+        {
+          "name": "Join_Year",
+          "type": "INT"
+        },
+        {
+          "name": "Team",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "Pilot_ID"
+      ]
+    },
+    {
+      "name": "pilot_record",
+      "columns": [
+        {
+          "name": "Record_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Pilot_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Aircraft_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Date",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "Pilot_ID",
+        "Aircraft_ID",
+        "Date"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "pilot_record",
+      "to": "aircraft",
+      "child_col": "Aircraft_ID",
+      "parent_col": "Aircraft_ID"
+    },
+    {
+      "from": "pilot_record",
+      "to": "pilot",
+      "child_col": "Pilot_ID",
+      "parent_col": "Pilot_ID"
+    }
+  ],
+  "centrality": {
+    "aircraft": 0.5,
+    "pilot": 0.5,
+    "pilot_record": 0.0
+  }
+}

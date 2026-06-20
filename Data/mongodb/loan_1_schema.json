@@ -1,0 +1,124 @@
+{
+  "db_name": "loan_1",
+  "collections": {
+    "bank": {
+      "primary_key": [
+        "branch_ID"
+      ],
+      "columns": [
+        {
+          "name": "branch_ID",
+          "type": "INT"
+        },
+        {
+          "name": "bname",
+          "type": "varchar(20)"
+        },
+        {
+          "name": "no_of_customers",
+          "type": "INT"
+        },
+        {
+          "name": "city",
+          "type": "varchar(10)"
+        },
+        {
+          "name": "state",
+          "type": "varchar(20)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 4
+    },
+    "customer": {
+      "primary_key": [
+        "cust_ID"
+      ],
+      "columns": [
+        {
+          "name": "cust_ID",
+          "type": "varchar(3)"
+        },
+        {
+          "name": "cust_name",
+          "type": "varchar(20)"
+        },
+        {
+          "name": "acc_type",
+          "type": "char(1)"
+        },
+        {
+          "name": "acc_bal",
+          "type": "INT"
+        },
+        {
+          "name": "no_of_loans",
+          "type": "INT"
+        },
+        {
+          "name": "credit_score",
+          "type": "INT"
+        },
+        {
+          "name": "branch_ID",
+          "type": "INT"
+        },
+        {
+          "name": "state",
+          "type": "varchar(20)"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "customer",
+          "to": "bank",
+          "child_col": "branch_ID",
+          "parent_col": "branch_ID"
+        }
+      ],
+      "row_count": 3
+    },
+    "loan": {
+      "primary_key": [
+        "loan_ID"
+      ],
+      "columns": [
+        {
+          "name": "loan_ID",
+          "type": "varchar(3)"
+        },
+        {
+          "name": "loan_type",
+          "type": "varchar(15)"
+        },
+        {
+          "name": "cust_ID",
+          "type": "varchar(3)"
+        },
+        {
+          "name": "branch_ID",
+          "type": "varchar(3)"
+        },
+        {
+          "name": "amount",
+          "type": "INT"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "loan",
+          "to": "customer",
+          "child_col": "cust_ID",
+          "parent_col": "Cust_ID"
+        },
+        {
+          "from": "loan",
+          "to": "bank",
+          "child_col": "branch_ID",
+          "parent_col": "branch_ID"
+        }
+      ],
+      "row_count": 3
+    }
+  }
+}

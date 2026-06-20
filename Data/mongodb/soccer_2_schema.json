@@ -1,0 +1,90 @@
+{
+  "db_name": "soccer_2",
+  "collections": {
+    "College": {
+      "primary_key": [
+        "cName"
+      ],
+      "columns": [
+        {
+          "name": "cName",
+          "type": "varchar(20)"
+        },
+        {
+          "name": "state",
+          "type": "varchar(2)"
+        },
+        {
+          "name": "enr",
+          "type": "numeric(5,0)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 4
+    },
+    "Player": {
+      "primary_key": [
+        "pID"
+      ],
+      "columns": [
+        {
+          "name": "pID",
+          "type": "numeric(5,0)"
+        },
+        {
+          "name": "pName",
+          "type": "varchar(20)"
+        },
+        {
+          "name": "yCard",
+          "type": "varchar(3)"
+        },
+        {
+          "name": "HS",
+          "type": "numeric(5,0)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 6
+    },
+    "Tryout": {
+      "primary_key": [
+        "pID",
+        "cName"
+      ],
+      "columns": [
+        {
+          "name": "pID",
+          "type": "numeric(5,0)"
+        },
+        {
+          "name": "cName",
+          "type": "varchar(20)"
+        },
+        {
+          "name": "pPos",
+          "type": "varchar(8)"
+        },
+        {
+          "name": "decision",
+          "type": "varchar(3)"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Tryout",
+          "to": "College",
+          "child_col": "cName",
+          "parent_col": "cName"
+        },
+        {
+          "from": "Tryout",
+          "to": "Player",
+          "child_col": "pID",
+          "parent_col": "pID"
+        }
+      ],
+      "row_count": 6
+    }
+  }
+}

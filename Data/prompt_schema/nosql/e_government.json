@@ -1,0 +1,393 @@
+{
+  "Services.service_descriptio": {
+    "sample_values": [
+      "Education",
+      "Welfare",
+      "Health"
+    ],
+    "inferred_type": "string"
+  },
+  "Services.service_name": {
+    "sample_values": [
+      "Education",
+      "Welfare",
+      "Health"
+    ],
+    "inferred_type": "string"
+  },
+  "Services.service_type_code": {
+    "sample_values": [
+      "Education",
+      "Welfare",
+      "Health"
+    ],
+    "inferred_type": "string"
+  },
+  "Services.service_id": {
+    "sample_values": [
+      "5",
+      "8",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Individuals.inidividual_phone": {
+    "sample_values": [
+      "317.382.4425x7924",
+      "(030)939-8437x6141",
+      "075.012.6775x409"
+    ],
+    "inferred_type": "string"
+  },
+  "Individuals.individual_id": {
+    "sample_values": [
+      "5",
+      "8",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Individuals.individual_email": {
+    "sample_values": [
+      "austyn.effertz@example.org",
+      "reinger.leola@example.net",
+      "zlehner@example.net"
+    ],
+    "inferred_type": "string"
+  },
+  "Individuals.individual_address": {
+    "sample_values": [
+      "4643 Ismael Pines Apt. 899",
+      "407 Sofia Knoll Suite 591",
+      "919 Cummerata Burgs Apt. 063"
+    ],
+    "inferred_type": "string"
+  },
+  "Individuals.individual_middle_name": {
+    "sample_values": [
+      "Alysson",
+      "Lacey",
+      "Howard"
+    ],
+    "inferred_type": "string"
+  },
+  "Individuals.individual_first_name": {
+    "sample_values": [
+      "Oscar",
+      "Ressie",
+      "Casper"
+    ],
+    "inferred_type": "string"
+  },
+  "Individuals.individual_last_name": {
+    "sample_values": [
+      "O'Conner",
+      "Dooley",
+      "D'Amore"
+    ],
+    "inferred_type": "string"
+  },
+  "Organization_Contact_Individuals.date_contact_to": {
+    "sample_values": [
+      "2018-03-24 16:54:36",
+      "2018-03-20 00:33:08",
+      "2018-03-23 22:06:48"
+    ],
+    "inferred_type": "string"
+  },
+  "Organization_Contact_Individuals.individual_id": {
+    "sample_values": [
+      "5",
+      "6",
+      "13"
+    ],
+    "inferred_type": "integer"
+  },
+  "Organization_Contact_Individuals.organization_id": {
+    "sample_values": [
+      "5",
+      "1",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "Organization_Contact_Individuals.date_contact_from": {
+    "sample_values": [
+      "2016-07-26 09:08:15",
+      "2016-08-23 03:24:24",
+      "2017-03-02 00:00:16"
+    ],
+    "inferred_type": "string"
+  },
+  "Addresses.address_id": {
+    "sample_values": [
+      "5",
+      "8",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Addresses.line_1_number_building": {
+    "sample_values": [
+      "538 Schaefer Highway Apt. 472",
+      "266 Feeney Falls",
+      "25518 Ortiz Centers"
+    ],
+    "inferred_type": "string"
+  },
+  "Addresses.town_city": {
+    "sample_values": [
+      "West Brandynland",
+      "Dangelohaven",
+      "Breanneberg"
+    ],
+    "inferred_type": "string"
+  },
+  "Addresses.zip_postcode": {
+    "sample_values": [
+      "527",
+      "227",
+      "202"
+    ],
+    "inferred_type": "integer"
+  },
+  "Addresses.state_province_county": {
+    "sample_values": [
+      "Arkansas",
+      "NewYork",
+      "NewHampshire"
+    ],
+    "inferred_type": "string"
+  },
+  "Parties.party_id": {
+    "sample_values": [
+      "5",
+      "8",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Parties.party_email": {
+    "sample_values": [
+      "ora.hyatt@example.net",
+      "enrico09@example.com",
+      "evie97@example.org"
+    ],
+    "inferred_type": "string"
+  },
+  "Parties.party_phone": {
+    "sample_values": [
+      "231.232.0099",
+      "1-606-232-3728x3568",
+      "(211)528-0733x8063"
+    ],
+    "inferred_type": "string"
+  },
+  "Parties.payment_method_code": {
+    "sample_values": [
+      "Credit Card",
+      "Cheque",
+      "Cash"
+    ],
+    "inferred_type": "string"
+  },
+  "Forms.form_type_code": {
+    "sample_values": [
+      "Complex",
+      "Basic"
+    ],
+    "inferred_type": "string"
+  },
+  "Forms.form_id": {
+    "sample_values": [
+      "5",
+      "2",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "Forms.form_number": {
+    "sample_values": [
+      "2675",
+      "8069",
+      "9173"
+    ],
+    "inferred_type": "integer"
+  },
+  "Forms.form_description": {
+    "sample_values": [
+      "Form for moving house",
+      "Form for Property Change",
+      "Form for SSN Application"
+    ],
+    "inferred_type": "string"
+  },
+  "Forms.form_name": {
+    "sample_values": [
+      "Moving Form",
+      "Marriage Certificate",
+      "SSN Application"
+    ],
+    "inferred_type": "string"
+  },
+  "Forms.service_id": {
+    "sample_values": [
+      "14",
+      "9",
+      "3"
+    ],
+    "inferred_type": "integer"
+  },
+  "Party_Services.service_datetime": {
+    "sample_values": [
+      "2018-03-19 14:38:29",
+      "2018-03-08 23:52:44",
+      "2018-03-05 15:06:23"
+    ],
+    "inferred_type": "string"
+  },
+  "Party_Services.booking_id": {
+    "sample_values": [
+      "5",
+      "8",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Party_Services.booking_made_date": {
+    "sample_values": [
+      "2018-03-24 12:21:20",
+      "2018-03-24 09:20:46",
+      "2018-03-25 16:47:47"
+    ],
+    "inferred_type": "string"
+  },
+  "Party_Services.customer_id": {
+    "sample_values": [
+      "10",
+      "15",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "Party_Services.service_id": {
+    "sample_values": [
+      "5",
+      "1",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "Organizations.date_formed": {
+    "sample_values": [
+      "2016-08-24 23:52:48",
+      "2016-07-28 01:45:10",
+      "2017-04-06 23:59:16"
+    ],
+    "inferred_type": "string"
+  },
+  "Organizations.organization_id": {
+    "sample_values": [
+      "5",
+      "1",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "Organizations.uk_vat_number": {
+    "sample_values": [
+      "2157",
+      "7459",
+      "4271"
+    ],
+    "inferred_type": "integer"
+  },
+  "Organizations.organization_name": {
+    "sample_values": [
+      "Conservative",
+      "Green Party",
+      "Liberal Democrats"
+    ],
+    "inferred_type": "string"
+  },
+  "Party_Addresses.address_id": {
+    "sample_values": [
+      "10",
+      "1",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Party_Addresses.date_address_from": {
+    "sample_values": [
+      "2016-06-09 00:48:07",
+      "2016-12-21 03:54:15",
+      "2016-11-02 02:06:07"
+    ],
+    "inferred_type": "string"
+  },
+  "Party_Addresses.date_address_to": {
+    "sample_values": [
+      "2018-02-11 06:11:11",
+      "2018-03-04 08:34:45",
+      "2018-01-29 16:48:01"
+    ],
+    "inferred_type": "string"
+  },
+  "Party_Addresses.address_type_code": {
+    "sample_values": [
+      "Delivery",
+      "Residence",
+      "Billing"
+    ],
+    "inferred_type": "string"
+  },
+  "Party_Addresses.party_id": {
+    "sample_values": [
+      "5",
+      "15",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "Party_Forms.date_completion_started": {
+    "sample_values": [
+      "2017-12-05 19:48:45",
+      "2017-12-17 11:29:47",
+      "2017-12-04 18:20:10"
+    ],
+    "inferred_type": "string"
+  },
+  "Party_Forms.date_fully_completed": {
+    "sample_values": [
+      "2018-02-09 09:49:09",
+      "2018-01-28 22:29:07",
+      "2018-01-30 09:33:37"
+    ],
+    "inferred_type": "string"
+  },
+  "Party_Forms.party_id": {
+    "sample_values": [
+      "5",
+      "2",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "Party_Forms.form_status_code": {
+    "sample_values": [
+      "Work In Progress",
+      "Not Started",
+      "Completed"
+    ],
+    "inferred_type": "string"
+  },
+  "Party_Forms.form_id": {
+    "sample_values": [
+      "5",
+      "2",
+      "4"
+    ],
+    "inferred_type": "integer"
+  }
+}

@@ -1,0 +1,128 @@
+{
+  "architect.name": {
+    "sample_values": [
+      "Frank Gehry",
+      "Mies Van Der Rohe",
+      "Frank Lloyd Wright"
+    ],
+    "inferred_type": "string"
+  },
+  "architect.nationality": {
+    "sample_values": [
+      "American",
+      "Swiss, French",
+      "Iraqi, British"
+    ],
+    "inferred_type": "string"
+  },
+  "architect.id": {
+    "sample_values": [
+      "5",
+      "1",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "architect.gender": {
+    "sample_values": [
+      "female",
+      "male"
+    ],
+    "inferred_type": "string"
+  },
+  "mill.location": {
+    "sample_values": [
+      "Coswarem",
+      "Pousset",
+      "Momalle"
+    ],
+    "inferred_type": "string"
+  },
+  "mill.name": {
+    "sample_values": [
+      "Moulin de Pousset",
+      "Moulin Bertrand",
+      "Moulin de Momalle"
+    ],
+    "inferred_type": "string"
+  },
+  "mill.type": {
+    "sample_values": [
+      "Bergmolen",
+      "Grondzeiler"
+    ],
+    "inferred_type": "string"
+  },
+  "mill.built_year": {
+    "sample_values": [
+      "1890",
+      "1856",
+      "1843"
+    ],
+    "inferred_type": "integer"
+  },
+  "mill.architect_id": {
+    "sample_values": [
+      "1",
+      "3",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "mill.id": {
+    "sample_values": [
+      "5",
+      "2",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "bridge.location": {
+    "sample_values": [
+      "Sanostee , New Mexico , USA",
+      "Negro Bill Canyon , Utah , USA",
+      "Escalante Canyon , Utah , USA"
+    ],
+    "inferred_type": "string"
+  },
+  "bridge.length_meters": {
+    "sample_values": [
+      "65.0",
+      "69.0",
+      "76.0"
+    ],
+    "inferred_type": "float"
+  },
+  "bridge.name": {
+    "sample_values": [
+      "Gaotun Natural Bridge",
+      "Sipapu Natural Bridge",
+      "Rainbow Bridge"
+    ],
+    "inferred_type": "string"
+  },
+  "bridge.length_feet": {
+    "sample_values": [
+      "250.0",
+      "220.0",
+      "225.0"
+    ],
+    "inferred_type": "float"
+  },
+  "bridge.architect_id": {
+    "sample_values": [
+      "5",
+      "1",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "bridge.id": {
+    "sample_values": [
+      "5",
+      "8",
+      "9"
+    ],
+    "inferred_type": "integer"
+  }
+}

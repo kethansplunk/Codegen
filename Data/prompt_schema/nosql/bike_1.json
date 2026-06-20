@@ -1,0 +1,329 @@
+{
+  "trip.duration": {
+    "sample_values": [
+      "234",
+      "837",
+      "261"
+    ],
+    "inferred_type": "integer"
+  },
+  "trip.end_station_id": {
+    "sample_values": [
+      "34",
+      "61",
+      "76"
+    ],
+    "inferred_type": "integer"
+  },
+  "trip.end_date": {
+    "sample_values": [
+      "8/21/2015 17:07",
+      "8/21/2015 17:16",
+      "8/21/2015 17:18"
+    ],
+    "inferred_type": "string"
+  },
+  "trip.bike_id": {
+    "sample_values": [
+      "343",
+      "360",
+      "520"
+    ],
+    "inferred_type": "integer"
+  },
+  "trip.zip_code": {
+    "sample_values": [
+      "94103",
+      "95014",
+      "95110"
+    ],
+    "inferred_type": "integer"
+  },
+  "trip.start_date": {
+    "sample_values": [
+      "8/21/2015 17:05",
+      "8/21/2015 17:13",
+      "8/21/2015 17:12"
+    ],
+    "inferred_type": "string"
+  },
+  "trip.end_station_name": {
+    "sample_values": [
+      "Mountain View Caltrain Station",
+      "Palo Alto Caltrain Station",
+      "South Van Ness at Market"
+    ],
+    "inferred_type": "string"
+  },
+  "trip.start_station_name": {
+    "sample_values": [
+      "2nd at South Park",
+      "Yerba Buena Center of the Arts (3rd @ Howard)",
+      "5th at Howard"
+    ],
+    "inferred_type": "string"
+  },
+  "trip.start_station_id": {
+    "sample_values": [
+      "56",
+      "61",
+      "64"
+    ],
+    "inferred_type": "integer"
+  },
+  "trip.id": {
+    "sample_values": [
+      "900522",
+      "900549",
+      "900515"
+    ],
+    "inferred_type": "integer"
+  },
+  "trip.subscription_type": {
+    "sample_values": [
+      "Customer",
+      "Subscriber"
+    ],
+    "inferred_type": "string"
+  },
+  "status.time": {
+    "sample_values": [
+      "2015-06-02 13:13:03",
+      "2015-06-02 13:25:02",
+      "2015-06-02 12:51:02"
+    ],
+    "inferred_type": "string"
+  },
+  "station.name": {
+    "sample_values": [
+      "Redwood City Public Library",
+      "San Antonio Caltrain Station",
+      "University and Emerson"
+    ],
+    "inferred_type": "string"
+  },
+  "station.dock_count": {
+    "sample_values": [
+      "23",
+      "15",
+      "19"
+    ],
+    "inferred_type": "integer"
+  },
+  "station.city": {
+    "sample_values": [
+      "Redwood City",
+      "Mountain View",
+      "San Jose"
+    ],
+    "inferred_type": "string"
+  },
+  "station.long": {
+    "sample_values": [
+      "-122.164759",
+      "-122.402923",
+      "-121.88993700000002"
+    ],
+    "inferred_type": "float"
+  },
+  "station.installation_date": {
+    "sample_values": [
+      "8/19/2013",
+      "8/22/2013",
+      "8/21/2013"
+    ],
+    "inferred_type": "string"
+  },
+  "station.id": {
+    "sample_values": [
+      "34",
+      "5",
+      "35"
+    ],
+    "inferred_type": "integer"
+  },
+  "station.lat": {
+    "sample_values": [
+      "37.389218",
+      "37.481758",
+      "37.780526"
+    ],
+    "inferred_type": "float"
+  },
+  "weather.date": {
+    "sample_values": [
+      "9/28/2013",
+      "10/3/2013",
+      "9/22/2013"
+    ],
+    "inferred_type": "string"
+  },
+  "weather.min_temperature_f": {
+    "sample_values": [
+      "56",
+      "54",
+      "55"
+    ],
+    "inferred_type": "integer"
+  },
+  "weather.precipitation_inches": {
+    "sample_values": [
+      "T",
+      "0.23",
+      "0"
+    ],
+    "inferred_type": "string"
+  },
+  "weather.min_visibility_miles": {
+    "sample_values": [
+      "10",
+      "2",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "weather.min_sea_level_pressure_inches": {
+    "sample_values": [
+      "29.83",
+      "29.82",
+      "29.91"
+    ],
+    "inferred_type": "float"
+  },
+  "weather.wind_dir_degrees": {
+    "sample_values": [
+      "306",
+      "345",
+      "252"
+    ],
+    "inferred_type": "integer"
+  },
+  "weather.max_gust_speed_mph": {
+    "sample_values": [
+      "26",
+      "13",
+      "15"
+    ],
+    "inferred_type": "string"
+  },
+  "weather.mean_temperature_f": {
+    "sample_values": [
+      "68",
+      "64",
+      "60"
+    ],
+    "inferred_type": "integer"
+  },
+  "weather.mean_wind_speed_mph": {
+    "sample_values": [
+      "10",
+      "5",
+      "22"
+    ],
+    "inferred_type": "integer"
+  },
+  "weather.max_dew_point_f": {
+    "sample_values": [
+      "56",
+      "64",
+      "55"
+    ],
+    "inferred_type": "integer"
+  },
+  "weather.mean_humidity": {
+    "sample_values": [
+      "75",
+      "80",
+      "58"
+    ],
+    "inferred_type": "integer"
+  },
+  "weather.min_dew_point_f": {
+    "sample_values": [
+      "34",
+      "31",
+      "24"
+    ],
+    "inferred_type": "integer"
+  },
+  "weather.mean_dew_point_f": {
+    "sample_values": [
+      "56",
+      "43",
+      "54"
+    ],
+    "inferred_type": "integer"
+  },
+  "weather.max_humidity": {
+    "sample_values": [
+      "83",
+      "61",
+      "53"
+    ],
+    "inferred_type": "integer"
+  },
+  "weather.min_humidity": {
+    "sample_values": [
+      "41",
+      "57",
+      "50"
+    ],
+    "inferred_type": "integer"
+  },
+  "weather.max_temperature_f": {
+    "sample_values": [
+      "83",
+      "80",
+      "66"
+    ],
+    "inferred_type": "integer"
+  },
+  "weather.max_wind_Speed_mph": {
+    "sample_values": [
+      "23",
+      "25",
+      "20"
+    ],
+    "inferred_type": "integer"
+  },
+  "weather.mean_visibility_miles": {
+    "sample_values": [
+      "8",
+      "9",
+      "10"
+    ],
+    "inferred_type": "integer"
+  },
+  "weather.mean_sea_level_pressure_inches": {
+    "sample_values": [
+      "29.83",
+      "30.05",
+      "29.88"
+    ],
+    "inferred_type": "float"
+  },
+  "weather.cloud_cover": {
+    "sample_values": [
+      "5",
+      "1",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "weather.max_sea_level_pressure_inches": {
+    "sample_values": [
+      "29.86",
+      "29.77",
+      "30.04"
+    ],
+    "inferred_type": "float"
+  },
+  "weather.events": {
+    "sample_values": [
+      "",
+      "Fog",
+      "Rain"
+    ],
+    "inferred_type": "string"
+  }
+}

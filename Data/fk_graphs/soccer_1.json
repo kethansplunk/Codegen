@@ -1,0 +1,432 @@
+{
+  "db_name": "soccer_1",
+  "nodes": [
+    {
+      "name": "Player_Attributes",
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "player_fifa_api_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "player_api_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "date",
+          "type": "TEXT"
+        },
+        {
+          "name": "overall_rating",
+          "type": "INTEGER"
+        },
+        {
+          "name": "potential",
+          "type": "INTEGER"
+        },
+        {
+          "name": "preferred_foot",
+          "type": "TEXT"
+        },
+        {
+          "name": "attacking_work_rate",
+          "type": "TEXT"
+        },
+        {
+          "name": "defensive_work_rate",
+          "type": "TEXT"
+        },
+        {
+          "name": "crossing",
+          "type": "INTEGER"
+        },
+        {
+          "name": "finishing",
+          "type": "INTEGER"
+        },
+        {
+          "name": "heading_accuracy",
+          "type": "INTEGER"
+        },
+        {
+          "name": "short_passing",
+          "type": "INTEGER"
+        },
+        {
+          "name": "volleys",
+          "type": "INTEGER"
+        },
+        {
+          "name": "dribbling",
+          "type": "INTEGER"
+        },
+        {
+          "name": "curve",
+          "type": "INTEGER"
+        },
+        {
+          "name": "free_kick_accuracy",
+          "type": "INTEGER"
+        },
+        {
+          "name": "long_passing",
+          "type": "INTEGER"
+        },
+        {
+          "name": "ball_control",
+          "type": "INTEGER"
+        },
+        {
+          "name": "acceleration",
+          "type": "INTEGER"
+        },
+        {
+          "name": "sprint_speed",
+          "type": "INTEGER"
+        },
+        {
+          "name": "agility",
+          "type": "INTEGER"
+        },
+        {
+          "name": "reactions",
+          "type": "INTEGER"
+        },
+        {
+          "name": "balance",
+          "type": "INTEGER"
+        },
+        {
+          "name": "shot_power",
+          "type": "INTEGER"
+        },
+        {
+          "name": "jumping",
+          "type": "INTEGER"
+        },
+        {
+          "name": "stamina",
+          "type": "INTEGER"
+        },
+        {
+          "name": "strength",
+          "type": "INTEGER"
+        },
+        {
+          "name": "long_shots",
+          "type": "INTEGER"
+        },
+        {
+          "name": "aggression",
+          "type": "INTEGER"
+        },
+        {
+          "name": "interceptions",
+          "type": "INTEGER"
+        },
+        {
+          "name": "positioning",
+          "type": "INTEGER"
+        },
+        {
+          "name": "vision",
+          "type": "INTEGER"
+        },
+        {
+          "name": "penalties",
+          "type": "INTEGER"
+        },
+        {
+          "name": "marking",
+          "type": "INTEGER"
+        },
+        {
+          "name": "standing_tackle",
+          "type": "INTEGER"
+        },
+        {
+          "name": "sliding_tackle",
+          "type": "INTEGER"
+        },
+        {
+          "name": "gk_diving",
+          "type": "INTEGER"
+        },
+        {
+          "name": "gk_handling",
+          "type": "INTEGER"
+        },
+        {
+          "name": "gk_kicking",
+          "type": "INTEGER"
+        },
+        {
+          "name": "gk_positioning",
+          "type": "INTEGER"
+        },
+        {
+          "name": "gk_reflexes",
+          "type": "INTEGER"
+        }
+      ],
+      "pk": [
+        "id"
+      ]
+    },
+    {
+      "name": "sqlite_sequence",
+      "columns": [
+        {
+          "name": "name",
+          "type": ""
+        },
+        {
+          "name": "seq",
+          "type": ""
+        }
+      ],
+      "pk": []
+    },
+    {
+      "name": "Player",
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "player_api_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "player_name",
+          "type": "TEXT"
+        },
+        {
+          "name": "player_fifa_api_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "birthday",
+          "type": "TEXT"
+        },
+        {
+          "name": "height",
+          "type": "INTEGER"
+        },
+        {
+          "name": "weight",
+          "type": "INTEGER"
+        }
+      ],
+      "pk": [
+        "id"
+      ]
+    },
+    {
+      "name": "League",
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "country_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "name",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "id"
+      ]
+    },
+    {
+      "name": "Country",
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "name",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "id"
+      ]
+    },
+    {
+      "name": "Team",
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "team_api_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "team_fifa_api_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "team_long_name",
+          "type": "TEXT"
+        },
+        {
+          "name": "team_short_name",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "id"
+      ]
+    },
+    {
+      "name": "Team_Attributes",
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "team_fifa_api_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "team_api_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "date",
+          "type": "TEXT"
+        },
+        {
+          "name": "buildUpPlaySpeed",
+          "type": "INTEGER"
+        },
+        {
+          "name": "buildUpPlaySpeedClass",
+          "type": "TEXT"
+        },
+        {
+          "name": "buildUpPlayDribbling",
+          "type": "INTEGER"
+        },
+        {
+          "name": "buildUpPlayDribblingClass",
+          "type": "TEXT"
+        },
+        {
+          "name": "buildUpPlayPassing",
+          "type": "INTEGER"
+        },
+        {
+          "name": "buildUpPlayPassingClass",
+          "type": "TEXT"
+        },
+        {
+          "name": "buildUpPlayPositioningClass",
+          "type": "TEXT"
+        },
+        {
+          "name": "chanceCreationPassing",
+          "type": "INTEGER"
+        },
+        {
+          "name": "chanceCreationPassingClass",
+          "type": "TEXT"
+        },
+        {
+          "name": "chanceCreationCrossing",
+          "type": "INTEGER"
+        },
+        {
+          "name": "chanceCreationCrossingClass",
+          "type": "TEXT"
+        },
+        {
+          "name": "chanceCreationShooting",
+          "type": "INTEGER"
+        },
+        {
+          "name": "chanceCreationShootingClass",
+          "type": "TEXT"
+        },
+        {
+          "name": "chanceCreationPositioningClass",
+          "type": "TEXT"
+        },
+        {
+          "name": "defencePressure",
+          "type": "INTEGER"
+        },
+        {
+          "name": "defencePressureClass",
+          "type": "TEXT"
+        },
+        {
+          "name": "defenceAggression",
+          "type": "INTEGER"
+        },
+        {
+          "name": "defenceAggressionClass",
+          "type": "TEXT"
+        },
+        {
+          "name": "defenceTeamWidth",
+          "type": "INTEGER"
+        },
+        {
+          "name": "defenceTeamWidthClass",
+          "type": "TEXT"
+        },
+        {
+          "name": "defenceDefenderLineClass",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "id"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "Player_Attributes",
+      "to": "Player",
+      "child_col": "player_fifa_api_id",
+      "parent_col": "player_fifa_api_id"
+    },
+    {
+      "from": "League",
+      "to": "Country",
+      "child_col": "country_id",
+      "parent_col": "id"
+    },
+    {
+      "from": "Team_Attributes",
+      "to": "Team",
+      "child_col": "team_fifa_api_id",
+      "parent_col": "team_fifa_api_id"
+    }
+  ],
+  "centrality": {
+    "Player_Attributes": 0.0,
+    "sqlite_sequence": 0.0,
+    "Player": 0.16666666666666666,
+    "League": 0.0,
+    "Country": 0.16666666666666666,
+    "Team": 0.16666666666666666,
+    "Team_Attributes": 0.0
+  }
+}

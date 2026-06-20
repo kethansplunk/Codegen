@@ -1,0 +1,302 @@
+{
+  "db_name": "products_for_hire",
+  "collections": {
+    "Discount_Coupons": {
+      "primary_key": [
+        "coupon_id"
+      ],
+      "columns": [
+        {
+          "name": "coupon_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "date_issued",
+          "type": "DATETIME"
+        },
+        {
+          "name": "coupon_amount",
+          "type": "DECIMAL(19,4)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 15
+    },
+    "Customers": {
+      "primary_key": [
+        "customer_id"
+      ],
+      "columns": [
+        {
+          "name": "customer_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "coupon_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "good_or_bad_customer",
+          "type": "VARCHAR(4)"
+        },
+        {
+          "name": "first_name",
+          "type": "VARCHAR(80)"
+        },
+        {
+          "name": "last_name",
+          "type": "VARCHAR(80)"
+        },
+        {
+          "name": "gender_mf",
+          "type": "VARCHAR(1)"
+        },
+        {
+          "name": "date_became_customer",
+          "type": "DATETIME"
+        },
+        {
+          "name": "date_last_hire",
+          "type": "DATETIME"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Customers",
+          "to": "Discount_Coupons",
+          "child_col": "coupon_id",
+          "parent_col": "coupon_id"
+        }
+      ],
+      "row_count": 15
+    },
+    "Bookings": {
+      "primary_key": [
+        "booking_id"
+      ],
+      "columns": [
+        {
+          "name": "booking_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "customer_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "booking_status_code",
+          "type": "VARCHAR(10)"
+        },
+        {
+          "name": "returned_damaged_yn",
+          "type": "VARCHAR(40)"
+        },
+        {
+          "name": "booking_start_date",
+          "type": "DATETIME"
+        },
+        {
+          "name": "booking_end_date",
+          "type": "DATETIME"
+        },
+        {
+          "name": "count_hired",
+          "type": "VARCHAR(40)"
+        },
+        {
+          "name": "amount_payable",
+          "type": "DECIMAL(19,4)"
+        },
+        {
+          "name": "amount_of_discount",
+          "type": "DECIMAL(19,4)"
+        },
+        {
+          "name": "amount_outstanding",
+          "type": "DECIMAL(19,4)"
+        },
+        {
+          "name": "amount_of_refund",
+          "type": "DECIMAL(19,4)"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Bookings",
+          "to": "Customers",
+          "child_col": "customer_id",
+          "parent_col": "customer_id"
+        }
+      ],
+      "row_count": 15
+    },
+    "Products_for_Hire": {
+      "primary_key": [
+        "product_id"
+      ],
+      "columns": [
+        {
+          "name": "product_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "product_type_code",
+          "type": "VARCHAR(15)"
+        },
+        {
+          "name": "daily_hire_cost",
+          "type": "DECIMAL(19,4)"
+        },
+        {
+          "name": "product_name",
+          "type": "VARCHAR(80)"
+        },
+        {
+          "name": "product_description",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 5
+    },
+    "Payments": {
+      "primary_key": [
+        "payment_id"
+      ],
+      "columns": [
+        {
+          "name": "payment_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "booking_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "customer_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "payment_type_code",
+          "type": "VARCHAR(15)"
+        },
+        {
+          "name": "amount_paid_in_full_yn",
+          "type": "VARCHAR(1)"
+        },
+        {
+          "name": "payment_date",
+          "type": "DATETIME"
+        },
+        {
+          "name": "amount_due",
+          "type": "DECIMAL(19,4)"
+        },
+        {
+          "name": "amount_paid",
+          "type": "DECIMAL(19,4)"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Payments",
+          "to": "Customers",
+          "child_col": "customer_id",
+          "parent_col": "customer_id"
+        },
+        {
+          "from": "Payments",
+          "to": "Bookings",
+          "child_col": "booking_id",
+          "parent_col": "booking_id"
+        }
+      ],
+      "row_count": 15
+    },
+    "Products_Booked": {
+      "primary_key": [
+        "booking_id",
+        "product_id"
+      ],
+      "columns": [
+        {
+          "name": "booking_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "product_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "returned_yn",
+          "type": "VARCHAR(1)"
+        },
+        {
+          "name": "returned_late_yn",
+          "type": "VARCHAR(1)"
+        },
+        {
+          "name": "booked_count",
+          "type": "INTEGER"
+        },
+        {
+          "name": "booked_amount",
+          "type": "FLOAT"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Products_Booked",
+          "to": "Products_for_Hire",
+          "child_col": "product_id",
+          "parent_col": "product_id"
+        },
+        {
+          "from": "Products_Booked",
+          "to": "Bookings",
+          "child_col": "booking_id",
+          "parent_col": "booking_id"
+        }
+      ],
+      "row_count": 12
+    },
+    "View_Product_Availability": {
+      "primary_key": [
+        "status_date"
+      ],
+      "columns": [
+        {
+          "name": "product_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "booking_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "status_date",
+          "type": "DATETIME"
+        },
+        {
+          "name": "available_yn",
+          "type": "VARCHAR(1)"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "View_Product_Availability",
+          "to": "Products_for_Hire",
+          "child_col": "product_id",
+          "parent_col": "product_id"
+        },
+        {
+          "from": "View_Product_Availability",
+          "to": "Bookings",
+          "child_col": "booking_id",
+          "parent_col": "booking_id"
+        }
+      ],
+      "row_count": 4
+    }
+  }
+}

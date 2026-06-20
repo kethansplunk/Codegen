@@ -1,0 +1,213 @@
+{
+  "db_name": "music_2",
+  "collections": {
+    "Songs": {
+      "primary_key": [
+        "SongId"
+      ],
+      "columns": [
+        {
+          "name": "SongId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Title",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 0
+    },
+    "Albums": {
+      "primary_key": [
+        "AId"
+      ],
+      "columns": [
+        {
+          "name": "AId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Title",
+          "type": "TEXT"
+        },
+        {
+          "name": "Year",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Label",
+          "type": "TEXT"
+        },
+        {
+          "name": "Type",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 0
+    },
+    "Band": {
+      "primary_key": [
+        "Id"
+      ],
+      "columns": [
+        {
+          "name": "Id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Firstname",
+          "type": "TEXT"
+        },
+        {
+          "name": "Lastname",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 0
+    },
+    "Instruments": {
+      "primary_key": [
+        "SongId",
+        "BandmateId",
+        "Instrument"
+      ],
+      "columns": [
+        {
+          "name": "SongId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "BandmateId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Instrument",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Instruments",
+          "to": "Band",
+          "child_col": "BandmateId",
+          "parent_col": "Id"
+        },
+        {
+          "from": "Instruments",
+          "to": "Songs",
+          "child_col": "SongId",
+          "parent_col": "SongId"
+        }
+      ],
+      "row_count": 0
+    },
+    "Performance": {
+      "primary_key": [
+        "SongId",
+        "Bandmate"
+      ],
+      "columns": [
+        {
+          "name": "SongId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Bandmate",
+          "type": "INTEGER"
+        },
+        {
+          "name": "StagePosition",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Performance",
+          "to": "Band",
+          "child_col": "Bandmate",
+          "parent_col": "Id"
+        },
+        {
+          "from": "Performance",
+          "to": "Songs",
+          "child_col": "SongId",
+          "parent_col": "SongId"
+        }
+      ],
+      "row_count": 0
+    },
+    "Tracklists": {
+      "primary_key": [
+        "AlbumId",
+        "Position"
+      ],
+      "columns": [
+        {
+          "name": "AlbumId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Position",
+          "type": "INTEGER"
+        },
+        {
+          "name": "SongId",
+          "type": "INTEGER"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Tracklists",
+          "to": "Albums",
+          "child_col": "AlbumId",
+          "parent_col": "AId"
+        },
+        {
+          "from": "Tracklists",
+          "to": "Songs",
+          "child_col": "SongId",
+          "parent_col": "SongId"
+        }
+      ],
+      "row_count": 0
+    },
+    "Vocals": {
+      "primary_key": [
+        "SongId",
+        "Bandmate"
+      ],
+      "columns": [
+        {
+          "name": "SongId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Bandmate",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Type",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Vocals",
+          "to": "Band",
+          "child_col": "Bandmate",
+          "parent_col": "Id"
+        },
+        {
+          "from": "Vocals",
+          "to": "Songs",
+          "child_col": "SongId",
+          "parent_col": "SongId"
+        }
+      ],
+      "row_count": 0
+    }
+  }
+}

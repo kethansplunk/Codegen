@@ -1,0 +1,677 @@
+{
+  "Invoices.Invoice_ID": {
+    "sample_values": [
+      "777",
+      "633",
+      "679"
+    ],
+    "inferred_type": "integer"
+  },
+  "Invoices.Product_ID": {
+    "sample_values": [
+      "8",
+      "4",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "Invoices.payment_method_code": {
+    "sample_values": [
+      "Visa",
+      "American E",
+      "MasterCard"
+    ],
+    "inferred_type": "string"
+  },
+  "Invoices.Order_Quantity": {
+    "sample_values": [
+      "1",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "Invoices.Order_ID": {
+    "sample_values": [
+      "10",
+      "8",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "Invoices.Order_Item_ID": {
+    "sample_values": [
+      "5",
+      "1",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "Performers_in_Bookings.Performer_ID": {
+    "sample_values": [
+      "808",
+      "360",
+      "832"
+    ],
+    "inferred_type": "integer"
+  },
+  "Performers_in_Bookings.Order_ID": {
+    "sample_values": [
+      "15",
+      "2",
+      "13"
+    ],
+    "inferred_type": "integer"
+  },
+  "Stores.Store_Email_Address": {
+    "sample_values": [
+      "rborer@example.org",
+      "shirley07@example.net",
+      "adan93@example.com"
+    ],
+    "inferred_type": "string"
+  },
+  "Stores.Store_Phone": {
+    "sample_values": [
+      "893-457-3102x4293",
+      "1-678-902-9434x1148",
+      "605-319-8245"
+    ],
+    "inferred_type": "string"
+  },
+  "Stores.Store_Name": {
+    "sample_values": [
+      "Ewi Filming",
+      "FJA Filming",
+      "Fred Dinning"
+    ],
+    "inferred_type": "string"
+  },
+  "Stores.Other_Details": {
+    "sample_values": [
+      "5 stars",
+      "4 stars",
+      "3 stars"
+    ],
+    "inferred_type": "string"
+  },
+  "Stores.Marketing_Region_Code": {
+    "sample_values": [
+      "FR",
+      "RU",
+      "ES"
+    ],
+    "inferred_type": "string"
+  },
+  "Stores.Store_ID": {
+    "sample_values": [
+      "518",
+      "236",
+      "421"
+    ],
+    "inferred_type": "integer"
+  },
+  "Stores.Address_ID": {
+    "sample_values": [
+      "230",
+      "110",
+      "266"
+    ],
+    "inferred_type": "integer"
+  },
+  "Products.Product_Price": {
+    "sample_values": [
+      "157216",
+      "797",
+      "50828"
+    ],
+    "inferred_type": "integer"
+  },
+  "Products.Product_ID": {
+    "sample_values": [
+      "83",
+      "250",
+      "273"
+    ],
+    "inferred_type": "integer"
+  },
+  "Products.Product_Name": {
+    "sample_values": [
+      "film",
+      "dinning",
+      "photo"
+    ],
+    "inferred_type": "string"
+  },
+  "Bookings.Customer_ID": {
+    "sample_values": [
+      "527",
+      "938",
+      "605"
+    ],
+    "inferred_type": "integer"
+  },
+  "Bookings.Planned_Delivery_Date": {
+    "sample_values": [
+      "1999-05-11 01:26:06",
+      "2014-06-05 10:19:46",
+      "1973-04-02 03:10:21"
+    ],
+    "inferred_type": "string"
+  },
+  "Bookings.Actual_Delivery_Date": {
+    "sample_values": [
+      "1989-11-17 00:32:13",
+      "1982-04-18 02:59:08",
+      "1983-07-01 22:10:19"
+    ],
+    "inferred_type": "string"
+  },
+  "Bookings.Booking_ID": {
+    "sample_values": [
+      "5",
+      "8",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Bookings.Order_Date": {
+    "sample_values": [
+      "1991-10-11 17:24:15",
+      "1976-10-24 07:40:47",
+      "1996-09-14 10:17:55"
+    ],
+    "inferred_type": "string"
+  },
+  "Bookings.Workshop_Group_ID": {
+    "sample_values": [
+      "954",
+      "140",
+      "838"
+    ],
+    "inferred_type": "integer"
+  },
+  "Bookings.Status_Code": {
+    "sample_values": [
+      "stop",
+      "good"
+    ],
+    "inferred_type": "string"
+  },
+  "Bookings.Store_ID": {
+    "sample_values": [
+      "5",
+      "1",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "Drama_Workshop_Groups.Store_Email_Address": {
+    "sample_values": [
+      "hansen.krista@example.net",
+      "breitenberg.veda@example.com",
+      "watsica.hettie@example.com"
+    ],
+    "inferred_type": "string"
+  },
+  "Drama_Workshop_Groups.Store_Phone": {
+    "sample_values": [
+      "793-966-9311x5303",
+      "(256)743-0310",
+      "(020)161-0983x567"
+    ],
+    "inferred_type": "string"
+  },
+  "Drama_Workshop_Groups.Store_Name": {
+    "sample_values": [
+      "WAT Food",
+      "Uhuels Fruit",
+      "Kole Photo"
+    ],
+    "inferred_type": "string"
+  },
+  "Drama_Workshop_Groups.Other_Details": {
+    "sample_values": [
+      "Good",
+      "Bad"
+    ],
+    "inferred_type": "string"
+  },
+  "Drama_Workshop_Groups.Workshop_Group_ID": {
+    "sample_values": [
+      "954",
+      "470",
+      "314"
+    ],
+    "inferred_type": "integer"
+  },
+  "Drama_Workshop_Groups.Currency_Code": {
+    "sample_values": [
+      "USD",
+      "EU"
+    ],
+    "inferred_type": "string"
+  },
+  "Drama_Workshop_Groups.Marketing_Region_Code": {
+    "sample_values": [
+      "FR",
+      "US",
+      "MX"
+    ],
+    "inferred_type": "string"
+  },
+  "Drama_Workshop_Groups.Address_ID": {
+    "sample_values": [
+      "230",
+      "207",
+      "374"
+    ],
+    "inferred_type": "integer"
+  },
+  "Order_Items.Product_ID": {
+    "sample_values": [
+      "83",
+      "216",
+      "273"
+    ],
+    "inferred_type": "integer"
+  },
+  "Order_Items.Order_Quantity": {
+    "sample_values": [
+      "1",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "Order_Items.Order_ID": {
+    "sample_values": [
+      "5",
+      "12",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "Order_Items.Order_Item_ID": {
+    "sample_values": [
+      "5",
+      "8",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Ref_Payment_Methods.payment_method_description": {
+    "sample_values": [
+      "debit",
+      "credit",
+      "Visa"
+    ],
+    "inferred_type": "string"
+  },
+  "Ref_Payment_Methods.payment_method_code": {
+    "sample_values": [
+      "Visa",
+      "American E",
+      "MasterCard"
+    ],
+    "inferred_type": "string"
+  },
+  "Performers.Customer_Email_Address": {
+    "sample_values": [
+      "cummings.matteo@example.com",
+      "trey88@example.net",
+      "anderson34@example.net"
+    ],
+    "inferred_type": "string"
+  },
+  "Performers.Other_Details": {
+    "sample_values": [
+      "Pay good tips",
+      "Did not pay"
+    ],
+    "inferred_type": "string"
+  },
+  "Performers.Performer_ID": {
+    "sample_values": [
+      "808",
+      "360",
+      "153"
+    ],
+    "inferred_type": "integer"
+  },
+  "Performers.Customer_Name": {
+    "sample_values": [
+      "Dariana",
+      "Elyse",
+      "Keanu"
+    ],
+    "inferred_type": "string"
+  },
+  "Performers.Customer_Phone": {
+    "sample_values": [
+      "323-787-3435x31522",
+      "547.535.3455",
+      "905.705.9514"
+    ],
+    "inferred_type": "string"
+  },
+  "Performers.Address_ID": {
+    "sample_values": [
+      "110",
+      "124",
+      "374"
+    ],
+    "inferred_type": "integer"
+  },
+  "Addresses.City_Town": {
+    "sample_values": [
+      "East Aracely",
+      "New Jaquelinmouth",
+      "South Birdie"
+    ],
+    "inferred_type": "string"
+  },
+  "Addresses.State_County": {
+    "sample_values": [
+      "Delaware",
+      "Ohio",
+      "Maryland"
+    ],
+    "inferred_type": "string"
+  },
+  "Addresses.Line_1": {
+    "sample_values": [
+      "32128 Klocko Oval",
+      "9799 Andres Shoal",
+      "2893 Jenkins Station Suite 815"
+    ],
+    "inferred_type": "string"
+  },
+  "Addresses.Line_2": {
+    "sample_values": [
+      "Apt. 597",
+      "Suite 714",
+      "Apt. 114"
+    ],
+    "inferred_type": "string"
+  },
+  "Addresses.Address_ID": {
+    "sample_values": [
+      "124",
+      "286",
+      "148"
+    ],
+    "inferred_type": "integer"
+  },
+  "Bookings_Services.Order_ID": {
+    "sample_values": [
+      "5",
+      "1",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "Bookings_Services.Product_ID": {
+    "sample_values": [
+      "191",
+      "597",
+      "525"
+    ],
+    "inferred_type": "integer"
+  },
+  "Services.Product_Price": {
+    "sample_values": [
+      "7299.6747",
+      "187358.6469",
+      "8004.988"
+    ],
+    "inferred_type": "float"
+  },
+  "Services.Product_Name": {
+    "sample_values": [
+      "film",
+      "dinning",
+      "photo"
+    ],
+    "inferred_type": "string"
+  },
+  "Services.Service_ID": {
+    "sample_values": [
+      "220",
+      "421",
+      "773"
+    ],
+    "inferred_type": "integer"
+  },
+  "Services.Workshop_Group_ID": {
+    "sample_values": [
+      "954",
+      "405",
+      "382"
+    ],
+    "inferred_type": "integer"
+  },
+  "Services.Service_Type_Code": {
+    "sample_values": [
+      "1",
+      "3",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "Marketing_Regions.Marketing_Region_Name": {
+    "sample_values": [
+      "Russia",
+      "Canada",
+      "United States"
+    ],
+    "inferred_type": "string"
+  },
+  "Marketing_Regions.Marketing_Region_Descriptrion": {
+    "sample_values": [
+      "Our main market",
+      "Our target market",
+      "Our largest market"
+    ],
+    "inferred_type": "string"
+  },
+  "Marketing_Regions.Marketing_Region_Code": {
+    "sample_values": [
+      "FR",
+      "CN",
+      "US"
+    ],
+    "inferred_type": "string"
+  },
+  "Ref_Service_Types.Service_Type_Description": {
+    "sample_values": [
+      "provide filming service",
+      "provide dinning service",
+      "provide photo service"
+    ],
+    "inferred_type": "string"
+  },
+  "Ref_Service_Types.Service_Type_Code": {
+    "sample_values": [
+      "1",
+      "3",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "Customers.Customer_ID": {
+    "sample_values": [
+      "518",
+      "793",
+      "546"
+    ],
+    "inferred_type": "integer"
+  },
+  "Customers.Customer_Email_Address": {
+    "sample_values": [
+      "keanu70@example.net",
+      "eleannon@example.org",
+      "johnson27@example.com"
+    ],
+    "inferred_type": "string"
+  },
+  "Customers.Customer_Name": {
+    "sample_values": [
+      "Daryl",
+      "Cedrick",
+      "Alek"
+    ],
+    "inferred_type": "string"
+  },
+  "Customers.Customer_Phone": {
+    "sample_values": [
+      "347.178.3326",
+      "(514)659-1318x46123",
+      "388.863.3459x0915"
+    ],
+    "inferred_type": "string"
+  },
+  "Customers.Address_ID": {
+    "sample_values": [
+      "230",
+      "74",
+      "383"
+    ],
+    "inferred_type": "integer"
+  },
+  "Invoice_Items.Invoice_ID": {
+    "sample_values": [
+      "128",
+      "162"
+    ],
+    "inferred_type": "integer"
+  },
+  "Invoice_Items.Product_ID": {
+    "sample_values": [
+      "396",
+      "191"
+    ],
+    "inferred_type": "integer"
+  },
+  "Invoice_Items.Order_Quantity": {
+    "sample_values": [
+      "6",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "Invoice_Items.Order_ID": {
+    "sample_values": [
+      "1",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "Invoice_Items.Order_Item_ID": {
+    "sample_values": [
+      "6",
+      "5"
+    ],
+    "inferred_type": "integer"
+  },
+  "Invoice_Items.Invoice_Item_ID": {
+    "sample_values": [
+      "1",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "Clients.Customer_Email_Address": {
+    "sample_values": [
+      "westley30@example.net",
+      "jklocko@example.net",
+      "considine.shyanne@example.net"
+    ],
+    "inferred_type": "string"
+  },
+  "Clients.Other_Details": {
+    "sample_values": [
+      "VIP",
+      "Super VIP"
+    ],
+    "inferred_type": "string"
+  },
+  "Clients.Client_ID": {
+    "sample_values": [
+      "509",
+      "943",
+      "605"
+    ],
+    "inferred_type": "integer"
+  },
+  "Clients.Customer_Name": {
+    "sample_values": [
+      "Rosanna",
+      "Jack",
+      "Connor"
+    ],
+    "inferred_type": "string"
+  },
+  "Clients.Customer_Phone": {
+    "sample_values": [
+      "1-048-214-4640x64380",
+      "(651)611-6111x61144",
+      "398-003-6983x1691"
+    ],
+    "inferred_type": "string"
+  },
+  "Clients.Address_ID": {
+    "sample_values": [
+      "369",
+      "74",
+      "383"
+    ],
+    "inferred_type": "integer"
+  },
+  "Customer_Orders.Customer_ID": {
+    "sample_values": [
+      "418",
+      "304",
+      "546"
+    ],
+    "inferred_type": "integer"
+  },
+  "Customer_Orders.Planned_Delivery_Date": {
+    "sample_values": [
+      "1977-07-08 16:35:46",
+      "1987-03-21 18:50:27",
+      "2004-04-24 01:52:57"
+    ],
+    "inferred_type": "string"
+  },
+  "Customer_Orders.Actual_Delivery_Date": {
+    "sample_values": [
+      "2016-10-18 16:11:20",
+      "1996-04-13 19:05:34",
+      "2003-12-16 23:37:19"
+    ],
+    "inferred_type": "string"
+  },
+  "Customer_Orders.Order_Date": {
+    "sample_values": [
+      "1971-05-12 10:12:46",
+      "2000-07-03 21:41:50",
+      "1973-02-16 19:28:34"
+    ],
+    "inferred_type": "string"
+  },
+  "Customer_Orders.Store_ID": {
+    "sample_values": [
+      "518",
+      "150",
+      "344"
+    ],
+    "inferred_type": "integer"
+  },
+  "Customer_Orders.Order_ID": {
+    "sample_values": [
+      "5",
+      "8",
+      "9"
+    ],
+    "inferred_type": "integer"
+  }
+}

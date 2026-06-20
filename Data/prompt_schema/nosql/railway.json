@@ -1,0 +1,178 @@
+{
+  "railway_manage.From_Year": {
+    "sample_values": [
+      "2012",
+      "2011",
+      "2013"
+    ],
+    "inferred_type": "integer"
+  },
+  "railway_manage.Railway_ID": {
+    "sample_values": [
+      "8",
+      "7",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "railway_manage.Manager_ID": {
+    "sample_values": [
+      "1",
+      "3",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "railway.Railway": {
+    "sample_values": [
+      "SECR",
+      "LTSR",
+      "MR"
+    ],
+    "inferred_type": "string"
+  },
+  "railway.Builder": {
+    "sample_values": [
+      "GER Hartford",
+      "MR Derby",
+      "Swindon Works"
+    ],
+    "inferred_type": "string"
+  },
+  "railway.Location": {
+    "sample_values": [
+      "Bo'ness",
+      "Toddington",
+      "York"
+    ],
+    "inferred_type": "string"
+  },
+  "railway.Wheels": {
+    "sample_values": [
+      "2-8-0",
+      "4-4-2T",
+      "0-6-0"
+    ],
+    "inferred_type": "string"
+  },
+  "railway.ObjectNumber": {
+    "sample_values": [
+      "1978-7026",
+      "2008-7159",
+      "1975-7018"
+    ],
+    "inferred_type": "string"
+  },
+  "railway.Built": {
+    "sample_values": [
+      "1903",
+      "1909",
+      "1902 Midland Railway 1000 was rebuilt in 1914."
+    ],
+    "inferred_type": "string"
+  },
+  "railway.Railway_ID": {
+    "sample_values": [
+      "5",
+      "1",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "manager.Working_year_starts": {
+    "sample_values": [
+      "1993",
+      "1985",
+      "2004"
+    ],
+    "inferred_type": "integer"
+  },
+  "manager.Age": {
+    "sample_values": [
+      "47",
+      "48",
+      "55"
+    ],
+    "inferred_type": "integer"
+  },
+  "manager.Country": {
+    "sample_values": [
+      "Australia",
+      "United States",
+      "Scotland"
+    ],
+    "inferred_type": "string"
+  },
+  "manager.Name": {
+    "sample_values": [
+      "Nick Faldo",
+      "Todd Hamilton",
+      "Ben Curtis"
+    ],
+    "inferred_type": "string"
+  },
+  "manager.Manager_ID": {
+    "sample_values": [
+      "5",
+      "2",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "manager.Level": {
+    "sample_values": [
+      "5",
+      "8",
+      "12"
+    ],
+    "inferred_type": "integer"
+  },
+  "train.Railway_ID": {
+    "sample_values": [
+      "5",
+      "1",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "train.Train_ID": {
+    "sample_values": [
+      "5",
+      "2",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "train.Name": {
+    "sample_values": [
+      "Nandigram Exp",
+      "Wardha-Ballarshah Pass",
+      "Kazipet-Nagpur Pass"
+    ],
+    "inferred_type": "string"
+  },
+  "train.Arrival": {
+    "sample_values": [
+      "23:44",
+      "09:08",
+      "05:09"
+    ],
+    "inferred_type": "string"
+  },
+  "train.From": {
+    "sample_values": [
+      "Chennai",
+      "Jammu Tawi",
+      "Lucknow"
+    ],
+    "inferred_type": "string"
+  },
+  "train.Train_Num": {
+    "sample_values": [
+      "12140",
+      "57135",
+      "12139"
+    ],
+    "inferred_type": "integer"
+  }
+}

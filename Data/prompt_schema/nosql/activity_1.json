@@ -1,0 +1,176 @@
+{
+  "Faculty.Fname": {
+    "sample_values": [
+      "James",
+      "Pablo",
+      "Yair"
+    ],
+    "inferred_type": "string"
+  },
+  "Faculty.Rank": {
+    "sample_values": [
+      "AssocProf",
+      "Professor",
+      "AsstProf"
+    ],
+    "inferred_type": "string"
+  },
+  "Faculty.Phone": {
+    "sample_values": [
+      "2021",
+      "3272",
+      "5666"
+    ],
+    "inferred_type": "integer"
+  },
+  "Faculty.Building": {
+    "sample_values": [
+      "Barton",
+      "Krieger",
+      "NEB"
+    ],
+    "inferred_type": "string"
+  },
+  "Faculty.Lname": {
+    "sample_values": [
+      "Goldman",
+      "Awerbuch",
+      "Priebe"
+    ],
+    "inferred_type": "string"
+  },
+  "Faculty.FacID": {
+    "sample_values": [
+      "6112",
+      "9210",
+      "8423"
+    ],
+    "inferred_type": "integer"
+  },
+  "Faculty.Sex": {
+    "sample_values": [
+      "F",
+      "M"
+    ],
+    "inferred_type": "string"
+  },
+  "Faculty.Room": {
+    "sample_values": [
+      "119",
+      "324B",
+      "308"
+    ],
+    "inferred_type": "string"
+  },
+  "Participates_in.stuid": {
+    "sample_values": [
+      "1020",
+      "1016",
+      "1009"
+    ],
+    "inferred_type": "integer"
+  },
+  "Participates_in.actid": {
+    "sample_values": [
+      "772",
+      "771",
+      "784"
+    ],
+    "inferred_type": "integer"
+  },
+  "Faculty_Participates_in.FacID": {
+    "sample_values": [
+      "6112",
+      "1177",
+      "3457"
+    ],
+    "inferred_type": "integer"
+  },
+  "Faculty_Participates_in.actid": {
+    "sample_values": [
+      "778",
+      "771",
+      "796"
+    ],
+    "inferred_type": "integer"
+  },
+  "Activity.activity_name": {
+    "sample_values": [
+      "Chess",
+      "Spelunking",
+      "Canasta"
+    ],
+    "inferred_type": "string"
+  },
+  "Activity.actid": {
+    "sample_values": [
+      "772",
+      "785",
+      "799"
+    ],
+    "inferred_type": "integer"
+  },
+  "Student.Fname": {
+    "sample_values": [
+      "George",
+      "Mark",
+      "Susan"
+    ],
+    "inferred_type": "string"
+  },
+  "Student.Age": {
+    "sample_values": [
+      "17",
+      "18",
+      "21"
+    ],
+    "inferred_type": "integer"
+  },
+  "Student.city_code": {
+    "sample_values": [
+      "BOS",
+      "YYZ",
+      "HOU"
+    ],
+    "inferred_type": "string"
+  },
+  "Student.Advisor": {
+    "sample_values": [
+      "7712",
+      "7271",
+      "8723"
+    ],
+    "inferred_type": "integer"
+  },
+  "Student.StuID": {
+    "sample_values": [
+      "1020",
+      "1023",
+      "1018"
+    ],
+    "inferred_type": "integer"
+  },
+  "Student.Sex": {
+    "sample_values": [
+      "F",
+      "M"
+    ],
+    "inferred_type": "string"
+  },
+  "Student.Major": {
+    "sample_values": [
+      "550",
+      "50",
+      "520"
+    ],
+    "inferred_type": "integer"
+  },
+  "Student.LName": {
+    "sample_values": [
+      "Goldman",
+      "Prater",
+      "Brody"
+    ],
+    "inferred_type": "string"
+  }
+}

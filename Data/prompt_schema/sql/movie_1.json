@@ -1,0 +1,82 @@
+{
+  "Movie.mID": {
+    "sample_values": [
+      101,
+      103,
+      105
+    ],
+    "inferred_type": "integer"
+  },
+  "Movie.title": {
+    "sample_values": [
+      "Raiders of the Lost Ark",
+      "Star Wars",
+      "The Sound of Music"
+    ],
+    "inferred_type": "string"
+  },
+  "Movie.year": {
+    "sample_values": [
+      1939,
+      1965,
+      1997
+    ],
+    "inferred_type": "integer"
+  },
+  "Movie.director": {
+    "sample_values": [
+      "James Cameron",
+      "Steven Spielberg",
+      "Robert Wise"
+    ],
+    "inferred_type": "string"
+  },
+  "Reviewer.rID": {
+    "sample_values": [
+      201,
+      203,
+      205
+    ],
+    "inferred_type": "integer"
+  },
+  "Reviewer.name": {
+    "sample_values": [
+      "Ashley White",
+      "Daniel Lewis",
+      "Brittany Harris"
+    ],
+    "inferred_type": "string"
+  },
+  "Rating.rID": {
+    "sample_values": [
+      201,
+      203,
+      205
+    ],
+    "inferred_type": "integer"
+  },
+  "Rating.mID": {
+    "sample_values": [
+      101,
+      103,
+      104
+    ],
+    "inferred_type": "integer"
+  },
+  "Rating.stars": {
+    "sample_values": [
+      2,
+      4,
+      3
+    ],
+    "inferred_type": "integer"
+  },
+  "Rating.ratingDate": {
+    "sample_values": [
+      "2011-01-02",
+      "2011-01-20",
+      "2011-01-27"
+    ],
+    "inferred_type": "string"
+  }
+}

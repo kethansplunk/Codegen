@@ -1,0 +1,120 @@
+{
+  "Club.ClubID": {
+    "sample_values": [
+      "1",
+      "3",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "Club.ClubName": {
+    "sample_values": [
+      "Pen and Paper Gaming",
+      "Hopkins Student Enterprises",
+      "Tennis Club"
+    ],
+    "inferred_type": "string"
+  },
+  "Club.ClubLocation": {
+    "sample_values": [
+      "AKW",
+      "HHH"
+    ],
+    "inferred_type": "string"
+  },
+  "Club.ClubDesc": {
+    "sample_values": [
+      "Play pen and paper games on campus.",
+      "Venture capital fund for student business.",
+      "A competitive tennis club."
+    ],
+    "inferred_type": "string"
+  },
+  "Student.Fname": {
+    "sample_values": [
+      "George",
+      "Mark",
+      "Susan"
+    ],
+    "inferred_type": "string"
+  },
+  "Student.Age": {
+    "sample_values": [
+      "17",
+      "18",
+      "21"
+    ],
+    "inferred_type": "integer"
+  },
+  "Student.city_code": {
+    "sample_values": [
+      "BOS",
+      "YYZ",
+      "HOU"
+    ],
+    "inferred_type": "string"
+  },
+  "Student.Advisor": {
+    "sample_values": [
+      "7712",
+      "7271",
+      "8723"
+    ],
+    "inferred_type": "integer"
+  },
+  "Student.StuID": {
+    "sample_values": [
+      "1020",
+      "1023",
+      "1018"
+    ],
+    "inferred_type": "integer"
+  },
+  "Student.Sex": {
+    "sample_values": [
+      "F",
+      "M"
+    ],
+    "inferred_type": "string"
+  },
+  "Student.Major": {
+    "sample_values": [
+      "550",
+      "50",
+      "520"
+    ],
+    "inferred_type": "integer"
+  },
+  "Student.LName": {
+    "sample_values": [
+      "Goldman",
+      "Prater",
+      "Brody"
+    ],
+    "inferred_type": "string"
+  },
+  "Member_of_club.ClubID": {
+    "sample_values": [
+      "1",
+      "2",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "Member_of_club.Position": {
+    "sample_values": [
+      "President",
+      "CTO",
+      "Vice-President"
+    ],
+    "inferred_type": "string"
+  },
+  "Member_of_club.StuID": {
+    "sample_values": [
+      "1001",
+      "1010",
+      "1007"
+    ],
+    "inferred_type": "integer"
+  }
+}

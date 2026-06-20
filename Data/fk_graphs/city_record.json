@@ -1,0 +1,171 @@
+{
+  "db_name": "city_record",
+  "nodes": [
+    {
+      "name": "city",
+      "columns": [
+        {
+          "name": "City_ID",
+          "type": "INT"
+        },
+        {
+          "name": "City",
+          "type": "TEXT"
+        },
+        {
+          "name": "Hanzi",
+          "type": "TEXT"
+        },
+        {
+          "name": "Hanyu_Pinyin",
+          "type": "TEXT"
+        },
+        {
+          "name": "Regional_Population",
+          "type": "INT"
+        },
+        {
+          "name": "GDP",
+          "type": "REAL"
+        }
+      ],
+      "pk": [
+        "City_ID"
+      ]
+    },
+    {
+      "name": "match",
+      "columns": [
+        {
+          "name": "Match_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Date",
+          "type": "TEXT"
+        },
+        {
+          "name": "Venue",
+          "type": "TEXT"
+        },
+        {
+          "name": "Score",
+          "type": "TEXT"
+        },
+        {
+          "name": "Result",
+          "type": "TEXT"
+        },
+        {
+          "name": "Competition",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "Match_ID"
+      ]
+    },
+    {
+      "name": "temperature",
+      "columns": [
+        {
+          "name": "City_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Jan",
+          "type": "REAL"
+        },
+        {
+          "name": "Feb",
+          "type": "REAL"
+        },
+        {
+          "name": "Mar",
+          "type": "REAL"
+        },
+        {
+          "name": "Apr",
+          "type": "REAL"
+        },
+        {
+          "name": "Jun",
+          "type": "REAL"
+        },
+        {
+          "name": "Jul",
+          "type": "REAL"
+        },
+        {
+          "name": "Aug",
+          "type": "REAL"
+        },
+        {
+          "name": "Sep",
+          "type": "REAL"
+        },
+        {
+          "name": "Oct",
+          "type": "REAL"
+        },
+        {
+          "name": "Nov",
+          "type": "REAL"
+        },
+        {
+          "name": "Dec",
+          "type": "REAL"
+        }
+      ],
+      "pk": [
+        "City_ID"
+      ]
+    },
+    {
+      "name": "hosting_city",
+      "columns": [
+        {
+          "name": "Year",
+          "type": "INT"
+        },
+        {
+          "name": "Match_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Host_City",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "Year"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "temperature",
+      "to": "city",
+      "child_col": "City_ID",
+      "parent_col": "City_ID"
+    },
+    {
+      "from": "hosting_city",
+      "to": "match",
+      "child_col": "Match_ID",
+      "parent_col": "Match_ID"
+    },
+    {
+      "from": "hosting_city",
+      "to": "city",
+      "child_col": "Host_City",
+      "parent_col": "City_ID"
+    }
+  ],
+  "centrality": {
+    "city": 0.6666666666666666,
+    "match": 0.3333333333333333,
+    "temperature": 0.0,
+    "hosting_city": 0.0
+  }
+}

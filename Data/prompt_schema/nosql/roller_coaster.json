@@ -1,0 +1,106 @@
+{
+  "country.Country_ID": {
+    "sample_values": [
+      "1",
+      "3",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "country.Name": {
+    "sample_values": [
+      "Sweden",
+      "Austria",
+      "Finland"
+    ],
+    "inferred_type": "string"
+  },
+  "country.Population": {
+    "sample_values": [
+      "9047752",
+      "8206524",
+      "5261008"
+    ],
+    "inferred_type": "integer"
+  },
+  "country.Languages": {
+    "sample_values": [
+      "German",
+      "Swedish",
+      "Finnish Swedish"
+    ],
+    "inferred_type": "string"
+  },
+  "country.Area": {
+    "sample_values": [
+      "83871",
+      "449964",
+      "338145"
+    ],
+    "inferred_type": "integer"
+  },
+  "roller_coaster.Country_ID": {
+    "sample_values": [
+      "1",
+      "3",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "roller_coaster.Opened": {
+    "sample_values": [
+      "May 14, 2005",
+      "May 6, 2006",
+      "May 17, 2008"
+    ],
+    "inferred_type": "string"
+  },
+  "roller_coaster.Name": {
+    "sample_values": [
+      "Twister",
+      "Boardwalk Bullet",
+      "Dauling Dragon"
+    ],
+    "inferred_type": "string"
+  },
+  "roller_coaster.Height": {
+    "sample_values": [
+      "163.0",
+      "136.0",
+      "50.0"
+    ],
+    "inferred_type": "float"
+  },
+  "roller_coaster.Roller_Coaster_ID": {
+    "sample_values": [
+      "5",
+      "2",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "roller_coaster.Speed": {
+    "sample_values": [
+      "67",
+      "55",
+      "70"
+    ],
+    "inferred_type": "float"
+  },
+  "roller_coaster.Park": {
+    "sample_values": [
+      "Happy Valley",
+      "Mt. Olympus",
+      "Waldameer"
+    ],
+    "inferred_type": "string"
+  },
+  "roller_coaster.Length": {
+    "sample_values": [
+      "3914.0",
+      "6442.0",
+      "4726.0"
+    ],
+    "inferred_type": "float"
+  }
+}

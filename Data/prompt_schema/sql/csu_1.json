@@ -1,0 +1,177 @@
+{
+  "Campuses.Id": {
+    "sample_values": [
+      1,
+      7,
+      13
+    ],
+    "inferred_type": "integer"
+  },
+  "Campuses.Campus": {
+    "sample_values": [
+      "California Polytechnic State University-San Luis Obispo",
+      "Humboldt State University",
+      "Long Beach State University"
+    ],
+    "inferred_type": "string"
+  },
+  "Campuses.Location": {
+    "sample_values": [
+      "San Luis Obispo",
+      "Arcata",
+      "Long Beach"
+    ],
+    "inferred_type": "string"
+  },
+  "Campuses.County": {
+    "sample_values": [
+      "Stanislaus",
+      "Humboldt",
+      "Orange"
+    ],
+    "inferred_type": "string"
+  },
+  "Campuses.Year": {
+    "sample_values": [
+      1965,
+      1913,
+      1938
+    ],
+    "inferred_type": "integer"
+  },
+  "csu_fees.Campus": {
+    "sample_values": [
+      1,
+      7,
+      13
+    ],
+    "inferred_type": "integer"
+  },
+  "csu_fees.Year": {
+    "sample_values": [
+      1996,
+      2003
+    ],
+    "inferred_type": "integer"
+  },
+  "csu_fees.CampusFee": {
+    "sample_values": [
+      1951,
+      1797,
+      1970
+    ],
+    "inferred_type": "integer"
+  },
+  "degrees.Year": {
+    "sample_values": [
+      1990,
+      1995,
+      2000
+    ],
+    "inferred_type": "integer"
+  },
+  "degrees.Campus": {
+    "sample_values": [
+      1,
+      8,
+      16
+    ],
+    "inferred_type": "integer"
+  },
+  "degrees.Degrees": {
+    "sample_values": [
+      701,
+      804,
+      1151
+    ],
+    "inferred_type": "integer"
+  },
+  "discipline_enrollments.Campus": {
+    "sample_values": [
+      1,
+      7,
+      13
+    ],
+    "inferred_type": "integer"
+  },
+  "discipline_enrollments.Discipline": {
+    "sample_values": [
+      4,
+      11,
+      19
+    ],
+    "inferred_type": "integer"
+  },
+  "discipline_enrollments.Undergraduate": {
+    "sample_values": [
+      248,
+      60,
+      501
+    ],
+    "inferred_type": "integer"
+  },
+  "discipline_enrollments.Graduate": {
+    "sample_values": [
+      0,
+      8,
+      27
+    ],
+    "inferred_type": "integer"
+  },
+  "enrollments.Campus": {
+    "sample_values": [
+      1,
+      7,
+      13
+    ],
+    "inferred_type": "integer"
+  },
+  "enrollments.Year": {
+    "sample_values": [
+      1956,
+      1962,
+      1968
+    ],
+    "inferred_type": "integer"
+  },
+  "enrollments.TotalEnrollment_AY": {
+    "sample_values": [
+      384,
+      495,
+      684
+    ],
+    "inferred_type": "integer"
+  },
+  "enrollments.FTE_AY": {
+    "sample_values": [
+      123,
+      230,
+      358
+    ],
+    "inferred_type": "integer"
+  },
+  "faculty.Campus": {
+    "sample_values": [
+      1,
+      7,
+      13
+    ],
+    "inferred_type": "integer"
+  },
+  "faculty.Year": {
+    "sample_values": [
+      2002,
+      2003,
+      2004
+    ],
+    "inferred_type": "integer"
+  },
+  "faculty.Faculty": {
+    "sample_values": [
+      357.1,
+      1257.3,
+      1141.2
+    ],
+    "inferred_type": "float"
+  }
+}

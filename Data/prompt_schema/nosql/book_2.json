@@ -1,0 +1,74 @@
+{
+  "book.Title": {
+    "sample_values": [
+      "Bloody Mary : Lady Liberty",
+      "Michael Moorcock's Multiverse",
+      "Sheva's War"
+    ],
+    "inferred_type": "string"
+  },
+  "book.Issues": {
+    "sample_values": [
+      "12.0",
+      "9.0",
+      "6.0"
+    ],
+    "inferred_type": "float"
+  },
+  "book.Book_ID": {
+    "sample_values": [
+      "5",
+      "1",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "book.Writer": {
+    "sample_values": [
+      "Dave Gibbons",
+      "Michael Moorcock",
+      "Howard Chaykin"
+    ],
+    "inferred_type": "string"
+  },
+  "publication.Price": {
+    "sample_values": [
+      "4100000.0",
+      "6000000.0",
+      "2000000.0"
+    ],
+    "inferred_type": "float"
+  },
+  "publication.Publisher": {
+    "sample_values": [
+      "Springer Nature",
+      "Wiley",
+      "Pearson"
+    ],
+    "inferred_type": "string"
+  },
+  "publication.Book_ID": {
+    "sample_values": [
+      "5",
+      "1",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "publication.Publication_ID": {
+    "sample_values": [
+      "5",
+      "2",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "publication.Publication_Date": {
+    "sample_values": [
+      "June 2006",
+      "March 2007",
+      "October 2005"
+    ],
+    "inferred_type": "string"
+  }
+}

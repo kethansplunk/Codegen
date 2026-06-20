@@ -1,0 +1,237 @@
+{
+  "Roles.role_code": {
+    "sample_values": [
+      "DBA",
+      "PROJ-MGR"
+    ],
+    "inferred_type": "string"
+  },
+  "Roles.role_description": {
+    "sample_values": [
+      "Database Administrator",
+      "Project Manager"
+    ],
+    "inferred_type": "string"
+  },
+  "Users.user_id": {
+    "sample_values": [
+      1,
+      6,
+      11
+    ],
+    "inferred_type": "integer"
+  },
+  "Users.role_code": {
+    "sample_values": [
+      "PROJ-MGR",
+      "DBA"
+    ],
+    "inferred_type": "string"
+  },
+  "Users.user_name": {
+    "sample_values": [
+      "glenna.simonis",
+      "jacklyn.schmitt",
+      "amelie53"
+    ],
+    "inferred_type": "string"
+  },
+  "Users.user_login": {
+    "sample_values": [
+      "0",
+      "1"
+    ],
+    "inferred_type": "integer"
+  },
+  "Users.password": {
+    "sample_values": [
+      "95f489fc0921bbb3e7d661a550ae208b88d9b11a",
+      "3f6affa583bfdf7fac6faeb2ca418431909d4b39",
+      "6aa66440864ff8143fe7dee5940a6af3460bad07"
+    ],
+    "inferred_type": "string"
+  },
+  "Document_Structures.document_structure_code": {
+    "sample_values": [
+      "1",
+      "5",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "Document_Structures.parent_document_structure_code": {
+    "sample_values": [
+      "1",
+      "6",
+      "8"
+    ],
+    "inferred_type": "integer"
+  },
+  "Document_Structures.document_structure_description": {
+    "sample_values": [
+      "Author section",
+      "Image section",
+      "Bib"
+    ],
+    "inferred_type": "string"
+  },
+  "Functional_Areas.functional_area_code": {
+    "sample_values": [
+      "1",
+      "8",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Functional_Areas.functional_area_description": {
+    "sample_values": [
+      "Signature",
+      "Acknowledgement",
+      "Keep blank"
+    ],
+    "inferred_type": "string"
+  },
+  "Images.image_id": {
+    "sample_values": [
+      1,
+      6,
+      11
+    ],
+    "inferred_type": "integer"
+  },
+  "Images.image_alt_text": {
+    "sample_values": [
+      "Trycia",
+      "Camylle",
+      "Lincoln"
+    ],
+    "inferred_type": "string"
+  },
+  "Images.image_name": {
+    "sample_values": [
+      "data6",
+      "chapter3",
+      "chapter2"
+    ],
+    "inferred_type": "string"
+  },
+  "Images.image_url": {
+    "sample_values": [
+      "http://www.beahan.biz/1.jpg",
+      "http://faycummerata.net/1.jpg",
+      "http://www.hellerreinger.com/1.jpg"
+    ],
+    "inferred_type": "string"
+  },
+  "Documents.document_code": {
+    "sample_values": [
+      "217",
+      "621",
+      "928"
+    ],
+    "inferred_type": "integer"
+  },
+  "Documents.document_structure_code": {
+    "sample_values": [
+      "8",
+      "1",
+      "5"
+    ],
+    "inferred_type": "integer"
+  },
+  "Documents.document_type_code": {
+    "sample_values": [
+      "CV",
+      "Advertisement",
+      "Paper"
+    ],
+    "inferred_type": "string"
+  },
+  "Documents.access_count": {
+    "sample_values": [
+      1864,
+      6345,
+      2294
+    ],
+    "inferred_type": "integer"
+  },
+  "Documents.document_name": {
+    "sample_values": [
+      "Relationships between History and Arts",
+      "How to cook pasta",
+      "David CV"
+    ],
+    "inferred_type": "string"
+  },
+  "Document_Functional_Areas.document_code": {
+    "sample_values": [
+      "675",
+      "465",
+      "928"
+    ],
+    "inferred_type": "integer"
+  },
+  "Document_Functional_Areas.functional_area_code": {
+    "sample_values": [
+      "9",
+      "1",
+      "8"
+    ],
+    "inferred_type": "integer"
+  },
+  "Document_Sections.section_id": {
+    "sample_values": [
+      12,
+      27,
+      62
+    ],
+    "inferred_type": "integer"
+  },
+  "Document_Sections.document_code": {
+    "sample_values": [
+      "714",
+      "465",
+      "961"
+    ],
+    "inferred_type": "integer"
+  },
+  "Document_Sections.section_sequence": {
+    "sample_values": [
+      6072,
+      6016,
+      5552
+    ],
+    "inferred_type": "integer"
+  },
+  "Document_Sections.section_code": {
+    "sample_values": [
+      "70",
+      "49",
+      "34"
+    ],
+    "inferred_type": "integer"
+  },
+  "Document_Sections.section_title": {
+    "sample_values": [
+      "after",
+      "before"
+    ],
+    "inferred_type": "string"
+  },
+  "Document_Sections_Images.section_id": {
+    "sample_values": [
+      12,
+      23,
+      54
+    ],
+    "inferred_type": "integer"
+  },
+  "Document_Sections_Images.image_id": {
+    "sample_values": [
+      6,
+      12,
+      14
+    ],
+    "inferred_type": "integer"
+  }
+}

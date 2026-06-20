@@ -1,0 +1,78 @@
+{
+  "db_name": "ship_mission",
+  "collections": {
+    "mission": {
+      "primary_key": [
+        "Mission_ID"
+      ],
+      "columns": [
+        {
+          "name": "Mission_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Ship_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Code",
+          "type": "TEXT"
+        },
+        {
+          "name": "Launched_Year",
+          "type": "INT"
+        },
+        {
+          "name": "Location",
+          "type": "TEXT"
+        },
+        {
+          "name": "Speed_knots",
+          "type": "INT"
+        },
+        {
+          "name": "Fate",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "mission",
+          "to": "ship",
+          "child_col": "Ship_ID",
+          "parent_col": "Ship_ID"
+        }
+      ],
+      "row_count": 7
+    },
+    "ship": {
+      "primary_key": [
+        "Ship_ID"
+      ],
+      "columns": [
+        {
+          "name": "Ship_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Type",
+          "type": "TEXT"
+        },
+        {
+          "name": "Nationality",
+          "type": "TEXT"
+        },
+        {
+          "name": "Tonnage",
+          "type": "INT"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 8
+    }
+  }
+}

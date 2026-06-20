@@ -1,0 +1,160 @@
+{
+  "basketball_match.Team_ID": {
+    "sample_values": [
+      1,
+      2,
+      3
+    ],
+    "inferred_type": "integer"
+  },
+  "basketball_match.School_ID": {
+    "sample_values": [
+      1,
+      2,
+      4
+    ],
+    "inferred_type": "integer"
+  },
+  "basketball_match.Team_Name": {
+    "sample_values": [
+      "Virginia Tech",
+      "Clemson",
+      "Duke"
+    ],
+    "inferred_type": "string"
+  },
+  "basketball_match.ACC_Regular_Season": {
+    "sample_values": [
+      "9\u20137",
+      "10\u20136",
+      "13\u20133"
+    ],
+    "inferred_type": "string"
+  },
+  "basketball_match.ACC_Percent": {
+    "sample_values": [
+      ".875",
+      ".813",
+      ".625"
+    ],
+    "inferred_type": "float"
+  },
+  "basketball_match.ACC_Home": {
+    "sample_values": [
+      "6\u20132",
+      "7\u20131"
+    ],
+    "inferred_type": "string"
+  },
+  "basketball_match.ACC_Road": {
+    "sample_values": [
+      "8\u20130",
+      "6\u20132",
+      "3\u20135"
+    ],
+    "inferred_type": "string"
+  },
+  "basketball_match.All_Games": {
+    "sample_values": [
+      "21\u201314",
+      "24\u201310",
+      "28\u20136"
+    ],
+    "inferred_type": "string"
+  },
+  "basketball_match.All_Games_Percent": {
+    "sample_values": [
+      0.946,
+      0.824,
+      0.706
+    ],
+    "inferred_type": "float"
+  },
+  "basketball_match.All_Home": {
+    "sample_values": [
+      "14\u20132",
+      "15\u20131",
+      "14\u20133"
+    ],
+    "inferred_type": "string"
+  },
+  "basketball_match.All_Road": {
+    "sample_values": [
+      "4\u20138",
+      "6\u20135",
+      "8\u20132"
+    ],
+    "inferred_type": "string"
+  },
+  "basketball_match.All_Neutral": {
+    "sample_values": [
+      "9\u20131",
+      "5\u20133",
+      "4\u20133"
+    ],
+    "inferred_type": "string"
+  },
+  "university.School_ID": {
+    "sample_values": [
+      1,
+      2,
+      3
+    ],
+    "inferred_type": "integer"
+  },
+  "university.School": {
+    "sample_values": [
+      "Stony Brook University",
+      "Rutgers University",
+      "University of Rhode Island"
+    ],
+    "inferred_type": "string"
+  },
+  "university.Location": {
+    "sample_values": [
+      "Stony Brook, NY",
+      "New Brunswick, NJ",
+      "Kingston, RI"
+    ],
+    "inferred_type": "string"
+  },
+  "university.Founded": {
+    "sample_values": [
+      1743.0,
+      1866.0,
+      1892.0
+    ],
+    "inferred_type": "float"
+  },
+  "university.Affiliation": {
+    "sample_values": [
+      "Public",
+      "Private/Methodist"
+    ],
+    "inferred_type": "string"
+  },
+  "university.Enrollment": {
+    "sample_values": [
+      19067.0,
+      2100.0,
+      19095.0
+    ],
+    "inferred_type": "float"
+  },
+  "university.Nickname": {
+    "sample_values": [
+      "Seawolves",
+      "Scarlet Knights",
+      "Rams"
+    ],
+    "inferred_type": "string"
+  },
+  "university.Primary_conference": {
+    "sample_values": [
+      "America East Conference ( D-I )",
+      "American Athletic Conference ( D-I )",
+      "Atlantic 10 Conference ( D-I )"
+    ],
+    "inferred_type": "string"
+  }
+}

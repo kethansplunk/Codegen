@@ -1,0 +1,70 @@
+{
+  "db_name": "singer",
+  "collections": {
+    "singer": {
+      "primary_key": [
+        "Singer_ID"
+      ],
+      "columns": [
+        {
+          "name": "Singer_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Birth_Year",
+          "type": "REAL"
+        },
+        {
+          "name": "Net_Worth_Millions",
+          "type": "REAL"
+        },
+        {
+          "name": "Citizenship",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 8
+    },
+    "song": {
+      "primary_key": [
+        "Song_ID"
+      ],
+      "columns": [
+        {
+          "name": "Song_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Title",
+          "type": "TEXT"
+        },
+        {
+          "name": "Singer_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Sales",
+          "type": "REAL"
+        },
+        {
+          "name": "Highest_Position",
+          "type": "REAL"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "song",
+          "to": "singer",
+          "child_col": "Singer_ID",
+          "parent_col": "Singer_ID"
+        }
+      ],
+      "row_count": 8
+    }
+  }
+}

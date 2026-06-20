@@ -1,0 +1,98 @@
+{
+  "member.Name": {
+    "sample_values": [
+      "H\u00e9ctor Campana",
+      "Charlie Burke",
+      "Corey Allen"
+    ],
+    "inferred_type": "string"
+  },
+  "member.Nationality": {
+    "sample_values": [
+      "Argentina",
+      "Uruguay",
+      "United States"
+    ],
+    "inferred_type": "string"
+  },
+  "member.Role": {
+    "sample_values": [
+      "Bass",
+      "Viola",
+      "Prime Violin"
+    ],
+    "inferred_type": "string"
+  },
+  "member.Member_ID": {
+    "sample_values": [
+      "5",
+      "1",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "member_attendance.Num_of_Pieces": {
+    "sample_values": [
+      "1",
+      "3",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "member_attendance.Performance_ID": {
+    "sample_values": [
+      "1",
+      "2",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "member_attendance.Member_ID": {
+    "sample_values": [
+      "5",
+      "2",
+      "3"
+    ],
+    "inferred_type": "integer"
+  },
+  "performance.Host": {
+    "sample_values": [
+      "Montreal Canadiens",
+      "Pittsburgh Penguins",
+      "Atlanta Thrashers"
+    ],
+    "inferred_type": "string"
+  },
+  "performance.Location": {
+    "sample_values": [
+      "Bell Centre",
+      "Scotiabank Place",
+      "Madison Square Garden"
+    ],
+    "inferred_type": "string"
+  },
+  "performance.Attendance": {
+    "sample_values": [
+      "1877",
+      "1982",
+      "2173"
+    ],
+    "inferred_type": "integer"
+  },
+  "performance.Performance_ID": {
+    "sample_values": [
+      "1.0",
+      "5.0",
+      "2.0"
+    ],
+    "inferred_type": "float"
+  },
+  "performance.Date": {
+    "sample_values": [
+      "February 4",
+      "February 5",
+      "February 10"
+    ],
+    "inferred_type": "string"
+  }
+}

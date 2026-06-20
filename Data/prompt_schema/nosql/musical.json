@@ -1,0 +1,95 @@
+{
+  "actor.Duration": {
+    "sample_values": [
+      "1988\u2014",
+      "1993\u2014",
+      "1987\u20131991, 1996\u20132009, 2011"
+    ],
+    "inferred_type": "string"
+  },
+  "actor.Name": {
+    "sample_values": [
+      "Ian Smith",
+      "Kate Ritchie",
+      "Lynne McGranger"
+    ],
+    "inferred_type": "string"
+  },
+  "actor.Actor_ID": {
+    "sample_values": [
+      "5",
+      "2",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "actor.age": {
+    "sample_values": [
+      "17",
+      "18",
+      "21"
+    ],
+    "inferred_type": "integer"
+  },
+  "actor.Musical_ID": {
+    "sample_values": [
+      "1",
+      "6",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "actor.Character": {
+    "sample_values": [
+      "Susan Kennedy",
+      "Karl Kennedy",
+      "Sally Fletcher"
+    ],
+    "inferred_type": "string"
+  },
+  "musical.Result": {
+    "sample_values": [
+      "Nominated",
+      "Won"
+    ],
+    "inferred_type": "string"
+  },
+  "musical.Name": {
+    "sample_values": [
+      "Rent",
+      "West Side Story",
+      "Wicked"
+    ],
+    "inferred_type": "string"
+  },
+  "musical.Award": {
+    "sample_values": [
+      "Tony Award",
+      "Drama Desk Award"
+    ],
+    "inferred_type": "string"
+  },
+  "musical.Category": {
+    "sample_values": [
+      "Best Choreography",
+      "Outstanding Actor in a Musical",
+      "Outstanding Choreography"
+    ],
+    "inferred_type": "string"
+  },
+  "musical.Nominee": {
+    "sample_values": [
+      "Bob Fosse",
+      "Cleavant Derricks"
+    ],
+    "inferred_type": "string"
+  },
+  "musical.Musical_ID": {
+    "sample_values": [
+      "5",
+      "2",
+      "6"
+    ],
+    "inferred_type": "integer"
+  }
+}

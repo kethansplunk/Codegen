@@ -1,0 +1,378 @@
+{
+  "Addresses.address_id": {
+    "sample_values": [
+      1,
+      6,
+      11
+    ],
+    "inferred_type": "integer"
+  },
+  "Addresses.line_1": {
+    "sample_values": [
+      "74046 Metz Walk Apt. 113",
+      "193 Marlin Brook",
+      "16998 Mraz Lodge"
+    ],
+    "inferred_type": "string"
+  },
+  "Addresses.line_2": {
+    "sample_values": [
+      "Suite 674",
+      "Apt. 406",
+      "Apt. 689"
+    ],
+    "inferred_type": "string"
+  },
+  "Addresses.city": {
+    "sample_values": [
+      "Port Oceane",
+      "Herzoghaven",
+      "North Omer"
+    ],
+    "inferred_type": "string"
+  },
+  "Addresses.zip_postcode": {
+    "sample_values": [
+      "148",
+      "902",
+      "400"
+    ],
+    "inferred_type": "integer"
+  },
+  "Addresses.state_province_county": {
+    "sample_values": [
+      "Wyoming",
+      "Arkansas",
+      "Washington"
+    ],
+    "inferred_type": "string"
+  },
+  "Addresses.country": {
+    "sample_values": [
+      "Norfolk Island",
+      "Cook Islands",
+      "Gibraltar"
+    ],
+    "inferred_type": "string"
+  },
+  "Courses.course_id": {
+    "sample_values": [
+      1,
+      6,
+      11
+    ],
+    "inferred_type": "integer"
+  },
+  "Courses.course_name": {
+    "sample_values": [
+      "oop",
+      "cal",
+      "la"
+    ],
+    "inferred_type": "string"
+  },
+  "Courses.course_description": {
+    "sample_values": [
+      "p",
+      "k",
+      "l"
+    ],
+    "inferred_type": "string"
+  },
+  "Departments.department_id": {
+    "sample_values": [
+      1,
+      6,
+      11
+    ],
+    "inferred_type": "integer"
+  },
+  "Departments.department_name": {
+    "sample_values": [
+      "geography",
+      "math",
+      "engineer"
+    ],
+    "inferred_type": "string"
+  },
+  "Departments.department_description": {
+    "sample_values": [
+      "nisi",
+      "autem",
+      "natus"
+    ],
+    "inferred_type": "string"
+  },
+  "Degree_Programs.degree_program_id": {
+    "sample_values": [
+      1,
+      6,
+      11
+    ],
+    "inferred_type": "integer"
+  },
+  "Degree_Programs.department_id": {
+    "sample_values": [
+      13,
+      11,
+      3
+    ],
+    "inferred_type": "integer"
+  },
+  "Degree_Programs.degree_summary_name": {
+    "sample_values": [
+      "Master",
+      "Bachelor",
+      "PHD"
+    ],
+    "inferred_type": "string"
+  },
+  "Degree_Programs.degree_summary_description": {
+    "sample_values": [
+      "esse",
+      "aperiam",
+      "unde"
+    ],
+    "inferred_type": "string"
+  },
+  "Sections.section_id": {
+    "sample_values": [
+      1,
+      6,
+      11
+    ],
+    "inferred_type": "integer"
+  },
+  "Sections.course_id": {
+    "sample_values": [
+      9,
+      1,
+      12
+    ],
+    "inferred_type": "integer"
+  },
+  "Sections.section_name": {
+    "sample_values": [
+      "a",
+      "f",
+      "l"
+    ],
+    "inferred_type": "string"
+  },
+  "Sections.section_description": {
+    "sample_values": [
+      "reprehenderit",
+      "doloremque",
+      "voluptas"
+    ],
+    "inferred_type": "string"
+  },
+  "Semesters.semester_id": {
+    "sample_values": [
+      1,
+      6,
+      11
+    ],
+    "inferred_type": "integer"
+  },
+  "Semesters.semester_name": {
+    "sample_values": [
+      "spring 2019",
+      "spring 2012",
+      "winter 2010"
+    ],
+    "inferred_type": "string"
+  },
+  "Semesters.semester_description": {
+    "sample_values": [
+      "x",
+      "c",
+      "f"
+    ],
+    "inferred_type": "string"
+  },
+  "Students.student_id": {
+    "sample_values": [
+      1,
+      6,
+      11
+    ],
+    "inferred_type": "integer"
+  },
+  "Students.current_address_id": {
+    "sample_values": [
+      10,
+      7,
+      1
+    ],
+    "inferred_type": "integer"
+  },
+  "Students.permanent_address_id": {
+    "sample_values": [
+      15,
+      11,
+      3
+    ],
+    "inferred_type": "integer"
+  },
+  "Students.first_name": {
+    "sample_values": [
+      "Jett",
+      "Frida",
+      "Stanford"
+    ],
+    "inferred_type": "string"
+  },
+  "Students.middle_name": {
+    "sample_values": [
+      "Alberta",
+      "Aisha",
+      "Mona"
+    ],
+    "inferred_type": "string"
+  },
+  "Students.last_name": {
+    "sample_values": [
+      "Jaskolski",
+      "Huel",
+      "Rogahn"
+    ],
+    "inferred_type": "string"
+  },
+  "Students.cell_mobile_number": {
+    "sample_values": [
+      "877.549.9067x8723",
+      "1-879-796-8987x164",
+      "436.613.7683"
+    ],
+    "inferred_type": "string"
+  },
+  "Students.email_address": {
+    "sample_values": [
+      "mya88@example.org",
+      "baumbach.lucious@example.org",
+      "skassulke@example.net"
+    ],
+    "inferred_type": "string"
+  },
+  "Students.ssn": {
+    "sample_values": [
+      "156",
+      "668",
+      "248"
+    ],
+    "inferred_type": "string"
+  },
+  "Students.date_first_registered": {
+    "sample_values": [
+      "1982-06-19 13:15:18",
+      "2018-03-13 09:56:22",
+      "1997-03-20 16:47:25"
+    ],
+    "inferred_type": "string"
+  },
+  "Students.date_left": {
+    "sample_values": [
+      "1982-06-11 00:25:39",
+      "1997-11-16 08:54:33",
+      "2016-04-09 12:27:04"
+    ],
+    "inferred_type": "string"
+  },
+  "Students.other_student_details": {
+    "sample_values": [
+      "et",
+      "qui",
+      "atque"
+    ],
+    "inferred_type": "string"
+  },
+  "Student_Enrolment.student_enrolment_id": {
+    "sample_values": [
+      1,
+      6,
+      11
+    ],
+    "inferred_type": "integer"
+  },
+  "Student_Enrolment.degree_program_id": {
+    "sample_values": [
+      12,
+      5,
+      8
+    ],
+    "inferred_type": "integer"
+  },
+  "Student_Enrolment.semester_id": {
+    "sample_values": [
+      13,
+      1,
+      6
+    ],
+    "inferred_type": "integer"
+  },
+  "Student_Enrolment.student_id": {
+    "sample_values": [
+      14,
+      7,
+      4
+    ],
+    "inferred_type": "integer"
+  },
+  "Student_Enrolment_Courses.student_course_id": {
+    "sample_values": [
+      0,
+      76,
+      681404
+    ],
+    "inferred_type": "integer"
+  },
+  "Student_Enrolment_Courses.course_id": {
+    "sample_values": [
+      6,
+      2,
+      4
+    ],
+    "inferred_type": "integer"
+  },
+  "Student_Enrolment_Courses.student_enrolment_id": {
+    "sample_values": [
+      2,
+      13,
+      6
+    ],
+    "inferred_type": "integer"
+  },
+  "Transcripts.transcript_id": {
+    "sample_values": [
+      1,
+      6,
+      11
+    ],
+    "inferred_type": "integer"
+  },
+  "Transcripts.transcript_date": {
+    "sample_values": [
+      "1998-11-22 12:18:29",
+      "1990-03-05 11:59:41",
+      "2010-12-13 10:55:15"
+    ],
+    "inferred_type": "string"
+  },
+  "Transcript_Contents.student_course_id": {
+    "sample_values": [
+      0,
+      7,
+      8
+    ],
+    "inferred_type": "integer"
+  },
+  "Transcript_Contents.transcript_id": {
+    "sample_values": [
+      2,
+      4,
+      13
+    ],
+    "inferred_type": "integer"
+  }
+}

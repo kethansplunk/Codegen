@@ -1,0 +1,230 @@
+{
+  "Claims_Processing_Stages.Claim_Status_Name": {
+    "sample_values": [
+      "Open",
+      "Close"
+    ],
+    "inferred_type": "string"
+  },
+  "Claims_Processing_Stages.Claim_Status_Description": {
+    "sample_values": [
+      "Open a new claim",
+      "Close a claim"
+    ],
+    "inferred_type": "string"
+  },
+  "Claims_Processing_Stages.Claim_Stage_ID": {
+    "sample_values": [
+      "1",
+      "3"
+    ],
+    "inferred_type": "integer"
+  },
+  "Staff.Staff_ID": {
+    "sample_values": [
+      "822",
+      "718",
+      "986"
+    ],
+    "inferred_type": "integer"
+  },
+  "Staff.Staff_Details": {
+    "sample_values": [
+      "Kaci",
+      "Bo",
+      "Zachery"
+    ],
+    "inferred_type": "string"
+  },
+  "Claims_Processing.Claim_Processing_ID": {
+    "sample_values": [
+      "818",
+      "480",
+      "145"
+    ],
+    "inferred_type": "integer"
+  },
+  "Claims_Processing.Claim_ID": {
+    "sample_values": [
+      "34",
+      "27",
+      "81"
+    ],
+    "inferred_type": "integer"
+  },
+  "Claims_Processing.Claim_Stage_ID": {
+    "sample_values": [
+      "1",
+      "3"
+    ],
+    "inferred_type": "integer"
+  },
+  "Claims_Processing.Staff_ID": {
+    "sample_values": [
+      "822",
+      "718",
+      "687"
+    ],
+    "inferred_type": "integer"
+  },
+  "Claims_Processing.Claim_Outcome_Code": {
+    "sample_values": [
+      "Settled",
+      "In progress",
+      "Disputed"
+    ],
+    "inferred_type": "string"
+  },
+  "Claims_Documents.Created_by_Staff_ID": {
+    "sample_values": [
+      "771",
+      "589",
+      "735"
+    ],
+    "inferred_type": "integer"
+  },
+  "Claims_Documents.Claim_ID": {
+    "sample_values": [
+      "82",
+      "27",
+      "81"
+    ],
+    "inferred_type": "integer"
+  },
+  "Claims_Documents.Document_Type_Code": {
+    "sample_values": [
+      "Photo",
+      "Document",
+      "Medical"
+    ],
+    "inferred_type": "string"
+  },
+  "Claims_Documents.Created_Date": {
+    "sample_values": [
+      "8",
+      "9",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "Claim_Headers.Claim_Status_Code": {
+    "sample_values": [
+      "Settled",
+      "Disputed",
+      "In Progress"
+    ],
+    "inferred_type": "string"
+  },
+  "Claim_Headers.Date_of_Claim": {
+    "sample_values": [
+      "2017-05-01 13:34:43",
+      "2016-11-15 13:12:02",
+      "2016-04-09 03:04:29"
+    ],
+    "inferred_type": "string"
+  },
+  "Claim_Headers.Claim_Header_ID": {
+    "sample_values": [
+      "34",
+      "73",
+      "90"
+    ],
+    "inferred_type": "integer"
+  },
+  "Claim_Headers.Date_of_Settlement": {
+    "sample_values": [
+      "2018-01-16 06:35:15",
+      "2017-11-16 04:06:05",
+      "2017-12-20 19:06:12"
+    ],
+    "inferred_type": "string"
+  },
+  "Claim_Headers.Claim_Type_Code": {
+    "sample_values": [
+      "Child Birth",
+      "Handphone Subsidy",
+      "Overtime Meal Subsidy"
+    ],
+    "inferred_type": "string"
+  },
+  "Claim_Headers.Policy_ID": {
+    "sample_values": [
+      "628",
+      "287",
+      "125"
+    ],
+    "inferred_type": "integer"
+  },
+  "Claim_Headers.Amount_Piad": {
+    "sample_values": [
+      "779.59",
+      "643.82",
+      "289.09"
+    ],
+    "inferred_type": "float"
+  },
+  "Claim_Headers.Amount_Claimed": {
+    "sample_values": [
+      "867.57",
+      "676.81",
+      "818.15"
+    ],
+    "inferred_type": "float"
+  },
+  "Policies.Start_Date": {
+    "sample_values": [
+      "2016-05-14 19:09:36",
+      "2017-01-01 01:48:08",
+      "2018-07-21 10:36:53"
+    ],
+    "inferred_type": "string"
+  },
+  "Policies.Customer_ID": {
+    "sample_values": [
+      "808",
+      "858",
+      "857"
+    ],
+    "inferred_type": "integer"
+  },
+  "Policies.Policy_ID": {
+    "sample_values": [
+      "628",
+      "703",
+      "507"
+    ],
+    "inferred_type": "integer"
+  },
+  "Policies.End_Date": {
+    "sample_values": [
+      "2017-10-07 08:29:25",
+      "2018-03-15 05:02:00",
+      "2018-03-17 10:16:59"
+    ],
+    "inferred_type": "string"
+  },
+  "Policies.Policy_Type_Code": {
+    "sample_values": [
+      "Jurisdiction",
+      "Deputy",
+      "Uniformed"
+    ],
+    "inferred_type": "string"
+  },
+  "Customers.Customer_ID": {
+    "sample_values": [
+      "808",
+      "994",
+      "520"
+    ],
+    "inferred_type": "integer"
+  },
+  "Customers.Customer_Details": {
+    "sample_values": [
+      "Lauriane Ferry PhD",
+      "Dr. Diana Rath",
+      "Miss Felicita Reichel"
+    ],
+    "inferred_type": "string"
+  }
+}

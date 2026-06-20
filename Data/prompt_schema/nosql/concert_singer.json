@@ -1,0 +1,168 @@
+{
+  "singer.Is_male": {
+    "sample_values": [
+      "F",
+      "T"
+    ],
+    "inferred_type": "string"
+  },
+  "singer.Age": {
+    "sample_values": [
+      "41",
+      "43",
+      "29"
+    ],
+    "inferred_type": "integer"
+  },
+  "singer.Country": {
+    "sample_values": [
+      "France",
+      "Netherlands",
+      "United States"
+    ],
+    "inferred_type": "string"
+  },
+  "singer.Name": {
+    "sample_values": [
+      "John Nizinik",
+      "Joe Sharp",
+      "Timbaland"
+    ],
+    "inferred_type": "string"
+  },
+  "singer.Singer_ID": {
+    "sample_values": [
+      "5",
+      "2",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "singer.Song_release_year": {
+    "sample_values": [
+      "2003",
+      "2013",
+      "1992"
+    ],
+    "inferred_type": "integer"
+  },
+  "singer.Song_Name": {
+    "sample_values": [
+      "Gentleman",
+      "You",
+      "Love"
+    ],
+    "inferred_type": "string"
+  },
+  "singer_in_concert.concert_ID": {
+    "sample_values": [
+      "5",
+      "2",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "singer_in_concert.Singer_ID": {
+    "sample_values": [
+      "5",
+      "2",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "concert.Theme": {
+    "sample_values": [
+      "Free choice",
+      "Party All Night",
+      "Happy Tonight"
+    ],
+    "inferred_type": "string"
+  },
+  "concert.Year": {
+    "sample_values": [
+      "2015",
+      "2014"
+    ],
+    "inferred_type": "integer"
+  },
+  "concert.concert_ID": {
+    "sample_values": [
+      "5",
+      "2",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "concert.concert_Name": {
+    "sample_values": [
+      "Super bootcamp",
+      "Week 2",
+      "Home Visits"
+    ],
+    "inferred_type": "string"
+  },
+  "concert.Stadium_ID": {
+    "sample_values": [
+      "10",
+      "1",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "stadium.Location": {
+    "sample_values": [
+      "Peterhead",
+      "East Fife",
+      "Alloa Athletic"
+    ],
+    "inferred_type": "string"
+  },
+  "stadium.Average": {
+    "sample_values": [
+      "864",
+      "638",
+      "552"
+    ],
+    "inferred_type": "integer"
+  },
+  "stadium.Name": {
+    "sample_values": [
+      "Forthbank Stadium",
+      "Hampden Park",
+      "Stark's Park"
+    ],
+    "inferred_type": "string"
+  },
+  "stadium.Capacity": {
+    "sample_values": [
+      "4000",
+      "2000",
+      "3100"
+    ],
+    "inferred_type": "integer"
+  },
+  "stadium.Highest": {
+    "sample_values": [
+      "1980",
+      "1057",
+      "2363"
+    ],
+    "inferred_type": "integer"
+  },
+  "stadium.Lowest": {
+    "sample_values": [
+      "331",
+      "1057",
+      "533"
+    ],
+    "inferred_type": "integer"
+  },
+  "stadium.Stadium_ID": {
+    "sample_values": [
+      "5",
+      "2",
+      "6"
+    ],
+    "inferred_type": "integer"
+  }
+}

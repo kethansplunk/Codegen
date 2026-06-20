@@ -1,0 +1,106 @@
+{
+  "db_name": "wedding",
+  "nodes": [
+    {
+      "name": "people",
+      "columns": [
+        {
+          "name": "People_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Country",
+          "type": "TEXT"
+        },
+        {
+          "name": "Is_Male",
+          "type": "TEXT"
+        },
+        {
+          "name": "Age",
+          "type": "INT"
+        }
+      ],
+      "pk": [
+        "People_ID"
+      ]
+    },
+    {
+      "name": "church",
+      "columns": [
+        {
+          "name": "Church_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Organized_by",
+          "type": "TEXT"
+        },
+        {
+          "name": "Open_Date",
+          "type": "INT"
+        },
+        {
+          "name": "Continuation_of",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "Church_ID"
+      ]
+    },
+    {
+      "name": "wedding",
+      "columns": [
+        {
+          "name": "Church_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Male_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Female_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Year",
+          "type": "INT"
+        }
+      ],
+      "pk": [
+        "Church_ID",
+        "Male_ID",
+        "Female_ID"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "wedding",
+      "to": "people",
+      "child_col": "Male_ID",
+      "parent_col": "People_ID"
+    },
+    {
+      "from": "wedding",
+      "to": "church",
+      "child_col": "Church_ID",
+      "parent_col": "Church_ID"
+    }
+  ],
+  "centrality": {
+    "people": 0.5,
+    "church": 0.5,
+    "wedding": 0.0
+  }
+}

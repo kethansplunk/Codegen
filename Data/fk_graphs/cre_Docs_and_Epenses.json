@@ -1,0 +1,196 @@
+{
+  "db_name": "cre_Docs_and_Epenses",
+  "nodes": [
+    {
+      "name": "Ref_Document_Types",
+      "columns": [
+        {
+          "name": "Document_Type_Code",
+          "type": "CHAR(15)"
+        },
+        {
+          "name": "Document_Type_Name",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "Document_Type_Description",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "pk": [
+        "Document_Type_Code"
+      ]
+    },
+    {
+      "name": "Ref_Budget_Codes",
+      "columns": [
+        {
+          "name": "Budget_Type_Code",
+          "type": "CHAR(15)"
+        },
+        {
+          "name": "Budget_Type_Description",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "pk": [
+        "Budget_Type_Code"
+      ]
+    },
+    {
+      "name": "Projects",
+      "columns": [
+        {
+          "name": "Project_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Project_Details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "pk": [
+        "Project_ID"
+      ]
+    },
+    {
+      "name": "Documents",
+      "columns": [
+        {
+          "name": "Document_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Document_Type_Code",
+          "type": "CHAR(15)"
+        },
+        {
+          "name": "Project_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Document_Date",
+          "type": "DATETIME"
+        },
+        {
+          "name": "Document_Name",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "Document_Description",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "Other_Details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "pk": [
+        "Document_ID"
+      ]
+    },
+    {
+      "name": "Statements",
+      "columns": [
+        {
+          "name": "Statement_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Statement_Details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "pk": [
+        "Statement_ID"
+      ]
+    },
+    {
+      "name": "Documents_with_Expenses",
+      "columns": [
+        {
+          "name": "Document_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Budget_Type_Code",
+          "type": "CHAR(15)"
+        },
+        {
+          "name": "Document_Details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "pk": [
+        "Document_ID"
+      ]
+    },
+    {
+      "name": "Accounts",
+      "columns": [
+        {
+          "name": "Account_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Statement_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Account_Details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "pk": [
+        "Account_ID"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "Documents",
+      "to": "Projects",
+      "child_col": "Project_ID",
+      "parent_col": "Project_ID"
+    },
+    {
+      "from": "Documents",
+      "to": "Ref_Document_Types",
+      "child_col": "Document_Type_Code",
+      "parent_col": "Document_Type_Code"
+    },
+    {
+      "from": "Statements",
+      "to": "Documents",
+      "child_col": "Statement_ID",
+      "parent_col": "Document_ID"
+    },
+    {
+      "from": "Documents_with_Expenses",
+      "to": "Documents",
+      "child_col": "Document_ID",
+      "parent_col": "Document_ID"
+    },
+    {
+      "from": "Documents_with_Expenses",
+      "to": "Ref_Budget_Codes",
+      "child_col": "Budget_Type_Code",
+      "parent_col": "Budget_Type_Code"
+    },
+    {
+      "from": "Accounts",
+      "to": "Statements",
+      "child_col": "Statement_ID",
+      "parent_col": "Statement_ID"
+    }
+  ],
+  "centrality": {
+    "Ref_Document_Types": 0.16666666666666666,
+    "Ref_Budget_Codes": 0.16666666666666666,
+    "Projects": 0.16666666666666666,
+    "Documents": 0.3333333333333333,
+    "Statements": 0.16666666666666666,
+    "Documents_with_Expenses": 0.0,
+    "Accounts": 0.0
+  }
+}

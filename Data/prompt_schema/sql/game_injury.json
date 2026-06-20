@@ -1,0 +1,146 @@
+{
+  "stadium.id": {
+    "sample_values": [
+      1,
+      5,
+      9
+    ],
+    "inferred_type": "integer"
+  },
+  "stadium.name": {
+    "sample_values": [
+      "Gillette Stadium",
+      "Bank of America Stadium",
+      "FedExField"
+    ],
+    "inferred_type": "string"
+  },
+  "stadium.Average_Attendance": {
+    "sample_values": [
+      87047.0,
+      74908.0,
+      70795.0
+    ],
+    "inferred_type": "float"
+  },
+  "stadium.Total_Attendance": {
+    "sample_values": [
+      696377.0,
+      599264.0,
+      566362.0
+    ],
+    "inferred_type": "float"
+  },
+  "stadium.Capacity_Percentage": {
+    "sample_values": [
+      108.8,
+      95.3,
+      100.0
+    ],
+    "inferred_type": "float"
+  },
+  "game.stadium_id": {
+    "sample_values": [
+      1,
+      5,
+      9
+    ],
+    "inferred_type": "integer"
+  },
+  "game.id": {
+    "sample_values": [
+      1,
+      7,
+      13
+    ],
+    "inferred_type": "integer"
+  },
+  "game.Season": {
+    "sample_values": [
+      2007,
+      2009,
+      2011
+    ],
+    "inferred_type": "integer"
+  },
+  "game.Date": {
+    "sample_values": [
+      "8 August 2013",
+      "14 October 2009",
+      "8 August 2009"
+    ],
+    "inferred_type": "string"
+  },
+  "game.Home_team": {
+    "sample_values": [
+      "Quruvchi",
+      "Pakhtakor",
+      "Bunyodkor"
+    ],
+    "inferred_type": "string"
+  },
+  "game.Away_team": {
+    "sample_values": [
+      "Pakhtakor",
+      "Quruvchi",
+      "Bunyodkor"
+    ],
+    "inferred_type": "string"
+  },
+  "game.Score": {
+    "sample_values": [
+      "1\u20131",
+      "3\u20131",
+      "\u2013"
+    ],
+    "inferred_type": "string"
+  },
+  "game.Competition": {
+    "sample_values": [
+      "League",
+      "Cup",
+      "Supercup"
+    ],
+    "inferred_type": "string"
+  },
+  "injury_accident.game_id": {
+    "sample_values": [
+      1,
+      4,
+      8
+    ],
+    "inferred_type": "integer"
+  },
+  "injury_accident.id": {
+    "sample_values": [
+      1,
+      6,
+      11
+    ],
+    "inferred_type": "integer"
+  },
+  "injury_accident.Player": {
+    "sample_values": [
+      "Thiago Motta (2)",
+      "Walter Samuel",
+      "Javier Zanetti"
+    ],
+    "inferred_type": "string"
+  },
+  "injury_accident.Injury": {
+    "sample_values": [
+      "Foot injury",
+      "Sustained posterior thigh strains in his left leg",
+      "Post-traumatic pneumothrorax"
+    ],
+    "inferred_type": "string"
+  },
+  "injury_accident.Number_of_matches": {
+    "sample_values": [
+      "7 (17)",
+      "1",
+      "2"
+    ],
+    "inferred_type": "string"
+  }
+}

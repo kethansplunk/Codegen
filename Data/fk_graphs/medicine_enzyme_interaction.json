@@ -1,0 +1,105 @@
+{
+  "db_name": "medicine_enzyme_interaction",
+  "nodes": [
+    {
+      "name": "medicine",
+      "columns": [
+        {
+          "name": "id",
+          "type": "INT"
+        },
+        {
+          "name": "name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Trade_Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "FDA_approved",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "id"
+      ]
+    },
+    {
+      "name": "enzyme",
+      "columns": [
+        {
+          "name": "id",
+          "type": "INT"
+        },
+        {
+          "name": "name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Location",
+          "type": "TEXT"
+        },
+        {
+          "name": "Product",
+          "type": "TEXT"
+        },
+        {
+          "name": "Chromosome",
+          "type": "TEXT"
+        },
+        {
+          "name": "OMIM",
+          "type": "INT"
+        },
+        {
+          "name": "Porphyria",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "id"
+      ]
+    },
+    {
+      "name": "medicine_enzyme_interaction",
+      "columns": [
+        {
+          "name": "enzyme_id",
+          "type": "INT"
+        },
+        {
+          "name": "medicine_id",
+          "type": "INT"
+        },
+        {
+          "name": "interaction_type",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "enzyme_id",
+        "medicine_id"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "medicine_enzyme_interaction",
+      "to": "medicine",
+      "child_col": "medicine_id",
+      "parent_col": "id"
+    },
+    {
+      "from": "medicine_enzyme_interaction",
+      "to": "enzyme",
+      "child_col": "enzyme_id",
+      "parent_col": "id"
+    }
+  ],
+  "centrality": {
+    "medicine": 0.5,
+    "enzyme": 0.5,
+    "medicine_enzyme_interaction": 0.0
+  }
+}

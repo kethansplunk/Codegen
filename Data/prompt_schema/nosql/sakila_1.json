@@ -1,0 +1,404 @@
+{
+  "actor.first_name": {
+    "sample_values": [
+      "AUDREY",
+      "GRACE",
+      "TIM"
+    ],
+    "inferred_type": "string"
+  },
+  "actor.last_name": {
+    "sample_values": [
+      "DEAN",
+      "MARX",
+      "PALTROW"
+    ],
+    "inferred_type": "string"
+  },
+  "actor.actor_id": {
+    "sample_values": [
+      "34",
+      "25",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "city.city": {
+    "sample_values": [
+      "Addis Abeba",
+      "Alvorada",
+      "Baha Blanca"
+    ],
+    "inferred_type": "string"
+  },
+  "city.city_id": {
+    "sample_values": [
+      "34",
+      "25",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "city.country_id": {
+    "sample_values": [
+      "23",
+      "15",
+      "101"
+    ],
+    "inferred_type": "integer"
+  },
+  "country.country": {
+    "sample_values": [
+      "Italy",
+      "Egypt",
+      "Greece"
+    ],
+    "inferred_type": "string"
+  },
+  "country.country_id": {
+    "sample_values": [
+      "34",
+      "25",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "rental.rental_date": {
+    "sample_values": [
+      "2005-05-25 03:42:37",
+      "2005-05-25 00:43:11",
+      "2005-05-25 02:40:21"
+    ],
+    "inferred_type": "string"
+  },
+  "rental.inventory_id": {
+    "sample_values": [
+      "1983",
+      "1824",
+      "2638"
+    ],
+    "inferred_type": "integer"
+  },
+  "rental.rental_id": {
+    "sample_values": [
+      "34",
+      "25",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "rental.return_date": {
+    "sample_values": [
+      "2005-05-27 23:33:46",
+      "2005-05-29 20:34:53",
+      "2005-06-02 00:28:29"
+    ],
+    "inferred_type": "string"
+  },
+  "rental.customer_id": {
+    "sample_values": [
+      "446",
+      "456",
+      "7"
+    ],
+    "inferred_type": "integer"
+  },
+  "rental.staff_id": {
+    "sample_values": [
+      "1",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "inventory.store_id": {
+    "sample_values": [
+      "1",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "inventory.inventory_id": {
+    "sample_values": [
+      "34",
+      "25",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "inventory.film_id": {
+    "sample_values": [
+      "5",
+      "1",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "customer.active": {
+    "sample_values": [
+      "1",
+      "0"
+    ],
+    "inferred_type": "integer"
+  },
+  "customer.address_id": {
+    "sample_values": [
+      "34",
+      "15",
+      "53"
+    ],
+    "inferred_type": "integer"
+  },
+  "customer.last_name": {
+    "sample_values": [
+      "WILSON",
+      "TAYLOR",
+      "BAKER"
+    ],
+    "inferred_type": "string"
+  },
+  "customer.first_name": {
+    "sample_values": [
+      "ANNA",
+      "LINDA",
+      "PAMELA"
+    ],
+    "inferred_type": "string"
+  },
+  "customer.store_id": {
+    "sample_values": [
+      "1",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "customer.customer_id": {
+    "sample_values": [
+      "34",
+      "25",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "customer.email": {
+    "sample_values": [
+      "KIMBERLY.LEE@sakilacustomer.org",
+      "DEBORAH.WALKER@sakilacustomer.org",
+      "LAURA.RODRIGUEZ@sakilacustomer.org"
+    ],
+    "inferred_type": "string"
+  },
+  "address.district": {
+    "sample_values": [
+      "Kalmykia",
+      "Markazi",
+      "Nantou"
+    ],
+    "inferred_type": "string"
+  },
+  "address.postal_code": {
+    "sample_values": [
+      "48942",
+      "7716",
+      "21954"
+    ],
+    "inferred_type": "string"
+  },
+  "address.address": {
+    "sample_values": [
+      "1632 Bislig Avenue",
+      "28 Charlotte Amalie Street",
+      "770 Bydgoszcz Avenue"
+    ],
+    "inferred_type": "string"
+  },
+  "address.city_id": {
+    "sample_values": [
+      "349",
+      "128",
+      "525"
+    ],
+    "inferred_type": "integer"
+  },
+  "address.address_id": {
+    "sample_values": [
+      "34",
+      "25",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "address.phone": {
+    "sample_values": [
+      "440512153169",
+      "716571220373",
+      "378318851631"
+    ],
+    "inferred_type": "string"
+  },
+  "payment.payment_date": {
+    "sample_values": [
+      "2005-07-10 06:31:24",
+      "2005-08-17 12:37:54",
+      "2005-08-22 20:03:46"
+    ],
+    "inferred_type": "string"
+  },
+  "payment.payment_id": {
+    "sample_values": [
+      "34",
+      "25",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "payment.rental_id": {
+    "sample_values": [
+      "9571",
+      "5636",
+      "2363"
+    ],
+    "inferred_type": "integer"
+  },
+  "payment.amount": {
+    "sample_values": [
+      "6.99",
+      "3.99",
+      "5.99"
+    ],
+    "inferred_type": "float"
+  },
+  "payment.customer_id": {
+    "sample_values": [
+      "1",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "payment.staff_id": {
+    "sample_values": [
+      "1",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "film.title": {
+    "sample_values": [
+      "ALIEN CENTER",
+      "ALABAMA DEVIL",
+      "ALONE TRIP"
+    ],
+    "inferred_type": "string"
+  },
+  "film.film_id": {
+    "sample_values": [
+      "34",
+      "25",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "film.rental_duration": {
+    "sample_values": [
+      "5",
+      "4",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "film.replacement_cost": {
+    "sample_values": [
+      "27.99",
+      "24.99",
+      "16.99"
+    ],
+    "inferred_type": "float"
+  },
+  "film.rental_rate": {
+    "sample_values": [
+      "0.99",
+      "2.99",
+      "4.99"
+    ],
+    "inferred_type": "float"
+  },
+  "film.length": {
+    "sample_values": [
+      "83",
+      "180",
+      "153"
+    ],
+    "inferred_type": "integer"
+  },
+  "film.special_features": {
+    "sample_values": [
+      "Trailers,Behind the Scenes",
+      "Deleted Scenes,Behind the Scenes",
+      "Commentaries"
+    ],
+    "inferred_type": "string"
+  },
+  "film.rating": {
+    "sample_values": [
+      "G",
+      "R",
+      "PG"
+    ],
+    "inferred_type": "string"
+  },
+  "film.description": {
+    "sample_values": [
+      "A Lacklusture Display of a Dentist And a Dentist who must Fight a Girl in Australia",
+      "A Fanciful Documentary of a Frisbee And a Lumberjack who must Chase a Monkey in A Shark Tank",
+      "A Boring Saga of a Database Administrator And a Womanizer who must Battle a Waitress in Nigeria"
+    ],
+    "inferred_type": "string"
+  },
+  "category.name": {
+    "sample_values": [
+      "Classics",
+      "Family",
+      "Comedy"
+    ],
+    "inferred_type": "string"
+  },
+  "category.category_id": {
+    "sample_values": [
+      "5",
+      "16",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "film_actor.film_id": {
+    "sample_values": [
+      "509",
+      "499",
+      "605"
+    ],
+    "inferred_type": "integer"
+  },
+  "film_actor.actor_id": {
+    "sample_values": [
+      "1",
+      "3",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "film_category.category_id": {
+    "sample_values": [
+      "5",
+      "10",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "film_category.film_id": {
+    "sample_values": [
+      "34",
+      "25",
+      "2"
+    ],
+    "inferred_type": "integer"
+  }
+}

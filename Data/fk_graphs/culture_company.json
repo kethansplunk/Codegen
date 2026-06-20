@@ -1,0 +1,124 @@
+{
+  "db_name": "culture_company",
+  "nodes": [
+    {
+      "name": "book_club",
+      "columns": [
+        {
+          "name": "book_club_id",
+          "type": "INT"
+        },
+        {
+          "name": "Year",
+          "type": "INT"
+        },
+        {
+          "name": "Author_or_Editor",
+          "type": "TEXT"
+        },
+        {
+          "name": "Book_Title",
+          "type": "TEXT"
+        },
+        {
+          "name": "Publisher",
+          "type": "TEXT"
+        },
+        {
+          "name": "Category",
+          "type": "TEXT"
+        },
+        {
+          "name": "Result",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "book_club_id"
+      ]
+    },
+    {
+      "name": "movie",
+      "columns": [
+        {
+          "name": "movie_id",
+          "type": "INT"
+        },
+        {
+          "name": "Title",
+          "type": "TEXT"
+        },
+        {
+          "name": "Year",
+          "type": "INT"
+        },
+        {
+          "name": "Director",
+          "type": "TEXT"
+        },
+        {
+          "name": "Budget_million",
+          "type": "REAL"
+        },
+        {
+          "name": "Gross_worldwide",
+          "type": "INT"
+        }
+      ],
+      "pk": [
+        "movie_id"
+      ]
+    },
+    {
+      "name": "culture_company",
+      "columns": [
+        {
+          "name": "Company_name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Type",
+          "type": "TEXT"
+        },
+        {
+          "name": "Incorporated_in",
+          "type": "TEXT"
+        },
+        {
+          "name": "Group_Equity_Shareholding",
+          "type": "REAL"
+        },
+        {
+          "name": "book_club_id",
+          "type": "TEXT"
+        },
+        {
+          "name": "movie_id",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "Company_name"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "culture_company",
+      "to": "movie",
+      "child_col": "movie_id",
+      "parent_col": "movie_id"
+    },
+    {
+      "from": "culture_company",
+      "to": "book_club",
+      "child_col": "book_club_id",
+      "parent_col": "book_club_id"
+    }
+  ],
+  "centrality": {
+    "book_club": 0.5,
+    "movie": 0.5,
+    "culture_company": 0.0
+  }
+}

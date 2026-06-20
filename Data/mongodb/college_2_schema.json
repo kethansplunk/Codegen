@@ -1,0 +1,384 @@
+{
+  "db_name": "college_2",
+  "collections": {
+    "classroom": {
+      "primary_key": [
+        "building",
+        "room_number"
+      ],
+      "columns": [
+        {
+          "name": "building",
+          "type": "varchar(15)"
+        },
+        {
+          "name": "room_number",
+          "type": "varchar(7)"
+        },
+        {
+          "name": "capacity",
+          "type": "numeric(4,0)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 30
+    },
+    "department": {
+      "primary_key": [
+        "dept_name"
+      ],
+      "columns": [
+        {
+          "name": "dept_name",
+          "type": "varchar(20)"
+        },
+        {
+          "name": "building",
+          "type": "varchar(15)"
+        },
+        {
+          "name": "budget",
+          "type": "numeric(12,2)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 20
+    },
+    "course": {
+      "primary_key": [
+        "course_id"
+      ],
+      "columns": [
+        {
+          "name": "course_id",
+          "type": "varchar(8)"
+        },
+        {
+          "name": "title",
+          "type": "varchar(50)"
+        },
+        {
+          "name": "dept_name",
+          "type": "varchar(20)"
+        },
+        {
+          "name": "credits",
+          "type": "numeric(2,0)"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "course",
+          "to": "department",
+          "child_col": "dept_name",
+          "parent_col": "dept_name"
+        }
+      ],
+      "row_count": 200
+    },
+    "instructor": {
+      "primary_key": [
+        "ID"
+      ],
+      "columns": [
+        {
+          "name": "ID",
+          "type": "varchar(5)"
+        },
+        {
+          "name": "name",
+          "type": "varchar(20)"
+        },
+        {
+          "name": "dept_name",
+          "type": "varchar(20)"
+        },
+        {
+          "name": "salary",
+          "type": "numeric(8,2)"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "instructor",
+          "to": "department",
+          "child_col": "dept_name",
+          "parent_col": "dept_name"
+        }
+      ],
+      "row_count": 50
+    },
+    "section": {
+      "primary_key": [
+        "course_id",
+        "sec_id",
+        "semester",
+        "year"
+      ],
+      "columns": [
+        {
+          "name": "course_id",
+          "type": "varchar(8)"
+        },
+        {
+          "name": "sec_id",
+          "type": "varchar(8)"
+        },
+        {
+          "name": "semester",
+          "type": "varchar(6)"
+        },
+        {
+          "name": "year",
+          "type": "numeric(4,0)"
+        },
+        {
+          "name": "building",
+          "type": "varchar(15)"
+        },
+        {
+          "name": "room_number",
+          "type": "varchar(7)"
+        },
+        {
+          "name": "time_slot_id",
+          "type": "varchar(4)"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "section",
+          "to": "classroom",
+          "child_col": "room_number",
+          "parent_col": "room_number"
+        },
+        {
+          "from": "section",
+          "to": "course",
+          "child_col": "course_id",
+          "parent_col": "course_id"
+        }
+      ],
+      "row_count": 100
+    },
+    "teaches": {
+      "primary_key": [
+        "ID",
+        "course_id",
+        "sec_id",
+        "semester",
+        "year"
+      ],
+      "columns": [
+        {
+          "name": "ID",
+          "type": "varchar(5)"
+        },
+        {
+          "name": "course_id",
+          "type": "varchar(8)"
+        },
+        {
+          "name": "sec_id",
+          "type": "varchar(8)"
+        },
+        {
+          "name": "semester",
+          "type": "varchar(6)"
+        },
+        {
+          "name": "year",
+          "type": "numeric(4,0)"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "teaches",
+          "to": "instructor",
+          "child_col": "ID",
+          "parent_col": "ID"
+        },
+        {
+          "from": "teaches",
+          "to": "section",
+          "child_col": "year",
+          "parent_col": "year"
+        }
+      ],
+      "row_count": 100
+    },
+    "student": {
+      "primary_key": [
+        "ID"
+      ],
+      "columns": [
+        {
+          "name": "ID",
+          "type": "varchar(5)"
+        },
+        {
+          "name": "name",
+          "type": "varchar(20)"
+        },
+        {
+          "name": "dept_name",
+          "type": "varchar(20)"
+        },
+        {
+          "name": "tot_cred",
+          "type": "numeric(3,0)"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "student",
+          "to": "department",
+          "child_col": "dept_name",
+          "parent_col": "dept_name"
+        }
+      ],
+      "row_count": 2000
+    },
+    "takes": {
+      "primary_key": [
+        "ID",
+        "course_id",
+        "sec_id",
+        "semester",
+        "year"
+      ],
+      "columns": [
+        {
+          "name": "ID",
+          "type": "varchar(5)"
+        },
+        {
+          "name": "course_id",
+          "type": "varchar(8)"
+        },
+        {
+          "name": "sec_id",
+          "type": "varchar(8)"
+        },
+        {
+          "name": "semester",
+          "type": "varchar(6)"
+        },
+        {
+          "name": "year",
+          "type": "numeric(4,0)"
+        },
+        {
+          "name": "grade",
+          "type": "varchar(2)"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "takes",
+          "to": "student",
+          "child_col": "ID",
+          "parent_col": "ID"
+        },
+        {
+          "from": "takes",
+          "to": "section",
+          "child_col": "year",
+          "parent_col": "year"
+        }
+      ],
+      "row_count": 30000
+    },
+    "advisor": {
+      "primary_key": [
+        "s_ID"
+      ],
+      "columns": [
+        {
+          "name": "s_ID",
+          "type": "varchar(5)"
+        },
+        {
+          "name": "i_ID",
+          "type": "varchar(5)"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "advisor",
+          "to": "student",
+          "child_col": "s_ID",
+          "parent_col": "ID"
+        },
+        {
+          "from": "advisor",
+          "to": "instructor",
+          "child_col": "i_ID",
+          "parent_col": "ID"
+        }
+      ],
+      "row_count": 2000
+    },
+    "time_slot": {
+      "primary_key": [
+        "time_slot_id",
+        "day",
+        "start_hr",
+        "start_min"
+      ],
+      "columns": [
+        {
+          "name": "time_slot_id",
+          "type": "varchar(4)"
+        },
+        {
+          "name": "day",
+          "type": "varchar(1)"
+        },
+        {
+          "name": "start_hr",
+          "type": "numeric(2)"
+        },
+        {
+          "name": "start_min",
+          "type": "numeric(2)"
+        },
+        {
+          "name": "end_hr",
+          "type": "numeric(2)"
+        },
+        {
+          "name": "end_min",
+          "type": "numeric(2)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 20
+    },
+    "prereq": {
+      "primary_key": [
+        "course_id",
+        "prereq_id"
+      ],
+      "columns": [
+        {
+          "name": "course_id",
+          "type": "varchar(8)"
+        },
+        {
+          "name": "prereq_id",
+          "type": "varchar(8)"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "prereq",
+          "to": "course",
+          "child_col": "course_id",
+          "parent_col": "course_id"
+        }
+      ],
+      "row_count": 100
+    }
+  }
+}

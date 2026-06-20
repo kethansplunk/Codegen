@@ -1,0 +1,87 @@
+{
+  "captain.Captain_ID": {
+    "sample_values": [
+      1,
+      3,
+      5
+    ],
+    "inferred_type": "integer"
+  },
+  "captain.Name": {
+    "sample_values": [
+      "Commander Richard Bolitho",
+      "Captain Beves Conway",
+      "Lieutenant Hugh Bolitho"
+    ],
+    "inferred_type": "string"
+  },
+  "captain.Ship_ID": {
+    "sample_values": [
+      1,
+      2,
+      3
+    ],
+    "inferred_type": "integer"
+  },
+  "captain.age": {
+    "sample_values": [
+      "40",
+      "43",
+      "38"
+    ],
+    "inferred_type": "integer"
+  },
+  "captain.Class": {
+    "sample_values": [
+      "Sloop-of-war",
+      "Frigate",
+      "Armed schooner"
+    ],
+    "inferred_type": "string"
+  },
+  "captain.Rank": {
+    "sample_values": [
+      "Midshipman",
+      "Lieutenant",
+      "Commander, junior captain"
+    ],
+    "inferred_type": "string"
+  },
+  "Ship.Ship_ID": {
+    "sample_values": [
+      1,
+      4,
+      7
+    ],
+    "inferred_type": "integer"
+  },
+  "Ship.Name": {
+    "sample_values": [
+      "HMS Undine",
+      "HM Cutter Avenger",
+      "HMS Gorgon"
+    ],
+    "inferred_type": "string"
+  },
+  "Ship.Built_Year": {
+    "sample_values": [
+      1997.0,
+      1998.0
+    ],
+    "inferred_type": "float"
+  },
+  "Ship.Class": {
+    "sample_values": [
+      "KR",
+      "GL"
+    ],
+    "inferred_type": "string"
+  },
+  "Ship.Flag": {
+    "sample_values": [
+      "Panama",
+      "Malta"
+    ],
+    "inferred_type": "string"
+  }
+}

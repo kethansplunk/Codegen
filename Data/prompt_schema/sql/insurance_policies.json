@@ -1,0 +1,202 @@
+{
+  "Customers.Customer_ID": {
+    "sample_values": [
+      1,
+      6,
+      11
+    ],
+    "inferred_type": "integer"
+  },
+  "Customers.Customer_Details": {
+    "sample_values": [
+      "Miss Felicita Reichel",
+      "Sydnie Friesen",
+      "Lauriane Ferry PhD"
+    ],
+    "inferred_type": "string"
+  },
+  "Customer_Policies.Policy_ID": {
+    "sample_values": [
+      119,
+      270,
+      587
+    ],
+    "inferred_type": "integer"
+  },
+  "Customer_Policies.Customer_ID": {
+    "sample_values": [
+      1,
+      4,
+      7
+    ],
+    "inferred_type": "integer"
+  },
+  "Customer_Policies.Policy_Type_Code": {
+    "sample_values": [
+      "Travel",
+      "Property",
+      "Life"
+    ],
+    "inferred_type": "string"
+  },
+  "Customer_Policies.Start_Date": {
+    "sample_values": [
+      "2017-01-20",
+      "2016-05-23",
+      "2016-07-17"
+    ],
+    "inferred_type": "string"
+  },
+  "Customer_Policies.End_Date": {
+    "sample_values": [
+      "2017-12-11",
+      "2018-01-05",
+      "2017-11-23"
+    ],
+    "inferred_type": "string"
+  },
+  "Claims.Claim_ID": {
+    "sample_values": [
+      143,
+      563,
+      801
+    ],
+    "inferred_type": "integer"
+  },
+  "Claims.Policy_ID": {
+    "sample_values": [
+      744,
+      141,
+      143
+    ],
+    "inferred_type": "integer"
+  },
+  "Claims.Date_Claim_Made": {
+    "sample_values": [
+      "2017-07-17",
+      "2018-07-15",
+      "2016-08-02"
+    ],
+    "inferred_type": "string"
+  },
+  "Claims.Date_Claim_Settled": {
+    "sample_values": [
+      "2018-03-09",
+      "2017-09-04",
+      "2017-12-20"
+    ],
+    "inferred_type": "string"
+  },
+  "Claims.Amount_Claimed": {
+    "sample_values": [
+      43884,
+      41078,
+      3326
+    ],
+    "inferred_type": "integer"
+  },
+  "Claims.Amount_Settled": {
+    "sample_values": [
+      1085,
+      1570,
+      1353
+    ],
+    "inferred_type": "integer"
+  },
+  "Settlements.Settlement_ID": {
+    "sample_values": [
+      357,
+      527,
+      648
+    ],
+    "inferred_type": "integer"
+  },
+  "Settlements.Claim_ID": {
+    "sample_values": [
+      486,
+      563,
+      957
+    ],
+    "inferred_type": "integer"
+  },
+  "Settlements.Date_Claim_Made": {
+    "sample_values": [
+      "2016-07-19",
+      "2018-05-12",
+      "2018-11-10"
+    ],
+    "inferred_type": "string"
+  },
+  "Settlements.Date_Claim_Settled": {
+    "sample_values": [
+      "2017-11-04",
+      "2018-02-15",
+      "2018-02-11"
+    ],
+    "inferred_type": "string"
+  },
+  "Settlements.Amount_Claimed": {
+    "sample_values": [
+      38543,
+      25078,
+      32079
+    ],
+    "inferred_type": "integer"
+  },
+  "Settlements.Amount_Settled": {
+    "sample_values": [
+      1181,
+      930,
+      1266
+    ],
+    "inferred_type": "integer"
+  },
+  "Settlements.Customer_Policy_ID": {
+    "sample_values": [
+      515,
+      727,
+      805
+    ],
+    "inferred_type": "integer"
+  },
+  "Payments.Payment_ID": {
+    "sample_values": [
+      384,
+      559,
+      779
+    ],
+    "inferred_type": "integer"
+  },
+  "Payments.Settlement_ID": {
+    "sample_values": [
+      516,
+      597,
+      564
+    ],
+    "inferred_type": "integer"
+  },
+  "Payments.Payment_Method_Code": {
+    "sample_values": [
+      "American Express",
+      "Visa",
+      "Discover Card"
+    ],
+    "inferred_type": "string"
+  },
+  "Payments.Date_Payment_Made": {
+    "sample_values": [
+      "2018-01-19",
+      "2018-02-18",
+      "2017-08-06"
+    ],
+    "inferred_type": "string"
+  },
+  "Payments.Amount_Payment": {
+    "sample_values": [
+      241730,
+      235893,
+      155654
+    ],
+    "inferred_type": "integer"
+  }
+}

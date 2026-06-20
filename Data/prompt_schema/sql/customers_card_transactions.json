@@ -1,0 +1,191 @@
+{
+  "Accounts.account_id": {
+    "sample_values": [
+      1,
+      6,
+      11
+    ],
+    "inferred_type": "integer"
+  },
+  "Accounts.customer_id": {
+    "sample_values": [
+      6,
+      12,
+      4
+    ],
+    "inferred_type": "integer"
+  },
+  "Accounts.account_name": {
+    "sample_values": [
+      "338",
+      "262",
+      "022"
+    ],
+    "inferred_type": "integer"
+  },
+  "Accounts.other_account_details": {
+    "sample_values": [
+      "Regular",
+      "VIP"
+    ],
+    "inferred_type": "string"
+  },
+  "Customers.customer_id": {
+    "sample_values": [
+      1,
+      6,
+      11
+    ],
+    "inferred_type": "integer"
+  },
+  "Customers.customer_first_name": {
+    "sample_values": [
+      "Nat",
+      "Izabella",
+      "Kiel"
+    ],
+    "inferred_type": "string"
+  },
+  "Customers.customer_last_name": {
+    "sample_values": [
+      "Davis",
+      "Schinner",
+      "Turcotte"
+    ],
+    "inferred_type": "string"
+  },
+  "Customers.customer_address": {
+    "sample_values": [
+      "163 Collier Square\nNew Ceciltown, AL 64723-5646",
+      "23793 Athena Inlet Apt. 455\nSchmidtmouth, NH 15794",
+      "19935 Allie Bypass Apt. 409\nColeberg, FL 69194-5357"
+    ],
+    "inferred_type": "string"
+  },
+  "Customers.customer_phone": {
+    "sample_values": [
+      "246-469-4472x359",
+      "751.049.9948",
+      "1-564-044-3909"
+    ],
+    "inferred_type": "string"
+  },
+  "Customers.customer_email": {
+    "sample_values": [
+      "earlene.carroll@example.net",
+      "kling.catalina@example.com",
+      "ebert.omer@example.net"
+    ],
+    "inferred_type": "string"
+  },
+  "Customers_Cards.card_id": {
+    "sample_values": [
+      1,
+      6,
+      11
+    ],
+    "inferred_type": "integer"
+  },
+  "Customers_Cards.customer_id": {
+    "sample_values": [
+      14,
+      15,
+      12
+    ],
+    "inferred_type": "integer"
+  },
+  "Customers_Cards.card_type_code": {
+    "sample_values": [
+      "Credit",
+      "Debit"
+    ],
+    "inferred_type": "string"
+  },
+  "Customers_Cards.card_number": {
+    "sample_values": [
+      "4560596484842",
+      "5102229294602335",
+      "4707949584519"
+    ],
+    "inferred_type": "integer"
+  },
+  "Customers_Cards.date_valid_from": {
+    "sample_values": [
+      "2014-07-03 20:19:31",
+      "2016-12-11 03:01:12",
+      "2017-01-01 13:34:04"
+    ],
+    "inferred_type": "string"
+  },
+  "Customers_Cards.date_valid_to": {
+    "sample_values": [
+      "2018-02-28 22:26:31",
+      "2018-03-15 06:27:45",
+      "2018-03-11 01:12:33"
+    ],
+    "inferred_type": "string"
+  },
+  "Customers_Cards.other_card_details": {
+    "sample_values": [
+      "5567915676420343",
+      "5513587359761653",
+      "377852690396160"
+    ],
+    "inferred_type": "integer"
+  },
+  "Financial_Transactions.transaction_id": {
+    "sample_values": [
+      1,
+      6,
+      11
+    ],
+    "inferred_type": "integer"
+  },
+  "Financial_Transactions.previous_transaction_id": {
+    "sample_values": [
+      925,
+      958,
+      333
+    ],
+    "inferred_type": "integer"
+  },
+  "Financial_Transactions.account_id": {
+    "sample_values": [
+      15,
+      12,
+      5
+    ],
+    "inferred_type": "integer"
+  },
+  "Financial_Transactions.card_id": {
+    "sample_values": [
+      1,
+      4,
+      7
+    ],
+    "inferred_type": "integer"
+  },
+  "Financial_Transactions.transaction_type": {
+    "sample_values": [
+      "Payment",
+      "Refund"
+    ],
+    "inferred_type": "string"
+  },
+  "Financial_Transactions.transaction_date": {
+    "sample_values": [
+      "2018-03-24 10:48:34",
+      "2018-03-24 05:13:42",
+      "2018-03-24 11:48:28"
+    ],
+    "inferred_type": "string"
+  },
+  "Financial_Transactions.transaction_amount": {
+    "sample_values": [
+      1701.23,
+      1967.75,
+      462.63
+    ],
+    "inferred_type": "float"
+  }
+}

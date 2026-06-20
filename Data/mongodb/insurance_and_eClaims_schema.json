@@ -1,0 +1,229 @@
+{
+  "db_name": "insurance_and_eClaims",
+  "collections": {
+    "Customers": {
+      "primary_key": [
+        "Customer_ID"
+      ],
+      "columns": [
+        {
+          "name": "Customer_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Customer_Details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 15
+    },
+    "Staff": {
+      "primary_key": [
+        "Staff_ID"
+      ],
+      "columns": [
+        {
+          "name": "Staff_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Staff_Details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 15
+    },
+    "Policies": {
+      "primary_key": [
+        "Policy_ID"
+      ],
+      "columns": [
+        {
+          "name": "Policy_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Customer_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Policy_Type_Code",
+          "type": "CHAR(15)"
+        },
+        {
+          "name": "Start_Date",
+          "type": "DATETIME"
+        },
+        {
+          "name": "End_Date",
+          "type": "DATETIME"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Policies",
+          "to": "Customers",
+          "child_col": "Customer_ID",
+          "parent_col": "Customer_ID"
+        }
+      ],
+      "row_count": 15
+    },
+    "Claim_Headers": {
+      "primary_key": [
+        "Claim_Header_ID"
+      ],
+      "columns": [
+        {
+          "name": "Claim_Header_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Claim_Status_Code",
+          "type": "CHAR(15)"
+        },
+        {
+          "name": "Claim_Type_Code",
+          "type": "CHAR(15)"
+        },
+        {
+          "name": "Policy_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Date_of_Claim",
+          "type": "DATETIME"
+        },
+        {
+          "name": "Date_of_Settlement",
+          "type": "DATETIME"
+        },
+        {
+          "name": "Amount_Claimed",
+          "type": "DECIMAL(20,4)"
+        },
+        {
+          "name": "Amount_Piad",
+          "type": "DECIMAL(20,4)"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Claim_Headers",
+          "to": "Policies",
+          "child_col": "Policy_ID",
+          "parent_col": "Policy_ID"
+        }
+      ],
+      "row_count": 15
+    },
+    "Claims_Documents": {
+      "primary_key": [
+        "Claim_ID",
+        "Document_Type_Code"
+      ],
+      "columns": [
+        {
+          "name": "Claim_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Document_Type_Code",
+          "type": "CHAR(15)"
+        },
+        {
+          "name": "Created_by_Staff_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Created_Date",
+          "type": "INTEGER"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Claims_Documents",
+          "to": "Staff",
+          "child_col": "Created_by_Staff_ID",
+          "parent_col": "Staff_ID"
+        },
+        {
+          "from": "Claims_Documents",
+          "to": "Claim_Headers",
+          "child_col": "Claim_ID",
+          "parent_col": "Claim_Header_ID"
+        }
+      ],
+      "row_count": 14
+    },
+    "Claims_Processing_Stages": {
+      "primary_key": [
+        "Claim_Stage_ID"
+      ],
+      "columns": [
+        {
+          "name": "Claim_Stage_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Next_Claim_Stage_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Claim_Status_Name",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "Claim_Status_Description",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 2
+    },
+    "Claims_Processing": {
+      "primary_key": [
+        "Claim_Processing_ID"
+      ],
+      "columns": [
+        {
+          "name": "Claim_Processing_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Claim_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Claim_Outcome_Code",
+          "type": "CHAR(15)"
+        },
+        {
+          "name": "Claim_Stage_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Staff_ID",
+          "type": "INTEGER"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Claims_Processing",
+          "to": "Staff",
+          "child_col": "Staff_ID",
+          "parent_col": "Staff_ID"
+        },
+        {
+          "from": "Claims_Processing",
+          "to": "Claim_Headers",
+          "child_col": "Claim_ID",
+          "parent_col": "Claim_Header_ID"
+        }
+      ],
+      "row_count": 15
+    }
+  }
+}

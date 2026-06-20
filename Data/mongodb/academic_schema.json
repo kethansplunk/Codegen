@@ -1,0 +1,424 @@
+{
+  "db_name": "academic",
+  "collections": {
+    "author": {
+      "primary_key": [
+        "aid"
+      ],
+      "columns": [
+        {
+          "name": "aid",
+          "type": "INT"
+        },
+        {
+          "name": "homepage",
+          "type": "TEXT"
+        },
+        {
+          "name": "name",
+          "type": "TEXT"
+        },
+        {
+          "name": "oid",
+          "type": "INT"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 0
+    },
+    "conference": {
+      "primary_key": [
+        "cid"
+      ],
+      "columns": [
+        {
+          "name": "cid",
+          "type": "INT"
+        },
+        {
+          "name": "homepage",
+          "type": "TEXT"
+        },
+        {
+          "name": "name",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 0
+    },
+    "domain": {
+      "primary_key": [
+        "did"
+      ],
+      "columns": [
+        {
+          "name": "did",
+          "type": "INT"
+        },
+        {
+          "name": "name",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 0
+    },
+    "domain_author": {
+      "primary_key": [
+        "aid",
+        "did"
+      ],
+      "columns": [
+        {
+          "name": "aid",
+          "type": "INT"
+        },
+        {
+          "name": "did",
+          "type": "INT"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "domain_author",
+          "to": "domain",
+          "child_col": "did",
+          "parent_col": "did"
+        },
+        {
+          "from": "domain_author",
+          "to": "author",
+          "child_col": "aid",
+          "parent_col": "aid"
+        }
+      ],
+      "row_count": 0
+    },
+    "domain_conference": {
+      "primary_key": [
+        "cid",
+        "did"
+      ],
+      "columns": [
+        {
+          "name": "cid",
+          "type": "INT"
+        },
+        {
+          "name": "did",
+          "type": "INT"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "domain_conference",
+          "to": "domain",
+          "child_col": "did",
+          "parent_col": "did"
+        },
+        {
+          "from": "domain_conference",
+          "to": "conference",
+          "child_col": "cid",
+          "parent_col": "cid"
+        }
+      ],
+      "row_count": 0
+    },
+    "journal": {
+      "primary_key": [
+        "jid"
+      ],
+      "columns": [
+        {
+          "name": "homepage",
+          "type": "TEXT"
+        },
+        {
+          "name": "jid",
+          "type": "INT"
+        },
+        {
+          "name": "name",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 0
+    },
+    "domain_journal": {
+      "primary_key": [
+        "did",
+        "jid"
+      ],
+      "columns": [
+        {
+          "name": "did",
+          "type": "INT"
+        },
+        {
+          "name": "jid",
+          "type": "INT"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "domain_journal",
+          "to": "domain",
+          "child_col": "did",
+          "parent_col": "did"
+        },
+        {
+          "from": "domain_journal",
+          "to": "journal",
+          "child_col": "jid",
+          "parent_col": "jid"
+        }
+      ],
+      "row_count": 0
+    },
+    "keyword": {
+      "primary_key": [
+        "kid"
+      ],
+      "columns": [
+        {
+          "name": "keyword",
+          "type": "TEXT"
+        },
+        {
+          "name": "kid",
+          "type": "INT"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 0
+    },
+    "domain_keyword": {
+      "primary_key": [
+        "did",
+        "kid"
+      ],
+      "columns": [
+        {
+          "name": "did",
+          "type": "INT"
+        },
+        {
+          "name": "kid",
+          "type": "INT"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "domain_keyword",
+          "to": "domain",
+          "child_col": "did",
+          "parent_col": "did"
+        },
+        {
+          "from": "domain_keyword",
+          "to": "keyword",
+          "child_col": "kid",
+          "parent_col": "kid"
+        }
+      ],
+      "row_count": 0
+    },
+    "publication": {
+      "primary_key": [
+        "pid"
+      ],
+      "columns": [
+        {
+          "name": "abstract",
+          "type": "TEXT"
+        },
+        {
+          "name": "cid",
+          "type": "TEXT"
+        },
+        {
+          "name": "citation_num",
+          "type": "INT"
+        },
+        {
+          "name": "jid",
+          "type": "INT"
+        },
+        {
+          "name": "pid",
+          "type": "INT"
+        },
+        {
+          "name": "reference_num",
+          "type": "INT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "year",
+          "type": "INT"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "publication",
+          "to": "conference",
+          "child_col": "cid",
+          "parent_col": "cid"
+        },
+        {
+          "from": "publication",
+          "to": "journal",
+          "child_col": "jid",
+          "parent_col": "jid"
+        }
+      ],
+      "row_count": 0
+    },
+    "domain_publication": {
+      "primary_key": [
+        "did",
+        "pid"
+      ],
+      "columns": [
+        {
+          "name": "did",
+          "type": "INT"
+        },
+        {
+          "name": "pid",
+          "type": "INT"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "domain_publication",
+          "to": "domain",
+          "child_col": "did",
+          "parent_col": "did"
+        },
+        {
+          "from": "domain_publication",
+          "to": "publication",
+          "child_col": "pid",
+          "parent_col": "pid"
+        }
+      ],
+      "row_count": 0
+    },
+    "organization": {
+      "primary_key": [
+        "oid"
+      ],
+      "columns": [
+        {
+          "name": "continent",
+          "type": "TEXT"
+        },
+        {
+          "name": "homepage",
+          "type": "TEXT"
+        },
+        {
+          "name": "name",
+          "type": "TEXT"
+        },
+        {
+          "name": "oid",
+          "type": "INT"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 0
+    },
+    "publication_keyword": {
+      "primary_key": [
+        "pid",
+        "kid"
+      ],
+      "columns": [
+        {
+          "name": "pid",
+          "type": "INT"
+        },
+        {
+          "name": "kid",
+          "type": "INT"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "publication_keyword",
+          "to": "keyword",
+          "child_col": "kid",
+          "parent_col": "kid"
+        },
+        {
+          "from": "publication_keyword",
+          "to": "publication",
+          "child_col": "pid",
+          "parent_col": "pid"
+        }
+      ],
+      "row_count": 0
+    },
+    "writes": {
+      "primary_key": [
+        "aid",
+        "pid"
+      ],
+      "columns": [
+        {
+          "name": "aid",
+          "type": "INT"
+        },
+        {
+          "name": "pid",
+          "type": "INT"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "writes",
+          "to": "author",
+          "child_col": "aid",
+          "parent_col": "aid"
+        },
+        {
+          "from": "writes",
+          "to": "publication",
+          "child_col": "pid",
+          "parent_col": "pid"
+        }
+      ],
+      "row_count": 0
+    },
+    "cite": {
+      "primary_key": [],
+      "columns": [
+        {
+          "name": "cited",
+          "type": "INT"
+        },
+        {
+          "name": "citing",
+          "type": "INT"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "cite",
+          "to": "publication",
+          "child_col": "cited",
+          "parent_col": "pid"
+        }
+      ],
+      "row_count": 0
+    }
+  }
+}

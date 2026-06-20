@@ -1,0 +1,137 @@
+{
+  "shop.Location": {
+    "sample_values": [
+      "Kotka",
+      "Turku",
+      "Espoo"
+    ],
+    "inferred_type": "string"
+  },
+  "shop.Name": {
+    "sample_values": [
+      "FC Haka",
+      "FC KooTeePee",
+      "HJK"
+    ],
+    "inferred_type": "string"
+  },
+  "shop.District": {
+    "sample_values": [
+      "Lahden Stadion",
+      "Jakobstads Centralplan",
+      "Magnum Areena"
+    ],
+    "inferred_type": "string"
+  },
+  "shop.Manager_name": {
+    "sample_values": [
+      "Tommi Kautonen",
+      "Ilkka M\u00e4kel\u00e4",
+      "Pekka Lyyski"
+    ],
+    "inferred_type": "string"
+  },
+  "shop.Shop_ID": {
+    "sample_values": [
+      "5",
+      "2",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "shop.Number_products": {
+    "sample_values": [
+      "4780",
+      "5000",
+      "10000"
+    ],
+    "inferred_type": "integer"
+  },
+  "hiring.Shop_ID": {
+    "sample_values": [
+      "5",
+      "1",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "hiring.Is_full_time": {
+    "sample_values": [
+      "F",
+      "T"
+    ],
+    "inferred_type": "string"
+  },
+  "hiring.Start_from": {
+    "sample_values": [
+      "2012",
+      "2003",
+      "2009"
+    ],
+    "inferred_type": "integer"
+  },
+  "hiring.Employee_ID": {
+    "sample_values": [
+      "5",
+      "2",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "employee.City": {
+    "sample_values": [
+      "Bristol",
+      "Wasps",
+      "Bath"
+    ],
+    "inferred_type": "string"
+  },
+  "employee.Name": {
+    "sample_values": [
+      "Andrew Sheridan",
+      "Mark Regan",
+      "Tim Payne"
+    ],
+    "inferred_type": "string"
+  },
+  "employee.Age": {
+    "sample_values": [
+      "23",
+      "43",
+      "29"
+    ],
+    "inferred_type": "integer"
+  },
+  "employee.Employee_ID": {
+    "sample_values": [
+      "5",
+      "1",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "evaluation.Bonus": {
+    "sample_values": [
+      "3000.0",
+      "2900.0",
+      "3200.0"
+    ],
+    "inferred_type": "float"
+  },
+  "evaluation.Year_awarded": {
+    "sample_values": [
+      "2018",
+      "2017",
+      "2015"
+    ],
+    "inferred_type": "integer"
+  },
+  "evaluation.Employee_ID": {
+    "sample_values": [
+      "10",
+      "1",
+      "2"
+    ],
+    "inferred_type": "integer"
+  }
+}

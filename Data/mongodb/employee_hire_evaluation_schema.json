@@ -1,0 +1,130 @@
+{
+  "db_name": "employee_hire_evaluation",
+  "collections": {
+    "employee": {
+      "primary_key": [
+        "Employee_ID"
+      ],
+      "columns": [
+        {
+          "name": "Employee_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Age",
+          "type": "INT"
+        },
+        {
+          "name": "City",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 10
+    },
+    "shop": {
+      "primary_key": [
+        "Shop_ID"
+      ],
+      "columns": [
+        {
+          "name": "Shop_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Location",
+          "type": "TEXT"
+        },
+        {
+          "name": "District",
+          "type": "TEXT"
+        },
+        {
+          "name": "Number_products",
+          "type": "INT"
+        },
+        {
+          "name": "Manager_name",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 9
+    },
+    "hiring": {
+      "primary_key": [
+        "Employee_ID"
+      ],
+      "columns": [
+        {
+          "name": "Shop_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Employee_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Start_from",
+          "type": "TEXT"
+        },
+        {
+          "name": "Is_full_time",
+          "type": "bool"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "hiring",
+          "to": "employee",
+          "child_col": "Employee_ID",
+          "parent_col": "Employee_ID"
+        },
+        {
+          "from": "hiring",
+          "to": "shop",
+          "child_col": "Shop_ID",
+          "parent_col": "Shop_ID"
+        }
+      ],
+      "row_count": 7
+    },
+    "evaluation": {
+      "primary_key": [
+        "Employee_ID",
+        "Year_awarded"
+      ],
+      "columns": [
+        {
+          "name": "Employee_ID",
+          "type": "TEXT"
+        },
+        {
+          "name": "Year_awarded",
+          "type": "TEXT"
+        },
+        {
+          "name": "Bonus",
+          "type": "REAL"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "evaluation",
+          "to": "employee",
+          "child_col": "Employee_ID",
+          "parent_col": "Employee_ID"
+        }
+      ],
+      "row_count": 6
+    }
+  }
+}

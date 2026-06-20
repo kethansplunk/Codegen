@@ -1,0 +1,83 @@
+{
+  "db_name": "movie_1",
+  "collections": {
+    "Movie": {
+      "primary_key": [
+        "mID"
+      ],
+      "columns": [
+        {
+          "name": "mID",
+          "type": "INT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "year",
+          "type": "INT"
+        },
+        {
+          "name": "director",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 8
+    },
+    "Reviewer": {
+      "primary_key": [
+        "rID"
+      ],
+      "columns": [
+        {
+          "name": "rID",
+          "type": "INT"
+        },
+        {
+          "name": "name",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 8
+    },
+    "Rating": {
+      "primary_key": [],
+      "columns": [
+        {
+          "name": "rID",
+          "type": "INT"
+        },
+        {
+          "name": "mID",
+          "type": "INT"
+        },
+        {
+          "name": "stars",
+          "type": "INT"
+        },
+        {
+          "name": "ratingDate",
+          "type": "date"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Rating",
+          "to": "Reviewer",
+          "child_col": "rID",
+          "parent_col": "rID"
+        },
+        {
+          "from": "Rating",
+          "to": "Movie",
+          "child_col": "mID",
+          "parent_col": "mID"
+        }
+      ],
+      "row_count": 14
+    }
+  }
+}

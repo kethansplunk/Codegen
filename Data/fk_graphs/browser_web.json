@@ -1,0 +1,93 @@
+{
+  "db_name": "browser_web",
+  "nodes": [
+    {
+      "name": "Web_client_accelerator",
+      "columns": [
+        {
+          "name": "id",
+          "type": "INT"
+        },
+        {
+          "name": "name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Operating_system",
+          "type": "TEXT"
+        },
+        {
+          "name": "Client",
+          "type": "TEXT"
+        },
+        {
+          "name": "Connection",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "id"
+      ]
+    },
+    {
+      "name": "browser",
+      "columns": [
+        {
+          "name": "id",
+          "type": "INT"
+        },
+        {
+          "name": "name",
+          "type": "TEXT"
+        },
+        {
+          "name": "market_share",
+          "type": "REAL"
+        }
+      ],
+      "pk": [
+        "id"
+      ]
+    },
+    {
+      "name": "accelerator_compatible_browser",
+      "columns": [
+        {
+          "name": "accelerator_id",
+          "type": "INT"
+        },
+        {
+          "name": "browser_id",
+          "type": "INT"
+        },
+        {
+          "name": "compatible_since_year",
+          "type": "INT"
+        }
+      ],
+      "pk": [
+        "accelerator_id",
+        "browser_id"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "accelerator_compatible_browser",
+      "to": "browser",
+      "child_col": "browser_id",
+      "parent_col": "id"
+    },
+    {
+      "from": "accelerator_compatible_browser",
+      "to": "Web_client_accelerator",
+      "child_col": "accelerator_id",
+      "parent_col": "id"
+    }
+  ],
+  "centrality": {
+    "Web_client_accelerator": 0.5,
+    "browser": 0.5,
+    "accelerator_compatible_browser": 0.0
+  }
+}

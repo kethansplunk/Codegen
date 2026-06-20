@@ -1,0 +1,436 @@
+{
+  "db_name": "behavior_monitoring",
+  "nodes": [
+    {
+      "name": "Ref_Address_Types",
+      "columns": [
+        {
+          "name": "address_type_code",
+          "type": "VARCHAR(15)"
+        },
+        {
+          "name": "address_type_description",
+          "type": "VARCHAR(80)"
+        }
+      ],
+      "pk": [
+        "address_type_code"
+      ]
+    },
+    {
+      "name": "Ref_Detention_Type",
+      "columns": [
+        {
+          "name": "detention_type_code",
+          "type": "VARCHAR(10)"
+        },
+        {
+          "name": "detention_type_description",
+          "type": "VARCHAR(80)"
+        }
+      ],
+      "pk": [
+        "detention_type_code"
+      ]
+    },
+    {
+      "name": "Ref_Incident_Type",
+      "columns": [
+        {
+          "name": "incident_type_code",
+          "type": "VARCHAR(10)"
+        },
+        {
+          "name": "incident_type_description",
+          "type": "VARCHAR(80)"
+        }
+      ],
+      "pk": [
+        "incident_type_code"
+      ]
+    },
+    {
+      "name": "Addresses",
+      "columns": [
+        {
+          "name": "address_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "line_1",
+          "type": "VARCHAR(120)"
+        },
+        {
+          "name": "line_2",
+          "type": "VARCHAR(120)"
+        },
+        {
+          "name": "line_3",
+          "type": "VARCHAR(120)"
+        },
+        {
+          "name": "city",
+          "type": "VARCHAR(80)"
+        },
+        {
+          "name": "zip_postcode",
+          "type": "VARCHAR(20)"
+        },
+        {
+          "name": "state_province_county",
+          "type": "VARCHAR(50)"
+        },
+        {
+          "name": "country",
+          "type": "VARCHAR(50)"
+        },
+        {
+          "name": "other_address_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "pk": [
+        "address_id"
+      ]
+    },
+    {
+      "name": "Students",
+      "columns": [
+        {
+          "name": "student_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "address_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "first_name",
+          "type": "VARCHAR(80)"
+        },
+        {
+          "name": "middle_name",
+          "type": "VARCHAR(40)"
+        },
+        {
+          "name": "last_name",
+          "type": "VARCHAR(40)"
+        },
+        {
+          "name": "cell_mobile_number",
+          "type": "VARCHAR(40)"
+        },
+        {
+          "name": "email_address",
+          "type": "VARCHAR(40)"
+        },
+        {
+          "name": "date_first_rental",
+          "type": "DATETIME"
+        },
+        {
+          "name": "date_left_university",
+          "type": "DATETIME"
+        },
+        {
+          "name": "other_student_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "pk": [
+        "student_id"
+      ]
+    },
+    {
+      "name": "Teachers",
+      "columns": [
+        {
+          "name": "teacher_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "address_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "first_name",
+          "type": "VARCHAR(80)"
+        },
+        {
+          "name": "middle_name",
+          "type": "VARCHAR(80)"
+        },
+        {
+          "name": "last_name",
+          "type": "VARCHAR(80)"
+        },
+        {
+          "name": "gender",
+          "type": "VARCHAR(1)"
+        },
+        {
+          "name": "cell_mobile_number",
+          "type": "VARCHAR(40)"
+        },
+        {
+          "name": "email_address",
+          "type": "VARCHAR(40)"
+        },
+        {
+          "name": "other_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "pk": [
+        "teacher_id"
+      ]
+    },
+    {
+      "name": "Assessment_Notes",
+      "columns": [
+        {
+          "name": "notes_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "student_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "teacher_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "date_of_notes",
+          "type": "DATETIME"
+        },
+        {
+          "name": "text_of_notes",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "other_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "pk": []
+    },
+    {
+      "name": "Behavior_Incident",
+      "columns": [
+        {
+          "name": "incident_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "incident_type_code",
+          "type": "VARCHAR(10)"
+        },
+        {
+          "name": "student_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "date_incident_start",
+          "type": "DATETIME"
+        },
+        {
+          "name": "date_incident_end",
+          "type": "DATETIME"
+        },
+        {
+          "name": "incident_summary",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "recommendations",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "other_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "pk": [
+        "incident_id"
+      ]
+    },
+    {
+      "name": "Detention",
+      "columns": [
+        {
+          "name": "detention_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "detention_type_code",
+          "type": "VARCHAR(10)"
+        },
+        {
+          "name": "teacher_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "datetime_detention_start",
+          "type": "DATETIME"
+        },
+        {
+          "name": "datetime_detention_end",
+          "type": "DATETIME"
+        },
+        {
+          "name": "detention_summary",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "other_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "pk": [
+        "detention_id"
+      ]
+    },
+    {
+      "name": "Student_Addresses",
+      "columns": [
+        {
+          "name": "student_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "address_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "date_address_from",
+          "type": "DATETIME"
+        },
+        {
+          "name": "date_address_to",
+          "type": "DATETIME"
+        },
+        {
+          "name": "monthly_rental",
+          "type": "DECIMAL(19,4)"
+        },
+        {
+          "name": "other_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "pk": []
+    },
+    {
+      "name": "Students_in_Detention",
+      "columns": [
+        {
+          "name": "student_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "detention_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "incident_id",
+          "type": "INTEGER"
+        }
+      ],
+      "pk": []
+    }
+  ],
+  "edges": [
+    {
+      "from": "Students",
+      "to": "Addresses",
+      "child_col": "address_id",
+      "parent_col": "address_id"
+    },
+    {
+      "from": "Teachers",
+      "to": "Addresses",
+      "child_col": "address_id",
+      "parent_col": "address_id"
+    },
+    {
+      "from": "Assessment_Notes",
+      "to": "Teachers",
+      "child_col": "teacher_id",
+      "parent_col": "teacher_id"
+    },
+    {
+      "from": "Assessment_Notes",
+      "to": "Students",
+      "child_col": "student_id",
+      "parent_col": "student_id"
+    },
+    {
+      "from": "Behavior_Incident",
+      "to": "Students",
+      "child_col": "student_id",
+      "parent_col": "student_id"
+    },
+    {
+      "from": "Behavior_Incident",
+      "to": "Ref_Incident_Type",
+      "child_col": "incident_type_code",
+      "parent_col": "incident_type_code"
+    },
+    {
+      "from": "Detention",
+      "to": "Teachers",
+      "child_col": "teacher_id",
+      "parent_col": "teacher_id"
+    },
+    {
+      "from": "Detention",
+      "to": "Ref_Detention_Type",
+      "child_col": "detention_type_code",
+      "parent_col": "detention_type_code"
+    },
+    {
+      "from": "Student_Addresses",
+      "to": "Students",
+      "child_col": "student_id",
+      "parent_col": "student_id"
+    },
+    {
+      "from": "Student_Addresses",
+      "to": "Addresses",
+      "child_col": "address_id",
+      "parent_col": "address_id"
+    },
+    {
+      "from": "Students_in_Detention",
+      "to": "Students",
+      "child_col": "student_id",
+      "parent_col": "student_id"
+    },
+    {
+      "from": "Students_in_Detention",
+      "to": "Detention",
+      "child_col": "detention_id",
+      "parent_col": "detention_id"
+    },
+    {
+      "from": "Students_in_Detention",
+      "to": "Behavior_Incident",
+      "child_col": "incident_id",
+      "parent_col": "incident_id"
+    }
+  ],
+  "centrality": {
+    "Ref_Address_Types": 0.0,
+    "Ref_Detention_Type": 0.1,
+    "Ref_Incident_Type": 0.1,
+    "Addresses": 0.30000000000000004,
+    "Students": 0.4,
+    "Teachers": 0.2,
+    "Assessment_Notes": 0.0,
+    "Behavior_Incident": 0.1,
+    "Detention": 0.1,
+    "Student_Addresses": 0.0,
+    "Students_in_Detention": 0.0
+  }
+}

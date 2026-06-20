@@ -1,0 +1,93 @@
+{
+  "db_name": "soccer_2",
+  "nodes": [
+    {
+      "name": "College",
+      "columns": [
+        {
+          "name": "cName",
+          "type": "varchar(20)"
+        },
+        {
+          "name": "state",
+          "type": "varchar(2)"
+        },
+        {
+          "name": "enr",
+          "type": "numeric(5,0)"
+        }
+      ],
+      "pk": [
+        "cName"
+      ]
+    },
+    {
+      "name": "Player",
+      "columns": [
+        {
+          "name": "pID",
+          "type": "numeric(5,0)"
+        },
+        {
+          "name": "pName",
+          "type": "varchar(20)"
+        },
+        {
+          "name": "yCard",
+          "type": "varchar(3)"
+        },
+        {
+          "name": "HS",
+          "type": "numeric(5,0)"
+        }
+      ],
+      "pk": [
+        "pID"
+      ]
+    },
+    {
+      "name": "Tryout",
+      "columns": [
+        {
+          "name": "pID",
+          "type": "numeric(5,0)"
+        },
+        {
+          "name": "cName",
+          "type": "varchar(20)"
+        },
+        {
+          "name": "pPos",
+          "type": "varchar(8)"
+        },
+        {
+          "name": "decision",
+          "type": "varchar(3)"
+        }
+      ],
+      "pk": [
+        "pID",
+        "cName"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "Tryout",
+      "to": "College",
+      "child_col": "cName",
+      "parent_col": "cName"
+    },
+    {
+      "from": "Tryout",
+      "to": "Player",
+      "child_col": "pID",
+      "parent_col": "pID"
+    }
+  ],
+  "centrality": {
+    "College": 0.5,
+    "Player": 0.5,
+    "Tryout": 0.0
+  }
+}

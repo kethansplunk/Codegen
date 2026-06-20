@@ -1,0 +1,102 @@
+{
+  "db_name": "medicine_enzyme_interaction",
+  "collections": {
+    "medicine": {
+      "primary_key": [
+        "id"
+      ],
+      "columns": [
+        {
+          "name": "id",
+          "type": "INT"
+        },
+        {
+          "name": "name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Trade_Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "FDA_approved",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 21
+    },
+    "enzyme": {
+      "primary_key": [
+        "id"
+      ],
+      "columns": [
+        {
+          "name": "id",
+          "type": "INT"
+        },
+        {
+          "name": "name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Location",
+          "type": "TEXT"
+        },
+        {
+          "name": "Product",
+          "type": "TEXT"
+        },
+        {
+          "name": "Chromosome",
+          "type": "TEXT"
+        },
+        {
+          "name": "OMIM",
+          "type": "INT"
+        },
+        {
+          "name": "Porphyria",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 8
+    },
+    "medicine_enzyme_interaction": {
+      "primary_key": [
+        "enzyme_id",
+        "medicine_id"
+      ],
+      "columns": [
+        {
+          "name": "enzyme_id",
+          "type": "INT"
+        },
+        {
+          "name": "medicine_id",
+          "type": "INT"
+        },
+        {
+          "name": "interaction_type",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "medicine_enzyme_interaction",
+          "to": "medicine",
+          "child_col": "medicine_id",
+          "parent_col": "id"
+        },
+        {
+          "from": "medicine_enzyme_interaction",
+          "to": "enzyme",
+          "child_col": "enzyme_id",
+          "parent_col": "id"
+        }
+      ],
+      "row_count": 19
+    }
+  }
+}

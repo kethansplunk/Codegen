@@ -1,0 +1,285 @@
+{
+  "db_name": "college_3",
+  "collections": {
+    "Student": {
+      "primary_key": [
+        "StuID"
+      ],
+      "columns": [
+        {
+          "name": "StuID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "LName",
+          "type": "VARCHAR(12)"
+        },
+        {
+          "name": "Fname",
+          "type": "VARCHAR(12)"
+        },
+        {
+          "name": "Age",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Sex",
+          "type": "VARCHAR(1)"
+        },
+        {
+          "name": "Major",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Advisor",
+          "type": "INTEGER"
+        },
+        {
+          "name": "city_code",
+          "type": "VARCHAR(3)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 34
+    },
+    "Faculty": {
+      "primary_key": [
+        "FacID"
+      ],
+      "columns": [
+        {
+          "name": "FacID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Lname",
+          "type": "VARCHAR(15)"
+        },
+        {
+          "name": "Fname",
+          "type": "VARCHAR(15)"
+        },
+        {
+          "name": "Rank",
+          "type": "VARCHAR(15)"
+        },
+        {
+          "name": "Sex",
+          "type": "VARCHAR(1)"
+        },
+        {
+          "name": "Phone",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Room",
+          "type": "VARCHAR(5)"
+        },
+        {
+          "name": "Building",
+          "type": "VARCHAR(13)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 58
+    },
+    "Department": {
+      "primary_key": [
+        "DNO"
+      ],
+      "columns": [
+        {
+          "name": "DNO",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Division",
+          "type": "VARCHAR(2)"
+        },
+        {
+          "name": "DName",
+          "type": "VARCHAR(25)"
+        },
+        {
+          "name": "Room",
+          "type": "VARCHAR(5)"
+        },
+        {
+          "name": "Building",
+          "type": "VARCHAR(13)"
+        },
+        {
+          "name": "DPhone",
+          "type": "INTEGER"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 26
+    },
+    "Member_of": {
+      "primary_key": [],
+      "columns": [
+        {
+          "name": "FacID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "DNO",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Appt_Type",
+          "type": "VARCHAR(15)"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Member_of",
+          "to": "Department",
+          "child_col": "DNO",
+          "parent_col": "DNO"
+        },
+        {
+          "from": "Member_of",
+          "to": "Faculty",
+          "child_col": "FacID",
+          "parent_col": "FacID"
+        }
+      ],
+      "row_count": 63
+    },
+    "Course": {
+      "primary_key": [
+        "CID"
+      ],
+      "columns": [
+        {
+          "name": "CID",
+          "type": "VARCHAR(7)"
+        },
+        {
+          "name": "CName",
+          "type": "VARCHAR(40)"
+        },
+        {
+          "name": "Credits",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Instructor",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Days",
+          "type": "VARCHAR(5)"
+        },
+        {
+          "name": "Hours",
+          "type": "VARCHAR(11)"
+        },
+        {
+          "name": "DNO",
+          "type": "INTEGER"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Course",
+          "to": "Department",
+          "child_col": "DNO",
+          "parent_col": "DNO"
+        },
+        {
+          "from": "Course",
+          "to": "Faculty",
+          "child_col": "Instructor",
+          "parent_col": "FacID"
+        }
+      ],
+      "row_count": 76
+    },
+    "Minor_in": {
+      "primary_key": [],
+      "columns": [
+        {
+          "name": "StuID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "DNO",
+          "type": "INTEGER"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Minor_in",
+          "to": "Department",
+          "child_col": "DNO",
+          "parent_col": "DNO"
+        },
+        {
+          "from": "Minor_in",
+          "to": "Student",
+          "child_col": "StuID",
+          "parent_col": "StuID"
+        }
+      ],
+      "row_count": 10
+    },
+    "Enrolled_in": {
+      "primary_key": [],
+      "columns": [
+        {
+          "name": "StuID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "CID",
+          "type": "VARCHAR(7)"
+        },
+        {
+          "name": "Grade",
+          "type": "VARCHAR(2)"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Enrolled_in",
+          "to": "Gradeconversion",
+          "child_col": "Grade",
+          "parent_col": "lettergrade"
+        },
+        {
+          "from": "Enrolled_in",
+          "to": "Course",
+          "child_col": "CID",
+          "parent_col": "CID"
+        },
+        {
+          "from": "Enrolled_in",
+          "to": "Student",
+          "child_col": "StuID",
+          "parent_col": "StuID"
+        }
+      ],
+      "row_count": 210
+    },
+    "Gradeconversion": {
+      "primary_key": [
+        "lettergrade"
+      ],
+      "columns": [
+        {
+          "name": "lettergrade",
+          "type": "VARCHAR(2)"
+        },
+        {
+          "name": "gradepoint",
+          "type": "FLOAT"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 13
+    }
+  }
+}

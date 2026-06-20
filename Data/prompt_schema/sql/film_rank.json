@@ -1,0 +1,122 @@
+{
+  "film.Film_ID": {
+    "sample_values": [
+      1,
+      5,
+      9
+    ],
+    "inferred_type": "integer"
+  },
+  "film.Title": {
+    "sample_values": [
+      "First Blood",
+      "Star Trek II: The Wrath of Khan",
+      "Rocky III"
+    ],
+    "inferred_type": "string"
+  },
+  "film.Studio": {
+    "sample_values": [
+      "Orion / Carolco",
+      "Paramount / Lorimar",
+      "Columbia"
+    ],
+    "inferred_type": "string"
+  },
+  "film.Director": {
+    "sample_values": [
+      "Ted Kotcheff",
+      "Nicholas Meyer",
+      "Sylvester Stallone"
+    ],
+    "inferred_type": "string"
+  },
+  "film.Gross_in_dollar": {
+    "sample_values": [
+      435110554,
+      109492484,
+      69701637
+    ],
+    "inferred_type": "integer"
+  },
+  "market.Market_ID": {
+    "sample_values": [
+      1,
+      3,
+      5
+    ],
+    "inferred_type": "integer"
+  },
+  "market.Country": {
+    "sample_values": [
+      "Poland",
+      "China",
+      "Russia"
+    ],
+    "inferred_type": "string"
+  },
+  "market.Number_cities": {
+    "sample_values": [
+      209,
+      700,
+      212
+    ],
+    "inferred_type": "integer"
+  },
+  "film_market_estimation.Estimation_ID": {
+    "sample_values": [
+      1,
+      4,
+      7
+    ],
+    "inferred_type": "integer"
+  },
+  "film_market_estimation.Low_Estimate": {
+    "sample_values": [
+      80000.0,
+      960.0,
+      53.0
+    ],
+    "inferred_type": "float"
+  },
+  "film_market_estimation.High_Estimate": {
+    "sample_values": [
+      80400.0,
+      960.0,
+      1000.0
+    ],
+    "inferred_type": "float"
+  },
+  "film_market_estimation.Film_ID": {
+    "sample_values": [
+      1,
+      2,
+      3
+    ],
+    "inferred_type": "integer"
+  },
+  "film_market_estimation.Type": {
+    "sample_values": [
+      "Mass suicide murder",
+      "Mass suicide",
+      "Mass human sacrifice"
+    ],
+    "inferred_type": "string"
+  },
+  "film_market_estimation.Market_ID": {
+    "sample_values": [
+      1,
+      2,
+      3
+    ],
+    "inferred_type": "integer"
+  },
+  "film_market_estimation.Year": {
+    "sample_values": [
+      1945,
+      1973,
+      1994
+    ],
+    "inferred_type": "integer"
+  }
+}

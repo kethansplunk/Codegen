@@ -1,0 +1,89 @@
+{
+  "db_name": "roller_coaster",
+  "nodes": [
+    {
+      "name": "roller_coaster",
+      "columns": [
+        {
+          "name": "Roller_Coaster_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Park",
+          "type": "TEXT"
+        },
+        {
+          "name": "Country_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Length",
+          "type": "REAL"
+        },
+        {
+          "name": "Height",
+          "type": "REAL"
+        },
+        {
+          "name": "Speed",
+          "type": "TEXT"
+        },
+        {
+          "name": "Opened",
+          "type": "TEXT"
+        },
+        {
+          "name": "Status",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "Roller_Coaster_ID"
+      ]
+    },
+    {
+      "name": "country",
+      "columns": [
+        {
+          "name": "Country_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Population",
+          "type": "INT"
+        },
+        {
+          "name": "Area",
+          "type": "INT"
+        },
+        {
+          "name": "Languages",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "Country_ID"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "roller_coaster",
+      "to": "country",
+      "child_col": "Country_ID",
+      "parent_col": "Country_ID"
+    }
+  ],
+  "centrality": {
+    "roller_coaster": 0.0,
+    "country": 1.0
+  }
+}

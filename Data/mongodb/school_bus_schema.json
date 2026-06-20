@@ -1,0 +1,102 @@
+{
+  "db_name": "school_bus",
+  "collections": {
+    "driver": {
+      "primary_key": [
+        "Driver_ID"
+      ],
+      "columns": [
+        {
+          "name": "Driver_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Party",
+          "type": "TEXT"
+        },
+        {
+          "name": "Home_city",
+          "type": "TEXT"
+        },
+        {
+          "name": "Age",
+          "type": "INT"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 12
+    },
+    "school": {
+      "primary_key": [
+        "School_ID"
+      ],
+      "columns": [
+        {
+          "name": "School_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Grade",
+          "type": "TEXT"
+        },
+        {
+          "name": "School",
+          "type": "TEXT"
+        },
+        {
+          "name": "Location",
+          "type": "TEXT"
+        },
+        {
+          "name": "Type",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 7
+    },
+    "school_bus": {
+      "primary_key": [
+        "School_ID",
+        "Driver_ID"
+      ],
+      "columns": [
+        {
+          "name": "School_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Driver_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Years_Working",
+          "type": "INT"
+        },
+        {
+          "name": "If_full_time",
+          "type": "bool"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "school_bus",
+          "to": "driver",
+          "child_col": "Driver_ID",
+          "parent_col": "Driver_ID"
+        },
+        {
+          "from": "school_bus",
+          "to": "school",
+          "child_col": "School_ID",
+          "parent_col": "School_ID"
+        }
+      ],
+      "row_count": 5
+    }
+  }
+}

@@ -1,0 +1,349 @@
+{
+  "db_name": "tracking_grants_for_research",
+  "nodes": [
+    {
+      "name": "Document_Types",
+      "columns": [
+        {
+          "name": "document_type_code",
+          "type": "VARCHAR(10)"
+        },
+        {
+          "name": "document_description",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "pk": [
+        "document_type_code"
+      ]
+    },
+    {
+      "name": "Documents",
+      "columns": [
+        {
+          "name": "document_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "document_type_code",
+          "type": "VARCHAR(10)"
+        },
+        {
+          "name": "grant_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "sent_date",
+          "type": "DATETIME"
+        },
+        {
+          "name": "response_received_date",
+          "type": "DATETIME"
+        },
+        {
+          "name": "other_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "pk": [
+        "document_id"
+      ]
+    },
+    {
+      "name": "Grants",
+      "columns": [
+        {
+          "name": "grant_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "organisation_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "grant_amount",
+          "type": "DECIMAL(19,4)"
+        },
+        {
+          "name": "grant_start_date",
+          "type": "DATETIME"
+        },
+        {
+          "name": "grant_end_date",
+          "type": "DATETIME"
+        },
+        {
+          "name": "other_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "pk": [
+        "grant_id"
+      ]
+    },
+    {
+      "name": "Organisation_Types",
+      "columns": [
+        {
+          "name": "organisation_type",
+          "type": "VARCHAR(10)"
+        },
+        {
+          "name": "organisation_type_description",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "pk": [
+        "organisation_type"
+      ]
+    },
+    {
+      "name": "Organisations",
+      "columns": [
+        {
+          "name": "organisation_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "organisation_type",
+          "type": "VARCHAR(10)"
+        },
+        {
+          "name": "organisation_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "pk": [
+        "organisation_id"
+      ]
+    },
+    {
+      "name": "Project_Outcomes",
+      "columns": [
+        {
+          "name": "project_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "outcome_code",
+          "type": "VARCHAR(10)"
+        },
+        {
+          "name": "outcome_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "pk": []
+    },
+    {
+      "name": "Project_Staff",
+      "columns": [
+        {
+          "name": "staff_id",
+          "type": "DOUBLE"
+        },
+        {
+          "name": "project_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "role_code",
+          "type": "VARCHAR(10)"
+        },
+        {
+          "name": "date_from",
+          "type": "DATETIME"
+        },
+        {
+          "name": "date_to",
+          "type": "DATETIME"
+        },
+        {
+          "name": "other_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "pk": [
+        "staff_id"
+      ]
+    },
+    {
+      "name": "Projects",
+      "columns": [
+        {
+          "name": "project_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "organisation_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "project_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "pk": [
+        "project_id"
+      ]
+    },
+    {
+      "name": "Research_Outcomes",
+      "columns": [
+        {
+          "name": "outcome_code",
+          "type": "VARCHAR(10)"
+        },
+        {
+          "name": "outcome_description",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "pk": [
+        "outcome_code"
+      ]
+    },
+    {
+      "name": "Research_Staff",
+      "columns": [
+        {
+          "name": "staff_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "employer_organisation_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "staff_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "pk": [
+        "staff_id"
+      ]
+    },
+    {
+      "name": "Staff_Roles",
+      "columns": [
+        {
+          "name": "role_code",
+          "type": "VARCHAR(10)"
+        },
+        {
+          "name": "role_description",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "pk": [
+        "role_code"
+      ]
+    },
+    {
+      "name": "Tasks",
+      "columns": [
+        {
+          "name": "task_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "project_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "task_details",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "eg Agree Objectives",
+          "type": "VARCHAR(1)"
+        }
+      ],
+      "pk": [
+        "task_id"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "Documents",
+      "to": "Grants",
+      "child_col": "grant_id",
+      "parent_col": "grant_id"
+    },
+    {
+      "from": "Documents",
+      "to": "Document_Types",
+      "child_col": "document_type_code",
+      "parent_col": "document_type_code"
+    },
+    {
+      "from": "Grants",
+      "to": "Organisations",
+      "child_col": "organisation_id",
+      "parent_col": "organisation_id"
+    },
+    {
+      "from": "Organisations",
+      "to": "Organisation_Types",
+      "child_col": "organisation_type",
+      "parent_col": "organisation_type"
+    },
+    {
+      "from": "Project_Outcomes",
+      "to": "Research_Outcomes",
+      "child_col": "outcome_code",
+      "parent_col": "outcome_code"
+    },
+    {
+      "from": "Project_Outcomes",
+      "to": "Projects",
+      "child_col": "project_id",
+      "parent_col": "project_id"
+    },
+    {
+      "from": "Project_Staff",
+      "to": "Staff_Roles",
+      "child_col": "role_code",
+      "parent_col": "role_code"
+    },
+    {
+      "from": "Project_Staff",
+      "to": "Projects",
+      "child_col": "project_id",
+      "parent_col": "project_id"
+    },
+    {
+      "from": "Projects",
+      "to": "Organisations",
+      "child_col": "organisation_id",
+      "parent_col": "organisation_id"
+    },
+    {
+      "from": "Research_Staff",
+      "to": "Organisations",
+      "child_col": "employer_organisation_id",
+      "parent_col": "organisation_id"
+    },
+    {
+      "from": "Tasks",
+      "to": "Projects",
+      "child_col": "project_id",
+      "parent_col": "project_id"
+    }
+  ],
+  "centrality": {
+    "Document_Types": 0.09090909090909091,
+    "Documents": 0.0,
+    "Grants": 0.09090909090909091,
+    "Organisation_Types": 0.09090909090909091,
+    "Organisations": 0.2727272727272727,
+    "Project_Outcomes": 0.0,
+    "Project_Staff": 0.0,
+    "Projects": 0.2727272727272727,
+    "Research_Outcomes": 0.09090909090909091,
+    "Research_Staff": 0.0,
+    "Staff_Roles": 0.09090909090909091,
+    "Tasks": 0.0
+  }
+}

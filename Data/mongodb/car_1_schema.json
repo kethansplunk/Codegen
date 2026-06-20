@@ -1,0 +1,186 @@
+{
+  "db_name": "car_1",
+  "collections": {
+    "continents": {
+      "primary_key": [
+        "ContId"
+      ],
+      "columns": [
+        {
+          "name": "ContId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Continent",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 5
+    },
+    "countries": {
+      "primary_key": [
+        "CountryId"
+      ],
+      "columns": [
+        {
+          "name": "CountryId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "CountryName",
+          "type": "TEXT"
+        },
+        {
+          "name": "Continent",
+          "type": "INTEGER"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "countries",
+          "to": "continents",
+          "child_col": "Continent",
+          "parent_col": "ContId"
+        }
+      ],
+      "row_count": 15
+    },
+    "car_makers": {
+      "primary_key": [
+        "Id"
+      ],
+      "columns": [
+        {
+          "name": "Id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Maker",
+          "type": "TEXT"
+        },
+        {
+          "name": "FullName",
+          "type": "TEXT"
+        },
+        {
+          "name": "Country",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "car_makers",
+          "to": "countries",
+          "child_col": "Country",
+          "parent_col": "CountryId"
+        }
+      ],
+      "row_count": 22
+    },
+    "model_list": {
+      "primary_key": [
+        "ModelId"
+      ],
+      "columns": [
+        {
+          "name": "ModelId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Maker",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Model",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "model_list",
+          "to": "car_makers",
+          "child_col": "Maker",
+          "parent_col": "Id"
+        }
+      ],
+      "row_count": 36
+    },
+    "car_names": {
+      "primary_key": [
+        "MakeId"
+      ],
+      "columns": [
+        {
+          "name": "MakeId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Model",
+          "type": "TEXT"
+        },
+        {
+          "name": "Make",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "car_names",
+          "to": "model_list",
+          "child_col": "Model",
+          "parent_col": "Model"
+        }
+      ],
+      "row_count": 406
+    },
+    "cars_data": {
+      "primary_key": [
+        "Id"
+      ],
+      "columns": [
+        {
+          "name": "Id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "MPG",
+          "type": "TEXT"
+        },
+        {
+          "name": "Cylinders",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Edispl",
+          "type": "REAL"
+        },
+        {
+          "name": "Horsepower",
+          "type": "TEXT"
+        },
+        {
+          "name": "Weight",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Accelerate",
+          "type": "REAL"
+        },
+        {
+          "name": "Year",
+          "type": "INTEGER"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "cars_data",
+          "to": "car_names",
+          "child_col": "Id",
+          "parent_col": "MakeId"
+        }
+      ],
+      "row_count": 406
+    }
+  }
+}

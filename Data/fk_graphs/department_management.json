@@ -1,0 +1,101 @@
+{
+  "db_name": "department_management",
+  "nodes": [
+    {
+      "name": "department",
+      "columns": [
+        {
+          "name": "Department_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Creation",
+          "type": "TEXT"
+        },
+        {
+          "name": "Ranking",
+          "type": "INT"
+        },
+        {
+          "name": "Budget_in_Billions",
+          "type": "REAL"
+        },
+        {
+          "name": "Num_Employees",
+          "type": "REAL"
+        }
+      ],
+      "pk": [
+        "Department_ID"
+      ]
+    },
+    {
+      "name": "head",
+      "columns": [
+        {
+          "name": "head_ID",
+          "type": "INT"
+        },
+        {
+          "name": "name",
+          "type": "TEXT"
+        },
+        {
+          "name": "born_state",
+          "type": "TEXT"
+        },
+        {
+          "name": "age",
+          "type": "REAL"
+        }
+      ],
+      "pk": [
+        "head_ID"
+      ]
+    },
+    {
+      "name": "management",
+      "columns": [
+        {
+          "name": "department_ID",
+          "type": "INT"
+        },
+        {
+          "name": "head_ID",
+          "type": "INT"
+        },
+        {
+          "name": "temporary_acting",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "department_ID",
+        "head_ID"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "management",
+      "to": "head",
+      "child_col": "head_ID",
+      "parent_col": "head_ID"
+    },
+    {
+      "from": "management",
+      "to": "department",
+      "child_col": "department_ID",
+      "parent_col": "Department_ID"
+    }
+  ],
+  "centrality": {
+    "department": 0.5,
+    "head": 0.5,
+    "management": 0.0
+  }
+}

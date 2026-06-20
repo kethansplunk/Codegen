@@ -1,0 +1,311 @@
+{
+  "db_name": "dog_kennels",
+  "collections": {
+    "Breeds": {
+      "primary_key": [
+        "breed_code"
+      ],
+      "columns": [
+        {
+          "name": "breed_code",
+          "type": "VARCHAR(10)"
+        },
+        {
+          "name": "breed_name",
+          "type": "VARCHAR(80)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 3
+    },
+    "Charges": {
+      "primary_key": [
+        "charge_id"
+      ],
+      "columns": [
+        {
+          "name": "charge_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "charge_type",
+          "type": "VARCHAR(10)"
+        },
+        {
+          "name": "charge_amount",
+          "type": "DECIMAL(19,4)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 3
+    },
+    "Sizes": {
+      "primary_key": [
+        "size_code"
+      ],
+      "columns": [
+        {
+          "name": "size_code",
+          "type": "VARCHAR(10)"
+        },
+        {
+          "name": "size_description",
+          "type": "VARCHAR(80)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 3
+    },
+    "Treatment_Types": {
+      "primary_key": [
+        "treatment_type_code"
+      ],
+      "columns": [
+        {
+          "name": "treatment_type_code",
+          "type": "VARCHAR(10)"
+        },
+        {
+          "name": "treatment_type_description",
+          "type": "VARCHAR(80)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 3
+    },
+    "Owners": {
+      "primary_key": [
+        "owner_id"
+      ],
+      "columns": [
+        {
+          "name": "owner_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "first_name",
+          "type": "VARCHAR(50)"
+        },
+        {
+          "name": "last_name",
+          "type": "VARCHAR(50)"
+        },
+        {
+          "name": "street",
+          "type": "VARCHAR(50)"
+        },
+        {
+          "name": "city",
+          "type": "VARCHAR(50)"
+        },
+        {
+          "name": "state",
+          "type": "VARCHAR(20)"
+        },
+        {
+          "name": "zip_code",
+          "type": "VARCHAR(20)"
+        },
+        {
+          "name": "email_address",
+          "type": "VARCHAR(50)"
+        },
+        {
+          "name": "home_phone",
+          "type": "VARCHAR(20)"
+        },
+        {
+          "name": "cell_number",
+          "type": "VARCHAR(20)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 15
+    },
+    "Dogs": {
+      "primary_key": [
+        "dog_id"
+      ],
+      "columns": [
+        {
+          "name": "dog_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "owner_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "abandoned_yn",
+          "type": "VARCHAR(1)"
+        },
+        {
+          "name": "breed_code",
+          "type": "VARCHAR(10)"
+        },
+        {
+          "name": "size_code",
+          "type": "VARCHAR(10)"
+        },
+        {
+          "name": "name",
+          "type": "VARCHAR(50)"
+        },
+        {
+          "name": "age",
+          "type": "VARCHAR(20)"
+        },
+        {
+          "name": "date_of_birth",
+          "type": "DATETIME"
+        },
+        {
+          "name": "gender",
+          "type": "VARCHAR(1)"
+        },
+        {
+          "name": "weight",
+          "type": "VARCHAR(20)"
+        },
+        {
+          "name": "date_arrived",
+          "type": "DATETIME"
+        },
+        {
+          "name": "date_adopted",
+          "type": "DATETIME"
+        },
+        {
+          "name": "date_departed",
+          "type": "DATETIME"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Dogs",
+          "to": "Owners",
+          "child_col": "owner_id",
+          "parent_col": "owner_id"
+        },
+        {
+          "from": "Dogs",
+          "to": "Sizes",
+          "child_col": "size_code",
+          "parent_col": "size_code"
+        },
+        {
+          "from": "Dogs",
+          "to": "Breeds",
+          "child_col": "breed_code",
+          "parent_col": "breed_code"
+        }
+      ],
+      "row_count": 15
+    },
+    "Professionals": {
+      "primary_key": [
+        "professional_id"
+      ],
+      "columns": [
+        {
+          "name": "professional_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "role_code",
+          "type": "VARCHAR(10)"
+        },
+        {
+          "name": "first_name",
+          "type": "VARCHAR(50)"
+        },
+        {
+          "name": "street",
+          "type": "VARCHAR(50)"
+        },
+        {
+          "name": "city",
+          "type": "VARCHAR(50)"
+        },
+        {
+          "name": "state",
+          "type": "VARCHAR(20)"
+        },
+        {
+          "name": "zip_code",
+          "type": "VARCHAR(20)"
+        },
+        {
+          "name": "last_name",
+          "type": "VARCHAR(50)"
+        },
+        {
+          "name": "email_address",
+          "type": "VARCHAR(50)"
+        },
+        {
+          "name": "home_phone",
+          "type": "VARCHAR(20)"
+        },
+        {
+          "name": "cell_number",
+          "type": "VARCHAR(20)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 15
+    },
+    "Treatments": {
+      "primary_key": [
+        "treatment_id"
+      ],
+      "columns": [
+        {
+          "name": "treatment_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "dog_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "professional_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "treatment_type_code",
+          "type": "VARCHAR(10)"
+        },
+        {
+          "name": "date_of_treatment",
+          "type": "DATETIME"
+        },
+        {
+          "name": "cost_of_treatment",
+          "type": "DECIMAL(19,4)"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Treatments",
+          "to": "Dogs",
+          "child_col": "dog_id",
+          "parent_col": "dog_id"
+        },
+        {
+          "from": "Treatments",
+          "to": "Professionals",
+          "child_col": "professional_id",
+          "parent_col": "professional_id"
+        },
+        {
+          "from": "Treatments",
+          "to": "Treatment_Types",
+          "child_col": "treatment_type_code",
+          "parent_col": "treatment_type_code"
+        }
+      ],
+      "row_count": 15
+    }
+  }
+}

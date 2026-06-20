@@ -1,0 +1,56 @@
+{
+  "db_name": "student_1",
+  "nodes": [
+    {
+      "name": "list",
+      "columns": [
+        {
+          "name": "LastName",
+          "type": "TEXT"
+        },
+        {
+          "name": "FirstName",
+          "type": "TEXT"
+        },
+        {
+          "name": "Grade",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Classroom",
+          "type": "INTEGER"
+        }
+      ],
+      "pk": [
+        "LastName",
+        "FirstName"
+      ]
+    },
+    {
+      "name": "teachers",
+      "columns": [
+        {
+          "name": "LastName",
+          "type": "TEXT"
+        },
+        {
+          "name": "FirstName",
+          "type": "TEXT"
+        },
+        {
+          "name": "Classroom",
+          "type": "INTEGER"
+        }
+      ],
+      "pk": [
+        "LastName",
+        "FirstName"
+      ]
+    }
+  ],
+  "edges": [],
+  "centrality": {
+    "list": 0.0,
+    "teachers": 0.0
+  }
+}

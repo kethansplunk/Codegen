@@ -1,0 +1,97 @@
+{
+  "db_name": "decoration_competition",
+  "nodes": [
+    {
+      "name": "college",
+      "columns": [
+        {
+          "name": "College_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Leader_Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "College_Location",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "College_ID"
+      ]
+    },
+    {
+      "name": "member",
+      "columns": [
+        {
+          "name": "Member_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Country",
+          "type": "TEXT"
+        },
+        {
+          "name": "College_ID",
+          "type": "INT"
+        }
+      ],
+      "pk": [
+        "Member_ID"
+      ]
+    },
+    {
+      "name": "round",
+      "columns": [
+        {
+          "name": "Round_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Member_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Decoration_Theme",
+          "type": "TEXT"
+        },
+        {
+          "name": "Rank_in_Round",
+          "type": "INT"
+        }
+      ],
+      "pk": [
+        "Round_ID",
+        "Member_ID"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "member",
+      "to": "college",
+      "child_col": "College_ID",
+      "parent_col": "College_ID"
+    },
+    {
+      "from": "round",
+      "to": "member",
+      "child_col": "Member_ID",
+      "parent_col": "Member_ID"
+    }
+  ],
+  "centrality": {
+    "college": 0.5,
+    "member": 0.5,
+    "round": 0.0
+  }
+}

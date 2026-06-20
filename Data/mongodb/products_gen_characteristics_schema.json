@@ -1,0 +1,182 @@
+{
+  "db_name": "products_gen_characteristics",
+  "collections": {
+    "Ref_Characteristic_Types": {
+      "primary_key": [
+        "characteristic_type_code"
+      ],
+      "columns": [
+        {
+          "name": "characteristic_type_code",
+          "type": "VARCHAR(15)"
+        },
+        {
+          "name": "characteristic_type_description",
+          "type": "VARCHAR(80)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 2
+    },
+    "Ref_Colors": {
+      "primary_key": [
+        "color_code"
+      ],
+      "columns": [
+        {
+          "name": "color_code",
+          "type": "VARCHAR(15)"
+        },
+        {
+          "name": "color_description",
+          "type": "VARCHAR(80)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 8
+    },
+    "Ref_Product_Categories": {
+      "primary_key": [
+        "product_category_code"
+      ],
+      "columns": [
+        {
+          "name": "product_category_code",
+          "type": "VARCHAR(15)"
+        },
+        {
+          "name": "product_category_description",
+          "type": "VARCHAR(80)"
+        },
+        {
+          "name": "unit_of_measure",
+          "type": "VARCHAR(20)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 3
+    },
+    "Characteristics": {
+      "primary_key": [
+        "characteristic_id"
+      ],
+      "columns": [
+        {
+          "name": "characteristic_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "characteristic_type_code",
+          "type": "VARCHAR(15)"
+        },
+        {
+          "name": "characteristic_data_type",
+          "type": "VARCHAR(10)"
+        },
+        {
+          "name": "characteristic_name",
+          "type": "VARCHAR(80)"
+        },
+        {
+          "name": "other_characteristic_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Characteristics",
+          "to": "Ref_Characteristic_Types",
+          "child_col": "characteristic_type_code",
+          "parent_col": "characteristic_type_code"
+        }
+      ],
+      "row_count": 15
+    },
+    "Products": {
+      "primary_key": [
+        "product_id"
+      ],
+      "columns": [
+        {
+          "name": "product_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "color_code",
+          "type": "VARCHAR(15)"
+        },
+        {
+          "name": "product_category_code",
+          "type": "VARCHAR(15)"
+        },
+        {
+          "name": "product_name",
+          "type": "VARCHAR(80)"
+        },
+        {
+          "name": "typical_buying_price",
+          "type": "VARCHAR(20)"
+        },
+        {
+          "name": "typical_selling_price",
+          "type": "VARCHAR(20)"
+        },
+        {
+          "name": "product_description",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "other_product_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Products",
+          "to": "Ref_Colors",
+          "child_col": "color_code",
+          "parent_col": "color_code"
+        },
+        {
+          "from": "Products",
+          "to": "Ref_Product_Categories",
+          "child_col": "product_category_code",
+          "parent_col": "product_category_code"
+        }
+      ],
+      "row_count": 15
+    },
+    "Product_Characteristics": {
+      "primary_key": [],
+      "columns": [
+        {
+          "name": "product_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "characteristic_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "product_characteristic_value",
+          "type": "VARCHAR(50)"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Product_Characteristics",
+          "to": "Products",
+          "child_col": "product_id",
+          "parent_col": "product_id"
+        },
+        {
+          "from": "Product_Characteristics",
+          "to": "Characteristics",
+          "child_col": "characteristic_id",
+          "parent_col": "characteristic_id"
+        }
+      ],
+      "row_count": 15
+    }
+  }
+}

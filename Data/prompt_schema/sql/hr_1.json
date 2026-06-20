@@ -1,0 +1,282 @@
+{
+  "regions.REGION_ID": {
+    "sample_values": [
+      1,
+      2,
+      3
+    ],
+    "inferred_type": "integer"
+  },
+  "regions.REGION_NAME": {
+    "sample_values": [
+      "Middle East and Africa\\r",
+      "Asia\\r",
+      "Americas\\r"
+    ],
+    "inferred_type": "string"
+  },
+  "countries.COUNTRY_ID": {
+    "sample_values": [
+      "NL",
+      "DE",
+      "DK"
+    ],
+    "inferred_type": "string"
+  },
+  "countries.COUNTRY_NAME": {
+    "sample_values": [
+      "Netherlands",
+      "Germany",
+      "Denmark"
+    ],
+    "inferred_type": "string"
+  },
+  "countries.REGION_ID": {
+    "sample_values": [
+      2,
+      3,
+      1
+    ],
+    "inferred_type": "integer"
+  },
+  "departments.DEPARTMENT_ID": {
+    "sample_values": [
+      10,
+      70,
+      130
+    ],
+    "inferred_type": "integer"
+  },
+  "departments.DEPARTMENT_NAME": {
+    "sample_values": [
+      "Operations",
+      "Sales",
+      "Executive"
+    ],
+    "inferred_type": "string"
+  },
+  "departments.MANAGER_ID": {
+    "sample_values": [
+      200,
+      121,
+      100
+    ],
+    "inferred_type": "integer"
+  },
+  "departments.LOCATION_ID": {
+    "sample_values": [
+      1700,
+      2400,
+      1400
+    ],
+    "inferred_type": "integer"
+  },
+  "jobs.JOB_ID": {
+    "sample_values": [
+      "ST_MAN",
+      "HR_REP",
+      "IT_PROG"
+    ],
+    "inferred_type": "string"
+  },
+  "jobs.JOB_TITLE": {
+    "sample_values": [
+      "Public Relations Representative",
+      "Sales Manager",
+      "Sales Representative"
+    ],
+    "inferred_type": "string"
+  },
+  "jobs.MIN_SALARY": {
+    "sample_values": [
+      20000,
+      4200,
+      2500
+    ],
+    "inferred_type": "integer"
+  },
+  "jobs.MAX_SALARY": {
+    "sample_values": [
+      40000,
+      9000,
+      5500
+    ],
+    "inferred_type": "integer"
+  },
+  "employees.EMPLOYEE_ID": {
+    "sample_values": [
+      100,
+      106,
+      112
+    ],
+    "inferred_type": "integer"
+  },
+  "employees.FIRST_NAME": {
+    "sample_values": [
+      "Matthew",
+      "Diana",
+      "Nancy"
+    ],
+    "inferred_type": "string"
+  },
+  "employees.LAST_NAME": {
+    "sample_values": [
+      "Colmenares",
+      "Lorentz",
+      "Greenberg"
+    ],
+    "inferred_type": "string"
+  },
+  "employees.EMAIL": {
+    "sample_values": [
+      "KCOLMENA",
+      "DLORENTZ",
+      "NGREENBE"
+    ],
+    "inferred_type": "string"
+  },
+  "employees.PHONE_NUMBER": {
+    "sample_values": [
+      "515.127.4566",
+      "590.423.5567",
+      "515.124.4569"
+    ],
+    "inferred_type": "string"
+  },
+  "employees.HIRE_DATE": {
+    "sample_values": [
+      "1987-07-06",
+      "1987-06-24",
+      "1987-06-25"
+    ],
+    "inferred_type": "string"
+  },
+  "employees.JOB_ID": {
+    "sample_values": [
+      "AC_ACCOUNT",
+      "ST_MAN",
+      "ST_CLERK"
+    ],
+    "inferred_type": "string"
+  },
+  "employees.SALARY": {
+    "sample_values": [
+      24000,
+      12000,
+      3100
+    ],
+    "inferred_type": "integer"
+  },
+  "employees.COMMISSION_PCT": {
+    "sample_values": [
+      0,
+      0.3,
+      0.25
+    ],
+    "inferred_type": "numeric"
+  },
+  "employees.MANAGER_ID": {
+    "sample_values": [
+      0,
+      114,
+      145
+    ],
+    "inferred_type": "integer"
+  },
+  "employees.DEPARTMENT_ID": {
+    "sample_values": [
+      90,
+      50,
+      20
+    ],
+    "inferred_type": "integer"
+  },
+  "job_history.EMPLOYEE_ID": {
+    "sample_values": [
+      0,
+      102,
+      122
+    ],
+    "inferred_type": "integer"
+  },
+  "job_history.START_DATE": {
+    "sample_values": [
+      "1996-02-17",
+      "1993-10-28",
+      "1989-09-21"
+    ],
+    "inferred_type": "string"
+  },
+  "job_history.END_DATE": {
+    "sample_values": [
+      "0000-00-00",
+      "1993-10-27",
+      "1997-03-15"
+    ],
+    "inferred_type": "string"
+  },
+  "job_history.JOB_ID": {
+    "sample_values": [
+      "",
+      "AC_MGR",
+      "AC_ACCOUNT"
+    ],
+    "inferred_type": "string"
+  },
+  "job_history.DEPARTMENT_ID": {
+    "sample_values": [
+      60,
+      20,
+      90
+    ],
+    "inferred_type": "integer"
+  },
+  "locations.LOCATION_ID": {
+    "sample_values": [
+      1000,
+      1600,
+      2200
+    ],
+    "inferred_type": "integer"
+  },
+  "locations.STREET_ADDRESS": {
+    "sample_values": [
+      "12-98 Victoria Street",
+      "20 Rue des Corps-Saints",
+      "147 Spadina Ave"
+    ],
+    "inferred_type": "string"
+  },
+  "locations.POSTAL_CODE": {
+    "sample_values": [
+      "1730",
+      "98199",
+      "M5V 2L7"
+    ],
+    "inferred_type": "string"
+  },
+  "locations.CITY": {
+    "sample_values": [
+      "Geneva",
+      "Seattle",
+      "Toronto"
+    ],
+    "inferred_type": "string"
+  },
+  "locations.STATE_PROVINCE": {
+    "sample_values": [
+      "\"Distrito Federal",
+      "Yukon",
+      "Ontario"
+    ],
+    "inferred_type": "string"
+  },
+  "locations.COUNTRY_ID": {
+    "sample_values": [
+      "\"",
+      "AU",
+      "IN"
+    ],
+    "inferred_type": "string"
+  }
+}

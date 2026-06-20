@@ -1,0 +1,120 @@
+{
+  "db_name": "battle_death",
+  "nodes": [
+    {
+      "name": "battle",
+      "columns": [
+        {
+          "name": "id",
+          "type": "INT"
+        },
+        {
+          "name": "name",
+          "type": "TEXT"
+        },
+        {
+          "name": "date",
+          "type": "TEXT"
+        },
+        {
+          "name": "bulgarian_commander",
+          "type": "TEXT"
+        },
+        {
+          "name": "latin_commander",
+          "type": "TEXT"
+        },
+        {
+          "name": "result",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "id"
+      ]
+    },
+    {
+      "name": "ship",
+      "columns": [
+        {
+          "name": "lost_in_battle",
+          "type": "INT"
+        },
+        {
+          "name": "id",
+          "type": "INT"
+        },
+        {
+          "name": "name",
+          "type": "TEXT"
+        },
+        {
+          "name": "tonnage",
+          "type": "TEXT"
+        },
+        {
+          "name": "ship_type",
+          "type": "TEXT"
+        },
+        {
+          "name": "location",
+          "type": "TEXT"
+        },
+        {
+          "name": "disposition_of_ship",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "id"
+      ]
+    },
+    {
+      "name": "death",
+      "columns": [
+        {
+          "name": "caused_by_ship_id",
+          "type": "INT"
+        },
+        {
+          "name": "id",
+          "type": "INT"
+        },
+        {
+          "name": "note",
+          "type": "TEXT"
+        },
+        {
+          "name": "killed",
+          "type": "INT"
+        },
+        {
+          "name": "injured",
+          "type": "INT"
+        }
+      ],
+      "pk": [
+        "id"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "ship",
+      "to": "battle",
+      "child_col": "lost_in_battle",
+      "parent_col": "id"
+    },
+    {
+      "from": "death",
+      "to": "ship",
+      "child_col": "caused_by_ship_id",
+      "parent_col": "id"
+    }
+  ],
+  "centrality": {
+    "battle": 0.5,
+    "ship": 0.5,
+    "death": 0.0
+  }
+}

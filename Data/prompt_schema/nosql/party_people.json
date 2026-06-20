@@ -1,0 +1,162 @@
+{
+  "party.Left_office": {
+    "sample_values": [
+      "1959",
+      "1962",
+      "1958"
+    ],
+    "inferred_type": "integer"
+  },
+  "party.Minister": {
+    "sample_values": [
+      "Ebenezer Ako-Adjei (MP)",
+      "Imoru Egala (MP)",
+      "Kojo Botsio (MP)"
+    ],
+    "inferred_type": "string"
+  },
+  "party.Party_name": {
+    "sample_values": [
+      "Progress Party",
+      "Sinefine Party",
+      "Convention Peoples Party"
+    ],
+    "inferred_type": "string"
+  },
+  "party.Party_ID": {
+    "sample_values": [
+      "5",
+      "1",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "party.Region_ID": {
+    "sample_values": [
+      "5",
+      "1",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "party.Took_office": {
+    "sample_values": [
+      "1959",
+      "1957",
+      "1958"
+    ],
+    "inferred_type": "integer"
+  },
+  "region.Date": {
+    "sample_values": [
+      "16 July 2002",
+      "3 July 2002",
+      "1 July 2002"
+    ],
+    "inferred_type": "string"
+  },
+  "region.Catalogue": {
+    "sample_values": [
+      "ASW 40362",
+      "ASW 40522",
+      "TOCP-66045"
+    ],
+    "inferred_type": "string"
+  },
+  "region.Label": {
+    "sample_values": [
+      "Astralwerks",
+      "Toshiba-EMI",
+      "Parlophone"
+    ],
+    "inferred_type": "string"
+  },
+  "region.Region_ID": {
+    "sample_values": [
+      "5",
+      "1",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "region.Format": {
+    "sample_values": [
+      "CD digipak",
+      "2\u00d7 LP",
+      "CD"
+    ],
+    "inferred_type": "string"
+  },
+  "region.Region_name": {
+    "sample_values": [
+      "Japan",
+      "United States",
+      "United Kingdom"
+    ],
+    "inferred_type": "string"
+  },
+  "party_events.Member_in_charge_ID": {
+    "sample_values": [
+      "10",
+      "12",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "party_events.Party_ID": {
+    "sample_values": [
+      "1",
+      "3",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "party_events.Event_ID": {
+    "sample_values": [
+      "5",
+      "1",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "party_events.Event_Name": {
+    "sample_values": [
+      "Budget Meeting",
+      "Election Meeting",
+      "Annaual Meeting"
+    ],
+    "inferred_type": "string"
+  },
+  "member.Party_ID": {
+    "sample_values": [
+      "1",
+      "3",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "member.Member_Name": {
+    "sample_values": [
+      "Hon Kim Beazley",
+      "Anthony Albanese",
+      "Phil Barresi"
+    ],
+    "inferred_type": "string"
+  },
+  "member.In_office": {
+    "sample_values": [
+      "1994\u2013present",
+      "2001\u20132007",
+      "1996\u20132007"
+    ],
+    "inferred_type": "string"
+  },
+  "member.Member_ID": {
+    "sample_values": [
+      "5",
+      "8",
+      "9"
+    ],
+    "inferred_type": "integer"
+  }
+}

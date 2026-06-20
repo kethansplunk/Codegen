@@ -1,0 +1,153 @@
+{
+  "Student.StuID": {
+    "sample_values": [
+      1001,
+      1007,
+      1014
+    ],
+    "inferred_type": "integer"
+  },
+  "Student.LName": {
+    "sample_values": [
+      "Woods",
+      "Nelson",
+      "Tai"
+    ],
+    "inferred_type": "string"
+  },
+  "Student.Fname": {
+    "sample_values": [
+      "George",
+      "Jandy",
+      "Eric"
+    ],
+    "inferred_type": "string"
+  },
+  "Student.Age": {
+    "sample_values": [
+      18,
+      20,
+      22
+    ],
+    "inferred_type": "integer"
+  },
+  "Student.Sex": {
+    "sample_values": [
+      "F",
+      "M"
+    ],
+    "inferred_type": "string"
+  },
+  "Student.Major": {
+    "sample_values": [
+      600,
+      540,
+      100
+    ],
+    "inferred_type": "integer"
+  },
+  "Student.Advisor": {
+    "sample_values": [
+      1121,
+      9172,
+      8722
+    ],
+    "inferred_type": "integer"
+  },
+  "Student.city_code": {
+    "sample_values": [
+      "BOS",
+      "PHL",
+      "DAL"
+    ],
+    "inferred_type": "string"
+  },
+  "Dorm.dormid": {
+    "sample_values": [
+      100,
+      140,
+      109
+    ],
+    "inferred_type": "integer"
+  },
+  "Dorm.dorm_name": {
+    "sample_values": [
+      "Dorm-plex 2000",
+      "Bud Jones Hall",
+      "Fawlty Towers"
+    ],
+    "inferred_type": "string"
+  },
+  "Dorm.student_capacity": {
+    "sample_values": [
+      85,
+      355,
+      128
+    ],
+    "inferred_type": "integer"
+  },
+  "Dorm.gender": {
+    "sample_values": [
+      "X",
+      "M",
+      "F"
+    ],
+    "inferred_type": "string"
+  },
+  "Dorm_amenity.amenid": {
+    "sample_values": [
+      900,
+      904,
+      922
+    ],
+    "inferred_type": "integer"
+  },
+  "Dorm_amenity.amenity_name": {
+    "sample_values": [
+      "Allows Pets",
+      "4 Walls",
+      "Study Room"
+    ],
+    "inferred_type": "string"
+  },
+  "Has_amenity.dormid": {
+    "sample_values": [
+      109,
+      160,
+      117
+    ],
+    "inferred_type": "integer"
+  },
+  "Has_amenity.amenid": {
+    "sample_values": [
+      900,
+      930,
+      902
+    ],
+    "inferred_type": "integer"
+  },
+  "Lives_in.stuid": {
+    "sample_values": [
+      1001,
+      1008,
+      1015
+    ],
+    "inferred_type": "integer"
+  },
+  "Lives_in.dormid": {
+    "sample_values": [
+      109,
+      140,
+      104
+    ],
+    "inferred_type": "integer"
+  },
+  "Lives_in.room_number": {
+    "sample_values": [
+      105,
+      334,
+      319
+    ],
+    "inferred_type": "integer"
+  }
+}

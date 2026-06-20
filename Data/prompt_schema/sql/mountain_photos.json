@@ -1,0 +1,129 @@
+{
+  "mountain.id": {
+    "sample_values": [
+      1,
+      7,
+      13
+    ],
+    "inferred_type": "integer"
+  },
+  "mountain.name": {
+    "sample_values": [
+      "Taska n\u2019Zat",
+      "Guna",
+      "Choqa / Choke / Birhan"
+    ],
+    "inferred_type": "string"
+  },
+  "mountain.Height": {
+    "sample_values": [
+      4260.0,
+      4125.0,
+      4068.0
+    ],
+    "inferred_type": "float"
+  },
+  "mountain.Prominence": {
+    "sample_values": [
+      1909.0,
+      660.0,
+      500.0
+    ],
+    "inferred_type": "float"
+  },
+  "mountain.Range": {
+    "sample_values": [
+      "Aberdare Range",
+      "Virunga Mountains",
+      "Tigray Mountains"
+    ],
+    "inferred_type": "string"
+  },
+  "mountain.Country": {
+    "sample_values": [
+      "Kenya",
+      "Cameroon",
+      "Rwanda Uganda"
+    ],
+    "inferred_type": "string"
+  },
+  "camera_lens.id": {
+    "sample_values": [
+      1,
+      4,
+      7
+    ],
+    "inferred_type": "integer"
+  },
+  "camera_lens.brand": {
+    "sample_values": [
+      "Sigma",
+      "Schneider Kreuznach",
+      "Panasonic"
+    ],
+    "inferred_type": "string"
+  },
+  "camera_lens.name": {
+    "sample_values": [
+      "Sigma 30mm f2.8 DN",
+      "Panasonic Leica DG Nocticron 42.5mm f /1.2",
+      "Olympus M.Zuiko Digital ED 45mm f/1.8"
+    ],
+    "inferred_type": "string"
+  },
+  "camera_lens.focal_length_mm": {
+    "sample_values": [
+      15.0,
+      25.0,
+      14.0
+    ],
+    "inferred_type": "float"
+  },
+  "camera_lens.max_aperture": {
+    "sample_values": [
+      8.0,
+      1.4,
+      2.8
+    ],
+    "inferred_type": "float"
+  },
+  "photos.id": {
+    "sample_values": [
+      1,
+      4,
+      7
+    ],
+    "inferred_type": "integer"
+  },
+  "photos.camera_lens_id": {
+    "sample_values": [
+      1,
+      10,
+      5
+    ],
+    "inferred_type": "integer"
+  },
+  "photos.mountain_id": {
+    "sample_values": [
+      20,
+      1,
+      14
+    ],
+    "inferred_type": "integer"
+  },
+  "photos.color": {
+    "sample_values": [
+      "RBG",
+      "Black/White"
+    ],
+    "inferred_type": "string"
+  },
+  "photos.name": {
+    "sample_values": [
+      "life",
+      "deers",
+      "rabbits"
+    ],
+    "inferred_type": "string"
+  }
+}

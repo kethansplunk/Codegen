@@ -1,0 +1,199 @@
+{
+  "school_performance.Class_AA": {
+    "sample_values": [
+      "Dimmitt",
+      "Van Alstyne",
+      "Canadian"
+    ],
+    "inferred_type": "string"
+  },
+  "school_performance.School_Id": {
+    "sample_values": [
+      "5",
+      "2",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "school_performance.School_Year": {
+    "sample_values": [
+      "1989-90",
+      "2000-01",
+      "1999-2000"
+    ],
+    "inferred_type": "string"
+  },
+  "school_performance.Class_A": {
+    "sample_values": [
+      "Utopia",
+      "Frost",
+      "Anton"
+    ],
+    "inferred_type": "string"
+  },
+  "player.Age": {
+    "sample_values": [
+      "17",
+      "16",
+      "14"
+    ],
+    "inferred_type": "integer"
+  },
+  "player.Player_ID": {
+    "sample_values": [
+      "23",
+      "15",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "player.School_ID": {
+    "sample_values": [
+      "5",
+      "2",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "player.Team": {
+    "sample_values": [
+      "Chicago Cubs",
+      "Texas Rangers",
+      "Tampa Bay Devil Rays"
+    ],
+    "inferred_type": "string"
+  },
+  "player.Position": {
+    "sample_values": [
+      "First Baseman",
+      "Right-handed pitcher",
+      "Catcher"
+    ],
+    "inferred_type": "string"
+  },
+  "player.Player": {
+    "sample_values": [
+      "Yonder Alonso",
+      "Jemile Weeks",
+      "Reese Havens"
+    ],
+    "inferred_type": "string"
+  },
+  "school_details.Colors": {
+    "sample_values": [
+      "Silver and Maroon",
+      "Dark Green and White",
+      "Garnet and White"
+    ],
+    "inferred_type": "string"
+  },
+  "school_details.Nickname": {
+    "sample_values": [
+      "Tigers",
+      "Auks",
+      "Raiders"
+    ],
+    "inferred_type": "string"
+  },
+  "school_details.Division": {
+    "sample_values": [
+      "Division 3",
+      "Division 2",
+      "Division 1"
+    ],
+    "inferred_type": "string"
+  },
+  "school_details.School_ID": {
+    "sample_values": [
+      "5",
+      "2",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "school_details.Class": {
+    "sample_values": [
+      "Flight A",
+      "Flight B",
+      "Fight A"
+    ],
+    "inferred_type": "string"
+  },
+  "school.Boys_or_Girls": {
+    "sample_values": [
+      "Boys only to Yr 9 Co-ed Year 10 to 12",
+      "Boys"
+    ],
+    "inferred_type": "string"
+  },
+  "school.Founded": {
+    "sample_values": [
+      "1924.0",
+      "1890.0",
+      "1879.0"
+    ],
+    "inferred_type": "float"
+  },
+  "school.Location": {
+    "sample_values": [
+      "Bellevue Hill",
+      "Wahroonga",
+      "Summer Hill"
+    ],
+    "inferred_type": "string"
+  },
+  "school.Enrollment": {
+    "sample_values": [
+      "2200.0",
+      "1000.0",
+      "1430.0"
+    ],
+    "inferred_type": "float"
+  },
+  "school.Year_Entered_Competition": {
+    "sample_values": [
+      "1944.0",
+      "1929.0"
+    ],
+    "inferred_type": "float"
+  },
+  "school.School_ID": {
+    "sample_values": [
+      "5",
+      "2",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "school.Denomination": {
+    "sample_values": [
+      "Uniting Church",
+      "Catholic",
+      "Anglican"
+    ],
+    "inferred_type": "string"
+  },
+  "school.Day_or_Boarding": {
+    "sample_values": [
+      "Day",
+      "Day & Boarding"
+    ],
+    "inferred_type": "string"
+  },
+  "school.School": {
+    "sample_values": [
+      "Cranbrook School",
+      "Trinity Grammar School",
+      "Knox Grammar School"
+    ],
+    "inferred_type": "string"
+  },
+  "school.School_Colors": {
+    "sample_values": [
+      "Red & Blue",
+      "Red, White & Blue",
+      "Black & Blue"
+    ],
+    "inferred_type": "string"
+  }
+}

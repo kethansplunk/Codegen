@@ -1,0 +1,137 @@
+{
+  "film.Film_ID": {
+    "sample_values": [
+      1,
+      2,
+      3
+    ],
+    "inferred_type": "integer"
+  },
+  "film.Rank_in_series": {
+    "sample_values": [
+      26,
+      27,
+      28
+    ],
+    "inferred_type": "integer"
+  },
+  "film.Number_in_season": {
+    "sample_values": [
+      1,
+      2,
+      3
+    ],
+    "inferred_type": "integer"
+  },
+  "film.Title": {
+    "sample_values": [
+      "The Case of the Piggy Banker",
+      "The Case of the Bermuda Triangle",
+      "The Case: Off the Record"
+    ],
+    "inferred_type": "string"
+  },
+  "film.Directed_by": {
+    "sample_values": [
+      "Bill Schreiner",
+      "Jesus Salvador Trevi\u00f1o"
+    ],
+    "inferred_type": "string"
+  },
+  "film.Original_air_date": {
+    "sample_values": [
+      "October 19\u201323, 1992",
+      "October 12\u201316, 1992",
+      "October 5\u20139, 1992"
+    ],
+    "inferred_type": "string"
+  },
+  "film.Production_code": {
+    "sample_values": [
+      "50241\u201350245",
+      "50251\u201350255",
+      "50011\u201350015"
+    ],
+    "inferred_type": "string"
+  },
+  "cinema.Cinema_ID": {
+    "sample_values": [
+      1,
+      4,
+      7
+    ],
+    "inferred_type": "integer"
+  },
+  "cinema.Name": {
+    "sample_values": [
+      "Oriel",
+      "Dublin Array",
+      "Carrowleagh"
+    ],
+    "inferred_type": "string"
+  },
+  "cinema.Openning_year": {
+    "sample_values": [
+      2010,
+      2015,
+      2011
+    ],
+    "inferred_type": "integer"
+  },
+  "cinema.Capacity": {
+    "sample_values": [
+      1100,
+      305,
+      203
+    ],
+    "inferred_type": "integer"
+  },
+  "cinema.Location": {
+    "sample_values": [
+      "County Louth",
+      "County Cork",
+      "County Dublin"
+    ],
+    "inferred_type": "string"
+  },
+  "schedule.Cinema_ID": {
+    "sample_values": [
+      1,
+      2,
+      6
+    ],
+    "inferred_type": "integer"
+  },
+  "schedule.Film_ID": {
+    "sample_values": [
+      1,
+      2,
+      3
+    ],
+    "inferred_type": "integer"
+  },
+  "schedule.Date": {
+    "sample_values": [
+      "19 May",
+      "21 Jun",
+      "2 Aug"
+    ],
+    "inferred_type": "string"
+  },
+  "schedule.Show_times_per_day": {
+    "sample_values": [
+      5,
+      3,
+      2
+    ],
+    "inferred_type": "integer"
+  },
+  "schedule.Price": {
+    "sample_values": [
+      12.99,
+      8.99,
+      9.99
+    ],
+    "inferred_type": "float"
+  }
+}

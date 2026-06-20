@@ -1,0 +1,105 @@
+{
+  "department.Department_ID": {
+    "sample_values": [
+      1,
+      6,
+      11
+    ],
+    "inferred_type": "integer"
+  },
+  "department.Name": {
+    "sample_values": [
+      "Homeland Security",
+      "Commerce",
+      "Agriculture"
+    ],
+    "inferred_type": "string"
+  },
+  "department.Creation": {
+    "sample_values": [
+      "1789",
+      "1889",
+      "1965"
+    ],
+    "inferred_type": "integer"
+  },
+  "department.Ranking": {
+    "sample_values": [
+      1,
+      6,
+      11
+    ],
+    "inferred_type": "integer"
+  },
+  "department.Budget_in_Billions": {
+    "sample_values": [
+      9.96,
+      77.6,
+      58.0
+    ],
+    "inferred_type": "float"
+  },
+  "department.Num_Employees": {
+    "sample_values": [
+      30266.0,
+      109832.0,
+      58622.0
+    ],
+    "inferred_type": "float"
+  },
+  "head.head_ID": {
+    "sample_values": [
+      1,
+      4,
+      7
+    ],
+    "inferred_type": "integer"
+  },
+  "head.name": {
+    "sample_values": [
+      "Franklin Langham",
+      "K. J. Choi",
+      "Sergio Garc\u00eda"
+    ],
+    "inferred_type": "string"
+  },
+  "head.born_state": {
+    "sample_values": [
+      "Connecticut",
+      "Florida",
+      "Delaware"
+    ],
+    "inferred_type": "string"
+  },
+  "head.age": {
+    "sample_values": [
+      67.0,
+      69.0,
+      53.0
+    ],
+    "inferred_type": "float"
+  },
+  "management.department_ID": {
+    "sample_values": [
+      2,
+      7,
+      11
+    ],
+    "inferred_type": "integer"
+  },
+  "management.head_ID": {
+    "sample_values": [
+      5,
+      6,
+      3
+    ],
+    "inferred_type": "integer"
+  },
+  "management.temporary_acting": {
+    "sample_values": [
+      "Yes",
+      "No"
+    ],
+    "inferred_type": "string"
+  }
+}

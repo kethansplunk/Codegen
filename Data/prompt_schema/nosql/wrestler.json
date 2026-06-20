@@ -1,0 +1,95 @@
+{
+  "Elimination.Elimination_ID": {
+    "sample_values": [
+      "5",
+      "2",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "Elimination.Elimination_Move": {
+    "sample_values": [
+      "Go To Sleep",
+      "World's Strongest Slam",
+      "Spear"
+    ],
+    "inferred_type": "string"
+  },
+  "Elimination.Time": {
+    "sample_values": [
+      "07:38",
+      "14:32",
+      "00:11"
+    ],
+    "inferred_type": "string"
+  },
+  "Elimination.Eliminated_By": {
+    "sample_values": [
+      "Batista",
+      "Rhodes",
+      "Henry"
+    ],
+    "inferred_type": "string"
+  },
+  "Elimination.Wrestler_ID": {
+    "sample_values": [
+      "5",
+      "2",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Elimination.Team": {
+    "sample_values": [
+      "Team Batista",
+      "Team Orton"
+    ],
+    "inferred_type": "string"
+  },
+  "wrestler.Days_held": {
+    "sample_values": [
+      "1285",
+      "54",
+      "1"
+    ],
+    "inferred_type": "integer"
+  },
+  "wrestler.Reign": {
+    "sample_values": [
+      "1",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "wrestler.Location": {
+    "sample_values": [
+      "Sapporo , Japan",
+      "Tokyo , Japan",
+      "Tijuana , Mexico"
+    ],
+    "inferred_type": "string"
+  },
+  "wrestler.Name": {
+    "sample_values": [
+      "Jushin Liger \u00a7",
+      "Rey Misterio Sr.",
+      "El Samurai"
+    ],
+    "inferred_type": "string"
+  },
+  "wrestler.Wrestler_ID": {
+    "sample_values": [
+      "5",
+      "1",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "wrestler.Event": {
+    "sample_values": [
+      "Wrestling World 1997",
+      "Live event"
+    ],
+    "inferred_type": "string"
+  }
+}

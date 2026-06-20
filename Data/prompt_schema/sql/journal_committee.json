@@ -1,0 +1,82 @@
+{
+  "journal.Journal_ID": {
+    "sample_values": [
+      1,
+      7,
+      12
+    ],
+    "inferred_type": "integer"
+  },
+  "journal.Date": {
+    "sample_values": [
+      "January 6, 2002",
+      "November 4, 2001",
+      "October 29, 2001"
+    ],
+    "inferred_type": "string"
+  },
+  "journal.Theme": {
+    "sample_values": [
+      "Cincinnati Bengals",
+      "Jacksonville Jaguars",
+      "at Pittsburgh Steelers"
+    ],
+    "inferred_type": "string"
+  },
+  "journal.Sales": {
+    "sample_values": [
+      798,
+      1763,
+      3534
+    ],
+    "inferred_type": "integer"
+  },
+  "editor.Editor_ID": {
+    "sample_values": [
+      1,
+      4,
+      7
+    ],
+    "inferred_type": "integer"
+  },
+  "editor.Name": {
+    "sample_values": [
+      "Maria G\u00f3ralczyk",
+      "Marek Siudym",
+      "Anna Powierza"
+    ],
+    "inferred_type": "string"
+  },
+  "editor.Age": {
+    "sample_values": [
+      34.0,
+      43.0,
+      25.0
+    ],
+    "inferred_type": "float"
+  },
+  "journal_committee.Editor_ID": {
+    "sample_values": [
+      1,
+      4,
+      8
+    ],
+    "inferred_type": "integer"
+  },
+  "journal_committee.Journal_ID": {
+    "sample_values": [
+      13,
+      2,
+      4
+    ],
+    "inferred_type": "integer"
+  },
+  "journal_committee.Work_Type": {
+    "sample_values": [
+      "Photo",
+      "Article",
+      "Title"
+    ],
+    "inferred_type": "string"
+  }
+}

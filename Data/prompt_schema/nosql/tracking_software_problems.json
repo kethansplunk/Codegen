@@ -1,0 +1,223 @@
+{
+  "Staff.staff_first_name": {
+    "sample_values": [
+      "Lysanne",
+      "Magali",
+      "Ashley"
+    ],
+    "inferred_type": "string"
+  },
+  "Staff.staff_id": {
+    "sample_values": [
+      "5",
+      "8",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Staff.staff_last_name": {
+    "sample_values": [
+      "Bosco",
+      "Schumm",
+      "Medhurst"
+    ],
+    "inferred_type": "string"
+  },
+  "Staff.other_staff_details": {
+    "sample_values": [
+      "m",
+      "p",
+      "e"
+    ],
+    "inferred_type": "string"
+  },
+  "Problem_Status_Codes.problem_status_description": {
+    "sample_values": [
+      "Solved",
+      "Reported"
+    ],
+    "inferred_type": "string"
+  },
+  "Problem_Status_Codes.problem_status_code": {
+    "sample_values": [
+      "Solved",
+      "Reported"
+    ],
+    "inferred_type": "string"
+  },
+  "Problems.problem_description": {
+    "sample_values": [
+      "x",
+      "p",
+      "w"
+    ],
+    "inferred_type": "string"
+  },
+  "Problems.reported_by_staff_id": {
+    "sample_values": [
+      "10",
+      "1",
+      "13"
+    ],
+    "inferred_type": "integer"
+  },
+  "Problems.closure_authorised_by_staff_id": {
+    "sample_values": [
+      "5",
+      "8",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "Problems.date_problem_closed": {
+    "sample_values": [
+      "1970-09-05 08:04:43",
+      "1974-09-20 13:42:19",
+      "1998-07-03 14:53:59"
+    ],
+    "inferred_type": "string"
+  },
+  "Problems.date_problem_reported": {
+    "sample_values": [
+      "1995-05-14 08:32:56",
+      "1970-10-27 16:35:34",
+      "1986-11-13 07:30:55"
+    ],
+    "inferred_type": "string"
+  },
+  "Problems.product_id": {
+    "sample_values": [
+      "5",
+      "8",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "Problems.problem_id": {
+    "sample_values": [
+      "5",
+      "8",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Problems.other_problem_details": {
+    "sample_values": [
+      "f",
+      "v",
+      "s"
+    ],
+    "inferred_type": "string"
+  },
+  "Problem_Category_Codes.problem_category_description": {
+    "sample_values": [
+      "Database design or contents.",
+      "User Interface.",
+      "Infrastructrure and Architecture"
+    ],
+    "inferred_type": "string"
+  },
+  "Problem_Category_Codes.problem_category_code": {
+    "sample_values": [
+      "GUI",
+      "Middleware",
+      "Datatabase"
+    ],
+    "inferred_type": "string"
+  },
+  "Product.product_details": {
+    "sample_values": [
+      "m",
+      "u",
+      "k"
+    ],
+    "inferred_type": "string"
+  },
+  "Product.product_name": {
+    "sample_values": [
+      "teach",
+      "messager",
+      "game"
+    ],
+    "inferred_type": "string"
+  },
+  "Product.product_id": {
+    "sample_values": [
+      "5",
+      "8",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Problem_Log.problem_status_code": {
+    "sample_values": [
+      "Solved",
+      "Reported"
+    ],
+    "inferred_type": "string"
+  },
+  "Problem_Log.problem_category_code": {
+    "sample_values": [
+      "GUI",
+      "Middleware",
+      "Datatabase"
+    ],
+    "inferred_type": "string"
+  },
+  "Problem_Log.log_entry_fix": {
+    "sample_values": [
+      "t",
+      "g",
+      "n"
+    ],
+    "inferred_type": "string"
+  },
+  "Problem_Log.problem_log_id": {
+    "sample_values": [
+      "5",
+      "8",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Problem_Log.assigned_to_staff_id": {
+    "sample_values": [
+      "10",
+      "12",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "Problem_Log.log_entry_date": {
+    "sample_values": [
+      "1976-09-17 09:01:12",
+      "2009-04-10 19:09:30",
+      "1993-06-21 22:33:35"
+    ],
+    "inferred_type": "string"
+  },
+  "Problem_Log.other_log_details": {
+    "sample_values": [
+      "f",
+      "p",
+      "c"
+    ],
+    "inferred_type": "string"
+  },
+  "Problem_Log.problem_id": {
+    "sample_values": [
+      "10",
+      "12",
+      "13"
+    ],
+    "inferred_type": "integer"
+  },
+  "Problem_Log.log_entry_description": {
+    "sample_values": [
+      "t",
+      "p",
+      "c"
+    ],
+    "inferred_type": "string"
+  }
+}

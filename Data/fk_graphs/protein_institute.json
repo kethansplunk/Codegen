@@ -1,0 +1,136 @@
+{
+  "db_name": "protein_institute",
+  "nodes": [
+    {
+      "name": "building",
+      "columns": [
+        {
+          "name": "building_id",
+          "type": "TEXT"
+        },
+        {
+          "name": "Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Street_address",
+          "type": "TEXT"
+        },
+        {
+          "name": "Years_as_tallest",
+          "type": "TEXT"
+        },
+        {
+          "name": "Height_feet",
+          "type": "INT"
+        },
+        {
+          "name": "Floors",
+          "type": "INT"
+        }
+      ],
+      "pk": [
+        "building_id"
+      ]
+    },
+    {
+      "name": "Institution",
+      "columns": [
+        {
+          "name": "Institution_id",
+          "type": "TEXT"
+        },
+        {
+          "name": "Institution",
+          "type": "TEXT"
+        },
+        {
+          "name": "Location",
+          "type": "TEXT"
+        },
+        {
+          "name": "Founded",
+          "type": "REAL"
+        },
+        {
+          "name": "Type",
+          "type": "TEXT"
+        },
+        {
+          "name": "Enrollment",
+          "type": "INT"
+        },
+        {
+          "name": "Team",
+          "type": "TEXT"
+        },
+        {
+          "name": "Primary_Conference",
+          "type": "TEXT"
+        },
+        {
+          "name": "building_id",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "Institution_id"
+      ]
+    },
+    {
+      "name": "protein",
+      "columns": [
+        {
+          "name": "common_name",
+          "type": "TEXT"
+        },
+        {
+          "name": "protein_name",
+          "type": "TEXT"
+        },
+        {
+          "name": "divergence_from_human_lineage",
+          "type": "REAL"
+        },
+        {
+          "name": "accession_number",
+          "type": "TEXT"
+        },
+        {
+          "name": "sequence_length",
+          "type": "REAL"
+        },
+        {
+          "name": "sequence_identity_to_human_protein",
+          "type": "TEXT"
+        },
+        {
+          "name": "Institution_id",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "common_name"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "Institution",
+      "to": "building",
+      "child_col": "building_id",
+      "parent_col": "building_id"
+    },
+    {
+      "from": "protein",
+      "to": "Institution",
+      "child_col": "Institution_id",
+      "parent_col": "Institution_id"
+    }
+  ],
+  "centrality": {
+    "building": 0.5,
+    "Institution": 0.5,
+    "protein": 0.0
+  }
+}

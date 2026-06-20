@@ -1,0 +1,143 @@
+{
+  "member.Hometown": {
+    "sample_values": [
+      "Fort Campbell, Kentucky",
+      "Red Jacket, West Virginia",
+      "Louisville, Kentucky"
+    ],
+    "inferred_type": "string"
+  },
+  "member.Name": {
+    "sample_values": [
+      "Jeremy Jarmon",
+      "Ventrell Jenkins",
+      "Braxton Kelley"
+    ],
+    "inferred_type": "string"
+  },
+  "member.Level": {
+    "sample_values": [
+      "6",
+      "2",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "member.Member_ID": {
+    "sample_values": [
+      "5",
+      "1",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "member.Card_Number": {
+    "sample_values": [
+      "RCB32",
+      "OLB56",
+      "LE99"
+    ],
+    "inferred_type": "string"
+  },
+  "purchase.Branch_ID": {
+    "sample_values": [
+      "5",
+      "1",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "purchase.Year": {
+    "sample_values": [
+      "2018",
+      "2017"
+    ],
+    "inferred_type": "integer"
+  },
+  "purchase.Total_pounds": {
+    "sample_values": [
+      "430.29",
+      "321.13",
+      "988.09"
+    ],
+    "inferred_type": "float"
+  },
+  "purchase.Member_ID": {
+    "sample_values": [
+      "1",
+      "2",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "branch.City": {
+    "sample_values": [
+      "London",
+      "Oxford"
+    ],
+    "inferred_type": "string"
+  },
+  "branch.Name": {
+    "sample_values": [
+      "Cochrane",
+      "Taverner",
+      "Brooke Greville"
+    ],
+    "inferred_type": "string"
+  },
+  "branch.Open_year": {
+    "sample_values": [
+      "2015",
+      "2013",
+      "2014"
+    ],
+    "inferred_type": "integer"
+  },
+  "branch.Address_road": {
+    "sample_values": [
+      "Brampton Road",
+      "Concord Road",
+      "Abbott Street"
+    ],
+    "inferred_type": "string"
+  },
+  "branch.membership_amount": {
+    "sample_values": [
+      "1418",
+      "112",
+      "31"
+    ],
+    "inferred_type": "integer"
+  },
+  "branch.Branch_ID": {
+    "sample_values": [
+      "5",
+      "1",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "membership_register_branch.Branch_ID": {
+    "sample_values": [
+      "5",
+      "1",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "membership_register_branch.Register_Year": {
+    "sample_values": [
+      "2017",
+      "2016"
+    ],
+    "inferred_type": "integer"
+  },
+  "membership_register_branch.Member_ID": {
+    "sample_values": [
+      "5",
+      "1",
+      "4"
+    ],
+    "inferred_type": "integer"
+  }
+}

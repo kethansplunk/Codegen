@@ -1,0 +1,371 @@
+{
+  "Customers.customer_id": {
+    "sample_values": [
+      4,
+      21,
+      76
+    ],
+    "inferred_type": "integer"
+  },
+  "Customers.customer_details": {
+    "sample_values": [
+      "Mackenzie Hettinger V",
+      "Monty Sauer III",
+      "Dr. Haylie Hilll III"
+    ],
+    "inferred_type": "string"
+  },
+  "Properties.property_id": {
+    "sample_values": [
+      24,
+      445,
+      748
+    ],
+    "inferred_type": "integer"
+  },
+  "Properties.property_type_code": {
+    "sample_values": [
+      "apartment",
+      "house",
+      "flat"
+    ],
+    "inferred_type": "string"
+  },
+  "Properties.property_address": {
+    "sample_values": [
+      "91002 Melvina Haven",
+      "54591 Bernard Ridges Suite 864",
+      "04164 Raul Stream"
+    ],
+    "inferred_type": "string"
+  },
+  "Residents.resident_id": {
+    "sample_values": [
+      6,
+      38,
+      67
+    ],
+    "inferred_type": "integer"
+  },
+  "Residents.property_id": {
+    "sample_values": [
+      954,
+      629,
+      108
+    ],
+    "inferred_type": "integer"
+  },
+  "Residents.date_moved_in": {
+    "sample_values": [
+      "2017-06-17 15:43:33",
+      "2015-03-27 12:00:00",
+      "2016-09-27 12:00:00"
+    ],
+    "inferred_type": "string"
+  },
+  "Residents.date_moved_out": {
+    "sample_values": [
+      "2017-11-19 03:11:44",
+      "2018-02-22 06:24:15",
+      "2017-12-30 23:55:10"
+    ],
+    "inferred_type": "string"
+  },
+  "Residents.other_details": {
+    "sample_values": [
+      "Cassie Johnson",
+      "Elroy Schuster",
+      "Chaim Swaniawski"
+    ],
+    "inferred_type": "string"
+  },
+  "Organizations.organization_id": {
+    "sample_values": [
+      7,
+      8,
+      10
+    ],
+    "inferred_type": "integer"
+  },
+  "Organizations.parent_organization_id": {
+    "sample_values": [
+      7,
+      8
+    ],
+    "inferred_type": "integer"
+  },
+  "Organizations.organization_details": {
+    "sample_values": [
+      "Reinger, Hudson and Nolan Group",
+      "Denesik and Sons Party",
+      "Robel-Schulist Group"
+    ],
+    "inferred_type": "string"
+  },
+  "Services.service_id": {
+    "sample_values": [
+      10,
+      31,
+      52
+    ],
+    "inferred_type": "integer"
+  },
+  "Services.organization_id": {
+    "sample_values": [
+      10,
+      7,
+      8
+    ],
+    "inferred_type": "integer"
+  },
+  "Services.service_type_code": {
+    "sample_values": [
+      "Pay bills",
+      "Moving Out",
+      "Check"
+    ],
+    "inferred_type": "string"
+  },
+  "Services.service_details": {
+    "sample_values": [
+      "Satisfied",
+      "Unsatisfied"
+    ],
+    "inferred_type": "string"
+  },
+  "Residents_Services.resident_id": {
+    "sample_values": [
+      6,
+      43,
+      67
+    ],
+    "inferred_type": "integer"
+  },
+  "Residents_Services.service_id": {
+    "sample_values": [
+      49,
+      11,
+      65
+    ],
+    "inferred_type": "integer"
+  },
+  "Residents_Services.date_moved_in": {
+    "sample_values": [
+      "2017-06-17 15:43:33",
+      "2015-03-27 12:00:00",
+      "2016-09-27 12:00:00"
+    ],
+    "inferred_type": "string"
+  },
+  "Residents_Services.property_id": {
+    "sample_values": [
+      954,
+      108,
+      445
+    ],
+    "inferred_type": "integer"
+  },
+  "Residents_Services.date_requested": {
+    "sample_values": [
+      "2016-06-18 20:09:24",
+      "2017-06-14 14:04:50",
+      "2016-10-10 21:42:21"
+    ],
+    "inferred_type": "string"
+  },
+  "Residents_Services.date_provided": {
+    "sample_values": [
+      "2017-08-08 11:24:50",
+      "2017-08-14 08:06:43",
+      "2017-08-21 06:23:06"
+    ],
+    "inferred_type": "string"
+  },
+  "Residents_Services.other_details": {
+    "sample_values": [
+      "Satisfied",
+      "Unsatisfied"
+    ],
+    "inferred_type": "string"
+  },
+  "Things.thing_id": {
+    "sample_values": [
+      1,
+      35,
+      68
+    ],
+    "inferred_type": "integer"
+  },
+  "Things.organization_id": {
+    "sample_values": [
+      8,
+      10,
+      7
+    ],
+    "inferred_type": "integer"
+  },
+  "Things.Type_of_Thing_Code": {
+    "sample_values": [
+      "Electronics",
+      "Commen",
+      "Furniture"
+    ],
+    "inferred_type": "string"
+  },
+  "Things.service_type_code": {
+    "sample_values": [
+      "Check",
+      "Cleanning"
+    ],
+    "inferred_type": "string"
+  },
+  "Things.service_details": {
+    "sample_values": [
+      "Unsatisfied",
+      "Satisfied"
+    ],
+    "inferred_type": "string"
+  },
+  "Customer_Events.Customer_Event_ID": {
+    "sample_values": [
+      70,
+      226,
+      559
+    ],
+    "inferred_type": "integer"
+  },
+  "Customer_Events.customer_id": {
+    "sample_values": [
+      19,
+      16,
+      63
+    ],
+    "inferred_type": "integer"
+  },
+  "Customer_Events.date_moved_in": {
+    "sample_values": [
+      "2015-03-27 12:00:00",
+      "2016-09-27 12:00:00"
+    ],
+    "inferred_type": "string"
+  },
+  "Customer_Events.property_id": {
+    "sample_values": [
+      605,
+      669,
+      954
+    ],
+    "inferred_type": "integer"
+  },
+  "Customer_Events.resident_id": {
+    "sample_values": [
+      10,
+      38,
+      58
+    ],
+    "inferred_type": "integer"
+  },
+  "Customer_Events.thing_id": {
+    "sample_values": [
+      1,
+      46,
+      10
+    ],
+    "inferred_type": "integer"
+  },
+  "Customer_Event_Notes.Customer_Event_Note_ID": {
+    "sample_values": [
+      18,
+      49,
+      59
+    ],
+    "inferred_type": "integer"
+  },
+  "Customer_Event_Notes.Customer_Event_ID": {
+    "sample_values": [
+      70,
+      627,
+      606
+    ],
+    "inferred_type": "integer"
+  },
+  "Customer_Event_Notes.service_type_code": {
+    "sample_values": [
+      "Cleanning",
+      "Check"
+    ],
+    "inferred_type": "string"
+  },
+  "Customer_Event_Notes.resident_id": {
+    "sample_values": [
+      58,
+      37,
+      43
+    ],
+    "inferred_type": "integer"
+  },
+  "Customer_Event_Notes.property_id": {
+    "sample_values": [
+      107,
+      373,
+      748
+    ],
+    "inferred_type": "integer"
+  },
+  "Customer_Event_Notes.date_moved_in": {
+    "sample_values": [
+      "2017-04-28 10:17:13",
+      "2017-04-25 09:08:14",
+      "2016-05-24 02:56:54"
+    ],
+    "inferred_type": "string"
+  },
+  "Timed_Status_of_Things.thing_id": {
+    "sample_values": [
+      2,
+      26,
+      58
+    ],
+    "inferred_type": "integer"
+  },
+  "Timed_Status_of_Things.Date_and_Date": {
+    "sample_values": [
+      "2017-09-27 01:35:51",
+      "2017-08-05 02:10:02",
+      "2016-04-10 06:32:15"
+    ],
+    "inferred_type": "string"
+  },
+  "Timed_Status_of_Things.Status_of_Thing_Code": {
+    "sample_values": [
+      "Open",
+      "Close",
+      "In Progress"
+    ],
+    "inferred_type": "string"
+  },
+  "Timed_Locations_of_Things.thing_id": {
+    "sample_values": [
+      2,
+      26,
+      68
+    ],
+    "inferred_type": "integer"
+  },
+  "Timed_Locations_of_Things.Date_and_Time": {
+    "sample_values": [
+      "2017-10-21 21:35:37",
+      "2017-04-22 00:37:48",
+      "2017-04-19 16:41:03"
+    ],
+    "inferred_type": "string"
+  },
+  "Timed_Locations_of_Things.Location_Code": {
+    "sample_values": [
+      "9569 Tanner Inl",
+      "1313 Sawayn Riv",
+      "4667 Kellen Fie"
+    ],
+    "inferred_type": "string"
+  }
+}

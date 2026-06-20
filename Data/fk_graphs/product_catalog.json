@@ -1,0 +1,192 @@
+{
+  "db_name": "product_catalog",
+  "nodes": [
+    {
+      "name": "Attribute_Definitions",
+      "columns": [
+        {
+          "name": "attribute_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "attribute_name",
+          "type": "VARCHAR(30)"
+        },
+        {
+          "name": "attribute_data_type",
+          "type": "VARCHAR(10)"
+        }
+      ],
+      "pk": [
+        "attribute_id"
+      ]
+    },
+    {
+      "name": "Catalogs",
+      "columns": [
+        {
+          "name": "catalog_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "catalog_name",
+          "type": "VARCHAR(50)"
+        },
+        {
+          "name": "catalog_publisher",
+          "type": "VARCHAR(80)"
+        },
+        {
+          "name": "date_of_publication",
+          "type": "DATETIME"
+        },
+        {
+          "name": "date_of_latest_revision",
+          "type": "DATETIME"
+        }
+      ],
+      "pk": [
+        "catalog_id"
+      ]
+    },
+    {
+      "name": "Catalog_Structure",
+      "columns": [
+        {
+          "name": "catalog_level_number",
+          "type": "INTEGER"
+        },
+        {
+          "name": "catalog_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "catalog_level_name",
+          "type": "VARCHAR(50)"
+        }
+      ],
+      "pk": [
+        "catalog_level_number"
+      ]
+    },
+    {
+      "name": "Catalog_Contents",
+      "columns": [
+        {
+          "name": "catalog_entry_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "catalog_level_number",
+          "type": "INTEGER"
+        },
+        {
+          "name": "parent_entry_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "previous_entry_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "next_entry_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "catalog_entry_name",
+          "type": "VARCHAR(80)"
+        },
+        {
+          "name": "product_stock_number",
+          "type": "VARCHAR(50)"
+        },
+        {
+          "name": "price_in_dollars",
+          "type": "DOUBLE"
+        },
+        {
+          "name": "price_in_euros",
+          "type": "DOUBLE"
+        },
+        {
+          "name": "price_in_pounds",
+          "type": "DOUBLE"
+        },
+        {
+          "name": "capacity",
+          "type": "VARCHAR(20)"
+        },
+        {
+          "name": "length",
+          "type": "VARCHAR(20)"
+        },
+        {
+          "name": "height",
+          "type": "VARCHAR(20)"
+        },
+        {
+          "name": "width",
+          "type": "VARCHAR(20)"
+        }
+      ],
+      "pk": [
+        "catalog_entry_id"
+      ]
+    },
+    {
+      "name": "Catalog_Contents_Additional_Attributes",
+      "columns": [
+        {
+          "name": "catalog_entry_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "catalog_level_number",
+          "type": "INTEGER"
+        },
+        {
+          "name": "attribute_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "attribute_value",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "pk": []
+    }
+  ],
+  "edges": [
+    {
+      "from": "Catalog_Structure",
+      "to": "Catalogs",
+      "child_col": "catalog_id",
+      "parent_col": "catalog_id"
+    },
+    {
+      "from": "Catalog_Contents",
+      "to": "Catalog_Structure",
+      "child_col": "catalog_level_number",
+      "parent_col": "catalog_level_number"
+    },
+    {
+      "from": "Catalog_Contents_Additional_Attributes",
+      "to": "Catalog_Structure",
+      "child_col": "catalog_level_number",
+      "parent_col": "catalog_level_number"
+    },
+    {
+      "from": "Catalog_Contents_Additional_Attributes",
+      "to": "Catalog_Contents",
+      "child_col": "catalog_entry_id",
+      "parent_col": "catalog_entry_id"
+    }
+  ],
+  "centrality": {
+    "Attribute_Definitions": 0.0,
+    "Catalogs": 0.25,
+    "Catalog_Structure": 0.5,
+    "Catalog_Contents": 0.25,
+    "Catalog_Contents_Additional_Attributes": 0.0
+  }
+}

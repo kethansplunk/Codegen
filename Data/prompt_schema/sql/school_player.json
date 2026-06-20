@@ -1,0 +1,199 @@
+{
+  "school.School_ID": {
+    "sample_values": [
+      1,
+      3,
+      5
+    ],
+    "inferred_type": "integer"
+  },
+  "school.School": {
+    "sample_values": [
+      "Cranbrook School",
+      "Knox Grammar School",
+      "Trinity Grammar School"
+    ],
+    "inferred_type": "string"
+  },
+  "school.Location": {
+    "sample_values": [
+      "Waverley",
+      "Hornsby",
+      "Wahroonga"
+    ],
+    "inferred_type": "string"
+  },
+  "school.Enrollment": {
+    "sample_values": [
+      1200.0,
+      1000.0,
+      2200.0
+    ],
+    "inferred_type": "float"
+  },
+  "school.Founded": {
+    "sample_values": [
+      1879.0,
+      1918.0,
+      1913.0
+    ],
+    "inferred_type": "float"
+  },
+  "school.Denomination": {
+    "sample_values": [
+      "Catholic",
+      "Anglican",
+      "Uniting Church"
+    ],
+    "inferred_type": "string"
+  },
+  "school.Boys_or_Girls": {
+    "sample_values": [
+      "Boys",
+      "Boys only to Yr 9 Co-ed Year 10 to 12"
+    ],
+    "inferred_type": "string"
+  },
+  "school.Day_or_Boarding": {
+    "sample_values": [
+      "Day",
+      "Day & Boarding"
+    ],
+    "inferred_type": "string"
+  },
+  "school.Year_Entered_Competition": {
+    "sample_values": [
+      1929.0,
+      1944.0
+    ],
+    "inferred_type": "float"
+  },
+  "school.School_Colors": {
+    "sample_values": [
+      "Green and White",
+      "Black & Blue",
+      "Red, White & Blue"
+    ],
+    "inferred_type": "string"
+  },
+  "school_details.School_ID": {
+    "sample_values": [
+      1,
+      3,
+      5
+    ],
+    "inferred_type": "integer"
+  },
+  "school_details.Nickname": {
+    "sample_values": [
+      "Silver Eagles",
+      "Auks",
+      "Raiders"
+    ],
+    "inferred_type": "string"
+  },
+  "school_details.Colors": {
+    "sample_values": [
+      "Silver and Maroon",
+      "Dark Green and White",
+      "Maroon and White"
+    ],
+    "inferred_type": "string"
+  },
+  "school_details.Class": {
+    "sample_values": [
+      "Flight A",
+      "Flight B",
+      "Fight A"
+    ],
+    "inferred_type": "string"
+  },
+  "school_details.Division": {
+    "sample_values": [
+      "Division 1",
+      "Division 3",
+      "Division 2"
+    ],
+    "inferred_type": "string"
+  },
+  "school_performance.School_Id": {
+    "sample_values": [
+      1,
+      3,
+      5
+    ],
+    "inferred_type": "integer"
+  },
+  "school_performance.School_Year": {
+    "sample_values": [
+      "1996-97",
+      "1991-92",
+      "1998-99"
+    ],
+    "inferred_type": "string"
+  },
+  "school_performance.Class_A": {
+    "sample_values": [
+      "Winters",
+      "Martin's Mill",
+      "Utopia"
+    ],
+    "inferred_type": "string"
+  },
+  "school_performance.Class_AA": {
+    "sample_values": [
+      "Dimmitt",
+      "Henrietta",
+      "Wallis Brazos"
+    ],
+    "inferred_type": "string"
+  },
+  "player.Player_ID": {
+    "sample_values": [
+      1,
+      7,
+      13
+    ],
+    "inferred_type": "integer"
+  },
+  "player.Player": {
+    "sample_values": [
+      "Josh Fields",
+      "Gordon Beckham",
+      "Aaron Crow *"
+    ],
+    "inferred_type": "string"
+  },
+  "player.Team": {
+    "sample_values": [
+      "Seattle Mariners",
+      "Chicago White Sox",
+      "Washington Nationals"
+    ],
+    "inferred_type": "string"
+  },
+  "player.Age": {
+    "sample_values": [
+      15,
+      14,
+      16
+    ],
+    "inferred_type": "integer"
+  },
+  "player.Position": {
+    "sample_values": [
+      "Outfielder",
+      "First Baseman",
+      "Third baseman"
+    ],
+    "inferred_type": "string"
+  },
+  "player.School_ID": {
+    "sample_values": [
+      1,
+      5,
+      4
+    ],
+    "inferred_type": "integer"
+  }
+}

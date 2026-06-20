@@ -1,0 +1,97 @@
+{
+  "election.Votes": {
+    "sample_values": [
+      "11059.0",
+      "12422.0",
+      "13049.0"
+    ],
+    "inferred_type": "float"
+  },
+  "election.Vote_Percent": {
+    "sample_values": [
+      "18.5",
+      "19.5",
+      "16.2"
+    ],
+    "inferred_type": "float"
+  },
+  "election.Seats": {
+    "sample_values": [
+      "10.0",
+      "6.0",
+      "9.0"
+    ],
+    "inferred_type": "float"
+  },
+  "election.Place": {
+    "sample_values": [
+      "3.0",
+      "1.0",
+      "2.0"
+    ],
+    "inferred_type": "float"
+  },
+  "election.Date": {
+    "sample_values": [
+      "July 1942",
+      "1953",
+      "1949"
+    ],
+    "inferred_type": "string"
+  },
+  "election.Election_ID": {
+    "sample_values": [
+      "5",
+      "1",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "election.Representative_ID": {
+    "sample_values": [
+      "5",
+      "1",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "representative.State": {
+    "sample_values": [
+      "New York",
+      "Minnesota",
+      "Pennsylvania"
+    ],
+    "inferred_type": "string"
+  },
+  "representative.Party": {
+    "sample_values": [
+      "Democratic",
+      "Republican"
+    ],
+    "inferred_type": "string"
+  },
+  "representative.Name": {
+    "sample_values": [
+      "James M. Quigley",
+      "James L. Quinn",
+      "John Quayle"
+    ],
+    "inferred_type": "string"
+  },
+  "representative.Lifespan": {
+    "sample_values": [
+      "1947\u2013",
+      "1951\u2013",
+      "1916\u20132003"
+    ],
+    "inferred_type": "string"
+  },
+  "representative.Representative_ID": {
+    "sample_values": [
+      "5",
+      "2",
+      "6"
+    ],
+    "inferred_type": "integer"
+  }
+}

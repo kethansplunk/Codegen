@@ -1,0 +1,2768 @@
+{
+  "all_star.player_id": {
+    "sample_values": [
+      "wilsoji01",
+      "simmoal01",
+      "ruthba01"
+    ],
+    "inferred_type": "string"
+  },
+  "all_star.year": {
+    "sample_values": [
+      1933,
+      1939,
+      1945
+    ],
+    "inferred_type": "integer"
+  },
+  "all_star.game_num": {
+    "sample_values": [
+      0,
+      2,
+      1
+    ],
+    "inferred_type": "integer"
+  },
+  "all_star.game_id": {
+    "sample_values": [
+      "NLS195207080",
+      "NLS194007090",
+      "ALS194107080"
+    ],
+    "inferred_type": "string"
+  },
+  "all_star.team_id": {
+    "sample_values": [
+      "SFN",
+      "SLA",
+      "SLN"
+    ],
+    "inferred_type": "string"
+  },
+  "all_star.league_id": {
+    "sample_values": [
+      "AL",
+      "NL"
+    ],
+    "inferred_type": "string"
+  },
+  "all_star.gp": {
+    "sample_values": [
+      1,
+      0,
+      ""
+    ],
+    "inferred_type": "string"
+  },
+  "all_star.starting_pos": {
+    "sample_values": [
+      "0",
+      "5",
+      "2"
+    ],
+    "inferred_type": "string"
+  },
+  "appearances.year": {
+    "sample_values": [
+      1871,
+      1877,
+      1883
+    ],
+    "inferred_type": "integer"
+  },
+  "appearances.team_id": {
+    "sample_values": [
+      "HR1",
+      "TRO",
+      "WS3"
+    ],
+    "inferred_type": "string"
+  },
+  "appearances.league_id": {
+    "sample_values": [
+      "FL",
+      "NL",
+      "AA"
+    ],
+    "inferred_type": "string"
+  },
+  "appearances.player_id": {
+    "sample_values": [
+      "treacfr01",
+      "schafha01",
+      "spaldal01"
+    ],
+    "inferred_type": "string"
+  },
+  "appearances.g_all": {
+    "sample_values": [
+      31,
+      26,
+      22
+    ],
+    "inferred_type": "integer"
+  },
+  "appearances.gs": {
+    "sample_values": [
+      "51",
+      "57",
+      "158"
+    ],
+    "inferred_type": "string"
+  },
+  "appearances.g_batting": {
+    "sample_values": [
+      31,
+      26,
+      22
+    ],
+    "inferred_type": "integer"
+  },
+  "appearances.g_defense": {
+    "sample_values": [
+      31,
+      26,
+      22
+    ],
+    "inferred_type": "integer"
+  },
+  "appearances.g_p": {
+    "sample_values": [
+      0,
+      19,
+      30
+    ],
+    "inferred_type": "integer"
+  },
+  "appearances.g_c": {
+    "sample_values": [
+      0,
+      1,
+      23
+    ],
+    "inferred_type": "integer"
+  },
+  "appearances.g_1b": {
+    "sample_values": [
+      0,
+      16,
+      55
+    ],
+    "inferred_type": "integer"
+  },
+  "appearances.g_2b": {
+    "sample_values": [
+      16,
+      10,
+      3
+    ],
+    "inferred_type": "integer"
+  },
+  "appearances.g_3b": {
+    "sample_values": [
+      0,
+      2,
+      26
+    ],
+    "inferred_type": "integer"
+  },
+  "appearances.g_ss": {
+    "sample_values": [
+      15,
+      6,
+      16
+    ],
+    "inferred_type": "integer"
+  },
+  "appearances.g_lf": {
+    "sample_values": [
+      0,
+      28,
+      27
+    ],
+    "inferred_type": "integer"
+  },
+  "appearances.g_cf": {
+    "sample_values": [
+      0,
+      29,
+      31
+    ],
+    "inferred_type": "integer"
+  },
+  "appearances.g_rf": {
+    "sample_values": [
+      0,
+      17,
+      14
+    ],
+    "inferred_type": "integer"
+  },
+  "appearances.g_of": {
+    "sample_values": [
+      0,
+      9,
+      25
+    ],
+    "inferred_type": "integer"
+  },
+  "appearances.g_dh": {
+    "sample_values": [
+      "10",
+      "39",
+      "6"
+    ],
+    "inferred_type": "string"
+  },
+  "appearances.g_ph": {
+    "sample_values": [
+      "8",
+      "2",
+      "4"
+    ],
+    "inferred_type": "string"
+  },
+  "appearances.g_pr": {
+    "sample_values": [
+      "14",
+      "16",
+      "5"
+    ],
+    "inferred_type": "string"
+  },
+  "manager_award.player_id": {
+    "sample_values": [
+      "baylodo01",
+      "lanieha01",
+      "rodgebu01"
+    ],
+    "inferred_type": "string"
+  },
+  "manager_award.award_id": {
+    "sample_values": [
+      "BBWAA Manager of the year",
+      "TSN Manager of the Year"
+    ],
+    "inferred_type": "string"
+  },
+  "manager_award.year": {
+    "sample_values": [
+      1983,
+      1989,
+      1995
+    ],
+    "inferred_type": "integer"
+  },
+  "manager_award.league_id": {
+    "sample_values": [
+      "AL",
+      "NL",
+      "ML"
+    ],
+    "inferred_type": "string"
+  },
+  "manager_award.tie": {
+    "sample_values": [
+      "",
+      "Y"
+    ],
+    "inferred_type": "string"
+  },
+  "player_award.player_id": {
+    "sample_values": [
+      "walshed01",
+      "rusieam01",
+      "duffyhu01"
+    ],
+    "inferred_type": "string"
+  },
+  "player_award.award_id": {
+    "sample_values": [
+      "Hutch Award",
+      "Babe Ruth Award",
+      "Cy Young Award"
+    ],
+    "inferred_type": "string"
+  },
+  "player_award.year": {
+    "sample_values": [
+      1877,
+      1894,
+      1911
+    ],
+    "inferred_type": "integer"
+  },
+  "player_award.league_id": {
+    "sample_values": [
+      "ML",
+      "AL",
+      "AA"
+    ],
+    "inferred_type": "string"
+  },
+  "player_award.tie": {
+    "sample_values": [
+      "",
+      "Y"
+    ],
+    "inferred_type": "string"
+  },
+  "player_award.notes": {
+    "sample_values": [
+      "OF",
+      "P1",
+      "P2"
+    ],
+    "inferred_type": "string"
+  },
+  "manager_award_vote.award_id": {
+    "sample_values": [
+      "Mgr of the year",
+      "Mgr of the Year"
+    ],
+    "inferred_type": "string"
+  },
+  "manager_award_vote.year": {
+    "sample_values": [
+      1983,
+      1989,
+      1995
+    ],
+    "inferred_type": "integer"
+  },
+  "manager_award_vote.league_id": {
+    "sample_values": [
+      "AL",
+      "NL"
+    ],
+    "inferred_type": "string"
+  },
+  "manager_award_vote.player_id": {
+    "sample_values": [
+      "rosepe01",
+      "andersp01",
+      "gardnbi02"
+    ],
+    "inferred_type": "string"
+  },
+  "manager_award_vote.points_won": {
+    "sample_values": [
+      7,
+      96,
+      41
+    ],
+    "inferred_type": "integer"
+  },
+  "manager_award_vote.points_max": {
+    "sample_values": [
+      28,
+      140,
+      160
+    ],
+    "inferred_type": "integer"
+  },
+  "manager_award_vote.votes_first": {
+    "sample_values": [
+      7,
+      13,
+      2
+    ],
+    "inferred_type": "integer"
+  },
+  "player_award_vote.award_id": {
+    "sample_values": [
+      "Cy Young",
+      "MVP",
+      "Rookie of the Year"
+    ],
+    "inferred_type": "string"
+  },
+  "player_award_vote.year": {
+    "sample_values": [
+      1956,
+      1962,
+      1968
+    ],
+    "inferred_type": "integer"
+  },
+  "player_award_vote.league_id": {
+    "sample_values": [
+      "ML",
+      "AL",
+      "NL"
+    ],
+    "inferred_type": "string"
+  },
+  "player_award_vote.player_id": {
+    "sample_values": [
+      "koufasa01",
+      "turlebo01",
+      "jonessa02"
+    ],
+    "inferred_type": "string"
+  },
+  "player_award_vote.points_won": {
+    "sample_values": [
+      1,
+      2,
+      20
+    ],
+    "inferred_type": "integer"
+  },
+  "player_award_vote.points_max": {
+    "sample_values": [
+      16,
+      160,
+      280
+    ],
+    "inferred_type": "integer"
+  },
+  "player_award_vote.votes_first": {
+    "sample_values": [
+      1,
+      2,
+      20
+    ],
+    "inferred_type": "integer"
+  },
+  "batting.player_id": {
+    "sample_values": [
+      "biermch01",
+      "barnero01",
+      "barrebi01"
+    ],
+    "inferred_type": "string"
+  },
+  "batting.year": {
+    "sample_values": [
+      1871,
+      1877,
+      1883
+    ],
+    "inferred_type": "integer"
+  },
+  "batting.stint": {
+    "sample_values": [
+      1,
+      2,
+      3
+    ],
+    "inferred_type": "integer"
+  },
+  "batting.team_id": {
+    "sample_values": [
+      "CH2",
+      "CH1",
+      "NY2"
+    ],
+    "inferred_type": "string"
+  },
+  "batting.league_id": {
+    "sample_values": [
+      "FL",
+      "NL",
+      "AA"
+    ],
+    "inferred_type": "string"
+  },
+  "batting.g": {
+    "sample_values": [
+      1,
+      18,
+      30
+    ],
+    "inferred_type": "integer"
+  },
+  "batting.ab": {
+    "sample_values": [
+      4,
+      157,
+      15
+    ],
+    "inferred_type": "integer"
+  },
+  "batting.r": {
+    "sample_values": [
+      0,
+      1,
+      26
+    ],
+    "inferred_type": "integer"
+  },
+  "batting.h": {
+    "sample_values": [
+      0,
+      1,
+      33
+    ],
+    "inferred_type": "integer"
+  },
+  "batting.double": {
+    "sample_values": [
+      0,
+      1,
+      28
+    ],
+    "inferred_type": "integer"
+  },
+  "batting.triple": {
+    "sample_values": [
+      0,
+      10,
+      15
+    ],
+    "inferred_type": "integer"
+  },
+  "batting.hr": {
+    "sample_values": [
+      0,
+      5,
+      21
+    ],
+    "inferred_type": "integer"
+  },
+  "batting.rbi": {
+    "sample_values": [
+      0,
+      2,
+      23
+    ],
+    "inferred_type": "integer"
+  },
+  "batting.sb": {
+    "sample_values": [
+      0,
+      2,
+      10
+    ],
+    "inferred_type": "integer"
+  },
+  "batting.cs": {
+    "sample_values": [
+      "17",
+      "8",
+      "7"
+    ],
+    "inferred_type": "string"
+  },
+  "batting.bb": {
+    "sample_values": [
+      0,
+      9,
+      18
+    ],
+    "inferred_type": "integer"
+  },
+  "batting.so": {
+    "sample_values": [
+      0,
+      7,
+      11
+    ],
+    "inferred_type": "integer"
+  },
+  "batting.ibb": {
+    "sample_values": [
+      "18",
+      "9",
+      "4"
+    ],
+    "inferred_type": "string"
+  },
+  "batting.hbp": {
+    "sample_values": [
+      "29",
+      "13",
+      "6"
+    ],
+    "inferred_type": "string"
+  },
+  "batting.sh": {
+    "sample_values": [
+      "23",
+      "15",
+      "2"
+    ],
+    "inferred_type": "string"
+  },
+  "batting.sf": {
+    "sample_values": [
+      "15",
+      "8",
+      "7"
+    ],
+    "inferred_type": "string"
+  },
+  "batting.g_idp": {
+    "sample_values": [
+      "14",
+      "1",
+      "6"
+    ],
+    "inferred_type": "string"
+  },
+  "batting_postseason.year": {
+    "sample_values": [
+      1884,
+      1890,
+      1908
+    ],
+    "inferred_type": "integer"
+  },
+  "batting_postseason.round": {
+    "sample_values": [
+      "NLWC",
+      "AWDIV",
+      "NLCS"
+    ],
+    "inferred_type": "string"
+  },
+  "batting_postseason.player_id": {
+    "sample_values": [
+      "startjo01",
+      "orrda01",
+      "reipsch01"
+    ],
+    "inferred_type": "string"
+  },
+  "batting_postseason.team_id": {
+    "sample_values": [
+      "NYA",
+      "LS2",
+      "BRO"
+    ],
+    "inferred_type": "string"
+  },
+  "batting_postseason.league_id": {
+    "sample_values": [
+      "AA",
+      "NL",
+      "AL"
+    ],
+    "inferred_type": "string"
+  },
+  "batting_postseason.g": {
+    "sample_values": [
+      1,
+      4,
+      10
+    ],
+    "inferred_type": "integer"
+  },
+  "batting_postseason.ab": {
+    "sample_values": [
+      2,
+      8,
+      26
+    ],
+    "inferred_type": "integer"
+  },
+  "batting_postseason.r": {
+    "sample_values": [
+      0,
+      5,
+      9
+    ],
+    "inferred_type": "integer"
+  },
+  "batting_postseason.h": {
+    "sample_values": [
+      1,
+      6,
+      10
+    ],
+    "inferred_type": "integer"
+  },
+  "batting_postseason.double": {
+    "sample_values": [
+      0,
+      2,
+      5
+    ],
+    "inferred_type": "integer"
+  },
+  "batting_postseason.triple": {
+    "sample_values": [
+      0,
+      1,
+      2
+    ],
+    "inferred_type": "integer"
+  },
+  "batting_postseason.hr": {
+    "sample_values": [
+      0,
+      2,
+      4
+    ],
+    "inferred_type": "integer"
+  },
+  "batting_postseason.rbi": {
+    "sample_values": [
+      0,
+      3,
+      7
+    ],
+    "inferred_type": "integer"
+  },
+  "batting_postseason.sb": {
+    "sample_values": [
+      0,
+      4,
+      11
+    ],
+    "inferred_type": "integer"
+  },
+  "batting_postseason.cs": {
+    "sample_values": [
+      "",
+      1,
+      3
+    ],
+    "inferred_type": "string"
+  },
+  "batting_postseason.bb": {
+    "sample_values": [
+      0,
+      4,
+      6
+    ],
+    "inferred_type": "integer"
+  },
+  "batting_postseason.so": {
+    "sample_values": [
+      0,
+      2,
+      12
+    ],
+    "inferred_type": "integer"
+  },
+  "batting_postseason.ibb": {
+    "sample_values": [
+      0,
+      2,
+      7
+    ],
+    "inferred_type": "string"
+  },
+  "batting_postseason.hbp": {
+    "sample_values": [
+      "",
+      1,
+      3
+    ],
+    "inferred_type": "string"
+  },
+  "batting_postseason.sh": {
+    "sample_values": [
+      "",
+      1,
+      2
+    ],
+    "inferred_type": "string"
+  },
+  "batting_postseason.sf": {
+    "sample_values": [
+      "",
+      0,
+      1
+    ],
+    "inferred_type": "string"
+  },
+  "batting_postseason.g_idp": {
+    "sample_values": [
+      "",
+      0,
+      3
+    ],
+    "inferred_type": "string"
+  },
+  "player_college.player_id": {
+    "sample_values": [
+      "adamsjo02",
+      "abernte01",
+      "ablesha01"
+    ],
+    "inferred_type": "string"
+  },
+  "player_college.college_id": {
+    "sample_values": [
+      "virginia",
+      "longbeach",
+      "flgateway"
+    ],
+    "inferred_type": "string"
+  },
+  "player_college.year": {
+    "sample_values": [
+      2001,
+      1890,
+      1987
+    ],
+    "inferred_type": "integer"
+  },
+  "fielding.player_id": {
+    "sample_values": [
+      "biermch01",
+      "barnero01",
+      "barrebi01"
+    ],
+    "inferred_type": "string"
+  },
+  "fielding.year": {
+    "sample_values": [
+      1871,
+      1877,
+      1883
+    ],
+    "inferred_type": "integer"
+  },
+  "fielding.stint": {
+    "sample_values": [
+      1,
+      2,
+      3
+    ],
+    "inferred_type": "integer"
+  },
+  "fielding.team_id": {
+    "sample_values": [
+      "CH2",
+      "CH1",
+      "NY2"
+    ],
+    "inferred_type": "string"
+  },
+  "fielding.league_id": {
+    "sample_values": [
+      "FL",
+      "NL",
+      "AA"
+    ],
+    "inferred_type": "string"
+  },
+  "fielding.pos": {
+    "sample_values": [
+      "DH",
+      "1B",
+      "2B"
+    ],
+    "inferred_type": "string"
+  },
+  "fielding.g": {
+    "sample_values": [
+      1,
+      20,
+      8
+    ],
+    "inferred_type": "integer"
+  },
+  "fielding.gs": {
+    "sample_values": [
+      "68",
+      "110",
+      "6"
+    ],
+    "inferred_type": "string"
+  },
+  "fielding.inn_outs": {
+    "sample_values": [
+      "52",
+      "293",
+      "2938"
+    ],
+    "inferred_type": "string"
+  },
+  "fielding.po": {
+    "sample_values": [
+      1,
+      3,
+      42
+    ],
+    "inferred_type": "integer"
+  },
+  "fielding.a": {
+    "sample_values": [
+      3,
+      52,
+      10
+    ],
+    "inferred_type": "integer"
+  },
+  "fielding.e": {
+    "sample_values": [
+      2,
+      28,
+      4
+    ],
+    "inferred_type": "integer"
+  },
+  "fielding.dp": {
+    "sample_values": [
+      0,
+      3,
+      21
+    ],
+    "inferred_type": "integer"
+  },
+  "fielding.pb": {
+    "sample_values": [
+      "35",
+      "52",
+      "21"
+    ],
+    "inferred_type": "string"
+  },
+  "fielding.wp": {
+    "sample_values": [
+      "16",
+      "1",
+      "21"
+    ],
+    "inferred_type": "string"
+  },
+  "fielding.sb": {
+    "sample_values": [
+      "12",
+      "28",
+      "20"
+    ],
+    "inferred_type": "string"
+  },
+  "fielding.cs": {
+    "sample_values": [
+      "2",
+      "34",
+      "3"
+    ],
+    "inferred_type": "string"
+  },
+  "fielding.zr": {
+    "sample_values": [
+      "10",
+      "7",
+      "2"
+    ],
+    "inferred_type": "string"
+  },
+  "fielding_outfield.player_id": {
+    "sample_values": [
+      "donnepe01",
+      "bechtge01",
+      "berkena01"
+    ],
+    "inferred_type": "string"
+  },
+  "fielding_outfield.year": {
+    "sample_values": [
+      1871,
+      1877,
+      1883
+    ],
+    "inferred_type": "integer"
+  },
+  "fielding_outfield.stint": {
+    "sample_values": [
+      1,
+      2,
+      3
+    ],
+    "inferred_type": "integer"
+  },
+  "fielding_outfield.glf": {
+    "sample_values": [
+      0,
+      27,
+      29
+    ],
+    "inferred_type": "integer"
+  },
+  "fielding_outfield.gcf": {
+    "sample_values": [
+      29,
+      33,
+      30
+    ],
+    "inferred_type": "integer"
+  },
+  "fielding_outfield.grf": {
+    "sample_values": [
+      0,
+      6,
+      7
+    ],
+    "inferred_type": "integer"
+  },
+  "fielding_postseason.player_id": {
+    "sample_values": [
+      "ritchcl01",
+      "lachaca01",
+      "parenfr01"
+    ],
+    "inferred_type": "string"
+  },
+  "fielding_postseason.year": {
+    "sample_values": [
+      1903,
+      1910,
+      1916
+    ],
+    "inferred_type": "integer"
+  },
+  "fielding_postseason.team_id": {
+    "sample_values": [
+      "MIN",
+      "BSN",
+      "PHI"
+    ],
+    "inferred_type": "string"
+  },
+  "fielding_postseason.league_id": {
+    "sample_values": [
+      "AL",
+      "NL"
+    ],
+    "inferred_type": "string"
+  },
+  "fielding_postseason.round": {
+    "sample_values": [
+      "NLWC",
+      "NEDIV",
+      "AEDIV"
+    ],
+    "inferred_type": "string"
+  },
+  "fielding_postseason.pos": {
+    "sample_values": [
+      "DH",
+      "2B",
+      "C"
+    ],
+    "inferred_type": "string"
+  },
+  "fielding_postseason.g": {
+    "sample_values": [
+      8,
+      2,
+      3
+    ],
+    "inferred_type": "integer"
+  },
+  "fielding_postseason.gs": {
+    "sample_values": [
+      8,
+      3,
+      5
+    ],
+    "inferred_type": "string"
+  },
+  "fielding_postseason.inn_outs": {
+    "sample_values": [
+      213,
+      30,
+      81
+    ],
+    "inferred_type": "integer"
+  },
+  "fielding_postseason.po": {
+    "sample_values": [
+      9,
+      0,
+      5
+    ],
+    "inferred_type": "integer"
+  },
+  "fielding_postseason.a": {
+    "sample_values": [
+      18,
+      28,
+      5
+    ],
+    "inferred_type": "integer"
+  },
+  "fielding_postseason.e": {
+    "sample_values": [
+      1,
+      0,
+      4
+    ],
+    "inferred_type": "integer"
+  },
+  "fielding_postseason.dp": {
+    "sample_values": [
+      1,
+      5,
+      8
+    ],
+    "inferred_type": "integer"
+  },
+  "fielding_postseason.tp": {
+    "sample_values": [
+      0,
+      1
+    ],
+    "inferred_type": "integer"
+  },
+  "fielding_postseason.pb": {
+    "sample_values": [
+      "",
+      0,
+      3
+    ],
+    "inferred_type": "string"
+  },
+  "fielding_postseason.sb": {
+    "sample_values": [
+      "16",
+      "1",
+      "2"
+    ],
+    "inferred_type": "string"
+  },
+  "fielding_postseason.cs": {
+    "sample_values": [
+      "9",
+      "2",
+      "3"
+    ],
+    "inferred_type": "string"
+  },
+  "hall_of_fame.player_id": {
+    "sample_values": [
+      "wadderu01",
+      "youngcy01",
+      "hornsro01"
+    ],
+    "inferred_type": "string"
+  },
+  "hall_of_fame.yearid": {
+    "sample_values": [
+      1936,
+      1945,
+      1951
+    ],
+    "inferred_type": "integer"
+  },
+  "hall_of_fame.votedby": {
+    "sample_values": [
+      "Negro League",
+      "Centennial",
+      "Veterans"
+    ],
+    "inferred_type": "string"
+  },
+  "hall_of_fame.ballots": {
+    "sample_values": [
+      "193",
+      "247",
+      "263"
+    ],
+    "inferred_type": "string"
+  },
+  "hall_of_fame.needed": {
+    "sample_values": [
+      "227",
+      "186",
+      "198"
+    ],
+    "inferred_type": "string"
+  },
+  "hall_of_fame.votes": {
+    "sample_values": [
+      222,
+      111,
+      55
+    ],
+    "inferred_type": "integer"
+  },
+  "hall_of_fame.inducted": {
+    "sample_values": [
+      "Y",
+      "N"
+    ],
+    "inferred_type": "string"
+  },
+  "hall_of_fame.category": {
+    "sample_values": [
+      "Umpire",
+      "Pioneer/Executive",
+      "Manager"
+    ],
+    "inferred_type": "string"
+  },
+  "hall_of_fame.needed_note": {
+    "sample_values": [
+      "",
+      "Top 20",
+      "1st"
+    ],
+    "inferred_type": "string"
+  },
+  "home_game.year": {
+    "sample_values": [
+      1871,
+      1877,
+      1883
+    ],
+    "inferred_type": "integer"
+  },
+  "home_game.league_id": {
+    "sample_values": [
+      "FL",
+      "NL",
+      "AA"
+    ],
+    "inferred_type": "string"
+  },
+  "home_game.team_id": {
+    "sample_values": [
+      "HR1",
+      "TRO",
+      "WS3"
+    ],
+    "inferred_type": "string"
+  },
+  "home_game.park_id": {
+    "sample_values": [
+      "WOR03",
+      "RCK01",
+      "TRO01"
+    ],
+    "inferred_type": "string"
+  },
+  "home_game.span_first": {
+    "sample_values": [
+      "1872-05-11",
+      "1871-05-25",
+      "1871-06-03"
+    ],
+    "inferred_type": "string"
+  },
+  "home_game.span_last": {
+    "sample_values": [
+      "1872-10-05",
+      "1871-09-22",
+      "1871-10-18"
+    ],
+    "inferred_type": "string"
+  },
+  "home_game.games": {
+    "sample_values": [
+      16,
+      14,
+      5
+    ],
+    "inferred_type": "integer"
+  },
+  "home_game.openings": {
+    "sample_values": [
+      16,
+      18,
+      21
+    ],
+    "inferred_type": "integer"
+  },
+  "home_game.attendance": {
+    "sample_values": [
+      32600,
+      2350,
+      5500
+    ],
+    "inferred_type": "integer"
+  },
+  "manager.player_id": {
+    "sample_values": [
+      "careyto01",
+      "hastisc01",
+      "pikeli01"
+    ],
+    "inferred_type": "string"
+  },
+  "manager.year": {
+    "sample_values": [
+      1871,
+      1877,
+      1883
+    ],
+    "inferred_type": "integer"
+  },
+  "manager.team_id": {
+    "sample_values": [
+      "HR1",
+      "TRO",
+      "WS3"
+    ],
+    "inferred_type": "string"
+  },
+  "manager.league_id": {
+    "sample_values": [
+      "FL",
+      "NL",
+      "AA"
+    ],
+    "inferred_type": "string"
+  },
+  "manager.inseason": {
+    "sample_values": [
+      1,
+      4,
+      7
+    ],
+    "inferred_type": "integer"
+  },
+  "manager.g": {
+    "sample_values": [
+      31,
+      25,
+      18
+    ],
+    "inferred_type": "integer"
+  },
+  "manager.w": {
+    "sample_values": [
+      20,
+      21,
+      8
+    ],
+    "inferred_type": "integer"
+  },
+  "manager.l": {
+    "sample_values": [
+      10,
+      21,
+      28
+    ],
+    "inferred_type": "integer"
+  },
+  "manager.rank": {
+    "sample_values": [
+      "",
+      "9",
+      "5"
+    ],
+    "inferred_type": "string"
+  },
+  "manager.plyr_mgr": {
+    "sample_values": [
+      "Y",
+      "N"
+    ],
+    "inferred_type": "string"
+  },
+  "manager_half.player_id": {
+    "sample_values": [
+      "barnibi01",
+      "tebeapa01",
+      "chapmja01"
+    ],
+    "inferred_type": "string"
+  },
+  "manager_half.year": {
+    "sample_values": [
+      1892,
+      1981
+    ],
+    "inferred_type": "integer"
+  },
+  "manager_half.team_id": {
+    "sample_values": [
+      "HOU",
+      "NY1",
+      "PHI"
+    ],
+    "inferred_type": "string"
+  },
+  "manager_half.league_id": {
+    "sample_values": [
+      "NL",
+      "AL"
+    ],
+    "inferred_type": "string"
+  },
+  "manager_half.inseason": {
+    "sample_values": [
+      3,
+      1,
+      2
+    ],
+    "inferred_type": "integer"
+  },
+  "manager_half.half": {
+    "sample_values": [
+      1,
+      2
+    ],
+    "inferred_type": "integer"
+  },
+  "manager_half.g": {
+    "sample_values": [
+      56,
+      75,
+      23
+    ],
+    "inferred_type": "integer"
+  },
+  "manager_half.w": {
+    "sample_values": [
+      17,
+      52,
+      53
+    ],
+    "inferred_type": "integer"
+  },
+  "manager_half.l": {
+    "sample_values": [
+      39,
+      22,
+      43
+    ],
+    "inferred_type": "integer"
+  },
+  "manager_half.rank": {
+    "sample_values": [
+      12,
+      1,
+      5
+    ],
+    "inferred_type": "integer"
+  },
+  "player.player_id": {
+    "sample_values": [
+      "aberal01",
+      "abbated01",
+      "abbeybe01"
+    ],
+    "inferred_type": "string"
+  },
+  "player.birth_year": {
+    "sample_values": [
+      1981,
+      1854,
+      1951
+    ],
+    "inferred_type": "integer"
+  },
+  "player.birth_month": {
+    "sample_values": [
+      "",
+      "4",
+      "9"
+    ],
+    "inferred_type": "string"
+  },
+  "player.birth_day": {
+    "sample_values": [
+      27,
+      15,
+      2
+    ],
+    "inferred_type": "integer"
+  },
+  "player.birth_country": {
+    "sample_values": [
+      "Australia",
+      "P.R.",
+      "Russia"
+    ],
+    "inferred_type": "string"
+  },
+  "player.birth_state": {
+    "sample_values": [
+      "Cienfuegos",
+      "NE",
+      "OH"
+    ],
+    "inferred_type": "string"
+  },
+  "player.birth_city": {
+    "sample_values": [
+      "Falls City",
+      "Essex",
+      "Fort Towson"
+    ],
+    "inferred_type": "string"
+  },
+  "player.death_year": {
+    "sample_values": [
+      "1940",
+      "1935",
+      "1933"
+    ],
+    "inferred_type": "string"
+  },
+  "player.death_month": {
+    "sample_values": [
+      "9",
+      "4",
+      "1"
+    ],
+    "inferred_type": "string"
+  },
+  "player.death_day": {
+    "sample_values": [
+      "10",
+      "20",
+      "19"
+    ],
+    "inferred_type": "string"
+  },
+  "player.death_country": {
+    "sample_values": [
+      "V.I.",
+      "Venezuela",
+      "CAN"
+    ],
+    "inferred_type": "string"
+  },
+  "player.death_state": {
+    "sample_values": [
+      "WA",
+      "DC",
+      "OH"
+    ],
+    "inferred_type": "string"
+  },
+  "player.death_city": {
+    "sample_values": [
+      "St. Louis",
+      "Los Angeles",
+      "Washington"
+    ],
+    "inferred_type": "string"
+  },
+  "player.name_first": {
+    "sample_values": [
+      "Al",
+      "Ed",
+      "Bert"
+    ],
+    "inferred_type": "string"
+  },
+  "player.name_last": {
+    "sample_values": [
+      "Accardo",
+      "Abbott",
+      "Aber"
+    ],
+    "inferred_type": "string"
+  },
+  "player.name_given": {
+    "sample_values": [
+      "Albert Julius",
+      "Edward James",
+      "Bert Wood"
+    ],
+    "inferred_type": "string"
+  },
+  "player.weight": {
+    "sample_values": [
+      "165",
+      "169",
+      "200"
+    ],
+    "inferred_type": "string"
+  },
+  "player.height": {
+    "sample_values": [
+      "81",
+      "74",
+      "76"
+    ],
+    "inferred_type": "string"
+  },
+  "player.bats": {
+    "sample_values": [
+      "R",
+      "L",
+      ""
+    ],
+    "inferred_type": "string"
+  },
+  "player.throws": {
+    "sample_values": [
+      "R",
+      "L",
+      ""
+    ],
+    "inferred_type": "string"
+  },
+  "player.debut": {
+    "sample_values": [
+      "1950-09-15",
+      "1897-09-04",
+      "1892-06-14"
+    ],
+    "inferred_type": "string"
+  },
+  "player.final_game": {
+    "sample_values": [
+      "1957-09-11",
+      "1910-09-15",
+      "1896-09-23"
+    ],
+    "inferred_type": "string"
+  },
+  "player.retro_id": {
+    "sample_values": [
+      "abera101",
+      "abbae101",
+      "abbeb101"
+    ],
+    "inferred_type": "string"
+  },
+  "player.bbref_id": {
+    "sample_values": [
+      "aberal01",
+      "abbated01",
+      "abbeybe01"
+    ],
+    "inferred_type": "string"
+  },
+  "park.park_id": {
+    "sample_values": [
+      "BOS02",
+      "BAL01",
+      "BAL02"
+    ],
+    "inferred_type": "string"
+  },
+  "park.park_name": {
+    "sample_values": [
+      "Oriole Park I",
+      "Newington Park",
+      "Monumental Park"
+    ],
+    "inferred_type": "string"
+  },
+  "park.park_alias": {
+    "sample_values": [
+      "Weeghman Park; Cubs Park",
+      "Oriole Park V",
+      "Pastime Park"
+    ],
+    "inferred_type": "string"
+  },
+  "park.city": {
+    "sample_values": [
+      "Elmira",
+      "Buffalo",
+      "Canton"
+    ],
+    "inferred_type": "string"
+  },
+  "park.state": {
+    "sample_values": [
+      "NV",
+      "OH",
+      "IL"
+    ],
+    "inferred_type": "string"
+  },
+  "park.country": {
+    "sample_values": [
+      "JP",
+      "MX",
+      "PR"
+    ],
+    "inferred_type": "string"
+  },
+  "pitching.player_id": {
+    "sample_values": [
+      "bentlcy01",
+      "mathebo01",
+      "mcbridi01"
+    ],
+    "inferred_type": "string"
+  },
+  "pitching.year": {
+    "sample_values": [
+      1871,
+      1877,
+      1883
+    ],
+    "inferred_type": "integer"
+  },
+  "pitching.stint": {
+    "sample_values": [
+      1,
+      2,
+      3
+    ],
+    "inferred_type": "integer"
+  },
+  "pitching.team_id": {
+    "sample_values": [
+      "HR1",
+      "CH1",
+      "BS1"
+    ],
+    "inferred_type": "string"
+  },
+  "pitching.league_id": {
+    "sample_values": [
+      "FL",
+      "NL",
+      "AA"
+    ],
+    "inferred_type": "string"
+  },
+  "pitching.w": {
+    "sample_values": [
+      1,
+      10,
+      33
+    ],
+    "inferred_type": "integer"
+  },
+  "pitching.l": {
+    "sample_values": [
+      2,
+      5,
+      20
+    ],
+    "inferred_type": "integer"
+  },
+  "pitching.g": {
+    "sample_values": [
+      3,
+      29,
+      9
+    ],
+    "inferred_type": "integer"
+  },
+  "pitching.gs": {
+    "sample_values": [
+      3,
+      25,
+      17
+    ],
+    "inferred_type": "integer"
+  },
+  "pitching.cg": {
+    "sample_values": [
+      2,
+      25,
+      5
+    ],
+    "inferred_type": "integer"
+  },
+  "pitching.sho": {
+    "sample_values": [
+      0,
+      6,
+      9
+    ],
+    "inferred_type": "integer"
+  },
+  "pitching.sv": {
+    "sample_values": [
+      0,
+      5,
+      9
+    ],
+    "inferred_type": "integer"
+  },
+  "pitching.ipouts": {
+    "sample_values": [
+      78,
+      507,
+      772
+    ],
+    "inferred_type": "integer"
+  },
+  "pitching.h": {
+    "sample_values": [
+      43,
+      261,
+      333
+    ],
+    "inferred_type": "integer"
+  },
+  "pitching.er": {
+    "sample_values": [
+      23,
+      5,
+      4
+    ],
+    "inferred_type": "integer"
+  },
+  "pitching.hr": {
+    "sample_values": [
+      0,
+      7,
+      10
+    ],
+    "inferred_type": "integer"
+  },
+  "pitching.bb": {
+    "sample_values": [
+      11,
+      40,
+      8
+    ],
+    "inferred_type": "integer"
+  },
+  "pitching.so": {
+    "sample_values": [
+      1,
+      34,
+      2
+    ],
+    "inferred_type": "integer"
+  },
+  "pitching.baopp": {
+    "sample_values": [
+      "1",
+      "0.26",
+      "0.21"
+    ],
+    "inferred_type": "string"
+  },
+  "pitching.era": {
+    "sample_values": [
+      7.96,
+      3.46,
+      3.48
+    ],
+    "inferred_type": "numeric"
+  },
+  "pitching.ibb": {
+    "sample_values": [
+      "19",
+      "3",
+      "9"
+    ],
+    "inferred_type": "string"
+  },
+  "pitching.wp": {
+    "sample_values": [
+      "15",
+      "17",
+      "14"
+    ],
+    "inferred_type": "string"
+  },
+  "pitching.hbp": {
+    "sample_values": [
+      "20",
+      "3",
+      "4"
+    ],
+    "inferred_type": "string"
+  },
+  "pitching.bk": {
+    "sample_values": [
+      0,
+      5,
+      9
+    ],
+    "inferred_type": "integer"
+  },
+  "pitching.bfp": {
+    "sample_values": [
+      "39",
+      "779",
+      "2269"
+    ],
+    "inferred_type": "string"
+  },
+  "pitching.gf": {
+    "sample_values": [
+      "16",
+      "5",
+      "7"
+    ],
+    "inferred_type": "string"
+  },
+  "pitching.r": {
+    "sample_values": [
+      42,
+      30,
+      8
+    ],
+    "inferred_type": "integer"
+  },
+  "pitching.sh": {
+    "sample_values": [
+      "17",
+      "8",
+      "7"
+    ],
+    "inferred_type": "string"
+  },
+  "pitching.sf": {
+    "sample_values": [
+      "14",
+      "6",
+      "3"
+    ],
+    "inferred_type": "string"
+  },
+  "pitching.g_idp": {
+    "sample_values": [
+      "21",
+      "9",
+      "14"
+    ],
+    "inferred_type": "string"
+  },
+  "pitching_postseason.player_id": {
+    "sample_values": [
+      "chambel01",
+      "ryanji01",
+      "willine01"
+    ],
+    "inferred_type": "string"
+  },
+  "pitching_postseason.year": {
+    "sample_values": [
+      1884,
+      1890,
+      1908
+    ],
+    "inferred_type": "integer"
+  },
+  "pitching_postseason.round": {
+    "sample_values": [
+      "NLWC",
+      "AWDIV",
+      "NLCS"
+    ],
+    "inferred_type": "string"
+  },
+  "pitching_postseason.team_id": {
+    "sample_values": [
+      "NYA",
+      "BRO",
+      "LS2"
+    ],
+    "inferred_type": "string"
+  },
+  "pitching_postseason.league_id": {
+    "sample_values": [
+      "AA",
+      "NL",
+      "AL"
+    ],
+    "inferred_type": "string"
+  },
+  "pitching_postseason.w": {
+    "sample_values": [
+      0,
+      3,
+      1
+    ],
+    "inferred_type": "integer"
+  },
+  "pitching_postseason.l": {
+    "sample_values": [
+      1,
+      2,
+      0
+    ],
+    "inferred_type": "integer"
+  },
+  "pitching_postseason.g": {
+    "sample_values": [
+      1,
+      3,
+      4
+    ],
+    "inferred_type": "integer"
+  },
+  "pitching_postseason.gs": {
+    "sample_values": [
+      1,
+      3,
+      4
+    ],
+    "inferred_type": "integer"
+  },
+  "pitching_postseason.cg": {
+    "sample_values": [
+      1,
+      3,
+      4
+    ],
+    "inferred_type": "integer"
+  },
+  "pitching_postseason.sho": {
+    "sample_values": [
+      0,
+      1,
+      2
+    ],
+    "inferred_type": "integer"
+  },
+  "pitching_postseason.sv": {
+    "sample_values": [
+      0,
+      1,
+      2
+    ],
+    "inferred_type": "integer"
+  },
+  "pitching_postseason.ipouts": {
+    "sample_values": [
+      18,
+      87,
+      126
+    ],
+    "inferred_type": "integer"
+  },
+  "pitching_postseason.h": {
+    "sample_values": [
+      9,
+      30,
+      3
+    ],
+    "inferred_type": "integer"
+  },
+  "pitching_postseason.er": {
+    "sample_values": [
+      7,
+      1,
+      3
+    ],
+    "inferred_type": "integer"
+  },
+  "pitching_postseason.hr": {
+    "sample_values": [
+      0,
+      3,
+      4
+    ],
+    "inferred_type": "integer"
+  },
+  "pitching_postseason.bb": {
+    "sample_values": [
+      2,
+      9,
+      32
+    ],
+    "inferred_type": "integer"
+  },
+  "pitching_postseason.so": {
+    "sample_values": [
+      1,
+      14,
+      10
+    ],
+    "inferred_type": "integer"
+  },
+  "pitching_postseason.baopp": {
+    "sample_values": [
+      "0.11",
+      "0.21",
+      "0.25"
+    ],
+    "inferred_type": "string"
+  },
+  "pitching_postseason.era": {
+    "sample_values": [
+      10.5,
+      0.62,
+      1.5
+    ],
+    "inferred_type": "numeric"
+  },
+  "pitching_postseason.ibb": {
+    "sample_values": [
+      "",
+      1,
+      3
+    ],
+    "inferred_type": "string"
+  },
+  "pitching_postseason.wp": {
+    "sample_values": [
+      "",
+      1,
+      3
+    ],
+    "inferred_type": "string"
+  },
+  "pitching_postseason.hbp": {
+    "sample_values": [
+      "",
+      0,
+      1
+    ],
+    "inferred_type": "string"
+  },
+  "pitching_postseason.bk": {
+    "sample_values": [
+      "",
+      0,
+      1
+    ],
+    "inferred_type": "string"
+  },
+  "pitching_postseason.bfp": {
+    "sample_values": [
+      "47",
+      "9",
+      "31"
+    ],
+    "inferred_type": "string"
+  },
+  "pitching_postseason.gf": {
+    "sample_values": [
+      0,
+      2,
+      6
+    ],
+    "inferred_type": "integer"
+  },
+  "pitching_postseason.r": {
+    "sample_values": [
+      12,
+      20,
+      29
+    ],
+    "inferred_type": "integer"
+  },
+  "pitching_postseason.sh": {
+    "sample_values": [
+      "",
+      1,
+      6
+    ],
+    "inferred_type": "string"
+  },
+  "pitching_postseason.sf": {
+    "sample_values": [
+      "",
+      1,
+      2
+    ],
+    "inferred_type": "string"
+  },
+  "pitching_postseason.g_idp": {
+    "sample_values": [
+      "",
+      1,
+      3
+    ],
+    "inferred_type": "string"
+  },
+  "salary.year": {
+    "sample_values": [
+      1985,
+      1991,
+      1997
+    ],
+    "inferred_type": "integer"
+  },
+  "salary.team_id": {
+    "sample_values": [
+      "PIT",
+      "CLE",
+      "DET"
+    ],
+    "inferred_type": "string"
+  },
+  "salary.league_id": {
+    "sample_values": [
+      "NL",
+      "AL"
+    ],
+    "inferred_type": "string"
+  },
+  "salary.player_id": {
+    "sample_values": [
+      "ramirra01",
+      "forstte01",
+      "garbege01"
+    ],
+    "inferred_type": "string"
+  },
+  "salary.salary": {
+    "sample_values": [
+      870000,
+      150000,
+      407500
+    ],
+    "inferred_type": "integer"
+  },
+  "college.college_id": {
+    "sample_values": [
+      "aljeffd",
+      "albanyst",
+      "albertsnid"
+    ],
+    "inferred_type": "string"
+  },
+  "college.name_full": {
+    "sample_values": [
+      "Jefferson Davis Community College",
+      "Albany State University",
+      "Albertson College"
+    ],
+    "inferred_type": "string"
+  },
+  "college.city": {
+    "sample_values": [
+      "Garden City",
+      "Phenix City",
+      "Caldwell"
+    ],
+    "inferred_type": "string"
+  },
+  "college.state": {
+    "sample_values": [
+      "KS",
+      "PA",
+      "MS"
+    ],
+    "inferred_type": "string"
+  },
+  "postseason.year": {
+    "sample_values": [
+      1884,
+      1890,
+      1908
+    ],
+    "inferred_type": "integer"
+  },
+  "postseason.round": {
+    "sample_values": [
+      "NLWC",
+      "AWDIV",
+      "NLCS"
+    ],
+    "inferred_type": "string"
+  },
+  "postseason.team_id_winner": {
+    "sample_values": [
+      "ML1",
+      "BOS",
+      "NY1"
+    ],
+    "inferred_type": "string"
+  },
+  "postseason.league_id_winner": {
+    "sample_values": [
+      "NL",
+      "AA",
+      "AL"
+    ],
+    "inferred_type": "string"
+  },
+  "postseason.team_id_loser": {
+    "sample_values": [
+      "BSN",
+      "PHA",
+      "CHN"
+    ],
+    "inferred_type": "string"
+  },
+  "postseason.league_id_loser": {
+    "sample_values": [
+      "AA",
+      "NL",
+      "AL"
+    ],
+    "inferred_type": "string"
+  },
+  "postseason.wins": {
+    "sample_values": [
+      3,
+      10,
+      5
+    ],
+    "inferred_type": "integer"
+  },
+  "postseason.losses": {
+    "sample_values": [
+      0,
+      2,
+      4
+    ],
+    "inferred_type": "integer"
+  },
+  "postseason.ties": {
+    "sample_values": [
+      0,
+      1
+    ],
+    "inferred_type": "integer"
+  },
+  "team.year": {
+    "sample_values": [
+      1871,
+      1877,
+      1883
+    ],
+    "inferred_type": "integer"
+  },
+  "team.league_id": {
+    "sample_values": [
+      "FL",
+      "NL",
+      "AA"
+    ],
+    "inferred_type": "string"
+  },
+  "team.team_id": {
+    "sample_values": [
+      "HR1",
+      "TRO",
+      "WS3"
+    ],
+    "inferred_type": "string"
+  },
+  "team.franchise_id": {
+    "sample_values": [
+      "WES",
+      "TRO",
+      "OLY"
+    ],
+    "inferred_type": "string"
+  },
+  "team.div_id": {
+    "sample_values": [
+      "",
+      "W",
+      "E"
+    ],
+    "inferred_type": "string"
+  },
+  "team.rank": {
+    "sample_values": [
+      3,
+      5,
+      4
+    ],
+    "inferred_type": "integer"
+  },
+  "team.g": {
+    "sample_values": [
+      31,
+      32,
+      56
+    ],
+    "inferred_type": "integer"
+  },
+  "team.ghome": {
+    "sample_values": [
+      "77",
+      "64",
+      "65"
+    ],
+    "inferred_type": "string"
+  },
+  "team.w": {
+    "sample_values": [
+      20,
+      4,
+      39
+    ],
+    "inferred_type": "integer"
+  },
+  "team.l": {
+    "sample_values": [
+      10,
+      21,
+      20
+    ],
+    "inferred_type": "integer"
+  },
+  "team.div_win": {
+    "sample_values": [
+      "",
+      "Y",
+      "N"
+    ],
+    "inferred_type": "string"
+  },
+  "team.wc_win": {
+    "sample_values": [
+      "",
+      "N",
+      "Y"
+    ],
+    "inferred_type": "string"
+  },
+  "team.lg_win": {
+    "sample_values": [
+      "N",
+      "Y",
+      ""
+    ],
+    "inferred_type": "string"
+  },
+  "team.ws_win": {
+    "sample_values": [
+      "",
+      "N",
+      "Y"
+    ],
+    "inferred_type": "string"
+  },
+  "team.r": {
+    "sample_values": [
+      401,
+      351,
+      174
+    ],
+    "inferred_type": "integer"
+  },
+  "team.ab": {
+    "sample_values": [
+      1372,
+      1036,
+      2137
+    ],
+    "inferred_type": "integer"
+  },
+  "team.h": {
+    "sample_values": [
+      426,
+      274,
+      677
+    ],
+    "inferred_type": "integer"
+  },
+  "team.double": {
+    "sample_values": [
+      70,
+      44,
+      114
+    ],
+    "inferred_type": "integer"
+  },
+  "team.triple": {
+    "sample_values": [
+      37,
+      34,
+      13
+    ],
+    "inferred_type": "integer"
+  },
+  "team.hr": {
+    "sample_values": [
+      3,
+      6,
+      13
+    ],
+    "inferred_type": "integer"
+  },
+  "team.bb": {
+    "sample_values": [
+      60,
+      48,
+      5
+    ],
+    "inferred_type": "integer"
+  },
+  "team.so": {
+    "sample_values": [
+      19,
+      30,
+      12
+    ],
+    "inferred_type": "integer"
+  },
+  "team.sb": {
+    "sample_values": [
+      73,
+      53,
+      47
+    ],
+    "inferred_type": "integer"
+  },
+  "team.cs": {
+    "sample_values": [
+      "191",
+      "7",
+      "0"
+    ],
+    "inferred_type": "string"
+  },
+  "team.hbp": {
+    "sample_values": [
+      "44",
+      "64",
+      "51"
+    ],
+    "inferred_type": "string"
+  },
+  "team.sf": {
+    "sample_values": [
+      "40",
+      "52",
+      "75"
+    ],
+    "inferred_type": "string"
+  },
+  "team.ra": {
+    "sample_values": [
+      303,
+      287,
+      254
+    ],
+    "inferred_type": "integer"
+  },
+  "team.er": {
+    "sample_values": [
+      109,
+      108,
+      101
+    ],
+    "inferred_type": "integer"
+  },
+  "team.era": {
+    "sample_values": [
+      3.55,
+      4.3,
+      1.99
+    ],
+    "inferred_type": "float"
+  },
+  "team.cg": {
+    "sample_values": [
+      22,
+      28,
+      47
+    ],
+    "inferred_type": "integer"
+  },
+  "team.sho": {
+    "sample_values": [
+      1,
+      7,
+      16
+    ],
+    "inferred_type": "integer"
+  },
+  "team.sv": {
+    "sample_values": [
+      3,
+      2,
+      15
+    ],
+    "inferred_type": "integer"
+  },
+  "team.ipouts": {
+    "sample_values": [
+      828,
+      678,
+      1290
+    ],
+    "inferred_type": "integer"
+  },
+  "team.ha": {
+    "sample_values": [
+      367,
+      315,
+      438
+    ],
+    "inferred_type": "integer"
+  },
+  "team.hra": {
+    "sample_values": [
+      2,
+      4,
+      9
+    ],
+    "inferred_type": "integer"
+  },
+  "team.bba": {
+    "sample_values": [
+      42,
+      45,
+      32
+    ],
+    "inferred_type": "integer"
+  },
+  "team.soa": {
+    "sample_values": [
+      23,
+      13,
+      41
+    ],
+    "inferred_type": "integer"
+  },
+  "team.e": {
+    "sample_values": [
+      225,
+      220,
+      263
+    ],
+    "inferred_type": "integer"
+  },
+  "team.dp": {
+    "sample_values": [
+      "49",
+      "32",
+      "36"
+    ],
+    "inferred_type": "string"
+  },
+  "team.fp": {
+    "sample_values": [
+      0.83,
+      0.79,
+      0.89
+    ],
+    "inferred_type": "float"
+  },
+  "team.name": {
+    "sample_values": [
+      "Keokuk Westerns",
+      "Troy Haymakers",
+      "Washington Olympics"
+    ],
+    "inferred_type": "string"
+  },
+  "team.park": {
+    "sample_values": [
+      "Newington Park",
+      "Hamilton Park",
+      "Perry Park"
+    ],
+    "inferred_type": "string"
+  },
+  "team.attendance": {
+    "sample_values": [
+      "146421",
+      "148366",
+      "16064"
+    ],
+    "inferred_type": "string"
+  },
+  "team.bpf": {
+    "sample_values": [
+      103,
+      97,
+      98
+    ],
+    "inferred_type": "integer"
+  },
+  "team.ppf": {
+    "sample_values": [
+      98,
+      96,
+      105
+    ],
+    "inferred_type": "integer"
+  },
+  "team.team_id_br": {
+    "sample_values": [
+      "WES",
+      "TRO",
+      "OLY"
+    ],
+    "inferred_type": "string"
+  },
+  "team.team_id_lahman45": {
+    "sample_values": [
+      "HR1",
+      "TRO",
+      "WS3"
+    ],
+    "inferred_type": "string"
+  },
+  "team.team_id_retro": {
+    "sample_values": [
+      "HR1",
+      "TRO",
+      "WS3"
+    ],
+    "inferred_type": "string"
+  },
+  "team_franchise.franchise_id": {
+    "sample_values": [
+      "BUF",
+      "BFL",
+      "BLC"
+    ],
+    "inferred_type": "string"
+  },
+  "team_franchise.franchise_name": {
+    "sample_values": [
+      "Philadelphia Centennials",
+      "Baltimore Canaries",
+      "Baltimore Terrapins"
+    ],
+    "inferred_type": "string"
+  },
+  "team_franchise.active": {
+    "sample_values": [
+      "N",
+      "Y",
+      ""
+    ],
+    "inferred_type": "string"
+  },
+  "team_franchise.na_assoc": {
+    "sample_values": [
+      "SBS",
+      "CHC",
+      "ATL"
+    ],
+    "inferred_type": "string"
+  },
+  "team_half.league_id": {
+    "sample_values": [
+      "NL",
+      "AL"
+    ],
+    "inferred_type": "string"
+  },
+  "team_half.team_id": {
+    "sample_values": [
+      "PIT",
+      "CLE",
+      "DET"
+    ],
+    "inferred_type": "string"
+  },
+  "team_half.half": {
+    "sample_values": [
+      1,
+      2
+    ],
+    "inferred_type": "integer"
+  },
+  "team_half.div_id": {
+    "sample_values": [
+      "W",
+      "E"
+    ],
+    "inferred_type": "string"
+  },
+  "team_half.rank": {
+    "sample_values": [
+      4,
+      2,
+      3
+    ],
+    "inferred_type": "integer"
+  },
+  "team_half.g": {
+    "sample_values": [
+      54,
+      60,
+      55
+    ],
+    "inferred_type": "integer"
+  },
+  "team_half.w": {
+    "sample_values": [
+      25,
+      23,
+      27
+    ],
+    "inferred_type": "integer"
+  },
+  "team_half.l": {
+    "sample_values": [
+      29,
+      37,
+      25
+    ],
+    "inferred_type": "integer"
+  }
+}

@@ -1,0 +1,439 @@
+{
+  "Addresses.address_id": {
+    "sample_values": [
+      1,
+      6,
+      11
+    ],
+    "inferred_type": "integer"
+  },
+  "Addresses.address_details": {
+    "sample_values": [
+      "521 Molly Harbors Apt. 567\nReingerland, HI 97099-1005",
+      "69482 Renner Ville Suite 653\nLangworthborough, OH 95195",
+      "11784 Stehr Road\nPort Isaac, NV 61159"
+    ],
+    "inferred_type": "string"
+  },
+  "Staff.staff_id": {
+    "sample_values": [
+      1,
+      6,
+      11
+    ],
+    "inferred_type": "integer"
+  },
+  "Staff.staff_gender": {
+    "sample_values": [
+      "1",
+      "0"
+    ],
+    "inferred_type": "integer"
+  },
+  "Staff.staff_name": {
+    "sample_values": [
+      "Kristy",
+      "Yolanda",
+      "Tyson"
+    ],
+    "inferred_type": "string"
+  },
+  "Suppliers.supplier_id": {
+    "sample_values": [
+      1,
+      2,
+      3
+    ],
+    "inferred_type": "integer"
+  },
+  "Suppliers.supplier_name": {
+    "sample_values": [
+      "Audi",
+      "Tesco",
+      "AB Store"
+    ],
+    "inferred_type": "string"
+  },
+  "Suppliers.supplier_phone": {
+    "sample_values": [
+      "1-432-960-2402x1734",
+      "287-071-1153x254",
+      "1-483-283-4742"
+    ],
+    "inferred_type": "string"
+  },
+  "Department_Store_Chain.dept_store_chain_id": {
+    "sample_values": [
+      1,
+      2,
+      3
+    ],
+    "inferred_type": "integer"
+  },
+  "Department_Store_Chain.dept_store_chain_name": {
+    "sample_values": [
+      "North",
+      "East",
+      "West"
+    ],
+    "inferred_type": "string"
+  },
+  "Customers.customer_id": {
+    "sample_values": [
+      1,
+      6,
+      11
+    ],
+    "inferred_type": "integer"
+  },
+  "Customers.payment_method_code": {
+    "sample_values": [
+      "Credit Card",
+      "Direct Debit"
+    ],
+    "inferred_type": "string"
+  },
+  "Customers.customer_code": {
+    "sample_values": [
+      "401",
+      "916",
+      "611"
+    ],
+    "inferred_type": "integer"
+  },
+  "Customers.customer_name": {
+    "sample_values": [
+      "Lyric",
+      "Cristobal",
+      "Jon"
+    ],
+    "inferred_type": "string"
+  },
+  "Customers.customer_address": {
+    "sample_values": [
+      "649 Ocie Lights\nWyatttown, UT 12697",
+      "8327 Christiansen Lakes Suite 409\nSchneiderland, IA 93624",
+      "841 Goyette Unions\nSouth Dionbury, NC 62021"
+    ],
+    "inferred_type": "string"
+  },
+  "Customers.customer_phone": {
+    "sample_values": [
+      "1-472-036-0434",
+      "877-150-8674x63517",
+      "(443)013-3112x528"
+    ],
+    "inferred_type": "string"
+  },
+  "Customers.customer_email": {
+    "sample_values": [
+      "schultz.arnoldo@example.net",
+      "shawna.cummerata@example.net",
+      "cconroy@example.net"
+    ],
+    "inferred_type": "string"
+  },
+  "Products.product_id": {
+    "sample_values": [
+      1,
+      6,
+      11
+    ],
+    "inferred_type": "integer"
+  },
+  "Products.product_type_code": {
+    "sample_values": [
+      "Clothes",
+      "Hardware"
+    ],
+    "inferred_type": "string"
+  },
+  "Products.product_name": {
+    "sample_values": [
+      "mic",
+      "black topping",
+      "blue jeans"
+    ],
+    "inferred_type": "string"
+  },
+  "Products.product_price": {
+    "sample_values": [
+      734.73,
+      408.82,
+      803.74
+    ],
+    "inferred_type": "float"
+  },
+  "Supplier_Addresses.supplier_id": {
+    "sample_values": [
+      2,
+      3,
+      4
+    ],
+    "inferred_type": "integer"
+  },
+  "Supplier_Addresses.address_id": {
+    "sample_values": [
+      11,
+      2,
+      9
+    ],
+    "inferred_type": "integer"
+  },
+  "Supplier_Addresses.date_from": {
+    "sample_values": [
+      "2015-03-16 19:30:29",
+      "2008-11-22 12:01:25",
+      "2014-11-07 19:18:49"
+    ],
+    "inferred_type": "string"
+  },
+  "Supplier_Addresses.date_to": {
+    "sample_values": [
+      "2018-03-24 00:14:45",
+      "2018-03-02 19:50:22",
+      "2018-03-16 16:39:58"
+    ],
+    "inferred_type": "string"
+  },
+  "Customer_Addresses.customer_id": {
+    "sample_values": [
+      1,
+      4,
+      7
+    ],
+    "inferred_type": "integer"
+  },
+  "Customer_Addresses.address_id": {
+    "sample_values": [
+      2,
+      14,
+      13
+    ],
+    "inferred_type": "integer"
+  },
+  "Customer_Addresses.date_from": {
+    "sample_values": [
+      "2017-08-27 13:38:37",
+      "2017-08-06 20:57:36",
+      "2018-01-27 06:27:34"
+    ],
+    "inferred_type": "string"
+  },
+  "Customer_Addresses.date_to": {
+    "sample_values": [
+      "2018-03-17 15:44:10",
+      "2018-03-05 21:19:53",
+      "2018-03-23 17:49:51"
+    ],
+    "inferred_type": "string"
+  },
+  "Customer_Orders.order_id": {
+    "sample_values": [
+      1,
+      6,
+      11
+    ],
+    "inferred_type": "integer"
+  },
+  "Customer_Orders.customer_id": {
+    "sample_values": [
+      12,
+      11,
+      8
+    ],
+    "inferred_type": "integer"
+  },
+  "Customer_Orders.order_status_code": {
+    "sample_values": [
+      "Cancelled",
+      "Pending",
+      "PartFilled"
+    ],
+    "inferred_type": "string"
+  },
+  "Customer_Orders.order_date": {
+    "sample_values": [
+      "2018-03-16 22:42:46",
+      "2018-02-15 02:25:32",
+      "2018-03-06 16:35:51"
+    ],
+    "inferred_type": "string"
+  },
+  "Department_Stores.dept_store_id": {
+    "sample_values": [
+      1,
+      6,
+      11
+    ],
+    "inferred_type": "integer"
+  },
+  "Department_Stores.dept_store_chain_id": {
+    "sample_values": [
+      1,
+      3,
+      4
+    ],
+    "inferred_type": "integer"
+  },
+  "Department_Stores.store_address": {
+    "sample_values": [
+      "82470 Hansen Squares Suite 190\nWehnermouth, NC 76791",
+      "41924 Alfredo Cliff\nNew Eviestad, NY 17573",
+      "49708 Marcella Valleys Suite 181\nNinamouth, WA 86667"
+    ],
+    "inferred_type": "string"
+  },
+  "Department_Stores.store_phone": {
+    "sample_values": [
+      "(587)993-3604x3077",
+      "1-109-872-9142x77078",
+      "1-859-843-1957"
+    ],
+    "inferred_type": "string"
+  },
+  "Department_Stores.store_email": {
+    "sample_values": [
+      "kelly30@example.com",
+      "ihamill@example.org",
+      "jerod.reynolds@example.net"
+    ],
+    "inferred_type": "string"
+  },
+  "Departments.department_id": {
+    "sample_values": [
+      1,
+      2,
+      3
+    ],
+    "inferred_type": "integer"
+  },
+  "Departments.dept_store_id": {
+    "sample_values": [
+      5,
+      11,
+      4
+    ],
+    "inferred_type": "integer"
+  },
+  "Departments.department_name": {
+    "sample_values": [
+      "managing",
+      "advertising",
+      "marketing"
+    ],
+    "inferred_type": "string"
+  },
+  "Order_Items.order_item_id": {
+    "sample_values": [
+      1,
+      6,
+      11
+    ],
+    "inferred_type": "integer"
+  },
+  "Order_Items.order_id": {
+    "sample_values": [
+      9,
+      14,
+      12
+    ],
+    "inferred_type": "integer"
+  },
+  "Order_Items.product_id": {
+    "sample_values": [
+      7,
+      10,
+      8
+    ],
+    "inferred_type": "integer"
+  },
+  "Product_Suppliers.product_id": {
+    "sample_values": [
+      3,
+      6,
+      11
+    ],
+    "inferred_type": "integer"
+  },
+  "Product_Suppliers.supplier_id": {
+    "sample_values": [
+      3,
+      1,
+      4
+    ],
+    "inferred_type": "integer"
+  },
+  "Product_Suppliers.date_supplied_from": {
+    "sample_values": [
+      "2017-08-09 21:26:38",
+      "2017-07-13 15:02:24",
+      "2017-12-01 19:46:53"
+    ],
+    "inferred_type": "string"
+  },
+  "Product_Suppliers.date_supplied_to": {
+    "sample_values": [
+      "2018-03-24 18:16:47",
+      "2018-03-24 23:01:03",
+      "2018-03-24 05:22:36"
+    ],
+    "inferred_type": "string"
+  },
+  "Product_Suppliers.total_amount_purchased": {
+    "sample_values": [
+      "89366.05",
+      "35149.74",
+      "13712.91"
+    ],
+    "inferred_type": "float"
+  },
+  "Product_Suppliers.total_value_purchased": {
+    "sample_values": [
+      36014.6,
+      67216.31,
+      48100.23
+    ],
+    "inferred_type": "float"
+  },
+  "Staff_Department_Assignments.staff_id": {
+    "sample_values": [
+      1,
+      5,
+      8
+    ],
+    "inferred_type": "integer"
+  },
+  "Staff_Department_Assignments.department_id": {
+    "sample_values": [
+      5,
+      3,
+      4
+    ],
+    "inferred_type": "integer"
+  },
+  "Staff_Department_Assignments.date_assigned_from": {
+    "sample_values": [
+      "2016-06-24 17:31:24",
+      "2016-09-20 02:59:15",
+      "2017-11-14 04:38:44"
+    ],
+    "inferred_type": "string"
+  },
+  "Staff_Department_Assignments.job_title_code": {
+    "sample_values": [
+      "Administration",
+      "Clerical Staff",
+      "Sales Person"
+    ],
+    "inferred_type": "string"
+  },
+  "Staff_Department_Assignments.date_assigned_to": {
+    "sample_values": [
+      "2018-03-25 13:32:57",
+      "2018-03-24 20:13:13",
+      "2018-03-24 07:04:28"
+    ],
+    "inferred_type": "string"
+  }
+}

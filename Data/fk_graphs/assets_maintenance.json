@@ -1,0 +1,491 @@
+{
+  "db_name": "assets_maintenance",
+  "nodes": [
+    {
+      "name": "Third_Party_Companies",
+      "columns": [
+        {
+          "name": "company_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "company_type",
+          "type": "VARCHAR(5)"
+        },
+        {
+          "name": "company_name",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "company_address",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "other_company_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "pk": [
+        "company_id"
+      ]
+    },
+    {
+      "name": "Maintenance_Contracts",
+      "columns": [
+        {
+          "name": "maintenance_contract_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "maintenance_contract_company_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "contract_start_date",
+          "type": "DATETIME"
+        },
+        {
+          "name": "contract_end_date",
+          "type": "DATETIME"
+        },
+        {
+          "name": "other_contract_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "pk": [
+        "maintenance_contract_id"
+      ]
+    },
+    {
+      "name": "Parts",
+      "columns": [
+        {
+          "name": "part_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "part_name",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "chargeable_yn",
+          "type": "VARCHAR(1)"
+        },
+        {
+          "name": "chargeable_amount",
+          "type": "VARCHAR(20)"
+        },
+        {
+          "name": "other_part_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "pk": [
+        "part_id"
+      ]
+    },
+    {
+      "name": "Skills",
+      "columns": [
+        {
+          "name": "skill_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "skill_code",
+          "type": "VARCHAR(20)"
+        },
+        {
+          "name": "skill_description",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "pk": [
+        "skill_id"
+      ]
+    },
+    {
+      "name": "Staff",
+      "columns": [
+        {
+          "name": "staff_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "staff_name",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "gender",
+          "type": "VARCHAR(1)"
+        },
+        {
+          "name": "other_staff_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "pk": [
+        "staff_id"
+      ]
+    },
+    {
+      "name": "Assets",
+      "columns": [
+        {
+          "name": "asset_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "maintenance_contract_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "supplier_company_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "asset_details",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "asset_make",
+          "type": "VARCHAR(20)"
+        },
+        {
+          "name": "asset_model",
+          "type": "VARCHAR(20)"
+        },
+        {
+          "name": "asset_acquired_date",
+          "type": "DATETIME"
+        },
+        {
+          "name": "asset_disposed_date",
+          "type": "DATETIME"
+        },
+        {
+          "name": "other_asset_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "pk": [
+        "asset_id"
+      ]
+    },
+    {
+      "name": "Asset_Parts",
+      "columns": [
+        {
+          "name": "asset_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "part_id",
+          "type": "INTEGER"
+        }
+      ],
+      "pk": []
+    },
+    {
+      "name": "Maintenance_Engineers",
+      "columns": [
+        {
+          "name": "engineer_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "company_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "first_name",
+          "type": "VARCHAR(50)"
+        },
+        {
+          "name": "last_name",
+          "type": "VARCHAR(50)"
+        },
+        {
+          "name": "other_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "pk": [
+        "engineer_id"
+      ]
+    },
+    {
+      "name": "Engineer_Skills",
+      "columns": [
+        {
+          "name": "engineer_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "skill_id",
+          "type": "INTEGER"
+        }
+      ],
+      "pk": []
+    },
+    {
+      "name": "Fault_Log",
+      "columns": [
+        {
+          "name": "fault_log_entry_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "asset_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "recorded_by_staff_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "fault_log_entry_datetime",
+          "type": "DATETIME"
+        },
+        {
+          "name": "fault_description",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "other_fault_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "pk": [
+        "fault_log_entry_id"
+      ]
+    },
+    {
+      "name": "Engineer_Visits",
+      "columns": [
+        {
+          "name": "engineer_visit_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "contact_staff_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "engineer_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "fault_log_entry_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "fault_status",
+          "type": "VARCHAR(10)"
+        },
+        {
+          "name": "visit_start_datetime",
+          "type": "DATETIME"
+        },
+        {
+          "name": "visit_end_datetime",
+          "type": "DATETIME"
+        },
+        {
+          "name": "other_visit_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "pk": [
+        "engineer_visit_id"
+      ]
+    },
+    {
+      "name": "Part_Faults",
+      "columns": [
+        {
+          "name": "part_fault_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "part_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "fault_short_name",
+          "type": "VARCHAR(20)"
+        },
+        {
+          "name": "fault_description",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "other_fault_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "pk": [
+        "part_fault_id"
+      ]
+    },
+    {
+      "name": "Fault_Log_Parts",
+      "columns": [
+        {
+          "name": "fault_log_entry_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "part_fault_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "fault_status",
+          "type": "VARCHAR(10)"
+        }
+      ],
+      "pk": []
+    },
+    {
+      "name": "Skills_Required_To_Fix",
+      "columns": [
+        {
+          "name": "part_fault_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "skill_id",
+          "type": "INTEGER"
+        }
+      ],
+      "pk": []
+    }
+  ],
+  "edges": [
+    {
+      "from": "Maintenance_Contracts",
+      "to": "Third_Party_Companies",
+      "child_col": "maintenance_contract_company_id",
+      "parent_col": "company_id"
+    },
+    {
+      "from": "Assets",
+      "to": "Third_Party_Companies",
+      "child_col": "supplier_company_id",
+      "parent_col": "company_id"
+    },
+    {
+      "from": "Assets",
+      "to": "Maintenance_Contracts",
+      "child_col": "maintenance_contract_id",
+      "parent_col": "maintenance_contract_id"
+    },
+    {
+      "from": "Asset_Parts",
+      "to": "Assets",
+      "child_col": "asset_id",
+      "parent_col": "asset_id"
+    },
+    {
+      "from": "Asset_Parts",
+      "to": "Parts",
+      "child_col": "part_id",
+      "parent_col": "part_id"
+    },
+    {
+      "from": "Maintenance_Engineers",
+      "to": "Third_Party_Companies",
+      "child_col": "company_id",
+      "parent_col": "company_id"
+    },
+    {
+      "from": "Engineer_Skills",
+      "to": "Skills",
+      "child_col": "skill_id",
+      "parent_col": "skill_id"
+    },
+    {
+      "from": "Engineer_Skills",
+      "to": "Maintenance_Engineers",
+      "child_col": "engineer_id",
+      "parent_col": "engineer_id"
+    },
+    {
+      "from": "Fault_Log",
+      "to": "Staff",
+      "child_col": "recorded_by_staff_id",
+      "parent_col": "staff_id"
+    },
+    {
+      "from": "Fault_Log",
+      "to": "Assets",
+      "child_col": "asset_id",
+      "parent_col": "asset_id"
+    },
+    {
+      "from": "Engineer_Visits",
+      "to": "Staff",
+      "child_col": "contact_staff_id",
+      "parent_col": "staff_id"
+    },
+    {
+      "from": "Engineer_Visits",
+      "to": "Maintenance_Engineers",
+      "child_col": "engineer_id",
+      "parent_col": "engineer_id"
+    },
+    {
+      "from": "Engineer_Visits",
+      "to": "Fault_Log",
+      "child_col": "fault_log_entry_id",
+      "parent_col": "fault_log_entry_id"
+    },
+    {
+      "from": "Part_Faults",
+      "to": "Parts",
+      "child_col": "part_id",
+      "parent_col": "part_id"
+    },
+    {
+      "from": "Fault_Log_Parts",
+      "to": "Fault_Log",
+      "child_col": "fault_log_entry_id",
+      "parent_col": "fault_log_entry_id"
+    },
+    {
+      "from": "Fault_Log_Parts",
+      "to": "Part_Faults",
+      "child_col": "part_fault_id",
+      "parent_col": "part_fault_id"
+    },
+    {
+      "from": "Skills_Required_To_Fix",
+      "to": "Skills",
+      "child_col": "skill_id",
+      "parent_col": "skill_id"
+    },
+    {
+      "from": "Skills_Required_To_Fix",
+      "to": "Part_Faults",
+      "child_col": "part_fault_id",
+      "parent_col": "part_fault_id"
+    }
+  ],
+  "centrality": {
+    "Third_Party_Companies": 0.23076923076923078,
+    "Maintenance_Contracts": 0.07692307692307693,
+    "Parts": 0.15384615384615385,
+    "Skills": 0.15384615384615385,
+    "Staff": 0.15384615384615385,
+    "Assets": 0.15384615384615385,
+    "Asset_Parts": 0.0,
+    "Maintenance_Engineers": 0.15384615384615385,
+    "Engineer_Skills": 0.0,
+    "Fault_Log": 0.15384615384615385,
+    "Engineer_Visits": 0.0,
+    "Part_Faults": 0.15384615384615385,
+    "Fault_Log_Parts": 0.0,
+    "Skills_Required_To_Fix": 0.0
+  }
+}

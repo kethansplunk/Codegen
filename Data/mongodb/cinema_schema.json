@@ -1,0 +1,114 @@
+{
+  "db_name": "cinema",
+  "collections": {
+    "film": {
+      "primary_key": [
+        "Film_ID"
+      ],
+      "columns": [
+        {
+          "name": "Film_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Rank_in_series",
+          "type": "INT"
+        },
+        {
+          "name": "Number_in_season",
+          "type": "INT"
+        },
+        {
+          "name": "Title",
+          "type": "TEXT"
+        },
+        {
+          "name": "Directed_by",
+          "type": "TEXT"
+        },
+        {
+          "name": "Original_air_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "Production_code",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 5
+    },
+    "cinema": {
+      "primary_key": [
+        "Cinema_ID"
+      ],
+      "columns": [
+        {
+          "name": "Cinema_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Openning_year",
+          "type": "INT"
+        },
+        {
+          "name": "Capacity",
+          "type": "INT"
+        },
+        {
+          "name": "Location",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 10
+    },
+    "schedule": {
+      "primary_key": [
+        "Cinema_ID",
+        "Film_ID"
+      ],
+      "columns": [
+        {
+          "name": "Cinema_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Film_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Date",
+          "type": "TEXT"
+        },
+        {
+          "name": "Show_times_per_day",
+          "type": "INT"
+        },
+        {
+          "name": "Price",
+          "type": "float"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "schedule",
+          "to": "cinema",
+          "child_col": "Cinema_ID",
+          "parent_col": "Cinema_ID"
+        },
+        {
+          "from": "schedule",
+          "to": "film",
+          "child_col": "Film_ID",
+          "parent_col": "Film_ID"
+        }
+      ],
+      "row_count": 7
+    }
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "Authorship.paperID": {
+    "sample_values": [
+      "204",
+      "206",
+      "203"
+    ],
+    "inferred_type": "integer"
+  },
+  "Authorship.authID": {
+    "sample_values": [
+      "58",
+      "54",
+      "55"
+    ],
+    "inferred_type": "integer"
+  },
+  "Authorship.instID": {
+    "sample_values": [
+      "1060",
+      "1070",
+      "1040"
+    ],
+    "inferred_type": "integer"
+  },
+  "Authorship.authOrder": {
+    "sample_values": [
+      "1",
+      "3",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "Authors.fname": {
+    "sample_values": [
+      "Aaron",
+      "Matthias",
+      "Tim"
+    ],
+    "inferred_type": "string"
+  },
+  "Authors.lname": {
+    "sample_values": [
+      "James",
+      "Weirich",
+      "Shivers"
+    ],
+    "inferred_type": "string"
+  },
+  "Authors.authID": {
+    "sample_values": [
+      "58",
+      "54",
+      "55"
+    ],
+    "inferred_type": "integer"
+  },
+  "Papers.title": {
+    "sample_values": [
+      "An Equivalence-Preserving CPS Translation via Multi-Language Semantics",
+      "Binders Unbound",
+      "Functional Pearl: Modular Rollback through Control Logging"
+    ],
+    "inferred_type": "string"
+  },
+  "Papers.paperID": {
+    "sample_values": [
+      "204",
+      "206",
+      "203"
+    ],
+    "inferred_type": "integer"
+  },
+  "Inst.name": {
+    "sample_values": [
+      "University of Oxford",
+      "Google",
+      "Indiana University"
+    ],
+    "inferred_type": "string"
+  },
+  "Inst.country": {
+    "sample_values": [
+      "USA",
+      "UK",
+      "France"
+    ],
+    "inferred_type": "string"
+  },
+  "Inst.instID": {
+    "sample_values": [
+      "1060",
+      "1070",
+      "1040"
+    ],
+    "inferred_type": "integer"
+  }
+}

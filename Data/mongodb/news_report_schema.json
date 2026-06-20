@@ -1,0 +1,98 @@
+{
+  "db_name": "news_report",
+  "collections": {
+    "event": {
+      "primary_key": [
+        "Event_ID"
+      ],
+      "columns": [
+        {
+          "name": "Event_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Date",
+          "type": "TEXT"
+        },
+        {
+          "name": "Venue",
+          "type": "TEXT"
+        },
+        {
+          "name": "Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Event_Attendance",
+          "type": "INT"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 5
+    },
+    "journalist": {
+      "primary_key": [
+        "journalist_ID"
+      ],
+      "columns": [
+        {
+          "name": "journalist_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Nationality",
+          "type": "TEXT"
+        },
+        {
+          "name": "Age",
+          "type": "TEXT"
+        },
+        {
+          "name": "Years_working",
+          "type": "INT"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 11
+    },
+    "news_report": {
+      "primary_key": [
+        "journalist_ID",
+        "Event_ID"
+      ],
+      "columns": [
+        {
+          "name": "journalist_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Event_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Work_Type",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "news_report",
+          "to": "event",
+          "child_col": "Event_ID",
+          "parent_col": "Event_ID"
+        },
+        {
+          "from": "news_report",
+          "to": "journalist",
+          "child_col": "journalist_ID",
+          "parent_col": "journalist_ID"
+        }
+      ],
+      "row_count": 7
+    }
+  }
+}

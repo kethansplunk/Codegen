@@ -1,0 +1,401 @@
+{
+  "Regular_Orders.distributer_id": {
+    "sample_values": [
+      "10",
+      "8",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "Regular_Orders.regular_order_id": {
+    "sample_values": [
+      "5",
+      "8",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Trucks.truck_id": {
+    "sample_values": [
+      "5",
+      "8",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Trucks.truck_details": {
+    "sample_values": [
+      "Ricky",
+      "Laverna",
+      "Stacy"
+    ],
+    "inferred_type": "string"
+  },
+  "Trucks.truck_licence_number": {
+    "sample_values": [
+      "89343",
+      "47865",
+      "17106"
+    ],
+    "inferred_type": "integer"
+  },
+  "Products.product_price": {
+    "sample_values": [
+      "6402.09",
+      "1322.78",
+      "5022.39"
+    ],
+    "inferred_type": "float"
+  },
+  "Products.product_name": {
+    "sample_values": [
+      "cloth",
+      "food",
+      "dvds"
+    ],
+    "inferred_type": "string"
+  },
+  "Products.product_description": {
+    "sample_values": [
+      "bad condition",
+      "good condition",
+      "great condition"
+    ],
+    "inferred_type": "string"
+  },
+  "Products.product_id": {
+    "sample_values": [
+      "5",
+      "2",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "Order_Deliveries.truck_id": {
+    "sample_values": [
+      "10",
+      "1",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "Order_Deliveries.driver_employee_id": {
+    "sample_values": [
+      "14",
+      "12",
+      "13"
+    ],
+    "inferred_type": "integer"
+  },
+  "Order_Deliveries.location_code": {
+    "sample_values": [
+      "27 City Rd",
+      "34 Benz St",
+      "58 Roof Av"
+    ],
+    "inferred_type": "string"
+  },
+  "Order_Deliveries.actual_order_id": {
+    "sample_values": [
+      "5",
+      "8",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Order_Deliveries.delivery_status_code": {
+    "sample_values": [
+      "Delivered",
+      "On Road",
+      "Ready"
+    ],
+    "inferred_type": "string"
+  },
+  "Order_Deliveries.delivery_date": {
+    "sample_values": [
+      "2018-03-22 22:09:56",
+      "2018-03-06 22:39:17",
+      "2018-03-18 02:35:08"
+    ],
+    "inferred_type": "string"
+  },
+  "Delivery_Routes.other_route_details": {
+    "sample_values": [
+      "534 Lubowitz Terrace\nLake Tomfort, LA 52697-4998",
+      "36578 Kirsten Terrace\nKrajcikside, NH 29063",
+      "6534 Cheyenne Trace Suite 242\nKoryburgh, PA 21391-9164"
+    ],
+    "inferred_type": "string"
+  },
+  "Delivery_Routes.route_id": {
+    "sample_values": [
+      "5",
+      "8",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Delivery_Routes.route_name": {
+    "sample_values": [
+      "Torphy Ltd",
+      "Adams, Macejkovic and Carroll",
+      "Heidenreich Group"
+    ],
+    "inferred_type": "string"
+  },
+  "Actual_Orders.order_status_code": {
+    "sample_values": [
+      "Cancel",
+      "Success"
+    ],
+    "inferred_type": "string"
+  },
+  "Actual_Orders.regular_order_id": {
+    "sample_values": [
+      "10",
+      "8",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "Actual_Orders.actual_order_date": {
+    "sample_values": [
+      "2018-03-05 17:31:36",
+      "2018-03-02 23:26:19",
+      "2018-03-13 05:43:25"
+    ],
+    "inferred_type": "string"
+  },
+  "Actual_Orders.actual_order_id": {
+    "sample_values": [
+      "5",
+      "8",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Regular_Order_Products.regular_order_id": {
+    "sample_values": [
+      "10",
+      "12",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Regular_Order_Products.product_id": {
+    "sample_values": [
+      "5",
+      "2",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "Employees.employee_id": {
+    "sample_values": [
+      "5",
+      "8",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Employees.employee_address_id": {
+    "sample_values": [
+      "5",
+      "10",
+      "12"
+    ],
+    "inferred_type": "integer"
+  },
+  "Employees.employee_phone": {
+    "sample_values": [
+      "716-650-2081",
+      "(539)655-7194x3276",
+      "675.047.7555x13273"
+    ],
+    "inferred_type": "string"
+  },
+  "Employees.employee_name": {
+    "sample_values": [
+      "Sasha",
+      "Leonie",
+      "Rogelio"
+    ],
+    "inferred_type": "string"
+  },
+  "Addresses.address_id": {
+    "sample_values": [
+      "5",
+      "8",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Addresses.city": {
+    "sample_values": [
+      "East Frederic",
+      "Sawaynville",
+      "Mohrville"
+    ],
+    "inferred_type": "string"
+  },
+  "Addresses.zip_postcode": {
+    "sample_values": [
+      "3",
+      "934",
+      "827"
+    ],
+    "inferred_type": "integer"
+  },
+  "Addresses.state_province_county": {
+    "sample_values": [
+      "Maine",
+      "Ohio",
+      "Tennessee"
+    ],
+    "inferred_type": "string"
+  },
+  "Addresses.address_details": {
+    "sample_values": [
+      "41099 Crist Prairie Suite 507",
+      "203 Joseph Hills",
+      "57136 Eichmann Ranch Suite 091"
+    ],
+    "inferred_type": "string"
+  },
+  "Customer_Addresses.address_id": {
+    "sample_values": [
+      "5",
+      "2",
+      "3"
+    ],
+    "inferred_type": "integer"
+  },
+  "Customer_Addresses.date_to": {
+    "sample_values": [
+      "2018-03-18 12:45:44",
+      "2018-02-27 00:53:48",
+      "2018-03-17 12:51:37"
+    ],
+    "inferred_type": "string"
+  },
+  "Customer_Addresses.address_type": {
+    "sample_values": [
+      "House",
+      "Flat",
+      "Apartment"
+    ],
+    "inferred_type": "string"
+  },
+  "Customer_Addresses.customer_id": {
+    "sample_values": [
+      "10",
+      "8",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "Customer_Addresses.date_from": {
+    "sample_values": [
+      "2011-08-18 09:40:49",
+      "2013-05-06 00:49:45",
+      "2014-12-20 18:58:32"
+    ],
+    "inferred_type": "string"
+  },
+  "Actual_Order_Products.actual_order_id": {
+    "sample_values": [
+      "10",
+      "15",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "Actual_Order_Products.product_id": {
+    "sample_values": [
+      "5",
+      "2",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "Customers.customer_email": {
+    "sample_values": [
+      "elmira.langworth@example.org",
+      "rollin95@example.net",
+      "adriana83@example.org"
+    ],
+    "inferred_type": "string"
+  },
+  "Customers.date_became_customer": {
+    "sample_values": [
+      "2010-11-06 08:42:56",
+      "2015-09-09 09:29:06",
+      "2013-04-09 18:17:05"
+    ],
+    "inferred_type": "string"
+  },
+  "Customers.customer_phone": {
+    "sample_values": [
+      "1-005-644-2495",
+      "531-617-3230",
+      "6730471330"
+    ],
+    "inferred_type": "string"
+  },
+  "Customers.payment_method": {
+    "sample_values": [
+      "MasterCard",
+      "American",
+      "Discover"
+    ],
+    "inferred_type": "string"
+  },
+  "Customers.customer_id": {
+    "sample_values": [
+      "5",
+      "8",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Customers.customer_name": {
+    "sample_values": [
+      "Aracely Borer V",
+      "Amalia Hudson DDS",
+      "Jaden Lang"
+    ],
+    "inferred_type": "string"
+  },
+  "Delivery_Route_Locations.location_address_id": {
+    "sample_values": [
+      "10",
+      "6",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "Delivery_Route_Locations.location_name": {
+    "sample_values": [
+      "VonRueden, Schmeler and Fay",
+      "Hessel and Sons",
+      "Ledner-Kozey"
+    ],
+    "inferred_type": "string"
+  },
+  "Delivery_Route_Locations.location_code": {
+    "sample_values": [
+      "38 Enisner Av",
+      "79 Square St",
+      "73 Nancy Av"
+    ],
+    "inferred_type": "string"
+  },
+  "Delivery_Route_Locations.route_id": {
+    "sample_values": [
+      "10",
+      "8",
+      "13"
+    ],
+    "inferred_type": "integer"
+  }
+}

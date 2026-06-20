@@ -1,0 +1,156 @@
+{
+  "db_name": "restaurant_1",
+  "collections": {
+    "Student": {
+      "primary_key": [
+        "StuID"
+      ],
+      "columns": [
+        {
+          "name": "StuID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "LName",
+          "type": "VARCHAR(12)"
+        },
+        {
+          "name": "Fname",
+          "type": "VARCHAR(12)"
+        },
+        {
+          "name": "Age",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Sex",
+          "type": "VARCHAR(1)"
+        },
+        {
+          "name": "Major",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Advisor",
+          "type": "INTEGER"
+        },
+        {
+          "name": "city_code",
+          "type": "VARCHAR(3)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 34
+    },
+    "Restaurant": {
+      "primary_key": [
+        "ResID"
+      ],
+      "columns": [
+        {
+          "name": "ResID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "ResName",
+          "type": "VARCHAR(100)"
+        },
+        {
+          "name": "Address",
+          "type": "VARCHAR(100)"
+        },
+        {
+          "name": "Rating",
+          "type": "INTEGER"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 2
+    },
+    "Type_Of_Restaurant": {
+      "primary_key": [],
+      "columns": [
+        {
+          "name": "ResID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "ResTypeID",
+          "type": "INTEGER"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Type_Of_Restaurant",
+          "to": "Restaurant_Type",
+          "child_col": "ResTypeID",
+          "parent_col": "ResTypeID"
+        },
+        {
+          "from": "Type_Of_Restaurant",
+          "to": "Restaurant",
+          "child_col": "ResID",
+          "parent_col": "ResID"
+        }
+      ],
+      "row_count": 2
+    },
+    "Restaurant_Type": {
+      "primary_key": [
+        "ResTypeID"
+      ],
+      "columns": [
+        {
+          "name": "ResTypeID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "ResTypeName",
+          "type": "VARCHAR(40)"
+        },
+        {
+          "name": "ResTypeDescription",
+          "type": "VARCHAR(100)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 2
+    },
+    "Visits_Restaurant": {
+      "primary_key": [],
+      "columns": [
+        {
+          "name": "StuID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "ResID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Time",
+          "type": "TIMESTAMP"
+        },
+        {
+          "name": "Spent",
+          "type": "FLOAT"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Visits_Restaurant",
+          "to": "Restaurant",
+          "child_col": "ResID",
+          "parent_col": "ResID"
+        },
+        {
+          "from": "Visits_Restaurant",
+          "to": "Student",
+          "child_col": "StuID",
+          "parent_col": "StuID"
+        }
+      ],
+      "row_count": 2
+    }
+  }
+}

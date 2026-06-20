@@ -1,0 +1,239 @@
+{
+  "Customers.email_address": {
+    "sample_values": [
+      "hsteuber@example.org",
+      "vbogisich@example.org",
+      "vida86@example.com"
+    ],
+    "inferred_type": "string"
+  },
+  "Customers.town_city": {
+    "sample_values": [
+      "Tyreekhaven",
+      "Maryamport",
+      "Funkstad"
+    ],
+    "inferred_type": "string"
+  },
+  "Customers.phone_number": {
+    "sample_values": [
+      "1-369-302-7623x576",
+      "578.019.7943x328",
+      "044-468-4549"
+    ],
+    "inferred_type": "string"
+  },
+  "Customers.address_line_1": {
+    "sample_values": [
+      "1566 Ramona Overpass Apt. 464",
+      "425 Roman Tunnel",
+      "518 Mann Park"
+    ],
+    "inferred_type": "string"
+  },
+  "Customers.state": {
+    "sample_values": [
+      "Pennsylvania",
+      "Tennessee",
+      "Colorado"
+    ],
+    "inferred_type": "string"
+  },
+  "Customers.address_line_2": {
+    "sample_values": [
+      "Suite 959",
+      "Suite 151",
+      "Apt. 495"
+    ],
+    "inferred_type": "string"
+  },
+  "Customers.customer_id": {
+    "sample_values": [
+      "120",
+      "113",
+      "115"
+    ],
+    "inferred_type": "integer"
+  },
+  "Customers.customer_type_code": {
+    "sample_values": [
+      "Defaults on payments",
+      "Good Credit Rating"
+    ],
+    "inferred_type": "string"
+  },
+  "Complaints.date_complaint_raised": {
+    "sample_values": [
+      "2006-10-29 07:08:46",
+      "2007-10-14 21:50:43",
+      "1973-02-10 22:55:56"
+    ],
+    "inferred_type": "string"
+  },
+  "Complaints.complaint_status_code": {
+    "sample_values": [
+      "Open",
+      "New",
+      "Closed"
+    ],
+    "inferred_type": "string"
+  },
+  "Complaints.date_complaint_closed": {
+    "sample_values": [
+      "1970-10-14 00:57:25",
+      "1976-04-19 11:03:06",
+      "2000-08-17 17:02:48"
+    ],
+    "inferred_type": "string"
+  },
+  "Complaints.complaint_type_code": {
+    "sample_values": [
+      "Product Unusable",
+      "Product Failure"
+    ],
+    "inferred_type": "string"
+  },
+  "Complaints.product_id": {
+    "sample_values": [
+      "120",
+      "117",
+      "119"
+    ],
+    "inferred_type": "integer"
+  },
+  "Complaints.customer_id": {
+    "sample_values": [
+      "120",
+      "113",
+      "115"
+    ],
+    "inferred_type": "integer"
+  },
+  "Complaints.staff_id": {
+    "sample_values": [
+      "120",
+      "114",
+      "116"
+    ],
+    "inferred_type": "integer"
+  },
+  "Complaints.complaint_id": {
+    "sample_values": [
+      "5",
+      "12",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "Staff.email_address": {
+    "sample_values": [
+      "wrau@example.com",
+      "brett99@example.net",
+      "marcelle.ritchie@example.com"
+    ],
+    "inferred_type": "string"
+  },
+  "Staff.last_name": {
+    "sample_values": [
+      "Lynch",
+      "Boehm",
+      "Erdman"
+    ],
+    "inferred_type": "string"
+  },
+  "Staff.phone_number": {
+    "sample_values": [
+      "345-656-5571",
+      "(379)551-0838x146",
+      "142-311-6503x206"
+    ],
+    "inferred_type": "string"
+  },
+  "Staff.first_name": {
+    "sample_values": [
+      "Dagmar",
+      "Mikel",
+      "Lucie"
+    ],
+    "inferred_type": "string"
+  },
+  "Staff.gender": {
+    "sample_values": [
+      "1",
+      "0"
+    ],
+    "inferred_type": "integer"
+  },
+  "Staff.staff_id": {
+    "sample_values": [
+      "120",
+      "114",
+      "116"
+    ],
+    "inferred_type": "integer"
+  },
+  "Products.date_product_discontinued": {
+    "sample_values": [
+      "1991-08-20 05:22:31",
+      "1980-06-26 10:40:19",
+      "1987-12-20 13:46:16"
+    ],
+    "inferred_type": "string"
+  },
+  "Products.date_product_first_available": {
+    "sample_values": [
+      "1994-12-18 15:13:19",
+      "1974-06-25 12:26:47",
+      "1998-06-20 15:04:11"
+    ],
+    "inferred_type": "string"
+  },
+  "Products.product_name": {
+    "sample_values": [
+      "Keyboard",
+      "Chocolate",
+      "The Great Gatsby"
+    ],
+    "inferred_type": "string"
+  },
+  "Products.product_category_code": {
+    "sample_values": [
+      "Food",
+      "Hardware",
+      "Book"
+    ],
+    "inferred_type": "string"
+  },
+  "Products.parent_product_id": {
+    "sample_values": [
+      "8",
+      "3",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Products.product_description": {
+    "sample_values": [
+      "American novel",
+      "Designed for games",
+      "Handmade chocolate"
+    ],
+    "inferred_type": "string"
+  },
+  "Products.product_id": {
+    "sample_values": [
+      "120",
+      "117",
+      "119"
+    ],
+    "inferred_type": "integer"
+  },
+  "Products.product_price": {
+    "sample_values": [
+      "35",
+      "109.99",
+      "23.35"
+    ],
+    "inferred_type": "float"
+  }
+}

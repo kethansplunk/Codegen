@@ -1,0 +1,98 @@
+{
+  "Inst.instID": {
+    "sample_values": [
+      1000,
+      1020,
+      1040
+    ],
+    "inferred_type": "integer"
+  },
+  "Inst.name": {
+    "sample_values": [
+      "INRIA",
+      "Northeastern University",
+      "Indiana University"
+    ],
+    "inferred_type": "string"
+  },
+  "Inst.country": {
+    "sample_values": [
+      "France",
+      "Japan",
+      "USA"
+    ],
+    "inferred_type": "string"
+  },
+  "Authors.authID": {
+    "sample_values": [
+      50,
+      54,
+      58
+    ],
+    "inferred_type": "integer"
+  },
+  "Authors.lname": {
+    "sample_values": [
+      "Sheard",
+      "Ahmed",
+      "Shivers"
+    ],
+    "inferred_type": "string"
+  },
+  "Authors.fname": {
+    "sample_values": [
+      "Tim",
+      "Amal",
+      "Olin"
+    ],
+    "inferred_type": "string"
+  },
+  "Papers.paperID": {
+    "sample_values": [
+      200,
+      202,
+      204
+    ],
+    "inferred_type": "integer"
+  },
+  "Papers.title": {
+    "sample_values": [
+      "Binders Unbound",
+      "Proving the Unique Fixed-Point Principle Correct: An Adventure with Category Theory",
+      "Functional Pearl: Modular Rollback through Control Logging"
+    ],
+    "inferred_type": "string"
+  },
+  "Authorship.authID": {
+    "sample_values": [
+      50,
+      54,
+      58
+    ],
+    "inferred_type": "integer"
+  },
+  "Authorship.instID": {
+    "sample_values": [
+      1000,
+      1020,
+      1040
+    ],
+    "inferred_type": "integer"
+  },
+  "Authorship.paperID": {
+    "sample_values": [
+      200,
+      202,
+      204
+    ],
+    "inferred_type": "integer"
+  },
+  "Authorship.authOrder": {
+    "sample_values": [
+      1,
+      2,
+      3
+    ],
+    "inferred_type": "integer"
+  }
+}

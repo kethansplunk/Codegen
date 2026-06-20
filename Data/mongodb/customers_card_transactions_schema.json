@@ -1,0 +1,160 @@
+{
+  "db_name": "customers_card_transactions",
+  "collections": {
+    "Accounts": {
+      "primary_key": [
+        "account_id"
+      ],
+      "columns": [
+        {
+          "name": "account_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "customer_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "account_name",
+          "type": "VARCHAR(50)"
+        },
+        {
+          "name": "other_account_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 15
+    },
+    "Customers": {
+      "primary_key": [
+        "customer_id"
+      ],
+      "columns": [
+        {
+          "name": "customer_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "customer_first_name",
+          "type": "VARCHAR(20)"
+        },
+        {
+          "name": "customer_last_name",
+          "type": "VARCHAR(20)"
+        },
+        {
+          "name": "customer_address",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "customer_phone",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "customer_email",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "other_customer_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 15
+    },
+    "Customers_Cards": {
+      "primary_key": [
+        "card_id"
+      ],
+      "columns": [
+        {
+          "name": "card_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "customer_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "card_type_code",
+          "type": "VARCHAR(15)"
+        },
+        {
+          "name": "card_number",
+          "type": "VARCHAR(80)"
+        },
+        {
+          "name": "date_valid_from",
+          "type": "DATETIME"
+        },
+        {
+          "name": "date_valid_to",
+          "type": "DATETIME"
+        },
+        {
+          "name": "other_card_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 15
+    },
+    "Financial_Transactions": {
+      "primary_key": [],
+      "columns": [
+        {
+          "name": "transaction_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "previous_transaction_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "account_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "card_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "transaction_type",
+          "type": "VARCHAR(15)"
+        },
+        {
+          "name": "transaction_date",
+          "type": "DATETIME"
+        },
+        {
+          "name": "transaction_amount",
+          "type": "DOUBLE"
+        },
+        {
+          "name": "transaction_comment",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "other_transaction_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Financial_Transactions",
+          "to": "Accounts",
+          "child_col": "account_id",
+          "parent_col": "account_id"
+        },
+        {
+          "from": "Financial_Transactions",
+          "to": "Customers_Cards",
+          "child_col": "card_id",
+          "parent_col": "card_id"
+        }
+      ],
+      "row_count": 15
+    }
+  }
+}

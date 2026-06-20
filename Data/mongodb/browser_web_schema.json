@@ -1,0 +1,90 @@
+{
+  "db_name": "browser_web",
+  "collections": {
+    "Web_client_accelerator": {
+      "primary_key": [
+        "id"
+      ],
+      "columns": [
+        {
+          "name": "id",
+          "type": "INT"
+        },
+        {
+          "name": "name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Operating_system",
+          "type": "TEXT"
+        },
+        {
+          "name": "Client",
+          "type": "TEXT"
+        },
+        {
+          "name": "Connection",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 19
+    },
+    "browser": {
+      "primary_key": [
+        "id"
+      ],
+      "columns": [
+        {
+          "name": "id",
+          "type": "INT"
+        },
+        {
+          "name": "name",
+          "type": "TEXT"
+        },
+        {
+          "name": "market_share",
+          "type": "REAL"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 4
+    },
+    "accelerator_compatible_browser": {
+      "primary_key": [
+        "accelerator_id",
+        "browser_id"
+      ],
+      "columns": [
+        {
+          "name": "accelerator_id",
+          "type": "INT"
+        },
+        {
+          "name": "browser_id",
+          "type": "INT"
+        },
+        {
+          "name": "compatible_since_year",
+          "type": "INT"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "accelerator_compatible_browser",
+          "to": "browser",
+          "child_col": "browser_id",
+          "parent_col": "id"
+        },
+        {
+          "from": "accelerator_compatible_browser",
+          "to": "Web_client_accelerator",
+          "child_col": "accelerator_id",
+          "parent_col": "id"
+        }
+      ],
+      "row_count": 9
+    }
+  }
+}

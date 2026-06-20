@@ -1,0 +1,282 @@
+{
+  "jobs.JOB_TITLE": {
+    "sample_values": [
+      "Administration Assistant",
+      "Finance Manager",
+      "Programmer"
+    ],
+    "inferred_type": "string"
+  },
+  "jobs.MAX_SALARY": {
+    "sample_values": [
+      "30000",
+      "10500",
+      "40000"
+    ],
+    "inferred_type": "integer"
+  },
+  "jobs.MIN_SALARY": {
+    "sample_values": [
+      "4000",
+      "8200",
+      "2000"
+    ],
+    "inferred_type": "integer"
+  },
+  "jobs.JOB_ID": {
+    "sample_values": [
+      "SA_MAN",
+      "FI_MGR",
+      "AC_MGR"
+    ],
+    "inferred_type": "string"
+  },
+  "locations.STREET_ADDRESS": {
+    "sample_values": [
+      "12-98 Victoria Street",
+      "20 Rue des Corps-Saints",
+      "198 Clementi North"
+    ],
+    "inferred_type": "string"
+  },
+  "locations.COUNTRY_ID": {
+    "sample_values": [
+      "JP",
+      "NL",
+      "UK"
+    ],
+    "inferred_type": "string"
+  },
+  "locations.CITY": {
+    "sample_values": [
+      "Mexico City",
+      "Stretford",
+      "South Brunswick"
+    ],
+    "inferred_type": "string"
+  },
+  "locations.STATE_PROVINCE": {
+    "sample_values": [
+      "Manchester",
+      "New South Wales",
+      "Ontario"
+    ],
+    "inferred_type": "string"
+  },
+  "locations.POSTAL_CODE": {
+    "sample_values": [
+      "9629850293",
+      "1689",
+      "190518"
+    ],
+    "inferred_type": "string"
+  },
+  "locations.LOCATION_ID": {
+    "sample_values": [
+      "2100",
+      "2500",
+      "2200"
+    ],
+    "inferred_type": "integer"
+  },
+  "countries.COUNTRY_NAME": {
+    "sample_values": [
+      "Italy",
+      "Belgium",
+      "Zambia"
+    ],
+    "inferred_type": "string"
+  },
+  "countries.REGION_ID": {
+    "sample_values": [
+      "1",
+      "3",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "countries.COUNTRY_ID": {
+    "sample_values": [
+      "FR",
+      "UK",
+      "IN"
+    ],
+    "inferred_type": "string"
+  },
+  "employees.EMAIL": {
+    "sample_values": [
+      "JLANDRY",
+      "LDEHAAN",
+      "BERNST"
+    ],
+    "inferred_type": "string"
+  },
+  "employees.JOB_ID": {
+    "sample_values": [
+      "FI_MGR",
+      "ST_CLERK",
+      "AD_VP"
+    ],
+    "inferred_type": "string"
+  },
+  "employees.FIRST_NAME": {
+    "sample_values": [
+      "Nancy",
+      "Joshua",
+      "Ismael"
+    ],
+    "inferred_type": "string"
+  },
+  "employees.HIRE_DATE": {
+    "sample_values": [
+      "1987-07-07",
+      "1987-06-19",
+      "1987-07-15"
+    ],
+    "inferred_type": "string"
+  },
+  "employees.EMPLOYEE_ID": {
+    "sample_values": [
+      "108",
+      "105",
+      "133"
+    ],
+    "inferred_type": "integer"
+  },
+  "employees.PHONE_NUMBER": {
+    "sample_values": [
+      "650.127.1634",
+      "515.123.4568",
+      "650.124.1434"
+    ],
+    "inferred_type": "string"
+  },
+  "employees.SALARY": {
+    "sample_values": [
+      "24000",
+      "2500",
+      "7800"
+    ],
+    "inferred_type": "integer"
+  },
+  "employees.DEPARTMENT_ID": {
+    "sample_values": [
+      "100",
+      "60",
+      "50"
+    ],
+    "inferred_type": "integer"
+  },
+  "employees.LAST_NAME": {
+    "sample_values": [
+      "Gee",
+      "Raphaely",
+      "Ernst"
+    ],
+    "inferred_type": "string"
+  },
+  "employees.MANAGER_ID": {
+    "sample_values": [
+      "108",
+      "103",
+      "124"
+    ],
+    "inferred_type": "integer"
+  },
+  "employees.COMMISSION_PCT": {
+    "sample_values": [
+      "0.2",
+      "0",
+      "0.4"
+    ],
+    "inferred_type": "float"
+  },
+  "departments.DEPARTMENT_ID": {
+    "sample_values": [
+      "120",
+      "230",
+      "20"
+    ],
+    "inferred_type": "integer"
+  },
+  "departments.DEPARTMENT_NAME": {
+    "sample_values": [
+      "Benefits",
+      "NOC",
+      "Payroll"
+    ],
+    "inferred_type": "string"
+  },
+  "departments.MANAGER_ID": {
+    "sample_values": [
+      "108",
+      "121",
+      "114"
+    ],
+    "inferred_type": "integer"
+  },
+  "departments.LOCATION_ID": {
+    "sample_values": [
+      "1400",
+      "1500",
+      "1800"
+    ],
+    "inferred_type": "integer"
+  },
+  "job_history.JOB_ID": {
+    "sample_values": [
+      "SA_MAN",
+      "AC_MGR",
+      "AD_ASST"
+    ],
+    "inferred_type": "string"
+  },
+  "job_history.START_DATE": {
+    "sample_values": [
+      "1993-01-13",
+      "1993-10-28",
+      "1989-09-21"
+    ],
+    "inferred_type": "string"
+  },
+  "job_history.EMPLOYEE_ID": {
+    "sample_values": [
+      "200",
+      "0",
+      "114"
+    ],
+    "inferred_type": "integer"
+  },
+  "job_history.DEPARTMENT_ID": {
+    "sample_values": [
+      "110",
+      "0",
+      "90"
+    ],
+    "inferred_type": "integer"
+  },
+  "job_history.END_DATE": {
+    "sample_values": [
+      "1997-03-15",
+      "1998-07-24",
+      "1998-12-31"
+    ],
+    "inferred_type": "string"
+  },
+  "regions.REGION_ID": {
+    "sample_values": [
+      "1",
+      "3",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "regions.REGION_NAME": {
+    "sample_values": [
+      "Europe\\r",
+      "Middle East and Africa\\r",
+      "Asia\\r"
+    ],
+    "inferred_type": "string"
+  }
+}

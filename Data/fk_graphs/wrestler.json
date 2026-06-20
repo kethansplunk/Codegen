@@ -1,0 +1,81 @@
+{
+  "db_name": "wrestler",
+  "nodes": [
+    {
+      "name": "wrestler",
+      "columns": [
+        {
+          "name": "Wrestler_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Reign",
+          "type": "TEXT"
+        },
+        {
+          "name": "Days_held",
+          "type": "TEXT"
+        },
+        {
+          "name": "Location",
+          "type": "TEXT"
+        },
+        {
+          "name": "Event",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "Wrestler_ID"
+      ]
+    },
+    {
+      "name": "Elimination",
+      "columns": [
+        {
+          "name": "Elimination_ID",
+          "type": "TEXT"
+        },
+        {
+          "name": "Wrestler_ID",
+          "type": "TEXT"
+        },
+        {
+          "name": "Team",
+          "type": "TEXT"
+        },
+        {
+          "name": "Eliminated_By",
+          "type": "TEXT"
+        },
+        {
+          "name": "Elimination_Move",
+          "type": "TEXT"
+        },
+        {
+          "name": "Time",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "Elimination_ID"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "Elimination",
+      "to": "wrestler",
+      "child_col": "Wrestler_ID",
+      "parent_col": "Wrestler_ID"
+    }
+  ],
+  "centrality": {
+    "wrestler": 1.0,
+    "Elimination": 0.0
+  }
+}

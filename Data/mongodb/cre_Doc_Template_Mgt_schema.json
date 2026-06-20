@@ -1,0 +1,130 @@
+{
+  "db_name": "cre_Doc_Template_Mgt",
+  "collections": {
+    "Ref_Template_Types": {
+      "primary_key": [
+        "Template_Type_Code"
+      ],
+      "columns": [
+        {
+          "name": "Template_Type_Code",
+          "type": "CHAR(15)"
+        },
+        {
+          "name": "Template_Type_Description",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 5
+    },
+    "Templates": {
+      "primary_key": [
+        "Template_ID"
+      ],
+      "columns": [
+        {
+          "name": "Template_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Version_Number",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Template_Type_Code",
+          "type": "CHAR(15)"
+        },
+        {
+          "name": "Date_Effective_From",
+          "type": "DATETIME"
+        },
+        {
+          "name": "Date_Effective_To",
+          "type": "DATETIME"
+        },
+        {
+          "name": "Template_Details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Templates",
+          "to": "Ref_Template_Types",
+          "child_col": "Template_Type_Code",
+          "parent_col": "Template_Type_Code"
+        }
+      ],
+      "row_count": 20
+    },
+    "Documents": {
+      "primary_key": [
+        "Document_ID"
+      ],
+      "columns": [
+        {
+          "name": "Document_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Template_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Document_Name",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "Document_Description",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "Other_Details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Documents",
+          "to": "Templates",
+          "child_col": "Template_ID",
+          "parent_col": "Template_ID"
+        }
+      ],
+      "row_count": 15
+    },
+    "Paragraphs": {
+      "primary_key": [
+        "Paragraph_ID"
+      ],
+      "columns": [
+        {
+          "name": "Paragraph_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Document_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Paragraph_Text",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "Other_Details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Paragraphs",
+          "to": "Documents",
+          "child_col": "Document_ID",
+          "parent_col": "Document_ID"
+        }
+      ],
+      "row_count": 15
+    }
+  }
+}

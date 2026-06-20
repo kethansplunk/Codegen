@@ -1,0 +1,380 @@
+{
+  "db_name": "college_2",
+  "nodes": [
+    {
+      "name": "classroom",
+      "columns": [
+        {
+          "name": "building",
+          "type": "varchar(15)"
+        },
+        {
+          "name": "room_number",
+          "type": "varchar(7)"
+        },
+        {
+          "name": "capacity",
+          "type": "numeric(4,0)"
+        }
+      ],
+      "pk": [
+        "building",
+        "room_number"
+      ]
+    },
+    {
+      "name": "department",
+      "columns": [
+        {
+          "name": "dept_name",
+          "type": "varchar(20)"
+        },
+        {
+          "name": "building",
+          "type": "varchar(15)"
+        },
+        {
+          "name": "budget",
+          "type": "numeric(12,2)"
+        }
+      ],
+      "pk": [
+        "dept_name"
+      ]
+    },
+    {
+      "name": "course",
+      "columns": [
+        {
+          "name": "course_id",
+          "type": "varchar(8)"
+        },
+        {
+          "name": "title",
+          "type": "varchar(50)"
+        },
+        {
+          "name": "dept_name",
+          "type": "varchar(20)"
+        },
+        {
+          "name": "credits",
+          "type": "numeric(2,0)"
+        }
+      ],
+      "pk": [
+        "course_id"
+      ]
+    },
+    {
+      "name": "instructor",
+      "columns": [
+        {
+          "name": "ID",
+          "type": "varchar(5)"
+        },
+        {
+          "name": "name",
+          "type": "varchar(20)"
+        },
+        {
+          "name": "dept_name",
+          "type": "varchar(20)"
+        },
+        {
+          "name": "salary",
+          "type": "numeric(8,2)"
+        }
+      ],
+      "pk": [
+        "ID"
+      ]
+    },
+    {
+      "name": "section",
+      "columns": [
+        {
+          "name": "course_id",
+          "type": "varchar(8)"
+        },
+        {
+          "name": "sec_id",
+          "type": "varchar(8)"
+        },
+        {
+          "name": "semester",
+          "type": "varchar(6)"
+        },
+        {
+          "name": "year",
+          "type": "numeric(4,0)"
+        },
+        {
+          "name": "building",
+          "type": "varchar(15)"
+        },
+        {
+          "name": "room_number",
+          "type": "varchar(7)"
+        },
+        {
+          "name": "time_slot_id",
+          "type": "varchar(4)"
+        }
+      ],
+      "pk": [
+        "course_id",
+        "sec_id",
+        "semester",
+        "year"
+      ]
+    },
+    {
+      "name": "teaches",
+      "columns": [
+        {
+          "name": "ID",
+          "type": "varchar(5)"
+        },
+        {
+          "name": "course_id",
+          "type": "varchar(8)"
+        },
+        {
+          "name": "sec_id",
+          "type": "varchar(8)"
+        },
+        {
+          "name": "semester",
+          "type": "varchar(6)"
+        },
+        {
+          "name": "year",
+          "type": "numeric(4,0)"
+        }
+      ],
+      "pk": [
+        "ID",
+        "course_id",
+        "sec_id",
+        "semester",
+        "year"
+      ]
+    },
+    {
+      "name": "student",
+      "columns": [
+        {
+          "name": "ID",
+          "type": "varchar(5)"
+        },
+        {
+          "name": "name",
+          "type": "varchar(20)"
+        },
+        {
+          "name": "dept_name",
+          "type": "varchar(20)"
+        },
+        {
+          "name": "tot_cred",
+          "type": "numeric(3,0)"
+        }
+      ],
+      "pk": [
+        "ID"
+      ]
+    },
+    {
+      "name": "takes",
+      "columns": [
+        {
+          "name": "ID",
+          "type": "varchar(5)"
+        },
+        {
+          "name": "course_id",
+          "type": "varchar(8)"
+        },
+        {
+          "name": "sec_id",
+          "type": "varchar(8)"
+        },
+        {
+          "name": "semester",
+          "type": "varchar(6)"
+        },
+        {
+          "name": "year",
+          "type": "numeric(4,0)"
+        },
+        {
+          "name": "grade",
+          "type": "varchar(2)"
+        }
+      ],
+      "pk": [
+        "ID",
+        "course_id",
+        "sec_id",
+        "semester",
+        "year"
+      ]
+    },
+    {
+      "name": "advisor",
+      "columns": [
+        {
+          "name": "s_ID",
+          "type": "varchar(5)"
+        },
+        {
+          "name": "i_ID",
+          "type": "varchar(5)"
+        }
+      ],
+      "pk": [
+        "s_ID"
+      ]
+    },
+    {
+      "name": "time_slot",
+      "columns": [
+        {
+          "name": "time_slot_id",
+          "type": "varchar(4)"
+        },
+        {
+          "name": "day",
+          "type": "varchar(1)"
+        },
+        {
+          "name": "start_hr",
+          "type": "numeric(2)"
+        },
+        {
+          "name": "start_min",
+          "type": "numeric(2)"
+        },
+        {
+          "name": "end_hr",
+          "type": "numeric(2)"
+        },
+        {
+          "name": "end_min",
+          "type": "numeric(2)"
+        }
+      ],
+      "pk": [
+        "time_slot_id",
+        "day",
+        "start_hr",
+        "start_min"
+      ]
+    },
+    {
+      "name": "prereq",
+      "columns": [
+        {
+          "name": "course_id",
+          "type": "varchar(8)"
+        },
+        {
+          "name": "prereq_id",
+          "type": "varchar(8)"
+        }
+      ],
+      "pk": [
+        "course_id",
+        "prereq_id"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "course",
+      "to": "department",
+      "child_col": "dept_name",
+      "parent_col": "dept_name"
+    },
+    {
+      "from": "instructor",
+      "to": "department",
+      "child_col": "dept_name",
+      "parent_col": "dept_name"
+    },
+    {
+      "from": "section",
+      "to": "classroom",
+      "child_col": "room_number",
+      "parent_col": "room_number"
+    },
+    {
+      "from": "section",
+      "to": "course",
+      "child_col": "course_id",
+      "parent_col": "course_id"
+    },
+    {
+      "from": "teaches",
+      "to": "instructor",
+      "child_col": "ID",
+      "parent_col": "ID"
+    },
+    {
+      "from": "teaches",
+      "to": "section",
+      "child_col": "year",
+      "parent_col": "year"
+    },
+    {
+      "from": "student",
+      "to": "department",
+      "child_col": "dept_name",
+      "parent_col": "dept_name"
+    },
+    {
+      "from": "takes",
+      "to": "student",
+      "child_col": "ID",
+      "parent_col": "ID"
+    },
+    {
+      "from": "takes",
+      "to": "section",
+      "child_col": "year",
+      "parent_col": "year"
+    },
+    {
+      "from": "advisor",
+      "to": "student",
+      "child_col": "s_ID",
+      "parent_col": "ID"
+    },
+    {
+      "from": "advisor",
+      "to": "instructor",
+      "child_col": "i_ID",
+      "parent_col": "ID"
+    },
+    {
+      "from": "prereq",
+      "to": "course",
+      "child_col": "course_id",
+      "parent_col": "course_id"
+    }
+  ],
+  "centrality": {
+    "classroom": 0.1,
+    "department": 0.30000000000000004,
+    "course": 0.2,
+    "instructor": 0.2,
+    "section": 0.2,
+    "teaches": 0.0,
+    "student": 0.2,
+    "takes": 0.0,
+    "advisor": 0.0,
+    "time_slot": 0.0,
+    "prereq": 0.0
+  }
+}

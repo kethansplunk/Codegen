@@ -1,0 +1,73 @@
+{
+  "db_name": "race_track",
+  "nodes": [
+    {
+      "name": "race",
+      "columns": [
+        {
+          "name": "Race_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Class",
+          "type": "TEXT"
+        },
+        {
+          "name": "Date",
+          "type": "TEXT"
+        },
+        {
+          "name": "Track_ID",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "Race_ID"
+      ]
+    },
+    {
+      "name": "track",
+      "columns": [
+        {
+          "name": "Track_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Location",
+          "type": "TEXT"
+        },
+        {
+          "name": "Seating",
+          "type": "REAL"
+        },
+        {
+          "name": "Year_Opened",
+          "type": "REAL"
+        }
+      ],
+      "pk": [
+        "Track_ID"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "race",
+      "to": "track",
+      "child_col": "Track_ID",
+      "parent_col": "Track_ID"
+    }
+  ],
+  "centrality": {
+    "race": 0.0,
+    "track": 1.0
+  }
+}

@@ -1,0 +1,311 @@
+{
+  "Addresses.address_id": {
+    "sample_values": [
+      1,
+      6,
+      11
+    ],
+    "inferred_type": "integer"
+  },
+  "Addresses.line_1_number_building": {
+    "sample_values": [
+      "9260 Streich Mountain",
+      "56461 Baumbach Well Suite 634",
+      "376 Kallie Tunnel Apt. 784"
+    ],
+    "inferred_type": "string"
+  },
+  "Addresses.city": {
+    "sample_values": [
+      "West Edmondview",
+      "Lockmanfurt",
+      "Elviebury"
+    ],
+    "inferred_type": "string"
+  },
+  "Addresses.zip_postcode": {
+    "sample_values": [
+      "14445",
+      "63768",
+      "99903"
+    ],
+    "inferred_type": "integer"
+  },
+  "Addresses.state_province_county": {
+    "sample_values": [
+      "Louisiana",
+      "Connecticut",
+      "Kentucky"
+    ],
+    "inferred_type": "string"
+  },
+  "Staff.staff_id": {
+    "sample_values": [
+      1,
+      6,
+      11
+    ],
+    "inferred_type": "integer"
+  },
+  "Staff.staff_address_id": {
+    "sample_values": [
+      14,
+      1,
+      4
+    ],
+    "inferred_type": "integer"
+  },
+  "Staff.nickname": {
+    "sample_values": [
+      "weissnat.vincenzo",
+      "weldon.kling",
+      "bogisich.geovany"
+    ],
+    "inferred_type": "string"
+  },
+  "Staff.first_name": {
+    "sample_values": [
+      "Simeon",
+      "Queenie",
+      "Eulalia"
+    ],
+    "inferred_type": "string"
+  },
+  "Staff.middle_name": {
+    "sample_values": [
+      "Mayra",
+      "Madelyn",
+      "Tre"
+    ],
+    "inferred_type": "string"
+  },
+  "Staff.last_name": {
+    "sample_values": [
+      "Turner",
+      "Macejkovic",
+      "Maggio"
+    ],
+    "inferred_type": "string"
+  },
+  "Staff.date_of_birth": {
+    "sample_values": [
+      "1997-03-29 10:55:45",
+      "2007-06-11 20:03:28",
+      "1998-04-27 12:55:05"
+    ],
+    "inferred_type": "string"
+  },
+  "Staff.date_joined_staff": {
+    "sample_values": [
+      "2017-02-20 18:45:20",
+      "2017-06-04 14:30:41",
+      "2017-08-27 19:19:44"
+    ],
+    "inferred_type": "string"
+  },
+  "Staff.date_left_staff": {
+    "sample_values": [
+      "2018-03-01 17:10:03",
+      "2018-03-08 05:16:29",
+      "2018-02-28 08:26:10"
+    ],
+    "inferred_type": "string"
+  },
+  "Vehicles.vehicle_id": {
+    "sample_values": [
+      1,
+      2,
+      3
+    ],
+    "inferred_type": "integer"
+  },
+  "Vehicles.vehicle_details": {
+    "sample_values": [
+      "Van",
+      "Truck",
+      "Car"
+    ],
+    "inferred_type": "string"
+  },
+  "Customers.customer_id": {
+    "sample_values": [
+      1,
+      6,
+      11
+    ],
+    "inferred_type": "integer"
+  },
+  "Customers.customer_address_id": {
+    "sample_values": [
+      13,
+      8,
+      9
+    ],
+    "inferred_type": "integer"
+  },
+  "Customers.customer_status_code": {
+    "sample_values": [
+      "Bad Customer",
+      "Good Customer"
+    ],
+    "inferred_type": "string"
+  },
+  "Customers.date_became_customer": {
+    "sample_values": [
+      "2015-09-25 13:59:21",
+      "2015-06-24 03:50:04",
+      "2017-04-16 05:12:21"
+    ],
+    "inferred_type": "string"
+  },
+  "Customers.date_of_birth": {
+    "sample_values": [
+      "1996-08-30 06:17:50",
+      "1996-11-07 05:30:55",
+      "1993-03-08 08:48:42"
+    ],
+    "inferred_type": "string"
+  },
+  "Customers.first_name": {
+    "sample_values": [
+      "Dameon",
+      "Marina",
+      "Amya"
+    ],
+    "inferred_type": "string"
+  },
+  "Customers.last_name": {
+    "sample_values": [
+      "Sanford",
+      "Koelpin",
+      "Spinka"
+    ],
+    "inferred_type": "string"
+  },
+  "Customers.amount_outstanding": {
+    "sample_values": [
+      255.0,
+      3900.0,
+      9447.0
+    ],
+    "inferred_type": "float"
+  },
+  "Customers.email_address": {
+    "sample_values": [
+      "kitty.hand@example.net",
+      "mayert.judy@example.com",
+      "kozey.citlalli@example.org"
+    ],
+    "inferred_type": "string"
+  },
+  "Customers.phone_number": {
+    "sample_values": [
+      "(729)396-4354x3576",
+      "(662)490-3108",
+      "1-673-962-8158x7646"
+    ],
+    "inferred_type": "string"
+  },
+  "Customers.cell_mobile_phone_number": {
+    "sample_values": [
+      "(630)964-2426",
+      "848-099-2095x785",
+      "(780)719-4206x033"
+    ],
+    "inferred_type": "string"
+  },
+  "Customer_Payments.customer_id": {
+    "sample_values": [
+      1,
+      4,
+      10
+    ],
+    "inferred_type": "integer"
+  },
+  "Customer_Payments.datetime_payment": {
+    "sample_values": [
+      "2018-03-12 13:31:36",
+      "2018-03-12 08:41:47",
+      "2018-02-19 09:06:29"
+    ],
+    "inferred_type": "string"
+  },
+  "Customer_Payments.payment_method_code": {
+    "sample_values": [
+      "Direct Debit",
+      "Credit Card"
+    ],
+    "inferred_type": "string"
+  },
+  "Customer_Payments.amount_payment": {
+    "sample_values": [
+      9570.93,
+      6970.98,
+      1708.18
+    ],
+    "inferred_type": "float"
+  },
+  "Lessons.lesson_id": {
+    "sample_values": [
+      1,
+      6,
+      11
+    ],
+    "inferred_type": "integer"
+  },
+  "Lessons.customer_id": {
+    "sample_values": [
+      6,
+      5,
+      2
+    ],
+    "inferred_type": "integer"
+  },
+  "Lessons.lesson_status_code": {
+    "sample_values": [
+      "Cancelled",
+      "Completed"
+    ],
+    "inferred_type": "string"
+  },
+  "Lessons.staff_id": {
+    "sample_values": [
+      8,
+      1,
+      5
+    ],
+    "inferred_type": "integer"
+  },
+  "Lessons.vehicle_id": {
+    "sample_values": [
+      3,
+      2,
+      1
+    ],
+    "inferred_type": "integer"
+  },
+  "Lessons.lesson_date": {
+    "sample_values": [
+      "2018-03-06 21:48:51",
+      "2018-03-08 16:05:05",
+      "2018-03-07 22:03:49"
+    ],
+    "inferred_type": "string"
+  },
+  "Lessons.lesson_time": {
+    "sample_values": [
+      "5",
+      "3",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "Lessons.price": {
+    "sample_values": [
+      199.0,
+      492.0,
+      223.0
+    ],
+    "inferred_type": "float"
+  }
+}

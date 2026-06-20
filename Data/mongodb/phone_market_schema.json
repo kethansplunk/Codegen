@@ -1,0 +1,98 @@
+{
+  "db_name": "phone_market",
+  "collections": {
+    "phone": {
+      "primary_key": [
+        "Phone_ID"
+      ],
+      "columns": [
+        {
+          "name": "Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Phone_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Memory_in_G",
+          "type": "INT"
+        },
+        {
+          "name": "Carrier",
+          "type": "TEXT"
+        },
+        {
+          "name": "Price",
+          "type": "REAL"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 5
+    },
+    "market": {
+      "primary_key": [
+        "Market_ID"
+      ],
+      "columns": [
+        {
+          "name": "Market_ID",
+          "type": "INT"
+        },
+        {
+          "name": "District",
+          "type": "TEXT"
+        },
+        {
+          "name": "Num_of_employees",
+          "type": "INT"
+        },
+        {
+          "name": "Num_of_shops",
+          "type": "REAL"
+        },
+        {
+          "name": "Ranking",
+          "type": "INT"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 6
+    },
+    "phone_market": {
+      "primary_key": [
+        "Market_ID",
+        "Phone_ID"
+      ],
+      "columns": [
+        {
+          "name": "Market_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Phone_ID",
+          "type": "TEXT"
+        },
+        {
+          "name": "Num_of_stock",
+          "type": "INT"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "phone_market",
+          "to": "phone",
+          "child_col": "Phone_ID",
+          "parent_col": "Phone_ID"
+        },
+        {
+          "from": "phone_market",
+          "to": "market",
+          "child_col": "Market_ID",
+          "parent_col": "Market_ID"
+        }
+      ],
+      "row_count": 6
+    }
+  }
+}

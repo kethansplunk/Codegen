@@ -1,0 +1,114 @@
+{
+  "Documents.Document_Name": {
+    "sample_values": [
+      "Summer Show",
+      "Data base",
+      "Palm reading"
+    ],
+    "inferred_type": "string"
+  },
+  "Documents.Template_ID": {
+    "sample_values": [
+      "10",
+      "8",
+      "21"
+    ],
+    "inferred_type": "integer"
+  },
+  "Documents.Document_ID": {
+    "sample_values": [
+      "50123",
+      "76",
+      "3830"
+    ],
+    "inferred_type": "integer"
+  },
+  "Documents.Document_Description": {
+    "sample_values": [
+      "f",
+      "y",
+      "k"
+    ],
+    "inferred_type": "string"
+  },
+  "Templates.Date_Effective_From": {
+    "sample_values": [
+      "1986-12-09 14:51:36",
+      "2002-08-25 13:26:23",
+      "2008-08-01 13:57:26"
+    ],
+    "inferred_type": "string"
+  },
+  "Templates.Version_Number": {
+    "sample_values": [
+      "5",
+      "1",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "Templates.Date_Effective_To": {
+    "sample_values": [
+      "2008-01-05 14:19:28",
+      "1993-03-24 14:30:23",
+      "1975-07-16 04:52:10"
+    ],
+    "inferred_type": "string"
+  },
+  "Templates.Template_ID": {
+    "sample_values": [
+      "23",
+      "25",
+      "7"
+    ],
+    "inferred_type": "integer"
+  },
+  "Templates.Template_Type_Code": {
+    "sample_values": [
+      "PPT",
+      "AD",
+      "BK"
+    ],
+    "inferred_type": "string"
+  },
+  "Paragraphs.Paragraph_ID": {
+    "sample_values": [
+      "3708",
+      "608931827",
+      "9946"
+    ],
+    "inferred_type": "integer"
+  },
+  "Paragraphs.Paragraph_Text": {
+    "sample_values": [
+      "Papua New Guinea",
+      "Fiji",
+      "Indonesia"
+    ],
+    "inferred_type": "string"
+  },
+  "Paragraphs.Document_ID": {
+    "sample_values": [
+      "50123",
+      "385906526",
+      "16514113"
+    ],
+    "inferred_type": "integer"
+  },
+  "Ref_Template_Types.Template_Type_Code": {
+    "sample_values": [
+      "PPT",
+      "AD",
+      "BK"
+    ],
+    "inferred_type": "string"
+  },
+  "Ref_Template_Types.Template_Type_Description": {
+    "sample_values": [
+      "Paper",
+      "Advertisement",
+      "Book"
+    ],
+    "inferred_type": "string"
+  }
+}

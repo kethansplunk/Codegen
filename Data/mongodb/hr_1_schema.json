@@ -1,0 +1,255 @@
+{
+  "db_name": "hr_1",
+  "collections": {
+    "regions": {
+      "primary_key": [
+        "REGION_ID"
+      ],
+      "columns": [
+        {
+          "name": "REGION_ID",
+          "type": "decimal(5,0)"
+        },
+        {
+          "name": "REGION_NAME",
+          "type": "varchar(25)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 4
+    },
+    "countries": {
+      "primary_key": [
+        "COUNTRY_ID"
+      ],
+      "columns": [
+        {
+          "name": "COUNTRY_ID",
+          "type": "varchar(2)"
+        },
+        {
+          "name": "COUNTRY_NAME",
+          "type": "varchar(40)"
+        },
+        {
+          "name": "REGION_ID",
+          "type": "decimal(10,0)"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "countries",
+          "to": "regions",
+          "child_col": "REGION_ID",
+          "parent_col": "REGION_ID"
+        }
+      ],
+      "row_count": 25
+    },
+    "departments": {
+      "primary_key": [
+        "DEPARTMENT_ID"
+      ],
+      "columns": [
+        {
+          "name": "DEPARTMENT_ID",
+          "type": "decimal(4,0)"
+        },
+        {
+          "name": "DEPARTMENT_NAME",
+          "type": "varchar(30)"
+        },
+        {
+          "name": "MANAGER_ID",
+          "type": "decimal(6,0)"
+        },
+        {
+          "name": "LOCATION_ID",
+          "type": "decimal(4,0)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 27
+    },
+    "jobs": {
+      "primary_key": [
+        "JOB_ID"
+      ],
+      "columns": [
+        {
+          "name": "JOB_ID",
+          "type": "varchar(10)"
+        },
+        {
+          "name": "JOB_TITLE",
+          "type": "varchar(35)"
+        },
+        {
+          "name": "MIN_SALARY",
+          "type": "decimal(6,0)"
+        },
+        {
+          "name": "MAX_SALARY",
+          "type": "decimal(6,0)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 19
+    },
+    "employees": {
+      "primary_key": [
+        "EMPLOYEE_ID"
+      ],
+      "columns": [
+        {
+          "name": "EMPLOYEE_ID",
+          "type": "decimal(6,0)"
+        },
+        {
+          "name": "FIRST_NAME",
+          "type": "varchar(20)"
+        },
+        {
+          "name": "LAST_NAME",
+          "type": "varchar(25)"
+        },
+        {
+          "name": "EMAIL",
+          "type": "varchar(25)"
+        },
+        {
+          "name": "PHONE_NUMBER",
+          "type": "varchar(20)"
+        },
+        {
+          "name": "HIRE_DATE",
+          "type": "date"
+        },
+        {
+          "name": "JOB_ID",
+          "type": "varchar(10)"
+        },
+        {
+          "name": "SALARY",
+          "type": "decimal(8,2)"
+        },
+        {
+          "name": "COMMISSION_PCT",
+          "type": "decimal(2,2)"
+        },
+        {
+          "name": "MANAGER_ID",
+          "type": "decimal(6,0)"
+        },
+        {
+          "name": "DEPARTMENT_ID",
+          "type": "decimal(4,0)"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "employees",
+          "to": "jobs",
+          "child_col": "JOB_ID",
+          "parent_col": "JOB_ID"
+        },
+        {
+          "from": "employees",
+          "to": "departments",
+          "child_col": "DEPARTMENT_ID",
+          "parent_col": "DEPARTMENT_ID"
+        }
+      ],
+      "row_count": 107
+    },
+    "job_history": {
+      "primary_key": [
+        "EMPLOYEE_ID",
+        "START_DATE"
+      ],
+      "columns": [
+        {
+          "name": "EMPLOYEE_ID",
+          "type": "decimal(6,0)"
+        },
+        {
+          "name": "START_DATE",
+          "type": "date"
+        },
+        {
+          "name": "END_DATE",
+          "type": "date"
+        },
+        {
+          "name": "JOB_ID",
+          "type": "varchar(10)"
+        },
+        {
+          "name": "DEPARTMENT_ID",
+          "type": "decimal(4,0)"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "job_history",
+          "to": "jobs",
+          "child_col": "JOB_ID",
+          "parent_col": "JOB_ID"
+        },
+        {
+          "from": "job_history",
+          "to": "departments",
+          "child_col": "DEPARTMENT_ID",
+          "parent_col": "DEPARTMENT_ID"
+        },
+        {
+          "from": "job_history",
+          "to": "employees",
+          "child_col": "EMPLOYEE_ID",
+          "parent_col": "EMPLOYEE_ID"
+        }
+      ],
+      "row_count": 11
+    },
+    "locations": {
+      "primary_key": [
+        "LOCATION_ID"
+      ],
+      "columns": [
+        {
+          "name": "LOCATION_ID",
+          "type": "decimal(4,0)"
+        },
+        {
+          "name": "STREET_ADDRESS",
+          "type": "varchar(40)"
+        },
+        {
+          "name": "POSTAL_CODE",
+          "type": "varchar(12)"
+        },
+        {
+          "name": "CITY",
+          "type": "varchar(30)"
+        },
+        {
+          "name": "STATE_PROVINCE",
+          "type": "varchar(25)"
+        },
+        {
+          "name": "COUNTRY_ID",
+          "type": "varchar(2)"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "locations",
+          "to": "countries",
+          "child_col": "COUNTRY_ID",
+          "parent_col": "COUNTRY_ID"
+        }
+      ],
+      "row_count": 23
+    }
+  }
+}

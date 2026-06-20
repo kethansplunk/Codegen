@@ -1,0 +1,97 @@
+{
+  "election.Election_ID": {
+    "sample_values": [
+      1,
+      2,
+      3
+    ],
+    "inferred_type": "integer"
+  },
+  "election.Representative_ID": {
+    "sample_values": [
+      1,
+      2,
+      4
+    ],
+    "inferred_type": "integer"
+  },
+  "election.Date": {
+    "sample_values": [
+      "1953",
+      "1949",
+      "1946"
+    ],
+    "inferred_type": "string"
+  },
+  "election.Votes": {
+    "sample_values": [
+      9423.0,
+      11059.0,
+      13049.0
+    ],
+    "inferred_type": "float"
+  },
+  "election.Vote_Percent": {
+    "sample_values": [
+      16.2,
+      18.5,
+      19.5
+    ],
+    "inferred_type": "float"
+  },
+  "election.Seats": {
+    "sample_values": [
+      6.0,
+      10.0,
+      9.0
+    ],
+    "inferred_type": "float"
+  },
+  "election.Place": {
+    "sample_values": [
+      3.0,
+      1.0,
+      2.0
+    ],
+    "inferred_type": "float"
+  },
+  "representative.Representative_ID": {
+    "sample_values": [
+      1,
+      3,
+      5
+    ],
+    "inferred_type": "integer"
+  },
+  "representative.Name": {
+    "sample_values": [
+      "James L. Quinn",
+      "John Quayle",
+      "Al Quie"
+    ],
+    "inferred_type": "string"
+  },
+  "representative.State": {
+    "sample_values": [
+      "Tennessee",
+      "Pennsylvania",
+      "Minnesota"
+    ],
+    "inferred_type": "string"
+  },
+  "representative.Party": {
+    "sample_values": [
+      "Republican",
+      "Democratic"
+    ],
+    "inferred_type": "string"
+  },
+  "representative.Lifespan": {
+    "sample_values": [
+      "1875\u20131960",
+      "1868\u20131930",
+      "1923\u2013"
+    ],
+    "inferred_type": "string"
+  }
+}

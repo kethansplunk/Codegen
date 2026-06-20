@@ -1,0 +1,85 @@
+{
+  "db_name": "gymnast",
+  "nodes": [
+    {
+      "name": "gymnast",
+      "columns": [
+        {
+          "name": "Gymnast_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Floor_Exercise_Points",
+          "type": "REAL"
+        },
+        {
+          "name": "Pommel_Horse_Points",
+          "type": "REAL"
+        },
+        {
+          "name": "Rings_Points",
+          "type": "REAL"
+        },
+        {
+          "name": "Vault_Points",
+          "type": "REAL"
+        },
+        {
+          "name": "Parallel_Bars_Points",
+          "type": "REAL"
+        },
+        {
+          "name": "Horizontal_Bar_Points",
+          "type": "REAL"
+        },
+        {
+          "name": "Total_Points",
+          "type": "REAL"
+        }
+      ],
+      "pk": [
+        "Gymnast_ID"
+      ]
+    },
+    {
+      "name": "people",
+      "columns": [
+        {
+          "name": "People_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Age",
+          "type": "REAL"
+        },
+        {
+          "name": "Height",
+          "type": "REAL"
+        },
+        {
+          "name": "Hometown",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "People_ID"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "gymnast",
+      "to": "people",
+      "child_col": "Gymnast_ID",
+      "parent_col": "People_ID"
+    }
+  ],
+  "centrality": {
+    "gymnast": 0.0,
+    "people": 1.0
+  }
+}

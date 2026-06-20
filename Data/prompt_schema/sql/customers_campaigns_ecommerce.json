@@ -1,0 +1,310 @@
+{
+  "Premises.premise_id": {
+    "sample_values": [
+      1,
+      6,
+      11
+    ],
+    "inferred_type": "integer"
+  },
+  "Premises.premises_type": {
+    "sample_values": [
+      "Warehouse",
+      "Residence",
+      "Office"
+    ],
+    "inferred_type": "string"
+  },
+  "Premises.premise_details": {
+    "sample_values": [
+      "867 Emard Drives Apt. 066",
+      "5510 Veum Green",
+      "5585 Abbott Walk"
+    ],
+    "inferred_type": "string"
+  },
+  "Products.product_id": {
+    "sample_values": [
+      1,
+      6,
+      11
+    ],
+    "inferred_type": "integer"
+  },
+  "Products.product_category": {
+    "sample_values": [
+      "Hardware",
+      "Books",
+      "Electronics"
+    ],
+    "inferred_type": "string"
+  },
+  "Products.product_name": {
+    "sample_values": [
+      "iPhone",
+      "MP3",
+      "Monitor"
+    ],
+    "inferred_type": "string"
+  },
+  "Customers.customer_id": {
+    "sample_values": [
+      1,
+      6,
+      11
+    ],
+    "inferred_type": "integer"
+  },
+  "Customers.payment_method": {
+    "sample_values": [
+      "Credit Card",
+      "Direct Debit"
+    ],
+    "inferred_type": "string"
+  },
+  "Customers.customer_name": {
+    "sample_values": [
+      "Mitchell",
+      "Leanna",
+      "Carlotta"
+    ],
+    "inferred_type": "string"
+  },
+  "Customers.customer_phone": {
+    "sample_values": [
+      "698-327-5792",
+      "203-036-0511x96487",
+      "+66(7)1491041398"
+    ],
+    "inferred_type": "string"
+  },
+  "Customers.customer_email": {
+    "sample_values": [
+      "princess75@example.com",
+      "marc.schiller@example.com",
+      "fstanton@example.net"
+    ],
+    "inferred_type": "string"
+  },
+  "Customers.customer_address": {
+    "sample_values": [
+      "6735 Daron Lane Apt. 271",
+      "94105 Bahringer Oval Suite 178",
+      "31932 Kailey Lodge"
+    ],
+    "inferred_type": "string"
+  },
+  "Customers.customer_password": {
+    "sample_values": [
+      "791b1b3e64",
+      "67e9037197",
+      "a8467590fd"
+    ],
+    "inferred_type": "string"
+  },
+  "Mailshot_Campaigns.mailshot_id": {
+    "sample_values": [
+      1,
+      7,
+      13
+    ],
+    "inferred_type": "integer"
+  },
+  "Mailshot_Campaigns.product_category": {
+    "sample_values": [
+      "food",
+      "clothes"
+    ],
+    "inferred_type": "string"
+  },
+  "Mailshot_Campaigns.mailshot_name": {
+    "sample_values": [
+      "AL",
+      "USPS",
+      "FED"
+    ],
+    "inferred_type": "string"
+  },
+  "Mailshot_Campaigns.mailshot_start_date": {
+    "sample_values": [
+      "2017-11-15 15:58:17",
+      "2017-10-22 08:46:29",
+      "2017-11-12 08:26:08"
+    ],
+    "inferred_type": "string"
+  },
+  "Mailshot_Campaigns.mailshot_end_date": {
+    "sample_values": [
+      "2018-03-15 06:00:47",
+      "2018-03-01 13:42:09",
+      "2018-02-27 07:58:02"
+    ],
+    "inferred_type": "string"
+  },
+  "Customer_Addresses.customer_id": {
+    "sample_values": [
+      15,
+      3,
+      5
+    ],
+    "inferred_type": "integer"
+  },
+  "Customer_Addresses.premise_id": {
+    "sample_values": [
+      1,
+      5,
+      8
+    ],
+    "inferred_type": "integer"
+  },
+  "Customer_Addresses.date_address_from": {
+    "sample_values": [
+      "2002-02-01 02:55:13",
+      "1931-03-24 11:44:07",
+      "1939-01-15 17:55:39"
+    ],
+    "inferred_type": "string"
+  },
+  "Customer_Addresses.address_type_code": {
+    "sample_values": [
+      "Billing",
+      "Shipping"
+    ],
+    "inferred_type": "string"
+  },
+  "Customer_Addresses.date_address_to": {
+    "sample_values": [
+      "2018-03-16 11:55:11",
+      "2018-03-05 02:34:01",
+      "2018-03-13 08:21:27"
+    ],
+    "inferred_type": "string"
+  },
+  "Customer_Orders.order_id": {
+    "sample_values": [
+      1,
+      6,
+      11
+    ],
+    "inferred_type": "integer"
+  },
+  "Customer_Orders.customer_id": {
+    "sample_values": [
+      2,
+      1,
+      14
+    ],
+    "inferred_type": "integer"
+  },
+  "Customer_Orders.order_status_code": {
+    "sample_values": [
+      "Cancelled",
+      "Delivered",
+      "Paid"
+    ],
+    "inferred_type": "string"
+  },
+  "Customer_Orders.shipping_method_code": {
+    "sample_values": [
+      "Unspecified",
+      "FedEx",
+      "UPS"
+    ],
+    "inferred_type": "string"
+  },
+  "Customer_Orders.order_placed_datetime": {
+    "sample_values": [
+      "2009-01-18 20:06:19",
+      "2014-08-28 15:08:12",
+      "2014-06-24 13:53:54"
+    ],
+    "inferred_type": "string"
+  },
+  "Customer_Orders.order_shipping_charges": {
+    "sample_values": [
+      "85.79",
+      "99.26",
+      "22.84"
+    ],
+    "inferred_type": "float"
+  },
+  "Mailshot_Customers.mailshot_id": {
+    "sample_values": [
+      4,
+      15,
+      7
+    ],
+    "inferred_type": "integer"
+  },
+  "Mailshot_Customers.customer_id": {
+    "sample_values": [
+      3,
+      11,
+      13
+    ],
+    "inferred_type": "integer"
+  },
+  "Mailshot_Customers.outcome_code": {
+    "sample_values": [
+      "Order",
+      "No Response"
+    ],
+    "inferred_type": "string"
+  },
+  "Mailshot_Customers.mailshot_customer_date": {
+    "sample_values": [
+      "2018-03-05 17:35:24",
+      "2018-03-06 21:21:38",
+      "2018-03-15 04:05:08"
+    ],
+    "inferred_type": "string"
+  },
+  "Order_Items.item_id": {
+    "sample_values": [
+      1,
+      6,
+      11
+    ],
+    "inferred_type": "integer"
+  },
+  "Order_Items.order_item_status_code": {
+    "sample_values": [
+      "Delivered",
+      "Paid",
+      "Cancelled"
+    ],
+    "inferred_type": "string"
+  },
+  "Order_Items.order_id": {
+    "sample_values": [
+      10,
+      13,
+      2
+    ],
+    "inferred_type": "integer"
+  },
+  "Order_Items.product_id": {
+    "sample_values": [
+      13,
+      11,
+      14
+    ],
+    "inferred_type": "integer"
+  },
+  "Order_Items.item_delivered_datetime": {
+    "sample_values": [
+      "2018-03-05 12:04:23",
+      "2018-03-04 01:39:37",
+      "2018-03-03 22:22:38"
+    ],
+    "inferred_type": "string"
+  },
+  "Order_Items.item_order_quantity": {
+    "sample_values": [
+      "6",
+      "4",
+      "5"
+    ],
+    "inferred_type": "integer"
+  }
+}

@@ -1,0 +1,228 @@
+{
+  "db_name": "bike_1",
+  "collections": {
+    "station": {
+      "primary_key": [
+        "id"
+      ],
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "name",
+          "type": "TEXT"
+        },
+        {
+          "name": "lat",
+          "type": "NUMERIC"
+        },
+        {
+          "name": "long",
+          "type": "NUMERIC"
+        },
+        {
+          "name": "dock_count",
+          "type": "INTEGER"
+        },
+        {
+          "name": "city",
+          "type": "TEXT"
+        },
+        {
+          "name": "installation_date",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 70
+    },
+    "status": {
+      "primary_key": [],
+      "columns": [
+        {
+          "name": "station_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "bikes_available",
+          "type": "INTEGER"
+        },
+        {
+          "name": "docks_available",
+          "type": "INTEGER"
+        },
+        {
+          "name": "time",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "status",
+          "to": "station",
+          "child_col": "station_id",
+          "parent_col": "id"
+        }
+      ],
+      "row_count": 8487
+    },
+    "trip": {
+      "primary_key": [
+        "id"
+      ],
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "duration",
+          "type": "INTEGER"
+        },
+        {
+          "name": "start_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "start_station_name",
+          "type": "TEXT"
+        },
+        {
+          "name": "start_station_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "end_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "end_station_name",
+          "type": "TEXT"
+        },
+        {
+          "name": "end_station_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "bike_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "subscription_type",
+          "type": "TEXT"
+        },
+        {
+          "name": "zip_code",
+          "type": "INTEGER"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 9959
+    },
+    "weather": {
+      "primary_key": [],
+      "columns": [
+        {
+          "name": "date",
+          "type": "TEXT"
+        },
+        {
+          "name": "max_temperature_f",
+          "type": "INTEGER"
+        },
+        {
+          "name": "mean_temperature_f",
+          "type": "INTEGER"
+        },
+        {
+          "name": "min_temperature_f",
+          "type": "INTEGER"
+        },
+        {
+          "name": "max_dew_point_f",
+          "type": "INTEGER"
+        },
+        {
+          "name": "mean_dew_point_f",
+          "type": "INTEGER"
+        },
+        {
+          "name": "min_dew_point_f",
+          "type": "INTEGER"
+        },
+        {
+          "name": "max_humidity",
+          "type": "INTEGER"
+        },
+        {
+          "name": "mean_humidity",
+          "type": "INTEGER"
+        },
+        {
+          "name": "min_humidity",
+          "type": "INTEGER"
+        },
+        {
+          "name": "max_sea_level_pressure_inches",
+          "type": "NUMERIC"
+        },
+        {
+          "name": "mean_sea_level_pressure_inches",
+          "type": "NUMERIC"
+        },
+        {
+          "name": "min_sea_level_pressure_inches",
+          "type": "NUMERIC"
+        },
+        {
+          "name": "max_visibility_miles",
+          "type": "INTEGER"
+        },
+        {
+          "name": "mean_visibility_miles",
+          "type": "INTEGER"
+        },
+        {
+          "name": "min_visibility_miles",
+          "type": "INTEGER"
+        },
+        {
+          "name": "max_wind_Speed_mph",
+          "type": "INTEGER"
+        },
+        {
+          "name": "mean_wind_speed_mph",
+          "type": "INTEGER"
+        },
+        {
+          "name": "max_gust_speed_mph",
+          "type": "INTEGER"
+        },
+        {
+          "name": "precipitation_inches",
+          "type": "INTEGER"
+        },
+        {
+          "name": "cloud_cover",
+          "type": "INTEGER"
+        },
+        {
+          "name": "events",
+          "type": "TEXT"
+        },
+        {
+          "name": "wind_dir_degrees",
+          "type": "INTEGER"
+        },
+        {
+          "name": "zip_code",
+          "type": "INTEGER"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 3665
+    }
+  }
+}

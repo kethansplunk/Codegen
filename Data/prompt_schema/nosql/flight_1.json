@@ -1,0 +1,129 @@
+{
+  "employee.name": {
+    "sample_values": [
+      "Eric Cooper",
+      "Richard Jackson",
+      "Chad Stewart"
+    ],
+    "inferred_type": "string"
+  },
+  "employee.eid": {
+    "sample_values": [
+      "550156548",
+      "348121549",
+      "548977562"
+    ],
+    "inferred_type": "integer"
+  },
+  "employee.salary": {
+    "sample_values": [
+      "27984",
+      "120433",
+      "105743"
+    ],
+    "inferred_type": "integer"
+  },
+  "flight.price": {
+    "sample_values": [
+      "182",
+      "235.98",
+      "425.98"
+    ],
+    "inferred_type": "float"
+  },
+  "flight.distance": {
+    "sample_values": [
+      "2551",
+      "1749",
+      "2308"
+    ],
+    "inferred_type": "integer"
+  },
+  "flight.departure_date": {
+    "sample_values": [
+      "04/12/2005 07:03",
+      "04/12/2005 08:45",
+      "04/12/2005 05:30"
+    ],
+    "inferred_type": "string"
+  },
+  "flight.destination": {
+    "sample_values": [
+      "New York",
+      "Dallas",
+      "Los Angeles"
+    ],
+    "inferred_type": "string"
+  },
+  "flight.aid": {
+    "sample_values": [
+      "5",
+      "1",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "flight.origin": {
+    "sample_values": [
+      "Chicago",
+      "Los Angeles"
+    ],
+    "inferred_type": "string"
+  },
+  "flight.flno": {
+    "sample_values": [
+      "34",
+      "33",
+      "346"
+    ],
+    "inferred_type": "integer"
+  },
+  "flight.arrival_date": {
+    "sample_values": [
+      "04/12/2005 10:03",
+      "04/12/2005 03:18",
+      "04/12/2005 07:05"
+    ],
+    "inferred_type": "string"
+  },
+  "aircraft.name": {
+    "sample_values": [
+      "Airbus A319",
+      "Embraer ERJ-145",
+      "Airbus A320"
+    ],
+    "inferred_type": "string"
+  },
+  "aircraft.distance": {
+    "sample_values": [
+      "1530",
+      "2128",
+      "520"
+    ],
+    "inferred_type": "integer"
+  },
+  "aircraft.aid": {
+    "sample_values": [
+      "5",
+      "15",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "certificate.eid": {
+    "sample_values": [
+      "269734834",
+      "159542516",
+      "550156548"
+    ],
+    "inferred_type": "integer"
+  },
+  "certificate.aid": {
+    "sample_values": [
+      "10",
+      "12",
+      "9"
+    ],
+    "inferred_type": "integer"
+  }
+}

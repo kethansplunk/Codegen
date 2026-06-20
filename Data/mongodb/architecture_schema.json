@@ -1,0 +1,114 @@
+{
+  "db_name": "architecture",
+  "collections": {
+    "architect": {
+      "primary_key": [
+        "id"
+      ],
+      "columns": [
+        {
+          "name": "id",
+          "type": "TEXT"
+        },
+        {
+          "name": "name",
+          "type": "TEXT"
+        },
+        {
+          "name": "nationality",
+          "type": "TEXT"
+        },
+        {
+          "name": "gender",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 5
+    },
+    "bridge": {
+      "primary_key": [
+        "id"
+      ],
+      "columns": [
+        {
+          "name": "architect_id",
+          "type": "INT"
+        },
+        {
+          "name": "id",
+          "type": "INT"
+        },
+        {
+          "name": "name",
+          "type": "TEXT"
+        },
+        {
+          "name": "location",
+          "type": "TEXT"
+        },
+        {
+          "name": "length_meters",
+          "type": "REAL"
+        },
+        {
+          "name": "length_feet",
+          "type": "REAL"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "bridge",
+          "to": "architect",
+          "child_col": "architect_id",
+          "parent_col": "id"
+        }
+      ],
+      "row_count": 15
+    },
+    "mill": {
+      "primary_key": [
+        "id"
+      ],
+      "columns": [
+        {
+          "name": "architect_id",
+          "type": "INT"
+        },
+        {
+          "name": "id",
+          "type": "INT"
+        },
+        {
+          "name": "location",
+          "type": "TEXT"
+        },
+        {
+          "name": "name",
+          "type": "TEXT"
+        },
+        {
+          "name": "type",
+          "type": "TEXT"
+        },
+        {
+          "name": "built_year",
+          "type": "INT"
+        },
+        {
+          "name": "notes",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "mill",
+          "to": "architect",
+          "child_col": "architect_id",
+          "parent_col": "id"
+        }
+      ],
+      "row_count": 6
+    }
+  }
+}

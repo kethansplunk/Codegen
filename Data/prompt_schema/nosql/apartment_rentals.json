@@ -1,0 +1,248 @@
+{
+  "Apartment_Buildings.building_phone": {
+    "sample_values": [
+      "681.772.2454",
+      "1-667-728-2287x3158",
+      "(948)040-1064x387"
+    ],
+    "inferred_type": "string"
+  },
+  "Apartment_Buildings.building_short_name": {
+    "sample_values": [
+      "The Eugene",
+      "VIA 57 WEST",
+      "Barclay Tower"
+    ],
+    "inferred_type": "string"
+  },
+  "Apartment_Buildings.building_description": {
+    "sample_values": [
+      "Flat",
+      "Studio",
+      "Duplex"
+    ],
+    "inferred_type": "string"
+  },
+  "Apartment_Buildings.building_id": {
+    "sample_values": [
+      "808",
+      "968",
+      "532"
+    ],
+    "inferred_type": "integer"
+  },
+  "Apartment_Buildings.building_address": {
+    "sample_values": [
+      "1579 Runte Forges Apt. 548\nLeuschkeland, OK 12009-8683",
+      "50804 Mason Isle Suite 844\nWest Whitney, ID 66511",
+      "0703 Danika Mountains Apt. 362\nMohrland, AL 56839-5028"
+    ],
+    "inferred_type": "string"
+  },
+  "Apartment_Buildings.building_full_name": {
+    "sample_values": [
+      "The Eugene",
+      "VIA 57 WEST",
+      "Barclay Tower"
+    ],
+    "inferred_type": "string"
+  },
+  "Apartment_Buildings.building_manager": {
+    "sample_values": [
+      "Rogers",
+      "Brenden",
+      "Kathlyn"
+    ],
+    "inferred_type": "string"
+  },
+  "Apartments.apt_number": {
+    "sample_values": [
+      "Apt. 837",
+      "Apt. 908",
+      "Apt. 859"
+    ],
+    "inferred_type": "string"
+  },
+  "Apartments.bedroom_count": {
+    "sample_values": [
+      "6",
+      "3",
+      "5"
+    ],
+    "inferred_type": "integer"
+  },
+  "Apartments.room_count": {
+    "sample_values": [
+      "5",
+      "9",
+      "3"
+    ],
+    "inferred_type": "integer"
+  },
+  "Apartments.building_id": {
+    "sample_values": [
+      "808",
+      "790",
+      "153"
+    ],
+    "inferred_type": "integer"
+  },
+  "Apartments.apt_id": {
+    "sample_values": [
+      "5",
+      "8",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Apartments.apt_type_code": {
+    "sample_values": [
+      "Duplex",
+      "Flat",
+      "Studio"
+    ],
+    "inferred_type": "string"
+  },
+  "Apartments.bathroom_count": {
+    "sample_values": [
+      "1",
+      "3",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "Guests.guest_id": {
+    "sample_values": [
+      "5",
+      "8",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Guests.date_of_birth": {
+    "sample_values": [
+      "1997-01-20 17:11:31",
+      "1971-01-04 04:22:58",
+      "1971-11-02 01:51:56"
+    ],
+    "inferred_type": "string"
+  },
+  "Guests.guest_last_name": {
+    "sample_values": [
+      "Bode",
+      "Lehner",
+      "Runolfsson"
+    ],
+    "inferred_type": "string"
+  },
+  "Guests.guest_first_name": {
+    "sample_values": [
+      "Lou",
+      "Rebeca",
+      "Gabe"
+    ],
+    "inferred_type": "string"
+  },
+  "Guests.gender_code": {
+    "sample_values": [
+      "Male",
+      "Unknown",
+      "Female"
+    ],
+    "inferred_type": "string"
+  },
+  "View_Unit_Status.apt_booking_id": {
+    "sample_values": [
+      "337",
+      "889",
+      "807"
+    ],
+    "inferred_type": "integer"
+  },
+  "View_Unit_Status.status_date": {
+    "sample_values": [
+      "2014-12-10 13:53:21",
+      "1976-12-18 04:03:51",
+      "1990-11-04 17:57:50"
+    ],
+    "inferred_type": "string"
+  },
+  "View_Unit_Status.available_yn": {
+    "sample_values": [
+      "1",
+      "0"
+    ],
+    "inferred_type": "integer"
+  },
+  "View_Unit_Status.apt_id": {
+    "sample_values": [
+      "5",
+      "12",
+      "13"
+    ],
+    "inferred_type": "integer"
+  },
+  "Apartment_Facilities.facility_code": {
+    "sample_values": [
+      "Cable TV",
+      "Gym",
+      "Swimming Pool"
+    ],
+    "inferred_type": "string"
+  },
+  "Apartment_Facilities.apt_id": {
+    "sample_values": [
+      "5",
+      "1",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Apartment_Bookings.apt_booking_id": {
+    "sample_values": [
+      "337",
+      "889",
+      "807"
+    ],
+    "inferred_type": "integer"
+  },
+  "Apartment_Bookings.guest_id": {
+    "sample_values": [
+      "5",
+      "8",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "Apartment_Bookings.booking_status_code": {
+    "sample_values": [
+      "Provisional",
+      "Confirmed"
+    ],
+    "inferred_type": "string"
+  },
+  "Apartment_Bookings.booking_end_date": {
+    "sample_values": [
+      "2017-09-29 12:43:50",
+      "2017-10-07 11:38:48",
+      "2017-09-28 11:08:15"
+    ],
+    "inferred_type": "string"
+  },
+  "Apartment_Bookings.apt_id": {
+    "sample_values": [
+      "10",
+      "12",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "Apartment_Bookings.booking_start_date": {
+    "sample_values": [
+      "2016-04-01 06:28:08",
+      "2017-05-13 18:17:20",
+      "2016-08-04 10:33:00"
+    ],
+    "inferred_type": "string"
+  }
+}

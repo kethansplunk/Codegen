@@ -1,0 +1,182 @@
+{
+  "db_name": "customer_complaints",
+  "collections": {
+    "Staff": {
+      "primary_key": [
+        "staff_id"
+      ],
+      "columns": [
+        {
+          "name": "staff_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "gender",
+          "type": "VARCHAR(1)"
+        },
+        {
+          "name": "first_name",
+          "type": "VARCHAR(80)"
+        },
+        {
+          "name": "last_name",
+          "type": "VARCHAR(80)"
+        },
+        {
+          "name": "email_address",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "phone_number",
+          "type": "VARCHAR(80)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 7
+    },
+    "Customers": {
+      "primary_key": [
+        "customer_id"
+      ],
+      "columns": [
+        {
+          "name": "customer_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "customer_type_code",
+          "type": "VARCHAR(20)"
+        },
+        {
+          "name": "address_line_1",
+          "type": "VARCHAR(80)"
+        },
+        {
+          "name": "address_line_2",
+          "type": "VARCHAR(80)"
+        },
+        {
+          "name": "town_city",
+          "type": "VARCHAR(80)"
+        },
+        {
+          "name": "state",
+          "type": "VARCHAR(80)"
+        },
+        {
+          "name": "email_address",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "phone_number",
+          "type": "VARCHAR(80)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 8
+    },
+    "Products": {
+      "primary_key": [
+        "product_id"
+      ],
+      "columns": [
+        {
+          "name": "product_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "parent_product_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "product_category_code",
+          "type": "VARCHAR(20)"
+        },
+        {
+          "name": "date_product_first_available",
+          "type": "DATETIME"
+        },
+        {
+          "name": "date_product_discontinued",
+          "type": "DATETIME"
+        },
+        {
+          "name": "product_name",
+          "type": "VARCHAR(80)"
+        },
+        {
+          "name": "product_description",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "product_price",
+          "type": "DECIMAL(19,4)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 4
+    },
+    "Complaints": {
+      "primary_key": [],
+      "columns": [
+        {
+          "name": "complaint_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "product_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "customer_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "complaint_outcome_code",
+          "type": "VARCHAR(20)"
+        },
+        {
+          "name": "complaint_status_code",
+          "type": "VARCHAR(20)"
+        },
+        {
+          "name": "complaint_type_code",
+          "type": "VARCHAR(20)"
+        },
+        {
+          "name": "date_complaint_raised",
+          "type": "DATETIME"
+        },
+        {
+          "name": "date_complaint_closed",
+          "type": "DATETIME"
+        },
+        {
+          "name": "staff_id",
+          "type": "INTEGER"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Complaints",
+          "to": "Customers",
+          "child_col": "customer_id",
+          "parent_col": "customer_id"
+        },
+        {
+          "from": "Complaints",
+          "to": "Products",
+          "child_col": "product_id",
+          "parent_col": "product_id"
+        },
+        {
+          "from": "Complaints",
+          "to": "Staff",
+          "child_col": "staff_id",
+          "parent_col": "staff_id"
+        }
+      ],
+      "row_count": 12
+    }
+  }
+}

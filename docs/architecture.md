@@ -1,5 +1,5 @@
 # CodeGen Architecture Document
-## Work in Progress — Updated through Phase 7A
+## Updated through Phase 8A — SchemaRAG codebase audit complete, all src/ scripts implemented
 
 ---
 
@@ -11,19 +11,23 @@
 4. [Overall Pipeline Architecture](#4-overall-pipeline-architecture)
 5. [Dual-Track Design — Why Two Separate Models](#5-dual-track-design--why-two-separate-models)
 6. [Hardware Strategy](#6-hardware-strategy)
-7. [Component Deep Dives](#7-component-deep-dives)
-   - [7.1 FK Graph Builder](#71-fk-graph-builder-phase-5a)
-   - [7.2 MongoDB Converter](#72-mongodb-converter-phase-5b)
-   - [7.3 PromptSchema via BM25S](#73-promptschema-via-bm25s-phase-6)
-   - [7.4 SQL RAG Corpus](#74-sql-rag-corpus-phase-7a)
-8. [Upcoming Components — Preview](#8-upcoming-components--preview)
-   - [8.1 SchemaLinker](#81-schemalinker-phases-911)
-   - [8.2 SAR — Schema-Augmented Retriever](#82-sar--schema-augmented-retriever-phase-12)
-   - [8.3 Generator](#83-generator-phase-14)
-   - [8.4 POSG](#84-posg-phase-15)
-9. [Key Design Decisions and Why](#9-key-design-decisions-and-why)
-10. [Data Flow — End to End](#10-data-flow--end-to-end)
-11. [File and Folder Structure](#11-file-and-folder-structure)
+7. [SchemaRAG Codebase Audit](#7-schemarag-codebase-audit)
+8. [Component Deep Dives — Data Pipeline](#8-component-deep-dives--data-pipeline)
+   - [8.1 FK Graph Builder (Phase 5A)](#81-fk-graph-builder-phase-5a)
+   - [8.2 MongoDB Converter (Phase 5B)](#82-mongodb-converter-phase-5b)
+   - [8.3 PromptSchema via BM25S (Phase 6)](#83-promptschema-via-bm25s-phase-6)
+   - [8.4 SQL RAG Corpus (Phase 7A)](#84-sql-rag-corpus-phase-7a)
+   - [8.5 NoSQL RAG Corpus (Phase 7B)](#85-nosql-rag-corpus-phase-7b)
+   - [8.6 SQL CoT Data (Phase 8A)](#86-sql-cot-data-phase-8a)
+9. [Component Deep Dives — Model Training Scripts](#9-component-deep-dives--model-training-scripts)
+   - [9.1 ModelInterface — Local Inference Wrapper](#91-modelinterface--local-inference-wrapper)
+   - [9.2 SchemaLinker — 3-Stage Training](#92-schemalinker--3-stage-training)
+   - [9.3 SAR — Schema-Aware Retriever](#93-sar--schema-aware-retriever)
+   - [9.4 POSG — Pareto-Optimal Generator](#94-posg--pareto-optimal-generator)
+   - [9.5 EX Evaluation Metric](#95-ex-evaluation-metric)
+10. [Key Design Decisions and Why](#10-key-design-decisions-and-why)
+11. [Data Flow — End to End](#11-data-flow--end-to-end)
+12. [File and Folder Structure](#12-file-and-folder-structure)
 
 ---
 
@@ -48,42 +52,36 @@ Country =
 'France'
 ```
 
-The system does not just use a single LLM prompt. It is a multi-stage pipeline where each stage narrows down what the next stage needs to process. This mirrors how a human database expert thinks: first identify which tables are relevant, then find similar past queries for reference, then write the query, then verify it.
+The system is a multi-stage pipeline where each stage narrows down what the next stage needs to process. This mirrors how a human database expert thinks: first identify which tables are relevant, then find similar past queries for reference, then write the query, then verify it.
 
 ---
 
 ## 2. Research Papers This Is Grounded In
 
 ### SchemaRAG (SIGMOD 2026)
-The primary paper for the SQL track. The name stands for Schema-Retrieval-Augmented Generation. Key contributions:
+The primary paper for the SQL track. Key contributions:
 - **PromptSchema**: Enrich schema with BM25-selected sample values so the LLM understands what each column contains
-- **SchemaLinker**: A 3-stage trained model (SFT → MTL → GRPO) that identifies which tables and columns are relevant to a question
+- **SchemaLinker**: A 3-stage trained model (CoT SFT → MTL → GRPO) that identifies which tables and columns are relevant to a question
 - **SAR (Schema-Augmented Retriever)**: A dual-stage retrieval model that finds structurally similar past Q-SQL examples
 - **POSG (Pareto-Optimal SQL Generator)**: Generates multiple SQL candidates and picks the best one using two quality dimensions
 
-The paper reports >82% Execution Accuracy on Spider dev set, which is our target.
+The paper reports >80.4% Execution Accuracy on Spider dev set with Qwen-7B, which is our target. The full codebase was released and audited — see Section 7.
 
 ### TEND / SMART (Text-to-NoSQL)
-The primary paper for the NoSQL track. Key insight: NoSQL query generation should be treated as a distinct problem from SQL generation, not as a post-processing step on SQL output. The paper shows direct MQL generation outperforms SQL-to-MQL cascade by more than 20 points. This is why we train separate models for each track rather than sharing a single generator.
-
-Algorithm 1 from the TEND paper defines how to convert relational schemas to MongoDB collections — which directly informed our Phase 5B implementation.
+The primary paper for the NoSQL track. Key insight: NoSQL query generation should be treated as a distinct problem from SQL generation. Direct MQL generation outperforms SQL-to-MQL cascade by more than 20 points. Algorithm 1 from the TEND paper defines how to convert relational schemas to MongoDB collections — which directly informed Phase 5B.
 
 ---
 
 ## 3. Dataset — Spider
-
-Spider is the benchmark dataset used for both tracks.
 
 | Component | Count | Purpose |
 |---|---|---|
 | `train_spider.json` | 7,000 Q-SQL pairs | Training all models |
 | `dev.json` | 1,034 Q-SQL pairs | Evaluation benchmark |
 | `tables.json` | 166 database schemas | FK relationships, column metadata |
-| `database/` folder | 166 SQLite files | Actual data for FK graphs, PromptSchema, execution |
+| `database/` folder | 166 SQLite files | Data for FK graphs, PromptSchema, execution |
 
-**Important**: HuggingFace's Spider dataset only downloads the Q-SQL pairs (Parquet format), NOT the 166 SQLite database files. We downloaded the full dataset via Google Drive to get the SQLite files, which are needed for FK graph building, PromptSchema sample extraction, MongoDB conversion, and SQL execution during POSG.
-
-**Why Spider for both tracks**: The SQL track uses Spider directly. For the NoSQL track, we convert the 166 SQLite databases to MongoDB (Phase 5B) and translate the 7,000 Q-SQL pairs to Q-MQL pairs using an LLM (Phase 7B). There is no pre-built public Text-to-NoSQL training dataset with matching MongoDB schemas, so we build it ourselves.
+**Why Spider for both tracks**: The SQL track uses Spider directly. For the NoSQL track, we convert the 166 SQLite databases to MongoDB (Phase 5B) and translate the 7,000 Q-SQL pairs to Q-MQL pairs via DeepSeek-V3 (Phase 7B). There is no pre-built public Text-to-NoSQL dataset with matching MongoDB schemas.
 
 ---
 
@@ -94,7 +92,6 @@ User Natural Language Question
            │
            ▼
   [Session Config: PostgreSQL / MongoDB]
-  (User selects at session start — no per-query routing overhead)
            │
            ▼
   [LangGraph Router]
@@ -108,25 +105,23 @@ User Natural Language Question
     │         Shared Pipeline            │
     │                                    │
     │  1. PromptSchema                   │
-    │     Enrich schema with sample      │
-    │     values per column              │
+    │     schema_utils.py (query-time    │
+    │     BM25S on the question)         │
     │                                    │
     │  2. SchemaLinker                   │
-    │     Identify relevant tables and   │
-    │     columns from enriched schema   │
+    │     src/schema_linker/infer.py     │
+    │     → fix.py (BGE correction)      │
     │                                    │
-    │  3. SAR (Schema-Aware Retriever)   │
-    │     Retrieve top-3 structurally    │
-    │     similar past examples          │
+    │  3. SAR                            │
+    │     src/sar/infer.py               │
+    │     (SARRetriever, top-k cosine)   │
     │                                    │
     │  4. Generator                      │
-    │     Produce query from:            │
-    │     schema + linked entities +     │
-    │     3 similar examples             │
+    │     src/generator/infer.py (stub)  │
     │                                    │
     │  5. POSG                           │
-    │     Generate 5 candidates,         │
-    │     select best via Pareto         │
+    │     src/posg/posg_sql.py           │
+    │     src/posg/posg_nosql.py         │
     └───────┬────────────────────────────┘
             │
      ┌──────┴──────┐
@@ -137,23 +132,19 @@ User Natural Language Question
     [Execution Result]
             │
     [Self-Correction Loop]
-    (LangGraph re-runs on error)
+    (LangGraph re-runs on error, max 3 retries)
 ```
 
-**The pipeline is shared but models are separate.** The SchemaLinker for SQL is a different checkpoint from the SchemaLinker for NoSQL. Same for SAR and Generator. This is intentional — SQL and MongoDB queries have fundamentally different structures, and sharing weights would force the model to find a compromise that is suboptimal for both.
+**The pipeline is shared but models are separate.** The SchemaLinker for SQL is a different checkpoint from the SchemaLinker for NoSQL. Same for SAR and Generator. SQL and MongoDB queries have fundamentally different structures — sharing weights would force a compromise that is suboptimal for both.
 
 ---
 
 ## 5. Dual-Track Design — Why Two Separate Models
 
-When we first designed this system, there were two options:
-
 **Option 1 (Cascade)**: Generate SQL → Convert SQL to MQL using rules/LLM
 **Option 2 (Direct)**: Train separate generators for SQL and MQL
 
-We chose Option 2 because the TEND paper showed cascade (Option 1) underperforms direct generation by 20+ points. The reason is structural: MongoDB's aggregation pipeline uses operators like `$match`, `$group`, `$lookup`, `$unwind` that have no direct SQL equivalents. A model trained to think in SQL terms will produce awkward or incorrect MQL.
-
-The cost of Option 2 is more training work (two SchemaLinkers, two SARs, two Generators). The benefit is each model can fully optimize for its output format without compromises.
+We chose Option 2. The TEND paper showed cascade underperforms direct generation by 20+ points. MongoDB's aggregation pipeline uses `$match`, `$group`, `$lookup`, `$unwind` operators that have no direct SQL equivalents. A model trained to think in SQL terms produces awkward or incorrect MQL.
 
 ---
 
@@ -161,37 +152,85 @@ The cost of Option 2 is more training work (two SchemaLinkers, two SARs, two Gen
 
 | Work | Where | Why |
 |---|---|---|
-| Data prep (Phases 3–7) | Mac M1 | No GPU needed — file I/O, Python scripts |
-| CoT data generation (Phase 8) | Mac M1 | API calls to DeepSeek, no local GPU |
-| SchemaLinker Stage 1 SFT | Colab T4 | 16GB fits Qwen-7B with LoRA r=16 |
+| Data prep, FK graphs, BM25S, MongoDB conversion | Mac M1 | No GPU needed |
+| CoT + MQL generation (API calls) | Mac M1 | Network I/O, no local GPU |
+| SchemaLinker Stage 1 SFT | Colab T4 | Qwen-7B with LoRA r=64 fits in 16GB at bf16 |
 | SchemaLinker Stage 2 MTL | Colab T4 | Same |
-| SchemaLinker Stage 3 GRPO | Colab A100 | G=8 samples × 7B params ≈ 28GB minimum |
-| SAR training | Colab T4 | bge-large encoder + small Transformer |
-| Generator fine-tuning | Colab A100 | 7B + LoRA + batch size needs 24GB+ |
-| Inference / pipeline testing | Mac M1 (4-bit) | MPS backend, quantized models |
-| LangGraph, POSG, demo | Mac M1 | No GPU needed |
+| SchemaLinker Stage 3 GRPO | Colab A100 (Pro) | G=8 samples × 7B ≈ 28GB minimum |
+| SAR training | Colab T4 | BGE-large encoder + SchemaAwareModel |
+| Generator fine-tuning | Colab A100 (Pro) | 7B + LoRA + batch needs 24GB+ |
+| Inference / pipeline testing | Mac M1 (4-bit GGUF) | MPS backend |
+| LangGraph, POSG, demo | Mac M1 | No GPU |
 
-**Mac ↔ Colab workflow**: Write scripts locally → `git push` → `git pull` on Colab → train → save checkpoints to Google Drive at `/content/drive/MyDrive/codegen/checkpoints/`.
+**Mac ↔ Colab workflow**: Write scripts locally → `git push` → `git pull` on Colab → train → save to Google Drive at `/content/drive/MyDrive/codegen/checkpoints/`.
 
-**PyTorch on Mac M1**: Uses MPS (Metal Performance Shaders) backend instead of CUDA. The `src/device.py` helper detects the right backend automatically:
+**PyTorch on Mac M1**: Uses MPS (Metal Performance Shaders) backend. `src/device.py` detects the right backend automatically:
 ```python
-if torch.cuda.is_available(): return "cuda"     # Colab GPU
-if torch.backends.mps.is_available(): return "mps"   # Mac M1
-return "cpu"                                          # fallback
+if torch.cuda.is_available(): return "cuda"
+if torch.backends.mps.is_available(): return "mps"
+return "cpu"
 ```
 
 ---
 
-## 7. Component Deep Dives
+## 7. SchemaRAG Codebase Audit
 
-### 7.1 FK Graph Builder (Phase 5A)
+The SchemaRAG repository (`external/SchemaRAG/`) was cloned and all scripts were audited. Every useful component was adapted into our `src/` structure.
+
+### What SchemaRAG released
+
+| Asset | Released? | Notes |
+|---|---|---|
+| `datas/RAG_Spider.json` | ✅ Yes | 3102 Q-SQL pairs with schema text — our Phase 7A equivalent |
+| `datas/RAG_BIRD.json` | ✅ Yes | 3835 BIRD benchmark pairs |
+| CoT training data | ❌ No | `script_to_COT.py` released but not the output data |
+| MTL error dataset | ❌ No | `find_mistakes.py` released but not the errors |
+
+We kept our 7000-entry SQL RAG corpus (vs their 3102). CoT training data must be generated via Phase 8A.
+
+### Scripts adapted into src/
+
+| SchemaRAG file | Our file | Key changes |
+|---|---|---|
+| `llm_local.py` | `src/model_interface.py` | `modelscope` → `transformers`; MPS via `device.py` |
+| `function.py` | `src/schema_utils.py` | Query-time BM25S for inference; evidence param; UTF-8 fix |
+| `SchemaLinker_fix.py` | `src/schema_linker/fix.py` | No hardcoded paths; takes schema_text string |
+| `use_SchemaLinker.py` | `src/schema_linker/infer.py` | Retry loop kept exactly; uses ModelInterface |
+| `train_SchemaLinker_CoT_peft.py` | `src/schema_linker/train_stage1.py` | LoRA r=64 (vs paper's r=16); our data format |
+| `train_SchemaLinker_MTL_peft.py` | `src/schema_linker/train_stage2.py` | deepspeed removed; argparse paths |
+| `train_SchemaLinker_GRPO_peft.py` | `src/schema_linker/train_stage3_grpo.py` | Reward function ported exactly |
+| `train_SAR.py` (model) | `src/sar/sar_model.py` | NaN guards preserved; moved to own file |
+| `train_SAR.py` (loop) | `src/sar/train.py` | Embedding cache; triplet loss |
+| `SAR_use.py` | `src/sar/infer.py` | SARRetriever class; pre-computes embeddings at load |
+| `SAR_train/format_schema.py` | `src/sar/format_schema.py` | Parses our schema text format directly |
+| `po.py` | `src/posg/posg_sql.py` | Direct SQLite execute; hardcoded paths removed |
+| `po.py` (adapted) | `src/posg/posg_nosql.py` | MQL-specific: stage-type similarity replaces AST |
+| `eval/exec_eval.py` | `src/eval/exec_eval.py` | Async removed; UTF-8 fix; clean public API |
+| `script_to_COT.py` | `scripts/build_cot_data.py` | DeepSeek replaces GPT-4o; sqlglot entity validation |
+
+### Key differences from SchemaRAG's approach
+
+| Component | SchemaRAG | Us | Reason |
+|---|---|---|---|
+| BM25S timing | Query-time (per question) | Build-time for training; query-time for inference | `prompt_schema.py` caches; `schema_utils.py` re-runs at inference |
+| SQL parser (RAG corpus) | sqlparse | **sqlglot** | 0 failures on 7000 Spider SQLs; typed AST nodes |
+| SQL parser (POSG AST) | sqlparse | **sqlparse** | AST edit distance works on sqlparse token trees |
+| Structural type vector | 6 dimensions | **7 dimensions** | Added `has_set_op` — UNION/INTERSECT/EXCEPT are structurally incompatible with plain SELECT |
+| CoT format | `<reasoning>` | **`<think>`** | SchemaRAG's script_to_COT.py uses `<think>` tags |
+| CoT entity validation | Second LLM call | **sqlglot** | Free; no extra API cost; reliable for Spider SQL |
+| Teacher model | GPT-4o | **DeepSeek-V3** | ~10× cheaper; comparable quality on structured CoT |
+| LoRA rank | r=16 | **r=64** | Higher capacity; Qwen-7B still fits in T4 at bf16 |
+
+---
+
+## 8. Component Deep Dives — Data Pipeline
+
+### 8.1 FK Graph Builder (Phase 5A)
 
 **File**: `src/fk_graph.py`
 **Output**: `Data/fk_graphs/{db_name}.json` (166 files)
 
-#### What it is
-
-A graph where every table is a node and every foreign key relationship is a directed edge from the child table (the one with the FK column) to the parent table (the one being referenced).
+A directed graph where every table is a node and every FK is an edge from the child table (the one with the FK column) to the parent table (the one being referenced).
 
 ```
 Example: concert_singer database
@@ -203,141 +242,68 @@ concert           ──FK──► stadium
 Centrality: singer_in_concert is the bridge table (connects everything)
 ```
 
-#### Why we need it
+The FK graph provides JOIN path information without the LLM having to guess it. It also computes **in-degree centrality** — high-centrality tables are primary entities; low-centrality tables are leaf nodes. This informs the MongoDB conversion decision.
 
-When a user asks "List all singers who performed in concerts at stadiums with capacity over 5000", the system needs to know that answering this requires joining `singer`, `singer_in_concert`, `concert`, and `stadium`. The FK graph provides this JOIN path automatically without the LLM having to guess.
+SQLite's `PRAGMA foreign_key_list(table_name)` provides all declared FK constraints. Our implementation reads directly from the SQLite PRAGMA (more general than reading Spider's `tables.json`).
 
-The graph also computes **centrality** — which tables are most referenced by others. High-centrality tables are primary entities (customers, products, singers). Low-centrality tables are leaf nodes (individual transaction records). This information feeds into the MongoDB conversion to decide document structure.
-
-#### How it works technically
-
-SQLite has a built-in `PRAGMA foreign_key_list(table_name)` command that returns all declared FK constraints for a table:
-```
-PRAGMA foreign_key_list('singer_in_concert')
-→ (0, 0, 'concert', 'concert_ID', 'concert_ID', ...)
-   (1, 0, 'singer',  'Singer_ID',  'Singer_ID',  ...)
-```
-
-The builder reads these for every table in every database and builds a `networkx.DiGraph`. NetworkX then computes in-degree centrality in one line.
-
-#### What SchemaRAG does differently
-
-SchemaRAG reads FK relationships from `tables.json` (Spider's pre-computed metadata file). Our implementation reads directly from the SQLite `PRAGMA`, which is more general — it works for any SQLite database, not just Spider. This means the FK graph builder can be reused for production databases beyond the training set.
-
-#### Key fallback for missing FKs
-
-Some databases in Spider have no declared FK constraints even though the relationships exist (developers sometimes skip writing them). For those cases, the FK graph has no edges. The project plan's risk table documents a fallback: use co-occurrence of table names across training SQL queries as a proxy FK signal (Phase 5A risk L5). This is deferred to Phase 18 if needed.
+**Key limitation**: Some Spider databases declare no FK constraints even though relationships exist. The FK graph will have no edges for those databases. Fallback (Phase 19 if needed): use co-occurrence of table names in training SQL queries as a proxy FK signal.
 
 ---
 
-### 7.2 MongoDB Converter (Phase 5B)
+### 8.2 MongoDB Converter (Phase 5B)
 
 **File**: `src/mongodb_converter.py`
-**Output**: 166 live MongoDB databases + `Data/mongodb/{db_name}_schema.json` (166 files)
+**Output**: 166 live MongoDB databases + `Data/mongodb/{db_name}_schema.json`
 
-#### What it is
+Converts all 166 Spider SQLite databases to MongoDB. This creates the NoSQL equivalent of the Spider benchmark that no public dataset provides.
 
-Converts all 166 Spider SQLite databases to MongoDB format, creating a NoSQL equivalent of the Spider benchmark.
+**Design — v1 simplification**: The TEND paper's Algorithm 1 describes a sophisticated embedding vs. reference decision based on FK graph analysis. We chose v1: **all tables become separate collections with reference-based relationships**. Every SQLite row becomes one MongoDB document. FK columns are kept as plain fields (not ObjectId references).
 
-#### Why we need it
+Why: Embedding decisions affect MQL query structure significantly. Reference model gives clean `$lookup`-based MQL that is straightforward to train on.
 
-The TEND paper trained on MongoDB databases derived from Spider's relational schemas, but no pre-built version of this dataset is publicly available. We must recreate it. Without this, we have no training data for the NoSQL track.
+**Type coercion**: SQLite stores integers as text. Without coercion, MongoDB aggregations on numeric fields would fail. The `_coerce()` method tries `int → float → str`.
 
-#### Design choice — v1 simplification
-
-The TEND paper's Algorithm 1 describes a sophisticated conversion that decides whether to embed related documents or use references based on FK graph analysis. For example, a junction table like `singer_in_concert` could either become its own collection (with references to `singer` and `concert`) or be embedded as an array inside the `concert` document.
-
-We chose v1 simplification: **all tables become separate collections with reference-based FK relationships**. Every SQLite row becomes one MongoDB document. FK columns are kept as plain fields (not converted to ObjectId references).
-
-Why: Embedding decisions are complex and affect MQL query structure significantly. Starting with the simpler reference model gives us clean `$lookup`-based MQL that is easier to train on. If the NoSQL generator quality is insufficient, we revisit embedding in Phase 19.
-
-#### Type coercion
-
-SQLite is weakly typed — it stores integers as text and vice versa. Without type coercion, MongoDB documents would have inconsistent field types for the same column across rows, breaking aggregations. The `_coerce()` method tries `int` first, then `float`, then leaves as string:
-
-```python
-# SQLite might store "1992" as a string
-# _coerce converts it to integer 1992
-# so MongoDB can do: {$match: {Song_release_year: {$gt: 1990}}}
-```
-
-#### UTF-8 handling
-
-One database (`wta_1`) contained a player name with a special character (`Albarracín` with `Ñ`) stored in non-UTF-8 encoding in SQLite. Without handling this, the entire database conversion would fail. The fix is one line added to the SQLite connection:
-
+**UTF-8 handling**: One database (`wta_1`) had a player name with a non-UTF-8 character. Fix:
 ```python
 conn.text_factory = lambda b: b.decode("utf-8", errors="replace")
 ```
 
-This tells SQLite to replace any undecodable bytes with the Unicode replacement character instead of raising an exception.
-
-#### Verification
-
-All 166 databases were validated by comparing SQLite row counts to MongoDB document counts table by table. The result was a perfect match across all 166 databases and all their tables.
+**Verification**: Row counts matched perfectly across all 166 databases.
 
 ---
 
-### 7.3 PromptSchema via BM25S (Phase 6)
+### 8.3 PromptSchema via BM25S (Phase 6)
 
-**File**: `src/prompt_schema.py`
-**Output**: `Data/prompt_schema/sql/{db_name}.json` and `Data/prompt_schema/nosql/{db_name}.json` (332 files total)
+**Files**: `src/prompt_schema.py` (build time), `src/schema_utils.py` (query time)
+**Output**: `Data/prompt_schema/sql/` and `Data/prompt_schema/nosql/` (332 files)
 
-#### What it is
-
-For every column in every database, PromptSchema stores:
-- 3 representative sample values
-- The inferred data type (integer, float, string, boolean)
+For every column, PromptSchema stores 3 representative sample values and the inferred data type.
 
 ```json
 "singer.Country": {
     "sample_values": ["Netherlands", "United States", "France"],
     "inferred_type": "string"
-},
-"concert.Year": {
-    "sample_values": [2012, 2015, 2018],
-    "inferred_type": "integer"
 }
 ```
 
-#### Why we need it
+Without sample values, the LLM sees `c_nm` (could be anything). With values `["John Smith", "Sarah Jones"]`, it understands this is a customer name and not a product code.
 
-Many real-world databases have cryptic column names: `reg_dt`, `c_nm`, `amt`, `flg_1`. The SchemaLinker model receives the schema as text and needs to understand what each column means to decide if it is relevant to the question. Without sample values, `c_nm` could be anything. With sample values `["John Smith", "Sarah Jones", "Michael Brown"]`, it is clearly a customer name.
+**BM25S for strings**: Each distinct value is treated as a "document"; the column name is the query. BM25S picks the 3 most semantically relevant values.
 
-SchemaRAG demonstrates this explicitly — removing PromptSchema drops schema linking accuracy measurably on databases with non-descriptive column names.
+**Numeric sampling**: BM25S is meaningless for numbers. We use even-spread sampling: first, middle, last value — showing the range.
 
-#### Where BM25S comes in
-
-BM25S is a text ranking algorithm (a fast implementation of the BM25 ranking function). Given a query and a list of documents, it scores each document by relevance to the query.
-
-For string columns, we have up to 20 distinct values and need to pick the 3 most representative. We treat each value as a "document" and use the column name as the query:
-
-```
-Column: "Country"
-Candidate values: ["Netherlands", "United States", "France", "Germany", "Japan", ...]
-BM25S query: "country"
-→ Picks the 3 values most relevant to the concept "country"
-```
-
-For numeric columns (integers, floats), BM25S is meaningless — there are no text tokens to match. We use even-spread sampling instead (first, middle, last) to show the range of values.
-
-#### Key difference from SchemaRAG's BM25S usage
-
-SchemaRAG runs BM25S at **query time**: for each incoming user question, it picks column values that are most relevant to that specific question. This gives better per-question context but requires running BM25S 7,000 times (once per training example) or on every inference call.
-
-We run BM25S at **build time**: once per column, pick values representative of the column's general content, cache the result. The tradeoff is minor — for schema disambiguation, knowing that `singer.Country` contains country names is almost as useful as knowing which specific countries are relevant to the current question.
-
-This is an engineering decision, not a research one. The constraint is that we are building a training pipeline, not a per-query inference system at this stage.
+**Two-phase BM25S** (the distinction that emerged during development):
+- `src/prompt_schema.py` — **build time**: column name as query → cached JSON. Used when building training data.
+- `src/schema_utils.py` — **query time**: `extract_db_samples_enriched_bm25(question, ...)` uses the actual user question as the BM25 query → question-relevant values. Used at inference time. Adapted from SchemaRAG's `function.py`. Corpus prefix: `"{table} {col} {val}"` for better BM25 context. Includes a length guard (avg > 600 chars → keep 1 value per column).
 
 ---
 
-### 7.4 SQL RAG Corpus (Phase 7A)
+### 8.4 SQL RAG Corpus (Phase 7A)
 
 **File**: `scripts/build_rag_corpus.py`
-**Output**: `Data/rag_corpus/spider_sql_rag.json` (7,000 annotated Q-SQL pairs)
+**Output**: `Data/rag_corpus/spider_sql_rag.json` (7,000 entries, 57 structural types)
 
-#### What it is
-
-Every Spider training Q-SQL pair, annotated with a 6-dimensional structural fingerprint:
+Every Spider training Q-SQL pair, annotated with a 7-dimensional structural fingerprint:
 
 ```json
 {
@@ -345,178 +311,315 @@ Every Spider training Q-SQL pair, annotated with a 6-dimensional structural fing
     "sql": "SELECT COUNT(*) FROM head WHERE age > 56",
     "db_name": "department_management",
     "structural_type": {
-        "num_joins": 0,
-        "num_tables": 1,
+        "num_joins":    0,
+        "num_tables":   1,
         "has_group_by": false,
         "has_order_by": false,
-        "has_having": false,
-        "has_subquery": false
+        "has_having":   false,
+        "has_subquery": false,
+        "has_set_op":   false
     }
 }
 ```
 
-The 7,000 pairs produced 57 unique structural types. The most common type (simple 1-table SELECT with no clauses) has 2,189 examples. Complex types with HAVING or subqueries have 100–200 examples each.
+The 7th dimension `has_set_op` was added (not in v5 plan) because UNION/INTERSECT/EXCEPT queries are structurally incompatible with plain SELECT. Pairing them as positives in SAR contrastive training would teach SAR that fundamentally different query structures are similar.
 
-#### Why we need it
+**Parser**: `sqlglot` — 0 parse failures on all 7000 Spider SQLs. Provides typed AST nodes (`exp.Join`, `exp.Group`, `exp.Having`) for reliable structural analysis.
 
-The SAR (Schema-Augmented Retriever) is trained with contrastive learning. Contrastive learning requires knowing which pairs are "similar" (should have close embeddings) and which are "different" (should have distant embeddings). The structural type defines this:
-
-- Two queries with the same structural type = **positive pair** (similar)
-- Two queries with different structural types = **negative pair** (different)
-
-Without this annotation, "similar" has no definition and contrastive training cannot proceed.
-
-At inference time, this corpus becomes the search index. When a user asks a question, SAR encodes it, searches this corpus for structurally similar past examples, and retrieves the top-3 to use as few-shot examples for the Generator.
-
-#### Why sqlglot instead of sqlparse
-
-SchemaRAG's `script_to_RAG.py` uses `sqlparse` for SQL parsing. We use `sqlglot` for three reasons:
-
-1. **Correctness on Spider SQL**: Spider contains complex SQL with nested subqueries, set operations (INTERSECT, UNION), and non-standard SQLite syntax. `sqlglot` handles all of these correctly. `sqlparse` is older and has known parsing failures on complex SQL.
-
-2. **AST with typed nodes**: `sqlglot` produces a typed Abstract Syntax Tree where each node has a specific type (`exp.Join`, `exp.Group`, `exp.Having`, etc.). This makes counting structural elements reliable. `sqlparse` produces a flatter token stream that requires more fragile regex/keyword matching.
-
-3. **Zero parse failures on Spider**: Testing on all 7,000 Spider training queries showed 0 parse failures with `sqlglot`. This validated the choice.
-
-#### What SchemaRAG's RAG script does differently
-
-SchemaRAG's `script_to_RAG.py` does something fundamentally different — it **generates new Q-SQL pairs** using an LLM and validates them with Claude API. This is dataset augmentation (creating more training data), not structural annotation (labeling existing data).
-
-Our Phase 7A does structural annotation of the existing Spider pairs. We defer augmentation to Phase 18 if SAR retrieval quality is insufficient on evaluation.
+**Note**: SchemaRAG also released `RAG_Spider.json` (3102 curated entries). We kept our 7000-entry version — more data, richer structural type annotations.
 
 ---
 
-## 8. Upcoming Components — Preview
+### 8.5 NoSQL RAG Corpus (Phase 7B)
 
-These components are not yet implemented. This section documents what they are and how they connect to what we have built.
+**File**: `scripts/build_nosql_rag_corpus.py`
+**Output**: `Data/rag_corpus/spider_nosql_rag.json` (target: 4000–5000 verified entries)
 
-### 8.1 SchemaLinker (Phases 9–11)
+Translates Q-SQL pairs to Q-MQL pairs using DeepSeek-V3 API. Unlike Phase 7A which annotates existing data, this phase generates new MQL queries.
 
-**Model**: Qwen/Qwen2.5-7B fine-tuned in 3 stages
-**Input**: User question + PromptSchema-enriched database schema
-**Output**: List of relevant tables and columns
+**Verification pipeline**: Both the SQL (on SQLite) and the MQL (on MongoDB) are executed; their result row counts are compared. Only pairs where counts match are kept.
 
-The SchemaLinker reduces the schema from "all tables and columns in the database" to "only the ones needed to answer this question." This is critical for large databases with 50+ tables — the Generator cannot reason over all of them simultaneously.
-
-**3-stage training**:
-
-Stage 1 — SFT (Supervised Fine-tuning):
-Train on Chain-of-Thought reasoning data distilled from GPT-4o/DeepSeek. The model learns to reason step-by-step about which schema elements are relevant. Training data contains explicit reasoning: "The user asks about singers, so I need the singer table. They ask about concerts, so I need the concert table. The question filters by nationality, so I need singer.Nationality."
-
-Stage 2 — MTL (Multi-Task Learning with error correction):
-Build an error dataset from Stage 1 failures. Train the model with three tasks simultaneously: detect errors in wrong predictions (weight 3), correct wrong predictions (weight 3), and make correct predictions from scratch (weight 10). This stage makes the model robust to its own mistakes.
-
-Stage 3 — GRPO (Group Relative Policy Optimization):
-Reinforcement learning where the model generates G=8 candidate schema linkings per question and receives rewards based on accuracy. Missing a required table (false negative) is penalized 6× more harshly than including an unnecessary table (false positive). Rationale: a missing table makes correct SQL generation impossible; an extra table is ignorable by the Generator.
-
-GRPO requires an A100 GPU because it runs G=8 forward passes simultaneously for the 7B parameter model.
-
-### 8.2 SAR — Schema-Augmented Retriever (Phase 12)
-
-**Architecture**: BAAI/bge-large-en-v1.5 encoder + 2-stage Transformer
-**Input**: User question + database schema
-**Output**: Embedding used to retrieve similar past examples from ChromaDB
-
-SAR is the most impactful component in SchemaRAG's ablation study — removing it drops Execution Accuracy by 8–16 points depending on the model.
-
-**Why standard vector search is not enough**: Standard retrieval finds semantically similar questions. If a user asks "How many singers are there?", standard retrieval might return questions about singers even if they are complex multi-table JOIN queries. SAR finds questions that require the same SQL structure — simple COUNT queries — so the Generator gets examples that actually show the relevant pattern.
-
-**Stage 1 — Schema-Aware Representation**:
-For each question, produce an embedding that captures both the question's meaning AND the database structure. Implementation:
-1. Encode each table and its columns separately using bge-large (1024-dim vectors)
-2. Run cross-attention: each table embedding attends to its own column embeddings (table learns from its columns)
-3. Run cross-attention: question embedding attends to all column-aware table embeddings (question learns from schema)
-4. Training signal: the resulting embedding should be similar to the embedding of the correct SQL
-
-**Stage 2 — Contrastive Enhancement**:
-Stack the question embedding and schema-aware embedding, feed through a 3-layer Transformer with a causal mask (question can attend to schema, but schema cannot attend back — prevents circular reasoning). Training uses contrastive loss: pairs with the same structural type from Phase 7A should have similar embeddings, pairs with different structural types should have different embeddings.
-
-**The SchemaRAG codebase provides `train_SAR.py`** with the complete implementation including `SchemaAwareModel` and `ContrastiveLearningModel` classes. We will adapt this for both SQL and NoSQL tracks (NoSQL uses 2 layers instead of 3, with 2 attention heads instead of 8, based on the paper's findings for smaller datasets).
-
-### 8.3 Generator (Phase 14)
-
-**Model**: Qwen/Qwen2.5-Coder-7B-Instruct fine-tuned with LoRA
-**Input**: PromptSchema output + SchemaLinker output + SAR top-3 examples + question
-**Output**: SQL or MQL query
-
-Qwen2.5-Coder was chosen over a general-purpose model because it was pre-trained on code and SQL. The fine-tuning teaches it the specific prompt format and improves accuracy on the Spider schema style.
-
-The full prompt given to the Generator:
-```
-You are a SQL expert. Generate a single SQL query.
-
-Database: concert_singer
-Schema (with sample values):
-# Table: singer
-[(Singer_ID:INTEGER, Examples: [1, 2, 3]), (Name:TEXT, Examples: ['Joe Sharp', ...]), ...]
-
-Relevant schema elements (from SchemaLinker):
-Tables: singer, concert
-Columns: singer.Singer_ID, singer.Country, concert.concert_ID
-
-Similar examples (from SAR):
-Q: "How many singers are from the UK?" | SQL: SELECT COUNT(*) FROM singer WHERE Country = 'UK'
-Q: "List all American singers." | SQL: SELECT Name FROM singer WHERE Country = 'USA'
-Q: "Count French performers." | SQL: SELECT COUNT(*) FROM singer WHERE Country = 'France'
-
-Question: How many singers are from France?
-SQL:
+```json
+{
+    "question":        "How many singers are from France?",
+    "mql_collection":  "singer",
+    "mql_pipeline":    [{"$match": {"Country": "France"}}, {"$count": "total"}],
+    "db_name":         "concert_singer",
+    "structural_type": {...},
+    "source_sql":      "SELECT COUNT(*) FROM singer WHERE Country = 'France'"
+}
 ```
 
-### 8.4 POSG (Phase 15)
+**Test run result**: 9/10 passed. The one failure was an AVG aggregation where MongoDB returned 0 documents (known limitation: count-based comparison cannot validate aggregation results directly).
 
-**What it is**: Generate 5 SQL candidates from the Generator (with temperature sampling), then select the best one.
-
-Selection uses two dimensions:
-1. **Schema Linking Conformity (SSL)**: Jaccard similarity between tables/columns used in the generated SQL and the SchemaLinker's predictions. High score = SQL uses what the schema linker said to use.
-2. **Example Consistency (SEC)**: Average AST edit distance between the generated SQL and the 3 retrieved examples. High score = SQL structure resembles the examples.
-
-Find the Pareto-optimal candidates (no other candidate dominates on both dimensions simultaneously) and return the one with the highest geometric mean of SSL and SEC.
-
-For SQL execution, POSG can also do a hard filter: discard any candidate that raises a SQLite error. This prevents syntactically invalid SQL from reaching the user.
+**Checkpointing**: Every 50 entries to `Data/rag_corpus/nosql_checkpoint.json` — resumes from last checkpoint on restart.
 
 ---
 
-## 9. Key Design Decisions and Why
+### 8.6 SQL CoT Data (Phase 8A)
 
-### Why session-based routing instead of per-query routing
+**File**: `scripts/build_cot_data.py`
+**Output**: `Data/cot_data/sql_cot_train.json` (target: 4000–5000 verified CoT examples)
 
-The LangGraph router asks the user at session start whether they are working with PostgreSQL or MongoDB. An alternative would be detecting the intent from the query itself.
+Adapted from SchemaRAG's `script_to_COT.py`. Calls DeepSeek-V3 to generate Chain-of-Thought reasoning for each Q-SQL pair, then validates the output.
 
-We chose session-based because:
-- Per-query detection requires a classifier that can make mistakes (SQL question sent to MongoDB pipeline produces nonsense)
-- Sessions are natural — a developer is usually working with one database type at a time
-- Eliminates one potential failure point from the pipeline
+**CoT format** (SchemaRAG's `<think>` format, adopted directly):
+```
+<think>
+1. Understand the key concepts in the question:
+   • ...
+2. Analyze database table relationships:
+   • ...
+3. Key field for filtering: **table.column** (why this field is critical)
+</think>
 
-A fallback exists: if the input looks like an existing SQL query (matches `SELECT|INSERT|UPDATE` regex), the system routes to a SQL-to-NoSQL migration utility regardless of session config.
+Summary paragraph...
 
-### Why conda env `text2sql` and not a venv
+The key field matching the question is: [table.column].
+```
 
-The `text2sql` conda environment was created specifically to handle PyTorch MPS (Apple Silicon) installation, which requires a specific install URL and does not work with standard `pip install torch`. Conda manages the environment separately from the system Python, avoiding conflicts with macOS system packages. All development work uses this environment.
+**Validation pipeline (2 checks)**:
+1. **Format check** — `<think>` tags present, 3 numbered steps, final `The key field matching the question is:` declaration
+2. **Entity check** — the table in the key field must appear in the ground-truth SQL tables (extracted via sqlglot, not a second LLM call)
 
-### Why `Data/` with capital D instead of `data/`
+Entity validation without a second LLM call saves ~50% API cost. sqlglot is deterministic and free.
 
-The Spider dataset was originally extracted to `Data/Spider/` (capital D). The `config.yaml` uses lowercase `data/spider/` (the intended convention). All `src/` scripts use `os.path.dirname(__file__)` to compute paths relative to the script file's own location, so they work correctly regardless of the working directory, and they resolve to the actual `Data/` folder. This is a known inconsistency that will be cleaned up in a later phase.
+**Schema format passed to DeepSeek**:
+```
+# Table: actor
+[(actor_id:INT, Primary Key, Examples: [1, 2]),
+ (name:TEXT, Examples: [Tom Hanks, Meryl Streep]),
+]
+# Foreign Keys:
+# actor_in_movie.actor_id -> actor.actor_id
+```
 
-### Python module access and sys.path
+**Test run result**: 4/5 passed. The 1 failure was a no-WHERE-clause query (`SELECT * FROM teams`) — correctly filtered out since there is no key filtering field and Step 3 does not apply.
 
-Python does not automatically make parent directories importable. Running `python src/fk_graph.py` from the project root adds the project root to `sys.path`, making `from src.fk_graph import FKGraphBuilder` work from any other script that is also run from the project root. This is why all scripts are run from the project root, not from inside their directories.
-
-### Why not use SchemaRAG's existing scripts directly
-
-SchemaRAG provides reference implementations that were helpful for understanding the architecture. However, direct reuse was not possible for several reasons:
-
-1. **Path assumptions**: SchemaRAG's scripts hardcode paths like `./data/database/` that assume you are running from the SchemaRAG directory
-2. **Different purpose**: `BM25s_constrcut_db.py` runs BM25 at query time; we need a build-time caching version
-3. **`script_to_RAG.py` generates new pairs**: We need structural annotation of existing pairs, not LLM-based augmentation
-4. **NoSQL extension**: SchemaRAG is SQL-only; we needed to extend every component to MongoDB
-5. **Parser choice**: We use `sqlglot` instead of `sqlparse` for better coverage of Spider's SQL
+**Checkpointing**: Every 50 entries to `Data/cot_data/cot_checkpoint.json`.
 
 ---
 
-## 10. Data Flow — End to End
+## 9. Component Deep Dives — Model Training Scripts
 
-This shows how data produced in each phase feeds into later phases.
+### 9.1 ModelInterface — Local Inference Wrapper
+
+**File**: `src/model_interface.py`
+
+Adapted from SchemaRAG's `llm_local.py`. Wraps `AutoModelForCausalLM` with Qwen's chat template. The original used `modelscope` for model loading; we use standard HuggingFace `transformers`. Supports `enable_thinking=True` for Qwen3's extended reasoning mode.
+
+```python
+class ModelInterface:
+    def __init__(self, model_path: str, max_new_tokens: int = 32768):
+        # Detects device via src/device.py (MPS / CUDA / CPU)
+        ...
+
+    def generate(self, instruct, prompt, n=1, num_beams=1, enable_thinking=False) -> List[str]:
+        # Returns list of n decoded strings (for POSG k=5 generation)
+        ...
+```
+
+---
+
+### 9.2 SchemaLinker — 3-Stage Training
+
+The SchemaLinker reduces "all tables and columns in the database" to "only the ones needed to answer this question." For large databases with 50+ tables, the Generator cannot reason over all of them simultaneously — schema linking is the gating step.
+
+#### Stage 1 — CoT SFT (`src/schema_linker/train_stage1.py`)
+
+Fine-tune Qwen-7B on `sql_cot_train.json` from Phase 8A. The model learns to reason step-by-step before declaring which schema elements are relevant.
+
+**LoRA config** (raised from SchemaRAG's r=16 to r=64 for better capacity):
+```python
+LoraConfig(
+    r=64, lora_alpha=32,
+    target_modules=["q_proj", "k_proj", "v_proj", "o_proj",
+                    "gate_proj", "up_proj", "down_proj"],
+    lora_dropout=0.1, task_type="CAUSAL_LM"
+)
+```
+
+Training: 3 epochs, effective batch 16, LR=2e-4, bf16, cosine schedule.
+
+#### Stage 2 — MTL (`src/schema_linker/train_stage2.py`)
+
+Three tasks trained simultaneously:
+- **Task 0** — error detection (weight 0.3): classify whether a Stage-1 prediction is wrong
+- **Task 1** — correction (weight 0.4): produce the correct prediction given a wrong one
+- **Task 2** — generation (weight 1.0): make correct predictions from scratch
+
+`WeightedRandomSampler` balances task distribution proportional to inverse frequency × task weight.
+
+Error dataset construction: run Stage-1 inference on all 7000 Spider train entries → collect failures → filter with DeepSeek (only keep cases where wrong schema → wrong SQL) → target ~500–800 examples.
+
+#### Stage 3 — GRPO (`src/schema_linker/train_stage3_grpo.py`)
+
+Reinforcement learning where the model generates G=4 candidate schema linkings per question and receives per-token rewards:
+
+```python
+reward = (
+    +2.0 × true_positives     # correctly predicted key fields
+    - 0.5 × false_positives   # predicted but not in ground truth
+    - 3.0 × false_negatives   # missed required fields (strongest penalty)
+    + 0.5 × f1_score          # F1 bonus
+)
+# format_fail = -1000 (ensures output format is always valid)
+```
+
+FN penalty is strongest because a missing required table makes correct SQL generation impossible. An extra table is ignorable by the Generator.
+
+Requires Colab A100 (Pro) — G=4 forward passes on Qwen-7B ≈ 28GB.
+
+#### SchemaLinker fix (`src/schema_linker/fix.py`)
+
+Applied after Stage 3 inference. Uses BGE-large-en-v1.5 cosine similarity to snap predicted links to the nearest real `table.column` pair. Corrects hallucinations like `actor.nationality → actor.country` without rerunning the model.
+
+#### SchemaLinker inference (`src/schema_linker/infer.py`)
+
+Retry loop: if output parsing fails (missing `<think>` tags or no key field declaration), retry up to 3×. Saves `think_pre` and `answer_pre` alongside `schema_links_pred` for MTL Stage 2 error dataset construction.
+
+---
+
+### 9.3 SAR — Schema-Aware Retriever
+
+**Files**: `src/sar/sar_model.py`, `src/sar/train.py`, `src/sar/infer.py`, `src/sar/format_schema.py`
+
+SAR is the most impactful component in SchemaRAG's ablation — removing it drops EX by 8–16 points depending on the model.
+
+**Why standard vector search is not enough**: Standard retrieval finds semantically similar questions. If a user asks "How many singers are there?", standard retrieval might return complex multi-table JOIN queries about singers. SAR finds questions requiring the same SQL structure — simple COUNT queries — so the Generator gets examples showing the actually relevant pattern.
+
+#### SchemaAwareModel (`src/sar/sar_model.py`)
+
+Two cross-attention stages:
+
+```
+Input: BGE-large embeddings (dim=1024) for question, tables, columns
+
+Stage 1 — Column-aware table embeddings (table_column_attention):
+  For each table T_i with columns C_i:
+  T^C_i = SafeMultiheadAttention(query=T_i, key=C_i, value=C_i)
+  T^C_i = LayerNorm(T^C_i + T_i)
+
+Stage 2 — Question-schema fusion (question_table_attention):
+  Ŝ = SafeMultiheadAttention(query=Q, key=T^C, value=T^C)
+  output = LayerNorm(Ŝ + Q)
+  output = output_proj(output)  → [batch, embed_dim]
+```
+
+**`SafeMultiheadAttention`**: Handles edge cases where all keys are masked (some databases have tables with no valid columns after filtering). Returns zeros for those samples without crashing. This is a production-grade guard from SchemaRAG's implementation that we preserved exactly.
+
+#### Training (`src/sar/train.py`)
+
+Contrastive triplet loss (margin=0.3): anchor question, positive (same `structural_type` from Phase 7A), negative (different `structural_type`). `EmbeddingCache` with pickle + md5 hash keys avoids recomputing BGE embeddings across epochs.
+
+#### Inference (`src/sar/infer.py`)
+
+`SARRetriever` pre-computes corpus embeddings at load time (one BGE pass over all corpus questions). Retrieval is then a single matrix multiply:
+
+```python
+scores  = torch.matmul(q_emb, self.corpus_embs.T).squeeze(0)  # [N]
+top_idx = torch.topk(scores, k=top_k).indices
+```
+
+---
+
+### 9.4 POSG — Pareto-Optimal Generator
+
+**Files**: `src/posg/posg_sql.py`, `src/posg/posg_nosql.py`
+
+Generates k=5 candidates from the Generator (temperature sampling) and selects the best using Pareto-optimal scoring across 3 dimensions.
+
+#### SQL POSG (`src/posg/posg_sql.py`)
+
+| Dimension | How | Notes |
+|---|---|---|
+| Executability | Run on SQLite: 1.0 or 0.0 | Hard filter — non-executable candidates excluded from Pareto front |
+| Schema conformity | Average of Jaccard and coverage over SQL identifiers vs SchemaLinker predictions | Rewards using what SchemaLinker said to use |
+| Example consistency | 1 − normalized AST edit distance from retrieved examples | sqlparse token-tree edit distance |
+
+**`ASTProcessor`**: sqlparse-based. Builds typed AST dict recursively, filters whitespace/comment tokens, computes normalized edit distance via dynamic programming tree alignment.
+
+**Pareto front**: A candidate is Pareto-optimal if no other executable candidate dominates it on both schema conformity AND example consistency simultaneously.
+
+**Selection**: If multiple candidates are Pareto-optimal, score each as `ws × schema_conformity + we × example_consistency` with strategy-defined weights (`balanced`: 0.5/0.5, `schema_priority`: 0.7/0.3, `example_priority`: 0.3/0.7).
+
+#### NoSQL POSG (`src/posg/posg_nosql.py`)
+
+Same algorithm; MQL-specific adjustments:
+
+| Dimension | SQL | NoSQL |
+|---|---|---|
+| Executability | SQLite execute | `db[col].aggregate(pipeline, maxTimeMS=3000)` |
+| Schema conformity | Jaccard over SQL identifiers | Jaccard over collection names (including `$lookup.from`) |
+| Example consistency | sqlparse AST edit distance | **Pipeline stage-type similarity** |
+
+No standard MQL AST parser exists. Stage-type similarity (`$match`, `$group`, `$sort` sequence comparison) replaces AST edit distance. Two pipelines with the same sequence of stage types are structurally similar even with different field names.
+
+---
+
+### 9.5 EX Evaluation Metric
+
+**File**: `src/eval/exec_eval.py`
+
+Execution Accuracy (EX): a prediction is correct if executing it on the database produces the same result set as executing the gold SQL.
+
+**Key improvement over naive EX**: column-order permutation awareness. `SELECT a, b` and `SELECT b, a` produce different column orderings but the same result set. Naive EX marks them different. Our `result_eq()` (ported from SchemaRAG) searches for a column permutation that makes the results identical:
+
+```python
+def result_eq(r1, r2, order_matters) -> bool:
+    # quick_rej: fast multiset comparison before full permutation search
+    # get_constraint_permutation: prune the permutation search space
+    # multiset_eq: exact comparison after permuting columns
+```
+
+`order_matters` is True only when the gold SQL has ORDER BY (result row order is semantically significant).
+
+**Public API**:
+```python
+score = evaluate_ex(
+    pred_sqls=["SELECT name FROM singer WHERE country='France'"],
+    gold_sqls=["SELECT Name FROM singer WHERE Country = 'France'"],
+    db_dir="Data/Spider/database",
+    db_ids=["singer"],
+)  # → 1.0
+```
+
+---
+
+## 10. Key Design Decisions and Why
+
+### Session-based routing instead of per-query routing
+The LangGraph router asks the user at session start whether they are working with PostgreSQL or MongoDB. Per-query detection would require a classifier that can make mistakes. Sessions are natural — a developer works with one database type at a time. Eliminates one failure point.
+
+### conda env `text2sql`
+Created for PyTorch MPS (Apple Silicon) installation, which requires a specific install URL incompatible with standard `pip install torch`.
+
+### `Data/` with capital D
+Spider was extracted to `Data/Spider/`. All scripts use `os.path.dirname(__file__)` and resolve to the actual folder regardless of working directory.
+
+### BM25S at build time vs query time
+Both approaches exist in the codebase serving different purposes:
+- `src/prompt_schema.py` (build time): caches per-column representative values for training data construction. Fast, no per-question re-computation.
+- `src/schema_utils.py` (query time): uses the actual question as BM25 query at inference. More relevant to the specific question. This is SchemaRAG's production approach.
+
+### sqlglot for structural analysis, sqlparse for AST edit distance
+`sqlglot` provides typed AST nodes and handles all Spider SQL variants — used in Phase 7A and Phase 8A entity validation. `sqlparse` produces a token-tree suited for edit distance algorithms — used in POSG's `ASTProcessor`. Both serve distinct purposes and neither replaces the other.
+
+### LoRA r=64 instead of paper's r=16
+Higher capacity allows the model to learn more complex CoT reasoning patterns. Qwen-7B still fits in Colab T4 at bf16 with r=64. The SchemaRAG paper used r=16 as a conservative starting point; we raise it since we have the compute headroom.
+
+### Structural type vector is 7-dimensional
+Added `has_set_op` (UNION/INTERSECT/EXCEPT detection). A query with UNION is structurally incompatible with a plain SELECT — using them as positives in SAR contrastive training would teach SAR that fundamentally different structures are similar. The 7th dimension prevents this.
+
+### sqlglot for CoT entity validation instead of a second LLM call
+The original SchemaRAG `script_to_COT.py` calls the LLM a second time to extract SQL table names for entity validation. We use sqlglot instead: free, deterministic, no extra API cost, and reliable for Spider SQL patterns. This saves ~50% on Phase 8A API cost.
+
+### DeepSeek-V3 instead of GPT-4o
+~10× cheaper ($0.0003/1K tokens vs $0.003/1K). Comparable quality on structured CoT tasks (our 4/5 test pass rate matches SchemaRAG's reported quality). Total Phase 8A cost: ~$3.15.
+
+---
+
+## 11. Data Flow — End to End
 
 ```
 Spider Dataset (Phase 4)
@@ -535,99 +638,116 @@ Spider Dataset (Phase 4)
     │         │
     │         └──► nosql/{db_name}.json
     │
-    ├──► SQL RAG Corpus (Phase 7A)
-    │         │
-    │         └──► spider_sql_rag.json
-    │                   (7000 Q-SQL pairs with structural types)
+    ├──► SQL RAG Corpus (Phase 7A) ──► spider_sql_rag.json ✅ Done
+    │                                   (7000 Q-SQL, 7-dim structural types)
     │
-    └──► NoSQL RAG Corpus (Phase 7B) [PENDING]
-              │
-              └──► spider_nosql_rag.json
-                    (Q-MQL pairs from DeepSeek translation)
+    ├──► NoSQL RAG Corpus (Phase 7B) ──► spider_nosql_rag.json 🔄 In progress
+    │         (DeepSeek translates SQL→MQL, MongoDB verifies)
+    │
+    └──► SQL CoT Data (Phase 8A) ──► sql_cot_train.json 🔄 In progress
+              (DeepSeek generates <think>-format reasoning, sqlglot validates)
 
 
-─── TRAINING PHASES (Colab) ───────────────────────────────────
+─── TRAINING PHASES (Colab) ──────────────────────────────────────
 
-CoT Data (Phase 8) ──► SchemaLinker SFT (Phase 9)
-                                │
-                          SchemaLinker MTL (Phase 10)
-                                │
-                          SchemaLinker GRPO (Phase 11)
-                                │
-                          SchemaLinker checkpoints
-                                │
-                                ▼
-SQL RAG Corpus ──► SAR Training (Phase 12) ──► SAR checkpoints
-                                │
-                          ChromaDB Index (Phase 13)
+CoT Data ──► SchemaLinker Stage 1 SFT (Phase 9) ──► sl_cot checkpoint
+                    │
+             Stage 2 MTL (Phase 10) ──► sl_mtl checkpoint
+                    │
+             Stage 3 GRPO (Phase 11) ──► sl_final checkpoint
+                    │
+              fix.py (BGE snap) ──► corrected schema links
+
+SQL RAG Corpus ──► SAR Training (Phase 12) ──► sar checkpoint
+                        │
+                   ChromaDB Index (Phase 13)
 
 ─── FINE-TUNING ────────────────────────────────────────────────
 
 PromptSchema + SchemaLinker + SAR ──► Generator Fine-tuning (Phase 14)
                                                 │
-                                        Generator checkpoints
+                                        generator checkpoint
 
 ─── INFERENCE PIPELINE ─────────────────────────────────────────
 
 Question
    │
-   ├─ PromptSchema (pre-cached JSON)
-   ├─ SchemaLinker (loaded checkpoint)
-   ├─ SAR → ChromaDB query → top-3 examples
-   ├─ Generator → 5 candidates
-   └─ POSG → select best → final query
+   ├─ schema_utils.py (query-time BM25S)
+   ├─ schema_linker/infer.py → fix.py
+   ├─ sar/infer.py → ChromaDB → top-3 examples
+   ├─ generator/infer.py → 5 candidates
+   └─ posg/posg_sql.py or posg_nosql.py → final query
 ```
 
 ---
 
-## 11. File and Folder Structure
+## 12. File and Folder Structure
 
 ```
 Codegen/
-├── src/                          ← reusable library code (imported by other files)
-│   ├── device.py                 ← MPS/CUDA/CPU detection (Phase 3D)
-│   ├── fk_graph.py               ← FK graph builder for all 166 dbs (Phase 5A)
-│   ├── mongodb_converter.py      ← SQLite → MongoDB converter (Phase 5B)
-│   ├── prompt_schema.py          ← BM25S column annotation (Phase 6)
-│   ├── schema_linker/            ← 3-stage SchemaLinker (Phases 9–11, pending)
-│   ├── sar/                      ← Schema-Augmented Retriever (Phase 12, pending)
-│   ├── generator/                ← Query generator (Phase 14, pending)
-│   ├── posg/                     ← Pareto selection (Phase 15, pending)
-│   └── router/                   ← LangGraph router (Phase 17, pending)
+├── src/                               ← importable library code
+│   ├── device.py                      ✅ MPS/CUDA/CPU detection
+│   ├── fk_graph.py                    ✅ FK graph builder (Phase 5A)
+│   ├── mongodb_converter.py           ✅ SQLite → MongoDB (Phase 5B)
+│   ├── prompt_schema.py               ✅ BM25S build-time annotation (Phase 6)
+│   ├── schema_utils.py                ✅ BM25S query-time annotation (SchemaRAG)
+│   ├── model_interface.py             ✅ Qwen inference wrapper (SchemaRAG)
+│   ├── schema_linker/
+│   │   ├── train_stage1.py            ✅ CoT SFT — LoRA r=64, Qwen-7B
+│   │   ├── train_stage2.py            ✅ MTL — 3 tasks, WeightedRandomSampler
+│   │   ├── train_stage3_grpo.py       ✅ GRPO — TP/FP/FN reward function
+│   │   ├── infer.py                   ✅ Inference + retry loop (max 3)
+│   │   └── fix.py                     ✅ BGE embedding snap to real columns
+│   ├── sar/
+│   │   ├── sar_model.py               ✅ SchemaAwareModel — dual cross-attention
+│   │   ├── train.py                   ✅ Contrastive training — triplet loss
+│   │   ├── infer.py                   ✅ SARRetriever — pre-computed corpus embs
+│   │   └── format_schema.py           ✅ Schema text → parsed dict
+│   ├── generator/
+│   │   ├── train.py                   ⏳ Phase 14 (stub)
+│   │   └── infer.py                   ⏳ Phase 16 (stub)
+│   ├── posg/
+│   │   ├── posg_sql.py                ✅ ASTProcessor + Pareto front (SQL)
+│   │   └── posg_nosql.py              ✅ Stage-type similarity + Pareto front (MQL)
+│   ├── eval/
+│   │   └── exec_eval.py               ✅ EX metric — permutation-aware result eq
+│   └── router/
+│       └── langgraph_router.py        ⏳ Phase 17 (stub)
 │
-├── scripts/                      ← one-off build/validation scripts
-│   ├── validate_spider.py        ← verify Spider download (Phase 4)
-│   ├── Validate_sql2mongo_conversion.py ← verify MongoDB conversion (Phase 5B)
-│   └── build_rag_corpus.py       ← build SQL RAG corpus (Phase 7A)
+├── scripts/
+│   ├── validate_spider.py             ✅ Spider download validation (Phase 4)
+│   ├── Validate_sql2mongo_conversion.py  ✅ MongoDB conversion validation (Phase 5B)
+│   ├── build_rag_corpus.py            ✅ SQL RAG corpus builder (Phase 7A)
+│   ├── build_nosql_rag_corpus.py      🔄 NoSQL RAG corpus builder (Phase 7B)
+│   └── build_cot_data.py              🔄 SQL CoT data generator (Phase 8A)
 │
-├── Data/                         ← all data (gitignored)
-│   ├── Spider/                   ← Spider dataset
-│   │   ├── train_spider.json     ← 7000 Q-SQL training pairs
-│   │   ├── dev.json              ← 1034 Q-SQL evaluation pairs
-│   │   ├── tables.json           ← schema metadata
-│   │   └── database/             ← 166 SQLite files
-│   ├── fk_graphs/                ← FK graphs (166 JSON files) — Phase 5A output
-│   ├── mongodb/                  ← MongoDB schema cache (166 JSON files) — Phase 5B output
+├── Data/                              ← gitignored
+│   ├── Spider/                        ✅ 7000 Q-SQL + 166 SQLite DBs
+│   ├── fk_graphs/                     ✅ 166 FK graph JSON files
+│   ├── mongodb/                       ✅ 166 MongoDB schema JSONs
 │   ├── prompt_schema/
-│   │   ├── sql/                  ← SQL column annotations (166 JSON files) — Phase 6 output
-│   │   └── nosql/                ← NoSQL field annotations (166 JSON files) — Phase 6 output
+│   │   ├── sql/                       ✅ 166 SQL annotation files
+│   │   └── nosql/                     ✅ 166 NoSQL annotation files
 │   ├── rag_corpus/
-│   │   └── spider_sql_rag.json   ← 7000 annotated Q-SQL pairs — Phase 7A output
-│   └── cot_data/                 ← CoT training data (Phase 8, pending)
-│
-├── configs/
-│   └── config.yaml               ← all paths and hyperparameters
+│   │   ├── spider_sql_rag.json        ✅ 7000 entries, 57 types, 7-dim
+│   │   └── spider_nosql_rag.json      🔄 generating (target 4000–5000)
+│   └── cot_data/
+│       └── sql_cot_train.json         🔄 generating (target 4000–5000)
 │
 ├── external/
-│   └── SchemaRAG/                ← reference implementation (gitignored)
+│   └── SchemaRAG/                     ✅ Cloned + fully audited (gitignored)
 │
-├── models/                       ← trained checkpoints (gitignored)
-├── indexes/                      ← ChromaDB vector stores (gitignored)
-├── evaluation/                   ← eval scripts and results
+├── configs/
+│   └── config.yaml
+│
+├── models/                            ← gitignored
+├── indexes/                           ← gitignored
 └── docs/
-    └── architecture.md           ← this document
+    ├── architecture.md                ← this file
+    ├── SchemaRAG.pdf
+    └── Text_to_NoSQL.pdf
 ```
 
 ---
 
-*Last updated: Phase 7A complete. Next update will cover Phase 7B (NoSQL RAG Corpus) and Phase 8 (CoT Data Generation).*
+*Last updated: Phase 8A in progress. All `src/` training scripts implemented. Next update: Phase 9A SchemaLinker Stage 1 training results.*

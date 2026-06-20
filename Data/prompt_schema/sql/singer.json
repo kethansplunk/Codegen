@@ -1,0 +1,81 @@
+{
+  "singer.Singer_ID": {
+    "sample_values": [
+      1,
+      3,
+      5
+    ],
+    "inferred_type": "integer"
+  },
+  "singer.Name": {
+    "sample_values": [
+      "Abigail Johnson",
+      "Christy Walton",
+      "Alice Walton"
+    ],
+    "inferred_type": "string"
+  },
+  "singer.Birth_Year": {
+    "sample_values": [
+      1944.0,
+      1949.0,
+      1940.0
+    ],
+    "inferred_type": "float"
+  },
+  "singer.Net_Worth_Millions": {
+    "sample_values": [
+      30.0,
+      26.3,
+      17.8
+    ],
+    "inferred_type": "float"
+  },
+  "singer.Citizenship": {
+    "sample_values": [
+      "Germany",
+      "Australia",
+      "Chile"
+    ],
+    "inferred_type": "string"
+  },
+  "song.Song_ID": {
+    "sample_values": [
+      1,
+      3,
+      5
+    ],
+    "inferred_type": "integer"
+  },
+  "song.Title": {
+    "sample_values": [
+      "Mysterious Girl",
+      "F**k It (I Don't Want You Back)",
+      "Cha Cha Slide"
+    ],
+    "inferred_type": "string"
+  },
+  "song.Singer_ID": {
+    "sample_values": [
+      1,
+      4,
+      5
+    ],
+    "inferred_type": "integer"
+  },
+  "song.Sales": {
+    "sample_values": [
+      1094000.0,
+      351421.0,
+      300000.0
+    ],
+    "inferred_type": "float"
+  },
+  "song.Highest_Position": {
+    "sample_values": [
+      1.0,
+      3.0
+    ],
+    "inferred_type": "float"
+  }
+}

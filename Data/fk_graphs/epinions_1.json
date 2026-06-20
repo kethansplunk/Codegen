@@ -1,0 +1,109 @@
+{
+  "db_name": "epinions_1",
+  "nodes": [
+    {
+      "name": "item",
+      "columns": [
+        {
+          "name": "i_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "title",
+          "type": "varchar(20)"
+        }
+      ],
+      "pk": [
+        "i_id"
+      ]
+    },
+    {
+      "name": "review",
+      "columns": [
+        {
+          "name": "a_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "u_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "i_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "rating",
+          "type": "INTEGER"
+        },
+        {
+          "name": "rank",
+          "type": "INTEGER"
+        }
+      ],
+      "pk": [
+        "a_id"
+      ]
+    },
+    {
+      "name": "useracct",
+      "columns": [
+        {
+          "name": "u_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "name",
+          "type": "varchar(128)"
+        }
+      ],
+      "pk": [
+        "u_id"
+      ]
+    },
+    {
+      "name": "trust",
+      "columns": [
+        {
+          "name": "source_u_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "target_u_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "trust",
+          "type": "INTEGER"
+        }
+      ],
+      "pk": []
+    }
+  ],
+  "edges": [
+    {
+      "from": "review",
+      "to": "item",
+      "child_col": "i_id",
+      "parent_col": "i_id"
+    },
+    {
+      "from": "review",
+      "to": "useracct",
+      "child_col": "u_id",
+      "parent_col": "u_id"
+    },
+    {
+      "from": "trust",
+      "to": "useracct",
+      "child_col": "source_u_id",
+      "parent_col": "u_id"
+    }
+  ],
+  "centrality": {
+    "item": 0.3333333333333333,
+    "review": 0.0,
+    "useracct": 0.6666666666666666,
+    "trust": 0.0
+  }
+}

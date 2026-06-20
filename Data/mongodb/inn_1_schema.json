@@ -1,0 +1,94 @@
+{
+  "db_name": "inn_1",
+  "collections": {
+    "Rooms": {
+      "primary_key": [
+        "RoomId"
+      ],
+      "columns": [
+        {
+          "name": "RoomId",
+          "type": "TEXT"
+        },
+        {
+          "name": "roomName",
+          "type": "TEXT"
+        },
+        {
+          "name": "beds",
+          "type": "INTEGER"
+        },
+        {
+          "name": "bedType",
+          "type": "TEXT"
+        },
+        {
+          "name": "maxOccupancy",
+          "type": "INTEGER"
+        },
+        {
+          "name": "basePrice",
+          "type": "INTEGER"
+        },
+        {
+          "name": "decor",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 10
+    },
+    "Reservations": {
+      "primary_key": [
+        "Code"
+      ],
+      "columns": [
+        {
+          "name": "Code",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Room",
+          "type": "TEXT"
+        },
+        {
+          "name": "CheckIn",
+          "type": "TEXT"
+        },
+        {
+          "name": "CheckOut",
+          "type": "TEXT"
+        },
+        {
+          "name": "Rate",
+          "type": "REAL"
+        },
+        {
+          "name": "LastName",
+          "type": "TEXT"
+        },
+        {
+          "name": "FirstName",
+          "type": "TEXT"
+        },
+        {
+          "name": "Adults",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Kids",
+          "type": "INTEGER"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Reservations",
+          "to": "Rooms",
+          "child_col": "Room",
+          "parent_col": "RoomId"
+        }
+      ],
+      "row_count": 600
+    }
+  }
+}

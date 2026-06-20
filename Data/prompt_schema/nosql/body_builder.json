@@ -1,0 +1,90 @@
+{
+  "body_builder.Snatch": {
+    "sample_values": [
+      "142.5",
+      "140.0",
+      "137.5"
+    ],
+    "inferred_type": "float"
+  },
+  "body_builder.Body_Builder_ID": {
+    "sample_values": [
+      "5",
+      "1",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "body_builder.Clean_Jerk": {
+    "sample_values": [
+      "177.5",
+      "162.5",
+      "175.0"
+    ],
+    "inferred_type": "float"
+  },
+  "body_builder.Total": {
+    "sample_values": [
+      "317.5",
+      "315.0",
+      "312.5"
+    ],
+    "inferred_type": "float"
+  },
+  "body_builder.People_ID": {
+    "sample_values": [
+      "5",
+      "1",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "people.Birth_Date": {
+    "sample_values": [
+      "January 1, 1992",
+      "December 5, 1991",
+      "May 5, 1987"
+    ],
+    "inferred_type": "string"
+  },
+  "people.Name": {
+    "sample_values": [
+      "Mark Fayne",
+      "Cam Fowler",
+      "Al Montoya"
+    ],
+    "inferred_type": "string"
+  },
+  "people.Height": {
+    "sample_values": [
+      "192.0",
+      "215.0",
+      "195.0"
+    ],
+    "inferred_type": "float"
+  },
+  "people.Weight": {
+    "sample_values": [
+      "90.0",
+      "102.0",
+      "92.0"
+    ],
+    "inferred_type": "float"
+  },
+  "people.Birth_Place": {
+    "sample_values": [
+      "Farmington Hills, Michigan",
+      "Nashua, New Hampshire",
+      "Glenview, Illinois"
+    ],
+    "inferred_type": "string"
+  },
+  "people.People_ID": {
+    "sample_values": [
+      "5",
+      "2",
+      "6"
+    ],
+    "inferred_type": "integer"
+  }
+}

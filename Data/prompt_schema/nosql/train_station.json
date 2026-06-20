@@ -1,0 +1,106 @@
+{
+  "train_station.Station_ID": {
+    "sample_values": [
+      "5",
+      "8",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "train_station.Train_ID": {
+    "sample_values": [
+      "5",
+      "1",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "train.Time": {
+    "sample_values": [
+      "06:30",
+      "11:15",
+      "4:49"
+    ],
+    "inferred_type": "string"
+  },
+  "train.Train_ID": {
+    "sample_values": [
+      "5",
+      "1",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "train.Name": {
+    "sample_values": [
+      "Jayanthi Janatha Express",
+      "Quilon Fast Passenger",
+      "Ananthapuri Express"
+    ],
+    "inferred_type": "string"
+  },
+  "station.Number_of_Platforms": {
+    "sample_values": [
+      "17",
+      "18",
+      "12"
+    ],
+    "inferred_type": "integer"
+  },
+  "station.Location": {
+    "sample_values": [
+      "London",
+      "Birmingham",
+      "Glasgow"
+    ],
+    "inferred_type": "string"
+  },
+  "station.Name": {
+    "sample_values": [
+      "East Croydon",
+      "London Liverpool Street",
+      "London St Pancras"
+    ],
+    "inferred_type": "string"
+  },
+  "station.Total_Passengers": {
+    "sample_values": [
+      "26.672",
+      "30.896",
+      "26.892"
+    ],
+    "inferred_type": "float"
+  },
+  "station.Annual_interchanges": {
+    "sample_values": [
+      "2.353",
+      "8.742",
+      "1.99"
+    ],
+    "inferred_type": "float"
+  },
+  "station.Station_ID": {
+    "sample_values": [
+      "5",
+      "12",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "station.Annual_entry_exit": {
+    "sample_values": [
+      "76.231",
+      "27.875",
+      "94.046"
+    ],
+    "inferred_type": "float"
+  },
+  "station.Main_Services": {
+    "sample_values": [
+      "Brighton Main Line Chatham Main Line",
+      "Brighton Main Line",
+      "Great Eastern Main Line West Anglia Main Line"
+    ],
+    "inferred_type": "string"
+  }
+}

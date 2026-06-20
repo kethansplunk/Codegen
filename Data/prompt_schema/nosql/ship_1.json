@@ -1,0 +1,87 @@
+{
+  "captain.Rank": {
+    "sample_values": [
+      "Commander, junior captain",
+      "Midshipman",
+      "Lieutenant"
+    ],
+    "inferred_type": "string"
+  },
+  "captain.Ship_ID": {
+    "sample_values": [
+      "5",
+      "1",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "captain.Name": {
+    "sample_values": [
+      "Captain Sir Henry Langford",
+      "Lieutenant Montagu Verling",
+      "Lieutenant Hugh Bolitho"
+    ],
+    "inferred_type": "string"
+  },
+  "captain.Captain_ID": {
+    "sample_values": [
+      "5",
+      "2",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "captain.Class": {
+    "sample_values": [
+      "Third-rate ship of the line",
+      "Armed schooner",
+      "Sloop-of-war"
+    ],
+    "inferred_type": "string"
+  },
+  "captain.age": {
+    "sample_values": [
+      "45",
+      "43",
+      "60"
+    ],
+    "inferred_type": "integer"
+  },
+  "Ship.Built_Year": {
+    "sample_values": [
+      "1998.0",
+      "1997.0"
+    ],
+    "inferred_type": "float"
+  },
+  "Ship.Flag": {
+    "sample_values": [
+      "Malta",
+      "Panama"
+    ],
+    "inferred_type": "string"
+  },
+  "Ship.Ship_ID": {
+    "sample_values": [
+      "5",
+      "2",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "Ship.Name": {
+    "sample_values": [
+      "HMS Destiny",
+      "HMS Manxman",
+      "HM Sloop Sparrow"
+    ],
+    "inferred_type": "string"
+  },
+  "Ship.Class": {
+    "sample_values": [
+      "GL",
+      "KR"
+    ],
+    "inferred_type": "string"
+  }
+}

@@ -1,0 +1,97 @@
+{
+  "db_name": "performance_attendance",
+  "nodes": [
+    {
+      "name": "member",
+      "columns": [
+        {
+          "name": "Member_ID",
+          "type": "TEXT"
+        },
+        {
+          "name": "Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Nationality",
+          "type": "TEXT"
+        },
+        {
+          "name": "Role",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "Member_ID"
+      ]
+    },
+    {
+      "name": "performance",
+      "columns": [
+        {
+          "name": "Performance_ID",
+          "type": "REAL"
+        },
+        {
+          "name": "Date",
+          "type": "TEXT"
+        },
+        {
+          "name": "Host",
+          "type": "TEXT"
+        },
+        {
+          "name": "Location",
+          "type": "TEXT"
+        },
+        {
+          "name": "Attendance",
+          "type": "INT"
+        }
+      ],
+      "pk": [
+        "Performance_ID"
+      ]
+    },
+    {
+      "name": "member_attendance",
+      "columns": [
+        {
+          "name": "Member_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Performance_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Num_of_Pieces",
+          "type": "INT"
+        }
+      ],
+      "pk": [
+        "Member_ID",
+        "Performance_ID"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "member_attendance",
+      "to": "performance",
+      "child_col": "Performance_ID",
+      "parent_col": "Performance_ID"
+    },
+    {
+      "from": "member_attendance",
+      "to": "member",
+      "child_col": "Member_ID",
+      "parent_col": "Member_ID"
+    }
+  ],
+  "centrality": {
+    "member": 0.5,
+    "performance": 0.5,
+    "member_attendance": 0.0
+  }
+}

@@ -1,0 +1,311 @@
+{
+  "Staff.middle_name": {
+    "sample_values": [
+      "Tre",
+      "Stephania",
+      "Amara"
+    ],
+    "inferred_type": "string"
+  },
+  "Staff.date_left_staff": {
+    "sample_values": [
+      "2018-02-26 17:56:31",
+      "2018-03-08 04:23:14",
+      "2018-02-28 08:26:10"
+    ],
+    "inferred_type": "string"
+  },
+  "Staff.nickname": {
+    "sample_values": [
+      "weissnat.vincenzo",
+      "bogisich.geovany",
+      "santos45"
+    ],
+    "inferred_type": "string"
+  },
+  "Staff.date_of_birth": {
+    "sample_values": [
+      "2003-01-16 06:29:11",
+      "2010-12-08 16:55:14",
+      "2015-08-10 11:37:39"
+    ],
+    "inferred_type": "string"
+  },
+  "Staff.last_name": {
+    "sample_values": [
+      "Macejkovic",
+      "Kuphal",
+      "Doyle"
+    ],
+    "inferred_type": "string"
+  },
+  "Staff.first_name": {
+    "sample_values": [
+      "Kaitlin",
+      "Ludie",
+      "Jaleel"
+    ],
+    "inferred_type": "string"
+  },
+  "Staff.staff_address_id": {
+    "sample_values": [
+      "5",
+      "12",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "Staff.staff_id": {
+    "sample_values": [
+      "5",
+      "8",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Staff.date_joined_staff": {
+    "sample_values": [
+      "2016-06-05 22:22:23",
+      "2016-11-05 01:43:52",
+      "2017-08-30 15:08:37"
+    ],
+    "inferred_type": "string"
+  },
+  "Vehicles.vehicle_details": {
+    "sample_values": [
+      "Van",
+      "Car",
+      "Truck"
+    ],
+    "inferred_type": "string"
+  },
+  "Vehicles.vehicle_id": {
+    "sample_values": [
+      "1",
+      "3",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "Lessons.lesson_status_code": {
+    "sample_values": [
+      "Completed",
+      "Cancelled"
+    ],
+    "inferred_type": "string"
+  },
+  "Lessons.vehicle_id": {
+    "sample_values": [
+      "1",
+      "3",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "Lessons.price": {
+    "sample_values": [
+      "456.0",
+      "492.0",
+      "199.0"
+    ],
+    "inferred_type": "float"
+  },
+  "Lessons.lesson_date": {
+    "sample_values": [
+      "2018-03-07 22:03:49",
+      "2018-03-21 06:48:45",
+      "2018-03-07 11:53:32"
+    ],
+    "inferred_type": "string"
+  },
+  "Lessons.lesson_id": {
+    "sample_values": [
+      "5",
+      "8",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Lessons.customer_id": {
+    "sample_values": [
+      "5",
+      "9",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "Lessons.staff_id": {
+    "sample_values": [
+      "5",
+      "8",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "Lessons.lesson_time": {
+    "sample_values": [
+      "5",
+      "9",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "Customer_Payments.customer_id": {
+    "sample_values": [
+      "10",
+      "12",
+      "13"
+    ],
+    "inferred_type": "integer"
+  },
+  "Customer_Payments.datetime_payment": {
+    "sample_values": [
+      "2018-03-20 21:38:41",
+      "2018-02-15 16:38:49",
+      "2018-02-05 18:44:46"
+    ],
+    "inferred_type": "string"
+  },
+  "Customer_Payments.amount_payment": {
+    "sample_values": [
+      "5475.26",
+      "787.12",
+      "9570.93"
+    ],
+    "inferred_type": "float"
+  },
+  "Customer_Payments.payment_method_code": {
+    "sample_values": [
+      "Direct Debit",
+      "Credit Card"
+    ],
+    "inferred_type": "string"
+  },
+  "Customers.date_became_customer": {
+    "sample_values": [
+      "2016-05-13 07:38:23",
+      "2016-02-17 08:26:23",
+      "2017-04-16 05:12:21"
+    ],
+    "inferred_type": "string"
+  },
+  "Customers.amount_outstanding": {
+    "sample_values": [
+      "3751.0",
+      "5494.0",
+      "1000.0"
+    ],
+    "inferred_type": "float"
+  },
+  "Customers.email_address": {
+    "sample_values": [
+      "afranecki@example.com",
+      "myrl.lind@example.net",
+      "wehner.harold@example.com"
+    ],
+    "inferred_type": "string"
+  },
+  "Customers.date_of_birth": {
+    "sample_values": [
+      "1998-12-15 13:24:40",
+      "1996-08-30 06:17:50",
+      "1991-12-05 02:50:15"
+    ],
+    "inferred_type": "string"
+  },
+  "Customers.last_name": {
+    "sample_values": [
+      "Koelpin",
+      "Bernhard",
+      "Trantow"
+    ],
+    "inferred_type": "string"
+  },
+  "Customers.phone_number": {
+    "sample_values": [
+      "(662)490-3108",
+      "+14(5)2351480248",
+      "218.550.1362"
+    ],
+    "inferred_type": "string"
+  },
+  "Customers.first_name": {
+    "sample_values": [
+      "Ray",
+      "Omer",
+      "Millie"
+    ],
+    "inferred_type": "string"
+  },
+  "Customers.customer_status_code": {
+    "sample_values": [
+      "Bad Customer",
+      "Good Customer"
+    ],
+    "inferred_type": "string"
+  },
+  "Customers.customer_address_id": {
+    "sample_values": [
+      "10",
+      "1",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "Customers.cell_mobile_phone_number": {
+    "sample_values": [
+      "+57(9)4602098297",
+      "739-333-6966x187",
+      "1-197-686-2849x8761"
+    ],
+    "inferred_type": "string"
+  },
+  "Customers.customer_id": {
+    "sample_values": [
+      "5",
+      "8",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Addresses.address_id": {
+    "sample_values": [
+      "5",
+      "8",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Addresses.line_1_number_building": {
+    "sample_values": [
+      "3904 Stroman Passage",
+      "00704 Zoe Alley",
+      "29085 Dejah Pine Suite 059"
+    ],
+    "inferred_type": "string"
+  },
+  "Addresses.city": {
+    "sample_values": [
+      "Lockmanfurt",
+      "South Richieport",
+      "West Edmondview"
+    ],
+    "inferred_type": "string"
+  },
+  "Addresses.zip_postcode": {
+    "sample_values": [
+      "80376",
+      "85954",
+      "75074"
+    ],
+    "inferred_type": "integer"
+  },
+  "Addresses.state_province_county": {
+    "sample_values": [
+      "Maine",
+      "Washington",
+      "Kentucky"
+    ],
+    "inferred_type": "string"
+  }
+}

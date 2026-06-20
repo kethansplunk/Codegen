@@ -1,0 +1,82 @@
+{
+  "Rating.ratingDate": {
+    "sample_values": [
+      "2011-01-20",
+      "2011-01-27",
+      "2011-01-30"
+    ],
+    "inferred_type": "string"
+  },
+  "Rating.mID": {
+    "sample_values": [
+      "108",
+      "104",
+      "101"
+    ],
+    "inferred_type": "integer"
+  },
+  "Rating.rID": {
+    "sample_values": [
+      "204",
+      "206",
+      "207"
+    ],
+    "inferred_type": "integer"
+  },
+  "Rating.stars": {
+    "sample_values": [
+      "5",
+      "3",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "Reviewer.name": {
+    "sample_values": [
+      "Brittany Harris",
+      "Daniel Lewis",
+      "Chris Jackson"
+    ],
+    "inferred_type": "string"
+  },
+  "Reviewer.rID": {
+    "sample_values": [
+      "204",
+      "206",
+      "207"
+    ],
+    "inferred_type": "integer"
+  },
+  "Movie.title": {
+    "sample_values": [
+      "Gone with the Wind",
+      "Snow White",
+      "Star Wars"
+    ],
+    "inferred_type": "string"
+  },
+  "Movie.mID": {
+    "sample_values": [
+      "108",
+      "103",
+      "106"
+    ],
+    "inferred_type": "integer"
+  },
+  "Movie.director": {
+    "sample_values": [
+      "Steven Spielberg",
+      "George Lucas",
+      "Victor Fleming"
+    ],
+    "inferred_type": "string"
+  },
+  "Movie.year": {
+    "sample_values": [
+      "1939",
+      "1982",
+      "1937"
+    ],
+    "inferred_type": "integer"
+  }
+}

@@ -1,0 +1,326 @@
+{
+  "Ref_Hotel_Star_Ratings.star_rating_code": {
+    "sample_values": [
+      "1",
+      "2",
+      "3"
+    ],
+    "inferred_type": "integer"
+  },
+  "Locations.Location_ID": {
+    "sample_values": [
+      333,
+      650,
+      858
+    ],
+    "inferred_type": "integer"
+  },
+  "Locations.Location_Name": {
+    "sample_values": [
+      "Fossil Fun Games",
+      "The Boneyard",
+      "UK Gallery"
+    ],
+    "inferred_type": "string"
+  },
+  "Locations.Address": {
+    "sample_values": [
+      "101 Paucek Crescent",
+      "0692 Georgiana Pass",
+      "4411 Sabrina Radial Suite 582"
+    ],
+    "inferred_type": "string"
+  },
+  "Ref_Attraction_Types.Attraction_Type_Code": {
+    "sample_values": [
+      "2",
+      "3",
+      "5"
+    ],
+    "inferred_type": "integer"
+  },
+  "Ref_Attraction_Types.Attraction_Type_Description": {
+    "sample_values": [
+      "museum",
+      "adventure",
+      "gallery"
+    ],
+    "inferred_type": "string"
+  },
+  "Visitors.Tourist_ID": {
+    "sample_values": [
+      164,
+      359,
+      541
+    ],
+    "inferred_type": "integer"
+  },
+  "Visitors.Tourist_Details": {
+    "sample_values": [
+      "Elnora",
+      "Marisol",
+      "Jarrell"
+    ],
+    "inferred_type": "string"
+  },
+  "Features.Feature_ID": {
+    "sample_values": [
+      523,
+      528,
+      543
+    ],
+    "inferred_type": "integer"
+  },
+  "Features.Feature_Details": {
+    "sample_values": [
+      "parking",
+      "shopping",
+      "garden"
+    ],
+    "inferred_type": "string"
+  },
+  "Hotels.hotel_id": {
+    "sample_values": [
+      123,
+      314,
+      420
+    ],
+    "inferred_type": "integer"
+  },
+  "Hotels.star_rating_code": {
+    "sample_values": [
+      "5",
+      "4",
+      "3"
+    ],
+    "inferred_type": "integer"
+  },
+  "Hotels.pets_allowed_yn": {
+    "sample_values": [
+      "1",
+      ""
+    ],
+    "inferred_type": "string"
+  },
+  "Hotels.price_range": {
+    "sample_values": [
+      "5390.432113",
+      "38014975.47848",
+      "250548014.90329"
+    ],
+    "inferred_type": "string"
+  },
+  "Tourist_Attractions.Tourist_Attraction_ID": {
+    "sample_values": [
+      2113,
+      6523,
+      8449
+    ],
+    "inferred_type": "integer"
+  },
+  "Tourist_Attractions.Attraction_Type_Code": {
+    "sample_values": [
+      "2",
+      "6",
+      "5"
+    ],
+    "inferred_type": "integer"
+  },
+  "Tourist_Attractions.Location_ID": {
+    "sample_values": [
+      579,
+      603,
+      867
+    ],
+    "inferred_type": "integer"
+  },
+  "Tourist_Attractions.How_to_Get_There": {
+    "sample_values": [
+      "bus",
+      "walk",
+      "shuttle"
+    ],
+    "inferred_type": "string"
+  },
+  "Tourist_Attractions.Name": {
+    "sample_values": [
+      "parking",
+      "history gallery",
+      "fun games"
+    ],
+    "inferred_type": "string"
+  },
+  "Street_Markets.Market_ID": {
+    "sample_values": [
+      6852,
+      7067
+    ],
+    "inferred_type": "integer"
+  },
+  "Street_Markets.Market_Details": {
+    "sample_values": [
+      "Broadway",
+      "Fish Farm Market"
+    ],
+    "inferred_type": "string"
+  },
+  "Shops.Shop_ID": {
+    "sample_values": [
+      8429,
+      8449,
+      8698
+    ],
+    "inferred_type": "integer"
+  },
+  "Shops.Shop_Details": {
+    "sample_values": [
+      "see food",
+      "Flower",
+      "coffee"
+    ],
+    "inferred_type": "string"
+  },
+  "Museums.Museum_ID": {
+    "sample_values": [
+      2113,
+      2701,
+      5076
+    ],
+    "inferred_type": "integer"
+  },
+  "Museums.Museum_Details": {
+    "sample_values": [
+      "Yale Center for British Art",
+      "The Metropolitan Museum of Art",
+      "MoMA"
+    ],
+    "inferred_type": "string"
+  },
+  "Royal_Family.Royal_Family_ID": {
+    "sample_values": [
+      9561,
+      9919
+    ],
+    "inferred_type": "integer"
+  },
+  "Theme_Parks.Theme_Park_ID": {
+    "sample_values": [
+      5265,
+      6476,
+      6523
+    ],
+    "inferred_type": "integer"
+  },
+  "Theme_Parks.Theme_Park_Details": {
+    "sample_values": [
+      "Disney",
+      "Sea World",
+      "Universal Studios"
+    ],
+    "inferred_type": "string"
+  },
+  "Visits.Visit_ID": {
+    "sample_values": [
+      183,
+      416,
+      781
+    ],
+    "inferred_type": "integer"
+  },
+  "Visits.Tourist_Attraction_ID": {
+    "sample_values": [
+      6653,
+      6476,
+      9919
+    ],
+    "inferred_type": "integer"
+  },
+  "Visits.Tourist_ID": {
+    "sample_values": [
+      377,
+      439,
+      513
+    ],
+    "inferred_type": "integer"
+  },
+  "Visits.Visit_Date": {
+    "sample_values": [
+      "1990-11-12 00:54:50",
+      "1989-08-24 20:26:37",
+      "1993-02-01 15:27:20"
+    ],
+    "inferred_type": "string"
+  },
+  "Photos.Photo_ID": {
+    "sample_values": [
+      211,
+      428,
+      537
+    ],
+    "inferred_type": "integer"
+  },
+  "Photos.Tourist_Attraction_ID": {
+    "sample_values": [
+      8449,
+      6523,
+      6852
+    ],
+    "inferred_type": "integer"
+  },
+  "Photos.Name": {
+    "sample_values": [
+      "din4",
+      "fun4",
+      "fun3"
+    ],
+    "inferred_type": "string"
+  },
+  "Photos.Filename": {
+    "sample_values": [
+      "702",
+      "148",
+      "695"
+    ],
+    "inferred_type": "integer"
+  },
+  "Staff.Staff_ID": {
+    "sample_values": [
+      170,
+      463,
+      595
+    ],
+    "inferred_type": "integer"
+  },
+  "Staff.Tourist_Attraction_ID": {
+    "sample_values": [
+      6476,
+      9561,
+      6523
+    ],
+    "inferred_type": "integer"
+  },
+  "Staff.Name": {
+    "sample_values": [
+      "Carmella",
+      "Lenore",
+      "Asia"
+    ],
+    "inferred_type": "string"
+  },
+  "Tourist_Attraction_Features.Tourist_Attraction_ID": {
+    "sample_values": [
+      5076,
+      6523,
+      8429
+    ],
+    "inferred_type": "integer"
+  },
+  "Tourist_Attraction_Features.Feature_ID": {
+    "sample_values": [
+      528,
+      681,
+      523
+    ],
+    "inferred_type": "integer"
+  }
+}

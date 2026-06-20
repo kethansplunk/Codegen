@@ -1,0 +1,260 @@
+{
+  "db_name": "driving_school",
+  "collections": {
+    "Addresses": {
+      "primary_key": [
+        "address_id"
+      ],
+      "columns": [
+        {
+          "name": "address_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "line_1_number_building",
+          "type": "VARCHAR(80)"
+        },
+        {
+          "name": "city",
+          "type": "VARCHAR(50)"
+        },
+        {
+          "name": "zip_postcode",
+          "type": "VARCHAR(20)"
+        },
+        {
+          "name": "state_province_county",
+          "type": "VARCHAR(50)"
+        },
+        {
+          "name": "country",
+          "type": "VARCHAR(50)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 15
+    },
+    "Staff": {
+      "primary_key": [
+        "staff_id"
+      ],
+      "columns": [
+        {
+          "name": "staff_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "staff_address_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "nickname",
+          "type": "VARCHAR(80)"
+        },
+        {
+          "name": "first_name",
+          "type": "VARCHAR(80)"
+        },
+        {
+          "name": "middle_name",
+          "type": "VARCHAR(80)"
+        },
+        {
+          "name": "last_name",
+          "type": "VARCHAR(80)"
+        },
+        {
+          "name": "date_of_birth",
+          "type": "DATETIME"
+        },
+        {
+          "name": "date_joined_staff",
+          "type": "DATETIME"
+        },
+        {
+          "name": "date_left_staff",
+          "type": "DATETIME"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Staff",
+          "to": "Addresses",
+          "child_col": "staff_address_id",
+          "parent_col": "address_id"
+        }
+      ],
+      "row_count": 15
+    },
+    "Vehicles": {
+      "primary_key": [
+        "vehicle_id"
+      ],
+      "columns": [
+        {
+          "name": "vehicle_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "vehicle_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 3
+    },
+    "Customers": {
+      "primary_key": [
+        "customer_id"
+      ],
+      "columns": [
+        {
+          "name": "customer_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "customer_address_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "customer_status_code",
+          "type": "VARCHAR(15)"
+        },
+        {
+          "name": "date_became_customer",
+          "type": "DATETIME"
+        },
+        {
+          "name": "date_of_birth",
+          "type": "DATETIME"
+        },
+        {
+          "name": "first_name",
+          "type": "VARCHAR(80)"
+        },
+        {
+          "name": "last_name",
+          "type": "VARCHAR(80)"
+        },
+        {
+          "name": "amount_outstanding",
+          "type": "DOUBLE"
+        },
+        {
+          "name": "email_address",
+          "type": "VARCHAR(250)"
+        },
+        {
+          "name": "phone_number",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "cell_mobile_phone_number",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Customers",
+          "to": "Addresses",
+          "child_col": "customer_address_id",
+          "parent_col": "address_id"
+        }
+      ],
+      "row_count": 15
+    },
+    "Customer_Payments": {
+      "primary_key": [
+        "customer_id",
+        "datetime_payment"
+      ],
+      "columns": [
+        {
+          "name": "customer_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "datetime_payment",
+          "type": "DATETIME"
+        },
+        {
+          "name": "payment_method_code",
+          "type": "VARCHAR(10)"
+        },
+        {
+          "name": "amount_payment",
+          "type": "DOUBLE"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Customer_Payments",
+          "to": "Customers",
+          "child_col": "customer_id",
+          "parent_col": "customer_id"
+        }
+      ],
+      "row_count": 15
+    },
+    "Lessons": {
+      "primary_key": [
+        "lesson_id"
+      ],
+      "columns": [
+        {
+          "name": "lesson_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "customer_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "lesson_status_code",
+          "type": "VARCHAR(15)"
+        },
+        {
+          "name": "staff_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "vehicle_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "lesson_date",
+          "type": "DATETIME"
+        },
+        {
+          "name": "lesson_time",
+          "type": "VARCHAR(10)"
+        },
+        {
+          "name": "price",
+          "type": "DOUBLE"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Lessons",
+          "to": "Customers",
+          "child_col": "customer_id",
+          "parent_col": "customer_id"
+        },
+        {
+          "from": "Lessons",
+          "to": "Staff",
+          "child_col": "staff_id",
+          "parent_col": "staff_id"
+        },
+        {
+          "from": "Lessons",
+          "to": "Vehicles",
+          "child_col": "vehicle_id",
+          "parent_col": "vehicle_id"
+        }
+      ],
+      "row_count": 15
+    }
+  }
+}

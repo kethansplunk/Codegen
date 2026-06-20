@@ -1,0 +1,270 @@
+{
+  "Addresses.address_id": {
+    "sample_values": [
+      1,
+      6,
+      11
+    ],
+    "inferred_type": "integer"
+  },
+  "Addresses.line_1_number_building": {
+    "sample_values": [
+      "9590 Rogahn Point Apt. 466",
+      "044 Greenfelder Fort",
+      "037 Luella Path"
+    ],
+    "inferred_type": "string"
+  },
+  "Addresses.city": {
+    "sample_values": [
+      "Port Montytown",
+      "East Rickey",
+      "North Jairo"
+    ],
+    "inferred_type": "string"
+  },
+  "Addresses.zip_postcode": {
+    "sample_values": [
+      "740",
+      "126",
+      "505"
+    ],
+    "inferred_type": "integer"
+  },
+  "Addresses.state_province_county": {
+    "sample_values": [
+      "SouthDakota",
+      "Maryland",
+      "Oklahoma"
+    ],
+    "inferred_type": "string"
+  },
+  "Products.product_id": {
+    "sample_values": [
+      1,
+      6,
+      11
+    ],
+    "inferred_type": "integer"
+  },
+  "Products.product_type_code": {
+    "sample_values": [
+      "Hardware",
+      "Clothes"
+    ],
+    "inferred_type": "string"
+  },
+  "Products.product_name": {
+    "sample_values": [
+      "gucci",
+      "Sony",
+      "jcrew"
+    ],
+    "inferred_type": "string"
+  },
+  "Products.product_price": {
+    "sample_values": [
+      54753982.574522,
+      77.109961147471,
+      149.95519076938
+    ],
+    "inferred_type": "float"
+  },
+  "Customers.customer_id": {
+    "sample_values": [
+      1,
+      6,
+      11
+    ],
+    "inferred_type": "integer"
+  },
+  "Customers.payment_method_code": {
+    "sample_values": [
+      "Credit Card",
+      "Direct Debit"
+    ],
+    "inferred_type": "string"
+  },
+  "Customers.customer_number": {
+    "sample_values": [
+      "456",
+      "838",
+      "233"
+    ],
+    "inferred_type": "integer"
+  },
+  "Customers.customer_name": {
+    "sample_values": [
+      "Ottilie",
+      "Cecelia",
+      "Cheyenne"
+    ],
+    "inferred_type": "string"
+  },
+  "Customers.customer_address": {
+    "sample_values": [
+      "4098 Kreiger Knoll Suite 758",
+      "4065 Forest Vista Apt. 103",
+      "058 Ben Street Apt. 034"
+    ],
+    "inferred_type": "string"
+  },
+  "Customers.customer_phone": {
+    "sample_values": [
+      "393-750-2077x72779",
+      "672-559-0630x7875",
+      "009-136-4509x19635"
+    ],
+    "inferred_type": "string"
+  },
+  "Customers.customer_email": {
+    "sample_values": [
+      "morton06@example.net",
+      "caesar.lemke@example.net",
+      "rhayes@example.org"
+    ],
+    "inferred_type": "string"
+  },
+  "Contacts.contact_id": {
+    "sample_values": [
+      1,
+      6,
+      11
+    ],
+    "inferred_type": "integer"
+  },
+  "Contacts.customer_id": {
+    "sample_values": [
+      4,
+      14,
+      10
+    ],
+    "inferred_type": "integer"
+  },
+  "Contacts.gender": {
+    "sample_values": [
+      "male",
+      "female"
+    ],
+    "inferred_type": "string"
+  },
+  "Contacts.first_name": {
+    "sample_values": [
+      "Hellen",
+      "Sid",
+      "Rachelle"
+    ],
+    "inferred_type": "string"
+  },
+  "Contacts.last_name": {
+    "sample_values": [
+      "Little",
+      "Legros",
+      "Stamm"
+    ],
+    "inferred_type": "string"
+  },
+  "Contacts.contact_phone": {
+    "sample_values": [
+      "136.724.5322",
+      "658.850.7946x9993",
+      "048-342-0880x5170"
+    ],
+    "inferred_type": "string"
+  },
+  "Customer_Address_History.customer_id": {
+    "sample_values": [
+      12,
+      11,
+      14
+    ],
+    "inferred_type": "integer"
+  },
+  "Customer_Address_History.address_id": {
+    "sample_values": [
+      7,
+      12,
+      3
+    ],
+    "inferred_type": "integer"
+  },
+  "Customer_Address_History.date_from": {
+    "sample_values": [
+      "2016-12-23 04:42:07",
+      "2011-01-02 21:42:29",
+      "2015-05-01 12:44:46"
+    ],
+    "inferred_type": "string"
+  },
+  "Customer_Address_History.date_to": {
+    "sample_values": [
+      "2018-03-20 01:13:38",
+      "2018-02-25 19:55:00",
+      "2018-03-24 06:20:36"
+    ],
+    "inferred_type": "string"
+  },
+  "Customer_Orders.order_id": {
+    "sample_values": [
+      1,
+      6,
+      11
+    ],
+    "inferred_type": "integer"
+  },
+  "Customer_Orders.customer_id": {
+    "sample_values": [
+      2,
+      13,
+      5
+    ],
+    "inferred_type": "integer"
+  },
+  "Customer_Orders.order_date": {
+    "sample_values": [
+      "2007-01-19 07:54:50",
+      "2002-01-20 01:52:53",
+      "1972-03-17 21:42:29"
+    ],
+    "inferred_type": "string"
+  },
+  "Customer_Orders.order_status_code": {
+    "sample_values": [
+      "Completed",
+      "Part"
+    ],
+    "inferred_type": "string"
+  },
+  "Order_Items.order_item_id": {
+    "sample_values": [
+      1,
+      6,
+      11
+    ],
+    "inferred_type": "integer"
+  },
+  "Order_Items.order_id": {
+    "sample_values": [
+      9,
+      15,
+      7
+    ],
+    "inferred_type": "integer"
+  },
+  "Order_Items.product_id": {
+    "sample_values": [
+      15,
+      2,
+      4
+    ],
+    "inferred_type": "integer"
+  },
+  "Order_Items.order_quantity": {
+    "sample_values": [
+      "5",
+      "7",
+      "9"
+    ],
+    "inferred_type": "string"
+  }
+}

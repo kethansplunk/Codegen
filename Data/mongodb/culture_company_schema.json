@@ -1,0 +1,121 @@
+{
+  "db_name": "culture_company",
+  "collections": {
+    "book_club": {
+      "primary_key": [
+        "book_club_id"
+      ],
+      "columns": [
+        {
+          "name": "book_club_id",
+          "type": "INT"
+        },
+        {
+          "name": "Year",
+          "type": "INT"
+        },
+        {
+          "name": "Author_or_Editor",
+          "type": "TEXT"
+        },
+        {
+          "name": "Book_Title",
+          "type": "TEXT"
+        },
+        {
+          "name": "Publisher",
+          "type": "TEXT"
+        },
+        {
+          "name": "Category",
+          "type": "TEXT"
+        },
+        {
+          "name": "Result",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 12
+    },
+    "movie": {
+      "primary_key": [
+        "movie_id"
+      ],
+      "columns": [
+        {
+          "name": "movie_id",
+          "type": "INT"
+        },
+        {
+          "name": "Title",
+          "type": "TEXT"
+        },
+        {
+          "name": "Year",
+          "type": "INT"
+        },
+        {
+          "name": "Director",
+          "type": "TEXT"
+        },
+        {
+          "name": "Budget_million",
+          "type": "REAL"
+        },
+        {
+          "name": "Gross_worldwide",
+          "type": "INT"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 10
+    },
+    "culture_company": {
+      "primary_key": [
+        "Company_name"
+      ],
+      "columns": [
+        {
+          "name": "Company_name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Type",
+          "type": "TEXT"
+        },
+        {
+          "name": "Incorporated_in",
+          "type": "TEXT"
+        },
+        {
+          "name": "Group_Equity_Shareholding",
+          "type": "REAL"
+        },
+        {
+          "name": "book_club_id",
+          "type": "TEXT"
+        },
+        {
+          "name": "movie_id",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "culture_company",
+          "to": "movie",
+          "child_col": "movie_id",
+          "parent_col": "movie_id"
+        },
+        {
+          "from": "culture_company",
+          "to": "book_club",
+          "child_col": "book_club_id",
+          "parent_col": "book_club_id"
+        }
+      ],
+      "row_count": 6
+    }
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "db_name": "ship_1",
+  "collections": {
+    "captain": {
+      "primary_key": [
+        "Captain_ID"
+      ],
+      "columns": [
+        {
+          "name": "Captain_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Ship_ID",
+          "type": "INT"
+        },
+        {
+          "name": "age",
+          "type": "TEXT"
+        },
+        {
+          "name": "Class",
+          "type": "TEXT"
+        },
+        {
+          "name": "Rank",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "captain",
+          "to": "Ship",
+          "child_col": "Ship_ID",
+          "parent_col": "Ship_ID"
+        }
+      ],
+      "row_count": 7
+    },
+    "Ship": {
+      "primary_key": [
+        "Ship_ID"
+      ],
+      "columns": [
+        {
+          "name": "Ship_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Type",
+          "type": "TEXT"
+        },
+        {
+          "name": "Built_Year",
+          "type": "REAL"
+        },
+        {
+          "name": "Class",
+          "type": "TEXT"
+        },
+        {
+          "name": "Flag",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 9
+    }
+  }
+}

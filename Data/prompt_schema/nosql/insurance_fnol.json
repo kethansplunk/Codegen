@@ -1,0 +1,178 @@
+{
+  "Available_Policies.policy_type_code": {
+    "sample_values": [
+      "Property Insurance",
+      "Mortgage Insurance",
+      "Travel Insurance"
+    ],
+    "inferred_type": "string"
+  },
+  "Available_Policies.Policy_ID": {
+    "sample_values": [
+      "300",
+      "246",
+      "346"
+    ],
+    "inferred_type": "integer"
+  },
+  "Available_Policies.Customer_Phone": {
+    "sample_values": [
+      "991.642.6485x822",
+      "1-381-132-0127x3801",
+      "+16(2)5838999222"
+    ],
+    "inferred_type": "string"
+  },
+  "Claims.Effective_Date": {
+    "sample_values": [
+      "1996-11-29",
+      "1975-05-07",
+      "1973-08-18"
+    ],
+    "inferred_type": "string"
+  },
+  "Claims.FNOL_ID": {
+    "sample_values": [
+      "1611",
+      "1722",
+      "4525"
+    ],
+    "inferred_type": "integer"
+  },
+  "Claims.Claim_ID": {
+    "sample_values": [
+      "311",
+      "134",
+      "145"
+    ],
+    "inferred_type": "integer"
+  },
+  "Settlements.Settlement_Amount": {
+    "sample_values": [
+      "2722.67",
+      "8827.06",
+      "9164.1"
+    ],
+    "inferred_type": "float"
+  },
+  "Settlements.Effective_Date": {
+    "sample_values": [
+      "2006-04-19",
+      "2003-12-28",
+      "1978-09-09"
+    ],
+    "inferred_type": "string"
+  },
+  "Settlements.Settlement_ID": {
+    "sample_values": [
+      "628",
+      "393",
+      "616"
+    ],
+    "inferred_type": "integer"
+  },
+  "Settlements.Claim_ID": {
+    "sample_values": [
+      "311",
+      "360",
+      "145"
+    ],
+    "inferred_type": "integer"
+  },
+  "Services.Service_ID": {
+    "sample_values": [
+      "1",
+      "9",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "Services.Service_name": {
+    "sample_values": [
+      "Upgrade a policy",
+      "Change a policy",
+      "New policy application"
+    ],
+    "inferred_type": "string"
+  },
+  "First_Notification_of_Loss.Service_ID": {
+    "sample_values": [
+      "4",
+      "6",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "First_Notification_of_Loss.Customer_ID": {
+    "sample_values": [
+      "582",
+      "892",
+      "214"
+    ],
+    "inferred_type": "integer"
+  },
+  "First_Notification_of_Loss.FNOL_ID": {
+    "sample_values": [
+      "1611",
+      "1722",
+      "4525"
+    ],
+    "inferred_type": "integer"
+  },
+  "First_Notification_of_Loss.Policy_ID": {
+    "sample_values": [
+      "257",
+      "586",
+      "993"
+    ],
+    "inferred_type": "integer"
+  },
+  "Customers_Policies.Customer_ID": {
+    "sample_values": [
+      "256",
+      "682",
+      "996"
+    ],
+    "inferred_type": "integer"
+  },
+  "Customers_Policies.Policy_ID": {
+    "sample_values": [
+      "257",
+      "301",
+      "346"
+    ],
+    "inferred_type": "integer"
+  },
+  "Customers_Policies.Date_Opened": {
+    "sample_values": [
+      "2017-01-08",
+      "2016-07-10",
+      "2017-01-05"
+    ],
+    "inferred_type": "string"
+  },
+  "Customers_Policies.Date_Closed": {
+    "sample_values": [
+      "2018-03-04",
+      "2018-03-20",
+      "2018-03-10"
+    ],
+    "inferred_type": "string"
+  },
+  "Customers.Customer_name": {
+    "sample_values": [
+      "America Jaskolski",
+      "Jay Chou",
+      "Mrs. Liza Heller V"
+    ],
+    "inferred_type": "string"
+  },
+  "Customers.Customer_ID": {
+    "sample_values": [
+      "256",
+      "923",
+      "956"
+    ],
+    "inferred_type": "integer"
+  }
+}

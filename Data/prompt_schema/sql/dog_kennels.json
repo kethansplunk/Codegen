@@ -1,0 +1,391 @@
+{
+  "Breeds.breed_code": {
+    "sample_values": [
+      "BUL",
+      "ESK",
+      "HUS"
+    ],
+    "inferred_type": "string"
+  },
+  "Breeds.breed_name": {
+    "sample_values": [
+      "Eskimo",
+      "Husky",
+      "Bulldog"
+    ],
+    "inferred_type": "string"
+  },
+  "Charges.charge_id": {
+    "sample_values": [
+      1,
+      2,
+      3
+    ],
+    "inferred_type": "integer"
+  },
+  "Charges.charge_type": {
+    "sample_values": [
+      "Daily Accommodation",
+      "Drugs",
+      "Health Check"
+    ],
+    "inferred_type": "string"
+  },
+  "Charges.charge_amount": {
+    "sample_values": [
+      98,
+      322,
+      640
+    ],
+    "inferred_type": "integer"
+  },
+  "Sizes.size_code": {
+    "sample_values": [
+      "LGE",
+      "MED",
+      "SML"
+    ],
+    "inferred_type": "string"
+  },
+  "Sizes.size_description": {
+    "sample_values": [
+      "Small",
+      "Medium",
+      "Large"
+    ],
+    "inferred_type": "string"
+  },
+  "Treatment_Types.treatment_type_code": {
+    "sample_values": [
+      "EXAM",
+      "VAC",
+      "WALK"
+    ],
+    "inferred_type": "string"
+  },
+  "Treatment_Types.treatment_type_description": {
+    "sample_values": [
+      "Physical examination",
+      "Vaccination",
+      "Take for a Walk"
+    ],
+    "inferred_type": "string"
+  },
+  "Owners.owner_id": {
+    "sample_values": [
+      1,
+      6,
+      11
+    ],
+    "inferred_type": "integer"
+  },
+  "Owners.first_name": {
+    "sample_values": [
+      "Heather",
+      "Emelie",
+      "Kade"
+    ],
+    "inferred_type": "string"
+  },
+  "Owners.last_name": {
+    "sample_values": [
+      "Hauck",
+      "Mertz",
+      "Rippin"
+    ],
+    "inferred_type": "string"
+  },
+  "Owners.street": {
+    "sample_values": [
+      "1858 Jan Park",
+      "2417 Keara Stravenue Apt. 146",
+      "51934 Treutel Harbor"
+    ],
+    "inferred_type": "string"
+  },
+  "Owners.city": {
+    "sample_values": [
+      "South Daisyfurt",
+      "Lake Jennyferfort",
+      "Lake Carleyborough"
+    ],
+    "inferred_type": "string"
+  },
+  "Owners.state": {
+    "sample_values": [
+      "Pennsylvania",
+      "Arizona",
+      "Florida"
+    ],
+    "inferred_type": "string"
+  },
+  "Owners.zip_code": {
+    "sample_values": [
+      "93165",
+      "25609",
+      "35747"
+    ],
+    "inferred_type": "integer"
+  },
+  "Owners.email_address": {
+    "sample_values": [
+      "ybergstrom@example.com",
+      "angeline99@example.com",
+      "margaretta.runte@example.net"
+    ],
+    "inferred_type": "string"
+  },
+  "Owners.home_phone": {
+    "sample_values": [
+      "893-862-5295x61709",
+      "(058)997-7627",
+      "318-052-6573"
+    ],
+    "inferred_type": "string"
+  },
+  "Owners.cell_number": {
+    "sample_values": [
+      "341.667.8085",
+      "121.381.3316x6535",
+      "+70(4)9217952551"
+    ],
+    "inferred_type": "string"
+  },
+  "Dogs.dog_id": {
+    "sample_values": [
+      1,
+      6,
+      11
+    ],
+    "inferred_type": "integer"
+  },
+  "Dogs.owner_id": {
+    "sample_values": [
+      3,
+      7,
+      13
+    ],
+    "inferred_type": "integer"
+  },
+  "Dogs.abandoned_yn": {
+    "sample_values": [
+      "1",
+      "0"
+    ],
+    "inferred_type": "integer"
+  },
+  "Dogs.breed_code": {
+    "sample_values": [
+      "ESK",
+      "BUL",
+      "HUS"
+    ],
+    "inferred_type": "string"
+  },
+  "Dogs.size_code": {
+    "sample_values": [
+      "LGE",
+      "MED",
+      "SML"
+    ],
+    "inferred_type": "string"
+  },
+  "Dogs.name": {
+    "sample_values": [
+      "Evangeline",
+      "Narciso",
+      "Merritt"
+    ],
+    "inferred_type": "string"
+  },
+  "Dogs.age": {
+    "sample_values": [
+      "6",
+      "8",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "Dogs.date_of_birth": {
+    "sample_values": [
+      "2008-05-30 12:51:34",
+      "2017-09-19 05:39:09",
+      "2015-02-26 21:31:22"
+    ],
+    "inferred_type": "string"
+  },
+  "Dogs.gender": {
+    "sample_values": [
+      "1",
+      "0"
+    ],
+    "inferred_type": "integer"
+  },
+  "Dogs.weight": {
+    "sample_values": [
+      "7.57",
+      "9.8",
+      "8.16"
+    ],
+    "inferred_type": "float"
+  },
+  "Dogs.date_arrived": {
+    "sample_values": [
+      "2017-12-29 23:24:13",
+      "2017-05-06 08:03:52",
+      "2017-04-15 09:25:31"
+    ],
+    "inferred_type": "string"
+  },
+  "Dogs.date_adopted": {
+    "sample_values": [
+      "2018-03-10 15:06:43",
+      "2018-02-27 00:27:57",
+      "2018-03-08 15:03:00"
+    ],
+    "inferred_type": "string"
+  },
+  "Dogs.date_departed": {
+    "sample_values": [
+      "2018-03-24 19:36:59",
+      "2018-03-25 06:29:10",
+      "2018-03-25 13:07:04"
+    ],
+    "inferred_type": "string"
+  },
+  "Professionals.professional_id": {
+    "sample_values": [
+      1,
+      6,
+      11
+    ],
+    "inferred_type": "integer"
+  },
+  "Professionals.role_code": {
+    "sample_values": [
+      "Employee",
+      "Veterenarian"
+    ],
+    "inferred_type": "string"
+  },
+  "Professionals.first_name": {
+    "sample_values": [
+      "Lesly",
+      "Velva",
+      "Ruben"
+    ],
+    "inferred_type": "string"
+  },
+  "Professionals.street": {
+    "sample_values": [
+      "63949 Keeling Landing Apt. 502\nJohnsview, SD 06780",
+      "44234 Marvin Shoals Suite 659\nNorth Frances, AL 23",
+      "17286 Waters Green\nEast Bernadinefort, CA 89573"
+    ],
+    "inferred_type": "string"
+  },
+  "Professionals.city": {
+    "sample_values": [
+      "North Adelberttown",
+      "McLaughlinfort",
+      "Baileymouth"
+    ],
+    "inferred_type": "string"
+  },
+  "Professionals.state": {
+    "sample_values": [
+      "Montana",
+      "NewMexico",
+      "Mississippi"
+    ],
+    "inferred_type": "string"
+  },
+  "Professionals.zip_code": {
+    "sample_values": [
+      "06646",
+      "52476",
+      "07412"
+    ],
+    "inferred_type": "integer"
+  },
+  "Professionals.last_name": {
+    "sample_values": [
+      "Walter",
+      "Hayes",
+      "O'Reilly"
+    ],
+    "inferred_type": "string"
+  },
+  "Professionals.email_address": {
+    "sample_values": [
+      "jeichmann@example.com",
+      "lambert62@example.org",
+      "jacynthe.mclaughlin@example.net"
+    ],
+    "inferred_type": "string"
+  },
+  "Professionals.home_phone": {
+    "sample_values": [
+      "1-138-287-3775",
+      "022.529.0550x1319",
+      "+43(5)1132733868"
+    ],
+    "inferred_type": "string"
+  },
+  "Professionals.cell_number": {
+    "sample_values": [
+      "1-258-285-4707x8020",
+      "499-434-0215x1628",
+      "139-321-7313"
+    ],
+    "inferred_type": "string"
+  },
+  "Treatments.treatment_id": {
+    "sample_values": [
+      1,
+      6,
+      11
+    ],
+    "inferred_type": "integer"
+  },
+  "Treatments.dog_id": {
+    "sample_values": [
+      14,
+      12,
+      13
+    ],
+    "inferred_type": "integer"
+  },
+  "Treatments.professional_id": {
+    "sample_values": [
+      9,
+      4,
+      14
+    ],
+    "inferred_type": "integer"
+  },
+  "Treatments.treatment_type_code": {
+    "sample_values": [
+      "WALK",
+      "VAC",
+      "EXAM"
+    ],
+    "inferred_type": "string"
+  },
+  "Treatments.date_of_treatment": {
+    "sample_values": [
+      "2018-03-15 19:10:02",
+      "2018-03-10 11:45:58",
+      "2018-03-11 04:23:15"
+    ],
+    "inferred_type": "string"
+  },
+  "Treatments.cost_of_treatment": {
+    "sample_values": [
+      567,
+      313,
+      514
+    ],
+    "inferred_type": "integer"
+  }
+}

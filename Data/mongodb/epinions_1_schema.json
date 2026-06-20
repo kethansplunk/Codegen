@@ -1,0 +1,107 @@
+{
+  "db_name": "epinions_1",
+  "collections": {
+    "item": {
+      "primary_key": [
+        "i_id"
+      ],
+      "columns": [
+        {
+          "name": "i_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "title",
+          "type": "varchar(20)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 8
+    },
+    "review": {
+      "primary_key": [
+        "a_id"
+      ],
+      "columns": [
+        {
+          "name": "a_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "u_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "i_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "rating",
+          "type": "INTEGER"
+        },
+        {
+          "name": "rank",
+          "type": "INTEGER"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "review",
+          "to": "item",
+          "child_col": "i_id",
+          "parent_col": "i_id"
+        },
+        {
+          "from": "review",
+          "to": "useracct",
+          "child_col": "u_id",
+          "parent_col": "u_id"
+        }
+      ],
+      "row_count": 7
+    },
+    "useracct": {
+      "primary_key": [
+        "u_id"
+      ],
+      "columns": [
+        {
+          "name": "u_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "name",
+          "type": "varchar(128)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 7
+    },
+    "trust": {
+      "primary_key": [],
+      "columns": [
+        {
+          "name": "source_u_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "target_u_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "trust",
+          "type": "INTEGER"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "trust",
+          "to": "useracct",
+          "child_col": "source_u_id",
+          "parent_col": "u_id"
+        }
+      ],
+      "row_count": 9
+    }
+  }
+}

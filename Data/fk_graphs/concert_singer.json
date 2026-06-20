@@ -1,0 +1,148 @@
+{
+  "db_name": "concert_singer",
+  "nodes": [
+    {
+      "name": "stadium",
+      "columns": [
+        {
+          "name": "Stadium_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Location",
+          "type": "TEXT"
+        },
+        {
+          "name": "Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Capacity",
+          "type": "INT"
+        },
+        {
+          "name": "Highest",
+          "type": "INT"
+        },
+        {
+          "name": "Lowest",
+          "type": "INT"
+        },
+        {
+          "name": "Average",
+          "type": "INT"
+        }
+      ],
+      "pk": [
+        "Stadium_ID"
+      ]
+    },
+    {
+      "name": "singer",
+      "columns": [
+        {
+          "name": "Singer_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Country",
+          "type": "TEXT"
+        },
+        {
+          "name": "Song_Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Song_release_year",
+          "type": "TEXT"
+        },
+        {
+          "name": "Age",
+          "type": "INT"
+        },
+        {
+          "name": "Is_male",
+          "type": "bool"
+        }
+      ],
+      "pk": [
+        "Singer_ID"
+      ]
+    },
+    {
+      "name": "concert",
+      "columns": [
+        {
+          "name": "concert_ID",
+          "type": "INT"
+        },
+        {
+          "name": "concert_Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Theme",
+          "type": "TEXT"
+        },
+        {
+          "name": "Stadium_ID",
+          "type": "TEXT"
+        },
+        {
+          "name": "Year",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "concert_ID"
+      ]
+    },
+    {
+      "name": "singer_in_concert",
+      "columns": [
+        {
+          "name": "concert_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Singer_ID",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "concert_ID",
+        "Singer_ID"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "concert",
+      "to": "stadium",
+      "child_col": "Stadium_ID",
+      "parent_col": "Stadium_ID"
+    },
+    {
+      "from": "singer_in_concert",
+      "to": "singer",
+      "child_col": "Singer_ID",
+      "parent_col": "Singer_ID"
+    },
+    {
+      "from": "singer_in_concert",
+      "to": "concert",
+      "child_col": "concert_ID",
+      "parent_col": "concert_ID"
+    }
+  ],
+  "centrality": {
+    "stadium": 0.3333333333333333,
+    "singer": 0.3333333333333333,
+    "concert": 0.3333333333333333,
+    "singer_in_concert": 0.0
+  }
+}

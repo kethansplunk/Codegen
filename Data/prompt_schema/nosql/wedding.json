@@ -1,0 +1,113 @@
+{
+  "wedding.Church_ID": {
+    "sample_values": [
+      "1",
+      "3",
+      "5"
+    ],
+    "inferred_type": "integer"
+  },
+  "wedding.Male_ID": {
+    "sample_values": [
+      "7",
+      "1",
+      "3"
+    ],
+    "inferred_type": "integer"
+  },
+  "wedding.Female_ID": {
+    "sample_values": [
+      "8",
+      "6",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "wedding.Year": {
+    "sample_values": [
+      "2015",
+      "2016",
+      "2014"
+    ],
+    "inferred_type": "integer"
+  },
+  "church.Continuation_of": {
+    "sample_values": [
+      "Church of the Latter Day Saints",
+      "Church of Jesus Christ of Latter Day Saints",
+      "Church of Christ"
+    ],
+    "inferred_type": "string"
+  },
+  "church.Church_ID": {
+    "sample_values": [
+      "5",
+      "2",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "church.Name": {
+    "sample_values": [
+      "Pure Church of Christ",
+      "Alston Church",
+      "Independent Church"
+    ],
+    "inferred_type": "string"
+  },
+  "church.Open_Date": {
+    "sample_values": [
+      "1839",
+      "1830",
+      "1840"
+    ],
+    "inferred_type": "integer"
+  },
+  "church.Organized_by": {
+    "sample_values": [
+      "Isaac Russell",
+      "Warren Parrish",
+      "Ezra Booth"
+    ],
+    "inferred_type": "string"
+  },
+  "people.Age": {
+    "sample_values": [
+      "34",
+      "30",
+      "36"
+    ],
+    "inferred_type": "integer"
+  },
+  "people.Country": {
+    "sample_values": [
+      "Australia",
+      "Northern Ireland",
+      "Sweden"
+    ],
+    "inferred_type": "string"
+  },
+  "people.Name": {
+    "sample_values": [
+      "Summer Duval",
+      "Lucas Glover",
+      "Todd Hamilton"
+    ],
+    "inferred_type": "string"
+  },
+  "people.Is_Male": {
+    "sample_values": [
+      "F",
+      "T"
+    ],
+    "inferred_type": "string"
+  },
+  "people.People_ID": {
+    "sample_values": [
+      "5",
+      "12",
+      "6"
+    ],
+    "inferred_type": "integer"
+  }
+}

@@ -1,0 +1,159 @@
+{
+  "Ref_Document_Types.Document_Type_Code": {
+    "sample_values": [
+      "PT",
+      "PP",
+      "FM"
+    ],
+    "inferred_type": "string"
+  },
+  "Ref_Document_Types.Document_Type_Name": {
+    "sample_values": [
+      "Film",
+      "Paper",
+      "Presentation"
+    ],
+    "inferred_type": "string"
+  },
+  "Ref_Document_Types.Document_Type_Description": {
+    "sample_values": [
+      "fun",
+      "good",
+      "very good"
+    ],
+    "inferred_type": "string"
+  },
+  "Ref_Budget_Codes.Budget_Type_Code": {
+    "sample_values": [
+      "GV",
+      "ORG",
+      "SF"
+    ],
+    "inferred_type": "string"
+  },
+  "Ref_Budget_Codes.Budget_Type_Description": {
+    "sample_values": [
+      "Government",
+      "Organisation",
+      "Self founded"
+    ],
+    "inferred_type": "string"
+  },
+  "Projects.Project_ID": {
+    "sample_values": [
+      30,
+      35,
+      105
+    ],
+    "inferred_type": "integer"
+  },
+  "Projects.Project_Details": {
+    "sample_values": [
+      "Population Research project",
+      "Human Resource project",
+      "Graph Database project"
+    ],
+    "inferred_type": "string"
+  },
+  "Documents.Document_ID": {
+    "sample_values": [
+      29,
+      192,
+      309
+    ],
+    "inferred_type": "integer"
+  },
+  "Documents.Document_Type_Code": {
+    "sample_values": [
+      "FM",
+      "PP",
+      "BK"
+    ],
+    "inferred_type": "string"
+  },
+  "Documents.Project_ID": {
+    "sample_values": [
+      30,
+      105,
+      195
+    ],
+    "inferred_type": "integer"
+  },
+  "Documents.Document_Date": {
+    "sample_values": [
+      "2005-10-28 03:17:16",
+      "1991-07-08 08:49:59",
+      "2013-01-26 15:15:25"
+    ],
+    "inferred_type": "string"
+  },
+  "Documents.Document_Name": {
+    "sample_values": [
+      "Katheryn statement",
+      "Book on USA files",
+      "Review on USA files"
+    ],
+    "inferred_type": "string"
+  },
+  "Statements.Statement_ID": {
+    "sample_values": [
+      57,
+      192
+    ],
+    "inferred_type": "integer"
+  },
+  "Statements.Statement_Details": {
+    "sample_values": [
+      "Open Project",
+      "Private Project"
+    ],
+    "inferred_type": "string"
+  },
+  "Documents_with_Expenses.Document_ID": {
+    "sample_values": [
+      57,
+      227,
+      309
+    ],
+    "inferred_type": "integer"
+  },
+  "Documents_with_Expenses.Budget_Type_Code": {
+    "sample_values": [
+      "GV",
+      "SF",
+      "ORG"
+    ],
+    "inferred_type": "string"
+  },
+  "Documents_with_Expenses.Document_Details": {
+    "sample_values": [
+      "government",
+      "safety",
+      "organization"
+    ],
+    "inferred_type": "string"
+  },
+  "Accounts.Account_ID": {
+    "sample_values": [
+      7,
+      209,
+      321
+    ],
+    "inferred_type": "integer"
+  },
+  "Accounts.Statement_ID": {
+    "sample_values": [
+      57,
+      192
+    ],
+    "inferred_type": "integer"
+  },
+  "Accounts.Account_Details": {
+    "sample_values": [
+      "495.063",
+      "11130.23",
+      "745.817"
+    ],
+    "inferred_type": "float"
+  }
+}

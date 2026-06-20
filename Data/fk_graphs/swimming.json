@@ -1,0 +1,164 @@
+{
+  "db_name": "swimming",
+  "nodes": [
+    {
+      "name": "swimmer",
+      "columns": [
+        {
+          "name": "ID",
+          "type": "INT"
+        },
+        {
+          "name": "name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Nationality",
+          "type": "TEXT"
+        },
+        {
+          "name": "meter_100",
+          "type": "REAL"
+        },
+        {
+          "name": "meter_200",
+          "type": "TEXT"
+        },
+        {
+          "name": "meter_300",
+          "type": "TEXT"
+        },
+        {
+          "name": "meter_400",
+          "type": "TEXT"
+        },
+        {
+          "name": "meter_500",
+          "type": "TEXT"
+        },
+        {
+          "name": "meter_600",
+          "type": "TEXT"
+        },
+        {
+          "name": "meter_700",
+          "type": "TEXT"
+        },
+        {
+          "name": "Time",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "ID"
+      ]
+    },
+    {
+      "name": "stadium",
+      "columns": [
+        {
+          "name": "ID",
+          "type": "INT"
+        },
+        {
+          "name": "name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Capacity",
+          "type": "INT"
+        },
+        {
+          "name": "City",
+          "type": "TEXT"
+        },
+        {
+          "name": "Country",
+          "type": "TEXT"
+        },
+        {
+          "name": "Opening_year",
+          "type": "INT"
+        }
+      ],
+      "pk": [
+        "ID"
+      ]
+    },
+    {
+      "name": "event",
+      "columns": [
+        {
+          "name": "ID",
+          "type": "INT"
+        },
+        {
+          "name": "Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Stadium_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Year",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "ID"
+      ]
+    },
+    {
+      "name": "record",
+      "columns": [
+        {
+          "name": "ID",
+          "type": "INT"
+        },
+        {
+          "name": "Result",
+          "type": "TEXT"
+        },
+        {
+          "name": "Swimmer_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Event_ID",
+          "type": "INT"
+        }
+      ],
+      "pk": [
+        "Swimmer_ID",
+        "Event_ID"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "event",
+      "to": "stadium",
+      "child_col": "Stadium_ID",
+      "parent_col": "ID"
+    },
+    {
+      "from": "record",
+      "to": "swimmer",
+      "child_col": "Swimmer_ID",
+      "parent_col": "ID"
+    },
+    {
+      "from": "record",
+      "to": "event",
+      "child_col": "Event_ID",
+      "parent_col": "ID"
+    }
+  ],
+  "centrality": {
+    "swimmer": 0.3333333333333333,
+    "stadium": 0.3333333333333333,
+    "event": 0.3333333333333333,
+    "record": 0.0
+  }
+}

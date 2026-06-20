@@ -1,0 +1,144 @@
+{
+  "bank.branch_ID": {
+    "sample_values": [
+      1,
+      2,
+      3
+    ],
+    "inferred_type": "integer"
+  },
+  "bank.bname": {
+    "sample_values": [
+      "high",
+      "broadway",
+      "downtown"
+    ],
+    "inferred_type": "string"
+  },
+  "bank.no_of_customers": {
+    "sample_values": [
+      203,
+      123,
+      453
+    ],
+    "inferred_type": "integer"
+  },
+  "bank.city": {
+    "sample_values": [
+      "New York City",
+      "Salt Lake City",
+      "Austin"
+    ],
+    "inferred_type": "string"
+  },
+  "bank.state": {
+    "sample_values": [
+      "New York",
+      "Utah",
+      "Texas"
+    ],
+    "inferred_type": "string"
+  },
+  "customer.cust_ID": {
+    "sample_values": [
+      "1",
+      "2",
+      "3"
+    ],
+    "inferred_type": "integer"
+  },
+  "customer.cust_name": {
+    "sample_values": [
+      "Mary",
+      "Jack",
+      "Owen"
+    ],
+    "inferred_type": "string"
+  },
+  "customer.acc_type": {
+    "sample_values": [
+      "saving",
+      "checking"
+    ],
+    "inferred_type": "string"
+  },
+  "customer.acc_bal": {
+    "sample_values": [
+      2000,
+      1000,
+      800000
+    ],
+    "inferred_type": "integer"
+  },
+  "customer.no_of_loans": {
+    "sample_values": [
+      2,
+      1,
+      0
+    ],
+    "inferred_type": "integer"
+  },
+  "customer.credit_score": {
+    "sample_values": [
+      30,
+      20,
+      210
+    ],
+    "inferred_type": "integer"
+  },
+  "customer.branch_ID": {
+    "sample_values": [
+      2,
+      1,
+      3
+    ],
+    "inferred_type": "integer"
+  },
+  "customer.state": {
+    "sample_values": [
+      "Utah",
+      "Texas",
+      "New York"
+    ],
+    "inferred_type": "string"
+  },
+  "loan.loan_ID": {
+    "sample_values": [
+      "1",
+      "2",
+      "3"
+    ],
+    "inferred_type": "integer"
+  },
+  "loan.loan_type": {
+    "sample_values": [
+      "Mortgages",
+      "Auto",
+      "Business"
+    ],
+    "inferred_type": "string"
+  },
+  "loan.cust_ID": {
+    "sample_values": [
+      "1",
+      "3"
+    ],
+    "inferred_type": "integer"
+  },
+  "loan.branch_ID": {
+    "sample_values": [
+      "1",
+      "2",
+      "3"
+    ],
+    "inferred_type": "integer"
+  },
+  "loan.amount": {
+    "sample_values": [
+      2050,
+      3000,
+      5000
+    ],
+    "inferred_type": "integer"
+  }
+}

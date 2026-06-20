@@ -1,0 +1,114 @@
+{
+  "db_name": "music_4",
+  "collections": {
+    "artist": {
+      "primary_key": [
+        "Artist_ID"
+      ],
+      "columns": [
+        {
+          "name": "Artist_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Artist",
+          "type": "TEXT"
+        },
+        {
+          "name": "Age",
+          "type": "INT"
+        },
+        {
+          "name": "Famous_Title",
+          "type": "TEXT"
+        },
+        {
+          "name": "Famous_Release_date",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 7
+    },
+    "volume": {
+      "primary_key": [
+        "Volume_ID"
+      ],
+      "columns": [
+        {
+          "name": "Volume_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Volume_Issue",
+          "type": "TEXT"
+        },
+        {
+          "name": "Issue_Date",
+          "type": "TEXT"
+        },
+        {
+          "name": "Weeks_on_Top",
+          "type": "REAL"
+        },
+        {
+          "name": "Song",
+          "type": "TEXT"
+        },
+        {
+          "name": "Artist_ID",
+          "type": "INT"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "volume",
+          "to": "artist",
+          "child_col": "Artist_ID",
+          "parent_col": "Artist_ID"
+        }
+      ],
+      "row_count": 10
+    },
+    "music_festival": {
+      "primary_key": [
+        "ID"
+      ],
+      "columns": [
+        {
+          "name": "ID",
+          "type": "INT"
+        },
+        {
+          "name": "Music_Festival",
+          "type": "TEXT"
+        },
+        {
+          "name": "Date_of_ceremony",
+          "type": "TEXT"
+        },
+        {
+          "name": "Category",
+          "type": "TEXT"
+        },
+        {
+          "name": "Volume",
+          "type": "INT"
+        },
+        {
+          "name": "Result",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "music_festival",
+          "to": "volume",
+          "child_col": "Volume",
+          "parent_col": "Volume_ID"
+        }
+      ],
+      "row_count": 9
+    }
+  }
+}

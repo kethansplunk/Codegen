@@ -1,0 +1,91 @@
+{
+  "db_name": "allergy_1",
+  "collections": {
+    "Allergy_Type": {
+      "primary_key": [
+        "Allergy"
+      ],
+      "columns": [
+        {
+          "name": "Allergy",
+          "type": "VARCHAR(20)"
+        },
+        {
+          "name": "AllergyType",
+          "type": "VARCHAR(20)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 14
+    },
+    "Has_Allergy": {
+      "primary_key": [],
+      "columns": [
+        {
+          "name": "StuID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Allergy",
+          "type": "VARCHAR(20)"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Has_Allergy",
+          "to": "Allergy_Type",
+          "child_col": "Allergy",
+          "parent_col": "Allergy"
+        },
+        {
+          "from": "Has_Allergy",
+          "to": "Student",
+          "child_col": "StuID",
+          "parent_col": "StuID"
+        }
+      ],
+      "row_count": 59
+    },
+    "Student": {
+      "primary_key": [
+        "StuID"
+      ],
+      "columns": [
+        {
+          "name": "StuID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "LName",
+          "type": "VARCHAR(12)"
+        },
+        {
+          "name": "Fname",
+          "type": "VARCHAR(12)"
+        },
+        {
+          "name": "Age",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Sex",
+          "type": "VARCHAR(1)"
+        },
+        {
+          "name": "Major",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Advisor",
+          "type": "INTEGER"
+        },
+        {
+          "name": "city_code",
+          "type": "VARCHAR(3)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 34
+    }
+  }
+}

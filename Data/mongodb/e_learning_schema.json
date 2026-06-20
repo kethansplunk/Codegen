@@ -1,0 +1,218 @@
+{
+  "db_name": "e_learning",
+  "collections": {
+    "Course_Authors_and_Tutors": {
+      "primary_key": [
+        "author_id"
+      ],
+      "columns": [
+        {
+          "name": "author_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "author_tutor_ATB",
+          "type": "VARCHAR(3)"
+        },
+        {
+          "name": "login_name",
+          "type": "VARCHAR(40)"
+        },
+        {
+          "name": "password",
+          "type": "VARCHAR(40)"
+        },
+        {
+          "name": "personal_name",
+          "type": "VARCHAR(80)"
+        },
+        {
+          "name": "middle_name",
+          "type": "VARCHAR(80)"
+        },
+        {
+          "name": "family_name",
+          "type": "VARCHAR(80)"
+        },
+        {
+          "name": "gender_mf",
+          "type": "VARCHAR(1)"
+        },
+        {
+          "name": "address_line_1",
+          "type": "VARCHAR(80)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 15
+    },
+    "Students": {
+      "primary_key": [
+        "student_id"
+      ],
+      "columns": [
+        {
+          "name": "student_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "date_of_registration",
+          "type": "DATETIME"
+        },
+        {
+          "name": "date_of_latest_logon",
+          "type": "DATETIME"
+        },
+        {
+          "name": "login_name",
+          "type": "VARCHAR(40)"
+        },
+        {
+          "name": "password",
+          "type": "VARCHAR(10)"
+        },
+        {
+          "name": "personal_name",
+          "type": "VARCHAR(40)"
+        },
+        {
+          "name": "middle_name",
+          "type": "VARCHAR(40)"
+        },
+        {
+          "name": "family_name",
+          "type": "VARCHAR(40)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 15
+    },
+    "Subjects": {
+      "primary_key": [
+        "subject_id"
+      ],
+      "columns": [
+        {
+          "name": "subject_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "subject_name",
+          "type": "VARCHAR(120)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 3
+    },
+    "Courses": {
+      "primary_key": [
+        "course_id"
+      ],
+      "columns": [
+        {
+          "name": "course_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "author_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "subject_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "course_name",
+          "type": "VARCHAR(120)"
+        },
+        {
+          "name": "course_description",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Courses",
+          "to": "Subjects",
+          "child_col": "subject_id",
+          "parent_col": "subject_id"
+        },
+        {
+          "from": "Courses",
+          "to": "Course_Authors_and_Tutors",
+          "child_col": "author_id",
+          "parent_col": "author_id"
+        }
+      ],
+      "row_count": 15
+    },
+    "Student_Course_Enrolment": {
+      "primary_key": [
+        "registration_id"
+      ],
+      "columns": [
+        {
+          "name": "registration_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "student_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "course_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "date_of_enrolment",
+          "type": "DATETIME"
+        },
+        {
+          "name": "date_of_completion",
+          "type": "DATETIME"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Student_Course_Enrolment",
+          "to": "Students",
+          "child_col": "student_id",
+          "parent_col": "student_id"
+        },
+        {
+          "from": "Student_Course_Enrolment",
+          "to": "Courses",
+          "child_col": "course_id",
+          "parent_col": "course_id"
+        }
+      ],
+      "row_count": 20
+    },
+    "Student_Tests_Taken": {
+      "primary_key": [],
+      "columns": [
+        {
+          "name": "registration_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "date_test_taken",
+          "type": "DATETIME"
+        },
+        {
+          "name": "test_result",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Student_Tests_Taken",
+          "to": "Student_Course_Enrolment",
+          "child_col": "registration_id",
+          "parent_col": "registration_id"
+        }
+      ],
+      "row_count": 15
+    }
+  }
+}

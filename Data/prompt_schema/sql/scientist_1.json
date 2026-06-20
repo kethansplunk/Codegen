@@ -1,0 +1,58 @@
+{
+  "Scientists.SSN": {
+    "sample_values": [
+      123234877,
+      332154719,
+      654873219
+    ],
+    "inferred_type": "integer"
+  },
+  "Scientists.Name": {
+    "sample_values": [
+      "Kumar Swamy",
+      "Mary-Anne Foster",
+      "Anand Manikutty"
+    ],
+    "inferred_type": "string"
+  },
+  "Projects.Code": {
+    "sample_values": [
+      "Che2",
+      "AeH6",
+      "AeH4"
+    ],
+    "inferred_type": "string"
+  },
+  "Projects.Name": {
+    "sample_values": [
+      "A Soluble Separation Solution",
+      "Aerodynamics of Air Hockey",
+      "Aerodynamics and Ice Hockey"
+    ],
+    "inferred_type": "string"
+  },
+  "Projects.Hours": {
+    "sample_values": [
+      156,
+      98,
+      6546
+    ],
+    "inferred_type": "integer"
+  },
+  "AssignedTo.Scientist": {
+    "sample_values": [
+      123234877,
+      332154719,
+      654873219
+    ],
+    "inferred_type": "integer"
+  },
+  "AssignedTo.Project": {
+    "sample_values": [
+      "AeH4",
+      "AeH3",
+      "Ast3"
+    ],
+    "inferred_type": "string"
+  }
+}

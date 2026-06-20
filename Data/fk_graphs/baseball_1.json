@@ -1,0 +1,1713 @@
+{
+  "db_name": "baseball_1",
+  "nodes": [
+    {
+      "name": "all_star",
+      "columns": [
+        {
+          "name": "player_id",
+          "type": "TEXT"
+        },
+        {
+          "name": "year",
+          "type": "INTEGER"
+        },
+        {
+          "name": "game_num",
+          "type": "INTEGER"
+        },
+        {
+          "name": "game_id",
+          "type": "TEXT"
+        },
+        {
+          "name": "team_id",
+          "type": "TEXT"
+        },
+        {
+          "name": "league_id",
+          "type": "TEXT"
+        },
+        {
+          "name": "gp",
+          "type": "NUMERIC"
+        },
+        {
+          "name": "starting_pos",
+          "type": "NUMERIC"
+        }
+      ],
+      "pk": []
+    },
+    {
+      "name": "appearances",
+      "columns": [
+        {
+          "name": "year",
+          "type": "INTEGER"
+        },
+        {
+          "name": "team_id",
+          "type": "TEXT"
+        },
+        {
+          "name": "league_id",
+          "type": "TEXT"
+        },
+        {
+          "name": "player_id",
+          "type": "TEXT"
+        },
+        {
+          "name": "g_all",
+          "type": "NUMERIC"
+        },
+        {
+          "name": "gs",
+          "type": "NUMERIC"
+        },
+        {
+          "name": "g_batting",
+          "type": "INTEGER"
+        },
+        {
+          "name": "g_defense",
+          "type": "NUMERIC"
+        },
+        {
+          "name": "g_p",
+          "type": "INTEGER"
+        },
+        {
+          "name": "g_c",
+          "type": "INTEGER"
+        },
+        {
+          "name": "g_1b",
+          "type": "INTEGER"
+        },
+        {
+          "name": "g_2b",
+          "type": "INTEGER"
+        },
+        {
+          "name": "g_3b",
+          "type": "INTEGER"
+        },
+        {
+          "name": "g_ss",
+          "type": "INTEGER"
+        },
+        {
+          "name": "g_lf",
+          "type": "INTEGER"
+        },
+        {
+          "name": "g_cf",
+          "type": "INTEGER"
+        },
+        {
+          "name": "g_rf",
+          "type": "INTEGER"
+        },
+        {
+          "name": "g_of",
+          "type": "INTEGER"
+        },
+        {
+          "name": "g_dh",
+          "type": "NUMERIC"
+        },
+        {
+          "name": "g_ph",
+          "type": "NUMERIC"
+        },
+        {
+          "name": "g_pr",
+          "type": "NUMERIC"
+        }
+      ],
+      "pk": []
+    },
+    {
+      "name": "manager_award",
+      "columns": [
+        {
+          "name": "player_id",
+          "type": "TEXT"
+        },
+        {
+          "name": "award_id",
+          "type": "TEXT"
+        },
+        {
+          "name": "year",
+          "type": "INTEGER"
+        },
+        {
+          "name": "league_id",
+          "type": "TEXT"
+        },
+        {
+          "name": "tie",
+          "type": "TEXT"
+        },
+        {
+          "name": "notes",
+          "type": "NUMERIC"
+        }
+      ],
+      "pk": []
+    },
+    {
+      "name": "player_award",
+      "columns": [
+        {
+          "name": "player_id",
+          "type": "TEXT"
+        },
+        {
+          "name": "award_id",
+          "type": "TEXT"
+        },
+        {
+          "name": "year",
+          "type": "INTEGER"
+        },
+        {
+          "name": "league_id",
+          "type": "TEXT"
+        },
+        {
+          "name": "tie",
+          "type": "TEXT"
+        },
+        {
+          "name": "notes",
+          "type": "TEXT"
+        }
+      ],
+      "pk": []
+    },
+    {
+      "name": "manager_award_vote",
+      "columns": [
+        {
+          "name": "award_id",
+          "type": "TEXT"
+        },
+        {
+          "name": "year",
+          "type": "INTEGER"
+        },
+        {
+          "name": "league_id",
+          "type": "TEXT"
+        },
+        {
+          "name": "player_id",
+          "type": "TEXT"
+        },
+        {
+          "name": "points_won",
+          "type": "INTEGER"
+        },
+        {
+          "name": "points_max",
+          "type": "INTEGER"
+        },
+        {
+          "name": "votes_first",
+          "type": "INTEGER"
+        }
+      ],
+      "pk": []
+    },
+    {
+      "name": "player_award_vote",
+      "columns": [
+        {
+          "name": "award_id",
+          "type": "TEXT"
+        },
+        {
+          "name": "year",
+          "type": "INTEGER"
+        },
+        {
+          "name": "league_id",
+          "type": "TEXT"
+        },
+        {
+          "name": "player_id",
+          "type": "TEXT"
+        },
+        {
+          "name": "points_won",
+          "type": "NUMERIC"
+        },
+        {
+          "name": "points_max",
+          "type": "INTEGER"
+        },
+        {
+          "name": "votes_first",
+          "type": "NUMERIC"
+        }
+      ],
+      "pk": []
+    },
+    {
+      "name": "batting",
+      "columns": [
+        {
+          "name": "player_id",
+          "type": "TEXT"
+        },
+        {
+          "name": "year",
+          "type": "INTEGER"
+        },
+        {
+          "name": "stint",
+          "type": "INTEGER"
+        },
+        {
+          "name": "team_id",
+          "type": "TEXT"
+        },
+        {
+          "name": "league_id",
+          "type": "TEXT"
+        },
+        {
+          "name": "g",
+          "type": "INTEGER"
+        },
+        {
+          "name": "ab",
+          "type": "NUMERIC"
+        },
+        {
+          "name": "r",
+          "type": "NUMERIC"
+        },
+        {
+          "name": "h",
+          "type": "NUMERIC"
+        },
+        {
+          "name": "double",
+          "type": "NUMERIC"
+        },
+        {
+          "name": "triple",
+          "type": "NUMERIC"
+        },
+        {
+          "name": "hr",
+          "type": "NUMERIC"
+        },
+        {
+          "name": "rbi",
+          "type": "NUMERIC"
+        },
+        {
+          "name": "sb",
+          "type": "NUMERIC"
+        },
+        {
+          "name": "cs",
+          "type": "NUMERIC"
+        },
+        {
+          "name": "bb",
+          "type": "NUMERIC"
+        },
+        {
+          "name": "so",
+          "type": "NUMERIC"
+        },
+        {
+          "name": "ibb",
+          "type": "NUMERIC"
+        },
+        {
+          "name": "hbp",
+          "type": "NUMERIC"
+        },
+        {
+          "name": "sh",
+          "type": "NUMERIC"
+        },
+        {
+          "name": "sf",
+          "type": "NUMERIC"
+        },
+        {
+          "name": "g_idp",
+          "type": "NUMERIC"
+        }
+      ],
+      "pk": []
+    },
+    {
+      "name": "batting_postseason",
+      "columns": [
+        {
+          "name": "year",
+          "type": "INTEGER"
+        },
+        {
+          "name": "round",
+          "type": "TEXT"
+        },
+        {
+          "name": "player_id",
+          "type": "TEXT"
+        },
+        {
+          "name": "team_id",
+          "type": "TEXT"
+        },
+        {
+          "name": "league_id",
+          "type": "TEXT"
+        },
+        {
+          "name": "g",
+          "type": "INTEGER"
+        },
+        {
+          "name": "ab",
+          "type": "INTEGER"
+        },
+        {
+          "name": "r",
+          "type": "INTEGER"
+        },
+        {
+          "name": "h",
+          "type": "INTEGER"
+        },
+        {
+          "name": "double",
+          "type": "INTEGER"
+        },
+        {
+          "name": "triple",
+          "type": "INTEGER"
+        },
+        {
+          "name": "hr",
+          "type": "INTEGER"
+        },
+        {
+          "name": "rbi",
+          "type": "INTEGER"
+        },
+        {
+          "name": "sb",
+          "type": "INTEGER"
+        },
+        {
+          "name": "cs",
+          "type": "NUMERIC"
+        },
+        {
+          "name": "bb",
+          "type": "INTEGER"
+        },
+        {
+          "name": "so",
+          "type": "INTEGER"
+        },
+        {
+          "name": "ibb",
+          "type": "NUMERIC"
+        },
+        {
+          "name": "hbp",
+          "type": "NUMERIC"
+        },
+        {
+          "name": "sh",
+          "type": "NUMERIC"
+        },
+        {
+          "name": "sf",
+          "type": "NUMERIC"
+        },
+        {
+          "name": "g_idp",
+          "type": "NUMERIC"
+        }
+      ],
+      "pk": []
+    },
+    {
+      "name": "player_college",
+      "columns": [
+        {
+          "name": "player_id",
+          "type": "TEXT"
+        },
+        {
+          "name": "college_id",
+          "type": "TEXT"
+        },
+        {
+          "name": "year",
+          "type": "INTEGER"
+        }
+      ],
+      "pk": []
+    },
+    {
+      "name": "fielding",
+      "columns": [
+        {
+          "name": "player_id",
+          "type": "TEXT"
+        },
+        {
+          "name": "year",
+          "type": "INTEGER"
+        },
+        {
+          "name": "stint",
+          "type": "INTEGER"
+        },
+        {
+          "name": "team_id",
+          "type": "TEXT"
+        },
+        {
+          "name": "league_id",
+          "type": "TEXT"
+        },
+        {
+          "name": "pos",
+          "type": "TEXT"
+        },
+        {
+          "name": "g",
+          "type": "INTEGER"
+        },
+        {
+          "name": "gs",
+          "type": "NUMERIC"
+        },
+        {
+          "name": "inn_outs",
+          "type": "NUMERIC"
+        },
+        {
+          "name": "po",
+          "type": "NUMERIC"
+        },
+        {
+          "name": "a",
+          "type": "NUMERIC"
+        },
+        {
+          "name": "e",
+          "type": "NUMERIC"
+        },
+        {
+          "name": "dp",
+          "type": "NUMERIC"
+        },
+        {
+          "name": "pb",
+          "type": "NUMERIC"
+        },
+        {
+          "name": "wp",
+          "type": "NUMERIC"
+        },
+        {
+          "name": "sb",
+          "type": "NUMERIC"
+        },
+        {
+          "name": "cs",
+          "type": "NUMERIC"
+        },
+        {
+          "name": "zr",
+          "type": "NUMERIC"
+        }
+      ],
+      "pk": []
+    },
+    {
+      "name": "fielding_outfield",
+      "columns": [
+        {
+          "name": "player_id",
+          "type": "TEXT"
+        },
+        {
+          "name": "year",
+          "type": "INTEGER"
+        },
+        {
+          "name": "stint",
+          "type": "INTEGER"
+        },
+        {
+          "name": "glf",
+          "type": "NUMERIC"
+        },
+        {
+          "name": "gcf",
+          "type": "NUMERIC"
+        },
+        {
+          "name": "grf",
+          "type": "NUMERIC"
+        }
+      ],
+      "pk": []
+    },
+    {
+      "name": "fielding_postseason",
+      "columns": [
+        {
+          "name": "player_id",
+          "type": "TEXT"
+        },
+        {
+          "name": "year",
+          "type": "INTEGER"
+        },
+        {
+          "name": "team_id",
+          "type": "TEXT"
+        },
+        {
+          "name": "league_id",
+          "type": "TEXT"
+        },
+        {
+          "name": "round",
+          "type": "TEXT"
+        },
+        {
+          "name": "pos",
+          "type": "TEXT"
+        },
+        {
+          "name": "g",
+          "type": "INTEGER"
+        },
+        {
+          "name": "gs",
+          "type": "NUMERIC"
+        },
+        {
+          "name": "inn_outs",
+          "type": "NUMERIC"
+        },
+        {
+          "name": "po",
+          "type": "INTEGER"
+        },
+        {
+          "name": "a",
+          "type": "INTEGER"
+        },
+        {
+          "name": "e",
+          "type": "INTEGER"
+        },
+        {
+          "name": "dp",
+          "type": "INTEGER"
+        },
+        {
+          "name": "tp",
+          "type": "INTEGER"
+        },
+        {
+          "name": "pb",
+          "type": "NUMERIC"
+        },
+        {
+          "name": "sb",
+          "type": "NUMERIC"
+        },
+        {
+          "name": "cs",
+          "type": "NUMERIC"
+        }
+      ],
+      "pk": []
+    },
+    {
+      "name": "hall_of_fame",
+      "columns": [
+        {
+          "name": "player_id",
+          "type": "TEXT"
+        },
+        {
+          "name": "yearid",
+          "type": "INTEGER"
+        },
+        {
+          "name": "votedby",
+          "type": "TEXT"
+        },
+        {
+          "name": "ballots",
+          "type": "NUMERIC"
+        },
+        {
+          "name": "needed",
+          "type": "NUMERIC"
+        },
+        {
+          "name": "votes",
+          "type": "NUMERIC"
+        },
+        {
+          "name": "inducted",
+          "type": "TEXT"
+        },
+        {
+          "name": "category",
+          "type": "TEXT"
+        },
+        {
+          "name": "needed_note",
+          "type": "TEXT"
+        }
+      ],
+      "pk": []
+    },
+    {
+      "name": "home_game",
+      "columns": [
+        {
+          "name": "year",
+          "type": "INTEGER"
+        },
+        {
+          "name": "league_id",
+          "type": "TEXT"
+        },
+        {
+          "name": "team_id",
+          "type": "TEXT"
+        },
+        {
+          "name": "park_id",
+          "type": "TEXT"
+        },
+        {
+          "name": "span_first",
+          "type": "TEXT"
+        },
+        {
+          "name": "span_last",
+          "type": "TEXT"
+        },
+        {
+          "name": "games",
+          "type": "INTEGER"
+        },
+        {
+          "name": "openings",
+          "type": "INTEGER"
+        },
+        {
+          "name": "attendance",
+          "type": "INTEGER"
+        }
+      ],
+      "pk": []
+    },
+    {
+      "name": "manager",
+      "columns": [
+        {
+          "name": "player_id",
+          "type": "TEXT"
+        },
+        {
+          "name": "year",
+          "type": "INTEGER"
+        },
+        {
+          "name": "team_id",
+          "type": "TEXT"
+        },
+        {
+          "name": "league_id",
+          "type": "TEXT"
+        },
+        {
+          "name": "inseason",
+          "type": "INTEGER"
+        },
+        {
+          "name": "g",
+          "type": "INTEGER"
+        },
+        {
+          "name": "w",
+          "type": "INTEGER"
+        },
+        {
+          "name": "l",
+          "type": "INTEGER"
+        },
+        {
+          "name": "rank",
+          "type": "NUMERIC"
+        },
+        {
+          "name": "plyr_mgr",
+          "type": "TEXT"
+        }
+      ],
+      "pk": []
+    },
+    {
+      "name": "manager_half",
+      "columns": [
+        {
+          "name": "player_id",
+          "type": "TEXT"
+        },
+        {
+          "name": "year",
+          "type": "INTEGER"
+        },
+        {
+          "name": "team_id",
+          "type": "TEXT"
+        },
+        {
+          "name": "league_id",
+          "type": "TEXT"
+        },
+        {
+          "name": "inseason",
+          "type": "INTEGER"
+        },
+        {
+          "name": "half",
+          "type": "INTEGER"
+        },
+        {
+          "name": "g",
+          "type": "INTEGER"
+        },
+        {
+          "name": "w",
+          "type": "INTEGER"
+        },
+        {
+          "name": "l",
+          "type": "INTEGER"
+        },
+        {
+          "name": "rank",
+          "type": "INTEGER"
+        }
+      ],
+      "pk": []
+    },
+    {
+      "name": "player",
+      "columns": [
+        {
+          "name": "player_id",
+          "type": "TEXT"
+        },
+        {
+          "name": "birth_year",
+          "type": "NUMERIC"
+        },
+        {
+          "name": "birth_month",
+          "type": "NUMERIC"
+        },
+        {
+          "name": "birth_day",
+          "type": "NUMERIC"
+        },
+        {
+          "name": "birth_country",
+          "type": "TEXT"
+        },
+        {
+          "name": "birth_state",
+          "type": "TEXT"
+        },
+        {
+          "name": "birth_city",
+          "type": "TEXT"
+        },
+        {
+          "name": "death_year",
+          "type": "NUMERIC"
+        },
+        {
+          "name": "death_month",
+          "type": "NUMERIC"
+        },
+        {
+          "name": "death_day",
+          "type": "NUMERIC"
+        },
+        {
+          "name": "death_country",
+          "type": "TEXT"
+        },
+        {
+          "name": "death_state",
+          "type": "TEXT"
+        },
+        {
+          "name": "death_city",
+          "type": "TEXT"
+        },
+        {
+          "name": "name_first",
+          "type": "TEXT"
+        },
+        {
+          "name": "name_last",
+          "type": "TEXT"
+        },
+        {
+          "name": "name_given",
+          "type": "TEXT"
+        },
+        {
+          "name": "weight",
+          "type": "NUMERIC"
+        },
+        {
+          "name": "height",
+          "type": "NUMERIC"
+        },
+        {
+          "name": "bats",
+          "type": "TEXT"
+        },
+        {
+          "name": "throws",
+          "type": "TEXT"
+        },
+        {
+          "name": "debut",
+          "type": "TEXT"
+        },
+        {
+          "name": "final_game",
+          "type": "TEXT"
+        },
+        {
+          "name": "retro_id",
+          "type": "TEXT"
+        },
+        {
+          "name": "bbref_id",
+          "type": "TEXT"
+        }
+      ],
+      "pk": []
+    },
+    {
+      "name": "park",
+      "columns": [
+        {
+          "name": "park_id",
+          "type": "TEXT"
+        },
+        {
+          "name": "park_name",
+          "type": "TEXT"
+        },
+        {
+          "name": "park_alias",
+          "type": "TEXT"
+        },
+        {
+          "name": "city",
+          "type": "TEXT"
+        },
+        {
+          "name": "state",
+          "type": "TEXT"
+        },
+        {
+          "name": "country",
+          "type": "TEXT"
+        }
+      ],
+      "pk": []
+    },
+    {
+      "name": "pitching",
+      "columns": [
+        {
+          "name": "player_id",
+          "type": "TEXT"
+        },
+        {
+          "name": "year",
+          "type": "INTEGER"
+        },
+        {
+          "name": "stint",
+          "type": "INTEGER"
+        },
+        {
+          "name": "team_id",
+          "type": "TEXT"
+        },
+        {
+          "name": "league_id",
+          "type": "TEXT"
+        },
+        {
+          "name": "w",
+          "type": "INTEGER"
+        },
+        {
+          "name": "l",
+          "type": "INTEGER"
+        },
+        {
+          "name": "g",
+          "type": "INTEGER"
+        },
+        {
+          "name": "gs",
+          "type": "INTEGER"
+        },
+        {
+          "name": "cg",
+          "type": "INTEGER"
+        },
+        {
+          "name": "sho",
+          "type": "INTEGER"
+        },
+        {
+          "name": "sv",
+          "type": "INTEGER"
+        },
+        {
+          "name": "ipouts",
+          "type": "NUMERIC"
+        },
+        {
+          "name": "h",
+          "type": "INTEGER"
+        },
+        {
+          "name": "er",
+          "type": "INTEGER"
+        },
+        {
+          "name": "hr",
+          "type": "INTEGER"
+        },
+        {
+          "name": "bb",
+          "type": "INTEGER"
+        },
+        {
+          "name": "so",
+          "type": "INTEGER"
+        },
+        {
+          "name": "baopp",
+          "type": "NUMERIC"
+        },
+        {
+          "name": "era",
+          "type": "NUMERIC"
+        },
+        {
+          "name": "ibb",
+          "type": "NUMERIC"
+        },
+        {
+          "name": "wp",
+          "type": "NUMERIC"
+        },
+        {
+          "name": "hbp",
+          "type": "NUMERIC"
+        },
+        {
+          "name": "bk",
+          "type": "INTEGER"
+        },
+        {
+          "name": "bfp",
+          "type": "NUMERIC"
+        },
+        {
+          "name": "gf",
+          "type": "NUMERIC"
+        },
+        {
+          "name": "r",
+          "type": "INTEGER"
+        },
+        {
+          "name": "sh",
+          "type": "NUMERIC"
+        },
+        {
+          "name": "sf",
+          "type": "NUMERIC"
+        },
+        {
+          "name": "g_idp",
+          "type": "NUMERIC"
+        }
+      ],
+      "pk": []
+    },
+    {
+      "name": "pitching_postseason",
+      "columns": [
+        {
+          "name": "player_id",
+          "type": "TEXT"
+        },
+        {
+          "name": "year",
+          "type": "INTEGER"
+        },
+        {
+          "name": "round",
+          "type": "TEXT"
+        },
+        {
+          "name": "team_id",
+          "type": "TEXT"
+        },
+        {
+          "name": "league_id",
+          "type": "TEXT"
+        },
+        {
+          "name": "w",
+          "type": "INTEGER"
+        },
+        {
+          "name": "l",
+          "type": "INTEGER"
+        },
+        {
+          "name": "g",
+          "type": "INTEGER"
+        },
+        {
+          "name": "gs",
+          "type": "INTEGER"
+        },
+        {
+          "name": "cg",
+          "type": "INTEGER"
+        },
+        {
+          "name": "sho",
+          "type": "INTEGER"
+        },
+        {
+          "name": "sv",
+          "type": "INTEGER"
+        },
+        {
+          "name": "ipouts",
+          "type": "INTEGER"
+        },
+        {
+          "name": "h",
+          "type": "INTEGER"
+        },
+        {
+          "name": "er",
+          "type": "INTEGER"
+        },
+        {
+          "name": "hr",
+          "type": "INTEGER"
+        },
+        {
+          "name": "bb",
+          "type": "INTEGER"
+        },
+        {
+          "name": "so",
+          "type": "INTEGER"
+        },
+        {
+          "name": "baopp",
+          "type": "TEXT"
+        },
+        {
+          "name": "era",
+          "type": "NUMERIC"
+        },
+        {
+          "name": "ibb",
+          "type": "NUMERIC"
+        },
+        {
+          "name": "wp",
+          "type": "NUMERIC"
+        },
+        {
+          "name": "hbp",
+          "type": "NUMERIC"
+        },
+        {
+          "name": "bk",
+          "type": "NUMERIC"
+        },
+        {
+          "name": "bfp",
+          "type": "NUMERIC"
+        },
+        {
+          "name": "gf",
+          "type": "INTEGER"
+        },
+        {
+          "name": "r",
+          "type": "INTEGER"
+        },
+        {
+          "name": "sh",
+          "type": "NUMERIC"
+        },
+        {
+          "name": "sf",
+          "type": "NUMERIC"
+        },
+        {
+          "name": "g_idp",
+          "type": "NUMERIC"
+        }
+      ],
+      "pk": []
+    },
+    {
+      "name": "salary",
+      "columns": [
+        {
+          "name": "year",
+          "type": "INTEGER"
+        },
+        {
+          "name": "team_id",
+          "type": "TEXT"
+        },
+        {
+          "name": "league_id",
+          "type": "TEXT"
+        },
+        {
+          "name": "player_id",
+          "type": "TEXT"
+        },
+        {
+          "name": "salary",
+          "type": "INTEGER"
+        }
+      ],
+      "pk": []
+    },
+    {
+      "name": "college",
+      "columns": [
+        {
+          "name": "college_id",
+          "type": "TEXT"
+        },
+        {
+          "name": "name_full",
+          "type": "TEXT"
+        },
+        {
+          "name": "city",
+          "type": "TEXT"
+        },
+        {
+          "name": "state",
+          "type": "TEXT"
+        },
+        {
+          "name": "country",
+          "type": "TEXT"
+        }
+      ],
+      "pk": []
+    },
+    {
+      "name": "postseason",
+      "columns": [
+        {
+          "name": "year",
+          "type": "INTEGER"
+        },
+        {
+          "name": "round",
+          "type": "TEXT"
+        },
+        {
+          "name": "team_id_winner",
+          "type": "TEXT"
+        },
+        {
+          "name": "league_id_winner",
+          "type": "TEXT"
+        },
+        {
+          "name": "team_id_loser",
+          "type": "TEXT"
+        },
+        {
+          "name": "league_id_loser",
+          "type": "TEXT"
+        },
+        {
+          "name": "wins",
+          "type": "INTEGER"
+        },
+        {
+          "name": "losses",
+          "type": "INTEGER"
+        },
+        {
+          "name": "ties",
+          "type": "INTEGER"
+        }
+      ],
+      "pk": []
+    },
+    {
+      "name": "team",
+      "columns": [
+        {
+          "name": "year",
+          "type": "INTEGER"
+        },
+        {
+          "name": "league_id",
+          "type": "TEXT"
+        },
+        {
+          "name": "team_id",
+          "type": "TEXT"
+        },
+        {
+          "name": "franchise_id",
+          "type": "TEXT"
+        },
+        {
+          "name": "div_id",
+          "type": "TEXT"
+        },
+        {
+          "name": "rank",
+          "type": "INTEGER"
+        },
+        {
+          "name": "g",
+          "type": "INTEGER"
+        },
+        {
+          "name": "ghome",
+          "type": "NUMERIC"
+        },
+        {
+          "name": "w",
+          "type": "INTEGER"
+        },
+        {
+          "name": "l",
+          "type": "INTEGER"
+        },
+        {
+          "name": "div_win",
+          "type": "TEXT"
+        },
+        {
+          "name": "wc_win",
+          "type": "TEXT"
+        },
+        {
+          "name": "lg_win",
+          "type": "TEXT"
+        },
+        {
+          "name": "ws_win",
+          "type": "TEXT"
+        },
+        {
+          "name": "r",
+          "type": "INTEGER"
+        },
+        {
+          "name": "ab",
+          "type": "INTEGER"
+        },
+        {
+          "name": "h",
+          "type": "INTEGER"
+        },
+        {
+          "name": "double",
+          "type": "INTEGER"
+        },
+        {
+          "name": "triple",
+          "type": "INTEGER"
+        },
+        {
+          "name": "hr",
+          "type": "INTEGER"
+        },
+        {
+          "name": "bb",
+          "type": "INTEGER"
+        },
+        {
+          "name": "so",
+          "type": "NUMERIC"
+        },
+        {
+          "name": "sb",
+          "type": "NUMERIC"
+        },
+        {
+          "name": "cs",
+          "type": "NUMERIC"
+        },
+        {
+          "name": "hbp",
+          "type": "NUMERIC"
+        },
+        {
+          "name": "sf",
+          "type": "NUMERIC"
+        },
+        {
+          "name": "ra",
+          "type": "INTEGER"
+        },
+        {
+          "name": "er",
+          "type": "INTEGER"
+        },
+        {
+          "name": "era",
+          "type": "NUMERIC"
+        },
+        {
+          "name": "cg",
+          "type": "INTEGER"
+        },
+        {
+          "name": "sho",
+          "type": "INTEGER"
+        },
+        {
+          "name": "sv",
+          "type": "INTEGER"
+        },
+        {
+          "name": "ipouts",
+          "type": "INTEGER"
+        },
+        {
+          "name": "ha",
+          "type": "INTEGER"
+        },
+        {
+          "name": "hra",
+          "type": "INTEGER"
+        },
+        {
+          "name": "bba",
+          "type": "INTEGER"
+        },
+        {
+          "name": "soa",
+          "type": "INTEGER"
+        },
+        {
+          "name": "e",
+          "type": "INTEGER"
+        },
+        {
+          "name": "dp",
+          "type": "NUMERIC"
+        },
+        {
+          "name": "fp",
+          "type": "NUMERIC"
+        },
+        {
+          "name": "name",
+          "type": "TEXT"
+        },
+        {
+          "name": "park",
+          "type": "TEXT"
+        },
+        {
+          "name": "attendance",
+          "type": "NUMERIC"
+        },
+        {
+          "name": "bpf",
+          "type": "INTEGER"
+        },
+        {
+          "name": "ppf",
+          "type": "INTEGER"
+        },
+        {
+          "name": "team_id_br",
+          "type": "TEXT"
+        },
+        {
+          "name": "team_id_lahman45",
+          "type": "TEXT"
+        },
+        {
+          "name": "team_id_retro",
+          "type": "TEXT"
+        }
+      ],
+      "pk": []
+    },
+    {
+      "name": "team_franchise",
+      "columns": [
+        {
+          "name": "franchise_id",
+          "type": "TEXT"
+        },
+        {
+          "name": "franchise_name",
+          "type": "TEXT"
+        },
+        {
+          "name": "active",
+          "type": "TEXT"
+        },
+        {
+          "name": "na_assoc",
+          "type": "TEXT"
+        }
+      ],
+      "pk": []
+    },
+    {
+      "name": "team_half",
+      "columns": [
+        {
+          "name": "year",
+          "type": "INTEGER"
+        },
+        {
+          "name": "league_id",
+          "type": "TEXT"
+        },
+        {
+          "name": "team_id",
+          "type": "TEXT"
+        },
+        {
+          "name": "half",
+          "type": "INTEGER"
+        },
+        {
+          "name": "div_id",
+          "type": "TEXT"
+        },
+        {
+          "name": "div_win",
+          "type": "TEXT"
+        },
+        {
+          "name": "rank",
+          "type": "INTEGER"
+        },
+        {
+          "name": "g",
+          "type": "INTEGER"
+        },
+        {
+          "name": "w",
+          "type": "INTEGER"
+        },
+        {
+          "name": "l",
+          "type": "INTEGER"
+        }
+      ],
+      "pk": []
+    }
+  ],
+  "edges": [
+    {
+      "from": "all_star",
+      "to": "player",
+      "child_col": "player_id",
+      "parent_col": "player_id"
+    },
+    {
+      "from": "appearances",
+      "to": "player",
+      "child_col": "player_id",
+      "parent_col": "player_id"
+    },
+    {
+      "from": "appearances",
+      "to": "team",
+      "child_col": "team_id",
+      "parent_col": "team_id"
+    },
+    {
+      "from": "manager_award",
+      "to": "player",
+      "child_col": "player_id",
+      "parent_col": "player_id"
+    },
+    {
+      "from": "player_award",
+      "to": "player",
+      "child_col": "player_id",
+      "parent_col": "player_id"
+    },
+    {
+      "from": "player_award_vote",
+      "to": "player",
+      "child_col": "player_id",
+      "parent_col": "player_id"
+    },
+    {
+      "from": "batting",
+      "to": "player",
+      "child_col": "player_id",
+      "parent_col": "player_id"
+    },
+    {
+      "from": "batting_postseason",
+      "to": "team",
+      "child_col": "team_id",
+      "parent_col": "team_id"
+    },
+    {
+      "from": "batting_postseason",
+      "to": "player",
+      "child_col": "player_id",
+      "parent_col": "player_id"
+    },
+    {
+      "from": "player_college",
+      "to": "college",
+      "child_col": "college_id",
+      "parent_col": "college_id"
+    },
+    {
+      "from": "player_college",
+      "to": "player",
+      "child_col": "player_id",
+      "parent_col": "player_id"
+    },
+    {
+      "from": "fielding",
+      "to": "player",
+      "child_col": "player_id",
+      "parent_col": "player_id"
+    },
+    {
+      "from": "fielding_outfield",
+      "to": "player",
+      "child_col": "player_id",
+      "parent_col": "player_id"
+    },
+    {
+      "from": "fielding_postseason",
+      "to": "player",
+      "child_col": "player_id",
+      "parent_col": "player_id"
+    },
+    {
+      "from": "hall_of_fame",
+      "to": "player",
+      "child_col": "player_id",
+      "parent_col": "player_id"
+    },
+    {
+      "from": "home_game",
+      "to": "park",
+      "child_col": "park_id",
+      "parent_col": "park_id"
+    },
+    {
+      "from": "home_game",
+      "to": "team",
+      "child_col": "team_id",
+      "parent_col": "team_id"
+    },
+    {
+      "from": "manager",
+      "to": "team",
+      "child_col": "team_id",
+      "parent_col": "team_id"
+    },
+    {
+      "from": "manager_half",
+      "to": "team",
+      "child_col": "team_id",
+      "parent_col": "team_id"
+    }
+  ],
+  "centrality": {
+    "all_star": 0.0,
+    "appearances": 0.0,
+    "manager_award": 0.0,
+    "player_award": 0.0,
+    "manager_award_vote": 0.0,
+    "player_award_vote": 0.0,
+    "batting": 0.0,
+    "batting_postseason": 0.0,
+    "player_college": 0.0,
+    "fielding": 0.0,
+    "fielding_outfield": 0.0,
+    "fielding_postseason": 0.0,
+    "hall_of_fame": 0.0,
+    "home_game": 0.0,
+    "manager": 0.0,
+    "manager_half": 0.0,
+    "player": 0.48,
+    "park": 0.04,
+    "pitching": 0.0,
+    "pitching_postseason": 0.0,
+    "salary": 0.0,
+    "college": 0.04,
+    "postseason": 0.0,
+    "team": 0.2,
+    "team_franchise": 0.0,
+    "team_half": 0.0
+  }
+}

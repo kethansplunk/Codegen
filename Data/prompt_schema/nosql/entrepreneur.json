@@ -1,0 +1,82 @@
+{
+  "entrepreneur.Entrepreneur_ID": {
+    "sample_values": [
+      "5",
+      "2",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "entrepreneur.Company": {
+    "sample_values": [
+      "Mycorrhizal Systems",
+      "IV Cam",
+      "Elizabeth Galton Ltd"
+    ],
+    "inferred_type": "string"
+  },
+  "entrepreneur.Money_Requested": {
+    "sample_values": [
+      "120000.0",
+      "50000.0",
+      "150000.0"
+    ],
+    "inferred_type": "float"
+  },
+  "entrepreneur.People_ID": {
+    "sample_values": [
+      "5",
+      "1",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "entrepreneur.Investor": {
+    "sample_values": [
+      "Duncan Bannatyne",
+      "Doug Richard",
+      "Rachel Elnaugh"
+    ],
+    "inferred_type": "string"
+  },
+  "people.Name": {
+    "sample_values": [
+      "Leonardo Binchi",
+      "Roberto Calcaterra",
+      "Goran Fiorentini"
+    ],
+    "inferred_type": "string"
+  },
+  "people.Height": {
+    "sample_values": [
+      "1.72",
+      "1.78",
+      "1.83"
+    ],
+    "inferred_type": "float"
+  },
+  "people.Weight": {
+    "sample_values": [
+      "58.0",
+      "67.0",
+      "45.0"
+    ],
+    "inferred_type": "float"
+  },
+  "people.People_ID": {
+    "sample_values": [
+      "5",
+      "1",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "people.Date_of_Birth": {
+    "sample_values": [
+      "1972-02-06",
+      "1981-03-04",
+      "1977-04-28"
+    ],
+    "inferred_type": "string"
+  }
+}

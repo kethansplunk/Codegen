@@ -1,0 +1,89 @@
+{
+  "workshop.Name": {
+    "sample_values": [
+      "2008 qualification",
+      "ABC 2007",
+      "Anual Workshop 2011"
+    ],
+    "inferred_type": "string"
+  },
+  "workshop.Venue": {
+    "sample_values": [
+      "New Jersey USA",
+      "New York USA",
+      "Istanbul Turkey"
+    ],
+    "inferred_type": "string"
+  },
+  "workshop.Date": {
+    "sample_values": [
+      "July 5, 2011",
+      "August 18, 2007",
+      "August 25, 2007"
+    ],
+    "inferred_type": "string"
+  },
+  "workshop.Workshop_ID": {
+    "sample_values": [
+      "5",
+      "2",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "Acceptance.Submission_ID": {
+    "sample_values": [
+      "5",
+      "1",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "Acceptance.Result": {
+    "sample_values": [
+      "Accepted",
+      "Rejected"
+    ],
+    "inferred_type": "string"
+  },
+  "Acceptance.Workshop_ID": {
+    "sample_values": [
+      "5",
+      "1",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "submission.Scores": {
+    "sample_values": [
+      "82.0",
+      "83.0",
+      "93.0"
+    ],
+    "inferred_type": "float"
+  },
+  "submission.Author": {
+    "sample_values": [
+      "Steve Niehaus",
+      "Sammy Green",
+      "Steve Myer"
+    ],
+    "inferred_type": "string"
+  },
+  "submission.Submission_ID": {
+    "sample_values": [
+      "5",
+      "1",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "submission.College": {
+    "sample_values": [
+      "Fisk",
+      "Notre Dame",
+      "Georgia"
+    ],
+    "inferred_type": "string"
+  }
+}

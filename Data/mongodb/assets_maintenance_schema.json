@@ -1,0 +1,497 @@
+{
+  "db_name": "assets_maintenance",
+  "collections": {
+    "Third_Party_Companies": {
+      "primary_key": [
+        "company_id"
+      ],
+      "columns": [
+        {
+          "name": "company_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "company_type",
+          "type": "VARCHAR(5)"
+        },
+        {
+          "name": "company_name",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "company_address",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "other_company_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 15
+    },
+    "Maintenance_Contracts": {
+      "primary_key": [
+        "maintenance_contract_id"
+      ],
+      "columns": [
+        {
+          "name": "maintenance_contract_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "maintenance_contract_company_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "contract_start_date",
+          "type": "DATETIME"
+        },
+        {
+          "name": "contract_end_date",
+          "type": "DATETIME"
+        },
+        {
+          "name": "other_contract_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Maintenance_Contracts",
+          "to": "Third_Party_Companies",
+          "child_col": "maintenance_contract_company_id",
+          "parent_col": "company_id"
+        }
+      ],
+      "row_count": 15
+    },
+    "Parts": {
+      "primary_key": [
+        "part_id"
+      ],
+      "columns": [
+        {
+          "name": "part_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "part_name",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "chargeable_yn",
+          "type": "VARCHAR(1)"
+        },
+        {
+          "name": "chargeable_amount",
+          "type": "VARCHAR(20)"
+        },
+        {
+          "name": "other_part_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 3
+    },
+    "Skills": {
+      "primary_key": [
+        "skill_id"
+      ],
+      "columns": [
+        {
+          "name": "skill_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "skill_code",
+          "type": "VARCHAR(20)"
+        },
+        {
+          "name": "skill_description",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 3
+    },
+    "Staff": {
+      "primary_key": [
+        "staff_id"
+      ],
+      "columns": [
+        {
+          "name": "staff_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "staff_name",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "gender",
+          "type": "VARCHAR(1)"
+        },
+        {
+          "name": "other_staff_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 15
+    },
+    "Assets": {
+      "primary_key": [
+        "asset_id"
+      ],
+      "columns": [
+        {
+          "name": "asset_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "maintenance_contract_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "supplier_company_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "asset_details",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "asset_make",
+          "type": "VARCHAR(20)"
+        },
+        {
+          "name": "asset_model",
+          "type": "VARCHAR(20)"
+        },
+        {
+          "name": "asset_acquired_date",
+          "type": "DATETIME"
+        },
+        {
+          "name": "asset_disposed_date",
+          "type": "DATETIME"
+        },
+        {
+          "name": "other_asset_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Assets",
+          "to": "Third_Party_Companies",
+          "child_col": "supplier_company_id",
+          "parent_col": "company_id"
+        },
+        {
+          "from": "Assets",
+          "to": "Maintenance_Contracts",
+          "child_col": "maintenance_contract_id",
+          "parent_col": "maintenance_contract_id"
+        }
+      ],
+      "row_count": 15
+    },
+    "Asset_Parts": {
+      "primary_key": [],
+      "columns": [
+        {
+          "name": "asset_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "part_id",
+          "type": "INTEGER"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Asset_Parts",
+          "to": "Assets",
+          "child_col": "asset_id",
+          "parent_col": "asset_id"
+        },
+        {
+          "from": "Asset_Parts",
+          "to": "Parts",
+          "child_col": "part_id",
+          "parent_col": "part_id"
+        }
+      ],
+      "row_count": 15
+    },
+    "Maintenance_Engineers": {
+      "primary_key": [
+        "engineer_id"
+      ],
+      "columns": [
+        {
+          "name": "engineer_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "company_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "first_name",
+          "type": "VARCHAR(50)"
+        },
+        {
+          "name": "last_name",
+          "type": "VARCHAR(50)"
+        },
+        {
+          "name": "other_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Maintenance_Engineers",
+          "to": "Third_Party_Companies",
+          "child_col": "company_id",
+          "parent_col": "company_id"
+        }
+      ],
+      "row_count": 15
+    },
+    "Engineer_Skills": {
+      "primary_key": [],
+      "columns": [
+        {
+          "name": "engineer_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "skill_id",
+          "type": "INTEGER"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Engineer_Skills",
+          "to": "Skills",
+          "child_col": "skill_id",
+          "parent_col": "skill_id"
+        },
+        {
+          "from": "Engineer_Skills",
+          "to": "Maintenance_Engineers",
+          "child_col": "engineer_id",
+          "parent_col": "engineer_id"
+        }
+      ],
+      "row_count": 20
+    },
+    "Fault_Log": {
+      "primary_key": [
+        "fault_log_entry_id"
+      ],
+      "columns": [
+        {
+          "name": "fault_log_entry_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "asset_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "recorded_by_staff_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "fault_log_entry_datetime",
+          "type": "DATETIME"
+        },
+        {
+          "name": "fault_description",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "other_fault_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Fault_Log",
+          "to": "Staff",
+          "child_col": "recorded_by_staff_id",
+          "parent_col": "staff_id"
+        },
+        {
+          "from": "Fault_Log",
+          "to": "Assets",
+          "child_col": "asset_id",
+          "parent_col": "asset_id"
+        }
+      ],
+      "row_count": 15
+    },
+    "Engineer_Visits": {
+      "primary_key": [
+        "engineer_visit_id"
+      ],
+      "columns": [
+        {
+          "name": "engineer_visit_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "contact_staff_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "engineer_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "fault_log_entry_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "fault_status",
+          "type": "VARCHAR(10)"
+        },
+        {
+          "name": "visit_start_datetime",
+          "type": "DATETIME"
+        },
+        {
+          "name": "visit_end_datetime",
+          "type": "DATETIME"
+        },
+        {
+          "name": "other_visit_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Engineer_Visits",
+          "to": "Staff",
+          "child_col": "contact_staff_id",
+          "parent_col": "staff_id"
+        },
+        {
+          "from": "Engineer_Visits",
+          "to": "Maintenance_Engineers",
+          "child_col": "engineer_id",
+          "parent_col": "engineer_id"
+        },
+        {
+          "from": "Engineer_Visits",
+          "to": "Fault_Log",
+          "child_col": "fault_log_entry_id",
+          "parent_col": "fault_log_entry_id"
+        }
+      ],
+      "row_count": 15
+    },
+    "Part_Faults": {
+      "primary_key": [
+        "part_fault_id"
+      ],
+      "columns": [
+        {
+          "name": "part_fault_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "part_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "fault_short_name",
+          "type": "VARCHAR(20)"
+        },
+        {
+          "name": "fault_description",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "other_fault_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Part_Faults",
+          "to": "Parts",
+          "child_col": "part_id",
+          "parent_col": "part_id"
+        }
+      ],
+      "row_count": 15
+    },
+    "Fault_Log_Parts": {
+      "primary_key": [],
+      "columns": [
+        {
+          "name": "fault_log_entry_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "part_fault_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "fault_status",
+          "type": "VARCHAR(10)"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Fault_Log_Parts",
+          "to": "Fault_Log",
+          "child_col": "fault_log_entry_id",
+          "parent_col": "fault_log_entry_id"
+        },
+        {
+          "from": "Fault_Log_Parts",
+          "to": "Part_Faults",
+          "child_col": "part_fault_id",
+          "parent_col": "part_fault_id"
+        }
+      ],
+      "row_count": 15
+    },
+    "Skills_Required_To_Fix": {
+      "primary_key": [],
+      "columns": [
+        {
+          "name": "part_fault_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "skill_id",
+          "type": "INTEGER"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Skills_Required_To_Fix",
+          "to": "Skills",
+          "child_col": "skill_id",
+          "parent_col": "skill_id"
+        },
+        {
+          "from": "Skills_Required_To_Fix",
+          "to": "Part_Faults",
+          "child_col": "part_fault_id",
+          "parent_col": "part_fault_id"
+        }
+      ],
+      "row_count": 15
+    }
+  }
+}

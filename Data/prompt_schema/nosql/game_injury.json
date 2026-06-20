@@ -1,0 +1,146 @@
+{
+  "stadium.name": {
+    "sample_values": [
+      "Reliant Stadium",
+      "Louisiana Superdome",
+      "Lincoln Financial Field"
+    ],
+    "inferred_type": "string"
+  },
+  "stadium.Average_Attendance": {
+    "sample_values": [
+      "72620.0",
+      "70795.0",
+      "68756.0"
+    ],
+    "inferred_type": "float"
+  },
+  "stadium.Capacity_Percentage": {
+    "sample_values": [
+      "102.3",
+      "100.3",
+      "95.3"
+    ],
+    "inferred_type": "float"
+  },
+  "stadium.id": {
+    "sample_values": [
+      "5",
+      "1",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "stadium.Total_Attendance": {
+    "sample_values": [
+      "628768.0",
+      "550048.0",
+      "553144.0"
+    ],
+    "inferred_type": "float"
+  },
+  "game.stadium_id": {
+    "sample_values": [
+      "5",
+      "12",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "game.Away_team": {
+    "sample_values": [
+      "Quruvchi",
+      "Bunyodkor",
+      "Pakhtakor"
+    ],
+    "inferred_type": "string"
+  },
+  "game.Season": {
+    "sample_values": [
+      "2007",
+      "2010",
+      "2009"
+    ],
+    "inferred_type": "integer"
+  },
+  "game.Home_team": {
+    "sample_values": [
+      "Quruvchi",
+      "Bunyodkor",
+      "Pakhtakor"
+    ],
+    "inferred_type": "string"
+  },
+  "game.Date": {
+    "sample_values": [
+      "22 August 2012",
+      "9 August 2012",
+      "12 July 2009"
+    ],
+    "inferred_type": "string"
+  },
+  "game.Competition": {
+    "sample_values": [
+      "League",
+      "Cup",
+      "Supercup"
+    ],
+    "inferred_type": "string"
+  },
+  "game.Score": {
+    "sample_values": [
+      "2\u20130",
+      "0\u20130",
+      "1\u20132"
+    ],
+    "inferred_type": "string"
+  },
+  "game.id": {
+    "sample_values": [
+      "13",
+      "3",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "injury_accident.Number_of_matches": {
+    "sample_values": [
+      "7 (17)",
+      "4 (6)",
+      "10"
+    ],
+    "inferred_type": "string"
+  },
+  "injury_accident.Injury": {
+    "sample_values": [
+      "Foot injury",
+      "Sustained posterior thigh strains in his left leg",
+      "Clean-up surgery on his right knee"
+    ],
+    "inferred_type": "string"
+  },
+  "injury_accident.id": {
+    "sample_values": [
+      "5",
+      "8",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "injury_accident.game_id": {
+    "sample_values": [
+      "5",
+      "1",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "injury_accident.Player": {
+    "sample_values": [
+      "Davide Santon",
+      "Wesley Sneijder",
+      "Walter Samuel"
+    ],
+    "inferred_type": "string"
+  }
+}

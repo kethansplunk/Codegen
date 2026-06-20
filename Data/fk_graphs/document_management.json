@@ -1,0 +1,255 @@
+{
+  "db_name": "document_management",
+  "nodes": [
+    {
+      "name": "Roles",
+      "columns": [
+        {
+          "name": "role_code",
+          "type": "VARCHAR(15)"
+        },
+        {
+          "name": "role_description",
+          "type": "VARCHAR(80)"
+        }
+      ],
+      "pk": [
+        "role_code"
+      ]
+    },
+    {
+      "name": "Users",
+      "columns": [
+        {
+          "name": "user_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "role_code",
+          "type": "VARCHAR(15)"
+        },
+        {
+          "name": "user_name",
+          "type": "VARCHAR(40)"
+        },
+        {
+          "name": "user_login",
+          "type": "VARCHAR(40)"
+        },
+        {
+          "name": "password",
+          "type": "VARCHAR(40)"
+        }
+      ],
+      "pk": [
+        "user_id"
+      ]
+    },
+    {
+      "name": "Document_Structures",
+      "columns": [
+        {
+          "name": "document_structure_code",
+          "type": "VARCHAR(15)"
+        },
+        {
+          "name": "parent_document_structure_code",
+          "type": "VARCHAR(15)"
+        },
+        {
+          "name": "document_structure_description",
+          "type": "VARCHAR(80)"
+        }
+      ],
+      "pk": [
+        "document_structure_code"
+      ]
+    },
+    {
+      "name": "Functional_Areas",
+      "columns": [
+        {
+          "name": "functional_area_code",
+          "type": "VARCHAR(15)"
+        },
+        {
+          "name": "parent_functional_area_code",
+          "type": "VARCHAR(15)"
+        },
+        {
+          "name": "functional_area_description",
+          "type": "VARCHAR(80)"
+        }
+      ],
+      "pk": [
+        "functional_area_code"
+      ]
+    },
+    {
+      "name": "Images",
+      "columns": [
+        {
+          "name": "image_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "image_alt_text",
+          "type": "VARCHAR(80)"
+        },
+        {
+          "name": "image_name",
+          "type": "VARCHAR(40)"
+        },
+        {
+          "name": "image_url",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "pk": [
+        "image_id"
+      ]
+    },
+    {
+      "name": "Documents",
+      "columns": [
+        {
+          "name": "document_code",
+          "type": "VARCHAR(15)"
+        },
+        {
+          "name": "document_structure_code",
+          "type": "VARCHAR(15)"
+        },
+        {
+          "name": "document_type_code",
+          "type": "VARCHAR(15)"
+        },
+        {
+          "name": "access_count",
+          "type": "INTEGER"
+        },
+        {
+          "name": "document_name",
+          "type": "VARCHAR(80)"
+        }
+      ],
+      "pk": [
+        "document_code"
+      ]
+    },
+    {
+      "name": "Document_Functional_Areas",
+      "columns": [
+        {
+          "name": "document_code",
+          "type": "VARCHAR(15)"
+        },
+        {
+          "name": "functional_area_code",
+          "type": "VARCHAR(15)"
+        }
+      ],
+      "pk": []
+    },
+    {
+      "name": "Document_Sections",
+      "columns": [
+        {
+          "name": "section_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "document_code",
+          "type": "VARCHAR(15)"
+        },
+        {
+          "name": "section_sequence",
+          "type": "INTEGER"
+        },
+        {
+          "name": "section_code",
+          "type": "VARCHAR(20)"
+        },
+        {
+          "name": "section_title",
+          "type": "VARCHAR(80)"
+        }
+      ],
+      "pk": [
+        "section_id"
+      ]
+    },
+    {
+      "name": "Document_Sections_Images",
+      "columns": [
+        {
+          "name": "section_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "image_id",
+          "type": "INTEGER"
+        }
+      ],
+      "pk": [
+        "section_id",
+        "image_id"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "Users",
+      "to": "Roles",
+      "child_col": "role_code",
+      "parent_col": "role_code"
+    },
+    {
+      "from": "Documents",
+      "to": "Document_Structures",
+      "child_col": "document_structure_code",
+      "parent_col": "document_structure_code"
+    },
+    {
+      "from": "Document_Functional_Areas",
+      "to": "Functional_Areas",
+      "child_col": "functional_area_code",
+      "parent_col": "functional_area_code"
+    },
+    {
+      "from": "Document_Functional_Areas",
+      "to": "Documents",
+      "child_col": "document_code",
+      "parent_col": "document_code"
+    },
+    {
+      "from": "Document_Sections",
+      "to": "Documents",
+      "child_col": "document_code",
+      "parent_col": "document_code"
+    },
+    {
+      "from": "Document_Sections_Images",
+      "to": "Images",
+      "child_col": "image_id",
+      "parent_col": "image_id"
+    },
+    {
+      "from": "Document_Sections_Images",
+      "to": "Document_Sections",
+      "child_col": "section_id",
+      "parent_col": "section_id"
+    }
+  ],
+  "centrality": {
+    "Roles": 0.125,
+    "Users": 0.0,
+    "Document_Structures": 0.125,
+    "Functional_Areas": 0.125,
+    "Images": 0.125,
+    "Documents": 0.25,
+    "Document_Functional_Areas": 0.0,
+    "Document_Sections": 0.125,
+    "Document_Sections_Images": 0.0
+  }
+}

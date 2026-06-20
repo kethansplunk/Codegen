@@ -1,0 +1,390 @@
+{
+  "db_name": "student_transcripts_tracking",
+  "nodes": [
+    {
+      "name": "Addresses",
+      "columns": [
+        {
+          "name": "address_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "line_1",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "line_2",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "line_3",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "city",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "zip_postcode",
+          "type": "VARCHAR(20)"
+        },
+        {
+          "name": "state_province_county",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "country",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "other_address_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "pk": [
+        "address_id"
+      ]
+    },
+    {
+      "name": "Courses",
+      "columns": [
+        {
+          "name": "course_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "course_name",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "course_description",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "other_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "pk": [
+        "course_id"
+      ]
+    },
+    {
+      "name": "Departments",
+      "columns": [
+        {
+          "name": "department_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "department_name",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "department_description",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "other_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "pk": [
+        "department_id"
+      ]
+    },
+    {
+      "name": "Degree_Programs",
+      "columns": [
+        {
+          "name": "degree_program_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "department_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "degree_summary_name",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "degree_summary_description",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "other_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "pk": [
+        "degree_program_id"
+      ]
+    },
+    {
+      "name": "Sections",
+      "columns": [
+        {
+          "name": "section_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "course_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "section_name",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "section_description",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "other_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "pk": [
+        "section_id"
+      ]
+    },
+    {
+      "name": "Semesters",
+      "columns": [
+        {
+          "name": "semester_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "semester_name",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "semester_description",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "other_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "pk": [
+        "semester_id"
+      ]
+    },
+    {
+      "name": "Students",
+      "columns": [
+        {
+          "name": "student_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "current_address_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "permanent_address_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "first_name",
+          "type": "VARCHAR(80)"
+        },
+        {
+          "name": "middle_name",
+          "type": "VARCHAR(40)"
+        },
+        {
+          "name": "last_name",
+          "type": "VARCHAR(40)"
+        },
+        {
+          "name": "cell_mobile_number",
+          "type": "VARCHAR(40)"
+        },
+        {
+          "name": "email_address",
+          "type": "VARCHAR(40)"
+        },
+        {
+          "name": "ssn",
+          "type": "VARCHAR(40)"
+        },
+        {
+          "name": "date_first_registered",
+          "type": "DATETIME"
+        },
+        {
+          "name": "date_left",
+          "type": "DATETIME"
+        },
+        {
+          "name": "other_student_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "pk": [
+        "student_id"
+      ]
+    },
+    {
+      "name": "Student_Enrolment",
+      "columns": [
+        {
+          "name": "student_enrolment_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "degree_program_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "semester_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "student_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "other_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "pk": [
+        "student_enrolment_id"
+      ]
+    },
+    {
+      "name": "Student_Enrolment_Courses",
+      "columns": [
+        {
+          "name": "student_course_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "course_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "student_enrolment_id",
+          "type": "INTEGER"
+        }
+      ],
+      "pk": [
+        "student_course_id"
+      ]
+    },
+    {
+      "name": "Transcripts",
+      "columns": [
+        {
+          "name": "transcript_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "transcript_date",
+          "type": "DATETIME"
+        },
+        {
+          "name": "other_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "pk": [
+        "transcript_id"
+      ]
+    },
+    {
+      "name": "Transcript_Contents",
+      "columns": [
+        {
+          "name": "student_course_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "transcript_id",
+          "type": "INTEGER"
+        }
+      ],
+      "pk": []
+    }
+  ],
+  "edges": [
+    {
+      "from": "Degree_Programs",
+      "to": "Departments",
+      "child_col": "department_id",
+      "parent_col": "department_id"
+    },
+    {
+      "from": "Sections",
+      "to": "Courses",
+      "child_col": "course_id",
+      "parent_col": "course_id"
+    },
+    {
+      "from": "Students",
+      "to": "Addresses",
+      "child_col": "current_address_id",
+      "parent_col": "address_id"
+    },
+    {
+      "from": "Student_Enrolment",
+      "to": "Students",
+      "child_col": "student_id",
+      "parent_col": "student_id"
+    },
+    {
+      "from": "Student_Enrolment",
+      "to": "Semesters",
+      "child_col": "semester_id",
+      "parent_col": "semester_id"
+    },
+    {
+      "from": "Student_Enrolment",
+      "to": "Degree_Programs",
+      "child_col": "degree_program_id",
+      "parent_col": "degree_program_id"
+    },
+    {
+      "from": "Student_Enrolment_Courses",
+      "to": "Student_Enrolment",
+      "child_col": "student_enrolment_id",
+      "parent_col": "student_enrolment_id"
+    },
+    {
+      "from": "Student_Enrolment_Courses",
+      "to": "Courses",
+      "child_col": "course_id",
+      "parent_col": "course_id"
+    },
+    {
+      "from": "Transcript_Contents",
+      "to": "Transcripts",
+      "child_col": "transcript_id",
+      "parent_col": "transcript_id"
+    },
+    {
+      "from": "Transcript_Contents",
+      "to": "Student_Enrolment_Courses",
+      "child_col": "student_course_id",
+      "parent_col": "student_course_id"
+    }
+  ],
+  "centrality": {
+    "Addresses": 0.1,
+    "Courses": 0.2,
+    "Departments": 0.1,
+    "Degree_Programs": 0.1,
+    "Sections": 0.0,
+    "Semesters": 0.1,
+    "Students": 0.1,
+    "Student_Enrolment": 0.1,
+    "Student_Enrolment_Courses": 0.1,
+    "Transcripts": 0.1,
+    "Transcript_Contents": 0.0
+  }
+}

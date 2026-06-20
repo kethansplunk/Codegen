@@ -1,0 +1,153 @@
+{
+  "Student.Fname": {
+    "sample_values": [
+      "George",
+      "Mark",
+      "Susan"
+    ],
+    "inferred_type": "string"
+  },
+  "Student.Age": {
+    "sample_values": [
+      "17",
+      "18",
+      "21"
+    ],
+    "inferred_type": "integer"
+  },
+  "Student.city_code": {
+    "sample_values": [
+      "BOS",
+      "YYZ",
+      "HOU"
+    ],
+    "inferred_type": "string"
+  },
+  "Student.Advisor": {
+    "sample_values": [
+      "7712",
+      "7271",
+      "8723"
+    ],
+    "inferred_type": "integer"
+  },
+  "Student.StuID": {
+    "sample_values": [
+      "1020",
+      "1023",
+      "1018"
+    ],
+    "inferred_type": "integer"
+  },
+  "Student.Sex": {
+    "sample_values": [
+      "F",
+      "M"
+    ],
+    "inferred_type": "string"
+  },
+  "Student.Major": {
+    "sample_values": [
+      "550",
+      "50",
+      "520"
+    ],
+    "inferred_type": "integer"
+  },
+  "Student.LName": {
+    "sample_values": [
+      "Goldman",
+      "Prater",
+      "Brody"
+    ],
+    "inferred_type": "string"
+  },
+  "Dorm.dormid": {
+    "sample_values": [
+      "110",
+      "100",
+      "140"
+    ],
+    "inferred_type": "integer"
+  },
+  "Dorm.student_capacity": {
+    "sample_values": [
+      "40",
+      "85",
+      "116"
+    ],
+    "inferred_type": "integer"
+  },
+  "Dorm.dorm_name": {
+    "sample_values": [
+      "Dorm-plex 2000",
+      "Bud Jones Hall",
+      "Smith Hall"
+    ],
+    "inferred_type": "string"
+  },
+  "Dorm.gender": {
+    "sample_values": [
+      "F",
+      "M",
+      "X"
+    ],
+    "inferred_type": "string"
+  },
+  "Has_amenity.dormid": {
+    "sample_values": [
+      "117",
+      "100",
+      "140"
+    ],
+    "inferred_type": "integer"
+  },
+  "Has_amenity.amenid": {
+    "sample_values": [
+      "909",
+      "955",
+      "922"
+    ],
+    "inferred_type": "integer"
+  },
+  "Lives_in.dormid": {
+    "sample_values": [
+      "110",
+      "100",
+      "140"
+    ],
+    "inferred_type": "integer"
+  },
+  "Lives_in.stuid": {
+    "sample_values": [
+      "1020",
+      "1023",
+      "1010"
+    ],
+    "inferred_type": "integer"
+  },
+  "Lives_in.room_number": {
+    "sample_values": [
+      "215",
+      "105",
+      "112"
+    ],
+    "inferred_type": "integer"
+  },
+  "Dorm_amenity.amenity_name": {
+    "sample_values": [
+      "Carpeted Rooms",
+      "Heat",
+      "Kitchen in Every Room"
+    ],
+    "inferred_type": "string"
+  },
+  "Dorm_amenity.amenid": {
+    "sample_values": [
+      "909",
+      "955",
+      "922"
+    ],
+    "inferred_type": "integer"
+  }
+}

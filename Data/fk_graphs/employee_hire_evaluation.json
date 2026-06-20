@@ -1,0 +1,132 @@
+{
+  "db_name": "employee_hire_evaluation",
+  "nodes": [
+    {
+      "name": "employee",
+      "columns": [
+        {
+          "name": "Employee_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Age",
+          "type": "INT"
+        },
+        {
+          "name": "City",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "Employee_ID"
+      ]
+    },
+    {
+      "name": "shop",
+      "columns": [
+        {
+          "name": "Shop_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Location",
+          "type": "TEXT"
+        },
+        {
+          "name": "District",
+          "type": "TEXT"
+        },
+        {
+          "name": "Number_products",
+          "type": "INT"
+        },
+        {
+          "name": "Manager_name",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "Shop_ID"
+      ]
+    },
+    {
+      "name": "hiring",
+      "columns": [
+        {
+          "name": "Shop_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Employee_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Start_from",
+          "type": "TEXT"
+        },
+        {
+          "name": "Is_full_time",
+          "type": "bool"
+        }
+      ],
+      "pk": [
+        "Employee_ID"
+      ]
+    },
+    {
+      "name": "evaluation",
+      "columns": [
+        {
+          "name": "Employee_ID",
+          "type": "TEXT"
+        },
+        {
+          "name": "Year_awarded",
+          "type": "TEXT"
+        },
+        {
+          "name": "Bonus",
+          "type": "REAL"
+        }
+      ],
+      "pk": [
+        "Employee_ID",
+        "Year_awarded"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "hiring",
+      "to": "employee",
+      "child_col": "Employee_ID",
+      "parent_col": "Employee_ID"
+    },
+    {
+      "from": "hiring",
+      "to": "shop",
+      "child_col": "Shop_ID",
+      "parent_col": "Shop_ID"
+    },
+    {
+      "from": "evaluation",
+      "to": "employee",
+      "child_col": "Employee_ID",
+      "parent_col": "Employee_ID"
+    }
+  ],
+  "centrality": {
+    "employee": 0.6666666666666666,
+    "shop": 0.3333333333333333,
+    "hiring": 0.0,
+    "evaluation": 0.0
+  }
+}

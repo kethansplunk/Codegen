@@ -1,0 +1,86 @@
+{
+  "db_name": "candidate_poll",
+  "collections": {
+    "candidate": {
+      "primary_key": [
+        "Candidate_ID"
+      ],
+      "columns": [
+        {
+          "name": "Candidate_ID",
+          "type": "INT"
+        },
+        {
+          "name": "People_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Poll_Source",
+          "type": "TEXT"
+        },
+        {
+          "name": "Date",
+          "type": "TEXT"
+        },
+        {
+          "name": "Support_rate",
+          "type": "REAL"
+        },
+        {
+          "name": "Consider_rate",
+          "type": "REAL"
+        },
+        {
+          "name": "Oppose_rate",
+          "type": "REAL"
+        },
+        {
+          "name": "Unsure_rate",
+          "type": "REAL"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "candidate",
+          "to": "people",
+          "child_col": "People_ID",
+          "parent_col": "People_ID"
+        }
+      ],
+      "row_count": 6
+    },
+    "people": {
+      "primary_key": [
+        "People_ID"
+      ],
+      "columns": [
+        {
+          "name": "People_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Sex",
+          "type": "TEXT"
+        },
+        {
+          "name": "Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Date_of_Birth",
+          "type": "TEXT"
+        },
+        {
+          "name": "Height",
+          "type": "REAL"
+        },
+        {
+          "name": "Weight",
+          "type": "REAL"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 9
+    }
+  }
+}

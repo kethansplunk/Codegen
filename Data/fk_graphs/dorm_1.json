@@ -1,0 +1,146 @@
+{
+  "db_name": "dorm_1",
+  "nodes": [
+    {
+      "name": "Student",
+      "columns": [
+        {
+          "name": "StuID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "LName",
+          "type": "VARCHAR(12)"
+        },
+        {
+          "name": "Fname",
+          "type": "VARCHAR(12)"
+        },
+        {
+          "name": "Age",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Sex",
+          "type": "VARCHAR(1)"
+        },
+        {
+          "name": "Major",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Advisor",
+          "type": "INTEGER"
+        },
+        {
+          "name": "city_code",
+          "type": "VARCHAR(3)"
+        }
+      ],
+      "pk": [
+        "StuID"
+      ]
+    },
+    {
+      "name": "Dorm",
+      "columns": [
+        {
+          "name": "dormid",
+          "type": "INTEGER"
+        },
+        {
+          "name": "dorm_name",
+          "type": "VARCHAR(20)"
+        },
+        {
+          "name": "student_capacity",
+          "type": "INTEGER"
+        },
+        {
+          "name": "gender",
+          "type": "VARCHAR(1)"
+        }
+      ],
+      "pk": []
+    },
+    {
+      "name": "Dorm_amenity",
+      "columns": [
+        {
+          "name": "amenid",
+          "type": "INTEGER"
+        },
+        {
+          "name": "amenity_name",
+          "type": "VARCHAR(25)"
+        }
+      ],
+      "pk": []
+    },
+    {
+      "name": "Has_amenity",
+      "columns": [
+        {
+          "name": "dormid",
+          "type": "INTEGER"
+        },
+        {
+          "name": "amenid",
+          "type": "INTEGER"
+        }
+      ],
+      "pk": []
+    },
+    {
+      "name": "Lives_in",
+      "columns": [
+        {
+          "name": "stuid",
+          "type": "INTEGER"
+        },
+        {
+          "name": "dormid",
+          "type": "INTEGER"
+        },
+        {
+          "name": "room_number",
+          "type": "INTEGER"
+        }
+      ],
+      "pk": []
+    }
+  ],
+  "edges": [
+    {
+      "from": "Has_amenity",
+      "to": "Dorm_amenity",
+      "child_col": "amenid",
+      "parent_col": "amenid"
+    },
+    {
+      "from": "Has_amenity",
+      "to": "Dorm",
+      "child_col": "dormid",
+      "parent_col": "dormid"
+    },
+    {
+      "from": "Lives_in",
+      "to": "Dorm",
+      "child_col": "dormid",
+      "parent_col": "dormid"
+    },
+    {
+      "from": "Lives_in",
+      "to": "Student",
+      "child_col": "stuid",
+      "parent_col": "StuID"
+    }
+  ],
+  "centrality": {
+    "Student": 0.25,
+    "Dorm": 0.5,
+    "Dorm_amenity": 0.25,
+    "Has_amenity": 0.0,
+    "Lives_in": 0.0
+  }
+}

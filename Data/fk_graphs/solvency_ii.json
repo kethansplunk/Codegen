@@ -1,0 +1,301 @@
+{
+  "db_name": "solvency_ii",
+  "nodes": [
+    {
+      "name": "Addresses",
+      "columns": [
+        {
+          "name": "Address_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "address_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "pk": [
+        "Address_ID"
+      ]
+    },
+    {
+      "name": "Locations",
+      "columns": [
+        {
+          "name": "Location_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Other_Details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "pk": [
+        "Location_ID"
+      ]
+    },
+    {
+      "name": "Products",
+      "columns": [
+        {
+          "name": "Product_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Product_Type_Code",
+          "type": "CHAR(15)"
+        },
+        {
+          "name": "Product_Name",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "Product_Price",
+          "type": "DECIMAL(20,4)"
+        }
+      ],
+      "pk": [
+        "Product_ID"
+      ]
+    },
+    {
+      "name": "Parties",
+      "columns": [
+        {
+          "name": "Party_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Party_Details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "pk": [
+        "Party_ID"
+      ]
+    },
+    {
+      "name": "Assets",
+      "columns": [
+        {
+          "name": "Asset_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Other_Details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "pk": [
+        "Asset_ID"
+      ]
+    },
+    {
+      "name": "Channels",
+      "columns": [
+        {
+          "name": "Channel_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Other_Details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "pk": [
+        "Channel_ID"
+      ]
+    },
+    {
+      "name": "Finances",
+      "columns": [
+        {
+          "name": "Finance_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Other_Details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "pk": [
+        "Finance_ID"
+      ]
+    },
+    {
+      "name": "Events",
+      "columns": [
+        {
+          "name": "Event_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Address_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Channel_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Event_Type_Code",
+          "type": "CHAR(15)"
+        },
+        {
+          "name": "Finance_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Location_ID",
+          "type": "INTEGER"
+        }
+      ],
+      "pk": [
+        "Event_ID"
+      ]
+    },
+    {
+      "name": "Products_in_Events",
+      "columns": [
+        {
+          "name": "Product_in_Event_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Event_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Product_ID",
+          "type": "INTEGER"
+        }
+      ],
+      "pk": [
+        "Product_in_Event_ID"
+      ]
+    },
+    {
+      "name": "Parties_in_Events",
+      "columns": [
+        {
+          "name": "Party_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Event_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Role_Code",
+          "type": "CHAR(15)"
+        }
+      ],
+      "pk": [
+        "Party_ID",
+        "Event_ID"
+      ]
+    },
+    {
+      "name": "Agreements",
+      "columns": [
+        {
+          "name": "Document_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Event_ID",
+          "type": "INTEGER"
+        }
+      ],
+      "pk": [
+        "Document_ID"
+      ]
+    },
+    {
+      "name": "Assets_in_Events",
+      "columns": [
+        {
+          "name": "Asset_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Event_ID",
+          "type": "INTEGER"
+        }
+      ],
+      "pk": [
+        "Asset_ID",
+        "Event_ID"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "Events",
+      "to": "Finances",
+      "child_col": "Finance_ID",
+      "parent_col": "Finance_ID"
+    },
+    {
+      "from": "Events",
+      "to": "Addresses",
+      "child_col": "Address_ID",
+      "parent_col": "Address_ID"
+    },
+    {
+      "from": "Events",
+      "to": "Locations",
+      "child_col": "Location_ID",
+      "parent_col": "Location_ID"
+    },
+    {
+      "from": "Products_in_Events",
+      "to": "Products",
+      "child_col": "Product_ID",
+      "parent_col": "Product_ID"
+    },
+    {
+      "from": "Products_in_Events",
+      "to": "Events",
+      "child_col": "Event_ID",
+      "parent_col": "Event_ID"
+    },
+    {
+      "from": "Parties_in_Events",
+      "to": "Events",
+      "child_col": "Event_ID",
+      "parent_col": "Event_ID"
+    },
+    {
+      "from": "Parties_in_Events",
+      "to": "Parties",
+      "child_col": "Party_ID",
+      "parent_col": "Party_ID"
+    },
+    {
+      "from": "Agreements",
+      "to": "Events",
+      "child_col": "Event_ID",
+      "parent_col": "Event_ID"
+    },
+    {
+      "from": "Assets_in_Events",
+      "to": "Events",
+      "child_col": "Event_ID",
+      "parent_col": "Event_ID"
+    }
+  ],
+  "centrality": {
+    "Addresses": 0.09090909090909091,
+    "Locations": 0.09090909090909091,
+    "Products": 0.09090909090909091,
+    "Parties": 0.09090909090909091,
+    "Assets": 0.0,
+    "Channels": 0.0,
+    "Finances": 0.09090909090909091,
+    "Events": 0.36363636363636365,
+    "Products_in_Events": 0.0,
+    "Parties_in_Events": 0.0,
+    "Agreements": 0.0,
+    "Assets_in_Events": 0.0
+  }
+}

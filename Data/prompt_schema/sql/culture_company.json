@@ -1,0 +1,152 @@
+{
+  "book_club.book_club_id": {
+    "sample_values": [
+      1,
+      5,
+      9
+    ],
+    "inferred_type": "integer"
+  },
+  "book_club.Year": {
+    "sample_values": [
+      1989,
+      1990
+    ],
+    "inferred_type": "integer"
+  },
+  "book_club.Author_or_Editor": {
+    "sample_values": [
+      "Thom Nickels",
+      "George Baxt",
+      "Donald Ward"
+    ],
+    "inferred_type": "string"
+  },
+  "book_club.Book_Title": {
+    "sample_values": [
+      "Walking Water / After All This",
+      "Who\u04f3 Next",
+      "Death Takes the Stage"
+    ],
+    "inferred_type": "string"
+  },
+  "book_club.Publisher": {
+    "sample_values": [
+      "Crossing Press",
+      "St. Martin's Press",
+      "William Morrow"
+    ],
+    "inferred_type": "string"
+  },
+  "book_club.Category": {
+    "sample_values": [
+      "Gay M/SF",
+      "Lesb. M/SF",
+      "Gay SF/F"
+    ],
+    "inferred_type": "string"
+  },
+  "book_club.Result": {
+    "sample_values": [
+      "Won [B ]",
+      "Won",
+      "Nom"
+    ],
+    "inferred_type": "string"
+  },
+  "movie.movie_id": {
+    "sample_values": [
+      1,
+      4,
+      7
+    ],
+    "inferred_type": "integer"
+  },
+  "movie.Title": {
+    "sample_values": [
+      "3000 Miles to Graceland",
+      "Storm Catcher",
+      "The Big Kahuna"
+    ],
+    "inferred_type": "string"
+  },
+  "movie.Year": {
+    "sample_values": [
+      1999,
+      2000,
+      2001
+    ],
+    "inferred_type": "integer"
+  },
+  "movie.Director": {
+    "sample_values": [
+      "Demian Lichtenstein",
+      "Anthony Hickox",
+      "John Swanbeck"
+    ],
+    "inferred_type": "string"
+  },
+  "movie.Budget_million": {
+    "sample_values": [
+      6.0,
+      4.0,
+      63.6
+    ],
+    "inferred_type": "float"
+  },
+  "movie.Gross_worldwide": {
+    "sample_values": [
+      30471,
+      456774,
+      19412993
+    ],
+    "inferred_type": "integer"
+  },
+  "culture_company.Company_name": {
+    "sample_values": [
+      "Dragonair",
+      "Cathay Pacific Culture Services (HK) Limited",
+      "Culture China Cargo"
+    ],
+    "inferred_type": "string"
+  },
+  "culture_company.Type": {
+    "sample_values": [
+      "Corporate",
+      "Joint Venture",
+      "Subsidiary"
+    ],
+    "inferred_type": "string"
+  },
+  "culture_company.Incorporated_in": {
+    "sample_values": [
+      "China",
+      "Hong Kong"
+    ],
+    "inferred_type": "string"
+  },
+  "culture_company.Group_Equity_Shareholding": {
+    "sample_values": [
+      18.77,
+      49.0,
+      60.0
+    ],
+    "inferred_type": "float"
+  },
+  "culture_company.book_club_id": {
+    "sample_values": [
+      "1",
+      "2",
+      "3"
+    ],
+    "inferred_type": "integer"
+  },
+  "culture_company.movie_id": {
+    "sample_values": [
+      "2",
+      "4",
+      "5"
+    ],
+    "inferred_type": "integer"
+  }
+}

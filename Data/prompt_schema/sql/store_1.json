@@ -1,0 +1,504 @@
+{
+  "artists.id": {
+    "sample_values": [
+      1,
+      7,
+      13
+    ],
+    "inferred_type": "integer"
+  },
+  "artists.name": {
+    "sample_values": [
+      "Cl\u00e1udio Zoli",
+      "Audioslave",
+      "BackBeat"
+    ],
+    "inferred_type": "string"
+  },
+  "sqlite_sequence.name": {
+    "sample_values": [
+      "playlists",
+      "artists",
+      "media_types"
+    ],
+    "inferred_type": "string"
+  },
+  "sqlite_sequence.seq": {
+    "sample_values": [
+      25,
+      347,
+      59
+    ],
+    "inferred_type": "integer"
+  },
+  "albums.id": {
+    "sample_values": [
+      1,
+      7,
+      271
+    ],
+    "inferred_type": "integer"
+  },
+  "albums.title": {
+    "sample_values": [
+      "The Best Of Buddy Guy - The Millenium Collection",
+      "Warner 25 Anos",
+      "Plays Metallica By Four Cellos"
+    ],
+    "inferred_type": "string"
+  },
+  "albums.artist_id": {
+    "sample_values": [
+      1,
+      7,
+      13
+    ],
+    "inferred_type": "integer"
+  },
+  "employees.id": {
+    "sample_values": [
+      1,
+      6,
+      4
+    ],
+    "inferred_type": "integer"
+  },
+  "employees.last_name": {
+    "sample_values": [
+      "Callahan",
+      "Edwards",
+      "Peacock"
+    ],
+    "inferred_type": "string"
+  },
+  "employees.first_name": {
+    "sample_values": [
+      "Laura",
+      "Nancy",
+      "Jane"
+    ],
+    "inferred_type": "string"
+  },
+  "employees.title": {
+    "sample_values": [
+      "IT Staff",
+      "IT Manager",
+      "Sales Support Agent"
+    ],
+    "inferred_type": "string"
+  },
+  "employees.reports_to": {
+    "sample_values": [
+      1,
+      2,
+      6
+    ],
+    "inferred_type": "integer"
+  },
+  "employees.birth_date": {
+    "sample_values": [
+      "1968-01-09 00:00:00",
+      "1958-12-08 00:00:00",
+      "1973-08-29 00:00:00"
+    ],
+    "inferred_type": "string"
+  },
+  "employees.hire_date": {
+    "sample_values": [
+      "2004-03-04 00:00:00",
+      "2002-05-01 00:00:00",
+      "2002-04-01 00:00:00"
+    ],
+    "inferred_type": "string"
+  },
+  "employees.address": {
+    "sample_values": [
+      "923 7 ST NW",
+      "825 8 Ave SW",
+      "1111 6 Ave SW"
+    ],
+    "inferred_type": "string"
+  },
+  "employees.city": {
+    "sample_values": [
+      "Edmonton",
+      "Calgary",
+      "Lethbridge"
+    ],
+    "inferred_type": "string"
+  },
+  "employees.postal_code": {
+    "sample_values": [
+      "T1H 1Y8",
+      "T2P 2T3",
+      "T2P 5M5"
+    ],
+    "inferred_type": "string"
+  },
+  "employees.phone": {
+    "sample_values": [
+      "+1 (403) 467-3351",
+      "+1 (403) 262-3443",
+      "+1 (403) 263-4423"
+    ],
+    "inferred_type": "string"
+  },
+  "employees.fax": {
+    "sample_values": [
+      "+1 (403) 467-8772",
+      "+1 (403) 262-3322",
+      "+1 (403) 262-6712"
+    ],
+    "inferred_type": "string"
+  },
+  "employees.email": {
+    "sample_values": [
+      "laura@chinookcorp.com",
+      "nancy@chinookcorp.com",
+      "jane@chinookcorp.com"
+    ],
+    "inferred_type": "string"
+  },
+  "customers.id": {
+    "sample_values": [
+      1,
+      24,
+      42
+    ],
+    "inferred_type": "integer"
+  },
+  "customers.first_name": {
+    "sample_values": [
+      "Dan",
+      "Daan",
+      "Kara"
+    ],
+    "inferred_type": "string"
+  },
+  "customers.last_name": {
+    "sample_values": [
+      "Miller",
+      "Peeters",
+      "Nielsen"
+    ],
+    "inferred_type": "string"
+  },
+  "customers.company": {
+    "sample_values": [
+      "Apple Inc.",
+      "Woodstock Discos",
+      "JetBrains s.r.o."
+    ],
+    "inferred_type": "string"
+  },
+  "customers.address": {
+    "sample_values": [
+      "541 Del Medio Avenue",
+      "Gr\u00e9trystraat 63",
+      "S\u00f8nder Boulevard 51"
+    ],
+    "inferred_type": "string"
+  },
+  "customers.city": {
+    "sample_values": [
+      "Boston",
+      "Copenhagen",
+      "S\u00e3o Paulo"
+    ],
+    "inferred_type": "string"
+  },
+  "customers.state": {
+    "sample_values": [
+      "MB",
+      "WA",
+      "NY"
+    ],
+    "inferred_type": "string"
+  },
+  "customers.country": {
+    "sample_values": [
+      "United Kingdom",
+      "Denmark",
+      "USA"
+    ],
+    "inferred_type": "string"
+  },
+  "customers.postal_code": {
+    "sample_values": [
+      "94040-111",
+      "1000",
+      "1720"
+    ],
+    "inferred_type": "string"
+  },
+  "customers.phone": {
+    "sample_values": [
+      "+1 (650) 644-3358",
+      "+32 02 219 03 03",
+      "+453 3331 9991"
+    ],
+    "inferred_type": "string"
+  },
+  "customers.fax": {
+    "sample_values": [
+      "+1 (408) 996-1011",
+      "+55 (21) 2271-7070",
+      "+420 2 4172 5555"
+    ],
+    "inferred_type": "string"
+  },
+  "customers.email": {
+    "sample_values": [
+      "dmiller@comcast.com",
+      "daan_peeters@apple.be",
+      "kara.nielsen@jubii.dk"
+    ],
+    "inferred_type": "string"
+  },
+  "customers.support_rep_id": {
+    "sample_values": [
+      3,
+      4,
+      5
+    ],
+    "inferred_type": "integer"
+  },
+  "genres.id": {
+    "sample_values": [
+      1,
+      7,
+      13
+    ],
+    "inferred_type": "integer"
+  },
+  "genres.name": {
+    "sample_values": [
+      "Sci Fi & Fantasy",
+      "Reggae",
+      "Pop"
+    ],
+    "inferred_type": "string"
+  },
+  "invoices.id": {
+    "sample_values": [
+      98,
+      382,
+      241
+    ],
+    "inferred_type": "integer"
+  },
+  "invoices.customer_id": {
+    "sample_values": [
+      1,
+      7,
+      13
+    ],
+    "inferred_type": "integer"
+  },
+  "invoices.invoice_date": {
+    "sample_values": [
+      "2007-04-05 00:00:00",
+      "2007-02-02 00:00:00",
+      "2007-02-03 00:00:00"
+    ],
+    "inferred_type": "string"
+  },
+  "invoices.billing_address": {
+    "sample_values": [
+      "Calle Lira, 198",
+      "8, Rue Hanovre",
+      "9, Place Louis Barthou"
+    ],
+    "inferred_type": "string"
+  },
+  "invoices.billing_city": {
+    "sample_values": [
+      "Santiago",
+      "Paris",
+      "Bordeaux"
+    ],
+    "inferred_type": "string"
+  },
+  "invoices.billing_state": {
+    "sample_values": [
+      "TX",
+      "NS",
+      "NSW"
+    ],
+    "inferred_type": "string"
+  },
+  "invoices.billing_country": {
+    "sample_values": [
+      "Italy",
+      "United Kingdom",
+      "Australia"
+    ],
+    "inferred_type": "string"
+  },
+  "invoices.billing_postal_code": {
+    "sample_values": [
+      "01007-010",
+      "75002",
+      "33000"
+    ],
+    "inferred_type": "string"
+  },
+  "invoices.total": {
+    "sample_values": [
+      1.98,
+      6.94,
+      9.91
+    ],
+    "inferred_type": "float"
+  },
+  "media_types.id": {
+    "sample_values": [
+      1,
+      2,
+      3
+    ],
+    "inferred_type": "integer"
+  },
+  "media_types.name": {
+    "sample_values": [
+      "AAC audio file",
+      "Purchased AAC audio file",
+      "Protected MPEG-4 video file"
+    ],
+    "inferred_type": "string"
+  },
+  "tracks.id": {
+    "sample_values": [
+      1,
+      11,
+      17
+    ],
+    "inferred_type": "integer"
+  },
+  "tracks.name": {
+    "sample_values": [
+      "Overdose",
+      "Inject The Venom",
+      "Snowballed"
+    ],
+    "inferred_type": "string"
+  },
+  "tracks.album_id": {
+    "sample_values": [
+      1,
+      7,
+      13
+    ],
+    "inferred_type": "integer"
+  },
+  "tracks.media_type_id": {
+    "sample_values": [
+      1,
+      2,
+      3
+    ],
+    "inferred_type": "integer"
+  },
+  "tracks.genre_id": {
+    "sample_values": [
+      1,
+      7,
+      13
+    ],
+    "inferred_type": "integer"
+  },
+  "tracks.composer": {
+    "sample_values": [
+      "Jerry Cantrell, Michael Starr, Sean Kinney",
+      "Steven Tyler, Joe Perry, Jim Vallance, Holly Knight",
+      "Steven Tyler, Joe Perry, Desmond Child"
+    ],
+    "inferred_type": "string"
+  },
+  "tracks.milliseconds": {
+    "sample_values": [
+      343719,
+      233926,
+      205688
+    ],
+    "inferred_type": "integer"
+  },
+  "tracks.bytes": {
+    "sample_values": [
+      11170334,
+      7636561,
+      6706347
+    ],
+    "inferred_type": "integer"
+  },
+  "tracks.unit_price": {
+    "sample_values": [
+      0.99,
+      1.99
+    ],
+    "inferred_type": "float"
+  },
+  "invoice_lines.id": {
+    "sample_values": [
+      579,
+      3,
+      6
+    ],
+    "inferred_type": "integer"
+  },
+  "invoice_lines.invoice_id": {
+    "sample_values": [
+      1,
+      7,
+      13
+    ],
+    "inferred_type": "integer"
+  },
+  "invoice_lines.track_id": {
+    "sample_values": [
+      1,
+      8,
+      15
+    ],
+    "inferred_type": "integer"
+  },
+  "invoice_lines.unit_price": {
+    "sample_values": [
+      0.99,
+      1.99
+    ],
+    "inferred_type": "float"
+  },
+  "playlists.id": {
+    "sample_values": [
+      1,
+      7,
+      13
+    ],
+    "inferred_type": "integer"
+  },
+  "playlists.name": {
+    "sample_values": [
+      "On-The-Go 1",
+      "Music Videos",
+      "Audiobooks"
+    ],
+    "inferred_type": "string"
+  },
+  "playlist_tracks.playlist_id": {
+    "sample_values": [
+      1,
+      9,
+      13
+    ],
+    "inferred_type": "integer"
+  },
+  "playlist_tracks.track_id": {
+    "sample_values": [
+      1,
+      7,
+      13
+    ],
+    "inferred_type": "integer"
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "race.Name": {
+    "sample_values": [
+      "Mexico City 250",
+      "Bosch Engineering 250 at VIR",
+      "Gainsco Grand Prix of Miami"
+    ],
+    "inferred_type": "string"
+  },
+  "race.Date": {
+    "sample_values": [
+      "May 26",
+      "January 26 January 27",
+      "March 29"
+    ],
+    "inferred_type": "string"
+  },
+  "race.Track_ID": {
+    "sample_values": [
+      "5",
+      "2",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "race.Class": {
+    "sample_values": [
+      "DP/GT",
+      "GT"
+    ],
+    "inferred_type": "string"
+  },
+  "race.Race_ID": {
+    "sample_values": [
+      "5",
+      "2",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "track.Seating": {
+    "sample_values": [
+      "76812.0",
+      "75000.0",
+      "137243.0"
+    ],
+    "inferred_type": "float"
+  },
+  "track.Year_Opened": {
+    "sample_values": [
+      "2001.0",
+      "1995.0",
+      "1968.0"
+    ],
+    "inferred_type": "float"
+  },
+  "track.Location": {
+    "sample_values": [
+      "Avondale, AZ",
+      "Joliet, IL",
+      "Darlington, SC"
+    ],
+    "inferred_type": "string"
+  },
+  "track.Name": {
+    "sample_values": [
+      "Chicagoland Speedway",
+      "Phoenix International Raceway",
+      "Martinsville Speedway"
+    ],
+    "inferred_type": "string"
+  },
+  "track.Track_ID": {
+    "sample_values": [
+      "5",
+      "2",
+      "6"
+    ],
+    "inferred_type": "integer"
+  }
+}

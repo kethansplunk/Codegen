@@ -1,0 +1,191 @@
+{
+  "Financial_Transactions.transaction_date": {
+    "sample_values": [
+      "2018-03-23 21:43:32",
+      "2018-03-24 06:41:41",
+      "2018-03-24 05:45:57"
+    ],
+    "inferred_type": "string"
+  },
+  "Financial_Transactions.card_id": {
+    "sample_values": [
+      "5",
+      "2",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "Financial_Transactions.account_id": {
+    "sample_values": [
+      "5",
+      "6",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Financial_Transactions.previous_transaction_id": {
+    "sample_values": [
+      "368",
+      "958",
+      "925"
+    ],
+    "inferred_type": "integer"
+  },
+  "Financial_Transactions.transaction_amount": {
+    "sample_values": [
+      "1529.97",
+      "1795.66",
+      "1483.05"
+    ],
+    "inferred_type": "float"
+  },
+  "Financial_Transactions.transaction_id": {
+    "sample_values": [
+      "5",
+      "8",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Financial_Transactions.transaction_type": {
+    "sample_values": [
+      "Refund",
+      "Payment"
+    ],
+    "inferred_type": "string"
+  },
+  "Accounts.customer_id": {
+    "sample_values": [
+      "10",
+      "12",
+      "13"
+    ],
+    "inferred_type": "integer"
+  },
+  "Accounts.account_id": {
+    "sample_values": [
+      "5",
+      "8",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Accounts.account_name": {
+    "sample_values": [
+      "381",
+      "557",
+      "546"
+    ],
+    "inferred_type": "integer"
+  },
+  "Accounts.other_account_details": {
+    "sample_values": [
+      "Regular",
+      "VIP"
+    ],
+    "inferred_type": "string"
+  },
+  "Customers_Cards.date_valid_from": {
+    "sample_values": [
+      "2013-11-17 02:58:22",
+      "2015-03-27 02:01:12",
+      "2015-05-09 04:05:26"
+    ],
+    "inferred_type": "string"
+  },
+  "Customers_Cards.card_id": {
+    "sample_values": [
+      "5",
+      "8",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Customers_Cards.card_number": {
+    "sample_values": [
+      "4707949584519",
+      "4929896676202959",
+      "4929590358481"
+    ],
+    "inferred_type": "integer"
+  },
+  "Customers_Cards.other_card_details": {
+    "sample_values": [
+      "5571147786750739",
+      "5307019264041461",
+      "4485258248930151"
+    ],
+    "inferred_type": "integer"
+  },
+  "Customers_Cards.card_type_code": {
+    "sample_values": [
+      "Debit",
+      "Credit"
+    ],
+    "inferred_type": "string"
+  },
+  "Customers_Cards.customer_id": {
+    "sample_values": [
+      "10",
+      "5",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Customers_Cards.date_valid_to": {
+    "sample_values": [
+      "2018-03-24 00:38:54",
+      "2018-02-25 15:43:32",
+      "2018-03-11 06:05:44"
+    ],
+    "inferred_type": "string"
+  },
+  "Customers.customer_email": {
+    "sample_values": [
+      "ebert.omer@example.net",
+      "enrique59@example.com",
+      "idickinson@example.com"
+    ],
+    "inferred_type": "string"
+  },
+  "Customers.customer_first_name": {
+    "sample_values": [
+      "Bryce",
+      "Marcel",
+      "Kiel"
+    ],
+    "inferred_type": "string"
+  },
+  "Customers.customer_phone": {
+    "sample_values": [
+      "(673)872-5338",
+      "224-123-1012",
+      "1-894-567-2283"
+    ],
+    "inferred_type": "string"
+  },
+  "Customers.customer_last_name": {
+    "sample_values": [
+      "Wiza",
+      "Feest",
+      "Huels"
+    ],
+    "inferred_type": "string"
+  },
+  "Customers.customer_id": {
+    "sample_values": [
+      "5",
+      "8",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Customers.customer_address": {
+    "sample_values": [
+      "47286 Mraz Park Apt. 424\nJocelynfurt, OH 59023-2787",
+      "71560 Eulah Squares\nTorphyberg, OK 34312-0380",
+      "7127 Hilpert Parks\nSouth Johnfort, SD 67577-9504"
+    ],
+    "inferred_type": "string"
+  }
+}

@@ -1,0 +1,153 @@
+{
+  "shop.Shop_ID": {
+    "sample_values": [
+      1,
+      4,
+      7
+    ],
+    "inferred_type": "integer"
+  },
+  "shop.Address": {
+    "sample_values": [
+      "324 E. 11th Street",
+      "1330 Baltimore Street",
+      "1111 Main Street"
+    ],
+    "inferred_type": "string"
+  },
+  "shop.Num_of_staff": {
+    "sample_values": [
+      "13",
+      "27",
+      "425"
+    ],
+    "inferred_type": "integer"
+  },
+  "shop.Score": {
+    "sample_values": [
+      42.0,
+      36.0,
+      30.0
+    ],
+    "inferred_type": "float"
+  },
+  "shop.Open_Year": {
+    "sample_values": [
+      "2010",
+      "2008",
+      "2011"
+    ],
+    "inferred_type": "integer"
+  },
+  "member.Member_ID": {
+    "sample_values": [
+      1,
+      4,
+      7
+    ],
+    "inferred_type": "integer"
+  },
+  "member.Name": {
+    "sample_values": [
+      "Webb, Daniel",
+      "Campbell, Jessie",
+      "Breton, Robert"
+    ],
+    "inferred_type": "string"
+  },
+  "member.Membership_card": {
+    "sample_values": [
+      "Black",
+      "White"
+    ],
+    "inferred_type": "string"
+  },
+  "member.Age": {
+    "sample_values": [
+      29,
+      51,
+      42
+    ],
+    "inferred_type": "integer"
+  },
+  "member.Time_of_purchase": {
+    "sample_values": [
+      18,
+      20,
+      44
+    ],
+    "inferred_type": "integer"
+  },
+  "member.Level_of_membership": {
+    "sample_values": [
+      5,
+      6,
+      3
+    ],
+    "inferred_type": "integer"
+  },
+  "member.Address": {
+    "sample_values": [
+      "Bridgeport",
+      "Cheshire",
+      "Waterbury"
+    ],
+    "inferred_type": "string"
+  },
+  "happy_hour.HH_ID": {
+    "sample_values": [
+      1,
+      4,
+      7
+    ],
+    "inferred_type": "integer"
+  },
+  "happy_hour.Shop_ID": {
+    "sample_values": [
+      1,
+      10,
+      5
+    ],
+    "inferred_type": "integer"
+  },
+  "happy_hour.Month": {
+    "sample_values": [
+      "July",
+      "June",
+      "April"
+    ],
+    "inferred_type": "string"
+  },
+  "happy_hour.Num_of_shaff_in_charge": {
+    "sample_values": [
+      10,
+      15,
+      3
+    ],
+    "inferred_type": "integer"
+  },
+  "happy_hour_member.HH_ID": {
+    "sample_values": [
+      1,
+      4,
+      7
+    ],
+    "inferred_type": "integer"
+  },
+  "happy_hour_member.Member_ID": {
+    "sample_values": [
+      3,
+      5,
+      9
+    ],
+    "inferred_type": "integer"
+  },
+  "happy_hour_member.Total_amount": {
+    "sample_values": [
+      20.9,
+      4.9,
+      16.92
+    ],
+    "inferred_type": "float"
+  }
+}

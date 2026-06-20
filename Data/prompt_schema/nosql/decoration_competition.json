@@ -1,0 +1,96 @@
+{
+  "round.Round_ID": {
+    "sample_values": [
+      "1",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "round.Decoration_Theme": {
+    "sample_values": [
+      "Sweetie",
+      "Happiness",
+      "Soft Dream"
+    ],
+    "inferred_type": "string"
+  },
+  "round.Rank_in_Round": {
+    "sample_values": [
+      "1",
+      "3",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "round.Member_ID": {
+    "sample_values": [
+      "10",
+      "2",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "college.College_Location": {
+    "sample_values": [
+      "Minnesota",
+      "Western Ontario",
+      "McGill"
+    ],
+    "inferred_type": "string"
+  },
+  "college.Leader_Name": {
+    "sample_values": [
+      "Ryan Thelwell",
+      "Andre Arlain",
+      "Samir Chahine"
+    ],
+    "inferred_type": "string"
+  },
+  "college.Name": {
+    "sample_values": [
+      "B.C. School",
+      "Toronto School",
+      "Saskatchewan School"
+    ],
+    "inferred_type": "string"
+  },
+  "college.College_ID": {
+    "sample_values": [
+      "5",
+      "1",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "member.College_ID": {
+    "sample_values": [
+      "5",
+      "1",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "member.Country": {
+    "sample_values": [
+      "Canada",
+      "United States"
+    ],
+    "inferred_type": "string"
+  },
+  "member.Name": {
+    "sample_values": [
+      "Billy Casper",
+      "Lee Trevino",
+      "Arnold Palmer"
+    ],
+    "inferred_type": "string"
+  },
+  "member.Member_ID": {
+    "sample_values": [
+      "5",
+      "1",
+      "9"
+    ],
+    "inferred_type": "integer"
+  }
+}

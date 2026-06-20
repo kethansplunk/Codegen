@@ -1,0 +1,302 @@
+{
+  "matches.winner_ioc": {
+    "sample_values": [
+      "SRB",
+      "ROU",
+      "UKR"
+    ],
+    "inferred_type": "string"
+  },
+  "matches.winner_name": {
+    "sample_values": [
+      "Svetlana Kuznetsova",
+      "Carla Suarez Navarro",
+      "Jelena Jankovic"
+    ],
+    "inferred_type": "string"
+  },
+  "matches.winner_ht": {
+    "sample_values": [
+      "182",
+      "180",
+      "173"
+    ],
+    "inferred_type": "integer"
+  },
+  "matches.winner_rank": {
+    "sample_values": [
+      "19",
+      "3",
+      "24"
+    ],
+    "inferred_type": "integer"
+  },
+  "matches.round": {
+    "sample_values": [
+      "F",
+      "R16",
+      "RR"
+    ],
+    "inferred_type": "string"
+  },
+  "matches.loser_name": {
+    "sample_values": [
+      "Svetlana Kuznetsova",
+      "Carla Suarez Navarro",
+      "Su Wei Hsieh"
+    ],
+    "inferred_type": "string"
+  },
+  "matches.loser_rank": {
+    "sample_values": [
+      "34",
+      "12",
+      "7"
+    ],
+    "inferred_type": "integer"
+  },
+  "matches.loser_ht": {
+    "sample_values": [
+      "182",
+      "163",
+      "183"
+    ],
+    "inferred_type": "integer"
+  },
+  "matches.loser_id": {
+    "sample_values": [
+      "202469",
+      "201320",
+      "201506"
+    ],
+    "inferred_type": "integer"
+  },
+  "matches.loser_seed": {
+    "sample_values": [
+      "23",
+      "30",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "matches.winner_age": {
+    "sample_values": [
+      "31.6495550992",
+      "20.917180013699998",
+      "24.2245037645"
+    ],
+    "inferred_type": "float"
+  },
+  "matches.year": {
+    "sample_values": [
+      "2013",
+      "2016"
+    ],
+    "inferred_type": "integer"
+  },
+  "matches.loser_ioc": {
+    "sample_values": [
+      "SRB",
+      "UKR",
+      "DEN"
+    ],
+    "inferred_type": "string"
+  },
+  "matches.winner_hand": {
+    "sample_values": [
+      "L",
+      "R"
+    ],
+    "inferred_type": "string"
+  },
+  "matches.winner_seed": {
+    "sample_values": [
+      "5",
+      "1",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "matches.minutes": {
+    "sample_values": [
+      "82",
+      "105",
+      "86"
+    ],
+    "inferred_type": "integer"
+  },
+  "matches.draw_size": {
+    "sample_values": [
+      "128",
+      "64",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "matches.loser_age": {
+    "sample_values": [
+      "27.3347022587",
+      "26.4804928131",
+      "34.4449007529"
+    ],
+    "inferred_type": "float"
+  },
+  "matches.tourney_id": {
+    "sample_values": [
+      "2016-580",
+      "2016-1086",
+      "2016-1049"
+    ],
+    "inferred_type": "string"
+  },
+  "matches.match_num": {
+    "sample_values": [
+      "300",
+      "292",
+      "281"
+    ],
+    "inferred_type": "integer"
+  },
+  "matches.winner_rank_points": {
+    "sample_values": [
+      "2525",
+      "912",
+      "3300"
+    ],
+    "inferred_type": "integer"
+  },
+  "matches.tourney_name": {
+    "sample_values": [
+      "Miami",
+      "Brisbane",
+      "Kaohsiung"
+    ],
+    "inferred_type": "string"
+  },
+  "matches.loser_hand": {
+    "sample_values": [
+      "L",
+      "R"
+    ],
+    "inferred_type": "string"
+  },
+  "matches.score": {
+    "sample_values": [
+      "7-6(4) 6-2",
+      "6-4 6-4",
+      "6-2 7-5"
+    ],
+    "inferred_type": "string"
+  },
+  "matches.winner_id": {
+    "sample_values": [
+      "201474",
+      "201347",
+      "201311"
+    ],
+    "inferred_type": "integer"
+  },
+  "matches.tourney_date": {
+    "sample_values": [
+      "20131021",
+      "20160118",
+      "20160208"
+    ],
+    "inferred_type": "integer"
+  },
+  "matches.tourney_level": {
+    "sample_values": [
+      "P",
+      "G",
+      "I"
+    ],
+    "inferred_type": "string"
+  },
+  "matches.loser_rank_points": {
+    "sample_values": [
+      "2525",
+      "1920",
+      "4670"
+    ],
+    "inferred_type": "integer"
+  },
+  "rankings.player_id": {
+    "sample_values": [
+      "201212",
+      "201367",
+      "201429"
+    ],
+    "inferred_type": "integer"
+  },
+  "rankings.ranking": {
+    "sample_values": [
+      "197",
+      "255",
+      "264"
+    ],
+    "inferred_type": "integer"
+  },
+  "rankings.tours": {
+    "sample_values": [
+      "23",
+      "25",
+      "24"
+    ],
+    "inferred_type": "integer"
+  },
+  "rankings.ranking_points": {
+    "sample_values": [
+      "56",
+      "87",
+      "3021"
+    ],
+    "inferred_type": "integer"
+  },
+  "players.hand": {
+    "sample_values": [
+      "L",
+      "R"
+    ],
+    "inferred_type": "string"
+  },
+  "players.player_id": {
+    "sample_values": [
+      "200037",
+      "200017",
+      "200048"
+    ],
+    "inferred_type": "integer"
+  },
+  "players.birth_date": {
+    "sample_values": [
+      "19800930",
+      "19720919",
+      "19760709"
+    ],
+    "inferred_type": "integer"
+  },
+  "players.last_name": {
+    "sample_values": [
+      "Labat",
+      "Frazier",
+      "Callens"
+    ],
+    "inferred_type": "string"
+  },
+  "players.country_code": {
+    "sample_values": [
+      "AUT",
+      "HUN",
+      "ESP"
+    ],
+    "inferred_type": "string"
+  },
+  "players.first_name": {
+    "sample_values": [
+      "Elena",
+      "Nicole",
+      "Kerry Anne"
+    ],
+    "inferred_type": "string"
+  }
+}

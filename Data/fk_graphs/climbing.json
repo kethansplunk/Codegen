@@ -1,0 +1,81 @@
+{
+  "db_name": "climbing",
+  "nodes": [
+    {
+      "name": "mountain",
+      "columns": [
+        {
+          "name": "Mountain_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Height",
+          "type": "REAL"
+        },
+        {
+          "name": "Prominence",
+          "type": "REAL"
+        },
+        {
+          "name": "Range",
+          "type": "TEXT"
+        },
+        {
+          "name": "Country",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "Mountain_ID"
+      ]
+    },
+    {
+      "name": "climber",
+      "columns": [
+        {
+          "name": "Climber_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Country",
+          "type": "TEXT"
+        },
+        {
+          "name": "Time",
+          "type": "TEXT"
+        },
+        {
+          "name": "Points",
+          "type": "REAL"
+        },
+        {
+          "name": "Mountain_ID",
+          "type": "INT"
+        }
+      ],
+      "pk": [
+        "Climber_ID"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "climber",
+      "to": "mountain",
+      "child_col": "Mountain_ID",
+      "parent_col": "Mountain_ID"
+    }
+  ],
+  "centrality": {
+    "mountain": 1.0,
+    "climber": 0.0
+  }
+}

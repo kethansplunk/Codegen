@@ -1,0 +1,90 @@
+{
+  "Web_client_accelerator.Connection": {
+    "sample_values": [
+      "Dialup, Wireless, Broadband, DSL",
+      "Dial-up, Broadband, DSL, ISDN, Satellite, Wireless",
+      "up to 756kbit/s"
+    ],
+    "inferred_type": "string"
+  },
+  "Web_client_accelerator.Client": {
+    "sample_values": [
+      "user/Google server",
+      "user",
+      "End user, ISP"
+    ],
+    "inferred_type": "string"
+  },
+  "Web_client_accelerator.Operating_system": {
+    "sample_values": [
+      "Any system with Java 1.6 VM available",
+      "Windows, Mac, Linux and Mobile devices",
+      "Windows, Mac and Mobile devices"
+    ],
+    "inferred_type": "string"
+  },
+  "Web_client_accelerator.name": {
+    "sample_values": [
+      "CACHEbox",
+      "Propel",
+      "Netfury"
+    ],
+    "inferred_type": "string"
+  },
+  "Web_client_accelerator.id": {
+    "sample_values": [
+      "13",
+      "3",
+      "7"
+    ],
+    "inferred_type": "integer"
+  },
+  "accelerator_compatible_browser.browser_id": {
+    "sample_values": [
+      "1",
+      "3",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "accelerator_compatible_browser.compatible_since_year": {
+    "sample_values": [
+      "2005",
+      "1996",
+      "2000"
+    ],
+    "inferred_type": "integer"
+  },
+  "accelerator_compatible_browser.accelerator_id": {
+    "sample_values": [
+      "1",
+      "9",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "browser.name": {
+    "sample_values": [
+      "Safari",
+      "Firefox",
+      "Internet Explorer"
+    ],
+    "inferred_type": "string"
+  },
+  "browser.id": {
+    "sample_values": [
+      "1",
+      "3",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "browser.market_share": {
+    "sample_values": [
+      "28.96",
+      "8.54",
+      "18.11"
+    ],
+    "inferred_type": "float"
+  }
+}

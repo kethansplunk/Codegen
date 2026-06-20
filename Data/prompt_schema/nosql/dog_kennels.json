@@ -1,0 +1,391 @@
+{
+  "Treatments.treatment_type_code": {
+    "sample_values": [
+      "WALK",
+      "VAC",
+      "EXAM"
+    ],
+    "inferred_type": "string"
+  },
+  "Treatments.dog_id": {
+    "sample_values": [
+      "10",
+      "12",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "Treatments.cost_of_treatment": {
+    "sample_values": [
+      "349",
+      "681",
+      "567"
+    ],
+    "inferred_type": "integer"
+  },
+  "Treatments.professional_id": {
+    "sample_values": [
+      "10",
+      "5",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Treatments.date_of_treatment": {
+    "sample_values": [
+      "2018-03-23 13:52:10",
+      "2018-02-26 09:08:53",
+      "2018-03-15 19:10:02"
+    ],
+    "inferred_type": "string"
+  },
+  "Treatments.treatment_id": {
+    "sample_values": [
+      "5",
+      "8",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Owners.cell_number": {
+    "sample_values": [
+      "341.667.8085",
+      "478.978.0729",
+      "+00(2)4323592985"
+    ],
+    "inferred_type": "string"
+  },
+  "Owners.email_address": {
+    "sample_values": [
+      "pearlie18@example.com",
+      "lynn81@example.org",
+      "ymaggio@example.com"
+    ],
+    "inferred_type": "string"
+  },
+  "Owners.zip_code": {
+    "sample_values": [
+      "25609",
+      "22693",
+      "35747"
+    ],
+    "inferred_type": "integer"
+  },
+  "Owners.last_name": {
+    "sample_values": [
+      "Feil",
+      "Nicolas",
+      "Prohaska"
+    ],
+    "inferred_type": "string"
+  },
+  "Owners.home_phone": {
+    "sample_values": [
+      "1-682-845-0116x63235",
+      "916.976.9480x13851",
+      "318-052-6573"
+    ],
+    "inferred_type": "string"
+  },
+  "Owners.state": {
+    "sample_values": [
+      "Arkansas",
+      "Vermont",
+      "Virginia"
+    ],
+    "inferred_type": "string"
+  },
+  "Owners.first_name": {
+    "sample_values": [
+      "Jaclyn",
+      "Lorenz",
+      "Johann"
+    ],
+    "inferred_type": "string"
+  },
+  "Owners.city": {
+    "sample_values": [
+      "Lake Carleyborough",
+      "New Margaretteborough",
+      "Port Zackery"
+    ],
+    "inferred_type": "string"
+  },
+  "Owners.owner_id": {
+    "sample_values": [
+      "5",
+      "8",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Owners.street": {
+    "sample_values": [
+      "57382 Yost Ridges",
+      "9212 Rosenbaum Lights",
+      "1204 Mae Highway Apt. 107"
+    ],
+    "inferred_type": "string"
+  },
+  "Sizes.size_description": {
+    "sample_values": [
+      "Medium",
+      "Large",
+      "Small"
+    ],
+    "inferred_type": "string"
+  },
+  "Sizes.size_code": {
+    "sample_values": [
+      "MED",
+      "SML",
+      "LGE"
+    ],
+    "inferred_type": "string"
+  },
+  "Breeds.breed_code": {
+    "sample_values": [
+      "BUL",
+      "HUS",
+      "ESK"
+    ],
+    "inferred_type": "string"
+  },
+  "Breeds.breed_name": {
+    "sample_values": [
+      "Eskimo",
+      "Husky",
+      "Bulldog"
+    ],
+    "inferred_type": "string"
+  },
+  "Professionals.cell_number": {
+    "sample_values": [
+      "1-258-285-4707x8020",
+      "011.193.9081x3186",
+      "(275)939-2435x80863"
+    ],
+    "inferred_type": "string"
+  },
+  "Professionals.email_address": {
+    "sample_values": [
+      "uboehm@example.org",
+      "jacynthe.mclaughlin@example.net",
+      "mekhi.little@example.org"
+    ],
+    "inferred_type": "string"
+  },
+  "Professionals.zip_code": {
+    "sample_values": [
+      "17902",
+      "52476",
+      "84515"
+    ],
+    "inferred_type": "integer"
+  },
+  "Professionals.last_name": {
+    "sample_values": [
+      "Tillman",
+      "Kshlerin",
+      "Frami"
+    ],
+    "inferred_type": "string"
+  },
+  "Professionals.home_phone": {
+    "sample_values": [
+      "312.216.3352",
+      "+43(5)1132733868",
+      "+71(6)2898266914"
+    ],
+    "inferred_type": "string"
+  },
+  "Professionals.state": {
+    "sample_values": [
+      "Connecticut",
+      "SouthCarolina",
+      "Montana"
+    ],
+    "inferred_type": "string"
+  },
+  "Professionals.city": {
+    "sample_values": [
+      "Jaceton",
+      "McLaughlinfort",
+      "Borisside"
+    ],
+    "inferred_type": "string"
+  },
+  "Professionals.first_name": {
+    "sample_values": [
+      "Ruben",
+      "Karley",
+      "Danny"
+    ],
+    "inferred_type": "string"
+  },
+  "Professionals.professional_id": {
+    "sample_values": [
+      "5",
+      "8",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Professionals.role_code": {
+    "sample_values": [
+      "Veterenarian",
+      "Employee"
+    ],
+    "inferred_type": "string"
+  },
+  "Professionals.street": {
+    "sample_values": [
+      "92912 Langworth Valleys Apt. 743\nThompsonborough, ",
+      "09615 McKenzie Stravenue Apt. 128\nWest Elliottview",
+      "44234 Marvin Shoals Suite 659\nNorth Frances, AL 23"
+    ],
+    "inferred_type": "string"
+  },
+  "Treatment_Types.treatment_type_description": {
+    "sample_values": [
+      "Vaccination",
+      "Physical examination",
+      "Take for a Walk"
+    ],
+    "inferred_type": "string"
+  },
+  "Treatment_Types.treatment_type_code": {
+    "sample_values": [
+      "WALK",
+      "VAC",
+      "EXAM"
+    ],
+    "inferred_type": "string"
+  },
+  "Charges.charge_type": {
+    "sample_values": [
+      "Health Check",
+      "Drugs",
+      "Daily Accommodation"
+    ],
+    "inferred_type": "string"
+  },
+  "Charges.charge_id": {
+    "sample_values": [
+      "1",
+      "3",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "Charges.charge_amount": {
+    "sample_values": [
+      "98",
+      "640",
+      "322"
+    ],
+    "inferred_type": "integer"
+  },
+  "Dogs.weight": {
+    "sample_values": [
+      "1.39",
+      "9.48",
+      "4.36"
+    ],
+    "inferred_type": "float"
+  },
+  "Dogs.abandoned_yn": {
+    "sample_values": [
+      "1",
+      "0"
+    ],
+    "inferred_type": "integer"
+  },
+  "Dogs.size_code": {
+    "sample_values": [
+      "LGE",
+      "SML",
+      "MED"
+    ],
+    "inferred_type": "string"
+  },
+  "Dogs.name": {
+    "sample_values": [
+      "Mavis",
+      "Lyric",
+      "Bessie"
+    ],
+    "inferred_type": "string"
+  },
+  "Dogs.date_of_birth": {
+    "sample_values": [
+      "2012-05-31 08:01:36",
+      "2012-07-11 17:15:10",
+      "2015-02-26 21:31:22"
+    ],
+    "inferred_type": "string"
+  },
+  "Dogs.dog_id": {
+    "sample_values": [
+      "5",
+      "8",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Dogs.date_departed": {
+    "sample_values": [
+      "2018-03-25 02:47:40",
+      "2018-03-25 06:46:07",
+      "2018-03-25 02:11:32"
+    ],
+    "inferred_type": "string"
+  },
+  "Dogs.gender": {
+    "sample_values": [
+      "1",
+      "0"
+    ],
+    "inferred_type": "integer"
+  },
+  "Dogs.date_adopted": {
+    "sample_values": [
+      "2018-03-23 16:02:04",
+      "2018-03-10 15:06:43",
+      "2018-02-25 23:45:30"
+    ],
+    "inferred_type": "string"
+  },
+  "Dogs.breed_code": {
+    "sample_values": [
+      "BUL",
+      "HUS",
+      "ESK"
+    ],
+    "inferred_type": "string"
+  },
+  "Dogs.age": {
+    "sample_values": [
+      "5",
+      "1",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "Dogs.date_arrived": {
+    "sample_values": [
+      "2017-10-24 04:45:13",
+      "2017-06-25 10:14:05",
+      "2018-01-02 03:15:29"
+    ],
+    "inferred_type": "string"
+  },
+  "Dogs.owner_id": {
+    "sample_values": [
+      "5",
+      "1",
+      "6"
+    ],
+    "inferred_type": "integer"
+  }
+}

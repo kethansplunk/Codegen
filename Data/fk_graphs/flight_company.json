@@ -1,0 +1,128 @@
+{
+  "db_name": "flight_company",
+  "nodes": [
+    {
+      "name": "airport",
+      "columns": [
+        {
+          "name": "id",
+          "type": "INT"
+        },
+        {
+          "name": "City",
+          "type": "TEXT"
+        },
+        {
+          "name": "Country",
+          "type": "TEXT"
+        },
+        {
+          "name": "IATA",
+          "type": "TEXT"
+        },
+        {
+          "name": "ICAO",
+          "type": "TEXT"
+        },
+        {
+          "name": "name",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "id"
+      ]
+    },
+    {
+      "name": "operate_company",
+      "columns": [
+        {
+          "name": "id",
+          "type": "INT"
+        },
+        {
+          "name": "name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Type",
+          "type": "TEXT"
+        },
+        {
+          "name": "Principal_activities",
+          "type": "TEXT"
+        },
+        {
+          "name": "Incorporated_in",
+          "type": "TEXT"
+        },
+        {
+          "name": "Group_Equity_Shareholding",
+          "type": "REAL"
+        }
+      ],
+      "pk": [
+        "id"
+      ]
+    },
+    {
+      "name": "flight",
+      "columns": [
+        {
+          "name": "id",
+          "type": "INT"
+        },
+        {
+          "name": "Vehicle_Flight_number",
+          "type": "TEXT"
+        },
+        {
+          "name": "Date",
+          "type": "TEXT"
+        },
+        {
+          "name": "Pilot",
+          "type": "TEXT"
+        },
+        {
+          "name": "Velocity",
+          "type": "REAL"
+        },
+        {
+          "name": "Altitude",
+          "type": "REAL"
+        },
+        {
+          "name": "airport_id",
+          "type": "INT"
+        },
+        {
+          "name": "company_id",
+          "type": "INT"
+        }
+      ],
+      "pk": [
+        "id"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "flight",
+      "to": "operate_company",
+      "child_col": "company_id",
+      "parent_col": "id"
+    },
+    {
+      "from": "flight",
+      "to": "airport",
+      "child_col": "airport_id",
+      "parent_col": "id"
+    }
+  ],
+  "centrality": {
+    "airport": 0.5,
+    "operate_company": 0.5,
+    "flight": 0.0
+  }
+}

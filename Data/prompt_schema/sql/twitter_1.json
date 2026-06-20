@@ -1,0 +1,90 @@
+{
+  "follows.f1": {
+    "sample_values": [
+      1,
+      2,
+      3
+    ],
+    "inferred_type": "integer"
+  },
+  "follows.f2": {
+    "sample_values": [
+      2,
+      1,
+      5
+    ],
+    "inferred_type": "integer"
+  },
+  "tweets.id": {
+    "sample_values": [
+      1,
+      4,
+      6
+    ],
+    "inferred_type": "integer"
+  },
+  "tweets.uid": {
+    "sample_values": [
+      1,
+      3,
+      4
+    ],
+    "inferred_type": "integer"
+  },
+  "tweets.text": {
+    "sample_values": [
+      "I had a pretty rough time during the last couple of weeks",
+      "Today I have went shopping at Laffayette.",
+      "My company is hiring interns."
+    ],
+    "inferred_type": "string"
+  },
+  "tweets.createdate": {
+    "sample_values": [
+      "2018-03-09 20:00:14",
+      "2018-03-09 20:01:02",
+      "2018-03-12 02:30:30"
+    ],
+    "inferred_type": "string"
+  },
+  "user_profiles.uid": {
+    "sample_values": [
+      1,
+      3,
+      5
+    ],
+    "inferred_type": "integer"
+  },
+  "user_profiles.name": {
+    "sample_values": [
+      "Natalie Portman",
+      "Mary",
+      "Black Widow\n"
+    ],
+    "inferred_type": "string"
+  },
+  "user_profiles.email": {
+    "sample_values": [
+      "np@superstar.com",
+      "Mary@yale.edu",
+      "bw@superhero.com"
+    ],
+    "inferred_type": "string"
+  },
+  "user_profiles.partitionid": {
+    "sample_values": [
+      1,
+      2,
+      23
+    ],
+    "inferred_type": "integer"
+  },
+  "user_profiles.followers": {
+    "sample_values": [
+      6662425,
+      35425845,
+      99999998
+    ],
+    "inferred_type": "integer"
+  }
+}

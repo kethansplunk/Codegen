@@ -1,0 +1,713 @@
+{
+  "db_name": "cre_Drama_Workshop_Groups",
+  "nodes": [
+    {
+      "name": "Ref_Payment_Methods",
+      "columns": [
+        {
+          "name": "payment_method_code",
+          "type": "CHAR(10)"
+        },
+        {
+          "name": "payment_method_description",
+          "type": "VARCHAR(80)"
+        }
+      ],
+      "pk": [
+        "payment_method_code"
+      ]
+    },
+    {
+      "name": "Ref_Service_Types",
+      "columns": [
+        {
+          "name": "Service_Type_Code",
+          "type": "CHAR(15)"
+        },
+        {
+          "name": "Parent_Service_Type_Code",
+          "type": "CHAR(15)"
+        },
+        {
+          "name": "Service_Type_Description",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "pk": [
+        "Service_Type_Code"
+      ]
+    },
+    {
+      "name": "Addresses",
+      "columns": [
+        {
+          "name": "Address_ID",
+          "type": "VARCHAR(100)"
+        },
+        {
+          "name": "Line_1",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "Line_2",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "City_Town",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "State_County",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "Other_Details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "pk": [
+        "Address_ID"
+      ]
+    },
+    {
+      "name": "Products",
+      "columns": [
+        {
+          "name": "Product_ID",
+          "type": "VARCHAR(100)"
+        },
+        {
+          "name": "Product_Name",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "Product_Price",
+          "type": "DECIMAL(20,4)"
+        },
+        {
+          "name": "Product_Description",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "Other_Product_Service_Details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "pk": [
+        "Product_ID"
+      ]
+    },
+    {
+      "name": "Marketing_Regions",
+      "columns": [
+        {
+          "name": "Marketing_Region_Code",
+          "type": "CHAR(15)"
+        },
+        {
+          "name": "Marketing_Region_Name",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "Marketing_Region_Descriptrion",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "Other_Details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "pk": [
+        "Marketing_Region_Code"
+      ]
+    },
+    {
+      "name": "Clients",
+      "columns": [
+        {
+          "name": "Client_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Address_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Customer_Email_Address",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "Customer_Name",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "Customer_Phone",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "Other_Details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "pk": [
+        "Client_ID"
+      ]
+    },
+    {
+      "name": "Drama_Workshop_Groups",
+      "columns": [
+        {
+          "name": "Workshop_Group_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Address_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Currency_Code",
+          "type": "CHAR(15)"
+        },
+        {
+          "name": "Marketing_Region_Code",
+          "type": "CHAR(15)"
+        },
+        {
+          "name": "Store_Name",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "Store_Phone",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "Store_Email_Address",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "Other_Details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "pk": [
+        "Workshop_Group_ID"
+      ]
+    },
+    {
+      "name": "Performers",
+      "columns": [
+        {
+          "name": "Performer_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Address_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Customer_Name",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "Customer_Phone",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "Customer_Email_Address",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "Other_Details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "pk": [
+        "Performer_ID"
+      ]
+    },
+    {
+      "name": "Customers",
+      "columns": [
+        {
+          "name": "Customer_ID",
+          "type": "VARCHAR(100)"
+        },
+        {
+          "name": "Address_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Customer_Name",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "Customer_Phone",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "Customer_Email_Address",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "Other_Details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "pk": [
+        "Customer_ID"
+      ]
+    },
+    {
+      "name": "Stores",
+      "columns": [
+        {
+          "name": "Store_ID",
+          "type": "VARCHAR(100)"
+        },
+        {
+          "name": "Address_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Marketing_Region_Code",
+          "type": "CHAR(15)"
+        },
+        {
+          "name": "Store_Name",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "Store_Phone",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "Store_Email_Address",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "Other_Details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "pk": [
+        "Store_ID"
+      ]
+    },
+    {
+      "name": "Bookings",
+      "columns": [
+        {
+          "name": "Booking_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Customer_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Workshop_Group_ID",
+          "type": "VARCHAR(100)"
+        },
+        {
+          "name": "Status_Code",
+          "type": "CHAR(15)"
+        },
+        {
+          "name": "Store_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Order_Date",
+          "type": "DATETIME"
+        },
+        {
+          "name": "Planned_Delivery_Date",
+          "type": "DATETIME"
+        },
+        {
+          "name": "Actual_Delivery_Date",
+          "type": "DATETIME"
+        },
+        {
+          "name": "Other_Order_Details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "pk": [
+        "Booking_ID"
+      ]
+    },
+    {
+      "name": "Performers_in_Bookings",
+      "columns": [
+        {
+          "name": "Order_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Performer_ID",
+          "type": "INTEGER"
+        }
+      ],
+      "pk": [
+        "Order_ID",
+        "Performer_ID"
+      ]
+    },
+    {
+      "name": "Customer_Orders",
+      "columns": [
+        {
+          "name": "Order_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Customer_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Store_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Order_Date",
+          "type": "DATETIME"
+        },
+        {
+          "name": "Planned_Delivery_Date",
+          "type": "DATETIME"
+        },
+        {
+          "name": "Actual_Delivery_Date",
+          "type": "DATETIME"
+        },
+        {
+          "name": "Other_Order_Details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "pk": [
+        "Order_ID"
+      ]
+    },
+    {
+      "name": "Order_Items",
+      "columns": [
+        {
+          "name": "Order_Item_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Order_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Product_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Order_Quantity",
+          "type": "VARCHAR(288)"
+        },
+        {
+          "name": "Other_Item_Details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "pk": [
+        "Order_Item_ID"
+      ]
+    },
+    {
+      "name": "Invoices",
+      "columns": [
+        {
+          "name": "Invoice_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Order_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "payment_method_code",
+          "type": "CHAR(15)"
+        },
+        {
+          "name": "Product_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Order_Quantity",
+          "type": "VARCHAR(288)"
+        },
+        {
+          "name": "Other_Item_Details",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "Order_Item_ID",
+          "type": "INTEGER"
+        }
+      ],
+      "pk": [
+        "Invoice_ID"
+      ]
+    },
+    {
+      "name": "Services",
+      "columns": [
+        {
+          "name": "Service_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Service_Type_Code",
+          "type": "CHAR(15)"
+        },
+        {
+          "name": "Workshop_Group_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Product_Description",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "Product_Name",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "Product_Price",
+          "type": "DECIMAL(20,4)"
+        },
+        {
+          "name": "Other_Product_Service_Details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "pk": [
+        "Service_ID"
+      ]
+    },
+    {
+      "name": "Bookings_Services",
+      "columns": [
+        {
+          "name": "Order_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Product_ID",
+          "type": "INTEGER"
+        }
+      ],
+      "pk": [
+        "Order_ID",
+        "Product_ID"
+      ]
+    },
+    {
+      "name": "Invoice_Items",
+      "columns": [
+        {
+          "name": "Invoice_Item_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Invoice_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Order_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Order_Item_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Product_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Order_Quantity",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Other_Item_Details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "pk": [
+        "Invoice_Item_ID"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "Clients",
+      "to": "Addresses",
+      "child_col": "Address_ID",
+      "parent_col": "Address_ID"
+    },
+    {
+      "from": "Drama_Workshop_Groups",
+      "to": "Addresses",
+      "child_col": "Address_ID",
+      "parent_col": "Address_ID"
+    },
+    {
+      "from": "Performers",
+      "to": "Addresses",
+      "child_col": "Address_ID",
+      "parent_col": "Address_ID"
+    },
+    {
+      "from": "Customers",
+      "to": "Addresses",
+      "child_col": "Address_ID",
+      "parent_col": "Address_ID"
+    },
+    {
+      "from": "Stores",
+      "to": "Marketing_Regions",
+      "child_col": "Marketing_Region_Code",
+      "parent_col": "Marketing_Region_Code"
+    },
+    {
+      "from": "Stores",
+      "to": "Addresses",
+      "child_col": "Address_ID",
+      "parent_col": "Address_ID"
+    },
+    {
+      "from": "Bookings",
+      "to": "Drama_Workshop_Groups",
+      "child_col": "Workshop_Group_ID",
+      "parent_col": "Workshop_Group_ID"
+    },
+    {
+      "from": "Bookings",
+      "to": "Clients",
+      "child_col": "Customer_ID",
+      "parent_col": "Client_ID"
+    },
+    {
+      "from": "Performers_in_Bookings",
+      "to": "Bookings",
+      "child_col": "Order_ID",
+      "parent_col": "Booking_ID"
+    },
+    {
+      "from": "Performers_in_Bookings",
+      "to": "Performers",
+      "child_col": "Performer_ID",
+      "parent_col": "Performer_ID"
+    },
+    {
+      "from": "Customer_Orders",
+      "to": "Stores",
+      "child_col": "Store_ID",
+      "parent_col": "Store_ID"
+    },
+    {
+      "from": "Customer_Orders",
+      "to": "Customers",
+      "child_col": "Customer_ID",
+      "parent_col": "Customer_ID"
+    },
+    {
+      "from": "Order_Items",
+      "to": "Products",
+      "child_col": "Product_ID",
+      "parent_col": "Product_ID"
+    },
+    {
+      "from": "Order_Items",
+      "to": "Customer_Orders",
+      "child_col": "Order_ID",
+      "parent_col": "Order_ID"
+    },
+    {
+      "from": "Invoices",
+      "to": "Ref_Payment_Methods",
+      "child_col": "payment_method_code",
+      "parent_col": "payment_method_code"
+    },
+    {
+      "from": "Invoices",
+      "to": "Bookings",
+      "child_col": "Order_ID",
+      "parent_col": "Booking_ID"
+    },
+    {
+      "from": "Invoices",
+      "to": "Customer_Orders",
+      "child_col": "Order_ID",
+      "parent_col": "Order_ID"
+    },
+    {
+      "from": "Services",
+      "to": "Ref_Service_Types",
+      "child_col": "Service_Type_Code",
+      "parent_col": "Service_Type_Code"
+    },
+    {
+      "from": "Services",
+      "to": "Drama_Workshop_Groups",
+      "child_col": "Workshop_Group_ID",
+      "parent_col": "Workshop_Group_ID"
+    },
+    {
+      "from": "Bookings_Services",
+      "to": "Services",
+      "child_col": "Product_ID",
+      "parent_col": "Service_ID"
+    },
+    {
+      "from": "Bookings_Services",
+      "to": "Bookings",
+      "child_col": "Order_ID",
+      "parent_col": "Booking_ID"
+    },
+    {
+      "from": "Invoice_Items",
+      "to": "Bookings_Services",
+      "child_col": "Product_ID",
+      "parent_col": "Product_ID"
+    },
+    {
+      "from": "Invoice_Items",
+      "to": "Invoices",
+      "child_col": "Invoice_ID",
+      "parent_col": "Invoice_ID"
+    },
+    {
+      "from": "Invoice_Items",
+      "to": "Order_Items",
+      "child_col": "Order_Item_ID",
+      "parent_col": "Order_Item_ID"
+    }
+  ],
+  "centrality": {
+    "Ref_Payment_Methods": 0.058823529411764705,
+    "Ref_Service_Types": 0.058823529411764705,
+    "Addresses": 0.29411764705882354,
+    "Products": 0.058823529411764705,
+    "Marketing_Regions": 0.058823529411764705,
+    "Clients": 0.058823529411764705,
+    "Drama_Workshop_Groups": 0.11764705882352941,
+    "Performers": 0.058823529411764705,
+    "Customers": 0.058823529411764705,
+    "Stores": 0.058823529411764705,
+    "Bookings": 0.1764705882352941,
+    "Performers_in_Bookings": 0.0,
+    "Customer_Orders": 0.11764705882352941,
+    "Order_Items": 0.058823529411764705,
+    "Invoices": 0.058823529411764705,
+    "Services": 0.058823529411764705,
+    "Bookings_Services": 0.058823529411764705,
+    "Invoice_Items": 0.0
+  }
+}

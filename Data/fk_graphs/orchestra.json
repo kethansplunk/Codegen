@@ -1,0 +1,153 @@
+{
+  "db_name": "orchestra",
+  "nodes": [
+    {
+      "name": "conductor",
+      "columns": [
+        {
+          "name": "Conductor_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Age",
+          "type": "INT"
+        },
+        {
+          "name": "Nationality",
+          "type": "TEXT"
+        },
+        {
+          "name": "Year_of_Work",
+          "type": "INT"
+        }
+      ],
+      "pk": [
+        "Conductor_ID"
+      ]
+    },
+    {
+      "name": "orchestra",
+      "columns": [
+        {
+          "name": "Orchestra_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Orchestra",
+          "type": "TEXT"
+        },
+        {
+          "name": "Conductor_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Record_Company",
+          "type": "TEXT"
+        },
+        {
+          "name": "Year_of_Founded",
+          "type": "REAL"
+        },
+        {
+          "name": "Major_Record_Format",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "Orchestra_ID"
+      ]
+    },
+    {
+      "name": "performance",
+      "columns": [
+        {
+          "name": "Performance_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Orchestra_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Type",
+          "type": "TEXT"
+        },
+        {
+          "name": "Date",
+          "type": "TEXT"
+        },
+        {
+          "name": "Official_ratings_(millions)",
+          "type": "REAL"
+        },
+        {
+          "name": "Weekly_rank",
+          "type": "TEXT"
+        },
+        {
+          "name": "Share",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "Performance_ID"
+      ]
+    },
+    {
+      "name": "show",
+      "columns": [
+        {
+          "name": "Show_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Performance_ID",
+          "type": "INT"
+        },
+        {
+          "name": "If_first_show",
+          "type": "bool"
+        },
+        {
+          "name": "Result",
+          "type": "TEXT"
+        },
+        {
+          "name": "Attendance",
+          "type": "REAL"
+        }
+      ],
+      "pk": []
+    }
+  ],
+  "edges": [
+    {
+      "from": "orchestra",
+      "to": "conductor",
+      "child_col": "Conductor_ID",
+      "parent_col": "Conductor_ID"
+    },
+    {
+      "from": "performance",
+      "to": "orchestra",
+      "child_col": "Orchestra_ID",
+      "parent_col": "Orchestra_ID"
+    },
+    {
+      "from": "show",
+      "to": "performance",
+      "child_col": "Performance_ID",
+      "parent_col": "Performance_ID"
+    }
+  ],
+  "centrality": {
+    "conductor": 0.3333333333333333,
+    "orchestra": 0.3333333333333333,
+    "performance": 0.3333333333333333,
+    "show": 0.0
+  }
+}

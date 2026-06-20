@@ -1,0 +1,90 @@
+{
+  "db_name": "course_teach",
+  "nodes": [
+    {
+      "name": "course",
+      "columns": [
+        {
+          "name": "Course_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Staring_Date",
+          "type": "TEXT"
+        },
+        {
+          "name": "Course",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "Course_ID"
+      ]
+    },
+    {
+      "name": "teacher",
+      "columns": [
+        {
+          "name": "Teacher_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Age",
+          "type": "TEXT"
+        },
+        {
+          "name": "Hometown",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "Teacher_ID"
+      ]
+    },
+    {
+      "name": "course_arrange",
+      "columns": [
+        {
+          "name": "Course_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Teacher_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Grade",
+          "type": "INT"
+        }
+      ],
+      "pk": [
+        "Course_ID",
+        "Teacher_ID",
+        "Grade"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "course_arrange",
+      "to": "teacher",
+      "child_col": "Teacher_ID",
+      "parent_col": "Teacher_ID"
+    },
+    {
+      "from": "course_arrange",
+      "to": "course",
+      "child_col": "Course_ID",
+      "parent_col": "Course_ID"
+    }
+  ],
+  "centrality": {
+    "course": 0.5,
+    "teacher": 0.5,
+    "course_arrange": 0.0
+  }
+}

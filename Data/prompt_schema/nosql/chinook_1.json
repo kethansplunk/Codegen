@@ -1,0 +1,465 @@
+{
+  "Employee.Title": {
+    "sample_values": [
+      "IT Manager",
+      "Sales Manager",
+      "General Manager"
+    ],
+    "inferred_type": "string"
+  },
+  "Employee.Phone": {
+    "sample_values": [
+      "+1 (403) 263-4423",
+      "+1 (403) 467-3351",
+      "1 (780) 836-9987"
+    ],
+    "inferred_type": "string"
+  },
+  "Employee.Email": {
+    "sample_values": [
+      "steve@chinookcorp.com",
+      "jane@chinookcorp.com",
+      "robert@chinookcorp.com"
+    ],
+    "inferred_type": "string"
+  },
+  "Employee.FirstName": {
+    "sample_values": [
+      "Nancy",
+      "Robert",
+      "Steve"
+    ],
+    "inferred_type": "string"
+  },
+  "Employee.EmployeeId": {
+    "sample_values": [
+      "5",
+      "1",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "Employee.City": {
+    "sample_values": [
+      "Edmonton",
+      "Lethbridge",
+      "Calgary"
+    ],
+    "inferred_type": "string"
+  },
+  "Employee.HireDate": {
+    "sample_values": [
+      "2004-03-04 00:00:00",
+      "2002-04-01 00:00:00",
+      "2002-05-01 00:00:00"
+    ],
+    "inferred_type": "string"
+  },
+  "Employee.Fax": {
+    "sample_values": [
+      "1 (780) 836-9543",
+      "+1 (403) 246-9899",
+      "+1 (403) 262-3322"
+    ],
+    "inferred_type": "string"
+  },
+  "Employee.ReportsTo": {
+    "sample_values": [
+      "1",
+      "2",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "Employee.BirthDate": {
+    "sample_values": [
+      "1947-09-19 00:00:00",
+      "1958-12-08 00:00:00",
+      "1973-08-29 00:00:00"
+    ],
+    "inferred_type": "string"
+  },
+  "Employee.PostalCode": {
+    "sample_values": [
+      "T1K 5N8",
+      "T1H 1Y8",
+      "T2P 2T3"
+    ],
+    "inferred_type": "string"
+  },
+  "Employee.LastName": {
+    "sample_values": [
+      "Callahan",
+      "Edwards",
+      "Johnson"
+    ],
+    "inferred_type": "string"
+  },
+  "Employee.Address": {
+    "sample_values": [
+      "11120 Jasper Ave NW",
+      "590 Columbia Boulevard West",
+      "1111 6 Ave SW"
+    ],
+    "inferred_type": "string"
+  },
+  "Invoice.InvoiceId": {
+    "sample_values": [
+      "34",
+      "25",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "Invoice.CustomerId": {
+    "sample_values": [
+      "34",
+      "15",
+      "53"
+    ],
+    "inferred_type": "integer"
+  },
+  "Invoice.BillingAddress": {
+    "sample_values": [
+      "9, Place Louis Barthou",
+      "202 Hoxton Street",
+      "8210 111 ST NW"
+    ],
+    "inferred_type": "string"
+  },
+  "Invoice.InvoiceDate": {
+    "sample_values": [
+      "2009-03-05 00:00:00",
+      "2009-07-16 00:00:00",
+      "2009-07-24 00:00:00"
+    ],
+    "inferred_type": "string"
+  },
+  "Invoice.BillingCountry": {
+    "sample_values": [
+      "Ireland",
+      "Sweden",
+      "Portugal"
+    ],
+    "inferred_type": "string"
+  },
+  "Invoice.Total": {
+    "sample_values": [
+      "1.98",
+      "13.86",
+      "3.96"
+    ],
+    "inferred_type": "float"
+  },
+  "Invoice.BillingCity": {
+    "sample_values": [
+      "Dublin",
+      "S\u00e3o Paulo",
+      "Boston"
+    ],
+    "inferred_type": "string"
+  },
+  "Invoice.BillingState": {
+    "sample_values": [
+      "WI",
+      "DF",
+      "AZ"
+    ],
+    "inferred_type": "string"
+  },
+  "Invoice.BillingPostalCode": {
+    "sample_values": [
+      "71020-677",
+      "11230",
+      "1016"
+    ],
+    "inferred_type": "string"
+  },
+  "Customer.Email": {
+    "sample_values": [
+      "wyatt.girard@yahoo.fr",
+      "fharris@google.com",
+      "jfernandes@yahoo.pt"
+    ],
+    "inferred_type": "string"
+  },
+  "Customer.Phone": {
+    "sample_values": [
+      "+33 01 49 70 65 65",
+      "+33 03 80 73 66 99",
+      "+1 (801) 531-7272"
+    ],
+    "inferred_type": "string"
+  },
+  "Customer.FirstName": {
+    "sample_values": [
+      "Eduardo",
+      "Johannes",
+      "Tim"
+    ],
+    "inferred_type": "string"
+  },
+  "Customer.SupportRepId": {
+    "sample_values": [
+      "3",
+      "5",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "Customer.CustomerId": {
+    "sample_values": [
+      "34",
+      "25",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "Customer.City": {
+    "sample_values": [
+      "Salt Lake City",
+      "Dublin",
+      "Edmonton"
+    ],
+    "inferred_type": "string"
+  },
+  "Customer.State": {
+    "sample_values": [
+      "Dublin",
+      "NY",
+      "TX"
+    ],
+    "inferred_type": "string"
+  },
+  "Customer.Country": {
+    "sample_values": [
+      "Ireland",
+      "Czech Republic",
+      "Brazil"
+    ],
+    "inferred_type": "string"
+  },
+  "Customer.Fax": {
+    "sample_values": [
+      "+55 (21) 2271-7070",
+      "+1 (425) 882-8081",
+      "+1 (408) 996-1011"
+    ],
+    "inferred_type": "string"
+  },
+  "Customer.Company": {
+    "sample_values": [
+      "Riotur",
+      "Apple Inc.",
+      "JetBrains s.r.o."
+    ],
+    "inferred_type": "string"
+  },
+  "Customer.PostalCode": {
+    "sample_values": [
+      "71020-677",
+      "75009",
+      "95014"
+    ],
+    "inferred_type": "string"
+  },
+  "Customer.LastName": {
+    "sample_values": [
+      "Miller",
+      "Sampaio",
+      "Harris"
+    ],
+    "inferred_type": "string"
+  },
+  "Customer.Address": {
+    "sample_values": [
+      "5112 48 Street",
+      "Pra\u00e7a Pio X, 119",
+      "Klanova 9/506"
+    ],
+    "inferred_type": "string"
+  },
+  "InvoiceLine.InvoiceId": {
+    "sample_values": [
+      "5",
+      "1",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "InvoiceLine.TrackId": {
+    "sample_values": [
+      "108",
+      "189",
+      "198"
+    ],
+    "inferred_type": "integer"
+  },
+  "InvoiceLine.InvoiceLineId": {
+    "sample_values": [
+      "34",
+      "25",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "Playlist.Name": {
+    "sample_values": [
+      "On-The-Go 1",
+      "90\u2019s Music",
+      "Audiobooks"
+    ],
+    "inferred_type": "string"
+  },
+  "Playlist.PlaylistId": {
+    "sample_values": [
+      "17",
+      "16",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "Track.TrackId": {
+    "sample_values": [
+      "34",
+      "25",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "Track.AlbumId": {
+    "sample_values": [
+      "5",
+      "2",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "Track.Composer": {
+    "sample_values": [
+      "Steven Tyler, Joe Perry",
+      "AC/DC",
+      "Steven Tyler, Tom Hamilton"
+    ],
+    "inferred_type": "string"
+  },
+  "Track.Name": {
+    "sample_values": [
+      "What It Takes",
+      "Janie's Got A Gun",
+      "Angel"
+    ],
+    "inferred_type": "string"
+  },
+  "Track.Bytes": {
+    "sample_values": [
+      "10547154",
+      "9163588",
+      "8675345"
+    ],
+    "inferred_type": "integer"
+  },
+  "Track.MediaTypeId": {
+    "sample_values": [
+      "1",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "Track.Milliseconds": {
+    "sample_values": [
+      "267493",
+      "342562",
+      "263497"
+    ],
+    "inferred_type": "integer"
+  },
+  "MediaType.MediaTypeId": {
+    "sample_values": [
+      "5",
+      "1",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "MediaType.Name": {
+    "sample_values": [
+      "MPEG audio file",
+      "Protected MPEG-4 video file",
+      "Protected AAC audio file"
+    ],
+    "inferred_type": "string"
+  },
+  "Album.Title": {
+    "sample_values": [
+      "Meus Momentos",
+      "Afrociberdelia",
+      "Chill: Brazil (Disc 2)"
+    ],
+    "inferred_type": "string"
+  },
+  "Album.ArtistId": {
+    "sample_values": [
+      "56",
+      "12",
+      "7"
+    ],
+    "inferred_type": "integer"
+  },
+  "Album.AlbumId": {
+    "sample_values": [
+      "34",
+      "25",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "Genre.Name": {
+    "sample_values": [
+      "Classical",
+      "Rock",
+      "Electronica/Dance"
+    ],
+    "inferred_type": "string"
+  },
+  "Genre.GenreId": {
+    "sample_values": [
+      "23",
+      "25",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "PlaylistTrack.TrackId": {
+    "sample_values": [
+      "21",
+      "3",
+      "7"
+    ],
+    "inferred_type": "integer"
+  },
+  "PlaylistTrack.PlaylistId": {
+    "sample_values": [
+      "8",
+      "1",
+      "17"
+    ],
+    "inferred_type": "integer"
+  },
+  "Artist.ArtistId": {
+    "sample_values": [
+      "34",
+      "25",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "Artist.Name": {
+    "sample_values": [
+      "Pedro Lu\u00eds & A Parede",
+      "Various Artists",
+      "Accept"
+    ],
+    "inferred_type": "string"
+  }
+}

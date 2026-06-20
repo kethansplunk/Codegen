@@ -1,0 +1,158 @@
+{
+  "db_name": "restaurant_1",
+  "nodes": [
+    {
+      "name": "Student",
+      "columns": [
+        {
+          "name": "StuID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "LName",
+          "type": "VARCHAR(12)"
+        },
+        {
+          "name": "Fname",
+          "type": "VARCHAR(12)"
+        },
+        {
+          "name": "Age",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Sex",
+          "type": "VARCHAR(1)"
+        },
+        {
+          "name": "Major",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Advisor",
+          "type": "INTEGER"
+        },
+        {
+          "name": "city_code",
+          "type": "VARCHAR(3)"
+        }
+      ],
+      "pk": [
+        "StuID"
+      ]
+    },
+    {
+      "name": "Restaurant",
+      "columns": [
+        {
+          "name": "ResID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "ResName",
+          "type": "VARCHAR(100)"
+        },
+        {
+          "name": "Address",
+          "type": "VARCHAR(100)"
+        },
+        {
+          "name": "Rating",
+          "type": "INTEGER"
+        }
+      ],
+      "pk": [
+        "ResID"
+      ]
+    },
+    {
+      "name": "Type_Of_Restaurant",
+      "columns": [
+        {
+          "name": "ResID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "ResTypeID",
+          "type": "INTEGER"
+        }
+      ],
+      "pk": []
+    },
+    {
+      "name": "Restaurant_Type",
+      "columns": [
+        {
+          "name": "ResTypeID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "ResTypeName",
+          "type": "VARCHAR(40)"
+        },
+        {
+          "name": "ResTypeDescription",
+          "type": "VARCHAR(100)"
+        }
+      ],
+      "pk": [
+        "ResTypeID"
+      ]
+    },
+    {
+      "name": "Visits_Restaurant",
+      "columns": [
+        {
+          "name": "StuID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "ResID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Time",
+          "type": "TIMESTAMP"
+        },
+        {
+          "name": "Spent",
+          "type": "FLOAT"
+        }
+      ],
+      "pk": []
+    }
+  ],
+  "edges": [
+    {
+      "from": "Type_Of_Restaurant",
+      "to": "Restaurant_Type",
+      "child_col": "ResTypeID",
+      "parent_col": "ResTypeID"
+    },
+    {
+      "from": "Type_Of_Restaurant",
+      "to": "Restaurant",
+      "child_col": "ResID",
+      "parent_col": "ResID"
+    },
+    {
+      "from": "Visits_Restaurant",
+      "to": "Restaurant",
+      "child_col": "ResID",
+      "parent_col": "ResID"
+    },
+    {
+      "from": "Visits_Restaurant",
+      "to": "Student",
+      "child_col": "StuID",
+      "parent_col": "StuID"
+    }
+  ],
+  "centrality": {
+    "Student": 0.25,
+    "Restaurant": 0.5,
+    "Type_Of_Restaurant": 0.0,
+    "Restaurant_Type": 0.25,
+    "Visits_Restaurant": 0.0
+  }
+}

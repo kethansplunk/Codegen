@@ -1,0 +1,183 @@
+{
+  "Ref_Feature_Types.feature_type_code": {
+    "sample_values": [
+      "Security",
+      "Amenity"
+    ],
+    "inferred_type": "string"
+  },
+  "Ref_Feature_Types.feature_type_name": {
+    "sample_values": [
+      "Amenity, eg Pool.",
+      "Securiyt, eg Burglar Alarm."
+    ],
+    "inferred_type": "string"
+  },
+  "Other_Available_Features.feature_type_code": {
+    "sample_values": [
+      "Security",
+      "Amenity"
+    ],
+    "inferred_type": "string"
+  },
+  "Other_Available_Features.feature_description": {
+    "sample_values": [
+      "Burglar Alarm",
+      "Air Conditioning.",
+      "Swimming Pool."
+    ],
+    "inferred_type": "string"
+  },
+  "Other_Available_Features.feature_id": {
+    "sample_values": [
+      "3",
+      "2",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "Other_Available_Features.feature_name": {
+    "sample_values": [
+      "BurglarAlarm",
+      "AirCon",
+      "Pool"
+    ],
+    "inferred_type": "string"
+  },
+  "Other_Property_Features.property_id": {
+    "sample_values": [
+      "14",
+      "1",
+      "13"
+    ],
+    "inferred_type": "integer"
+  },
+  "Other_Property_Features.feature_id": {
+    "sample_values": [
+      "3",
+      "2",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "Other_Property_Features.property_feature_description": {
+    "sample_values": [
+      "cumque",
+      "dolorem",
+      "hic"
+    ],
+    "inferred_type": "string"
+  },
+  "Ref_Property_Types.property_type_description": {
+    "sample_values": [
+      "Field, Meadow.",
+      "Other, to be determined.",
+      "House, Bungalow, etc."
+    ],
+    "inferred_type": "string"
+  },
+  "Ref_Property_Types.property_type_code": {
+    "sample_values": [
+      "Shop",
+      "Field",
+      "Apartment"
+    ],
+    "inferred_type": "string"
+  },
+  "Properties.buyer_offered_price": {
+    "sample_values": [
+      "8.7122",
+      "1.5509",
+      "2449185.2"
+    ],
+    "inferred_type": "float"
+  },
+  "Properties.apt_feature_1": {
+    "sample_values": [
+      "nesciunt",
+      "aut",
+      "et"
+    ],
+    "inferred_type": "string"
+  },
+  "Properties.property_address": {
+    "sample_values": [
+      "24365 Ulices Run\nHomenicktown, MD 88485-6198",
+      "062 Micaela Court Apt. 707\nMargretville, WV 51628-3617",
+      "60845 Else Highway Apt. 826\nSouth Dougfort, CO 43200-4258"
+    ],
+    "inferred_type": "string"
+  },
+  "Properties.property_type_code": {
+    "sample_values": [
+      "Shop",
+      "Field",
+      "Apartment"
+    ],
+    "inferred_type": "string"
+  },
+  "Properties.room_count": {
+    "sample_values": [
+      "5",
+      "1",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "Properties.date_sold": {
+    "sample_values": [
+      "1973-02-24 02:56:06",
+      "2003-02-27 18:17:11",
+      "1981-06-26 21:28:28"
+    ],
+    "inferred_type": "string"
+  },
+  "Properties.agreed_selling_price": {
+    "sample_values": [
+      "1.0012",
+      "4514.807",
+      "44132.4621"
+    ],
+    "inferred_type": "float"
+  },
+  "Properties.apt_feature_2": {
+    "sample_values": [
+      "culpa",
+      "aut",
+      "vero"
+    ],
+    "inferred_type": "string"
+  },
+  "Properties.vendor_requested_price": {
+    "sample_values": [
+      "2573",
+      "661536468.4429",
+      "150045.7568"
+    ],
+    "inferred_type": "float"
+  },
+  "Properties.property_name": {
+    "sample_values": [
+      "parc east",
+      "prism",
+      "ten tower"
+    ],
+    "inferred_type": "string"
+  },
+  "Properties.property_id": {
+    "sample_values": [
+      "5",
+      "8",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Properties.date_on_market": {
+    "sample_values": [
+      "2016-05-06 16:53:39",
+      "1990-05-25 23:01:51",
+      "2016-05-24 09:57:45"
+    ],
+    "inferred_type": "string"
+  }
+}

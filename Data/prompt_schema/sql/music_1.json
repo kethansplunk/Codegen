@@ -1,0 +1,167 @@
+{
+  "genre.g_name": {
+    "sample_values": [
+      "tagore",
+      "folk",
+      "nazrul"
+    ],
+    "inferred_type": "string"
+  },
+  "genre.rating": {
+    "sample_values": [
+      "8",
+      "7",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "genre.most_popular_in": {
+    "sample_values": [
+      "America",
+      "Canada",
+      "Sylhet,Chittagong,Kustia"
+    ],
+    "inferred_type": "string"
+  },
+  "artist.artist_name": {
+    "sample_values": [
+      "Topu",
+      "Farida",
+      "Prity"
+    ],
+    "inferred_type": "string"
+  },
+  "artist.country": {
+    "sample_values": [
+      "UK",
+      "USA",
+      "Bangladesh"
+    ],
+    "inferred_type": "string"
+  },
+  "artist.gender": {
+    "sample_values": [
+      "Male",
+      "Female"
+    ],
+    "inferred_type": "string"
+  },
+  "artist.preferred_genre": {
+    "sample_values": [
+      "pop",
+      "nazrul",
+      "modern"
+    ],
+    "inferred_type": "string"
+  },
+  "files.f_id": {
+    "sample_values": [
+      1,
+      3,
+      5
+    ],
+    "inferred_type": "integer"
+  },
+  "files.artist_name": {
+    "sample_values": [
+      "Topu",
+      "Prity",
+      "Enrique"
+    ],
+    "inferred_type": "string"
+  },
+  "files.file_size": {
+    "sample_values": [
+      "4.10 MB",
+      "4.12 MB",
+      "4.58 MB"
+    ],
+    "inferred_type": "string"
+  },
+  "files.duration": {
+    "sample_values": [
+      "4:30",
+      "2:56",
+      "5:23"
+    ],
+    "inferred_type": "string"
+  },
+  "files.formats": {
+    "sample_values": [
+      "mp4",
+      "mp3"
+    ],
+    "inferred_type": "string"
+  },
+  "song.song_name": {
+    "sample_values": [
+      "Tumi robe nirobe",
+      "Ami opar hoye",
+      "My love"
+    ],
+    "inferred_type": "string"
+  },
+  "song.artist_name": {
+    "sample_values": [
+      "Topu",
+      "Prity",
+      "Enrique"
+    ],
+    "inferred_type": "string"
+  },
+  "song.country": {
+    "sample_values": [
+      "UK",
+      "USA",
+      "Bangladesh"
+    ],
+    "inferred_type": "string"
+  },
+  "song.f_id": {
+    "sample_values": [
+      1,
+      3,
+      5
+    ],
+    "inferred_type": "integer"
+  },
+  "song.genre_is": {
+    "sample_values": [
+      "modern",
+      "nazrul",
+      "blues"
+    ],
+    "inferred_type": "string"
+  },
+  "song.rating": {
+    "sample_values": [
+      8,
+      5,
+      7
+    ],
+    "inferred_type": "integer"
+  },
+  "song.languages": {
+    "sample_values": [
+      "bangla",
+      "english"
+    ],
+    "inferred_type": "string"
+  },
+  "song.releasedate": {
+    "sample_values": [
+      "27-MAR-2004",
+      "21-SEP-1997",
+      "24-JAN-2007"
+    ],
+    "inferred_type": "string"
+  },
+  "song.resolution": {
+    "sample_values": [
+      1080,
+      512,
+      320
+    ],
+    "inferred_type": "integer"
+  }
+}

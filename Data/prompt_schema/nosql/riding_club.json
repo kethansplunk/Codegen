@@ -1,0 +1,215 @@
+{
+  "match_result.Rank": {
+    "sample_values": [
+      "5",
+      "2",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "match_result.Small_Silver": {
+    "sample_values": [
+      "10",
+      "16",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "match_result.Gold": {
+    "sample_values": [
+      "5",
+      "6",
+      "13"
+    ],
+    "inferred_type": "integer"
+  },
+  "match_result.Club_ID": {
+    "sample_values": [
+      "5",
+      "2",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "match_result.Big_Silver": {
+    "sample_values": [
+      "14",
+      "9",
+      "11"
+    ],
+    "inferred_type": "integer"
+  },
+  "match_result.Points": {
+    "sample_values": [
+      "66",
+      "89",
+      "139"
+    ],
+    "inferred_type": "integer"
+  },
+  "match_result.Bronze": {
+    "sample_values": [
+      "10",
+      "8",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "coach.Rank": {
+    "sample_values": [
+      "5",
+      "1",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "coach.Coach_name": {
+    "sample_values": [
+      "Joe Fabbri",
+      "Robert Chen",
+      "Jameson Tomas"
+    ],
+    "inferred_type": "string"
+  },
+  "coach.Coach_ID": {
+    "sample_values": [
+      "5",
+      "1",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "coach.Club_ID": {
+    "sample_values": [
+      "1",
+      "3"
+    ],
+    "inferred_type": "integer"
+  },
+  "coach.Gender": {
+    "sample_values": [
+      "F",
+      "M"
+    ],
+    "inferred_type": "string"
+  },
+  "club.Region": {
+    "sample_values": [
+      "Russia",
+      "USA",
+      "France"
+    ],
+    "inferred_type": "string"
+  },
+  "club.Start_year": {
+    "sample_values": [
+      "2005",
+      "2009",
+      "2011"
+    ],
+    "inferred_type": "integer"
+  },
+  "club.Club_ID": {
+    "sample_values": [
+      "5",
+      "2",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "club.Club_name": {
+    "sample_values": [
+      "Helsingborgs IF",
+      "Gefle IF",
+      "Halmstads BK"
+    ],
+    "inferred_type": "string"
+  },
+  "player_coach.Starting_year": {
+    "sample_values": [
+      "2012",
+      "2011",
+      "2013"
+    ],
+    "inferred_type": "integer"
+  },
+  "player_coach.Player_ID": {
+    "sample_values": [
+      "10",
+      "1",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "player_coach.Coach_ID": {
+    "sample_values": [
+      "1",
+      "3",
+      "5"
+    ],
+    "inferred_type": "integer"
+  },
+  "player.Rank": {
+    "sample_values": [
+      "3rd",
+      "4th",
+      "1st"
+    ],
+    "inferred_type": "string"
+  },
+  "player.Residence": {
+    "sample_values": [
+      "Birtle",
+      "Winnipeg",
+      "Oakbank"
+    ],
+    "inferred_type": "string"
+  },
+  "player.Votes": {
+    "sample_values": [
+      "4914",
+      "9506",
+      "6055"
+    ],
+    "inferred_type": "integer"
+  },
+  "player.Sponsor_name": {
+    "sample_values": [
+      "Brandon\u2014Souris",
+      "Winnipeg South Centre",
+      "Kildonan\u2014St. Paul"
+    ],
+    "inferred_type": "string"
+  },
+  "player.Player_ID": {
+    "sample_values": [
+      "5",
+      "8",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "player.Occupation": {
+    "sample_values": [
+      "Self Employed / Consultant",
+      "Student",
+      "Design Coordinator"
+    ],
+    "inferred_type": "string"
+  },
+  "player.Gender": {
+    "sample_values": [
+      "F",
+      "M"
+    ],
+    "inferred_type": "string"
+  },
+  "player.Player_name": {
+    "sample_values": [
+      "Rachel Heinrichs",
+      "Matt Schaubroeck",
+      "Judy Wasylycia-Leis"
+    ],
+    "inferred_type": "string"
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "db_name": "party_host",
+  "collections": {
+    "party": {
+      "primary_key": [
+        "Party_ID"
+      ],
+      "columns": [
+        {
+          "name": "Party_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Party_Theme",
+          "type": "TEXT"
+        },
+        {
+          "name": "Location",
+          "type": "TEXT"
+        },
+        {
+          "name": "First_year",
+          "type": "TEXT"
+        },
+        {
+          "name": "Last_year",
+          "type": "TEXT"
+        },
+        {
+          "name": "Number_of_hosts",
+          "type": "INT"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 8
+    },
+    "host": {
+      "primary_key": [
+        "Host_ID"
+      ],
+      "columns": [
+        {
+          "name": "Host_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Nationality",
+          "type": "TEXT"
+        },
+        {
+          "name": "Age",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 10
+    },
+    "party_host": {
+      "primary_key": [
+        "Party_ID",
+        "Host_ID"
+      ],
+      "columns": [
+        {
+          "name": "Party_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Host_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Is_Main_in_Charge",
+          "type": "bool"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "party_host",
+          "to": "party",
+          "child_col": "Party_ID",
+          "parent_col": "Party_ID"
+        },
+        {
+          "from": "party_host",
+          "to": "host",
+          "child_col": "Host_ID",
+          "parent_col": "Host_ID"
+        }
+      ],
+      "row_count": 6
+    }
+  }
+}

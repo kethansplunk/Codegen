@@ -1,0 +1,141 @@
+{
+  "db_name": "flight_4",
+  "collections": {
+    "routes": {
+      "primary_key": [
+        "rid"
+      ],
+      "columns": [
+        {
+          "name": "rid",
+          "type": "INTEGER"
+        },
+        {
+          "name": "dst_apid",
+          "type": "INTEGER"
+        },
+        {
+          "name": "dst_ap",
+          "type": "varchar(4)"
+        },
+        {
+          "name": "src_apid",
+          "type": "bigint"
+        },
+        {
+          "name": "src_ap",
+          "type": "varchar(4)"
+        },
+        {
+          "name": "alid",
+          "type": "bigint"
+        },
+        {
+          "name": "airline",
+          "type": "varchar(4)"
+        },
+        {
+          "name": "codeshare",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "routes",
+          "to": "airlines",
+          "child_col": "alid",
+          "parent_col": "alid"
+        },
+        {
+          "from": "routes",
+          "to": "airports",
+          "child_col": "dst_apid",
+          "parent_col": "apid"
+        }
+      ],
+      "row_count": 67240
+    },
+    "airports": {
+      "primary_key": [
+        "apid"
+      ],
+      "columns": [
+        {
+          "name": "apid",
+          "type": "INTEGER"
+        },
+        {
+          "name": "name",
+          "type": "TEXT"
+        },
+        {
+          "name": "city",
+          "type": "TEXT"
+        },
+        {
+          "name": "country",
+          "type": "TEXT"
+        },
+        {
+          "name": "x",
+          "type": "REAL"
+        },
+        {
+          "name": "y",
+          "type": "REAL"
+        },
+        {
+          "name": "elevation",
+          "type": "bigint"
+        },
+        {
+          "name": "iata",
+          "type": "character varchar(3)"
+        },
+        {
+          "name": "icao",
+          "type": "character varchar(4)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 7184
+    },
+    "airlines": {
+      "primary_key": [
+        "alid"
+      ],
+      "columns": [
+        {
+          "name": "alid",
+          "type": "INTEGER"
+        },
+        {
+          "name": "name",
+          "type": "TEXT"
+        },
+        {
+          "name": "iata",
+          "type": "varchar(2)"
+        },
+        {
+          "name": "icao",
+          "type": "varchar(3)"
+        },
+        {
+          "name": "callsign",
+          "type": "TEXT"
+        },
+        {
+          "name": "country",
+          "type": "TEXT"
+        },
+        {
+          "name": "active",
+          "type": "varchar(2)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 6162
+    }
+  }
+}

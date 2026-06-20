@@ -1,0 +1,191 @@
+{
+  "db_name": "tracking_share_transactions",
+  "collections": {
+    "Investors": {
+      "primary_key": [
+        "investor_id"
+      ],
+      "columns": [
+        {
+          "name": "investor_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Investor_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 20
+    },
+    "Lots": {
+      "primary_key": [
+        "lot_id"
+      ],
+      "columns": [
+        {
+          "name": "lot_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "investor_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "lot_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Lots",
+          "to": "Investors",
+          "child_col": "investor_id",
+          "parent_col": "investor_id"
+        }
+      ],
+      "row_count": 15
+    },
+    "Ref_Transaction_Types": {
+      "primary_key": [
+        "transaction_type_code"
+      ],
+      "columns": [
+        {
+          "name": "transaction_type_code",
+          "type": "VARCHAR(10)"
+        },
+        {
+          "name": "transaction_type_description",
+          "type": "VARCHAR(80)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 2
+    },
+    "Transactions": {
+      "primary_key": [
+        "transaction_id"
+      ],
+      "columns": [
+        {
+          "name": "transaction_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "investor_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "transaction_type_code",
+          "type": "VARCHAR(10)"
+        },
+        {
+          "name": "date_of_transaction",
+          "type": "DATETIME"
+        },
+        {
+          "name": "amount_of_transaction",
+          "type": "DECIMAL(19,4)"
+        },
+        {
+          "name": "share_count",
+          "type": "VARCHAR(40)"
+        },
+        {
+          "name": "other_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Transactions",
+          "to": "Ref_Transaction_Types",
+          "child_col": "transaction_type_code",
+          "parent_col": "transaction_type_code"
+        },
+        {
+          "from": "Transactions",
+          "to": "Investors",
+          "child_col": "investor_id",
+          "parent_col": "investor_id"
+        }
+      ],
+      "row_count": 15
+    },
+    "Sales": {
+      "primary_key": [
+        "sales_transaction_id"
+      ],
+      "columns": [
+        {
+          "name": "sales_transaction_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "sales_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Sales",
+          "to": "Transactions",
+          "child_col": "sales_transaction_id",
+          "parent_col": "transaction_id"
+        }
+      ],
+      "row_count": 15
+    },
+    "Purchases": {
+      "primary_key": [],
+      "columns": [
+        {
+          "name": "purchase_transaction_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "purchase_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Purchases",
+          "to": "Transactions",
+          "child_col": "purchase_transaction_id",
+          "parent_col": "transaction_id"
+        }
+      ],
+      "row_count": 15
+    },
+    "Transactions_Lots": {
+      "primary_key": [],
+      "columns": [
+        {
+          "name": "transaction_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "lot_id",
+          "type": "INTEGER"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Transactions_Lots",
+          "to": "Transactions",
+          "child_col": "transaction_id",
+          "parent_col": "transaction_id"
+        },
+        {
+          "from": "Transactions_Lots",
+          "to": "Lots",
+          "child_col": "lot_id",
+          "parent_col": "lot_id"
+        }
+      ],
+      "row_count": 15
+    }
+  }
+}

@@ -1,0 +1,113 @@
+{
+  "db_name": "company_employee",
+  "nodes": [
+    {
+      "name": "people",
+      "columns": [
+        {
+          "name": "People_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Age",
+          "type": "INT"
+        },
+        {
+          "name": "Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Nationality",
+          "type": "TEXT"
+        },
+        {
+          "name": "Graduation_College",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "People_ID"
+      ]
+    },
+    {
+      "name": "company",
+      "columns": [
+        {
+          "name": "Company_ID",
+          "type": "REAL"
+        },
+        {
+          "name": "Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Headquarters",
+          "type": "TEXT"
+        },
+        {
+          "name": "Industry",
+          "type": "TEXT"
+        },
+        {
+          "name": "Sales_in_Billion",
+          "type": "REAL"
+        },
+        {
+          "name": "Profits_in_Billion",
+          "type": "REAL"
+        },
+        {
+          "name": "Assets_in_Billion",
+          "type": "REAL"
+        },
+        {
+          "name": "Market_Value_in_Billion",
+          "type": "REAL"
+        }
+      ],
+      "pk": [
+        "Company_ID"
+      ]
+    },
+    {
+      "name": "employment",
+      "columns": [
+        {
+          "name": "Company_ID",
+          "type": "INT"
+        },
+        {
+          "name": "People_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Year_working",
+          "type": "INT"
+        }
+      ],
+      "pk": [
+        "Company_ID",
+        "People_ID"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "employment",
+      "to": "people",
+      "child_col": "People_ID",
+      "parent_col": "People_ID"
+    },
+    {
+      "from": "employment",
+      "to": "company",
+      "child_col": "Company_ID",
+      "parent_col": "Company_ID"
+    }
+  ],
+  "centrality": {
+    "people": 0.5,
+    "company": 0.5,
+    "employment": 0.0
+  }
+}

@@ -1,0 +1,341 @@
+{
+  "DEPARTMENT.DEPT_CODE": {
+    "sample_values": [
+      "ART",
+      "SOC",
+      "CIS"
+    ],
+    "inferred_type": "string"
+  },
+  "DEPARTMENT.SCHOOL_CODE": {
+    "sample_values": [
+      "A&SCI",
+      "BUS"
+    ],
+    "inferred_type": "string"
+  },
+  "DEPARTMENT.EMP_NUM": {
+    "sample_values": [
+      "103",
+      "299",
+      "195"
+    ],
+    "inferred_type": "integer"
+  },
+  "DEPARTMENT.DEPT_ADDRESS": {
+    "sample_values": [
+      "BBG 185, Box 128",
+      "KLR 211, Box 52",
+      "DRE 102, Box 223"
+    ],
+    "inferred_type": "string"
+  },
+  "DEPARTMENT.DEPT_EXTENSION": {
+    "sample_values": [
+      "2278",
+      "3342",
+      "3245"
+    ],
+    "inferred_type": "integer"
+  },
+  "DEPARTMENT.DEPT_NAME": {
+    "sample_values": [
+      "Accounting",
+      "English",
+      "History"
+    ],
+    "inferred_type": "string"
+  },
+  "EMPLOYEE.EMP_LNAME": {
+    "sample_values": [
+      "Herndon",
+      "Edwards",
+      "Donelly"
+    ],
+    "inferred_type": "string"
+  },
+  "EMPLOYEE.EMP_FNAME": {
+    "sample_values": [
+      "James",
+      "Elaine",
+      "Doreen"
+    ],
+    "inferred_type": "string"
+  },
+  "EMPLOYEE.EMP_INITIAL": {
+    "sample_values": [
+      "",
+      "D",
+      "K"
+    ],
+    "inferred_type": "string"
+  },
+  "EMPLOYEE.EMP_HIREDATE": {
+    "sample_values": [
+      "1985-6-24",
+      "1978-2-23",
+      "1994-1-5"
+    ],
+    "inferred_type": "string"
+  },
+  "EMPLOYEE.EMP_JOBCODE": {
+    "sample_values": [
+      "PROF",
+      "TECH",
+      "CUST"
+    ],
+    "inferred_type": "string"
+  },
+  "EMPLOYEE.EMP_DOB": {
+    "sample_values": [
+      "1967-12-30",
+      "1952-5-25",
+      "1944-3-3"
+    ],
+    "inferred_type": "string"
+  },
+  "EMPLOYEE.EMP_NUM": {
+    "sample_values": [
+      "108",
+      "102",
+      "387"
+    ],
+    "inferred_type": "integer"
+  },
+  "PROFESSOR.PROF_HIGH_DEGREE": {
+    "sample_values": [
+      "DBA",
+      "Ph.D.",
+      "MA"
+    ],
+    "inferred_type": "string"
+  },
+  "PROFESSOR.DEPT_CODE": {
+    "sample_values": [
+      "ART",
+      "SOC",
+      "CIS"
+    ],
+    "inferred_type": "string"
+  },
+  "PROFESSOR.PROF_OFFICE": {
+    "sample_values": [
+      "KLR 284",
+      "BBG 208",
+      "AAK 194"
+    ],
+    "inferred_type": "string"
+  },
+  "PROFESSOR.PROF_EXTENSION": {
+    "sample_values": [
+      "2278",
+      "4683",
+      "5514"
+    ],
+    "inferred_type": "integer"
+  },
+  "PROFESSOR.EMP_NUM": {
+    "sample_values": [
+      "425",
+      "299",
+      "228"
+    ],
+    "inferred_type": "integer"
+  },
+  "STUDENT.DEPT_CODE": {
+    "sample_values": [
+      "ENGL",
+      "BIOL",
+      "ACCT"
+    ],
+    "inferred_type": "string"
+  },
+  "STUDENT.STU_INIT": {
+    "sample_values": [
+      "",
+      "D",
+      "C"
+    ],
+    "inferred_type": "string"
+  },
+  "STUDENT.STU_LNAME": {
+    "sample_values": [
+      "Brewer",
+      "Smith",
+      "Robertson"
+    ],
+    "inferred_type": "string"
+  },
+  "STUDENT.STU_FNAME": {
+    "sample_values": [
+      "Gerald",
+      "Walter",
+      "Juliette"
+    ],
+    "inferred_type": "string"
+  },
+  "STUDENT.STU_HRS": {
+    "sample_values": [
+      "120",
+      "15",
+      "36"
+    ],
+    "inferred_type": "integer"
+  },
+  "STUDENT.STU_PHONE": {
+    "sample_values": [
+      "2231",
+      "2256",
+      "2134"
+    ],
+    "inferred_type": "integer"
+  },
+  "STUDENT.STU_GPA": {
+    "sample_values": [
+      "2.11",
+      "3.87",
+      "3.27"
+    ],
+    "inferred_type": "float"
+  },
+  "STUDENT.STU_TRANSFER": {
+    "sample_values": [
+      "1",
+      "0"
+    ],
+    "inferred_type": "integer"
+  },
+  "STUDENT.STU_DOB": {
+    "sample_values": [
+      "1981-11-15",
+      "1986-11-30",
+      "1976-9-16"
+    ],
+    "inferred_type": "string"
+  },
+  "STUDENT.STU_NUM": {
+    "sample_values": [
+      "324274",
+      "324299",
+      "324258"
+    ],
+    "inferred_type": "integer"
+  },
+  "STUDENT.STU_CLASS": {
+    "sample_values": [
+      "Jr",
+      "Fr",
+      "Sr"
+    ],
+    "inferred_type": "string"
+  },
+  "STUDENT.PROF_NUM": {
+    "sample_values": [
+      "230",
+      "222",
+      "205"
+    ],
+    "inferred_type": "integer"
+  },
+  "CLASS.CLASS_ROOM": {
+    "sample_values": [
+      "KLR209",
+      "BUS200",
+      "KLR200"
+    ],
+    "inferred_type": "string"
+  },
+  "CLASS.CLASS_SECTION": {
+    "sample_values": [
+      "1",
+      "3",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "CLASS.CLASS_CODE": {
+    "sample_values": [
+      "10015",
+      "10016",
+      "10021"
+    ],
+    "inferred_type": "integer"
+  },
+  "CLASS.CRS_CODE": {
+    "sample_values": [
+      "CIS-220",
+      "ACCT-212",
+      "QM-362"
+    ],
+    "inferred_type": "string"
+  },
+  "CLASS.CLASS_TIME": {
+    "sample_values": [
+      "TTh 1:00-2:15 p.m.",
+      "TTh 2:30-3:45 p.m.",
+      "W 6:00-8:40 p.m."
+    ],
+    "inferred_type": "string"
+  },
+  "CLASS.PROF_NUM": {
+    "sample_values": [
+      "105",
+      "301",
+      "114"
+    ],
+    "inferred_type": "integer"
+  },
+  "ENROLL.CLASS_CODE": {
+    "sample_values": [
+      "10018",
+      "10014",
+      "10021"
+    ],
+    "inferred_type": "integer"
+  },
+  "ENROLL.ENROLL_GRADE": {
+    "sample_values": [
+      "A",
+      "C",
+      "B"
+    ],
+    "inferred_type": "string"
+  },
+  "ENROLL.STU_NUM": {
+    "sample_values": [
+      "324257",
+      "321452"
+    ],
+    "inferred_type": "integer"
+  },
+  "COURSE.CRS_CREDIT": {
+    "sample_values": [
+      "3.0",
+      "4.0"
+    ],
+    "inferred_type": "float"
+  },
+  "COURSE.CRS_CODE": {
+    "sample_values": [
+      "CIS-220",
+      "ACCT-212",
+      "QM-362"
+    ],
+    "inferred_type": "string"
+  },
+  "COURSE.DEPT_CODE": {
+    "sample_values": [
+      "ACCT",
+      "CIS"
+    ],
+    "inferred_type": "string"
+  },
+  "COURSE.CRS_DESCRIPTION": {
+    "sample_values": [
+      "Statistical Applications",
+      "Intro. to Microcomputing",
+      "Database Design and Implementation"
+    ],
+    "inferred_type": "string"
+  }
+}

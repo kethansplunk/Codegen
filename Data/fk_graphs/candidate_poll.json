@@ -1,0 +1,89 @@
+{
+  "db_name": "candidate_poll",
+  "nodes": [
+    {
+      "name": "candidate",
+      "columns": [
+        {
+          "name": "Candidate_ID",
+          "type": "INT"
+        },
+        {
+          "name": "People_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Poll_Source",
+          "type": "TEXT"
+        },
+        {
+          "name": "Date",
+          "type": "TEXT"
+        },
+        {
+          "name": "Support_rate",
+          "type": "REAL"
+        },
+        {
+          "name": "Consider_rate",
+          "type": "REAL"
+        },
+        {
+          "name": "Oppose_rate",
+          "type": "REAL"
+        },
+        {
+          "name": "Unsure_rate",
+          "type": "REAL"
+        }
+      ],
+      "pk": [
+        "Candidate_ID"
+      ]
+    },
+    {
+      "name": "people",
+      "columns": [
+        {
+          "name": "People_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Sex",
+          "type": "TEXT"
+        },
+        {
+          "name": "Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Date_of_Birth",
+          "type": "TEXT"
+        },
+        {
+          "name": "Height",
+          "type": "REAL"
+        },
+        {
+          "name": "Weight",
+          "type": "REAL"
+        }
+      ],
+      "pk": [
+        "People_ID"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "candidate",
+      "to": "people",
+      "child_col": "People_ID",
+      "parent_col": "People_ID"
+    }
+  ],
+  "centrality": {
+    "candidate": 0.0,
+    "people": 1.0
+  }
+}

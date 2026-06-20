@@ -1,0 +1,184 @@
+{
+  "db_name": "sports_competition",
+  "collections": {
+    "club": {
+      "primary_key": [
+        "Club_ID"
+      ],
+      "columns": [
+        {
+          "name": "Club_ID",
+          "type": "INT"
+        },
+        {
+          "name": "name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Region",
+          "type": "TEXT"
+        },
+        {
+          "name": "Start_year",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 6
+    },
+    "club_rank": {
+      "primary_key": [
+        "Rank",
+        "Club_ID"
+      ],
+      "columns": [
+        {
+          "name": "Rank",
+          "type": "REAL"
+        },
+        {
+          "name": "Club_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Gold",
+          "type": "REAL"
+        },
+        {
+          "name": "Silver",
+          "type": "REAL"
+        },
+        {
+          "name": "Bronze",
+          "type": "REAL"
+        },
+        {
+          "name": "Total",
+          "type": "REAL"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "club_rank",
+          "to": "club",
+          "child_col": "Club_ID",
+          "parent_col": "Club_ID"
+        }
+      ],
+      "row_count": 6
+    },
+    "player": {
+      "primary_key": [
+        "Player_ID"
+      ],
+      "columns": [
+        {
+          "name": "Player_ID",
+          "type": "INT"
+        },
+        {
+          "name": "name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Position",
+          "type": "TEXT"
+        },
+        {
+          "name": "Club_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Apps",
+          "type": "REAL"
+        },
+        {
+          "name": "Tries",
+          "type": "REAL"
+        },
+        {
+          "name": "Goals",
+          "type": "TEXT"
+        },
+        {
+          "name": "Points",
+          "type": "REAL"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "player",
+          "to": "club",
+          "child_col": "Club_ID",
+          "parent_col": "Club_ID"
+        }
+      ],
+      "row_count": 15
+    },
+    "competition": {
+      "primary_key": [
+        "Competition_ID"
+      ],
+      "columns": [
+        {
+          "name": "Competition_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Year",
+          "type": "REAL"
+        },
+        {
+          "name": "Competition_type",
+          "type": "TEXT"
+        },
+        {
+          "name": "Country",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 11
+    },
+    "competition_result": {
+      "primary_key": [
+        "Competition_ID",
+        "Club_ID_1",
+        "Club_ID_2"
+      ],
+      "columns": [
+        {
+          "name": "Competition_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Club_ID_1",
+          "type": "INT"
+        },
+        {
+          "name": "Club_ID_2",
+          "type": "INT"
+        },
+        {
+          "name": "Score",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "competition_result",
+          "to": "competition",
+          "child_col": "Competition_ID",
+          "parent_col": "Competition_ID"
+        },
+        {
+          "from": "competition_result",
+          "to": "club",
+          "child_col": "Club_ID_1",
+          "parent_col": "Club_ID"
+        }
+      ],
+      "row_count": 6
+    }
+  }
+}

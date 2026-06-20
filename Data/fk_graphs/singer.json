@@ -1,0 +1,73 @@
+{
+  "db_name": "singer",
+  "nodes": [
+    {
+      "name": "singer",
+      "columns": [
+        {
+          "name": "Singer_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Birth_Year",
+          "type": "REAL"
+        },
+        {
+          "name": "Net_Worth_Millions",
+          "type": "REAL"
+        },
+        {
+          "name": "Citizenship",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "Singer_ID"
+      ]
+    },
+    {
+      "name": "song",
+      "columns": [
+        {
+          "name": "Song_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Title",
+          "type": "TEXT"
+        },
+        {
+          "name": "Singer_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Sales",
+          "type": "REAL"
+        },
+        {
+          "name": "Highest_Position",
+          "type": "REAL"
+        }
+      ],
+      "pk": [
+        "Song_ID"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "song",
+      "to": "singer",
+      "child_col": "Singer_ID",
+      "parent_col": "Singer_ID"
+    }
+  ],
+  "centrality": {
+    "singer": 1.0,
+    "song": 0.0
+  }
+}

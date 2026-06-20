@@ -1,0 +1,98 @@
+{
+  "climber.Time": {
+    "sample_values": [
+      "1:14.56.4",
+      "1:25.40.6",
+      "1:17.16.0"
+    ],
+    "inferred_type": "string"
+  },
+  "climber.Country": {
+    "sample_values": [
+      "West Germany",
+      "United Kingdom",
+      "Switzerland"
+    ],
+    "inferred_type": "string"
+  },
+  "climber.Climber_ID": {
+    "sample_values": [
+      "5",
+      "1",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "climber.Name": {
+    "sample_values": [
+      "Jean Claude Castella",
+      "Hans Luthringhauser",
+      "Horst Owesle"
+    ],
+    "inferred_type": "string"
+  },
+  "climber.Points": {
+    "sample_values": [
+      "12.0",
+      "15.0",
+      "3.0"
+    ],
+    "inferred_type": "float"
+  },
+  "climber.Mountain_ID": {
+    "sample_values": [
+      "5",
+      "1",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "mountain.Range": {
+    "sample_values": [
+      "Mount Kenya",
+      "Kilimanjaro",
+      "Rwenzori"
+    ],
+    "inferred_type": "string"
+  },
+  "mountain.Prominence": {
+    "sample_values": [
+      "5885.0",
+      "3951.0",
+      "3825.0"
+    ],
+    "inferred_type": "float"
+  },
+  "mountain.Country": {
+    "sample_values": [
+      "Tanzania",
+      "Kenya",
+      "Uganda"
+    ],
+    "inferred_type": "string"
+  },
+  "mountain.Name": {
+    "sample_values": [
+      "Kibo (Uhuru Pk)",
+      "Mount Kenya (Batian)",
+      "Duwoni / Mt Speke (Vittorio Emanuele Pk)"
+    ],
+    "inferred_type": "string"
+  },
+  "mountain.Height": {
+    "sample_values": [
+      "4985.0",
+      "4977.0",
+      "5109.0"
+    ],
+    "inferred_type": "float"
+  },
+  "mountain.Mountain_ID": {
+    "sample_values": [
+      "5",
+      "2",
+      "6"
+    ],
+    "inferred_type": "integer"
+  }
+}
