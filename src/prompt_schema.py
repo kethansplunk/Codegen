@@ -150,7 +150,8 @@ def build_all_sql(db_root: str, cache_dir: str):
             continue
         try:
             schema = builder.build_sql(db_root, db_name)
-            json.dump(schema, open(out, "w"), indent=2)
+            with open(out, "w") as f:
+                json.dump(schema, f, indent=2)
             print(f"[{i}/{total}] {db_name} — {len(schema)} columns")
         except Exception as e:
             print(f"[{i}/{total}] {db_name} — ERROR: {e}")
@@ -175,7 +176,8 @@ def build_all_nosql(cache_dir: str, mongo_uri: str = "mongodb://localhost:27017"
             continue
         try:
             schema = builder.build_nosql(db_name, mongo_uri)
-            json.dump(schema, open(out, "w"), indent=2)
+            with open(out, "w") as f:
+                json.dump(schema, f, indent=2)
             print(f"[{i}/{total}] {db_name} — {len(schema)} fields")
         except Exception as e:
             print(f"[{i}/{total}] {db_name} — ERROR: {e}")
