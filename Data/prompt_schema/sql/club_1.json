@@ -1,0 +1,120 @@
+{
+  "Student.StuID": {
+    "sample_values": [
+      1001,
+      1007,
+      1014
+    ],
+    "inferred_type": "integer"
+  },
+  "Student.LName": {
+    "sample_values": [
+      "Woods",
+      "Nelson",
+      "Tai"
+    ],
+    "inferred_type": "string"
+  },
+  "Student.Fname": {
+    "sample_values": [
+      "George",
+      "Jandy",
+      "Eric"
+    ],
+    "inferred_type": "string"
+  },
+  "Student.Age": {
+    "sample_values": [
+      18,
+      20,
+      22
+    ],
+    "inferred_type": "integer"
+  },
+  "Student.Sex": {
+    "sample_values": [
+      "F",
+      "M"
+    ],
+    "inferred_type": "string"
+  },
+  "Student.Major": {
+    "sample_values": [
+      600,
+      540,
+      100
+    ],
+    "inferred_type": "integer"
+  },
+  "Student.Advisor": {
+    "sample_values": [
+      1121,
+      9172,
+      8722
+    ],
+    "inferred_type": "integer"
+  },
+  "Student.city_code": {
+    "sample_values": [
+      "BOS",
+      "PHL",
+      "DAL"
+    ],
+    "inferred_type": "string"
+  },
+  "Club.ClubID": {
+    "sample_values": [
+      1,
+      2,
+      3
+    ],
+    "inferred_type": "integer"
+  },
+  "Club.ClubName": {
+    "sample_values": [
+      "Tennis Club",
+      "Pen and Paper Gaming",
+      "Hopkins Student Enterprises"
+    ],
+    "inferred_type": "string"
+  },
+  "Club.ClubDesc": {
+    "sample_values": [
+      "A competitive tennis club.",
+      "Play pen and paper games on campus.",
+      "Venture capital fund for student business."
+    ],
+    "inferred_type": "string"
+  },
+  "Club.ClubLocation": {
+    "sample_values": [
+      "AKW",
+      "HHH"
+    ],
+    "inferred_type": "string"
+  },
+  "Member_of_club.StuID": {
+    "sample_values": [
+      1001,
+      1007,
+      1008
+    ],
+    "inferred_type": "integer"
+  },
+  "Member_of_club.ClubID": {
+    "sample_values": [
+      1,
+      4,
+      2
+    ],
+    "inferred_type": "integer"
+  },
+  "Member_of_club.Position": {
+    "sample_values": [
+      "Teaching Coordinator",
+      "CTO",
+      "Vice-President"
+    ],
+    "inferred_type": "string"
+  }
+}

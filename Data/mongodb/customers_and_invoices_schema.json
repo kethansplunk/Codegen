@@ -1,0 +1,379 @@
+{
+  "db_name": "customers_and_invoices",
+  "collections": {
+    "Customers": {
+      "primary_key": [
+        "customer_id"
+      ],
+      "columns": [
+        {
+          "name": "customer_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "customer_first_name",
+          "type": "VARCHAR(50)"
+        },
+        {
+          "name": "customer_middle_initial",
+          "type": "VARCHAR(1)"
+        },
+        {
+          "name": "customer_last_name",
+          "type": "VARCHAR(50)"
+        },
+        {
+          "name": "gender",
+          "type": "VARCHAR(1)"
+        },
+        {
+          "name": "email_address",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "login_name",
+          "type": "VARCHAR(80)"
+        },
+        {
+          "name": "login_password",
+          "type": "VARCHAR(20)"
+        },
+        {
+          "name": "phone_number",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "town_city",
+          "type": "VARCHAR(50)"
+        },
+        {
+          "name": "state_county_province",
+          "type": "VARCHAR(50)"
+        },
+        {
+          "name": "country",
+          "type": "VARCHAR(50)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 15
+    },
+    "Orders": {
+      "primary_key": [
+        "order_id"
+      ],
+      "columns": [
+        {
+          "name": "order_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "customer_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "date_order_placed",
+          "type": "DATETIME"
+        },
+        {
+          "name": "order_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Orders",
+          "to": "Customers",
+          "child_col": "customer_id",
+          "parent_col": "customer_id"
+        }
+      ],
+      "row_count": 15
+    },
+    "Invoices": {
+      "primary_key": [
+        "invoice_number"
+      ],
+      "columns": [
+        {
+          "name": "invoice_number",
+          "type": "INTEGER"
+        },
+        {
+          "name": "order_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "invoice_date",
+          "type": "DATETIME"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Invoices",
+          "to": "Orders",
+          "child_col": "order_id",
+          "parent_col": "order_id"
+        }
+      ],
+      "row_count": 15
+    },
+    "Accounts": {
+      "primary_key": [
+        "account_id"
+      ],
+      "columns": [
+        {
+          "name": "account_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "customer_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "date_account_opened",
+          "type": "DATETIME"
+        },
+        {
+          "name": "account_name",
+          "type": "VARCHAR(50)"
+        },
+        {
+          "name": "other_account_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Accounts",
+          "to": "Customers",
+          "child_col": "customer_id",
+          "parent_col": "customer_id"
+        }
+      ],
+      "row_count": 15
+    },
+    "Product_Categories": {
+      "primary_key": [
+        "production_type_code"
+      ],
+      "columns": [
+        {
+          "name": "production_type_code",
+          "type": "VARCHAR(15)"
+        },
+        {
+          "name": "product_type_description",
+          "type": "VARCHAR(80)"
+        },
+        {
+          "name": "vat_rating",
+          "type": "DECIMAL(19,4)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 4
+    },
+    "Products": {
+      "primary_key": [
+        "product_id"
+      ],
+      "columns": [
+        {
+          "name": "product_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "parent_product_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "production_type_code",
+          "type": "VARCHAR(15)"
+        },
+        {
+          "name": "unit_price",
+          "type": "DECIMAL(19,4)"
+        },
+        {
+          "name": "product_name",
+          "type": "VARCHAR(80)"
+        },
+        {
+          "name": "product_color",
+          "type": "VARCHAR(20)"
+        },
+        {
+          "name": "product_size",
+          "type": "VARCHAR(20)"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Products",
+          "to": "Product_Categories",
+          "child_col": "production_type_code",
+          "parent_col": "production_type_code"
+        }
+      ],
+      "row_count": 15
+    },
+    "Financial_Transactions": {
+      "primary_key": [],
+      "columns": [
+        {
+          "name": "transaction_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "account_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "invoice_number",
+          "type": "INTEGER"
+        },
+        {
+          "name": "transaction_type",
+          "type": "VARCHAR(15)"
+        },
+        {
+          "name": "transaction_date",
+          "type": "DATETIME"
+        },
+        {
+          "name": "transaction_amount",
+          "type": "DECIMAL(19,4)"
+        },
+        {
+          "name": "transaction_comment",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "other_transaction_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Financial_Transactions",
+          "to": "Accounts",
+          "child_col": "account_id",
+          "parent_col": "account_id"
+        },
+        {
+          "from": "Financial_Transactions",
+          "to": "Invoices",
+          "child_col": "invoice_number",
+          "parent_col": "invoice_number"
+        }
+      ],
+      "row_count": 15
+    },
+    "Order_Items": {
+      "primary_key": [
+        "order_item_id"
+      ],
+      "columns": [
+        {
+          "name": "order_item_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "order_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "product_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "product_quantity",
+          "type": "VARCHAR(50)"
+        },
+        {
+          "name": "other_order_item_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Order_Items",
+          "to": "Orders",
+          "child_col": "order_id",
+          "parent_col": "order_id"
+        },
+        {
+          "from": "Order_Items",
+          "to": "Products",
+          "child_col": "product_id",
+          "parent_col": "product_id"
+        }
+      ],
+      "row_count": 15
+    },
+    "Invoice_Line_Items": {
+      "primary_key": [],
+      "columns": [
+        {
+          "name": "order_item_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "invoice_number",
+          "type": "INTEGER"
+        },
+        {
+          "name": "product_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "product_title",
+          "type": "VARCHAR(80)"
+        },
+        {
+          "name": "product_quantity",
+          "type": "VARCHAR(50)"
+        },
+        {
+          "name": "product_price",
+          "type": "DECIMAL(19,4)"
+        },
+        {
+          "name": "derived_product_cost",
+          "type": "DECIMAL(19,4)"
+        },
+        {
+          "name": "derived_vat_payable",
+          "type": "DECIMAL(19,4)"
+        },
+        {
+          "name": "derived_total_cost",
+          "type": "DECIMAL(19,4)"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Invoice_Line_Items",
+          "to": "Products",
+          "child_col": "product_id",
+          "parent_col": "product_id"
+        },
+        {
+          "from": "Invoice_Line_Items",
+          "to": "Invoices",
+          "child_col": "invoice_number",
+          "parent_col": "invoice_number"
+        },
+        {
+          "from": "Invoice_Line_Items",
+          "to": "Order_Items",
+          "child_col": "order_item_id",
+          "parent_col": "order_item_id"
+        }
+      ],
+      "row_count": 15
+    }
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "artwork.Artwork_ID": {
+    "sample_values": [
+      "5",
+      "2",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "artwork.Name": {
+    "sample_values": [
+      "Martin",
+      "Indonesian Idol",
+      "Why"
+    ],
+    "inferred_type": "string"
+  },
+  "artwork.Type": {
+    "sample_values": [
+      "Program Talent Show",
+      "Program Music/Variety Show",
+      "Presenter Music/Variety Show"
+    ],
+    "inferred_type": "string"
+  },
+  "festival_detail.Festival_Name": {
+    "sample_values": [
+      "Flower Awards",
+      "LA Awards",
+      "Cherry Awards"
+    ],
+    "inferred_type": "string"
+  },
+  "festival_detail.Festival_ID": {
+    "sample_values": [
+      "5",
+      "1",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "festival_detail.Year": {
+    "sample_values": [
+      "2010",
+      "2008",
+      "2007"
+    ],
+    "inferred_type": "integer"
+  },
+  "festival_detail.Num_of_Audience": {
+    "sample_values": [
+      "152",
+      "155",
+      "161"
+    ],
+    "inferred_type": "integer"
+  },
+  "festival_detail.Chair_Name": {
+    "sample_values": [
+      "Charles Coody",
+      "Doug Ford",
+      "Arnold Palmer"
+    ],
+    "inferred_type": "string"
+  },
+  "nomination.Artwork_ID": {
+    "sample_values": [
+      "8",
+      "2",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "nomination.Festival_ID": {
+    "sample_values": [
+      "1",
+      "5",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "nomination.Result": {
+    "sample_values": [
+      "Nominated",
+      "Won"
+    ],
+    "inferred_type": "string"
+  }
+}

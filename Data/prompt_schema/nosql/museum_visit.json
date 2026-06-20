@@ -1,0 +1,98 @@
+{
+  "visit.Num_of_Ticket": {
+    "sample_values": [
+      "10",
+      "2",
+      "3"
+    ],
+    "inferred_type": "integer"
+  },
+  "visit.visitor_ID": {
+    "sample_values": [
+      "6",
+      "3",
+      "5"
+    ],
+    "inferred_type": "integer"
+  },
+  "visit.Total_spent": {
+    "sample_values": [
+      "89.98",
+      "320.44",
+      "209.98"
+    ],
+    "inferred_type": "float"
+  },
+  "visit.Museum_ID": {
+    "sample_values": [
+      "8",
+      "1",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "museum.Open_Year": {
+    "sample_values": [
+      "2012",
+      "2000",
+      "2011"
+    ],
+    "inferred_type": "integer"
+  },
+  "museum.Name": {
+    "sample_values": [
+      "Central City District Residential Museum",
+      "Capital Plaza Museum",
+      "ZirMed Gateway Museum"
+    ],
+    "inferred_type": "string"
+  },
+  "museum.Num_of_Staff": {
+    "sample_values": [
+      "17",
+      "25",
+      "18"
+    ],
+    "inferred_type": "integer"
+  },
+  "museum.Museum_ID": {
+    "sample_values": [
+      "5",
+      "1",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "visitor.ID": {
+    "sample_values": [
+      "5",
+      "2",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "visitor.Name": {
+    "sample_values": [
+      "Arjen Robben",
+      "Rafael van der Vaart",
+      "Guti Midfielder"
+    ],
+    "inferred_type": "string"
+  },
+  "visitor.Age": {
+    "sample_values": [
+      "56",
+      "35",
+      "27"
+    ],
+    "inferred_type": "integer"
+  },
+  "visitor.Level_of_membership": {
+    "sample_values": [
+      "5",
+      "8",
+      "1"
+    ],
+    "inferred_type": "integer"
+  }
+}

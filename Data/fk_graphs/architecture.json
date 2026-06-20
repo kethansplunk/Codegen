@@ -1,0 +1,116 @@
+{
+  "db_name": "architecture",
+  "nodes": [
+    {
+      "name": "architect",
+      "columns": [
+        {
+          "name": "id",
+          "type": "TEXT"
+        },
+        {
+          "name": "name",
+          "type": "TEXT"
+        },
+        {
+          "name": "nationality",
+          "type": "TEXT"
+        },
+        {
+          "name": "gender",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "id"
+      ]
+    },
+    {
+      "name": "bridge",
+      "columns": [
+        {
+          "name": "architect_id",
+          "type": "INT"
+        },
+        {
+          "name": "id",
+          "type": "INT"
+        },
+        {
+          "name": "name",
+          "type": "TEXT"
+        },
+        {
+          "name": "location",
+          "type": "TEXT"
+        },
+        {
+          "name": "length_meters",
+          "type": "REAL"
+        },
+        {
+          "name": "length_feet",
+          "type": "REAL"
+        }
+      ],
+      "pk": [
+        "id"
+      ]
+    },
+    {
+      "name": "mill",
+      "columns": [
+        {
+          "name": "architect_id",
+          "type": "INT"
+        },
+        {
+          "name": "id",
+          "type": "INT"
+        },
+        {
+          "name": "location",
+          "type": "TEXT"
+        },
+        {
+          "name": "name",
+          "type": "TEXT"
+        },
+        {
+          "name": "type",
+          "type": "TEXT"
+        },
+        {
+          "name": "built_year",
+          "type": "INT"
+        },
+        {
+          "name": "notes",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "id"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "bridge",
+      "to": "architect",
+      "child_col": "architect_id",
+      "parent_col": "id"
+    },
+    {
+      "from": "mill",
+      "to": "architect",
+      "child_col": "architect_id",
+      "parent_col": "id"
+    }
+  ],
+  "centrality": {
+    "architect": 1.0,
+    "bridge": 0.0,
+    "mill": 0.0
+  }
+}

@@ -1,0 +1,160 @@
+{
+  "db_name": "activity_1",
+  "collections": {
+    "Activity": {
+      "primary_key": [
+        "actid"
+      ],
+      "columns": [
+        {
+          "name": "actid",
+          "type": "INTEGER"
+        },
+        {
+          "name": "activity_name",
+          "type": "varchar(25)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 16
+    },
+    "Participates_in": {
+      "primary_key": [],
+      "columns": [
+        {
+          "name": "stuid",
+          "type": "INTEGER"
+        },
+        {
+          "name": "actid",
+          "type": "INTEGER"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Participates_in",
+          "to": "Activity",
+          "child_col": "actid",
+          "parent_col": "actid"
+        },
+        {
+          "from": "Participates_in",
+          "to": "Student",
+          "child_col": "stuid",
+          "parent_col": "StuID"
+        }
+      ],
+      "row_count": 70
+    },
+    "Faculty_Participates_in": {
+      "primary_key": [],
+      "columns": [
+        {
+          "name": "FacID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "actid",
+          "type": "INTEGER"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Faculty_Participates_in",
+          "to": "Activity",
+          "child_col": "actid",
+          "parent_col": "actid"
+        },
+        {
+          "from": "Faculty_Participates_in",
+          "to": "Faculty",
+          "child_col": "FacID",
+          "parent_col": "FacID"
+        }
+      ],
+      "row_count": 40
+    },
+    "Student": {
+      "primary_key": [
+        "StuID"
+      ],
+      "columns": [
+        {
+          "name": "StuID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "LName",
+          "type": "VARCHAR(12)"
+        },
+        {
+          "name": "Fname",
+          "type": "VARCHAR(12)"
+        },
+        {
+          "name": "Age",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Sex",
+          "type": "VARCHAR(1)"
+        },
+        {
+          "name": "Major",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Advisor",
+          "type": "INTEGER"
+        },
+        {
+          "name": "city_code",
+          "type": "VARCHAR(3)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 34
+    },
+    "Faculty": {
+      "primary_key": [
+        "FacID"
+      ],
+      "columns": [
+        {
+          "name": "FacID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Lname",
+          "type": "VARCHAR(15)"
+        },
+        {
+          "name": "Fname",
+          "type": "VARCHAR(15)"
+        },
+        {
+          "name": "Rank",
+          "type": "VARCHAR(15)"
+        },
+        {
+          "name": "Sex",
+          "type": "VARCHAR(1)"
+        },
+        {
+          "name": "Phone",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Room",
+          "type": "VARCHAR(5)"
+        },
+        {
+          "name": "Building",
+          "type": "VARCHAR(13)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 58
+    }
+  }
+}

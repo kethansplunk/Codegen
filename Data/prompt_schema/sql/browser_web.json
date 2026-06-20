@@ -1,0 +1,90 @@
+{
+  "Web_client_accelerator.id": {
+    "sample_values": [
+      1,
+      7,
+      13
+    ],
+    "inferred_type": "integer"
+  },
+  "Web_client_accelerator.name": {
+    "sample_values": [
+      "Ziproxy",
+      "Netfury",
+      "Nitro"
+    ],
+    "inferred_type": "string"
+  },
+  "Web_client_accelerator.Operating_system": {
+    "sample_values": [
+      "Any system with Java 1.6 VM available",
+      "Windows, Mac",
+      "Windows, except NT and 95"
+    ],
+    "inferred_type": "string"
+  },
+  "Web_client_accelerator.Client": {
+    "sample_values": [
+      "user/ISP",
+      "user",
+      "All"
+    ],
+    "inferred_type": "string"
+  },
+  "Web_client_accelerator.Connection": {
+    "sample_values": [
+      "Dial, DSL, ISDN, Satellite, wireless",
+      "up to 756kbit/s",
+      "Dialup, Wireless, Broadband, DSL"
+    ],
+    "inferred_type": "string"
+  },
+  "browser.id": {
+    "sample_values": [
+      1,
+      2,
+      3
+    ],
+    "inferred_type": "integer"
+  },
+  "browser.name": {
+    "sample_values": [
+      "Opera",
+      "Safari",
+      "Firefox"
+    ],
+    "inferred_type": "string"
+  },
+  "browser.market_share": {
+    "sample_values": [
+      28.96,
+      18.11,
+      8.54
+    ],
+    "inferred_type": "float"
+  },
+  "accelerator_compatible_browser.accelerator_id": {
+    "sample_values": [
+      1,
+      2,
+      3
+    ],
+    "inferred_type": "integer"
+  },
+  "accelerator_compatible_browser.browser_id": {
+    "sample_values": [
+      1,
+      2,
+      3
+    ],
+    "inferred_type": "integer"
+  },
+  "accelerator_compatible_browser.compatible_since_year": {
+    "sample_values": [
+      1995,
+      2000,
+      2007
+    ],
+    "inferred_type": "integer"
+  }
+}

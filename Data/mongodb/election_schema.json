@@ -1,0 +1,121 @@
+{
+  "db_name": "election",
+  "collections": {
+    "county": {
+      "primary_key": [
+        "County_Id"
+      ],
+      "columns": [
+        {
+          "name": "County_Id",
+          "type": "INT"
+        },
+        {
+          "name": "County_name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Population",
+          "type": "REAL"
+        },
+        {
+          "name": "Zip_code",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 5
+    },
+    "party": {
+      "primary_key": [
+        "Party_ID"
+      ],
+      "columns": [
+        {
+          "name": "Party_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Year",
+          "type": "REAL"
+        },
+        {
+          "name": "Party",
+          "type": "TEXT"
+        },
+        {
+          "name": "Governor",
+          "type": "TEXT"
+        },
+        {
+          "name": "Lieutenant_Governor",
+          "type": "TEXT"
+        },
+        {
+          "name": "Comptroller",
+          "type": "TEXT"
+        },
+        {
+          "name": "Attorney_General",
+          "type": "TEXT"
+        },
+        {
+          "name": "US_Senate",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 7
+    },
+    "election": {
+      "primary_key": [
+        "Election_ID"
+      ],
+      "columns": [
+        {
+          "name": "Election_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Counties_Represented",
+          "type": "TEXT"
+        },
+        {
+          "name": "District",
+          "type": "INT"
+        },
+        {
+          "name": "Delegate",
+          "type": "TEXT"
+        },
+        {
+          "name": "Party",
+          "type": "INT"
+        },
+        {
+          "name": "First_Elected",
+          "type": "REAL"
+        },
+        {
+          "name": "Committee",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "election",
+          "to": "county",
+          "child_col": "District",
+          "parent_col": "County_Id"
+        },
+        {
+          "from": "election",
+          "to": "party",
+          "child_col": "Party",
+          "parent_col": "Party_ID"
+        }
+      ],
+      "row_count": 8
+    }
+  }
+}

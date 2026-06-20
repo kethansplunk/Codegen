@@ -1,0 +1,185 @@
+{
+  "routes.rid": {
+    "sample_values": [
+      37,
+      43,
+      50
+    ],
+    "inferred_type": "integer"
+  },
+  "routes.dst_apid": {
+    "sample_values": [
+      2990,
+      6156,
+      2975
+    ],
+    "inferred_type": "integer"
+  },
+  "routes.dst_ap": {
+    "sample_values": [
+      "ODO",
+      "AER",
+      "ASF"
+    ],
+    "inferred_type": "string"
+  },
+  "routes.src_apid": {
+    "sample_values": [
+      2965,
+      2952,
+      4364
+    ],
+    "inferred_type": "integer"
+  },
+  "routes.src_ap": {
+    "sample_values": [
+      "MJZ",
+      "KZ",
+      "ED"
+    ],
+    "inferred_type": "string"
+  },
+  "routes.alid": {
+    "sample_values": [
+      410,
+      3652,
+      595
+    ],
+    "inferred_type": "integer"
+  },
+  "routes.airline": {
+    "sample_values": [
+      "3R",
+      "2P",
+      "2Z"
+    ],
+    "inferred_type": "string"
+  },
+  "airports.apid": {
+    "sample_values": [
+      1,
+      7,
+      13
+    ],
+    "inferred_type": "integer"
+  },
+  "airports.name": {
+    "sample_values": [
+      "Vestmannaeyjar Airport",
+      "Godthaab / Nuuk Airport",
+      "Kangerlussuaq Airport"
+    ],
+    "inferred_type": "string"
+  },
+  "airports.city": {
+    "sample_values": [
+      "Vestmannaeyjar",
+      "Godthaab",
+      "Sondrestrom"
+    ],
+    "inferred_type": "string"
+  },
+  "airports.country": {
+    "sample_values": [
+      "Jersey",
+      "Ghana",
+      "Cote d'Ivoire"
+    ],
+    "inferred_type": "string"
+  },
+  "airports.x": {
+    "sample_values": [
+      145.391998291,
+      -45.4259986877,
+      -15.2272
+    ],
+    "inferred_type": "float"
+  },
+  "airports.y": {
+    "sample_values": [
+      -6.081689834590001,
+      61.1604995728,
+      64.295601
+    ],
+    "inferred_type": "float"
+  },
+  "airports.elevation": {
+    "sample_values": [
+      5282,
+      112,
+      24
+    ],
+    "inferred_type": "integer"
+  },
+  "airports.iata": {
+    "sample_values": [
+      "VEY",
+      "GOH",
+      "SFJ"
+    ],
+    "inferred_type": "string"
+  },
+  "airports.icao": {
+    "sample_values": [
+      "BIVM",
+      "BGGH",
+      "BGSF"
+    ],
+    "inferred_type": "string"
+  },
+  "airlines.alid": {
+    "sample_values": [
+      -1,
+      6,
+      12
+    ],
+    "inferred_type": "integer"
+  },
+  "airlines.name": {
+    "sample_values": [
+      "Aero Biniza",
+      "224th Flight Unit",
+      "247 Jet Ltd"
+    ],
+    "inferred_type": "string"
+  },
+  "airlines.iata": {
+    "sample_values": [
+      "8V",
+      "ZI",
+      "AQ"
+    ],
+    "inferred_type": "string"
+  },
+  "airlines.icao": {
+    "sample_values": [
+      "ABM",
+      "TWF",
+      "SEC"
+    ],
+    "inferred_type": "string"
+  },
+  "airlines.callsign": {
+    "sample_values": [
+      "ALASKA ISLAND",
+      "MILE-AIR",
+      "QUARTET"
+    ],
+    "inferred_type": "string"
+  },
+  "airlines.country": {
+    "sample_values": [
+      "Ukraine",
+      "Australia",
+      "Singapore"
+    ],
+    "inferred_type": "string"
+  },
+  "airlines.active": {
+    "sample_values": [
+      "Y",
+      "N"
+    ],
+    "inferred_type": "string"
+  }
+}

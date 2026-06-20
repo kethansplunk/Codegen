@@ -1,0 +1,113 @@
+{
+  "db_name": "university_basketball",
+  "nodes": [
+    {
+      "name": "basketball_match",
+      "columns": [
+        {
+          "name": "Team_ID",
+          "type": "INT"
+        },
+        {
+          "name": "School_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Team_Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "ACC_Regular_Season",
+          "type": "TEXT"
+        },
+        {
+          "name": "ACC_Percent",
+          "type": "TEXT"
+        },
+        {
+          "name": "ACC_Home",
+          "type": "TEXT"
+        },
+        {
+          "name": "ACC_Road",
+          "type": "TEXT"
+        },
+        {
+          "name": "All_Games",
+          "type": "TEXT"
+        },
+        {
+          "name": "All_Games_Percent",
+          "type": "INT"
+        },
+        {
+          "name": "All_Home",
+          "type": "TEXT"
+        },
+        {
+          "name": "All_Road",
+          "type": "TEXT"
+        },
+        {
+          "name": "All_Neutral",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "Team_ID"
+      ]
+    },
+    {
+      "name": "university",
+      "columns": [
+        {
+          "name": "School_ID",
+          "type": "INT"
+        },
+        {
+          "name": "School",
+          "type": "TEXT"
+        },
+        {
+          "name": "Location",
+          "type": "TEXT"
+        },
+        {
+          "name": "Founded",
+          "type": "REAL"
+        },
+        {
+          "name": "Affiliation",
+          "type": "TEXT"
+        },
+        {
+          "name": "Enrollment",
+          "type": "REAL"
+        },
+        {
+          "name": "Nickname",
+          "type": "TEXT"
+        },
+        {
+          "name": "Primary_conference",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "School_ID"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "basketball_match",
+      "to": "university",
+      "child_col": "School_ID",
+      "parent_col": "School_ID"
+    }
+  ],
+  "centrality": {
+    "basketball_match": 0.0,
+    "university": 1.0
+  }
+}

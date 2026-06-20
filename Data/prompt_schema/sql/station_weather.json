@@ -1,0 +1,146 @@
+{
+  "train.id": {
+    "sample_values": [
+      1,
+      4,
+      7
+    ],
+    "inferred_type": "integer"
+  },
+  "train.train_number": {
+    "sample_values": [
+      16724,
+      16723,
+      56701
+    ],
+    "inferred_type": "integer"
+  },
+  "train.name": {
+    "sample_values": [
+      "Parasuram Express",
+      "Guruvayur Express",
+      "Jayanthi Janatha Express"
+    ],
+    "inferred_type": "string"
+  },
+  "train.origin": {
+    "sample_values": [
+      "Nagercoil",
+      "Guruvayur",
+      "Chennai"
+    ],
+    "inferred_type": "string"
+  },
+  "train.destination": {
+    "sample_values": [
+      "Mangalore",
+      "Trivandrum",
+      "Guruvayur"
+    ],
+    "inferred_type": "string"
+  },
+  "train.time": {
+    "sample_values": [
+      "04:20",
+      "06:30",
+      "22:10"
+    ],
+    "inferred_type": "string"
+  },
+  "station.id": {
+    "sample_values": [
+      1,
+      4,
+      7
+    ],
+    "inferred_type": "integer"
+  },
+  "station.network_name": {
+    "sample_values": [
+      "Croxley",
+      "Carpenders Park",
+      "Bushey"
+    ],
+    "inferred_type": "string"
+  },
+  "station.services": {
+    "sample_values": [
+      "Metropolitan line",
+      "London Overground and London Midland",
+      "London Overground"
+    ],
+    "inferred_type": "string"
+  },
+  "station.local_authority": {
+    "sample_values": [
+      "Thurrock",
+      "Watford",
+      "Broxbourne"
+    ],
+    "inferred_type": "string"
+  },
+  "route.train_id": {
+    "sample_values": [
+      1,
+      4,
+      7
+    ],
+    "inferred_type": "integer"
+  },
+  "route.station_id": {
+    "sample_values": [
+      1,
+      7,
+      5
+    ],
+    "inferred_type": "integer"
+  },
+  "weekly_weather.station_id": {
+    "sample_values": [
+      1,
+      2,
+      3
+    ],
+    "inferred_type": "integer"
+  },
+  "weekly_weather.day_of_week": {
+    "sample_values": [
+      "Wednesday",
+      "Monday",
+      "Saturday"
+    ],
+    "inferred_type": "string"
+  },
+  "weekly_weather.high_temperature": {
+    "sample_values": [
+      59,
+      55,
+      57
+    ],
+    "inferred_type": "integer"
+  },
+  "weekly_weather.low_temperature": {
+    "sample_values": [
+      54,
+      52,
+      56
+    ],
+    "inferred_type": "integer"
+  },
+  "weekly_weather.precipitation": {
+    "sample_values": [
+      90.0,
+      10.0,
+      50.0
+    ],
+    "inferred_type": "float"
+  },
+  "weekly_weather.wind_speed_mph": {
+    "sample_values": [
+      13,
+      20,
+      10
+    ],
+    "inferred_type": "integer"
+  }
+}

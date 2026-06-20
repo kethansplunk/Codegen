@@ -1,0 +1,93 @@
+{
+  "db_name": "twitter_1",
+  "nodes": [
+    {
+      "name": "follows",
+      "columns": [
+        {
+          "name": "f1",
+          "type": "int(11)"
+        },
+        {
+          "name": "f2",
+          "type": "int(11)"
+        }
+      ],
+      "pk": [
+        "f1",
+        "f2"
+      ]
+    },
+    {
+      "name": "tweets",
+      "columns": [
+        {
+          "name": "id",
+          "type": "bigint(20)"
+        },
+        {
+          "name": "uid",
+          "type": "int(11)"
+        },
+        {
+          "name": "text",
+          "type": "char(140)"
+        },
+        {
+          "name": "createdate",
+          "type": "datetime"
+        }
+      ],
+      "pk": [
+        "id"
+      ]
+    },
+    {
+      "name": "user_profiles",
+      "columns": [
+        {
+          "name": "uid",
+          "type": "int(11)"
+        },
+        {
+          "name": "name",
+          "type": "varchar(255)"
+        },
+        {
+          "name": "email",
+          "type": "varchar(255)"
+        },
+        {
+          "name": "partitionid",
+          "type": "int(11)"
+        },
+        {
+          "name": "followers",
+          "type": "int(11)"
+        }
+      ],
+      "pk": [
+        "uid"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "follows",
+      "to": "user_profiles",
+      "child_col": "f1",
+      "parent_col": "uid"
+    },
+    {
+      "from": "tweets",
+      "to": "user_profiles",
+      "child_col": "uid",
+      "parent_col": "uid"
+    }
+  ],
+  "centrality": {
+    "follows": 0.0,
+    "tweets": 0.0,
+    "user_profiles": 1.0
+  }
+}

@@ -1,0 +1,363 @@
+{
+  "section.time_slot_id": {
+    "sample_values": [
+      "L",
+      "P",
+      "J"
+    ],
+    "inferred_type": "string"
+  },
+  "section.course_id": {
+    "sample_values": [
+      "349",
+      "486",
+      "445"
+    ],
+    "inferred_type": "integer"
+  },
+  "section.semester": {
+    "sample_values": [
+      "Fall",
+      "Spring"
+    ],
+    "inferred_type": "string"
+  },
+  "section.room_number": {
+    "sample_values": [
+      "425",
+      "134",
+      "804"
+    ],
+    "inferred_type": "integer"
+  },
+  "section.year": {
+    "sample_values": [
+      "2005",
+      "2010",
+      "2009"
+    ],
+    "inferred_type": "integer"
+  },
+  "section.sec_id": {
+    "sample_values": [
+      "1",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "section.building": {
+    "sample_values": [
+      "Nassau",
+      "Lambeau",
+      "Main"
+    ],
+    "inferred_type": "string"
+  },
+  "prereq.course_id": {
+    "sample_values": [
+      "774",
+      "241",
+      "805"
+    ],
+    "inferred_type": "integer"
+  },
+  "prereq.prereq_id": {
+    "sample_values": [
+      "774",
+      "958",
+      "780"
+    ],
+    "inferred_type": "integer"
+  },
+  "teaches.course_id": {
+    "sample_values": [
+      "349",
+      "486",
+      "237"
+    ],
+    "inferred_type": "integer"
+  },
+  "teaches.semester": {
+    "sample_values": [
+      "Fall",
+      "Spring"
+    ],
+    "inferred_type": "string"
+  },
+  "teaches.year": {
+    "sample_values": [
+      "2007",
+      "2010",
+      "2009"
+    ],
+    "inferred_type": "integer"
+  },
+  "teaches.ID": {
+    "sample_values": [
+      "90376",
+      "3199",
+      "77346"
+    ],
+    "inferred_type": "integer"
+  },
+  "teaches.sec_id": {
+    "sample_values": [
+      "1",
+      "3",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "takes.course_id": {
+    "sample_values": [
+      "200",
+      "626",
+      "612"
+    ],
+    "inferred_type": "integer"
+  },
+  "takes.semester": {
+    "sample_values": [
+      "Fall",
+      "Spring"
+    ],
+    "inferred_type": "string"
+  },
+  "takes.year": {
+    "sample_values": [
+      "2007",
+      "2010",
+      "2009"
+    ],
+    "inferred_type": "integer"
+  },
+  "takes.ID": {
+    "sample_values": [
+      "65901",
+      "65715",
+      "97042"
+    ],
+    "inferred_type": "integer"
+  },
+  "takes.sec_id": {
+    "sample_values": [
+      "1",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "takes.grade": {
+    "sample_values": [
+      "A+",
+      "B ",
+      "C+"
+    ],
+    "inferred_type": "string"
+  },
+  "instructor.name": {
+    "sample_values": [
+      "Luo",
+      "Lembr",
+      "Tung"
+    ],
+    "inferred_type": "string"
+  },
+  "instructor.ID": {
+    "sample_values": [
+      "72553",
+      "35579",
+      "19368"
+    ],
+    "inferred_type": "integer"
+  },
+  "instructor.salary": {
+    "sample_values": [
+      "121141.99",
+      "77036.18",
+      "59303.62"
+    ],
+    "inferred_type": "float"
+  },
+  "instructor.dept_name": {
+    "sample_values": [
+      "Mech. Eng.",
+      "English",
+      "Marketing"
+    ],
+    "inferred_type": "string"
+  },
+  "time_slot.time_slot_id": {
+    "sample_values": [
+      "H",
+      "E",
+      "B"
+    ],
+    "inferred_type": "string"
+  },
+  "time_slot.start_hr": {
+    "sample_values": [
+      "10",
+      "16",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "time_slot.day": {
+    "sample_values": [
+      "M",
+      "W",
+      "R"
+    ],
+    "inferred_type": "string"
+  },
+  "time_slot.end_hr": {
+    "sample_values": [
+      "16",
+      "8",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "time_slot.start_min": {
+    "sample_values": [
+      "30",
+      "0"
+    ],
+    "inferred_type": "integer"
+  },
+  "time_slot.end_min": {
+    "sample_values": [
+      "30",
+      "50",
+      "45"
+    ],
+    "inferred_type": "integer"
+  },
+  "course.title": {
+    "sample_values": [
+      "Cost Accounting",
+      "Elastic Structures",
+      "Existentialism"
+    ],
+    "inferred_type": "string"
+  },
+  "course.course_id": {
+    "sample_values": [
+      "774",
+      "814",
+      "787"
+    ],
+    "inferred_type": "integer"
+  },
+  "course.dept_name": {
+    "sample_values": [
+      "Accounting",
+      "Math",
+      "Geology"
+    ],
+    "inferred_type": "string"
+  },
+  "course.credits": {
+    "sample_values": [
+      "3",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "advisor.s_ID": {
+    "sample_values": [
+      "108",
+      "19791",
+      "89000"
+    ],
+    "inferred_type": "integer"
+  },
+  "advisor.i_ID": {
+    "sample_values": [
+      "90376",
+      "50885",
+      "3335"
+    ],
+    "inferred_type": "integer"
+  },
+  "classroom.building": {
+    "sample_values": [
+      "Fairchild",
+      "Lambeau",
+      "Gates"
+    ],
+    "inferred_type": "string"
+  },
+  "classroom.capacity": {
+    "sample_values": [
+      "34",
+      "15",
+      "115"
+    ],
+    "inferred_type": "integer"
+  },
+  "classroom.room_number": {
+    "sample_values": [
+      "425",
+      "375",
+      "804"
+    ],
+    "inferred_type": "integer"
+  },
+  "department.budget": {
+    "sample_values": [
+      "276527.61",
+      "611042.66",
+      "866831.75"
+    ],
+    "inferred_type": "float"
+  },
+  "department.building": {
+    "sample_values": [
+      "Taylor",
+      "Thompson",
+      "Lamberton"
+    ],
+    "inferred_type": "string"
+  },
+  "department.dept_name": {
+    "sample_values": [
+      "Accounting",
+      "Math",
+      "Geology"
+    ],
+    "inferred_type": "string"
+  },
+  "student.name": {
+    "sample_values": [
+      "Samel",
+      "Lemoine",
+      "Zaniolo"
+    ],
+    "inferred_type": "string"
+  },
+  "student.ID": {
+    "sample_values": [
+      "108",
+      "19791",
+      "89000"
+    ],
+    "inferred_type": "integer"
+  },
+  "student.tot_cred": {
+    "sample_values": [
+      "108",
+      "15",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "student.dept_name": {
+    "sample_values": [
+      "Accounting",
+      "Math",
+      "Geology"
+    ],
+    "inferred_type": "string"
+  }
+}

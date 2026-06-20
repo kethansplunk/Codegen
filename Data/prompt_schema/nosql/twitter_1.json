@@ -1,0 +1,90 @@
+{
+  "tweets.uid": {
+    "sample_values": [
+      "5",
+      "1",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "tweets.id": {
+    "sample_values": [
+      "5",
+      "1",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "tweets.createdate": {
+    "sample_values": [
+      "2018-03-12 02:30:30",
+      "2018-03-09 20:00:14",
+      "2018-03-09 20:01:02"
+    ],
+    "inferred_type": "string"
+  },
+  "tweets.text": {
+    "sample_values": [
+      "Let\u2019s celebrate women, fight for equality and support each other,  not just today, but everyday!",
+      "I feel tired and don't want to write SQLs.",
+      "Hello I'm Tony Stark."
+    ],
+    "inferred_type": "string"
+  },
+  "follows.f1": {
+    "sample_values": [
+      "5",
+      "1",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "follows.f2": {
+    "sample_values": [
+      "5",
+      "2",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "user_profiles.name": {
+    "sample_values": [
+      "Black Widow\n",
+      "Natalie Portman",
+      "Iron Man"
+    ],
+    "inferred_type": "string"
+  },
+  "user_profiles.uid": {
+    "sample_values": [
+      "5",
+      "2",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "user_profiles.partitionid": {
+    "sample_values": [
+      "10",
+      "5",
+      "23"
+    ],
+    "inferred_type": "integer"
+  },
+  "user_profiles.email": {
+    "sample_values": [
+      "ts@richest.com",
+      "np@superstar.com",
+      "susan@gmail.com\n"
+    ],
+    "inferred_type": "string"
+  },
+  "user_profiles.followers": {
+    "sample_values": [
+      "99999998",
+      "100",
+      "6662425"
+    ],
+    "inferred_type": "integer"
+  }
+}

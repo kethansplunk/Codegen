@@ -1,0 +1,105 @@
+{
+  "db_name": "school_bus",
+  "nodes": [
+    {
+      "name": "driver",
+      "columns": [
+        {
+          "name": "Driver_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Party",
+          "type": "TEXT"
+        },
+        {
+          "name": "Home_city",
+          "type": "TEXT"
+        },
+        {
+          "name": "Age",
+          "type": "INT"
+        }
+      ],
+      "pk": [
+        "Driver_ID"
+      ]
+    },
+    {
+      "name": "school",
+      "columns": [
+        {
+          "name": "School_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Grade",
+          "type": "TEXT"
+        },
+        {
+          "name": "School",
+          "type": "TEXT"
+        },
+        {
+          "name": "Location",
+          "type": "TEXT"
+        },
+        {
+          "name": "Type",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "School_ID"
+      ]
+    },
+    {
+      "name": "school_bus",
+      "columns": [
+        {
+          "name": "School_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Driver_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Years_Working",
+          "type": "INT"
+        },
+        {
+          "name": "If_full_time",
+          "type": "bool"
+        }
+      ],
+      "pk": [
+        "School_ID",
+        "Driver_ID"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "school_bus",
+      "to": "driver",
+      "child_col": "Driver_ID",
+      "parent_col": "Driver_ID"
+    },
+    {
+      "from": "school_bus",
+      "to": "school",
+      "child_col": "School_ID",
+      "parent_col": "School_ID"
+    }
+  ],
+  "centrality": {
+    "driver": 0.5,
+    "school": 0.5,
+    "school_bus": 0.0
+  }
+}

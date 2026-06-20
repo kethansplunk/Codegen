@@ -1,0 +1,137 @@
+{
+  "buildings.id": {
+    "sample_values": [
+      1,
+      5,
+      9
+    ],
+    "inferred_type": "integer"
+  },
+  "buildings.name": {
+    "sample_values": [
+      "Ritz-Carlton Mexico City",
+      "Corporativo BBVA Bancomer",
+      "Torre Mitikah"
+    ],
+    "inferred_type": "string"
+  },
+  "buildings.City": {
+    "sample_values": [
+      "Monterrey",
+      "Mexico City"
+    ],
+    "inferred_type": "string"
+  },
+  "buildings.Height": {
+    "sample_values": [
+      220,
+      300,
+      150
+    ],
+    "inferred_type": "integer"
+  },
+  "buildings.Stories": {
+    "sample_values": [
+      67,
+      57,
+      6
+    ],
+    "inferred_type": "integer"
+  },
+  "buildings.Status": {
+    "sample_values": [
+      "under construction",
+      "proposed",
+      "on-hold"
+    ],
+    "inferred_type": "string"
+  },
+  "Companies.id": {
+    "sample_values": [
+      1,
+      7,
+      13
+    ],
+    "inferred_type": "integer"
+  },
+  "Companies.name": {
+    "sample_values": [
+      "Total",
+      "Berkshire Hathaway",
+      "Petrobras"
+    ],
+    "inferred_type": "string"
+  },
+  "Companies.Headquarters": {
+    "sample_values": [
+      "Russia",
+      "UK",
+      "Netherlands"
+    ],
+    "inferred_type": "string"
+  },
+  "Companies.Industry": {
+    "sample_values": [
+      "Retailing",
+      "Telecommunications",
+      "Oil and gas"
+    ],
+    "inferred_type": "string"
+  },
+  "Companies.Sales_billion": {
+    "sample_values": [
+      115.5,
+      69.2,
+      109.7
+    ],
+    "inferred_type": "float"
+  },
+  "Companies.Profits_billion": {
+    "sample_values": [
+      17.4,
+      18.8,
+      19.9
+    ],
+    "inferred_type": "float"
+  },
+  "Companies.Assets_billion": {
+    "sample_values": [
+      2117.6,
+      1723.5,
+      1570.6
+    ],
+    "inferred_type": "float"
+  },
+  "Companies.Market_Value_billion": {
+    "sample_values": [
+      "182.2",
+      "239.5",
+      "94.7"
+    ],
+    "inferred_type": "float"
+  },
+  "Office_locations.building_id": {
+    "sample_values": [
+      1,
+      4,
+      7
+    ],
+    "inferred_type": "integer"
+  },
+  "Office_locations.company_id": {
+    "sample_values": [
+      1,
+      4,
+      7
+    ],
+    "inferred_type": "integer"
+  },
+  "Office_locations.move_in_year": {
+    "sample_values": [
+      2021,
+      2025,
+      2029
+    ],
+    "inferred_type": "integer"
+  }
+}

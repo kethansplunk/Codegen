@@ -1,0 +1,88 @@
+{
+  "College.cName": {
+    "sample_values": [
+      "OU",
+      "LSU",
+      "FSU"
+    ],
+    "inferred_type": "string"
+  },
+  "College.state": {
+    "sample_values": [
+      "FL",
+      "OK",
+      "AZ"
+    ],
+    "inferred_type": "string"
+  },
+  "College.enr": {
+    "sample_values": [
+      18000,
+      12000,
+      22000
+    ],
+    "inferred_type": "integer"
+  },
+  "Player.pID": {
+    "sample_values": [
+      10001,
+      30003,
+      40004
+    ],
+    "inferred_type": "integer"
+  },
+  "Player.pName": {
+    "sample_values": [
+      "Eddie",
+      "Blake",
+      "David"
+    ],
+    "inferred_type": "string"
+  },
+  "Player.yCard": {
+    "sample_values": [
+      "no",
+      "yes"
+    ],
+    "inferred_type": "string"
+  },
+  "Player.HS": {
+    "sample_values": [
+      1200,
+      1600,
+      300
+    ],
+    "inferred_type": "integer"
+  },
+  "Tryout.pID": {
+    "sample_values": [
+      10001,
+      20002,
+      30003
+    ],
+    "inferred_type": "integer"
+  },
+  "Tryout.cName": {
+    "sample_values": [
+      "OU",
+      "FSU",
+      "LSU"
+    ],
+    "inferred_type": "string"
+  },
+  "Tryout.pPos": {
+    "sample_values": [
+      "goalie",
+      "striker",
+      "mid"
+    ],
+    "inferred_type": "string"
+  },
+  "Tryout.decision": {
+    "sample_values": [
+      "no",
+      "yes"
+    ],
+    "inferred_type": "string"
+  }
+}

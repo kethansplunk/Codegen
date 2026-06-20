@@ -1,0 +1,487 @@
+{
+  "db_name": "imdb",
+  "nodes": [
+    {
+      "name": "actor",
+      "columns": [
+        {
+          "name": "aid",
+          "type": "INT"
+        },
+        {
+          "name": "gender",
+          "type": "TEXT"
+        },
+        {
+          "name": "name",
+          "type": "TEXT"
+        },
+        {
+          "name": "nationality",
+          "type": "TEXT"
+        },
+        {
+          "name": "birth_city",
+          "type": "TEXT"
+        },
+        {
+          "name": "birth_year",
+          "type": "INT"
+        }
+      ],
+      "pk": [
+        "aid"
+      ]
+    },
+    {
+      "name": "copyright",
+      "columns": [
+        {
+          "name": "id",
+          "type": "INT"
+        },
+        {
+          "name": "msid",
+          "type": "INT"
+        },
+        {
+          "name": "cid",
+          "type": "INT"
+        }
+      ],
+      "pk": [
+        "id"
+      ]
+    },
+    {
+      "name": "cast",
+      "columns": [
+        {
+          "name": "id",
+          "type": "INT"
+        },
+        {
+          "name": "msid",
+          "type": "INT"
+        },
+        {
+          "name": "aid",
+          "type": "INT"
+        },
+        {
+          "name": "role",
+          "type": "INT"
+        }
+      ],
+      "pk": [
+        "id"
+      ]
+    },
+    {
+      "name": "genre",
+      "columns": [
+        {
+          "name": "gid",
+          "type": "INT"
+        },
+        {
+          "name": "genre",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "gid"
+      ]
+    },
+    {
+      "name": "classification",
+      "columns": [
+        {
+          "name": "id",
+          "type": "INT"
+        },
+        {
+          "name": "msid",
+          "type": "INT"
+        },
+        {
+          "name": "gid",
+          "type": "INT"
+        }
+      ],
+      "pk": [
+        "id"
+      ]
+    },
+    {
+      "name": "company",
+      "columns": [
+        {
+          "name": "id",
+          "type": "INT"
+        },
+        {
+          "name": "name",
+          "type": "TEXT"
+        },
+        {
+          "name": "country_code",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "id"
+      ]
+    },
+    {
+      "name": "director",
+      "columns": [
+        {
+          "name": "did",
+          "type": "INT"
+        },
+        {
+          "name": "gender",
+          "type": "TEXT"
+        },
+        {
+          "name": "name",
+          "type": "TEXT"
+        },
+        {
+          "name": "nationality",
+          "type": "TEXT"
+        },
+        {
+          "name": "birth_city",
+          "type": "TEXT"
+        },
+        {
+          "name": "birth_year",
+          "type": "INT"
+        }
+      ],
+      "pk": [
+        "did"
+      ]
+    },
+    {
+      "name": "producer",
+      "columns": [
+        {
+          "name": "pid",
+          "type": "INT"
+        },
+        {
+          "name": "gender",
+          "type": "TEXT"
+        },
+        {
+          "name": "name",
+          "type": "TEXT"
+        },
+        {
+          "name": "nationality",
+          "type": "TEXT"
+        },
+        {
+          "name": "birth_city",
+          "type": "TEXT"
+        },
+        {
+          "name": "birth_year",
+          "type": "INT"
+        }
+      ],
+      "pk": [
+        "pid"
+      ]
+    },
+    {
+      "name": "directed_by",
+      "columns": [
+        {
+          "name": "id",
+          "type": "INT"
+        },
+        {
+          "name": "msid",
+          "type": "INT"
+        },
+        {
+          "name": "did",
+          "type": "INT"
+        }
+      ],
+      "pk": [
+        "id"
+      ]
+    },
+    {
+      "name": "keyword",
+      "columns": [
+        {
+          "name": "id",
+          "type": "INT"
+        },
+        {
+          "name": "keyword",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "id"
+      ]
+    },
+    {
+      "name": "made_by",
+      "columns": [
+        {
+          "name": "id",
+          "type": "INT"
+        },
+        {
+          "name": "msid",
+          "type": "INT"
+        },
+        {
+          "name": "pid",
+          "type": "INT"
+        }
+      ],
+      "pk": [
+        "id"
+      ]
+    },
+    {
+      "name": "movie",
+      "columns": [
+        {
+          "name": "mid",
+          "type": "INT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "release_year",
+          "type": "INT"
+        },
+        {
+          "name": "title_aka",
+          "type": "TEXT"
+        },
+        {
+          "name": "budget",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "mid"
+      ]
+    },
+    {
+      "name": "tags",
+      "columns": [
+        {
+          "name": "id",
+          "type": "INT"
+        },
+        {
+          "name": "msid",
+          "type": "INT"
+        },
+        {
+          "name": "kid",
+          "type": "INT"
+        }
+      ],
+      "pk": [
+        "id"
+      ]
+    },
+    {
+      "name": "tv_series",
+      "columns": [
+        {
+          "name": "sid",
+          "type": "INT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "release_year",
+          "type": "INT"
+        },
+        {
+          "name": "num_of_seasons",
+          "type": "INT"
+        },
+        {
+          "name": "num_of_episodes",
+          "type": "INT"
+        },
+        {
+          "name": "title_aka",
+          "type": "TEXT"
+        },
+        {
+          "name": "budget",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "sid"
+      ]
+    },
+    {
+      "name": "writer",
+      "columns": [
+        {
+          "name": "wid",
+          "type": "INT"
+        },
+        {
+          "name": "gender",
+          "type": "TEXT"
+        },
+        {
+          "name": "name",
+          "type": "INT"
+        },
+        {
+          "name": "nationality",
+          "type": "INT"
+        },
+        {
+          "name": "num_of_episodes",
+          "type": "INT"
+        },
+        {
+          "name": "birth_city",
+          "type": "TEXT"
+        },
+        {
+          "name": "birth_year",
+          "type": "INT"
+        }
+      ],
+      "pk": [
+        "wid"
+      ]
+    },
+    {
+      "name": "written_by",
+      "columns": [
+        {
+          "name": "id",
+          "type": "INT"
+        },
+        {
+          "name": "msid",
+          "type": "INT"
+        },
+        {
+          "name": "wid",
+          "type": "INT"
+        }
+      ],
+      "pk": []
+    }
+  ],
+  "edges": [
+    {
+      "from": "cast",
+      "to": "copyright",
+      "child_col": "msid",
+      "parent_col": "msid"
+    },
+    {
+      "from": "cast",
+      "to": "actor",
+      "child_col": "aid",
+      "parent_col": "aid"
+    },
+    {
+      "from": "classification",
+      "to": "copyright",
+      "child_col": "msid",
+      "parent_col": "msid"
+    },
+    {
+      "from": "classification",
+      "to": "genre",
+      "child_col": "gid",
+      "parent_col": "gid"
+    },
+    {
+      "from": "directed_by",
+      "to": "director",
+      "child_col": "did",
+      "parent_col": "did"
+    },
+    {
+      "from": "directed_by",
+      "to": "copyright",
+      "child_col": "msid",
+      "parent_col": "msid"
+    },
+    {
+      "from": "made_by",
+      "to": "producer",
+      "child_col": "pid",
+      "parent_col": "pid"
+    },
+    {
+      "from": "made_by",
+      "to": "copyright",
+      "child_col": "msid",
+      "parent_col": "msid"
+    },
+    {
+      "from": "tags",
+      "to": "keyword",
+      "child_col": "kid",
+      "parent_col": "kid"
+    },
+    {
+      "from": "tags",
+      "to": "copyright",
+      "child_col": "msid",
+      "parent_col": "msid"
+    },
+    {
+      "from": "written_by",
+      "to": "writer",
+      "child_col": "wid",
+      "parent_col": "wid"
+    },
+    {
+      "from": "written_by",
+      "to": "copyright",
+      "child_col": "msid",
+      "parent_col": "msid"
+    }
+  ],
+  "centrality": {
+    "actor": 0.06666666666666667,
+    "copyright": 0.4,
+    "cast": 0.0,
+    "genre": 0.06666666666666667,
+    "classification": 0.0,
+    "company": 0.0,
+    "director": 0.06666666666666667,
+    "producer": 0.06666666666666667,
+    "directed_by": 0.0,
+    "keyword": 0.06666666666666667,
+    "made_by": 0.0,
+    "movie": 0.0,
+    "tags": 0.0,
+    "tv_series": 0.0,
+    "writer": 0.06666666666666667,
+    "written_by": 0.0
+  }
+}

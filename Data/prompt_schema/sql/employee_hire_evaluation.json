@@ -1,0 +1,137 @@
+{
+  "employee.Employee_ID": {
+    "sample_values": [
+      1,
+      4,
+      7
+    ],
+    "inferred_type": "integer"
+  },
+  "employee.Name": {
+    "sample_values": [
+      "Louis Deacon",
+      "Mark Regan",
+      "Lee Mears"
+    ],
+    "inferred_type": "string"
+  },
+  "employee.Age": {
+    "sample_values": [
+      23,
+      43,
+      28
+    ],
+    "inferred_type": "integer"
+  },
+  "employee.City": {
+    "sample_values": [
+      "Leicester",
+      "Sale",
+      "Wasps"
+    ],
+    "inferred_type": "string"
+  },
+  "shop.Shop_ID": {
+    "sample_values": [
+      1,
+      4,
+      7
+    ],
+    "inferred_type": "integer"
+  },
+  "shop.Name": {
+    "sample_values": [
+      "IFK Mariehamn",
+      "FC Honka",
+      "HJK"
+    ],
+    "inferred_type": "string"
+  },
+  "shop.Location": {
+    "sample_values": [
+      "Mariehamn",
+      "Espoo",
+      "Helsinki"
+    ],
+    "inferred_type": "string"
+  },
+  "shop.District": {
+    "sample_values": [
+      "Wikl\u00f6f Holding Arena",
+      "Tapiolan Urheilupuisto",
+      "Finnair Stadium"
+    ],
+    "inferred_type": "string"
+  },
+  "shop.Number_products": {
+    "sample_values": [
+      3516,
+      10000,
+      3500
+    ],
+    "inferred_type": "integer"
+  },
+  "shop.Manager_name": {
+    "sample_values": [
+      "Pekka Lyyski",
+      "Mika Lehkosuo",
+      "Antti Muurinen"
+    ],
+    "inferred_type": "string"
+  },
+  "hiring.Shop_ID": {
+    "sample_values": [
+      1,
+      4,
+      2
+    ],
+    "inferred_type": "integer"
+  },
+  "hiring.Employee_ID": {
+    "sample_values": [
+      1,
+      3,
+      5
+    ],
+    "inferred_type": "integer"
+  },
+  "hiring.Start_from": {
+    "sample_values": [
+      "2009",
+      "2011",
+      "2013"
+    ],
+    "inferred_type": "integer"
+  },
+  "hiring.Is_full_time": {
+    "sample_values": [
+      "T",
+      "F"
+    ],
+    "inferred_type": "string"
+  },
+  "evaluation.Employee_ID": {
+    "sample_values": [
+      "1",
+      "10",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "evaluation.Year_awarded": {
+    "sample_values": [
+      "2011",
+      "2016",
+      "2015"
+    ],
+    "inferred_type": "integer"
+  },
+  "evaluation.Bonus": {
+    "sample_values": [
+      3000.0,
+      3200.0,
+      2900.0
+    ],
+    "inferred_type": "float"
+  }
+}

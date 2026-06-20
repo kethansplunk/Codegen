@@ -1,0 +1,129 @@
+{
+  "artist.Artist_ID": {
+    "sample_values": [
+      1,
+      3,
+      5
+    ],
+    "inferred_type": "integer"
+  },
+  "artist.Artist": {
+    "sample_values": [
+      "Triumfall",
+      "Tangorodrim",
+      "Black Flame"
+    ],
+    "inferred_type": "string"
+  },
+  "artist.Age": {
+    "sample_values": [
+      34,
+      22,
+      27
+    ],
+    "inferred_type": "integer"
+  },
+  "artist.Famous_Title": {
+    "sample_values": [
+      "Antithesis of All Flesh",
+      "Transmutation",
+      "Antievangelistical Process (re-release)"
+    ],
+    "inferred_type": "string"
+  },
+  "artist.Famous_Release_date": {
+    "sample_values": [
+      "June 15, 2009",
+      "June 23, 2008",
+      "2009"
+    ],
+    "inferred_type": "string"
+  },
+  "volume.Volume_ID": {
+    "sample_values": [
+      1,
+      4,
+      7
+    ],
+    "inferred_type": "integer"
+  },
+  "volume.Volume_Issue": {
+    "sample_values": [
+      "46:16",
+      "45:16",
+      "45:15"
+    ],
+    "inferred_type": "string"
+  },
+  "volume.Issue_Date": {
+    "sample_values": [
+      "25 July",
+      "24 January",
+      "17 January"
+    ],
+    "inferred_type": "string"
+  },
+  "volume.Weeks_on_Top": {
+    "sample_values": [
+      3.0,
+      1.0,
+      2.0
+    ],
+    "inferred_type": "float"
+  },
+  "volume.Song": {
+    "sample_values": [
+      "Head to Toe ",
+      " Walk Like an Egyptian ",
+      " Everybody Have Fun Tonight "
+    ],
+    "inferred_type": "string"
+  },
+  "volume.Artist_ID": {
+    "sample_values": [
+      1,
+      2,
+      4
+    ],
+    "inferred_type": "integer"
+  },
+  "music_festival.ID": {
+    "sample_values": [
+      1,
+      4,
+      7
+    ],
+    "inferred_type": "integer"
+  },
+  "music_festival.Music_Festival": {
+    "sample_values": [
+      "35th China Academy Prize",
+      "34th European Academy Prize",
+      "34th Japan Academy Prize"
+    ],
+    "inferred_type": "string"
+  },
+  "music_festival.Category": {
+    "sample_values": [
+      "Best Song",
+      "Best Lyrics",
+      "Best Sound Song"
+    ],
+    "inferred_type": "string"
+  },
+  "music_festival.Volume": {
+    "sample_values": [
+      1,
+      4,
+      7
+    ],
+    "inferred_type": "integer"
+  },
+  "music_festival.Result": {
+    "sample_values": [
+      "Nominated",
+      "Awarded"
+    ],
+    "inferred_type": "string"
+  }
+}

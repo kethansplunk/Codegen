@@ -1,0 +1,90 @@
+{
+  "db_name": "workshop_paper",
+  "collections": {
+    "workshop": {
+      "primary_key": [
+        "Workshop_ID"
+      ],
+      "columns": [
+        {
+          "name": "Workshop_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Date",
+          "type": "TEXT"
+        },
+        {
+          "name": "Venue",
+          "type": "TEXT"
+        },
+        {
+          "name": "Name",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 6
+    },
+    "submission": {
+      "primary_key": [
+        "Submission_ID"
+      ],
+      "columns": [
+        {
+          "name": "Submission_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Scores",
+          "type": "REAL"
+        },
+        {
+          "name": "Author",
+          "type": "TEXT"
+        },
+        {
+          "name": "College",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 10
+    },
+    "Acceptance": {
+      "primary_key": [
+        "Submission_ID",
+        "Workshop_ID"
+      ],
+      "columns": [
+        {
+          "name": "Submission_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Workshop_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Result",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Acceptance",
+          "to": "workshop",
+          "child_col": "Workshop_ID",
+          "parent_col": "Workshop_ID"
+        },
+        {
+          "from": "Acceptance",
+          "to": "submission",
+          "child_col": "Submission_ID",
+          "parent_col": "Submission_ID"
+        }
+      ],
+      "row_count": 6
+    }
+  }
+}

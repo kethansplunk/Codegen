@@ -1,0 +1,152 @@
+{
+  "db_name": "railway",
+  "nodes": [
+    {
+      "name": "railway",
+      "columns": [
+        {
+          "name": "Railway_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Railway",
+          "type": "TEXT"
+        },
+        {
+          "name": "Builder",
+          "type": "TEXT"
+        },
+        {
+          "name": "Built",
+          "type": "TEXT"
+        },
+        {
+          "name": "Wheels",
+          "type": "TEXT"
+        },
+        {
+          "name": "Location",
+          "type": "TEXT"
+        },
+        {
+          "name": "ObjectNumber",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "Railway_ID"
+      ]
+    },
+    {
+      "name": "train",
+      "columns": [
+        {
+          "name": "Train_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Train_Num",
+          "type": "TEXT"
+        },
+        {
+          "name": "Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "From",
+          "type": "TEXT"
+        },
+        {
+          "name": "Arrival",
+          "type": "TEXT"
+        },
+        {
+          "name": "Railway_ID",
+          "type": "INT"
+        }
+      ],
+      "pk": [
+        "Train_ID"
+      ]
+    },
+    {
+      "name": "manager",
+      "columns": [
+        {
+          "name": "Manager_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Country",
+          "type": "TEXT"
+        },
+        {
+          "name": "Working_year_starts",
+          "type": "TEXT"
+        },
+        {
+          "name": "Age",
+          "type": "INT"
+        },
+        {
+          "name": "Level",
+          "type": "INT"
+        }
+      ],
+      "pk": [
+        "Manager_ID"
+      ]
+    },
+    {
+      "name": "railway_manage",
+      "columns": [
+        {
+          "name": "Railway_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Manager_ID",
+          "type": "INT"
+        },
+        {
+          "name": "From_Year",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "Railway_ID",
+        "Manager_ID"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "train",
+      "to": "railway",
+      "child_col": "Railway_ID",
+      "parent_col": "Railway_ID"
+    },
+    {
+      "from": "railway_manage",
+      "to": "railway",
+      "child_col": "Railway_ID",
+      "parent_col": "Railway_ID"
+    },
+    {
+      "from": "railway_manage",
+      "to": "manager",
+      "child_col": "Manager_ID",
+      "parent_col": "Manager_ID"
+    }
+  ],
+  "centrality": {
+    "railway": 0.6666666666666666,
+    "train": 0.0,
+    "manager": 0.3333333333333333,
+    "railway_manage": 0.0
+  }
+}

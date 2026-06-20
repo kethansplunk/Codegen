@@ -1,0 +1,81 @@
+{
+  "flights.SourceAirport": {
+    "sample_values": [
+      " AST",
+      " ALI",
+      " ABQ"
+    ],
+    "inferred_type": "string"
+  },
+  "flights.FlightNo": {
+    "sample_values": [
+      "108",
+      "226",
+      "658"
+    ],
+    "inferred_type": "integer"
+  },
+  "flights.DestAirport": {
+    "sample_values": [
+      " AST",
+      " ALI",
+      " ABQ"
+    ],
+    "inferred_type": "string"
+  },
+  "airports.AirportName": {
+    "sample_values": [
+      "Municipal ",
+      "Rick Husband Amarillo International ",
+      "International "
+    ],
+    "inferred_type": "string"
+  },
+  "airports.AirportCode": {
+    "sample_values": [
+      "ABQ",
+      "AIA",
+      "AKK"
+    ],
+    "inferred_type": "string"
+  },
+  "airports.City": {
+    "sample_values": [
+      " Alexander City AL  ",
+      "Alameda ",
+      "Albert Lea "
+    ],
+    "inferred_type": "string"
+  },
+  "airports.CountryAbbrev": {
+    "sample_values": [
+      "US ",
+      "US"
+    ],
+    "inferred_type": "string"
+  },
+  "airlines.uid": {
+    "sample_values": [
+      "5",
+      "12",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "airlines.Abbreviation": {
+    "sample_values": [
+      "Northwest",
+      "Virgin",
+      "Frontier"
+    ],
+    "inferred_type": "string"
+  },
+  "airlines.Airline": {
+    "sample_values": [
+      "Allegiant Air",
+      "Virgin America",
+      "Continental Airlines"
+    ],
+    "inferred_type": "string"
+  }
+}

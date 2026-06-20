@@ -1,0 +1,216 @@
+{
+  "db_name": "wta_1",
+  "nodes": [
+    {
+      "name": "players",
+      "columns": [
+        {
+          "name": "player_id",
+          "type": "INT"
+        },
+        {
+          "name": "first_name",
+          "type": "TEXT"
+        },
+        {
+          "name": "last_name",
+          "type": "TEXT"
+        },
+        {
+          "name": "hand",
+          "type": "TEXT"
+        },
+        {
+          "name": "birth_date",
+          "type": "DATE"
+        },
+        {
+          "name": "country_code",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "player_id"
+      ]
+    },
+    {
+      "name": "matches",
+      "columns": [
+        {
+          "name": "best_of",
+          "type": "INT"
+        },
+        {
+          "name": "draw_size",
+          "type": "INT"
+        },
+        {
+          "name": "loser_age",
+          "type": "FLOAT"
+        },
+        {
+          "name": "loser_entry",
+          "type": "TEXT"
+        },
+        {
+          "name": "loser_hand",
+          "type": "TEXT"
+        },
+        {
+          "name": "loser_ht",
+          "type": "INT"
+        },
+        {
+          "name": "loser_id",
+          "type": "INT"
+        },
+        {
+          "name": "loser_ioc",
+          "type": "TEXT"
+        },
+        {
+          "name": "loser_name",
+          "type": "TEXT"
+        },
+        {
+          "name": "loser_rank",
+          "type": "INT"
+        },
+        {
+          "name": "loser_rank_points",
+          "type": "INT"
+        },
+        {
+          "name": "loser_seed",
+          "type": "INT"
+        },
+        {
+          "name": "match_num",
+          "type": "INT"
+        },
+        {
+          "name": "minutes",
+          "type": "INT"
+        },
+        {
+          "name": "round",
+          "type": "TEXT"
+        },
+        {
+          "name": "score",
+          "type": "TEXT"
+        },
+        {
+          "name": "surface",
+          "type": "TEXT"
+        },
+        {
+          "name": "tourney_date",
+          "type": "DATE"
+        },
+        {
+          "name": "tourney_id",
+          "type": "TEXT"
+        },
+        {
+          "name": "tourney_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "tourney_name",
+          "type": "TEXT"
+        },
+        {
+          "name": "winner_age",
+          "type": "FLOAT"
+        },
+        {
+          "name": "winner_entry",
+          "type": "TEXT"
+        },
+        {
+          "name": "winner_hand",
+          "type": "TEXT"
+        },
+        {
+          "name": "winner_ht",
+          "type": "INT"
+        },
+        {
+          "name": "winner_id",
+          "type": "INT"
+        },
+        {
+          "name": "winner_ioc",
+          "type": "TEXT"
+        },
+        {
+          "name": "winner_name",
+          "type": "TEXT"
+        },
+        {
+          "name": "winner_rank",
+          "type": "INT"
+        },
+        {
+          "name": "winner_rank_points",
+          "type": "INT"
+        },
+        {
+          "name": "winner_seed",
+          "type": "INT"
+        },
+        {
+          "name": "year",
+          "type": "INT"
+        }
+      ],
+      "pk": []
+    },
+    {
+      "name": "rankings",
+      "columns": [
+        {
+          "name": "ranking_date",
+          "type": "DATE"
+        },
+        {
+          "name": "ranking",
+          "type": "INT"
+        },
+        {
+          "name": "player_id",
+          "type": "INT"
+        },
+        {
+          "name": "ranking_points",
+          "type": "INT"
+        },
+        {
+          "name": "tours",
+          "type": "INT"
+        }
+      ],
+      "pk": []
+    }
+  ],
+  "edges": [
+    {
+      "from": "matches",
+      "to": "players",
+      "child_col": "loser_id",
+      "parent_col": "player_id"
+    },
+    {
+      "from": "rankings",
+      "to": "players",
+      "child_col": "player_id",
+      "parent_col": "player_id"
+    }
+  ],
+  "centrality": {
+    "players": 1.0,
+    "matches": 0.0,
+    "rankings": 0.0
+  }
+}

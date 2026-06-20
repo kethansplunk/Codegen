@@ -1,0 +1,326 @@
+{
+  "Theme_Parks.Theme_Park_Details": {
+    "sample_values": [
+      "Sea World",
+      "Universal Studios",
+      "Disney"
+    ],
+    "inferred_type": "string"
+  },
+  "Theme_Parks.Theme_Park_ID": {
+    "sample_values": [
+      "6476",
+      "6523",
+      "5265"
+    ],
+    "inferred_type": "integer"
+  },
+  "Visits.Tourist_ID": {
+    "sample_values": [
+      "513",
+      "610",
+      "545"
+    ],
+    "inferred_type": "integer"
+  },
+  "Visits.Tourist_Attraction_ID": {
+    "sample_values": [
+      "9919",
+      "5076",
+      "8429"
+    ],
+    "inferred_type": "integer"
+  },
+  "Visits.Visit_Date": {
+    "sample_values": [
+      "2018-01-09 20:39:52",
+      "2001-11-13 10:08:28",
+      "2013-10-27 09:56:08"
+    ],
+    "inferred_type": "string"
+  },
+  "Visits.Visit_ID": {
+    "sample_values": [
+      "909",
+      "999",
+      "866"
+    ],
+    "inferred_type": "integer"
+  },
+  "Ref_Hotel_Star_Ratings.star_rating_code": {
+    "sample_values": [
+      "5",
+      "1",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "Photos.Tourist_Attraction_ID": {
+    "sample_values": [
+      "9919",
+      "8429",
+      "6523"
+    ],
+    "inferred_type": "integer"
+  },
+  "Photos.Name": {
+    "sample_values": [
+      "fun1",
+      "game3",
+      "park3"
+    ],
+    "inferred_type": "string"
+  },
+  "Photos.Filename": {
+    "sample_values": [
+      "392",
+      "148",
+      "695"
+    ],
+    "inferred_type": "integer"
+  },
+  "Photos.Photo_ID": {
+    "sample_values": [
+      "332",
+      "211",
+      "571"
+    ],
+    "inferred_type": "integer"
+  },
+  "Shops.Shop_ID": {
+    "sample_values": [
+      "8429",
+      "8449",
+      "9360"
+    ],
+    "inferred_type": "integer"
+  },
+  "Shops.Shop_Details": {
+    "sample_values": [
+      "soup",
+      "Flower",
+      "coffee"
+    ],
+    "inferred_type": "string"
+  },
+  "Locations.Location_ID": {
+    "sample_values": [
+      "661",
+      "417",
+      "655"
+    ],
+    "inferred_type": "integer"
+  },
+  "Locations.Location_Name": {
+    "sample_values": [
+      "Shark World",
+      "The Barnstormer",
+      "African Animals"
+    ],
+    "inferred_type": "string"
+  },
+  "Locations.Address": {
+    "sample_values": [
+      "4510 Schuster Stream Apt. 613",
+      "101 Paucek Crescent",
+      "4411 Sabrina Radial Suite 582"
+    ],
+    "inferred_type": "string"
+  },
+  "Staff.Staff_ID": {
+    "sample_values": [
+      "604",
+      "219",
+      "310"
+    ],
+    "inferred_type": "integer"
+  },
+  "Staff.Tourist_Attraction_ID": {
+    "sample_values": [
+      "6476",
+      "6653",
+      "6523"
+    ],
+    "inferred_type": "integer"
+  },
+  "Staff.Name": {
+    "sample_values": [
+      "Astrid",
+      "Whitney",
+      "Ruthie"
+    ],
+    "inferred_type": "string"
+  },
+  "Ref_Attraction_Types.Attraction_Type_Code": {
+    "sample_values": [
+      "5",
+      "9",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "Ref_Attraction_Types.Attraction_Type_Description": {
+    "sample_values": [
+      "park",
+      "museum",
+      "gallery"
+    ],
+    "inferred_type": "string"
+  },
+  "Hotels.price_range": {
+    "sample_values": [
+      "17012.682586009",
+      "766712918.96763",
+      "38014975.47848"
+    ],
+    "inferred_type": "string"
+  },
+  "Hotels.pets_allowed_yn": {
+    "sample_values": [
+      "",
+      "1"
+    ],
+    "inferred_type": "string"
+  },
+  "Hotels.hotel_id": {
+    "sample_values": [
+      "331",
+      "420",
+      "426"
+    ],
+    "inferred_type": "integer"
+  },
+  "Hotels.star_rating_code": {
+    "sample_values": [
+      "5",
+      "1",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "Visitors.Tourist_ID": {
+    "sample_values": [
+      "513",
+      "204",
+      "578"
+    ],
+    "inferred_type": "integer"
+  },
+  "Visitors.Tourist_Details": {
+    "sample_values": [
+      "Nettie",
+      "Graciela",
+      "Vincent"
+    ],
+    "inferred_type": "string"
+  },
+  "Royal_Family.Royal_Family_ID": {
+    "sample_values": [
+      "9919",
+      "9561"
+    ],
+    "inferred_type": "integer"
+  },
+  "Museums.Museum_Details": {
+    "sample_values": [
+      "The Metropolitan Museum of Art",
+      "MoMA",
+      "Yale Center for British Art"
+    ],
+    "inferred_type": "string"
+  },
+  "Museums.Museum_ID": {
+    "sample_values": [
+      "2701",
+      "2113",
+      "5076"
+    ],
+    "inferred_type": "integer"
+  },
+  "Tourist_Attraction_Features.Tourist_Attraction_ID": {
+    "sample_values": [
+      "9919",
+      "7067",
+      "8429"
+    ],
+    "inferred_type": "integer"
+  },
+  "Tourist_Attraction_Features.Feature_ID": {
+    "sample_values": [
+      "523",
+      "955",
+      "681"
+    ],
+    "inferred_type": "integer"
+  },
+  "Street_Markets.Market_ID": {
+    "sample_values": [
+      "6852",
+      "7067"
+    ],
+    "inferred_type": "integer"
+  },
+  "Street_Markets.Market_Details": {
+    "sample_values": [
+      "Broadway",
+      "Fish Farm Market"
+    ],
+    "inferred_type": "string"
+  },
+  "Tourist_Attractions.Attraction_Type_Code": {
+    "sample_values": [
+      "5",
+      "9",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "Tourist_Attractions.Tourist_Attraction_ID": {
+    "sample_values": [
+      "9919",
+      "5076",
+      "6523"
+    ],
+    "inferred_type": "integer"
+  },
+  "Tourist_Attractions.Name": {
+    "sample_values": [
+      "haunted mansion",
+      "US museum",
+      "flying elephant"
+    ],
+    "inferred_type": "string"
+  },
+  "Tourist_Attractions.How_to_Get_There": {
+    "sample_values": [
+      "shuttle",
+      "walk",
+      "bus"
+    ],
+    "inferred_type": "string"
+  },
+  "Tourist_Attractions.Location_ID": {
+    "sample_values": [
+      "661",
+      "417",
+      "655"
+    ],
+    "inferred_type": "integer"
+  },
+  "Features.Feature_Details": {
+    "sample_values": [
+      "park",
+      "shopping",
+      "parking"
+    ],
+    "inferred_type": "string"
+  },
+  "Features.Feature_ID": {
+    "sample_values": [
+      "523",
+      "955",
+      "681"
+    ],
+    "inferred_type": "integer"
+  }
+}

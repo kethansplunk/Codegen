@@ -1,0 +1,98 @@
+{
+  "db_name": "department_management",
+  "collections": {
+    "department": {
+      "primary_key": [
+        "Department_ID"
+      ],
+      "columns": [
+        {
+          "name": "Department_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Creation",
+          "type": "TEXT"
+        },
+        {
+          "name": "Ranking",
+          "type": "INT"
+        },
+        {
+          "name": "Budget_in_Billions",
+          "type": "REAL"
+        },
+        {
+          "name": "Num_Employees",
+          "type": "REAL"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 15
+    },
+    "head": {
+      "primary_key": [
+        "head_ID"
+      ],
+      "columns": [
+        {
+          "name": "head_ID",
+          "type": "INT"
+        },
+        {
+          "name": "name",
+          "type": "TEXT"
+        },
+        {
+          "name": "born_state",
+          "type": "TEXT"
+        },
+        {
+          "name": "age",
+          "type": "REAL"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 10
+    },
+    "management": {
+      "primary_key": [
+        "department_ID",
+        "head_ID"
+      ],
+      "columns": [
+        {
+          "name": "department_ID",
+          "type": "INT"
+        },
+        {
+          "name": "head_ID",
+          "type": "INT"
+        },
+        {
+          "name": "temporary_acting",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "management",
+          "to": "head",
+          "child_col": "head_ID",
+          "parent_col": "head_ID"
+        },
+        {
+          "from": "management",
+          "to": "department",
+          "child_col": "department_ID",
+          "parent_col": "Department_ID"
+        }
+      ],
+      "row_count": 5
+    }
+  }
+}

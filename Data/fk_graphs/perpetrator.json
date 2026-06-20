@@ -1,0 +1,85 @@
+{
+  "db_name": "perpetrator",
+  "nodes": [
+    {
+      "name": "perpetrator",
+      "columns": [
+        {
+          "name": "Perpetrator_ID",
+          "type": "INT"
+        },
+        {
+          "name": "People_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Date",
+          "type": "TEXT"
+        },
+        {
+          "name": "Year",
+          "type": "REAL"
+        },
+        {
+          "name": "Location",
+          "type": "TEXT"
+        },
+        {
+          "name": "Country",
+          "type": "TEXT"
+        },
+        {
+          "name": "Killed",
+          "type": "INT"
+        },
+        {
+          "name": "Injured",
+          "type": "INT"
+        }
+      ],
+      "pk": [
+        "Perpetrator_ID"
+      ]
+    },
+    {
+      "name": "people",
+      "columns": [
+        {
+          "name": "People_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Height",
+          "type": "REAL"
+        },
+        {
+          "name": "Weight",
+          "type": "REAL"
+        },
+        {
+          "name": "Home Town",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "People_ID"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "perpetrator",
+      "to": "people",
+      "child_col": "People_ID",
+      "parent_col": "People_ID"
+    }
+  ],
+  "centrality": {
+    "perpetrator": 0.0,
+    "people": 1.0
+  }
+}

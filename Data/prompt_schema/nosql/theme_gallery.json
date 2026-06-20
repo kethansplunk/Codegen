@@ -1,0 +1,106 @@
+{
+  "artist.Age": {
+    "sample_values": [
+      "47",
+      "48",
+      "46"
+    ],
+    "inferred_type": "integer"
+  },
+  "artist.Country": {
+    "sample_values": [
+      "Zimbabwe",
+      "United States",
+      "Fiji"
+    ],
+    "inferred_type": "string"
+  },
+  "artist.Name": {
+    "sample_values": [
+      "Paul Azinger",
+      "Vijay Singh",
+      "John Daly"
+    ],
+    "inferred_type": "string"
+  },
+  "artist.Year_Join": {
+    "sample_values": [
+      "1993",
+      "1996",
+      "1988"
+    ],
+    "inferred_type": "integer"
+  },
+  "artist.Artist_ID": {
+    "sample_values": [
+      "5",
+      "2",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "exhibition_record.Attendance": {
+    "sample_values": [
+      "24808",
+      "2983",
+      "1239"
+    ],
+    "inferred_type": "integer"
+  },
+  "exhibition_record.Exhibition_ID": {
+    "sample_values": [
+      "5",
+      "1",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "exhibition_record.Date": {
+    "sample_values": [
+      "February 26",
+      "December 2",
+      "December 16"
+    ],
+    "inferred_type": "string"
+  },
+  "exhibition.Theme": {
+    "sample_values": [
+      "Santa Claus and Rudolph the Red-Nosed Reindeer",
+      "Santa Claus",
+      "Christmas stocking"
+    ],
+    "inferred_type": "string"
+  },
+  "exhibition.Year": {
+    "sample_values": [
+      "2005",
+      "2006",
+      "2009"
+    ],
+    "inferred_type": "integer"
+  },
+  "exhibition.Exhibition_ID": {
+    "sample_values": [
+      "5",
+      "2",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "exhibition.Artist_ID": {
+    "sample_values": [
+      "1",
+      "2",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "exhibition.Ticket_Price": {
+    "sample_values": [
+      "19.95",
+      "29.95",
+      "16.95"
+    ],
+    "inferred_type": "float"
+  }
+}

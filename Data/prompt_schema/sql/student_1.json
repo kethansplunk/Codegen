@@ -1,0 +1,58 @@
+{
+  "list.LastName": {
+    "sample_values": [
+      "GERSTEIN",
+      "BRINE",
+      "BROMLEY"
+    ],
+    "inferred_type": "string"
+  },
+  "list.FirstName": {
+    "sample_values": [
+      " AL",
+      " FRANKLYN",
+      " EVELINA"
+    ],
+    "inferred_type": "string"
+  },
+  "list.Grade": {
+    "sample_values": [
+      2,
+      3,
+      4
+    ],
+    "inferred_type": "integer"
+  },
+  "list.Classroom": {
+    "sample_values": [
+      101,
+      111,
+      110
+    ],
+    "inferred_type": "integer"
+  },
+  "teachers.LastName": {
+    "sample_values": [
+      "URSERY",
+      "MARROTTE",
+      "KAWA"
+    ],
+    "inferred_type": "string"
+  },
+  "teachers.FirstName": {
+    "sample_values": [
+      " CHARMAINE",
+      " KIRK",
+      " GORDON"
+    ],
+    "inferred_type": "string"
+  },
+  "teachers.Classroom": {
+    "sample_values": [
+      101,
+      105,
+      109
+    ],
+    "inferred_type": "integer"
+  }
+}

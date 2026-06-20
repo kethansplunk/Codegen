@@ -1,0 +1,185 @@
+{
+  "continents.ContId": {
+    "sample_values": [
+      "5",
+      "1",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "continents.Continent": {
+    "sample_values": [
+      "asia",
+      "africa",
+      "europe"
+    ],
+    "inferred_type": "string"
+  },
+  "countries.CountryName": {
+    "sample_values": [
+      "uk",
+      "russia",
+      "egypt"
+    ],
+    "inferred_type": "string"
+  },
+  "countries.Continent": {
+    "sample_values": [
+      "5",
+      "1",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "countries.CountryId": {
+    "sample_values": [
+      "5",
+      "8",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "car_makers.Country": {
+    "sample_values": [
+      "5",
+      "1",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "car_makers.Maker": {
+    "sample_values": [
+      "nissan",
+      "fiat",
+      "honda"
+    ],
+    "inferred_type": "string"
+  },
+  "car_makers.FullName": {
+    "sample_values": [
+      "Fiat",
+      "Citroen",
+      "Kia Motors"
+    ],
+    "inferred_type": "string"
+  },
+  "car_makers.Id": {
+    "sample_values": [
+      "23",
+      "15",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "model_list.ModelId": {
+    "sample_values": [
+      "34",
+      "25",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "model_list.Model": {
+    "sample_values": [
+      "datsun",
+      "oldsmobile",
+      "chrysler"
+    ],
+    "inferred_type": "string"
+  },
+  "model_list.Maker": {
+    "sample_values": [
+      "23",
+      "15",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "cars_data.Year": {
+    "sample_values": [
+      "1970",
+      "1971"
+    ],
+    "inferred_type": "integer"
+  },
+  "cars_data.Accelerate": {
+    "sample_values": [
+      "12.5",
+      "20.5",
+      "8.5"
+    ],
+    "inferred_type": "float"
+  },
+  "cars_data.Edispl": {
+    "sample_values": [
+      "304.0",
+      "454.0",
+      "455.0"
+    ],
+    "inferred_type": "float"
+  },
+  "cars_data.Weight": {
+    "sample_values": [
+      "3302",
+      "2372",
+      "3433"
+    ],
+    "inferred_type": "integer"
+  },
+  "cars_data.MPG": {
+    "sample_values": [
+      "24",
+      "null",
+      "18"
+    ],
+    "inferred_type": "string"
+  },
+  "cars_data.Id": {
+    "sample_values": [
+      "34",
+      "25",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "cars_data.Cylinders": {
+    "sample_values": [
+      "8",
+      "6",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "cars_data.Horsepower": {
+    "sample_values": [
+      "130",
+      "190",
+      "105"
+    ],
+    "inferred_type": "string"
+  },
+  "car_names.Make": {
+    "sample_values": [
+      "chevrolet vega 2300",
+      "ford pinto",
+      "ford torino"
+    ],
+    "inferred_type": "string"
+  },
+  "car_names.MakeId": {
+    "sample_values": [
+      "34",
+      "25",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "car_names.Model": {
+    "sample_values": [
+      "ford",
+      "datsun",
+      "bmw"
+    ],
+    "inferred_type": "string"
+  }
+}

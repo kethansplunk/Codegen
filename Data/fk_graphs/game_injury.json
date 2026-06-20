@@ -1,0 +1,128 @@
+{
+  "db_name": "game_injury",
+  "nodes": [
+    {
+      "name": "stadium",
+      "columns": [
+        {
+          "name": "id",
+          "type": "INT"
+        },
+        {
+          "name": "name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Home_Games",
+          "type": "INT"
+        },
+        {
+          "name": "Average_Attendance",
+          "type": "REAL"
+        },
+        {
+          "name": "Total_Attendance",
+          "type": "REAL"
+        },
+        {
+          "name": "Capacity_Percentage",
+          "type": "REAL"
+        }
+      ],
+      "pk": [
+        "id"
+      ]
+    },
+    {
+      "name": "game",
+      "columns": [
+        {
+          "name": "stadium_id",
+          "type": "INT"
+        },
+        {
+          "name": "id",
+          "type": "INT"
+        },
+        {
+          "name": "Season",
+          "type": "INT"
+        },
+        {
+          "name": "Date",
+          "type": "TEXT"
+        },
+        {
+          "name": "Home_team",
+          "type": "TEXT"
+        },
+        {
+          "name": "Away_team",
+          "type": "TEXT"
+        },
+        {
+          "name": "Score",
+          "type": "TEXT"
+        },
+        {
+          "name": "Competition",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "id"
+      ]
+    },
+    {
+      "name": "injury_accident",
+      "columns": [
+        {
+          "name": "game_id",
+          "type": "INT"
+        },
+        {
+          "name": "id",
+          "type": "INT"
+        },
+        {
+          "name": "Player",
+          "type": "TEXT"
+        },
+        {
+          "name": "Injury",
+          "type": "TEXT"
+        },
+        {
+          "name": "Number_of_matches",
+          "type": "TEXT"
+        },
+        {
+          "name": "Source",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "id"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "game",
+      "to": "stadium",
+      "child_col": "stadium_id",
+      "parent_col": "id"
+    },
+    {
+      "from": "injury_accident",
+      "to": "game",
+      "child_col": "game_id",
+      "parent_col": "id"
+    }
+  ],
+  "centrality": {
+    "stadium": 0.5,
+    "game": 0.5,
+    "injury_accident": 0.0
+  }
+}

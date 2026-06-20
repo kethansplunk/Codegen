@@ -1,0 +1,100 @@
+{
+  "db_name": "restaurants",
+  "collections": {
+    "GEOGRAPHIC": {
+      "primary_key": [
+        "CITY_NAME"
+      ],
+      "columns": [
+        {
+          "name": "CITY_NAME",
+          "type": "TEXT"
+        },
+        {
+          "name": "COUNTY",
+          "type": "TEXT"
+        },
+        {
+          "name": "REGION",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 0
+    },
+    "RESTAURANT": {
+      "primary_key": [
+        "ID"
+      ],
+      "columns": [
+        {
+          "name": "ID",
+          "type": "INT"
+        },
+        {
+          "name": "NAME",
+          "type": "TEXT"
+        },
+        {
+          "name": "FOOD_TYPE",
+          "type": "TEXT"
+        },
+        {
+          "name": "CITY_NAME",
+          "type": "TEXT"
+        },
+        {
+          "name": "RATING",
+          "type": "REAL"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "RESTAURANT",
+          "to": "GEOGRAPHIC",
+          "child_col": "CITY_NAME",
+          "parent_col": "CITY_NAME"
+        }
+      ],
+      "row_count": 0
+    },
+    "LOCATION": {
+      "primary_key": [
+        "RESTAURANT_ID"
+      ],
+      "columns": [
+        {
+          "name": "RESTAURANT_ID",
+          "type": "INT"
+        },
+        {
+          "name": "HOUSE_NUMBER",
+          "type": "INT"
+        },
+        {
+          "name": "STREET_NAME",
+          "type": "TEXT"
+        },
+        {
+          "name": "CITY_NAME",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "LOCATION",
+          "to": "RESTAURANT",
+          "child_col": "RESTAURANT_ID",
+          "parent_col": "RESTAURANT_ID"
+        },
+        {
+          "from": "LOCATION",
+          "to": "GEOGRAPHIC",
+          "child_col": "CITY_NAME",
+          "parent_col": "CITY_NAME"
+        }
+      ],
+      "row_count": 0
+    }
+  }
+}

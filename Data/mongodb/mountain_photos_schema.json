@@ -1,0 +1,109 @@
+{
+  "db_name": "mountain_photos",
+  "collections": {
+    "mountain": {
+      "primary_key": [
+        "id"
+      ],
+      "columns": [
+        {
+          "name": "id",
+          "type": "INT"
+        },
+        {
+          "name": "name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Height",
+          "type": "REAL"
+        },
+        {
+          "name": "Prominence",
+          "type": "REAL"
+        },
+        {
+          "name": "Range",
+          "type": "TEXT"
+        },
+        {
+          "name": "Country",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 23
+    },
+    "camera_lens": {
+      "primary_key": [
+        "id"
+      ],
+      "columns": [
+        {
+          "name": "id",
+          "type": "INT"
+        },
+        {
+          "name": "brand",
+          "type": "TEXT"
+        },
+        {
+          "name": "name",
+          "type": "TEXT"
+        },
+        {
+          "name": "focal_length_mm",
+          "type": "REAL"
+        },
+        {
+          "name": "max_aperture",
+          "type": "REAL"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 11
+    },
+    "photos": {
+      "primary_key": [
+        "id"
+      ],
+      "columns": [
+        {
+          "name": "id",
+          "type": "INT"
+        },
+        {
+          "name": "camera_lens_id",
+          "type": "INT"
+        },
+        {
+          "name": "mountain_id",
+          "type": "INT"
+        },
+        {
+          "name": "color",
+          "type": "TEXT"
+        },
+        {
+          "name": "name",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "photos",
+          "to": "mountain",
+          "child_col": "mountain_id",
+          "parent_col": "id"
+        },
+        {
+          "from": "photos",
+          "to": "camera_lens",
+          "child_col": "camera_lens_id",
+          "parent_col": "id"
+        }
+      ],
+      "row_count": 10
+    }
+  }
+}

@@ -1,0 +1,105 @@
+{
+  "people.People_ID": {
+    "sample_values": [
+      1,
+      4,
+      7
+    ],
+    "inferred_type": "integer"
+  },
+  "people.District": {
+    "sample_values": [
+      "New York 10",
+      "New York 3",
+      "New York 2"
+    ],
+    "inferred_type": "string"
+  },
+  "people.Name": {
+    "sample_values": [
+      "Charles Van Wyck",
+      "Daniel Sickles",
+      "James Humphrey"
+    ],
+    "inferred_type": "string"
+  },
+  "people.Party": {
+    "sample_values": [
+      "Anti-Lecompton Democrat",
+      "Independent Democrat",
+      "Democratic"
+    ],
+    "inferred_type": "string"
+  },
+  "people.Age": {
+    "sample_values": [
+      35,
+      46,
+      36
+    ],
+    "inferred_type": "integer"
+  },
+  "debate.Debate_ID": {
+    "sample_values": [
+      1,
+      3,
+      5
+    ],
+    "inferred_type": "integer"
+  },
+  "debate.Date": {
+    "sample_values": [
+      "January 21, 2017",
+      "December 17, 2014",
+      "October 27, 2015"
+    ],
+    "inferred_type": "string"
+  },
+  "debate.Venue": {
+    "sample_values": [
+      "Abu Dhabi , UAE",
+      "Dubai , UAE",
+      "Doha , Qatar"
+    ],
+    "inferred_type": "string"
+  },
+  "debate.Num_of_Audience": {
+    "sample_values": [
+      342,
+      90,
+      313
+    ],
+    "inferred_type": "integer"
+  },
+  "debate_people.Debate_ID": {
+    "sample_values": [
+      1,
+      3,
+      4
+    ],
+    "inferred_type": "integer"
+  },
+  "debate_people.Affirmative": {
+    "sample_values": [
+      1,
+      4,
+      5
+    ],
+    "inferred_type": "integer"
+  },
+  "debate_people.Negative": {
+    "sample_values": [
+      10,
+      7,
+      8
+    ],
+    "inferred_type": "integer"
+  },
+  "debate_people.If_Affirmative_Win": {
+    "sample_values": [
+      "F",
+      "T"
+    ],
+    "inferred_type": "string"
+  }
+}

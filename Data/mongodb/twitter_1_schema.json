@@ -1,0 +1,91 @@
+{
+  "db_name": "twitter_1",
+  "collections": {
+    "follows": {
+      "primary_key": [
+        "f1",
+        "f2"
+      ],
+      "columns": [
+        {
+          "name": "f1",
+          "type": "int(11)"
+        },
+        {
+          "name": "f2",
+          "type": "int(11)"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "follows",
+          "to": "user_profiles",
+          "child_col": "f1",
+          "parent_col": "uid"
+        }
+      ],
+      "row_count": 9
+    },
+    "tweets": {
+      "primary_key": [
+        "id"
+      ],
+      "columns": [
+        {
+          "name": "id",
+          "type": "bigint(20)"
+        },
+        {
+          "name": "uid",
+          "type": "int(11)"
+        },
+        {
+          "name": "text",
+          "type": "char(140)"
+        },
+        {
+          "name": "createdate",
+          "type": "datetime"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "tweets",
+          "to": "user_profiles",
+          "child_col": "uid",
+          "parent_col": "uid"
+        }
+      ],
+      "row_count": 8
+    },
+    "user_profiles": {
+      "primary_key": [
+        "uid"
+      ],
+      "columns": [
+        {
+          "name": "uid",
+          "type": "int(11)"
+        },
+        {
+          "name": "name",
+          "type": "varchar(255)"
+        },
+        {
+          "name": "email",
+          "type": "varchar(255)"
+        },
+        {
+          "name": "partitionid",
+          "type": "int(11)"
+        },
+        {
+          "name": "followers",
+          "type": "int(11)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 7
+    }
+  }
+}

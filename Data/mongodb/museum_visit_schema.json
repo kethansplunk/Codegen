@@ -1,0 +1,94 @@
+{
+  "db_name": "museum_visit",
+  "collections": {
+    "museum": {
+      "primary_key": [
+        "Museum_ID"
+      ],
+      "columns": [
+        {
+          "name": "Museum_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Num_of_Staff",
+          "type": "INT"
+        },
+        {
+          "name": "Open_Year",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 8
+    },
+    "visitor": {
+      "primary_key": [
+        "ID"
+      ],
+      "columns": [
+        {
+          "name": "ID",
+          "type": "INT"
+        },
+        {
+          "name": "Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Level_of_membership",
+          "type": "INT"
+        },
+        {
+          "name": "Age",
+          "type": "INT"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 6
+    },
+    "visit": {
+      "primary_key": [
+        "Museum_ID",
+        "visitor_ID"
+      ],
+      "columns": [
+        {
+          "name": "Museum_ID",
+          "type": "INT"
+        },
+        {
+          "name": "visitor_ID",
+          "type": "TEXT"
+        },
+        {
+          "name": "Num_of_Ticket",
+          "type": "INT"
+        },
+        {
+          "name": "Total_spent",
+          "type": "REAL"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "visit",
+          "to": "visitor",
+          "child_col": "visitor_ID",
+          "parent_col": "ID"
+        },
+        {
+          "from": "visit",
+          "to": "museum",
+          "child_col": "Museum_ID",
+          "parent_col": "Museum_ID"
+        }
+      ],
+      "row_count": 6
+    }
+  }
+}

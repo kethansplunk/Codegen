@@ -1,0 +1,82 @@
+{
+  "journal.Date": {
+    "sample_values": [
+      "December 9, 2001",
+      "October 29, 2001",
+      "December 30, 2001"
+    ],
+    "inferred_type": "string"
+  },
+  "journal.Sales": {
+    "sample_values": [
+      "4798",
+      "3342",
+      "3534"
+    ],
+    "inferred_type": "integer"
+  },
+  "journal.Theme": {
+    "sample_values": [
+      "at Cincinnati Bengals",
+      "Miami Dolphins",
+      "Tampa Bay Buccaneers"
+    ],
+    "inferred_type": "string"
+  },
+  "journal.Journal_ID": {
+    "sample_values": [
+      "17",
+      "15",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "journal_committee.Journal_ID": {
+    "sample_values": [
+      "17",
+      "12",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "journal_committee.Work_Type": {
+    "sample_values": [
+      "Photo",
+      "Title",
+      "Article"
+    ],
+    "inferred_type": "string"
+  },
+  "journal_committee.Editor_ID": {
+    "sample_values": [
+      "8",
+      "9",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "editor.Name": {
+    "sample_values": [
+      "Maria G\u00f3ralczyk",
+      "Marek Siudym",
+      "Anna Powierza"
+    ],
+    "inferred_type": "string"
+  },
+  "editor.Age": {
+    "sample_values": [
+      "35.0",
+      "54.0",
+      "34.0"
+    ],
+    "inferred_type": "float"
+  },
+  "editor.Editor_ID": {
+    "sample_values": [
+      "5",
+      "2",
+      "6"
+    ],
+    "inferred_type": "integer"
+  }
+}

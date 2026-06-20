@@ -1,0 +1,146 @@
+{
+  "battle.id": {
+    "sample_values": [
+      1,
+      3,
+      5
+    ],
+    "inferred_type": "integer"
+  },
+  "battle.name": {
+    "sample_values": [
+      "Siege of Constantinople",
+      "Battle of Serres",
+      "Battle of Rusion"
+    ],
+    "inferred_type": "string"
+  },
+  "battle.date": {
+    "sample_values": [
+      "1235",
+      "June 1205",
+      "31 January 1206"
+    ],
+    "inferred_type": "string"
+  },
+  "battle.bulgarian_commander": {
+    "sample_values": [
+      "Ivan Asen II",
+      "Boril",
+      "Unknown"
+    ],
+    "inferred_type": "string"
+  },
+  "battle.latin_commander": {
+    "sample_values": [
+      "John of Brienne",
+      "Unknown",
+      "Boniface of Montferrat"
+    ],
+    "inferred_type": "string"
+  },
+  "battle.result": {
+    "sample_values": [
+      "Bulgarian victory",
+      "Latin victory",
+      "Two Year Truce"
+    ],
+    "inferred_type": "string"
+  },
+  "ship.lost_in_battle": {
+    "sample_values": [
+      8,
+      7,
+      6
+    ],
+    "inferred_type": "integer"
+  },
+  "ship.id": {
+    "sample_values": [
+      1,
+      3,
+      5
+    ],
+    "inferred_type": "integer"
+  },
+  "ship.name": {
+    "sample_values": [
+      "HMS Atalanta",
+      "Bon Accord",
+      "Mary"
+    ],
+    "inferred_type": "string"
+  },
+  "ship.tonnage": {
+    "sample_values": [
+      "t",
+      "391",
+      "225"
+    ],
+    "inferred_type": "string"
+  },
+  "ship.ship_type": {
+    "sample_values": [
+      "Brig",
+      "18-gun Brig",
+      "8 gun Brig"
+    ],
+    "inferred_type": "string"
+  },
+  "ship.location": {
+    "sample_values": [
+      "English Channel",
+      "SW Approaches",
+      "Mid-Atlantic"
+    ],
+    "inferred_type": "string"
+  },
+  "ship.disposition_of_ship": {
+    "sample_values": [
+      "Sank",
+      "Scuttled",
+      "Wrecked"
+    ],
+    "inferred_type": "string"
+  },
+  "death.caused_by_ship_id": {
+    "sample_values": [
+      1,
+      3,
+      5
+    ],
+    "inferred_type": "integer"
+  },
+  "death.id": {
+    "sample_values": [
+      1,
+      5,
+      9
+    ],
+    "inferred_type": "integer"
+  },
+  "death.note": {
+    "sample_values": [
+      "Bokaro, Jharkhand",
+      "East Champaran, Bihar",
+      "Erraboru, Chhattisgarh"
+    ],
+    "inferred_type": "string"
+  },
+  "death.killed": {
+    "sample_values": [
+      8,
+      25,
+      0
+    ],
+    "inferred_type": "integer"
+  },
+  "death.injured": {
+    "sample_values": [
+      0,
+      9,
+      5
+    ],
+    "inferred_type": "integer"
+  }
+}

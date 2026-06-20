@@ -1,0 +1,102 @@
+{
+  "db_name": "train_station",
+  "collections": {
+    "station": {
+      "primary_key": [
+        "Station_ID"
+      ],
+      "columns": [
+        {
+          "name": "Station_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Annual_entry_exit",
+          "type": "REAL"
+        },
+        {
+          "name": "Annual_interchanges",
+          "type": "REAL"
+        },
+        {
+          "name": "Total_Passengers",
+          "type": "REAL"
+        },
+        {
+          "name": "Location",
+          "type": "TEXT"
+        },
+        {
+          "name": "Main_Services",
+          "type": "TEXT"
+        },
+        {
+          "name": "Number_of_Platforms",
+          "type": "INT"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 12
+    },
+    "train": {
+      "primary_key": [
+        "Train_ID"
+      ],
+      "columns": [
+        {
+          "name": "Train_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Time",
+          "type": "TEXT"
+        },
+        {
+          "name": "Service",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 11
+    },
+    "train_station": {
+      "primary_key": [
+        "Train_ID",
+        "Station_ID"
+      ],
+      "columns": [
+        {
+          "name": "Train_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Station_ID",
+          "type": "INT"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "train_station",
+          "to": "station",
+          "child_col": "Station_ID",
+          "parent_col": "Station_ID"
+        },
+        {
+          "from": "train_station",
+          "to": "train",
+          "child_col": "Train_ID",
+          "parent_col": "Train_ID"
+        }
+      ],
+      "row_count": 11
+    }
+  }
+}

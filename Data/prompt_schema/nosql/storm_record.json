@@ -1,0 +1,98 @@
+{
+  "storm.Number_Deaths": {
+    "sample_values": [
+      "71",
+      "52",
+      "3"
+    ],
+    "inferred_type": "integer"
+  },
+  "storm.Name": {
+    "sample_values": [
+      "Five",
+      "Nine",
+      "One"
+    ],
+    "inferred_type": "string"
+  },
+  "storm.Max_speed": {
+    "sample_values": [
+      "983",
+      "961",
+      "995"
+    ],
+    "inferred_type": "integer"
+  },
+  "storm.Damage_millions_USD": {
+    "sample_values": [
+      "29.3",
+      "4.05",
+      "0.039"
+    ],
+    "inferred_type": "float"
+  },
+  "storm.Dates_active": {
+    "sample_values": [
+      "August3\u2013August10",
+      "September7\u2013September17",
+      "August5\u2013August14"
+    ],
+    "inferred_type": "string"
+  },
+  "storm.Storm_ID": {
+    "sample_values": [
+      "5",
+      "1",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "region.Region_id": {
+    "sample_values": [
+      "5",
+      "1",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "region.Region_name": {
+    "sample_values": [
+      "Antarctica",
+      "Czech Republic",
+      "Afghanistan"
+    ],
+    "inferred_type": "string"
+  },
+  "region.Region_code": {
+    "sample_values": [
+      "AI",
+      "AF",
+      "DS"
+    ],
+    "inferred_type": "string"
+  },
+  "affected_region.Region_id": {
+    "sample_values": [
+      "12",
+      "1",
+      "3"
+    ],
+    "inferred_type": "integer"
+  },
+  "affected_region.Number_city_affected": {
+    "sample_values": [
+      "12.0",
+      "22.0",
+      "37.0"
+    ],
+    "inferred_type": "float"
+  },
+  "affected_region.Storm_ID": {
+    "sample_values": [
+      "1",
+      "3",
+      "5"
+    ],
+    "inferred_type": "integer"
+  }
+}

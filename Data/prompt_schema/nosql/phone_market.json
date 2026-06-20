@@ -1,0 +1,105 @@
+{
+  "phone_market.Num_of_stock": {
+    "sample_values": [
+      "874",
+      "908",
+      "2232"
+    ],
+    "inferred_type": "integer"
+  },
+  "phone_market.Market_ID": {
+    "sample_values": [
+      "1",
+      "5",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "phone_market.Phone_ID": {
+    "sample_values": [
+      "1",
+      "3",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "phone.Price": {
+    "sample_values": [
+      "320.0",
+      "480.0",
+      "1000.0"
+    ],
+    "inferred_type": "float"
+  },
+  "phone.Carrier": {
+    "sample_values": [
+      "Sprint",
+      "TMobile"
+    ],
+    "inferred_type": "string"
+  },
+  "phone.Name": {
+    "sample_values": [
+      "IPhone 5s",
+      "IPhone 6s",
+      "IPhone 6"
+    ],
+    "inferred_type": "string"
+  },
+  "phone.Memory_in_G": {
+    "sample_values": [
+      "128",
+      "64",
+      "16"
+    ],
+    "inferred_type": "integer"
+  },
+  "phone.Phone_ID": {
+    "sample_values": [
+      "5",
+      "1",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "market.Market_ID": {
+    "sample_values": [
+      "5",
+      "2",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "market.Ranking": {
+    "sample_values": [
+      "5",
+      "1",
+      "21"
+    ],
+    "inferred_type": "integer"
+  },
+  "market.Num_of_shops": {
+    "sample_values": [
+      "40.0",
+      "32.0",
+      "49.0"
+    ],
+    "inferred_type": "float"
+  },
+  "market.Num_of_employees": {
+    "sample_values": [
+      "1968",
+      "1966",
+      "1958"
+    ],
+    "inferred_type": "integer"
+  },
+  "market.District": {
+    "sample_values": [
+      "Alberta",
+      "Ontario",
+      "New Brunswick"
+    ],
+    "inferred_type": "string"
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "db_name": "network_2",
+  "collections": {
+    "Person": {
+      "primary_key": [
+        "name"
+      ],
+      "columns": [
+        {
+          "name": "name",
+          "type": "varchar(20)"
+        },
+        {
+          "name": "age",
+          "type": "INTEGER"
+        },
+        {
+          "name": "city",
+          "type": "TEXT"
+        },
+        {
+          "name": "gender",
+          "type": "TEXT"
+        },
+        {
+          "name": "job",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 4
+    },
+    "PersonFriend": {
+      "primary_key": [],
+      "columns": [
+        {
+          "name": "name",
+          "type": "varchar(20)"
+        },
+        {
+          "name": "friend",
+          "type": "varchar(20)"
+        },
+        {
+          "name": "year",
+          "type": "INTEGER"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "PersonFriend",
+          "to": "Person",
+          "child_col": "name",
+          "parent_col": "name"
+        }
+      ],
+      "row_count": 4
+    }
+  }
+}

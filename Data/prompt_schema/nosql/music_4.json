@@ -1,0 +1,129 @@
+{
+  "music_festival.Result": {
+    "sample_values": [
+      "Nominated",
+      "Awarded"
+    ],
+    "inferred_type": "string"
+  },
+  "music_festival.Music_Festival": {
+    "sample_values": [
+      "40th Japan Academy Prize",
+      "34th European Academy Prize",
+      "37th Sweden Academy Prize"
+    ],
+    "inferred_type": "string"
+  },
+  "music_festival.ID": {
+    "sample_values": [
+      "5",
+      "2",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "music_festival.Category": {
+    "sample_values": [
+      "Best Sound Song",
+      "Best Song",
+      "Best Lyrics"
+    ],
+    "inferred_type": "string"
+  },
+  "music_festival.Volume": {
+    "sample_values": [
+      "5",
+      "2",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "volume.Volume_ID": {
+    "sample_values": [
+      "5",
+      "1",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "volume.Volume_Issue": {
+    "sample_values": [
+      "45:21-22",
+      "45:16",
+      "46:16"
+    ],
+    "inferred_type": "string"
+  },
+  "volume.Weeks_on_Top": {
+    "sample_values": [
+      "3.0",
+      "1.0",
+      "2.0"
+    ],
+    "inferred_type": "float"
+  },
+  "volume.Issue_Date": {
+    "sample_values": [
+      "27 December 1986 - 10 January",
+      "25 July",
+      "11 July - 18 July"
+    ],
+    "inferred_type": "string"
+  },
+  "volume.Song": {
+    "sample_values": [
+      "Head to Toe ",
+      " La Isla Bonita ",
+      " Everybody Have Fun Tonight "
+    ],
+    "inferred_type": "string"
+  },
+  "volume.Artist_ID": {
+    "sample_values": [
+      "5",
+      "1",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "artist.Famous_Release_date": {
+    "sample_values": [
+      "November 2007",
+      "2009",
+      "June 23, 2008"
+    ],
+    "inferred_type": "string"
+  },
+  "artist.Age": {
+    "sample_values": [
+      "34",
+      "18",
+      "22"
+    ],
+    "inferred_type": "integer"
+  },
+  "artist.Artist": {
+    "sample_values": [
+      "Black Flame",
+      "Gorgoroth",
+      "Triumfall"
+    ],
+    "inferred_type": "string"
+  },
+  "artist.Famous_Title": {
+    "sample_values": [
+      "Unholy Metal Way (re-release)",
+      "Transmutation",
+      "Those Who Unleashed (re-release)"
+    ],
+    "inferred_type": "string"
+  },
+  "artist.Artist_ID": {
+    "sample_values": [
+      "5",
+      "2",
+      "6"
+    ],
+    "inferred_type": "integer"
+  }
+}

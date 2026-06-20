@@ -1,0 +1,137 @@
+{
+  "db_name": "program_share",
+  "collections": {
+    "program": {
+      "primary_key": [
+        "Program_ID"
+      ],
+      "columns": [
+        {
+          "name": "Program_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Origin",
+          "type": "TEXT"
+        },
+        {
+          "name": "Launch",
+          "type": "REAL"
+        },
+        {
+          "name": "Owner",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 5
+    },
+    "channel": {
+      "primary_key": [
+        "Channel_ID"
+      ],
+      "columns": [
+        {
+          "name": "Channel_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "Share_in_percent",
+          "type": "REAL"
+        },
+        {
+          "name": "Rating_in_percent",
+          "type": "REAL"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 10
+    },
+    "broadcast": {
+      "primary_key": [
+        "Channel_ID",
+        "Program_ID"
+      ],
+      "columns": [
+        {
+          "name": "Channel_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Program_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Time_of_day",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "broadcast",
+          "to": "program",
+          "child_col": "Program_ID",
+          "parent_col": "Program_ID"
+        },
+        {
+          "from": "broadcast",
+          "to": "channel",
+          "child_col": "Channel_ID",
+          "parent_col": "Channel_ID"
+        }
+      ],
+      "row_count": 11
+    },
+    "broadcast_share": {
+      "primary_key": [
+        "Channel_ID",
+        "Program_ID"
+      ],
+      "columns": [
+        {
+          "name": "Channel_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Program_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Date",
+          "type": "TEXT"
+        },
+        {
+          "name": "Share_in_percent",
+          "type": "REAL"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "broadcast_share",
+          "to": "program",
+          "child_col": "Program_ID",
+          "parent_col": "Program_ID"
+        },
+        {
+          "from": "broadcast_share",
+          "to": "channel",
+          "child_col": "Channel_ID",
+          "parent_col": "Channel_ID"
+        }
+      ],
+      "row_count": 9
+    }
+  }
+}

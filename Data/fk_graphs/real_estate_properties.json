@@ -1,0 +1,224 @@
+{
+  "db_name": "real_estate_properties",
+  "nodes": [
+    {
+      "name": "Ref_Feature_Types",
+      "columns": [
+        {
+          "name": "feature_type_code",
+          "type": "VARCHAR(20)"
+        },
+        {
+          "name": "feature_type_name",
+          "type": "VARCHAR(80)"
+        }
+      ],
+      "pk": [
+        "feature_type_code"
+      ]
+    },
+    {
+      "name": "Ref_Property_Types",
+      "columns": [
+        {
+          "name": "property_type_code",
+          "type": "VARCHAR(20)"
+        },
+        {
+          "name": "property_type_description",
+          "type": "VARCHAR(80)"
+        }
+      ],
+      "pk": [
+        "property_type_code"
+      ]
+    },
+    {
+      "name": "Other_Available_Features",
+      "columns": [
+        {
+          "name": "feature_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "feature_type_code",
+          "type": "VARCHAR(20)"
+        },
+        {
+          "name": "feature_name",
+          "type": "VARCHAR(80)"
+        },
+        {
+          "name": "feature_description",
+          "type": "VARCHAR(80)"
+        }
+      ],
+      "pk": [
+        "feature_id"
+      ]
+    },
+    {
+      "name": "Properties",
+      "columns": [
+        {
+          "name": "property_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "property_type_code",
+          "type": "VARCHAR(20)"
+        },
+        {
+          "name": "date_on_market",
+          "type": "DATETIME"
+        },
+        {
+          "name": "date_sold",
+          "type": "DATETIME"
+        },
+        {
+          "name": "property_name",
+          "type": "VARCHAR(80)"
+        },
+        {
+          "name": "property_address",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "room_count",
+          "type": "INTEGER"
+        },
+        {
+          "name": "vendor_requested_price",
+          "type": "DECIMAL(19,4)"
+        },
+        {
+          "name": "buyer_offered_price",
+          "type": "DECIMAL(19,4)"
+        },
+        {
+          "name": "agreed_selling_price",
+          "type": "DECIMAL(19,4)"
+        },
+        {
+          "name": "apt_feature_1",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "apt_feature_2",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "apt_feature_3",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "fld_feature_1",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "fld_feature_2",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "fld_feature_3",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "hse_feature_1",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "hse_feature_2",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "hse_feature_3",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "oth_feature_1",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "oth_feature_2",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "oth_feature_3",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "shp_feature_1",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "shp_feature_2",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "shp_feature_3",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "other_property_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "pk": [
+        "property_id"
+      ]
+    },
+    {
+      "name": "Other_Property_Features",
+      "columns": [
+        {
+          "name": "property_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "feature_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "property_feature_description",
+          "type": "VARCHAR(80)"
+        }
+      ],
+      "pk": []
+    }
+  ],
+  "edges": [
+    {
+      "from": "Other_Available_Features",
+      "to": "Ref_Feature_Types",
+      "child_col": "feature_type_code",
+      "parent_col": "feature_type_code"
+    },
+    {
+      "from": "Properties",
+      "to": "Ref_Property_Types",
+      "child_col": "property_type_code",
+      "parent_col": "property_type_code"
+    },
+    {
+      "from": "Other_Property_Features",
+      "to": "Properties",
+      "child_col": "property_id",
+      "parent_col": "property_id"
+    },
+    {
+      "from": "Other_Property_Features",
+      "to": "Other_Available_Features",
+      "child_col": "feature_id",
+      "parent_col": "feature_id"
+    }
+  ],
+  "centrality": {
+    "Ref_Feature_Types": 0.25,
+    "Ref_Property_Types": 0.25,
+    "Other_Available_Features": 0.25,
+    "Properties": 0.25,
+    "Other_Property_Features": 0.0
+  }
+}

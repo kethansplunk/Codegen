@@ -1,0 +1,282 @@
+{
+  "Document_Drafts.document_id": {
+    "sample_values": [
+      "17",
+      "20",
+      "12"
+    ],
+    "inferred_type": "integer"
+  },
+  "Document_Drafts.draft_number": {
+    "sample_values": [
+      "17",
+      "14",
+      "12"
+    ],
+    "inferred_type": "integer"
+  },
+  "Document_Drafts.draft_details": {
+    "sample_values": [
+      "m",
+      "p",
+      "k"
+    ],
+    "inferred_type": "string"
+  },
+  "Circulation_History.document_id": {
+    "sample_values": [
+      "10",
+      "1",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "Circulation_History.draft_number": {
+    "sample_values": [
+      "1",
+      "17",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "Circulation_History.employee_id": {
+    "sample_values": [
+      "8",
+      "1",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "Circulation_History.copy_number": {
+    "sample_values": [
+      "10",
+      "5",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "Ref_Shipping_Agents.shipping_agent_description": {
+    "sample_values": [
+      "t",
+      "g",
+      "w"
+    ],
+    "inferred_type": "string"
+  },
+  "Ref_Shipping_Agents.shipping_agent_code": {
+    "sample_values": [
+      "UP",
+      "FE",
+      "AL"
+    ],
+    "inferred_type": "string"
+  },
+  "Ref_Shipping_Agents.shipping_agent_name": {
+    "sample_values": [
+      "UPS",
+      "USPS",
+      "Ship"
+    ],
+    "inferred_type": "string"
+  },
+  "Draft_Copies.document_id": {
+    "sample_values": [
+      "23",
+      "20",
+      "12"
+    ],
+    "inferred_type": "integer"
+  },
+  "Draft_Copies.draft_number": {
+    "sample_values": [
+      "17",
+      "8",
+      "12"
+    ],
+    "inferred_type": "integer"
+  },
+  "Draft_Copies.copy_number": {
+    "sample_values": [
+      "10",
+      "5",
+      "15"
+    ],
+    "inferred_type": "integer"
+  },
+  "Documents.shipping_agent_code": {
+    "sample_values": [
+      "UP",
+      "FE",
+      "AL"
+    ],
+    "inferred_type": "string"
+  },
+  "Documents.document_type_code": {
+    "sample_values": [
+      "Hard Drive",
+      "Paper",
+      "CD"
+    ],
+    "inferred_type": "string"
+  },
+  "Documents.other_details": {
+    "sample_values": [
+      "m",
+      "u",
+      "w"
+    ],
+    "inferred_type": "string"
+  },
+  "Documents.document_status_code": {
+    "sample_values": [
+      "done",
+      "working",
+      "overdue"
+    ],
+    "inferred_type": "string"
+  },
+  "Documents.receipt_date": {
+    "sample_values": [
+      "1996-05-31 06:51:58",
+      "1983-09-26 09:32:56",
+      "1976-09-15 19:24:17"
+    ],
+    "inferred_type": "string"
+  },
+  "Documents.document_id": {
+    "sample_values": [
+      "17",
+      "23",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "Documents.receipt_number": {
+    "sample_values": [
+      "83",
+      "79",
+      "114"
+    ],
+    "inferred_type": "integer"
+  },
+  "Roles.role_description": {
+    "sample_values": [
+      "Manager",
+      "Editor",
+      "Proof Manager"
+    ],
+    "inferred_type": "string"
+  },
+  "Roles.role_code": {
+    "sample_values": [
+      "PT",
+      "MG",
+      "ED"
+    ],
+    "inferred_type": "string"
+  },
+  "Addresses.address_details": {
+    "sample_values": [
+      "IT",
+      "MX",
+      "US"
+    ],
+    "inferred_type": "string"
+  },
+  "Addresses.address_id": {
+    "sample_values": [
+      "5",
+      "1",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Documents_Mailed.document_id": {
+    "sample_values": [
+      "10",
+      "23",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "Documents_Mailed.mailing_date": {
+    "sample_values": [
+      "1977-04-01 17:03:50",
+      "1971-11-03 12:32:14",
+      "2007-03-20 05:22:01"
+    ],
+    "inferred_type": "string"
+  },
+  "Documents_Mailed.mailed_to_address_id": {
+    "sample_values": [
+      "5",
+      "8",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "Ref_Document_Types.document_type_code": {
+    "sample_values": [
+      "Hard Drive",
+      "Paper",
+      "CD"
+    ],
+    "inferred_type": "string"
+  },
+  "Ref_Document_Types.document_type_description": {
+    "sample_values": [
+      "u",
+      "f",
+      "b"
+    ],
+    "inferred_type": "string"
+  },
+  "Employees.employee_id": {
+    "sample_values": [
+      "5",
+      "1",
+      "3"
+    ],
+    "inferred_type": "integer"
+  },
+  "Employees.other_details": {
+    "sample_values": [
+      "f",
+      "h",
+      "u"
+    ],
+    "inferred_type": "string"
+  },
+  "Employees.employee_name": {
+    "sample_values": [
+      "Jordyn",
+      "Haley",
+      "Kenyon"
+    ],
+    "inferred_type": "string"
+  },
+  "Employees.role_code": {
+    "sample_values": [
+      "PT",
+      "MG",
+      "ED"
+    ],
+    "inferred_type": "string"
+  },
+  "Ref_Document_Status.document_status_description": {
+    "sample_values": [
+      "mailed",
+      "currently working on",
+      "mailed late"
+    ],
+    "inferred_type": "string"
+  },
+  "Ref_Document_Status.document_status_code": {
+    "sample_values": [
+      "done",
+      "working",
+      "overdue"
+    ],
+    "inferred_type": "string"
+  }
+}

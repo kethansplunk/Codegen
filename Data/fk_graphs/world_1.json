@@ -1,0 +1,160 @@
+{
+  "db_name": "world_1",
+  "nodes": [
+    {
+      "name": "city",
+      "columns": [
+        {
+          "name": "ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Name",
+          "type": "char(35)"
+        },
+        {
+          "name": "CountryCode",
+          "type": "char(3)"
+        },
+        {
+          "name": "District",
+          "type": "char(20)"
+        },
+        {
+          "name": "Population",
+          "type": "INTEGER"
+        }
+      ],
+      "pk": [
+        "ID"
+      ]
+    },
+    {
+      "name": "sqlite_sequence",
+      "columns": [
+        {
+          "name": "name",
+          "type": ""
+        },
+        {
+          "name": "seq",
+          "type": ""
+        }
+      ],
+      "pk": []
+    },
+    {
+      "name": "country",
+      "columns": [
+        {
+          "name": "Code",
+          "type": "char(3)"
+        },
+        {
+          "name": "Name",
+          "type": "char(52)"
+        },
+        {
+          "name": "Continent",
+          "type": "TEXT"
+        },
+        {
+          "name": "Region",
+          "type": "char(26)"
+        },
+        {
+          "name": "SurfaceArea",
+          "type": "float(10,2)"
+        },
+        {
+          "name": "IndepYear",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Population",
+          "type": "INTEGER"
+        },
+        {
+          "name": "LifeExpectancy",
+          "type": "float(3,1)"
+        },
+        {
+          "name": "GNP",
+          "type": "float(10,2)"
+        },
+        {
+          "name": "GNPOld",
+          "type": "float(10,2)"
+        },
+        {
+          "name": "LocalName",
+          "type": "char(45)"
+        },
+        {
+          "name": "GovernmentForm",
+          "type": "char(45)"
+        },
+        {
+          "name": "HeadOfState",
+          "type": "char(60)"
+        },
+        {
+          "name": "Capital",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Code2",
+          "type": "char(2)"
+        }
+      ],
+      "pk": [
+        "Code"
+      ]
+    },
+    {
+      "name": "countrylanguage",
+      "columns": [
+        {
+          "name": "CountryCode",
+          "type": "char(3)"
+        },
+        {
+          "name": "Language",
+          "type": "char(30)"
+        },
+        {
+          "name": "IsOfficial",
+          "type": "TEXT"
+        },
+        {
+          "name": "Percentage",
+          "type": "float(4,1)"
+        }
+      ],
+      "pk": [
+        "CountryCode",
+        "Language"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "city",
+      "to": "country",
+      "child_col": "CountryCode",
+      "parent_col": "Code"
+    },
+    {
+      "from": "countrylanguage",
+      "to": "country",
+      "child_col": "CountryCode",
+      "parent_col": "Code"
+    }
+  ],
+  "centrality": {
+    "city": 0.0,
+    "sqlite_sequence": 0.0,
+    "country": 0.6666666666666666,
+    "countrylanguage": 0.0
+  }
+}

@@ -1,0 +1,105 @@
+{
+  "head.name": {
+    "sample_values": [
+      "Nick Faldo",
+      "Billy Mayfair",
+      "Sergio Garc\u00eda"
+    ],
+    "inferred_type": "string"
+  },
+  "head.age": {
+    "sample_values": [
+      "52.0",
+      "69.0",
+      "67.0"
+    ],
+    "inferred_type": "float"
+  },
+  "head.born_state": {
+    "sample_values": [
+      "Connecticut",
+      "Delaware",
+      "Alabama"
+    ],
+    "inferred_type": "string"
+  },
+  "head.head_ID": {
+    "sample_values": [
+      "5",
+      "1",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "department.Num_Employees": {
+    "sample_values": [
+      "71436.0",
+      "116100.0",
+      "4487.0"
+    ],
+    "inferred_type": "float"
+  },
+  "department.Budget_in_Billions": {
+    "sample_values": [
+      "46.2",
+      "59.7",
+      "9.96"
+    ],
+    "inferred_type": "float"
+  },
+  "department.Ranking": {
+    "sample_values": [
+      "5",
+      "8",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "department.Name": {
+    "sample_values": [
+      "Labor",
+      "Transportation",
+      "Education"
+    ],
+    "inferred_type": "string"
+  },
+  "department.Department_ID": {
+    "sample_values": [
+      "5",
+      "8",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "department.Creation": {
+    "sample_values": [
+      "1889",
+      "1966",
+      "1870"
+    ],
+    "inferred_type": "integer"
+  },
+  "management.department_ID": {
+    "sample_values": [
+      "7",
+      "11",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "management.head_ID": {
+    "sample_values": [
+      "10",
+      "5",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "management.temporary_acting": {
+    "sample_values": [
+      "No",
+      "Yes"
+    ],
+    "inferred_type": "string"
+  }
+}

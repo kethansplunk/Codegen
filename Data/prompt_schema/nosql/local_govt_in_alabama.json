@@ -1,0 +1,80 @@
+{
+  "Participants_in_Events.Participant_ID": {
+    "sample_values": [
+      "66",
+      "60",
+      "96"
+    ],
+    "inferred_type": "integer"
+  },
+  "Participants_in_Events.Event_ID": {
+    "sample_values": [
+      "40",
+      "38",
+      "13"
+    ],
+    "inferred_type": "integer"
+  },
+  "Services.Service_ID": {
+    "sample_values": [
+      "8",
+      "6",
+      "5"
+    ],
+    "inferred_type": "integer"
+  },
+  "Services.Service_Type_Code": {
+    "sample_values": [
+      "Death Proof",
+      "Property Change",
+      "Marriage"
+    ],
+    "inferred_type": "string"
+  },
+  "Participants.Participant_Details": {
+    "sample_values": [
+      "Lupe Deckow",
+      "Dr. Kris Deckow",
+      "Dewitt Walter"
+    ],
+    "inferred_type": "string"
+  },
+  "Participants.Participant_Type_Code": {
+    "sample_values": [
+      "Participant",
+      "Organizer"
+    ],
+    "inferred_type": "string"
+  },
+  "Participants.Participant_ID": {
+    "sample_values": [
+      "75",
+      "38",
+      "90"
+    ],
+    "inferred_type": "integer"
+  },
+  "Events.Service_ID": {
+    "sample_values": [
+      "8",
+      "2",
+      "5"
+    ],
+    "inferred_type": "integer"
+  },
+  "Events.Event_Details": {
+    "sample_values": [
+      "Fail",
+      "Success"
+    ],
+    "inferred_type": "string"
+  },
+  "Events.Event_ID": {
+    "sample_values": [
+      "40",
+      "8",
+      "74"
+    ],
+    "inferred_type": "integer"
+  }
+}

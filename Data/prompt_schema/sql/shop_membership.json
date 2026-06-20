@@ -1,0 +1,143 @@
+{
+  "member.Member_ID": {
+    "sample_values": [
+      1,
+      4,
+      7
+    ],
+    "inferred_type": "integer"
+  },
+  "member.Card_Number": {
+    "sample_values": [
+      "FS10",
+      "RT91",
+      "LT98"
+    ],
+    "inferred_type": "string"
+  },
+  "member.Name": {
+    "sample_values": [
+      "Matt Lentz",
+      "Corey Peters",
+      "Myron Pryor"
+    ],
+    "inferred_type": "string"
+  },
+  "member.Hometown": {
+    "sample_values": [
+      "Simpsonville, South Carolina",
+      "Columbia, South Carolina",
+      "Louisville, Kentucky"
+    ],
+    "inferred_type": "string"
+  },
+  "member.Level": {
+    "sample_values": [
+      6,
+      4,
+      2
+    ],
+    "inferred_type": "integer"
+  },
+  "branch.Branch_ID": {
+    "sample_values": [
+      1,
+      3,
+      5
+    ],
+    "inferred_type": "integer"
+  },
+  "branch.Name": {
+    "sample_values": [
+      "Brooke Greville",
+      "Popert",
+      "Stanley"
+    ],
+    "inferred_type": "string"
+  },
+  "branch.Open_year": {
+    "sample_values": [
+      "2001",
+      "2013",
+      "2014"
+    ],
+    "inferred_type": "integer"
+  },
+  "branch.Address_road": {
+    "sample_values": [
+      "Brampton Road",
+      "Concord Road",
+      "Glebe Street"
+    ],
+    "inferred_type": "string"
+  },
+  "branch.City": {
+    "sample_values": [
+      "London",
+      "Oxford"
+    ],
+    "inferred_type": "string"
+  },
+  "branch.membership_amount": {
+    "sample_values": [
+      "112",
+      "6",
+      "1418"
+    ],
+    "inferred_type": "integer"
+  },
+  "membership_register_branch.Member_ID": {
+    "sample_values": [
+      1,
+      3,
+      5
+    ],
+    "inferred_type": "integer"
+  },
+  "membership_register_branch.Branch_ID": {
+    "sample_values": [
+      "1",
+      "5",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "membership_register_branch.Register_Year": {
+    "sample_values": [
+      "2016",
+      "2017"
+    ],
+    "inferred_type": "integer"
+  },
+  "purchase.Member_ID": {
+    "sample_values": [
+      1,
+      2,
+      3
+    ],
+    "inferred_type": "integer"
+  },
+  "purchase.Branch_ID": {
+    "sample_values": [
+      "3",
+      "2",
+      "5"
+    ],
+    "inferred_type": "integer"
+  },
+  "purchase.Year": {
+    "sample_values": [
+      "2018",
+      "2017"
+    ],
+    "inferred_type": "integer"
+  },
+  "purchase.Total_pounds": {
+    "sample_values": [
+      2013.32,
+      988.09,
+      343.76
+    ],
+    "inferred_type": "float"
+  }
+}

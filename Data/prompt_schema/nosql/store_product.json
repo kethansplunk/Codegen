@@ -1,0 +1,161 @@
+{
+  "store_product.Store_ID": {
+    "sample_values": [
+      "1",
+      "3",
+      "5"
+    ],
+    "inferred_type": "integer"
+  },
+  "store_product.Product_ID": {
+    "sample_values": [
+      "1",
+      "2",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "store_district.Store_ID": {
+    "sample_values": [
+      "5",
+      "1",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "store_district.District_ID": {
+    "sample_values": [
+      "3",
+      "11",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "store.Area_size": {
+    "sample_values": [
+      "21.73",
+      "28.74",
+      "7.23"
+    ],
+    "inferred_type": "float"
+  },
+  "store.Type": {
+    "sample_values": [
+      "City Mall",
+      "Village Store"
+    ],
+    "inferred_type": "string"
+  },
+  "store.Ranking": {
+    "sample_values": [
+      "10",
+      "1",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "store.Number_of_product_category": {
+    "sample_values": [
+      "990.0",
+      "17811.0",
+      "793.0"
+    ],
+    "inferred_type": "float"
+  },
+  "store.Store_Name": {
+    "sample_values": [
+      "Rogersville",
+      "Neguac",
+      "Blackville"
+    ],
+    "inferred_type": "string"
+  },
+  "store.Store_ID": {
+    "sample_values": [
+      "5",
+      "1",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "district.District_ID": {
+    "sample_values": [
+      "5",
+      "8",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "district.City_Area": {
+    "sample_values": [
+      "12.0",
+      "10.0",
+      "15.0"
+    ],
+    "inferred_type": "float"
+  },
+  "district.City_Population": {
+    "sample_values": [
+      "94620.0",
+      "172073.0",
+      "464742.0"
+    ],
+    "inferred_type": "float"
+  },
+  "district.District_name": {
+    "sample_values": [
+      "Attock District",
+      "Bhakkar District",
+      "Khanewal District"
+    ],
+    "inferred_type": "string"
+  },
+  "district.Headquartered_City": {
+    "sample_values": [
+      "Hafizabad City",
+      "Kasur City",
+      "Bahawalnagar City"
+    ],
+    "inferred_type": "string"
+  },
+  "product.dimensions": {
+    "sample_values": [
+      "301 x 160 x 158",
+      "300 x 50 x 45",
+      "289 x 51 x 38"
+    ],
+    "inferred_type": "string"
+  },
+  "product.product": {
+    "sample_values": [
+      "Plustek MobileOffice D28 Corporate",
+      "Xerox Travel Scanner 100",
+      "Canon DR-2080C"
+    ],
+    "inferred_type": "string"
+  },
+  "product.pages_per_minute_color": {
+    "sample_values": [
+      "36.0",
+      "3.0",
+      "30.0"
+    ],
+    "inferred_type": "float"
+  },
+  "product.max_page_size": {
+    "sample_values": [
+      "A4",
+      "216mm x 356mm",
+      "216mm x 355mm"
+    ],
+    "inferred_type": "string"
+  },
+  "product.product_id": {
+    "sample_values": [
+      "5",
+      "2",
+      "6"
+    ],
+    "inferred_type": "integer"
+  }
+}

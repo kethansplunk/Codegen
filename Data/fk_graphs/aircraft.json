@@ -1,0 +1,191 @@
+{
+  "db_name": "aircraft",
+  "nodes": [
+    {
+      "name": "pilot",
+      "columns": [
+        {
+          "name": "Pilot_Id",
+          "type": "int(11)"
+        },
+        {
+          "name": "Name",
+          "type": "varchar(50)"
+        },
+        {
+          "name": "Age",
+          "type": "int(11)"
+        }
+      ],
+      "pk": [
+        "Pilot_Id"
+      ]
+    },
+    {
+      "name": "aircraft",
+      "columns": [
+        {
+          "name": "Aircraft_ID",
+          "type": "int(11)"
+        },
+        {
+          "name": "Aircraft",
+          "type": "varchar(50)"
+        },
+        {
+          "name": "Description",
+          "type": "varchar(50)"
+        },
+        {
+          "name": "Max_Gross_Weight",
+          "type": "varchar(50)"
+        },
+        {
+          "name": "Total_disk_area",
+          "type": "varchar(50)"
+        },
+        {
+          "name": "Max_disk_Loading",
+          "type": "varchar(50)"
+        }
+      ],
+      "pk": [
+        "Aircraft_ID"
+      ]
+    },
+    {
+      "name": "match",
+      "columns": [
+        {
+          "name": "Round",
+          "type": "REAL"
+        },
+        {
+          "name": "Location",
+          "type": "TEXT"
+        },
+        {
+          "name": "Country",
+          "type": "TEXT"
+        },
+        {
+          "name": "Date",
+          "type": "TEXT"
+        },
+        {
+          "name": "Fastest_Qualifying",
+          "type": "TEXT"
+        },
+        {
+          "name": "Winning_Pilot",
+          "type": "TEXT"
+        },
+        {
+          "name": "Winning_Aircraft",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "Round"
+      ]
+    },
+    {
+      "name": "airport",
+      "columns": [
+        {
+          "name": "Airport_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Airport_Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Total_Passengers",
+          "type": "REAL"
+        },
+        {
+          "name": "%_Change_2007",
+          "type": "TEXT"
+        },
+        {
+          "name": "International_Passengers",
+          "type": "REAL"
+        },
+        {
+          "name": "Domestic_Passengers",
+          "type": "REAL"
+        },
+        {
+          "name": "Transit_Passengers",
+          "type": "REAL"
+        },
+        {
+          "name": "Aircraft_Movements",
+          "type": "REAL"
+        },
+        {
+          "name": "Freight_Metric_Tonnes",
+          "type": "REAL"
+        }
+      ],
+      "pk": [
+        "Airport_ID"
+      ]
+    },
+    {
+      "name": "airport_aircraft",
+      "columns": [
+        {
+          "name": "ID",
+          "type": "INT"
+        },
+        {
+          "name": "Airport_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Aircraft_ID",
+          "type": "INT"
+        }
+      ],
+      "pk": [
+        "Airport_ID",
+        "Aircraft_ID"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "match",
+      "to": "pilot",
+      "child_col": "Winning_Pilot",
+      "parent_col": "Pilot_Id"
+    },
+    {
+      "from": "match",
+      "to": "aircraft",
+      "child_col": "Winning_Aircraft",
+      "parent_col": "Aircraft_ID"
+    },
+    {
+      "from": "airport_aircraft",
+      "to": "aircraft",
+      "child_col": "Aircraft_ID",
+      "parent_col": "Aircraft_ID"
+    },
+    {
+      "from": "airport_aircraft",
+      "to": "airport",
+      "child_col": "Airport_ID",
+      "parent_col": "Airport_ID"
+    }
+  ],
+  "centrality": {
+    "pilot": 0.25,
+    "aircraft": 0.5,
+    "match": 0.0,
+    "airport": 0.25,
+    "airport_aircraft": 0.0
+  }
+}

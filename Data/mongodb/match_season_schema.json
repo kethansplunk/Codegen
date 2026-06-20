@@ -1,0 +1,145 @@
+{
+  "db_name": "match_season",
+  "collections": {
+    "country": {
+      "primary_key": [
+        "Country_id"
+      ],
+      "columns": [
+        {
+          "name": "Country_id",
+          "type": "INT"
+        },
+        {
+          "name": "Country_name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Capital",
+          "type": "TEXT"
+        },
+        {
+          "name": "Official_native_language",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 6
+    },
+    "team": {
+      "primary_key": [
+        "Team_id"
+      ],
+      "columns": [
+        {
+          "name": "Team_id",
+          "type": "INT"
+        },
+        {
+          "name": "Name",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 10
+    },
+    "match_season": {
+      "primary_key": [
+        "Season"
+      ],
+      "columns": [
+        {
+          "name": "Season",
+          "type": "REAL"
+        },
+        {
+          "name": "Player",
+          "type": "TEXT"
+        },
+        {
+          "name": "Position",
+          "type": "TEXT"
+        },
+        {
+          "name": "Country",
+          "type": "INT"
+        },
+        {
+          "name": "Team",
+          "type": "INT"
+        },
+        {
+          "name": "Draft_Pick_Number",
+          "type": "INT"
+        },
+        {
+          "name": "Draft_Class",
+          "type": "TEXT"
+        },
+        {
+          "name": "College",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "match_season",
+          "to": "team",
+          "child_col": "Team",
+          "parent_col": "Team_id"
+        },
+        {
+          "from": "match_season",
+          "to": "country",
+          "child_col": "Country",
+          "parent_col": "Country_id"
+        }
+      ],
+      "row_count": 16
+    },
+    "player": {
+      "primary_key": [
+        "Player_ID"
+      ],
+      "columns": [
+        {
+          "name": "Player_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Player",
+          "type": "TEXT"
+        },
+        {
+          "name": "Years_Played",
+          "type": "TEXT"
+        },
+        {
+          "name": "Total_WL",
+          "type": "TEXT"
+        },
+        {
+          "name": "Singles_WL",
+          "type": "TEXT"
+        },
+        {
+          "name": "Doubles_WL",
+          "type": "TEXT"
+        },
+        {
+          "name": "Team",
+          "type": "INT"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "player",
+          "to": "team",
+          "child_col": "Team",
+          "parent_col": "Team_id"
+        }
+      ],
+      "row_count": 10
+    }
+  }
+}

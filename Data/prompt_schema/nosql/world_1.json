@@ -1,0 +1,193 @@
+{
+  "countrylanguage.Percentage": {
+    "sample_values": [
+      "96.8",
+      "21.6",
+      "1.7"
+    ],
+    "inferred_type": "float"
+  },
+  "countrylanguage.CountryCode": {
+    "sample_values": [
+      "AUT",
+      "ASM",
+      "ATG"
+    ],
+    "inferred_type": "string"
+  },
+  "countrylanguage.IsOfficial": {
+    "sample_values": [
+      "F",
+      "T"
+    ],
+    "inferred_type": "string"
+  },
+  "countrylanguage.Language": {
+    "sample_values": [
+      "Portuguese",
+      "Kongo",
+      "Pashto"
+    ],
+    "inferred_type": "string"
+  },
+  "city.CountryCode": {
+    "sample_values": [
+      "NLD",
+      "DZA",
+      "AFG"
+    ],
+    "inferred_type": "string"
+  },
+  "city.Name": {
+    "sample_values": [
+      "Haarlemmermeer",
+      "Amersfoort",
+      "Skikda"
+    ],
+    "inferred_type": "string"
+  },
+  "city.Population": {
+    "sample_values": [
+      "122087",
+      "129170",
+      "731200"
+    ],
+    "inferred_type": "integer"
+  },
+  "city.ID": {
+    "sample_values": [
+      "34",
+      "25",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "city.District": {
+    "sample_values": [
+      "Zuid-Holland",
+      "Constantine",
+      "Blida"
+    ],
+    "inferred_type": "string"
+  },
+  "country.IndepYear": {
+    "sample_values": [
+      "-1523",
+      "1918",
+      "1822"
+    ],
+    "inferred_type": "integer"
+  },
+  "country.GNPOld": {
+    "sample_values": [
+      "31966.0",
+      "1627.0",
+      "982.0"
+    ],
+    "inferred_type": "float"
+  },
+  "country.Code2": {
+    "sample_values": [
+      "BF",
+      "BV",
+      "BT"
+    ],
+    "inferred_type": "string"
+  },
+  "country.GNP": {
+    "sample_values": [
+      "1813.0",
+      "2841.0",
+      "249704.0"
+    ],
+    "inferred_type": "float"
+  },
+  "country.LifeExpectancy": {
+    "sample_values": [
+      "74.1",
+      "46.2",
+      "71.5"
+    ],
+    "inferred_type": "float"
+  },
+  "country.GovernmentForm": {
+    "sample_values": [
+      "Monarchy",
+      "Nonmetropolitan Territory of France",
+      "Territory of Australia"
+    ],
+    "inferred_type": "string"
+  },
+  "country.Continent": {
+    "sample_values": [
+      "Antarctica",
+      "Oceania",
+      "Africa"
+    ],
+    "inferred_type": "string"
+  },
+  "country.Name": {
+    "sample_values": [
+      "Belize",
+      "Congo, The Democratic Republic of the",
+      "C\u00f4te d\u2019Ivoire"
+    ],
+    "inferred_type": "string"
+  },
+  "country.Capital": {
+    "sample_values": [
+      "34",
+      "583",
+      "2317"
+    ],
+    "inferred_type": "integer"
+  },
+  "country.Population": {
+    "sample_values": [
+      "18886000",
+      "11937000",
+      "1622000"
+    ],
+    "inferred_type": "integer"
+  },
+  "country.LocalName": {
+    "sample_values": [
+      "Hajastan",
+      "Amerika Samoa",
+      "Barbados"
+    ],
+    "inferred_type": "string"
+  },
+  "country.HeadOfState": {
+    "sample_values": [
+      "Aljaksandr Luka\u0161enka",
+      "Paul Biya",
+      "Blaise Compaor\u00e9"
+    ],
+    "inferred_type": "string"
+  },
+  "country.SurfaceArea": {
+    "sample_values": [
+      "86600.0",
+      "8547403.0",
+      "22696.0"
+    ],
+    "inferred_type": "float"
+  },
+  "country.Code": {
+    "sample_values": [
+      "AUT",
+      "CCK",
+      "BEN"
+    ],
+    "inferred_type": "string"
+  },
+  "country.Region": {
+    "sample_values": [
+      "Antarctica",
+      "South America",
+      "Eastern Asia"
+    ],
+    "inferred_type": "string"
+  }
+}

@@ -1,0 +1,144 @@
+{
+  "db_name": "flight_4",
+  "nodes": [
+    {
+      "name": "routes",
+      "columns": [
+        {
+          "name": "rid",
+          "type": "INTEGER"
+        },
+        {
+          "name": "dst_apid",
+          "type": "INTEGER"
+        },
+        {
+          "name": "dst_ap",
+          "type": "varchar(4)"
+        },
+        {
+          "name": "src_apid",
+          "type": "bigint"
+        },
+        {
+          "name": "src_ap",
+          "type": "varchar(4)"
+        },
+        {
+          "name": "alid",
+          "type": "bigint"
+        },
+        {
+          "name": "airline",
+          "type": "varchar(4)"
+        },
+        {
+          "name": "codeshare",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "rid"
+      ]
+    },
+    {
+      "name": "airports",
+      "columns": [
+        {
+          "name": "apid",
+          "type": "INTEGER"
+        },
+        {
+          "name": "name",
+          "type": "TEXT"
+        },
+        {
+          "name": "city",
+          "type": "TEXT"
+        },
+        {
+          "name": "country",
+          "type": "TEXT"
+        },
+        {
+          "name": "x",
+          "type": "REAL"
+        },
+        {
+          "name": "y",
+          "type": "REAL"
+        },
+        {
+          "name": "elevation",
+          "type": "bigint"
+        },
+        {
+          "name": "iata",
+          "type": "character varchar(3)"
+        },
+        {
+          "name": "icao",
+          "type": "character varchar(4)"
+        }
+      ],
+      "pk": [
+        "apid"
+      ]
+    },
+    {
+      "name": "airlines",
+      "columns": [
+        {
+          "name": "alid",
+          "type": "INTEGER"
+        },
+        {
+          "name": "name",
+          "type": "TEXT"
+        },
+        {
+          "name": "iata",
+          "type": "varchar(2)"
+        },
+        {
+          "name": "icao",
+          "type": "varchar(3)"
+        },
+        {
+          "name": "callsign",
+          "type": "TEXT"
+        },
+        {
+          "name": "country",
+          "type": "TEXT"
+        },
+        {
+          "name": "active",
+          "type": "varchar(2)"
+        }
+      ],
+      "pk": [
+        "alid"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "routes",
+      "to": "airlines",
+      "child_col": "alid",
+      "parent_col": "alid"
+    },
+    {
+      "from": "routes",
+      "to": "airports",
+      "child_col": "dst_apid",
+      "parent_col": "apid"
+    }
+  ],
+  "centrality": {
+    "routes": 0.0,
+    "airports": 0.5,
+    "airlines": 0.5
+  }
+}

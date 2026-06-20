@@ -1,0 +1,148 @@
+{
+  "db_name": "tvshow",
+  "nodes": [
+    {
+      "name": "TV_Channel",
+      "columns": [
+        {
+          "name": "id",
+          "type": "TEXT"
+        },
+        {
+          "name": "series_name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Country",
+          "type": "TEXT"
+        },
+        {
+          "name": "Language",
+          "type": "TEXT"
+        },
+        {
+          "name": "Content",
+          "type": "TEXT"
+        },
+        {
+          "name": "Pixel_aspect_ratio_PAR",
+          "type": "TEXT"
+        },
+        {
+          "name": "Hight_definition_TV",
+          "type": "TEXT"
+        },
+        {
+          "name": "Pay_per_view_PPV",
+          "type": "TEXT"
+        },
+        {
+          "name": "Package_Option",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "id"
+      ]
+    },
+    {
+      "name": "TV_series",
+      "columns": [
+        {
+          "name": "id",
+          "type": "REAL"
+        },
+        {
+          "name": "Episode",
+          "type": "TEXT"
+        },
+        {
+          "name": "Air_Date",
+          "type": "TEXT"
+        },
+        {
+          "name": "Rating",
+          "type": "TEXT"
+        },
+        {
+          "name": "Share",
+          "type": "REAL"
+        },
+        {
+          "name": "18_49_Rating_Share",
+          "type": "TEXT"
+        },
+        {
+          "name": "Viewers_m",
+          "type": "TEXT"
+        },
+        {
+          "name": "Weekly_Rank",
+          "type": "REAL"
+        },
+        {
+          "name": "Channel",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "id"
+      ]
+    },
+    {
+      "name": "Cartoon",
+      "columns": [
+        {
+          "name": "id",
+          "type": "REAL"
+        },
+        {
+          "name": "Title",
+          "type": "TEXT"
+        },
+        {
+          "name": "Directed_by",
+          "type": "TEXT"
+        },
+        {
+          "name": "Written_by",
+          "type": "TEXT"
+        },
+        {
+          "name": "Original_air_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "Production_code",
+          "type": "REAL"
+        },
+        {
+          "name": "Channel",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "id"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "TV_series",
+      "to": "TV_Channel",
+      "child_col": "Channel",
+      "parent_col": "id"
+    },
+    {
+      "from": "Cartoon",
+      "to": "TV_Channel",
+      "child_col": "Channel",
+      "parent_col": "id"
+    }
+  ],
+  "centrality": {
+    "TV_Channel": 1.0,
+    "TV_series": 0.0,
+    "Cartoon": 0.0
+  }
+}

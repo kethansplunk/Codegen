@@ -1,0 +1,202 @@
+{
+  "swimmer.meter_400": {
+    "sample_values": [
+      "3:55.36",
+      "3:52.93",
+      "3:55.72"
+    ],
+    "inferred_type": "string"
+  },
+  "swimmer.Nationality": {
+    "sample_values": [
+      "Italy",
+      "Canada",
+      "Tunisia"
+    ],
+    "inferred_type": "string"
+  },
+  "swimmer.meter_300": {
+    "sample_values": [
+      "2:56.02",
+      "2:56.04",
+      "2:57.10"
+    ],
+    "inferred_type": "string"
+  },
+  "swimmer.name": {
+    "sample_values": [
+      "Ryan Cochrane",
+      "Grant Hackett",
+      "Oussama Mellouli"
+    ],
+    "inferred_type": "string"
+  },
+  "swimmer.Time": {
+    "sample_values": [
+      "7:47.91",
+      "7:53.43",
+      "7:56.56"
+    ],
+    "inferred_type": "string"
+  },
+  "swimmer.ID": {
+    "sample_values": [
+      "5",
+      "1",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "swimmer.meter_200": {
+    "sample_values": [
+      "1:56.34",
+      "1:56.44",
+      "1:57.26"
+    ],
+    "inferred_type": "string"
+  },
+  "swimmer.meter_700": {
+    "sample_values": [
+      "6:52.69",
+      "6:57.44",
+      "6:52.58"
+    ],
+    "inferred_type": "string"
+  },
+  "swimmer.meter_100": {
+    "sample_values": [
+      "55.67",
+      "57.84",
+      "57.31"
+    ],
+    "inferred_type": "float"
+  },
+  "swimmer.meter_600": {
+    "sample_values": [
+      "5:53.03",
+      "5:56.99",
+      "5:53.53"
+    ],
+    "inferred_type": "string"
+  },
+  "swimmer.meter_500": {
+    "sample_values": [
+      "4:56.15",
+      "4:55.08",
+      "4:56.96"
+    ],
+    "inferred_type": "string"
+  },
+  "event.ID": {
+    "sample_values": [
+      "5",
+      "2",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "event.Name": {
+    "sample_values": [
+      "World Master",
+      "European FINA",
+      "Pacific"
+    ],
+    "inferred_type": "string"
+  },
+  "event.Stadium_ID": {
+    "sample_values": [
+      "10",
+      "1",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "event.Year": {
+    "sample_values": [
+      "2017",
+      "2016",
+      "2014"
+    ],
+    "inferred_type": "integer"
+  },
+  "record.ID": {
+    "sample_values": [
+      "5",
+      "1",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "record.Swimmer_ID": {
+    "sample_values": [
+      "5",
+      "2",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "record.Event_ID": {
+    "sample_values": [
+      "5",
+      "1",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "record.Result": {
+    "sample_values": [
+      "Loss",
+      "NC",
+      "Win"
+    ],
+    "inferred_type": "string"
+  },
+  "stadium.name": {
+    "sample_values": [
+      "Arena Baltika",
+      "Nou Mestalla",
+      "Ferenc Pusk\u00e1s Stadion"
+    ],
+    "inferred_type": "string"
+  },
+  "stadium.City": {
+    "sample_values": [
+      "Saransk",
+      "Baku",
+      "Budapest"
+    ],
+    "inferred_type": "string"
+  },
+  "stadium.Country": {
+    "sample_values": [
+      "Russia",
+      "Azerbaijan",
+      "France"
+    ],
+    "inferred_type": "string"
+  },
+  "stadium.Capacity": {
+    "sample_values": [
+      "56250",
+      "68000",
+      "75000"
+    ],
+    "inferred_type": "integer"
+  },
+  "stadium.ID": {
+    "sample_values": [
+      "5",
+      "1",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "stadium.Opening_year": {
+    "sample_values": [
+      "2005",
+      "2007",
+      "2004"
+    ],
+    "inferred_type": "integer"
+  }
+}

@@ -1,0 +1,123 @@
+{
+  "db_name": "pilot_record",
+  "collections": {
+    "aircraft": {
+      "primary_key": [
+        "Aircraft_ID"
+      ],
+      "columns": [
+        {
+          "name": "Aircraft_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Order_Year",
+          "type": "INT"
+        },
+        {
+          "name": "Manufacturer",
+          "type": "TEXT"
+        },
+        {
+          "name": "Model",
+          "type": "TEXT"
+        },
+        {
+          "name": "Fleet_Series",
+          "type": "TEXT"
+        },
+        {
+          "name": "Powertrain",
+          "type": "TEXT"
+        },
+        {
+          "name": "Fuel_Propulsion",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 7
+    },
+    "pilot": {
+      "primary_key": [
+        "Pilot_ID"
+      ],
+      "columns": [
+        {
+          "name": "Pilot_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Pilot_name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Rank",
+          "type": "INT"
+        },
+        {
+          "name": "Age",
+          "type": "INT"
+        },
+        {
+          "name": "Nationality",
+          "type": "TEXT"
+        },
+        {
+          "name": "Position",
+          "type": "TEXT"
+        },
+        {
+          "name": "Join_Year",
+          "type": "INT"
+        },
+        {
+          "name": "Team",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 5
+    },
+    "pilot_record": {
+      "primary_key": [
+        "Pilot_ID",
+        "Aircraft_ID",
+        "Date"
+      ],
+      "columns": [
+        {
+          "name": "Record_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Pilot_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Aircraft_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Date",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "pilot_record",
+          "to": "aircraft",
+          "child_col": "Aircraft_ID",
+          "parent_col": "Aircraft_ID"
+        },
+        {
+          "from": "pilot_record",
+          "to": "pilot",
+          "child_col": "Pilot_ID",
+          "parent_col": "Pilot_ID"
+        }
+      ],
+      "row_count": 6
+    }
+  }
+}

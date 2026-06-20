@@ -1,0 +1,419 @@
+{
+  "db_name": "academic",
+  "nodes": [
+    {
+      "name": "author",
+      "columns": [
+        {
+          "name": "aid",
+          "type": "INT"
+        },
+        {
+          "name": "homepage",
+          "type": "TEXT"
+        },
+        {
+          "name": "name",
+          "type": "TEXT"
+        },
+        {
+          "name": "oid",
+          "type": "INT"
+        }
+      ],
+      "pk": [
+        "aid"
+      ]
+    },
+    {
+      "name": "conference",
+      "columns": [
+        {
+          "name": "cid",
+          "type": "INT"
+        },
+        {
+          "name": "homepage",
+          "type": "TEXT"
+        },
+        {
+          "name": "name",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "cid"
+      ]
+    },
+    {
+      "name": "domain",
+      "columns": [
+        {
+          "name": "did",
+          "type": "INT"
+        },
+        {
+          "name": "name",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "did"
+      ]
+    },
+    {
+      "name": "domain_author",
+      "columns": [
+        {
+          "name": "aid",
+          "type": "INT"
+        },
+        {
+          "name": "did",
+          "type": "INT"
+        }
+      ],
+      "pk": [
+        "aid",
+        "did"
+      ]
+    },
+    {
+      "name": "domain_conference",
+      "columns": [
+        {
+          "name": "cid",
+          "type": "INT"
+        },
+        {
+          "name": "did",
+          "type": "INT"
+        }
+      ],
+      "pk": [
+        "cid",
+        "did"
+      ]
+    },
+    {
+      "name": "journal",
+      "columns": [
+        {
+          "name": "homepage",
+          "type": "TEXT"
+        },
+        {
+          "name": "jid",
+          "type": "INT"
+        },
+        {
+          "name": "name",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "jid"
+      ]
+    },
+    {
+      "name": "domain_journal",
+      "columns": [
+        {
+          "name": "did",
+          "type": "INT"
+        },
+        {
+          "name": "jid",
+          "type": "INT"
+        }
+      ],
+      "pk": [
+        "did",
+        "jid"
+      ]
+    },
+    {
+      "name": "keyword",
+      "columns": [
+        {
+          "name": "keyword",
+          "type": "TEXT"
+        },
+        {
+          "name": "kid",
+          "type": "INT"
+        }
+      ],
+      "pk": [
+        "kid"
+      ]
+    },
+    {
+      "name": "domain_keyword",
+      "columns": [
+        {
+          "name": "did",
+          "type": "INT"
+        },
+        {
+          "name": "kid",
+          "type": "INT"
+        }
+      ],
+      "pk": [
+        "did",
+        "kid"
+      ]
+    },
+    {
+      "name": "publication",
+      "columns": [
+        {
+          "name": "abstract",
+          "type": "TEXT"
+        },
+        {
+          "name": "cid",
+          "type": "TEXT"
+        },
+        {
+          "name": "citation_num",
+          "type": "INT"
+        },
+        {
+          "name": "jid",
+          "type": "INT"
+        },
+        {
+          "name": "pid",
+          "type": "INT"
+        },
+        {
+          "name": "reference_num",
+          "type": "INT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "year",
+          "type": "INT"
+        }
+      ],
+      "pk": [
+        "pid"
+      ]
+    },
+    {
+      "name": "domain_publication",
+      "columns": [
+        {
+          "name": "did",
+          "type": "INT"
+        },
+        {
+          "name": "pid",
+          "type": "INT"
+        }
+      ],
+      "pk": [
+        "did",
+        "pid"
+      ]
+    },
+    {
+      "name": "organization",
+      "columns": [
+        {
+          "name": "continent",
+          "type": "TEXT"
+        },
+        {
+          "name": "homepage",
+          "type": "TEXT"
+        },
+        {
+          "name": "name",
+          "type": "TEXT"
+        },
+        {
+          "name": "oid",
+          "type": "INT"
+        }
+      ],
+      "pk": [
+        "oid"
+      ]
+    },
+    {
+      "name": "publication_keyword",
+      "columns": [
+        {
+          "name": "pid",
+          "type": "INT"
+        },
+        {
+          "name": "kid",
+          "type": "INT"
+        }
+      ],
+      "pk": [
+        "pid",
+        "kid"
+      ]
+    },
+    {
+      "name": "writes",
+      "columns": [
+        {
+          "name": "aid",
+          "type": "INT"
+        },
+        {
+          "name": "pid",
+          "type": "INT"
+        }
+      ],
+      "pk": [
+        "aid",
+        "pid"
+      ]
+    },
+    {
+      "name": "cite",
+      "columns": [
+        {
+          "name": "cited",
+          "type": "INT"
+        },
+        {
+          "name": "citing",
+          "type": "INT"
+        }
+      ],
+      "pk": []
+    }
+  ],
+  "edges": [
+    {
+      "from": "domain_author",
+      "to": "domain",
+      "child_col": "did",
+      "parent_col": "did"
+    },
+    {
+      "from": "domain_author",
+      "to": "author",
+      "child_col": "aid",
+      "parent_col": "aid"
+    },
+    {
+      "from": "domain_conference",
+      "to": "domain",
+      "child_col": "did",
+      "parent_col": "did"
+    },
+    {
+      "from": "domain_conference",
+      "to": "conference",
+      "child_col": "cid",
+      "parent_col": "cid"
+    },
+    {
+      "from": "domain_journal",
+      "to": "domain",
+      "child_col": "did",
+      "parent_col": "did"
+    },
+    {
+      "from": "domain_journal",
+      "to": "journal",
+      "child_col": "jid",
+      "parent_col": "jid"
+    },
+    {
+      "from": "domain_keyword",
+      "to": "domain",
+      "child_col": "did",
+      "parent_col": "did"
+    },
+    {
+      "from": "domain_keyword",
+      "to": "keyword",
+      "child_col": "kid",
+      "parent_col": "kid"
+    },
+    {
+      "from": "publication",
+      "to": "conference",
+      "child_col": "cid",
+      "parent_col": "cid"
+    },
+    {
+      "from": "publication",
+      "to": "journal",
+      "child_col": "jid",
+      "parent_col": "jid"
+    },
+    {
+      "from": "domain_publication",
+      "to": "domain",
+      "child_col": "did",
+      "parent_col": "did"
+    },
+    {
+      "from": "domain_publication",
+      "to": "publication",
+      "child_col": "pid",
+      "parent_col": "pid"
+    },
+    {
+      "from": "publication_keyword",
+      "to": "keyword",
+      "child_col": "kid",
+      "parent_col": "kid"
+    },
+    {
+      "from": "publication_keyword",
+      "to": "publication",
+      "child_col": "pid",
+      "parent_col": "pid"
+    },
+    {
+      "from": "writes",
+      "to": "author",
+      "child_col": "aid",
+      "parent_col": "aid"
+    },
+    {
+      "from": "writes",
+      "to": "publication",
+      "child_col": "pid",
+      "parent_col": "pid"
+    },
+    {
+      "from": "cite",
+      "to": "publication",
+      "child_col": "cited",
+      "parent_col": "pid"
+    }
+  ],
+  "centrality": {
+    "author": 0.14285714285714285,
+    "conference": 0.14285714285714285,
+    "domain": 0.3571428571428571,
+    "domain_author": 0.0,
+    "domain_conference": 0.0,
+    "journal": 0.14285714285714285,
+    "domain_journal": 0.0,
+    "keyword": 0.14285714285714285,
+    "domain_keyword": 0.0,
+    "publication": 0.2857142857142857,
+    "domain_publication": 0.0,
+    "organization": 0.0,
+    "publication_keyword": 0.0,
+    "writes": 0.0,
+    "cite": 0.0
+  }
+}

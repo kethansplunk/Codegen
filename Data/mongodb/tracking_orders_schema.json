@@ -1,0 +1,220 @@
+{
+  "db_name": "tracking_orders",
+  "collections": {
+    "Customers": {
+      "primary_key": [
+        "customer_id"
+      ],
+      "columns": [
+        {
+          "name": "customer_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "customer_name",
+          "type": "VARCHAR(80)"
+        },
+        {
+          "name": "customer_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 15
+    },
+    "Invoices": {
+      "primary_key": [
+        "invoice_number"
+      ],
+      "columns": [
+        {
+          "name": "invoice_number",
+          "type": "INTEGER"
+        },
+        {
+          "name": "invoice_date",
+          "type": "DATETIME"
+        },
+        {
+          "name": "invoice_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 15
+    },
+    "Orders": {
+      "primary_key": [
+        "order_id"
+      ],
+      "columns": [
+        {
+          "name": "order_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "customer_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "order_status",
+          "type": "VARCHAR(10)"
+        },
+        {
+          "name": "date_order_placed",
+          "type": "DATETIME"
+        },
+        {
+          "name": "order_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Orders",
+          "to": "Customers",
+          "child_col": "customer_id",
+          "parent_col": "customer_id"
+        }
+      ],
+      "row_count": 15
+    },
+    "Products": {
+      "primary_key": [
+        "product_id"
+      ],
+      "columns": [
+        {
+          "name": "product_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "product_name",
+          "type": "VARCHAR(80)"
+        },
+        {
+          "name": "product_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 15
+    },
+    "Order_Items": {
+      "primary_key": [
+        "order_item_id"
+      ],
+      "columns": [
+        {
+          "name": "order_item_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "product_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "order_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "order_item_status",
+          "type": "VARCHAR(10)"
+        },
+        {
+          "name": "order_item_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Order_Items",
+          "to": "Products",
+          "child_col": "product_id",
+          "parent_col": "product_id"
+        },
+        {
+          "from": "Order_Items",
+          "to": "Orders",
+          "child_col": "order_id",
+          "parent_col": "order_id"
+        }
+      ],
+      "row_count": 15
+    },
+    "Shipments": {
+      "primary_key": [
+        "shipment_id"
+      ],
+      "columns": [
+        {
+          "name": "shipment_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "order_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "invoice_number",
+          "type": "INTEGER"
+        },
+        {
+          "name": "shipment_tracking_number",
+          "type": "VARCHAR(80)"
+        },
+        {
+          "name": "shipment_date",
+          "type": "DATETIME"
+        },
+        {
+          "name": "other_shipment_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Shipments",
+          "to": "Invoices",
+          "child_col": "invoice_number",
+          "parent_col": "invoice_number"
+        },
+        {
+          "from": "Shipments",
+          "to": "Orders",
+          "child_col": "order_id",
+          "parent_col": "order_id"
+        }
+      ],
+      "row_count": 15
+    },
+    "Shipment_Items": {
+      "primary_key": [],
+      "columns": [
+        {
+          "name": "shipment_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "order_item_id",
+          "type": "INTEGER"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Shipment_Items",
+          "to": "Shipments",
+          "child_col": "shipment_id",
+          "parent_col": "shipment_id"
+        },
+        {
+          "from": "Shipment_Items",
+          "to": "Order_Items",
+          "child_col": "order_item_id",
+          "parent_col": "order_item_id"
+        }
+      ],
+      "row_count": 15
+    }
+  }
+}

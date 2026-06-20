@@ -1,0 +1,158 @@
+{
+  "db_name": "world_1",
+  "collections": {
+    "city": {
+      "primary_key": [
+        "ID"
+      ],
+      "columns": [
+        {
+          "name": "ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Name",
+          "type": "char(35)"
+        },
+        {
+          "name": "CountryCode",
+          "type": "char(3)"
+        },
+        {
+          "name": "District",
+          "type": "char(20)"
+        },
+        {
+          "name": "Population",
+          "type": "INTEGER"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "city",
+          "to": "country",
+          "child_col": "CountryCode",
+          "parent_col": "Code"
+        }
+      ],
+      "row_count": 4079
+    },
+    "sqlite_sequence": {
+      "primary_key": [],
+      "columns": [
+        {
+          "name": "name",
+          "type": ""
+        },
+        {
+          "name": "seq",
+          "type": ""
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 1
+    },
+    "country": {
+      "primary_key": [
+        "Code"
+      ],
+      "columns": [
+        {
+          "name": "Code",
+          "type": "char(3)"
+        },
+        {
+          "name": "Name",
+          "type": "char(52)"
+        },
+        {
+          "name": "Continent",
+          "type": "TEXT"
+        },
+        {
+          "name": "Region",
+          "type": "char(26)"
+        },
+        {
+          "name": "SurfaceArea",
+          "type": "float(10,2)"
+        },
+        {
+          "name": "IndepYear",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Population",
+          "type": "INTEGER"
+        },
+        {
+          "name": "LifeExpectancy",
+          "type": "float(3,1)"
+        },
+        {
+          "name": "GNP",
+          "type": "float(10,2)"
+        },
+        {
+          "name": "GNPOld",
+          "type": "float(10,2)"
+        },
+        {
+          "name": "LocalName",
+          "type": "char(45)"
+        },
+        {
+          "name": "GovernmentForm",
+          "type": "char(45)"
+        },
+        {
+          "name": "HeadOfState",
+          "type": "char(60)"
+        },
+        {
+          "name": "Capital",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Code2",
+          "type": "char(2)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 239
+    },
+    "countrylanguage": {
+      "primary_key": [
+        "CountryCode",
+        "Language"
+      ],
+      "columns": [
+        {
+          "name": "CountryCode",
+          "type": "char(3)"
+        },
+        {
+          "name": "Language",
+          "type": "char(30)"
+        },
+        {
+          "name": "IsOfficial",
+          "type": "TEXT"
+        },
+        {
+          "name": "Percentage",
+          "type": "float(4,1)"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "countrylanguage",
+          "to": "country",
+          "child_col": "CountryCode",
+          "parent_col": "Code"
+        }
+      ],
+      "row_count": 984
+    }
+  }
+}

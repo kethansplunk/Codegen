@@ -1,0 +1,239 @@
+{
+  "Staff.staff_id": {
+    "sample_values": [
+      114,
+      116,
+      118
+    ],
+    "inferred_type": "integer"
+  },
+  "Staff.gender": {
+    "sample_values": [
+      "0",
+      "1"
+    ],
+    "inferred_type": "integer"
+  },
+  "Staff.first_name": {
+    "sample_values": [
+      "Mikel",
+      "Lucie",
+      "Dagmar"
+    ],
+    "inferred_type": "string"
+  },
+  "Staff.last_name": {
+    "sample_values": [
+      "Lynch",
+      "Lowe",
+      "Erdman"
+    ],
+    "inferred_type": "string"
+  },
+  "Staff.email_address": {
+    "sample_values": [
+      "glen.borer@example.com",
+      "ohintz@example.org",
+      "wrau@example.com"
+    ],
+    "inferred_type": "string"
+  },
+  "Staff.phone_number": {
+    "sample_values": [
+      "751-262-8424x575",
+      "142-311-6503x206",
+      "345-656-5571"
+    ],
+    "inferred_type": "string"
+  },
+  "Customers.customer_id": {
+    "sample_values": [
+      113,
+      115,
+      117
+    ],
+    "inferred_type": "integer"
+  },
+  "Customers.customer_type_code": {
+    "sample_values": [
+      "Good Credit Rating",
+      "Defaults on payments"
+    ],
+    "inferred_type": "string"
+  },
+  "Customers.address_line_1": {
+    "sample_values": [
+      "518 Mann Park",
+      "039 Jedidiah Estate Suite 537",
+      "92189 Gulgowski Ranch Apt. 683"
+    ],
+    "inferred_type": "string"
+  },
+  "Customers.address_line_2": {
+    "sample_values": [
+      "Suite 035",
+      "Apt. 245",
+      "Apt. 828"
+    ],
+    "inferred_type": "string"
+  },
+  "Customers.town_city": {
+    "sample_values": [
+      "West Annamariestad",
+      "Sauerberg",
+      "Tyreekhaven"
+    ],
+    "inferred_type": "string"
+  },
+  "Customers.state": {
+    "sample_values": [
+      "Iowa",
+      "Hawaii",
+      "Tennessee"
+    ],
+    "inferred_type": "string"
+  },
+  "Customers.email_address": {
+    "sample_values": [
+      "rzulauf@example.org",
+      "cayla.satterfield@example.net",
+      "vida86@example.com"
+    ],
+    "inferred_type": "string"
+  },
+  "Customers.phone_number": {
+    "sample_values": [
+      "578.019.7943x328",
+      "470-803-0244",
+      "997.698.4779x882"
+    ],
+    "inferred_type": "string"
+  },
+  "Products.product_id": {
+    "sample_values": [
+      117,
+      118,
+      119
+    ],
+    "inferred_type": "integer"
+  },
+  "Products.parent_product_id": {
+    "sample_values": [
+      4,
+      3,
+      8
+    ],
+    "inferred_type": "integer"
+  },
+  "Products.product_category_code": {
+    "sample_values": [
+      "Food",
+      "Book",
+      "Hardware"
+    ],
+    "inferred_type": "string"
+  },
+  "Products.date_product_first_available": {
+    "sample_values": [
+      "1998-06-20 15:04:11",
+      "1994-12-18 15:13:19",
+      "1974-06-25 12:26:47"
+    ],
+    "inferred_type": "string"
+  },
+  "Products.date_product_discontinued": {
+    "sample_values": [
+      "1980-06-26 10:40:19",
+      "1997-07-02 18:26:16",
+      "1991-08-20 05:22:31"
+    ],
+    "inferred_type": "string"
+  },
+  "Products.product_name": {
+    "sample_values": [
+      "Mouse",
+      "Keyboard",
+      "The Great Gatsby"
+    ],
+    "inferred_type": "string"
+  },
+  "Products.product_description": {
+    "sample_values": [
+      "Blue tooth mouse",
+      "Designed for games",
+      "American novel"
+    ],
+    "inferred_type": "string"
+  },
+  "Products.product_price": {
+    "sample_values": [
+      2.88,
+      35,
+      109.99
+    ],
+    "inferred_type": "numeric"
+  },
+  "Complaints.complaint_id": {
+    "sample_values": [
+      1,
+      5,
+      9
+    ],
+    "inferred_type": "integer"
+  },
+  "Complaints.product_id": {
+    "sample_values": [
+      117,
+      118,
+      119
+    ],
+    "inferred_type": "integer"
+  },
+  "Complaints.customer_id": {
+    "sample_values": [
+      120,
+      114,
+      117
+    ],
+    "inferred_type": "integer"
+  },
+  "Complaints.complaint_status_code": {
+    "sample_values": [
+      "Closed",
+      "New",
+      "Open"
+    ],
+    "inferred_type": "string"
+  },
+  "Complaints.complaint_type_code": {
+    "sample_values": [
+      "Product Failure",
+      "Product Unusable"
+    ],
+    "inferred_type": "string"
+  },
+  "Complaints.date_complaint_raised": {
+    "sample_values": [
+      "1987-07-11 14:40:30",
+      "1973-02-10 22:55:56",
+      "1977-08-06 00:31:19"
+    ],
+    "inferred_type": "string"
+  },
+  "Complaints.date_complaint_closed": {
+    "sample_values": [
+      "1975-10-11 05:54:30",
+      "2013-09-14 02:59:10",
+      "1970-10-14 00:57:25"
+    ],
+    "inferred_type": "string"
+  },
+  "Complaints.staff_id": {
+    "sample_values": [
+      114,
+      115,
+      118
+    ],
+    "inferred_type": "integer"
+  }
+}

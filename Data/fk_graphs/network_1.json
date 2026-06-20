@@ -1,0 +1,78 @@
+{
+  "db_name": "network_1",
+  "nodes": [
+    {
+      "name": "Highschooler",
+      "columns": [
+        {
+          "name": "ID",
+          "type": "INT"
+        },
+        {
+          "name": "name",
+          "type": "TEXT"
+        },
+        {
+          "name": "grade",
+          "type": "INT"
+        }
+      ],
+      "pk": [
+        "ID"
+      ]
+    },
+    {
+      "name": "Friend",
+      "columns": [
+        {
+          "name": "student_id",
+          "type": "INT"
+        },
+        {
+          "name": "friend_id",
+          "type": "INT"
+        }
+      ],
+      "pk": [
+        "student_id",
+        "friend_id"
+      ]
+    },
+    {
+      "name": "Likes",
+      "columns": [
+        {
+          "name": "student_id",
+          "type": "INT"
+        },
+        {
+          "name": "liked_id",
+          "type": "INT"
+        }
+      ],
+      "pk": [
+        "student_id",
+        "liked_id"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "Friend",
+      "to": "Highschooler",
+      "child_col": "student_id",
+      "parent_col": "ID"
+    },
+    {
+      "from": "Likes",
+      "to": "Highschooler",
+      "child_col": "liked_id",
+      "parent_col": "ID"
+    }
+  ],
+  "centrality": {
+    "Highschooler": 1.0,
+    "Friend": 0.0,
+    "Likes": 0.0
+  }
+}

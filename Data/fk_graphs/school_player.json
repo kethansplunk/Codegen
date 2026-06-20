@@ -1,0 +1,168 @@
+{
+  "db_name": "school_player",
+  "nodes": [
+    {
+      "name": "school",
+      "columns": [
+        {
+          "name": "School_ID",
+          "type": "INT"
+        },
+        {
+          "name": "School",
+          "type": "TEXT"
+        },
+        {
+          "name": "Location",
+          "type": "TEXT"
+        },
+        {
+          "name": "Enrollment",
+          "type": "REAL"
+        },
+        {
+          "name": "Founded",
+          "type": "REAL"
+        },
+        {
+          "name": "Denomination",
+          "type": "TEXT"
+        },
+        {
+          "name": "Boys_or_Girls",
+          "type": "TEXT"
+        },
+        {
+          "name": "Day_or_Boarding",
+          "type": "TEXT"
+        },
+        {
+          "name": "Year_Entered_Competition",
+          "type": "REAL"
+        },
+        {
+          "name": "School_Colors",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "School_ID"
+      ]
+    },
+    {
+      "name": "school_details",
+      "columns": [
+        {
+          "name": "School_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Nickname",
+          "type": "TEXT"
+        },
+        {
+          "name": "Colors",
+          "type": "TEXT"
+        },
+        {
+          "name": "League",
+          "type": "TEXT"
+        },
+        {
+          "name": "Class",
+          "type": "TEXT"
+        },
+        {
+          "name": "Division",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "School_ID"
+      ]
+    },
+    {
+      "name": "school_performance",
+      "columns": [
+        {
+          "name": "School_Id",
+          "type": "INT"
+        },
+        {
+          "name": "School_Year",
+          "type": "TEXT"
+        },
+        {
+          "name": "Class_A",
+          "type": "TEXT"
+        },
+        {
+          "name": "Class_AA",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "School_Id",
+        "School_Year"
+      ]
+    },
+    {
+      "name": "player",
+      "columns": [
+        {
+          "name": "Player_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Player",
+          "type": "TEXT"
+        },
+        {
+          "name": "Team",
+          "type": "TEXT"
+        },
+        {
+          "name": "Age",
+          "type": "INT"
+        },
+        {
+          "name": "Position",
+          "type": "TEXT"
+        },
+        {
+          "name": "School_ID",
+          "type": "INT"
+        }
+      ],
+      "pk": [
+        "Player_ID"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "school_details",
+      "to": "school",
+      "child_col": "School_ID",
+      "parent_col": "School_ID"
+    },
+    {
+      "from": "school_performance",
+      "to": "school",
+      "child_col": "School_Id",
+      "parent_col": "School_ID"
+    },
+    {
+      "from": "player",
+      "to": "school",
+      "child_col": "School_ID",
+      "parent_col": "School_ID"
+    }
+  ],
+  "centrality": {
+    "school": 1.0,
+    "school_details": 0.0,
+    "school_performance": 0.0,
+    "player": 0.0
+  }
+}

@@ -1,0 +1,345 @@
+{
+  "Customers.gender_mf": {
+    "sample_values": [
+      "1",
+      "0"
+    ],
+    "inferred_type": "integer"
+  },
+  "Customers.date_became_customer": {
+    "sample_values": [
+      "2016-02-03 10:31:18",
+      "2016-02-03 16:58:11",
+      "2015-04-24 02:38:16"
+    ],
+    "inferred_type": "string"
+  },
+  "Customers.last_name": {
+    "sample_values": [
+      "Kessler",
+      "Crona",
+      "Ankunding"
+    ],
+    "inferred_type": "string"
+  },
+  "Customers.first_name": {
+    "sample_values": [
+      "Maximilian",
+      "Jamir",
+      "Marilou"
+    ],
+    "inferred_type": "string"
+  },
+  "Customers.coupon_id": {
+    "sample_values": [
+      "10",
+      "1",
+      "3"
+    ],
+    "inferred_type": "integer"
+  },
+  "Customers.customer_id": {
+    "sample_values": [
+      "5",
+      "8",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Customers.date_last_hire": {
+    "sample_values": [
+      "2018-03-13 21:20:05",
+      "2018-01-30 04:47:13",
+      "2018-03-18 17:35:43"
+    ],
+    "inferred_type": "string"
+  },
+  "Customers.good_or_bad_customer": {
+    "sample_values": [
+      "bad",
+      "good"
+    ],
+    "inferred_type": "string"
+  },
+  "Bookings.amount_outstanding": {
+    "sample_values": [
+      "73.88",
+      "22.97",
+      "64.01"
+    ],
+    "inferred_type": "float"
+  },
+  "Bookings.booking_status_code": {
+    "sample_values": [
+      "Provisional",
+      "Confirmed"
+    ],
+    "inferred_type": "string"
+  },
+  "Bookings.booking_end_date": {
+    "sample_values": [
+      "2017-08-30 04:33:23",
+      "2018-01-14 00:29:01",
+      "2018-03-07 17:39:04"
+    ],
+    "inferred_type": "string"
+  },
+  "Bookings.amount_payable": {
+    "sample_values": [
+      "209.41",
+      "338.1",
+      "374.59"
+    ],
+    "inferred_type": "float"
+  },
+  "Bookings.amount_of_refund": {
+    "sample_values": [
+      "179.14",
+      "191.31",
+      "183.68"
+    ],
+    "inferred_type": "float"
+  },
+  "Bookings.booking_id": {
+    "sample_values": [
+      "5",
+      "8",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Bookings.returned_damaged_yn": {
+    "sample_values": [
+      "1",
+      "0"
+    ],
+    "inferred_type": "integer"
+  },
+  "Bookings.booking_start_date": {
+    "sample_values": [
+      "2016-06-05 05:18:17",
+      "2017-04-11 00:39:03",
+      "2016-12-07 23:39:17"
+    ],
+    "inferred_type": "string"
+  },
+  "Bookings.count_hired": {
+    "sample_values": [
+      "488",
+      "994",
+      "298"
+    ],
+    "inferred_type": "integer"
+  },
+  "Bookings.customer_id": {
+    "sample_values": [
+      "10",
+      "8",
+      "3"
+    ],
+    "inferred_type": "integer"
+  },
+  "Bookings.amount_of_discount": {
+    "sample_values": [
+      "45.06",
+      "48.73",
+      "83.82"
+    ],
+    "inferred_type": "float"
+  },
+  "Products_for_Hire.product_name": {
+    "sample_values": [
+      "DVD collection B",
+      "Book collection A",
+      "DVD collection A"
+    ],
+    "inferred_type": "string"
+  },
+  "Products_for_Hire.daily_hire_cost": {
+    "sample_values": [
+      "18.5",
+      "39.58",
+      "15.62"
+    ],
+    "inferred_type": "float"
+  },
+  "Products_for_Hire.product_type_code": {
+    "sample_values": [
+      "Din_Plates",
+      "Cutlery"
+    ],
+    "inferred_type": "string"
+  },
+  "Products_for_Hire.product_description": {
+    "sample_values": [
+      "The Great Gatsby",
+      "Twilight",
+      "War and Peace"
+    ],
+    "inferred_type": "string"
+  },
+  "Products_for_Hire.product_id": {
+    "sample_values": [
+      "5",
+      "1",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "View_Product_Availability.status_date": {
+    "sample_values": [
+      "2018-03-21 15:20:32",
+      "2018-03-18 05:25:55",
+      "2018-03-25 10:20:15"
+    ],
+    "inferred_type": "string"
+  },
+  "View_Product_Availability.available_yn": {
+    "sample_values": [
+      "1",
+      "0"
+    ],
+    "inferred_type": "integer"
+  },
+  "View_Product_Availability.product_id": {
+    "sample_values": [
+      "1",
+      "3",
+      "5"
+    ],
+    "inferred_type": "integer"
+  },
+  "View_Product_Availability.booking_id": {
+    "sample_values": [
+      "11",
+      "5"
+    ],
+    "inferred_type": "integer"
+  },
+  "Payments.payment_date": {
+    "sample_values": [
+      "2018-03-03 03:07:00",
+      "2018-03-23 20:36:04",
+      "2018-03-17 15:51:52"
+    ],
+    "inferred_type": "string"
+  },
+  "Payments.amount_paid": {
+    "sample_values": [
+      "668.4",
+      "464.06",
+      "704.41"
+    ],
+    "inferred_type": "float"
+  },
+  "Payments.payment_id": {
+    "sample_values": [
+      "5",
+      "8",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Payments.booking_id": {
+    "sample_values": [
+      "5",
+      "8",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "Payments.amount_paid_in_full_yn": {
+    "sample_values": [
+      "1",
+      "0"
+    ],
+    "inferred_type": "integer"
+  },
+  "Payments.amount_due": {
+    "sample_values": [
+      "369.52",
+      "407.51",
+      "486.75"
+    ],
+    "inferred_type": "float"
+  },
+  "Payments.payment_type_code": {
+    "sample_values": [
+      "Check",
+      "Credit Card",
+      "Cash"
+    ],
+    "inferred_type": "string"
+  },
+  "Payments.customer_id": {
+    "sample_values": [
+      "10",
+      "5",
+      "1"
+    ],
+    "inferred_type": "integer"
+  },
+  "Discount_Coupons.coupon_id": {
+    "sample_values": [
+      "5",
+      "8",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Discount_Coupons.coupon_amount": {
+    "sample_values": [
+      "686.25",
+      "245.36",
+      "547.39"
+    ],
+    "inferred_type": "float"
+  },
+  "Discount_Coupons.date_issued": {
+    "sample_values": [
+      "2017-07-03 23:02:14",
+      "2017-07-21 10:10:47",
+      "2017-07-02 06:49:42"
+    ],
+    "inferred_type": "string"
+  },
+  "Products_Booked.returned_late_yn": {
+    "sample_values": [
+      "1",
+      "0"
+    ],
+    "inferred_type": "integer"
+  },
+  "Products_Booked.booked_count": {
+    "sample_values": [
+      "5",
+      "2",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Products_Booked.booking_id": {
+    "sample_values": [
+      "10",
+      "1",
+      "13"
+    ],
+    "inferred_type": "integer"
+  },
+  "Products_Booked.booked_amount": {
+    "sample_values": [
+      "398.68",
+      "351.38",
+      "123.43"
+    ],
+    "inferred_type": "float"
+  },
+  "Products_Booked.product_id": {
+    "sample_values": [
+      "5",
+      "1",
+      "2"
+    ],
+    "inferred_type": "integer"
+  }
+}

@@ -1,0 +1,106 @@
+{
+  "event.Event_ID": {
+    "sample_values": [
+      1,
+      2,
+      3
+    ],
+    "inferred_type": "integer"
+  },
+  "event.Date": {
+    "sample_values": [
+      "9 April 2014",
+      "20 June 2018",
+      "7 October 2010"
+    ],
+    "inferred_type": "string"
+  },
+  "event.Venue": {
+    "sample_values": [
+      "Hispano",
+      "Platense",
+      "Motagua"
+    ],
+    "inferred_type": "string"
+  },
+  "event.Name": {
+    "sample_values": [
+      "Special Exhibition",
+      "Global Awarding",
+      "Public Debating"
+    ],
+    "inferred_type": "string"
+  },
+  "event.Event_Attendance": {
+    "sample_values": [
+      6650,
+      369,
+      1675
+    ],
+    "inferred_type": "integer"
+  },
+  "journalist.journalist_ID": {
+    "sample_values": [
+      1,
+      4,
+      7
+    ],
+    "inferred_type": "integer"
+  },
+  "journalist.Name": {
+    "sample_values": [
+      "Tom Briggs",
+      "Fred Chandler",
+      "Fred Keenor"
+    ],
+    "inferred_type": "string"
+  },
+  "journalist.Nationality": {
+    "sample_values": [
+      "England",
+      "Wales",
+      "Northern Ireland"
+    ],
+    "inferred_type": "string"
+  },
+  "journalist.Age": {
+    "sample_values": [
+      "37",
+      "28",
+      "34"
+    ],
+    "inferred_type": "integer"
+  },
+  "journalist.Years_working": {
+    "sample_values": [
+      10,
+      21,
+      12
+    ],
+    "inferred_type": "integer"
+  },
+  "news_report.journalist_ID": {
+    "sample_values": [
+      1,
+      6,
+      8
+    ],
+    "inferred_type": "integer"
+  },
+  "news_report.Event_ID": {
+    "sample_values": [
+      3,
+      1,
+      2
+    ],
+    "inferred_type": "integer"
+  },
+  "news_report.Work_Type": {
+    "sample_values": [
+      "Screening",
+      "Music",
+      "Host"
+    ],
+    "inferred_type": "string"
+  }
+}

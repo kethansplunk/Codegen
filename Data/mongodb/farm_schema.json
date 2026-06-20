@@ -1,0 +1,158 @@
+{
+  "db_name": "farm",
+  "collections": {
+    "city": {
+      "primary_key": [
+        "City_ID"
+      ],
+      "columns": [
+        {
+          "name": "City_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Official_Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Status",
+          "type": "TEXT"
+        },
+        {
+          "name": "Area_km_2",
+          "type": "REAL"
+        },
+        {
+          "name": "Population",
+          "type": "REAL"
+        },
+        {
+          "name": "Census_Ranking",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 5
+    },
+    "farm": {
+      "primary_key": [
+        "Farm_ID"
+      ],
+      "columns": [
+        {
+          "name": "Farm_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Year",
+          "type": "INT"
+        },
+        {
+          "name": "Total_Horses",
+          "type": "REAL"
+        },
+        {
+          "name": "Working_Horses",
+          "type": "REAL"
+        },
+        {
+          "name": "Total_Cattle",
+          "type": "REAL"
+        },
+        {
+          "name": "Oxen",
+          "type": "REAL"
+        },
+        {
+          "name": "Bulls",
+          "type": "REAL"
+        },
+        {
+          "name": "Cows",
+          "type": "REAL"
+        },
+        {
+          "name": "Pigs",
+          "type": "REAL"
+        },
+        {
+          "name": "Sheep_and_Goats",
+          "type": "REAL"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 8
+    },
+    "farm_competition": {
+      "primary_key": [
+        "Competition_ID"
+      ],
+      "columns": [
+        {
+          "name": "Competition_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Year",
+          "type": "INT"
+        },
+        {
+          "name": "Theme",
+          "type": "TEXT"
+        },
+        {
+          "name": "Host_city_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Hosts",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "farm_competition",
+          "to": "city",
+          "child_col": "Host_city_ID",
+          "parent_col": "City_ID"
+        }
+      ],
+      "row_count": 6
+    },
+    "competition_record": {
+      "primary_key": [
+        "Competition_ID",
+        "Farm_ID"
+      ],
+      "columns": [
+        {
+          "name": "Competition_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Farm_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Rank",
+          "type": "INT"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "competition_record",
+          "to": "farm",
+          "child_col": "Farm_ID",
+          "parent_col": "Farm_ID"
+        },
+        {
+          "from": "competition_record",
+          "to": "farm_competition",
+          "child_col": "Competition_ID",
+          "parent_col": "Competition_ID"
+        }
+      ],
+      "row_count": 12
+    }
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "db_name": "musical",
+  "collections": {
+    "musical": {
+      "primary_key": [
+        "Musical_ID"
+      ],
+      "columns": [
+        {
+          "name": "Musical_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Year",
+          "type": "INT"
+        },
+        {
+          "name": "Award",
+          "type": "TEXT"
+        },
+        {
+          "name": "Category",
+          "type": "TEXT"
+        },
+        {
+          "name": "Nominee",
+          "type": "TEXT"
+        },
+        {
+          "name": "Result",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 7
+    },
+    "actor": {
+      "primary_key": [
+        "Actor_ID"
+      ],
+      "columns": [
+        {
+          "name": "Actor_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Musical_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Character",
+          "type": "TEXT"
+        },
+        {
+          "name": "Duration",
+          "type": "TEXT"
+        },
+        {
+          "name": "age",
+          "type": "INT"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "actor",
+          "to": "actor",
+          "child_col": "Musical_ID",
+          "parent_col": "Actor_ID"
+        }
+      ],
+      "row_count": 9
+    }
+  }
+}

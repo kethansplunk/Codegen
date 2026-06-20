@@ -1,0 +1,185 @@
+{
+  "orchestra.Orchestra": {
+    "sample_values": [
+      "Kirov Orchestra",
+      "Philharmonia Orchestra",
+      "Seattle Symphony Orchestra"
+    ],
+    "inferred_type": "string"
+  },
+  "orchestra.Major_Record_Format": {
+    "sample_values": [
+      "CD",
+      "CD / LP",
+      "DVD"
+    ],
+    "inferred_type": "string"
+  },
+  "orchestra.Orchestra_ID": {
+    "sample_values": [
+      "5",
+      "12",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "orchestra.Conductor_ID": {
+    "sample_values": [
+      "5",
+      "12",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "orchestra.Year_of_Founded": {
+    "sample_values": [
+      "2003.0",
+      "2004.0",
+      "2009.0"
+    ],
+    "inferred_type": "float"
+  },
+  "orchestra.Record_Company": {
+    "sample_values": [
+      "Columbia Masterworks",
+      "Delos Records",
+      "RCA"
+    ],
+    "inferred_type": "string"
+  },
+  "conductor.Nationality": {
+    "sample_values": [
+      "France",
+      "UK",
+      "USA"
+    ],
+    "inferred_type": "string"
+  },
+  "conductor.Age": {
+    "sample_values": [
+      "41",
+      "63",
+      "42"
+    ],
+    "inferred_type": "integer"
+  },
+  "conductor.Name": {
+    "sample_values": [
+      "Michael Tilson Thomas",
+      "Colin Davis",
+      "Valeri Gergiev"
+    ],
+    "inferred_type": "string"
+  },
+  "conductor.Conductor_ID": {
+    "sample_values": [
+      "5",
+      "12",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "conductor.Year_of_Work": {
+    "sample_values": [
+      "10",
+      "20",
+      "21"
+    ],
+    "inferred_type": "integer"
+  },
+  "performance.Type": {
+    "sample_values": [
+      "Auditions 1",
+      "Semi-final 3",
+      "Semi-final 1"
+    ],
+    "inferred_type": "string"
+  },
+  "performance.Orchestra_ID": {
+    "sample_values": [
+      "5",
+      "1",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "performance.Weekly_rank": {
+    "sample_values": [
+      "7",
+      "8",
+      "TBC"
+    ],
+    "inferred_type": "string"
+  },
+  "performance.Performance_ID": {
+    "sample_values": [
+      "5",
+      "1",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "performance.Share": {
+    "sample_values": [
+      "29.2%",
+      "34%",
+      "40.9%"
+    ],
+    "inferred_type": "string"
+  },
+  "performance.Date": {
+    "sample_values": [
+      "10 June",
+      "12 June",
+      "2007"
+    ],
+    "inferred_type": "string"
+  },
+  "performance.Official_ratings_(millions)": {
+    "sample_values": [
+      "9.29",
+      "11.45",
+      "7.39"
+    ],
+    "inferred_type": "float"
+  },
+  "show.Result": {
+    "sample_values": [
+      "F",
+      "T"
+    ],
+    "inferred_type": "string"
+  },
+  "show.Show_ID": {
+    "sample_values": [
+      "5",
+      "1",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "show.Attendance": {
+    "sample_values": [
+      "1925.0",
+      "695.0",
+      "2431.0"
+    ],
+    "inferred_type": "float"
+  },
+  "show.Performance_ID": {
+    "sample_values": [
+      "5",
+      "1",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "show.If_first_show": {
+    "sample_values": [
+      "Glebe Park",
+      "Fir Park",
+      "St. Mirren Park"
+    ],
+    "inferred_type": "string"
+  }
+}

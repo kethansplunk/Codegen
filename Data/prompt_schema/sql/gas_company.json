@@ -1,0 +1,146 @@
+{
+  "company.Company_ID": {
+    "sample_values": [
+      1,
+      4,
+      7
+    ],
+    "inferred_type": "integer"
+  },
+  "company.Rank": {
+    "sample_values": [
+      1,
+      5,
+      8
+    ],
+    "inferred_type": "integer"
+  },
+  "company.Company": {
+    "sample_values": [
+      "BP",
+      "Royal Dutch Shell",
+      "General Electric"
+    ],
+    "inferred_type": "string"
+  },
+  "company.Headquarters": {
+    "sample_values": [
+      "Brazil",
+      "UK",
+      "China"
+    ],
+    "inferred_type": "string"
+  },
+  "company.Main_Industry": {
+    "sample_values": [
+      "Oil and gas",
+      "Conglomerate",
+      "Banking"
+    ],
+    "inferred_type": "string"
+  },
+  "company.Sales_billion": {
+    "sample_values": [
+      433.5,
+      82.6,
+      143.7
+    ],
+    "inferred_type": "float"
+  },
+  "company.Profits_billion": {
+    "sample_values": [
+      41.1,
+      25.1,
+      10.3
+    ],
+    "inferred_type": "float"
+  },
+  "company.Assets_billion": {
+    "sample_values": [
+      331.1,
+      2039.1,
+      392.6
+    ],
+    "inferred_type": "float"
+  },
+  "company.Market_Value": {
+    "sample_values": [
+      407.4,
+      237.4,
+      202.2
+    ],
+    "inferred_type": "float"
+  },
+  "gas_station.Station_ID": {
+    "sample_values": [
+      1,
+      4,
+      7
+    ],
+    "inferred_type": "integer"
+  },
+  "gas_station.Open_Year": {
+    "sample_values": [
+      1998,
+      2002,
+      2005
+    ],
+    "inferred_type": "integer"
+  },
+  "gas_station.Location": {
+    "sample_values": [
+      "Newport Rd",
+      "Reading",
+      "Channel Hill"
+    ],
+    "inferred_type": "string"
+  },
+  "gas_station.Manager_Name": {
+    "sample_values": [
+      "Jon Rowe",
+      "Simon Cope Derek Marloe",
+      "SimonMarloe"
+    ],
+    "inferred_type": "string"
+  },
+  "gas_station.Vice_Manager_Name": {
+    "sample_values": [
+      "Steve Parsons",
+      "James Colin ",
+      "Russell Brown"
+    ],
+    "inferred_type": "string"
+  },
+  "gas_station.Representative_Name": {
+    "sample_values": [
+      "Tim Read",
+      "Dave Edwards Roger ",
+      "Rob Jefferies "
+    ],
+    "inferred_type": "string"
+  },
+  "station_company.Station_ID": {
+    "sample_values": [
+      1,
+      6,
+      10
+    ],
+    "inferred_type": "integer"
+  },
+  "station_company.Company_ID": {
+    "sample_values": [
+      3,
+      1,
+      6
+    ],
+    "inferred_type": "integer"
+  },
+  "station_company.Rank_of_the_Year": {
+    "sample_values": [
+      1,
+      3,
+      9
+    ],
+    "inferred_type": "integer"
+  }
+}

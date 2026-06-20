@@ -1,0 +1,96 @@
+{
+  "college.College_ID": {
+    "sample_values": [
+      1,
+      2,
+      3
+    ],
+    "inferred_type": "integer"
+  },
+  "college.Name": {
+    "sample_values": [
+      "Toronto School",
+      "Edmonton School",
+      "Calgary School"
+    ],
+    "inferred_type": "string"
+  },
+  "college.Leader_Name": {
+    "sample_values": [
+      "Roger Dunbrack",
+      "Samir Chahine",
+      "Andre Arlain"
+    ],
+    "inferred_type": "string"
+  },
+  "college.College_Location": {
+    "sample_values": [
+      "Western Ontario",
+      "McGill",
+      "St. Francis Xavier"
+    ],
+    "inferred_type": "string"
+  },
+  "member.Member_ID": {
+    "sample_values": [
+      1,
+      4,
+      7
+    ],
+    "inferred_type": "integer"
+  },
+  "member.Name": {
+    "sample_values": [
+      "Tom Weiskopf",
+      "Arnold Palmer",
+      "Billy Casper"
+    ],
+    "inferred_type": "string"
+  },
+  "member.Country": {
+    "sample_values": [
+      "United States",
+      "Canada"
+    ],
+    "inferred_type": "string"
+  },
+  "member.College_ID": {
+    "sample_values": [
+      1,
+      4,
+      2
+    ],
+    "inferred_type": "integer"
+  },
+  "round.Round_ID": {
+    "sample_values": [
+      1,
+      2
+    ],
+    "inferred_type": "integer"
+  },
+  "round.Member_ID": {
+    "sample_values": [
+      1,
+      4,
+      9
+    ],
+    "inferred_type": "integer"
+  },
+  "round.Decoration_Theme": {
+    "sample_values": [
+      "Happiness",
+      "Soft Dream",
+      "Sweetie"
+    ],
+    "inferred_type": "string"
+  },
+  "round.Rank_in_Round": {
+    "sample_values": [
+      1,
+      2,
+      4
+    ],
+    "inferred_type": "integer"
+  }
+}

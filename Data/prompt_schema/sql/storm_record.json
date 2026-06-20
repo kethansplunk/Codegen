@@ -1,0 +1,98 @@
+{
+  "storm.Storm_ID": {
+    "sample_values": [
+      1,
+      4,
+      7
+    ],
+    "inferred_type": "integer"
+  },
+  "storm.Name": {
+    "sample_values": [
+      "9 cyclones",
+      "Three",
+      "Two"
+    ],
+    "inferred_type": "string"
+  },
+  "storm.Dates_active": {
+    "sample_values": [
+      "May19 \u2013October26",
+      "August5\u2013August14",
+      "August3\u2013August10"
+    ],
+    "inferred_type": "string"
+  },
+  "storm.Max_speed": {
+    "sample_values": [
+      995,
+      961,
+      1002
+    ],
+    "inferred_type": "integer"
+  },
+  "storm.Damage_millions_USD": {
+    "sample_values": [
+      13.0,
+      4.05,
+      0.039
+    ],
+    "inferred_type": "float"
+  },
+  "storm.Number_Deaths": {
+    "sample_values": [
+      0,
+      52,
+      2
+    ],
+    "inferred_type": "integer"
+  },
+  "region.Region_id": {
+    "sample_values": [
+      1,
+      5,
+      9
+    ],
+    "inferred_type": "integer"
+  },
+  "region.Region_code": {
+    "sample_values": [
+      "DJ",
+      "AO",
+      "DS"
+    ],
+    "inferred_type": "string"
+  },
+  "region.Region_name": {
+    "sample_values": [
+      "Djibouti",
+      "Angola",
+      "American Samoa"
+    ],
+    "inferred_type": "string"
+  },
+  "affected_region.Region_id": {
+    "sample_values": [
+      1,
+      2,
+      3
+    ],
+    "inferred_type": "integer"
+  },
+  "affected_region.Storm_ID": {
+    "sample_values": [
+      1,
+      4,
+      5
+    ],
+    "inferred_type": "integer"
+  },
+  "affected_region.Number_city_affected": {
+    "sample_values": [
+      10.0,
+      30.0,
+      37.0
+    ],
+    "inferred_type": "float"
+  }
+}

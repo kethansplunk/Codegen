@@ -1,0 +1,138 @@
+{
+  "repair_assignment.technician_id": {
+    "sample_values": [
+      "5",
+      "1",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "repair_assignment.Machine_ID": {
+    "sample_values": [
+      "1",
+      "4",
+      "3"
+    ],
+    "inferred_type": "integer"
+  },
+  "repair_assignment.repair_ID": {
+    "sample_values": [
+      "5",
+      "1",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "technician.Age": {
+    "sample_values": [
+      "47",
+      "43",
+      "38"
+    ],
+    "inferred_type": "integer"
+  },
+  "technician.technician_id": {
+    "sample_values": [
+      "10.0",
+      "3.0",
+      "9.0"
+    ],
+    "inferred_type": "float"
+  },
+  "technician.Name": {
+    "sample_values": [
+      "Joe Sewell",
+      "Mickey Cochrane",
+      "Charlie Hollocher"
+    ],
+    "inferred_type": "string"
+  },
+  "technician.Starting_Year": {
+    "sample_values": [
+      "2003.0",
+      "2012.0",
+      "2009.0"
+    ],
+    "inferred_type": "float"
+  },
+  "technician.Team": {
+    "sample_values": [
+      "CHC",
+      "NYY",
+      "CWS"
+    ],
+    "inferred_type": "string"
+  },
+  "repair.name": {
+    "sample_values": [
+      "Discoverer",
+      "OPS 3754",
+      "Discoverer 1"
+    ],
+    "inferred_type": "string"
+  },
+  "repair.Notes": {
+    "sample_values": [
+      "repair Failed. Failed to achieve orbit",
+      "Out-of-focus area on some film.",
+      "repair failed. Guidance system failed. No orbit."
+    ],
+    "inferred_type": "string"
+  },
+  "repair.repair_ID": {
+    "sample_values": [
+      "5",
+      "2",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "repair.Launch_Date": {
+    "sample_values": [
+      "19 Jun 2014",
+      "18 Nov 2014",
+      "28 Feb 2009"
+    ],
+    "inferred_type": "string"
+  },
+  "machine.Machine_ID": {
+    "sample_values": [
+      "5",
+      "2",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "machine.Making_Year": {
+    "sample_values": [
+      "1993",
+      "1991",
+      "1998"
+    ],
+    "inferred_type": "integer"
+  },
+  "machine.value_points": {
+    "sample_values": [
+      "126.0",
+      "105.0",
+      "238.0"
+    ],
+    "inferred_type": "float"
+  },
+  "machine.Team": {
+    "sample_values": [
+      "Team Givi- Honda LCR",
+      "Honda",
+      "Marlboro Pileri - Honda"
+    ],
+    "inferred_type": "string"
+  },
+  "machine.quality_rank": {
+    "sample_values": [
+      "5",
+      "2",
+      "3"
+    ],
+    "inferred_type": "integer"
+  }
+}

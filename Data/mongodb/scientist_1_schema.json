@@ -1,0 +1,74 @@
+{
+  "db_name": "scientist_1",
+  "collections": {
+    "Scientists": {
+      "primary_key": [
+        "SSN"
+      ],
+      "columns": [
+        {
+          "name": "SSN",
+          "type": "INT"
+        },
+        {
+          "name": "Name",
+          "type": "Char(30)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 12
+    },
+    "Projects": {
+      "primary_key": [
+        "Code"
+      ],
+      "columns": [
+        {
+          "name": "Code",
+          "type": "Char(4)"
+        },
+        {
+          "name": "Name",
+          "type": "Char(50)"
+        },
+        {
+          "name": "Hours",
+          "type": "INT"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 14
+    },
+    "AssignedTo": {
+      "primary_key": [
+        "Scientist",
+        "Project"
+      ],
+      "columns": [
+        {
+          "name": "Scientist",
+          "type": "INT"
+        },
+        {
+          "name": "Project",
+          "type": "char(4)"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "AssignedTo",
+          "to": "Projects",
+          "child_col": "Project",
+          "parent_col": "Code"
+        },
+        {
+          "from": "AssignedTo",
+          "to": "Scientists",
+          "child_col": "Scientist",
+          "parent_col": "SSN"
+        }
+      ],
+      "row_count": 12
+    }
+  }
+}

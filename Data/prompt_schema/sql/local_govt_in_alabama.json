@@ -1,0 +1,80 @@
+{
+  "Services.Service_ID": {
+    "sample_values": [
+      2,
+      5,
+      6
+    ],
+    "inferred_type": "integer"
+  },
+  "Services.Service_Type_Code": {
+    "sample_values": [
+      "Property Change",
+      "Birth Proof",
+      "Death Proof"
+    ],
+    "inferred_type": "string"
+  },
+  "Participants.Participant_ID": {
+    "sample_values": [
+      9,
+      38,
+      75
+    ],
+    "inferred_type": "integer"
+  },
+  "Participants.Participant_Type_Code": {
+    "sample_values": [
+      "Organizer",
+      "Participant"
+    ],
+    "inferred_type": "string"
+  },
+  "Participants.Participant_Details": {
+    "sample_values": [
+      "Dr. Kris Deckow",
+      "Dewitt Walter",
+      "Macy Mayer DDS"
+    ],
+    "inferred_type": "string"
+  },
+  "Events.Event_ID": {
+    "sample_values": [
+      3,
+      38,
+      60
+    ],
+    "inferred_type": "integer"
+  },
+  "Events.Service_ID": {
+    "sample_values": [
+      5,
+      8,
+      2
+    ],
+    "inferred_type": "integer"
+  },
+  "Events.Event_Details": {
+    "sample_values": [
+      "Success",
+      "Fail"
+    ],
+    "inferred_type": "string"
+  },
+  "Participants_in_Events.Event_ID": {
+    "sample_values": [
+      3,
+      17,
+      60
+    ],
+    "inferred_type": "integer"
+  },
+  "Participants_in_Events.Participant_ID": {
+    "sample_values": [
+      26,
+      64,
+      37
+    ],
+    "inferred_type": "integer"
+  }
+}

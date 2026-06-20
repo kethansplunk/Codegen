@@ -1,0 +1,82 @@
+{
+  "course.Staring_Date": {
+    "sample_values": [
+      "10 May",
+      "11 May",
+      "17 May"
+    ],
+    "inferred_type": "string"
+  },
+  "course.Course": {
+    "sample_values": [
+      "Math",
+      "Geography",
+      "Sports"
+    ],
+    "inferred_type": "string"
+  },
+  "course.Course_ID": {
+    "sample_values": [
+      "5",
+      "1",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "course_arrange.Teacher_ID": {
+    "sample_values": [
+      "5",
+      "2",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "course_arrange.Grade": {
+    "sample_values": [
+      "5",
+      "1",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "course_arrange.Course_ID": {
+    "sample_values": [
+      "10",
+      "5",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "teacher.Hometown": {
+    "sample_values": [
+      "Bolton County Borough",
+      "Blackrod Urban District",
+      "Kearsley Urban District"
+    ],
+    "inferred_type": "string"
+  },
+  "teacher.Name": {
+    "sample_values": [
+      "Kearsley Brown",
+      "Joseph Huts",
+      "Lucy Wong"
+    ],
+    "inferred_type": "string"
+  },
+  "teacher.Age": {
+    "sample_values": [
+      "41",
+      "33",
+      "32"
+    ],
+    "inferred_type": "integer"
+  },
+  "teacher.Teacher_ID": {
+    "sample_values": [
+      "5",
+      "2",
+      "6"
+    ],
+    "inferred_type": "integer"
+  }
+}

@@ -1,0 +1,97 @@
+{
+  "db_name": "entertainment_awards",
+  "nodes": [
+    {
+      "name": "festival_detail",
+      "columns": [
+        {
+          "name": "Festival_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Festival_Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Chair_Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Location",
+          "type": "TEXT"
+        },
+        {
+          "name": "Year",
+          "type": "INT"
+        },
+        {
+          "name": "Num_of_Audience",
+          "type": "INT"
+        }
+      ],
+      "pk": [
+        "Festival_ID"
+      ]
+    },
+    {
+      "name": "artwork",
+      "columns": [
+        {
+          "name": "Artwork_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Type",
+          "type": "TEXT"
+        },
+        {
+          "name": "Name",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "Artwork_ID"
+      ]
+    },
+    {
+      "name": "nomination",
+      "columns": [
+        {
+          "name": "Artwork_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Festival_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Result",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "Artwork_ID",
+        "Festival_ID"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "nomination",
+      "to": "festival_detail",
+      "child_col": "Festival_ID",
+      "parent_col": "Festival_ID"
+    },
+    {
+      "from": "nomination",
+      "to": "artwork",
+      "child_col": "Artwork_ID",
+      "parent_col": "Artwork_ID"
+    }
+  ],
+  "centrality": {
+    "festival_detail": 0.5,
+    "artwork": 0.5,
+    "nomination": 0.0
+  }
+}

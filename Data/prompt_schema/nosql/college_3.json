@@ -1,0 +1,310 @@
+{
+  "Student.Fname": {
+    "sample_values": [
+      "George",
+      "Mark",
+      "Susan"
+    ],
+    "inferred_type": "string"
+  },
+  "Student.Age": {
+    "sample_values": [
+      "17",
+      "18",
+      "21"
+    ],
+    "inferred_type": "integer"
+  },
+  "Student.city_code": {
+    "sample_values": [
+      "BOS",
+      "YYZ",
+      "HOU"
+    ],
+    "inferred_type": "string"
+  },
+  "Student.Advisor": {
+    "sample_values": [
+      "7712",
+      "7271",
+      "8723"
+    ],
+    "inferred_type": "integer"
+  },
+  "Student.StuID": {
+    "sample_values": [
+      "1020",
+      "1023",
+      "1018"
+    ],
+    "inferred_type": "integer"
+  },
+  "Student.Sex": {
+    "sample_values": [
+      "F",
+      "M"
+    ],
+    "inferred_type": "string"
+  },
+  "Student.Major": {
+    "sample_values": [
+      "550",
+      "50",
+      "520"
+    ],
+    "inferred_type": "integer"
+  },
+  "Student.LName": {
+    "sample_values": [
+      "Goldman",
+      "Prater",
+      "Brody"
+    ],
+    "inferred_type": "string"
+  },
+  "Minor_in.StuID": {
+    "sample_values": [
+      "1005",
+      "1004",
+      "1007"
+    ],
+    "inferred_type": "integer"
+  },
+  "Minor_in.DNO": {
+    "sample_values": [
+      "190",
+      "530",
+      "140"
+    ],
+    "inferred_type": "integer"
+  },
+  "Department.DPhone": {
+    "sample_values": [
+      "7330",
+      "7226",
+      "7227"
+    ],
+    "inferred_type": "integer"
+  },
+  "Department.Building": {
+    "sample_values": [
+      "Mergenthaler",
+      "Maryland",
+      "Ames"
+    ],
+    "inferred_type": "string"
+  },
+  "Department.Division": {
+    "sample_values": [
+      "EN",
+      "AS"
+    ],
+    "inferred_type": "string"
+  },
+  "Department.DName": {
+    "sample_values": [
+      "Chemistry",
+      "Philosophy",
+      "ECE"
+    ],
+    "inferred_type": "string"
+  },
+  "Department.Room": {
+    "sample_values": [
+      "347",
+      "105",
+      "366"
+    ],
+    "inferred_type": "string"
+  },
+  "Department.DNO": {
+    "sample_values": [
+      "600",
+      "110",
+      "20"
+    ],
+    "inferred_type": "integer"
+  },
+  "Gradeconversion.gradepoint": {
+    "sample_values": [
+      "1.0",
+      "0.7",
+      "3.7"
+    ],
+    "inferred_type": "float"
+  },
+  "Gradeconversion.lettergrade": {
+    "sample_values": [
+      "D-",
+      "C-",
+      "A"
+    ],
+    "inferred_type": "string"
+  },
+  "Faculty.Fname": {
+    "sample_values": [
+      "James",
+      "Pablo",
+      "Yair"
+    ],
+    "inferred_type": "string"
+  },
+  "Faculty.Rank": {
+    "sample_values": [
+      "AssocProf",
+      "Professor",
+      "AsstProf"
+    ],
+    "inferred_type": "string"
+  },
+  "Faculty.Phone": {
+    "sample_values": [
+      "2021",
+      "3272",
+      "5666"
+    ],
+    "inferred_type": "integer"
+  },
+  "Faculty.Building": {
+    "sample_values": [
+      "Barton",
+      "Krieger",
+      "NEB"
+    ],
+    "inferred_type": "string"
+  },
+  "Faculty.Lname": {
+    "sample_values": [
+      "Goldman",
+      "Awerbuch",
+      "Priebe"
+    ],
+    "inferred_type": "string"
+  },
+  "Faculty.FacID": {
+    "sample_values": [
+      "6112",
+      "9210",
+      "8423"
+    ],
+    "inferred_type": "integer"
+  },
+  "Faculty.Sex": {
+    "sample_values": [
+      "F",
+      "M"
+    ],
+    "inferred_type": "string"
+  },
+  "Faculty.Room": {
+    "sample_values": [
+      "119",
+      "324B",
+      "308"
+    ],
+    "inferred_type": "string"
+  },
+  "Member_of.FacID": {
+    "sample_values": [
+      "6112",
+      "7723",
+      "9922"
+    ],
+    "inferred_type": "integer"
+  },
+  "Member_of.Appt_Type": {
+    "sample_values": [
+      "Primary",
+      "Secondary"
+    ],
+    "inferred_type": "string"
+  },
+  "Member_of.DNO": {
+    "sample_values": [
+      "520",
+      "50",
+      "550"
+    ],
+    "inferred_type": "integer"
+  },
+  "Enrolled_in.CID": {
+    "sample_values": [
+      "600.657",
+      "600.337",
+      "600.315"
+    ],
+    "inferred_type": "float"
+  },
+  "Enrolled_in.StuID": {
+    "sample_values": [
+      "1005",
+      "1009",
+      "1007"
+    ],
+    "inferred_type": "integer"
+  },
+  "Enrolled_in.Grade": {
+    "sample_values": [
+      "A+",
+      "B",
+      "C+"
+    ],
+    "inferred_type": "string"
+  },
+  "Course.Instructor": {
+    "sample_values": [
+      "6112",
+      "9210",
+      "7712"
+    ],
+    "inferred_type": "integer"
+  },
+  "Course.Hours": {
+    "sample_values": [
+      "4-5:30",
+      "12",
+      "8"
+    ],
+    "inferred_type": "string"
+  },
+  "Course.Days": {
+    "sample_values": [
+      "M",
+      "ThF",
+      "MW"
+    ],
+    "inferred_type": "string"
+  },
+  "Course.CID": {
+    "sample_values": [
+      "600.657",
+      "600.211",
+      "600.461"
+    ],
+    "inferred_type": "float"
+  },
+  "Course.Credits": {
+    "sample_values": [
+      "1",
+      "3",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "Course.CName": {
+    "sample_values": [
+      "STATISTICAL ANALYSIS",
+      "INTRODUCTION TO ECE",
+      "COMPUTER VISION"
+    ],
+    "inferred_type": "string"
+  },
+  "Course.DNO": {
+    "sample_values": [
+      "520",
+      "550",
+      "600"
+    ],
+    "inferred_type": "integer"
+  }
+}

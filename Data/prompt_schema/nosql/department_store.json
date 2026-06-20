@@ -1,0 +1,439 @@
+{
+  "Product_Suppliers.total_value_purchased": {
+    "sample_values": [
+      "27257.6",
+      "7273.74",
+      "97371.12"
+    ],
+    "inferred_type": "float"
+  },
+  "Product_Suppliers.date_supplied_to": {
+    "sample_values": [
+      "2018-03-24 18:16:47",
+      "2018-03-24 09:17:15",
+      "2018-03-24 23:03:30"
+    ],
+    "inferred_type": "string"
+  },
+  "Product_Suppliers.date_supplied_from": {
+    "sample_values": [
+      "2017-08-09 21:26:38",
+      "2017-10-14 19:15:37",
+      "2017-08-07 12:08:00"
+    ],
+    "inferred_type": "string"
+  },
+  "Product_Suppliers.supplier_id": {
+    "sample_values": [
+      "1",
+      "3",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "Product_Suppliers.total_amount_purchased": {
+    "sample_values": [
+      "15752.45",
+      "25085.57",
+      "85922.86"
+    ],
+    "inferred_type": "float"
+  },
+  "Product_Suppliers.product_id": {
+    "sample_values": [
+      "5",
+      "8",
+      "3"
+    ],
+    "inferred_type": "integer"
+  },
+  "Staff.staff_name": {
+    "sample_values": [
+      "Malika",
+      "Yolanda",
+      "Tyson"
+    ],
+    "inferred_type": "string"
+  },
+  "Staff.staff_id": {
+    "sample_values": [
+      "5",
+      "8",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Staff.staff_gender": {
+    "sample_values": [
+      "1",
+      "0"
+    ],
+    "inferred_type": "integer"
+  },
+  "Customer_Addresses.customer_id": {
+    "sample_values": [
+      "10",
+      "1",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "Customer_Addresses.date_to": {
+    "sample_values": [
+      "2018-03-05 21:19:53",
+      "2018-03-12 05:32:28",
+      "2018-02-28 14:53:52"
+    ],
+    "inferred_type": "string"
+  },
+  "Customer_Addresses.date_from": {
+    "sample_values": [
+      "2017-07-31 20:18:52",
+      "2017-12-14 07:40:08",
+      "2018-02-22 04:46:48"
+    ],
+    "inferred_type": "string"
+  },
+  "Customer_Addresses.address_id": {
+    "sample_values": [
+      "10",
+      "12",
+      "13"
+    ],
+    "inferred_type": "integer"
+  },
+  "Departments.department_name": {
+    "sample_values": [
+      "human resource",
+      "managing",
+      "advertising"
+    ],
+    "inferred_type": "string"
+  },
+  "Departments.dept_store_id": {
+    "sample_values": [
+      "11",
+      "5",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "Departments.department_id": {
+    "sample_values": [
+      "5",
+      "1",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "Suppliers.supplier_name": {
+    "sample_values": [
+      "Lidl",
+      "AB Store",
+      "Audi"
+    ],
+    "inferred_type": "string"
+  },
+  "Suppliers.supplier_id": {
+    "sample_values": [
+      "1",
+      "3",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "Suppliers.supplier_phone": {
+    "sample_values": [
+      "(692)009-5928",
+      "287-071-1153x254",
+      "1-432-960-2402x1734"
+    ],
+    "inferred_type": "string"
+  },
+  "Supplier_Addresses.date_to": {
+    "sample_values": [
+      "2018-03-16 16:39:58",
+      "2018-03-14 20:06:37",
+      "2018-03-24 00:14:45"
+    ],
+    "inferred_type": "string"
+  },
+  "Supplier_Addresses.supplier_id": {
+    "sample_values": [
+      "3",
+      "2",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "Supplier_Addresses.date_from": {
+    "sample_values": [
+      "2008-11-22 12:01:25",
+      "2014-11-07 19:18:49",
+      "2015-03-16 19:30:29"
+    ],
+    "inferred_type": "string"
+  },
+  "Supplier_Addresses.address_id": {
+    "sample_values": [
+      "2",
+      "9",
+      "5"
+    ],
+    "inferred_type": "integer"
+  },
+  "Staff_Department_Assignments.date_assigned_to": {
+    "sample_values": [
+      "2018-03-23 21:59:11",
+      "2018-03-25 03:15:31",
+      "2018-03-24 10:45:21"
+    ],
+    "inferred_type": "string"
+  },
+  "Staff_Department_Assignments.job_title_code": {
+    "sample_values": [
+      "Department Manager",
+      "Administration",
+      "Sales Person"
+    ],
+    "inferred_type": "string"
+  },
+  "Staff_Department_Assignments.department_id": {
+    "sample_values": [
+      "5",
+      "1",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "Staff_Department_Assignments.date_assigned_from": {
+    "sample_values": [
+      "2017-05-10 02:32:17",
+      "2017-06-11 22:55:20",
+      "2017-12-18 19:12:15"
+    ],
+    "inferred_type": "string"
+  },
+  "Staff_Department_Assignments.staff_id": {
+    "sample_values": [
+      "10",
+      "8",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "Customers.customer_email": {
+    "sample_values": [
+      "gbrekke@example.com",
+      "ludwig54@example.net",
+      "gwisozk@example.net"
+    ],
+    "inferred_type": "string"
+  },
+  "Customers.customer_code": {
+    "sample_values": [
+      "665",
+      "844",
+      "240"
+    ],
+    "inferred_type": "integer"
+  },
+  "Customers.payment_method_code": {
+    "sample_values": [
+      "Direct Debit",
+      "Credit Card"
+    ],
+    "inferred_type": "string"
+  },
+  "Customers.customer_phone": {
+    "sample_values": [
+      "857-844-9339x40140",
+      "1-695-364-7586x59256",
+      "197-417-3557"
+    ],
+    "inferred_type": "string"
+  },
+  "Customers.customer_id": {
+    "sample_values": [
+      "5",
+      "8",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Customers.customer_name": {
+    "sample_values": [
+      "Cristobal",
+      "Karson",
+      "Darron"
+    ],
+    "inferred_type": "string"
+  },
+  "Customers.customer_address": {
+    "sample_values": [
+      "362 Fisher Forge Apt. 900\nNew Mckenna, CA 98525-5674",
+      "7308 Joan Lake Suite 346\nLizethtown, DE 56522",
+      "3558 Witting Meadow Apt. 483\nLake Moriahbury, OH 91556-2122"
+    ],
+    "inferred_type": "string"
+  },
+  "Products.product_price": {
+    "sample_values": [
+      "408.82",
+      "803.74",
+      "944.96"
+    ],
+    "inferred_type": "float"
+  },
+  "Products.product_name": {
+    "sample_values": [
+      "keyboard",
+      "yellow jeans",
+      "speaker"
+    ],
+    "inferred_type": "string"
+  },
+  "Products.product_type_code": {
+    "sample_values": [
+      "Hardware",
+      "Clothes"
+    ],
+    "inferred_type": "string"
+  },
+  "Products.product_id": {
+    "sample_values": [
+      "5",
+      "8",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Order_Items.order_item_id": {
+    "sample_values": [
+      "5",
+      "8",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Order_Items.order_id": {
+    "sample_values": [
+      "5",
+      "8",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Order_Items.product_id": {
+    "sample_values": [
+      "10",
+      "8",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "Department_Stores.store_phone": {
+    "sample_values": [
+      "(723)503-7086x356",
+      "1399327266",
+      "(948)944-5099x2027"
+    ],
+    "inferred_type": "string"
+  },
+  "Department_Stores.dept_store_chain_id": {
+    "sample_values": [
+      "1",
+      "3",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "Department_Stores.store_email": {
+    "sample_values": [
+      "larissa10@example.org",
+      "bmaggio@example.com",
+      "mohr.elwin@example.net"
+    ],
+    "inferred_type": "string"
+  },
+  "Department_Stores.dept_store_id": {
+    "sample_values": [
+      "5",
+      "8",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Department_Stores.store_address": {
+    "sample_values": [
+      "994 Travis Plains\nNorth Wadeton, WV 27575-3951",
+      "082 Purdy Expressway\nO'Connellshire, IL 31732",
+      "16650 Lysanne River Apt. 281\nNorth Garettton, AL 84756-4375"
+    ],
+    "inferred_type": "string"
+  },
+  "Department_Store_Chain.dept_store_chain_name": {
+    "sample_values": [
+      "West",
+      "North",
+      "South"
+    ],
+    "inferred_type": "string"
+  },
+  "Department_Store_Chain.dept_store_chain_id": {
+    "sample_values": [
+      "1",
+      "3",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "Addresses.address_details": {
+    "sample_values": [
+      "521 Molly Harbors Apt. 567\nReingerland, HI 97099-1005",
+      "28481 Crist Circle\nEast Burdettestad, IA 21232",
+      "0292 Mitchel Pike\nPort Abefurt, IA 84402-4249"
+    ],
+    "inferred_type": "string"
+  },
+  "Addresses.address_id": {
+    "sample_values": [
+      "5",
+      "8",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Customer_Orders.customer_id": {
+    "sample_values": [
+      "10",
+      "8",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "Customer_Orders.order_id": {
+    "sample_values": [
+      "5",
+      "8",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Customer_Orders.order_status_code": {
+    "sample_values": [
+      "Pending",
+      "Cancelled",
+      "New"
+    ],
+    "inferred_type": "string"
+  },
+  "Customer_Orders.order_date": {
+    "sample_values": [
+      "2018-02-10 15:44:48",
+      "2018-02-12 19:34:12",
+      "2018-02-15 02:25:32"
+    ],
+    "inferred_type": "string"
+  }
+}

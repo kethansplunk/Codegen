@@ -1,0 +1,391 @@
+{
+  "Customers.customer_id": {
+    "sample_values": [
+      1,
+      6,
+      11
+    ],
+    "inferred_type": "integer"
+  },
+  "Customers.customer_first_name": {
+    "sample_values": [
+      "Ruby",
+      "Dangelo",
+      "Vesta"
+    ],
+    "inferred_type": "string"
+  },
+  "Customers.customer_middle_initial": {
+    "sample_values": [
+      "A",
+      "L",
+      "M"
+    ],
+    "inferred_type": "string"
+  },
+  "Customers.customer_last_name": {
+    "sample_values": [
+      "Boyle",
+      "Spinka",
+      "Leuschke"
+    ],
+    "inferred_type": "string"
+  },
+  "Customers.gender": {
+    "sample_values": [
+      "1",
+      "0"
+    ],
+    "inferred_type": "integer"
+  },
+  "Customers.email_address": {
+    "sample_values": [
+      "gwolff@example.net",
+      "zullrich@example.net",
+      "philip94@example.org"
+    ],
+    "inferred_type": "string"
+  },
+  "Customers.login_name": {
+    "sample_values": [
+      "dthiel",
+      "camilla.dubuque",
+      "zdeckow"
+    ],
+    "inferred_type": "string"
+  },
+  "Customers.login_password": {
+    "sample_values": [
+      "eff2c0dbf972481ba23c",
+      "180a37476c537e78d3de",
+      "bdbc3c18cf28303c4f6a"
+    ],
+    "inferred_type": "string"
+  },
+  "Customers.phone_number": {
+    "sample_values": [
+      "1-546-302-5676",
+      "1-904-787-7320",
+      "+69(0)7149212554"
+    ],
+    "inferred_type": "string"
+  },
+  "Customers.town_city": {
+    "sample_values": [
+      "East Stephaniafort",
+      "West Khaliltown",
+      "North Devonte"
+    ],
+    "inferred_type": "string"
+  },
+  "Customers.state_county_province": {
+    "sample_values": [
+      "SouthDakota",
+      "Mississippi",
+      "Colorado"
+    ],
+    "inferred_type": "string"
+  },
+  "Orders.order_id": {
+    "sample_values": [
+      1,
+      6,
+      11
+    ],
+    "inferred_type": "integer"
+  },
+  "Orders.customer_id": {
+    "sample_values": [
+      12,
+      15,
+      11
+    ],
+    "inferred_type": "integer"
+  },
+  "Orders.date_order_placed": {
+    "sample_values": [
+      "2013-10-25 17:40:25",
+      "2016-04-15 03:33:59",
+      "2015-11-25 22:55:41"
+    ],
+    "inferred_type": "string"
+  },
+  "Invoices.invoice_number": {
+    "sample_values": [
+      1,
+      6,
+      11
+    ],
+    "inferred_type": "integer"
+  },
+  "Invoices.order_id": {
+    "sample_values": [
+      9,
+      8,
+      11
+    ],
+    "inferred_type": "integer"
+  },
+  "Invoices.invoice_date": {
+    "sample_values": [
+      "2018-03-15 09:38:49",
+      "2018-03-13 07:27:38",
+      "2018-03-16 21:57:43"
+    ],
+    "inferred_type": "string"
+  },
+  "Accounts.account_id": {
+    "sample_values": [
+      1,
+      6,
+      11
+    ],
+    "inferred_type": "integer"
+  },
+  "Accounts.customer_id": {
+    "sample_values": [
+      8,
+      15,
+      13
+    ],
+    "inferred_type": "integer"
+  },
+  "Accounts.date_account_opened": {
+    "sample_values": [
+      "2008-05-04 22:15:56",
+      "2015-11-03 08:04:15",
+      "2014-05-30 12:16:52"
+    ],
+    "inferred_type": "string"
+  },
+  "Accounts.account_name": {
+    "sample_values": [
+      "900",
+      "371",
+      "191"
+    ],
+    "inferred_type": "integer"
+  },
+  "Accounts.other_account_details": {
+    "sample_values": [
+      "Regular",
+      "VIP"
+    ],
+    "inferred_type": "string"
+  },
+  "Product_Categories.production_type_code": {
+    "sample_values": [
+      "Food",
+      "Electronics",
+      "DVDs"
+    ],
+    "inferred_type": "string"
+  },
+  "Product_Categories.product_type_description": {
+    "sample_values": [
+      "Electrical devices",
+      "Books",
+      "Dvd products"
+    ],
+    "inferred_type": "string"
+  },
+  "Product_Categories.vat_rating": {
+    "sample_values": [
+      15.84,
+      11.4,
+      13.95
+    ],
+    "inferred_type": "float"
+  },
+  "Products.product_id": {
+    "sample_values": [
+      1,
+      6,
+      11
+    ],
+    "inferred_type": "integer"
+  },
+  "Products.parent_product_id": {
+    "sample_values": [
+      4,
+      7,
+      1
+    ],
+    "inferred_type": "integer"
+  },
+  "Products.production_type_code": {
+    "sample_values": [
+      "DVDs",
+      "Electronics",
+      "Books"
+    ],
+    "inferred_type": "string"
+  },
+  "Products.unit_price": {
+    "sample_values": [
+      617.95,
+      469.71,
+      52.88
+    ],
+    "inferred_type": "float"
+  },
+  "Products.product_name": {
+    "sample_values": [
+      "Harry Potter 4",
+      "Learning English",
+      "Art History"
+    ],
+    "inferred_type": "string"
+  },
+  "Products.product_color": {
+    "sample_values": [
+      "Red",
+      "Yellow",
+      "Black"
+    ],
+    "inferred_type": "string"
+  },
+  "Products.product_size": {
+    "sample_values": [
+      "Medium",
+      "Small",
+      "Large"
+    ],
+    "inferred_type": "string"
+  },
+  "Financial_Transactions.transaction_id": {
+    "sample_values": [
+      1,
+      6,
+      11
+    ],
+    "inferred_type": "integer"
+  },
+  "Financial_Transactions.account_id": {
+    "sample_values": [
+      13,
+      6,
+      14
+    ],
+    "inferred_type": "integer"
+  },
+  "Financial_Transactions.invoice_number": {
+    "sample_values": [
+      12,
+      3,
+      13
+    ],
+    "inferred_type": "integer"
+  },
+  "Financial_Transactions.transaction_type": {
+    "sample_values": [
+      "Payment",
+      "Refund"
+    ],
+    "inferred_type": "string"
+  },
+  "Financial_Transactions.transaction_date": {
+    "sample_values": [
+      "2018-02-27 14:58:30",
+      "2018-03-12 03:06:52",
+      "2018-03-22 21:58:37"
+    ],
+    "inferred_type": "string"
+  },
+  "Financial_Transactions.transaction_amount": {
+    "sample_values": [
+      613.96,
+      1903.41,
+      1567.64
+    ],
+    "inferred_type": "float"
+  },
+  "Order_Items.order_item_id": {
+    "sample_values": [
+      1,
+      6,
+      11
+    ],
+    "inferred_type": "integer"
+  },
+  "Order_Items.order_id": {
+    "sample_values": [
+      4,
+      1,
+      13
+    ],
+    "inferred_type": "integer"
+  },
+  "Order_Items.product_id": {
+    "sample_values": [
+      4,
+      3,
+      15
+    ],
+    "inferred_type": "integer"
+  },
+  "Order_Items.product_quantity": {
+    "sample_values": [
+      "6",
+      "9",
+      "1"
+    ],
+    "inferred_type": "integer"
+  },
+  "Invoice_Line_Items.order_item_id": {
+    "sample_values": [
+      14,
+      6,
+      11
+    ],
+    "inferred_type": "integer"
+  },
+  "Invoice_Line_Items.invoice_number": {
+    "sample_values": [
+      9,
+      11,
+      7
+    ],
+    "inferred_type": "integer"
+  },
+  "Invoice_Line_Items.product_id": {
+    "sample_values": [
+      5,
+      10,
+      6
+    ],
+    "inferred_type": "integer"
+  },
+  "Invoice_Line_Items.product_quantity": {
+    "sample_values": [
+      "4",
+      "2",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Invoice_Line_Items.product_price": {
+    "sample_values": [
+      742.37,
+      486.69,
+      787.61
+    ],
+    "inferred_type": "float"
+  },
+  "Invoice_Line_Items.derived_product_cost": {
+    "sample_values": [
+      191.11,
+      64.67,
+      150.04
+    ],
+    "inferred_type": "numeric"
+  },
+  "Invoice_Line_Items.derived_total_cost": {
+    "sample_values": [
+      69.82,
+      83.4,
+      51.27
+    ],
+    "inferred_type": "numeric"
+  }
+}

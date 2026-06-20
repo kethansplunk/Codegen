@@ -1,0 +1,81 @@
+{
+  "db_name": "ship_mission",
+  "nodes": [
+    {
+      "name": "mission",
+      "columns": [
+        {
+          "name": "Mission_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Ship_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Code",
+          "type": "TEXT"
+        },
+        {
+          "name": "Launched_Year",
+          "type": "INT"
+        },
+        {
+          "name": "Location",
+          "type": "TEXT"
+        },
+        {
+          "name": "Speed_knots",
+          "type": "INT"
+        },
+        {
+          "name": "Fate",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "Mission_ID"
+      ]
+    },
+    {
+      "name": "ship",
+      "columns": [
+        {
+          "name": "Ship_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Type",
+          "type": "TEXT"
+        },
+        {
+          "name": "Nationality",
+          "type": "TEXT"
+        },
+        {
+          "name": "Tonnage",
+          "type": "INT"
+        }
+      ],
+      "pk": [
+        "Ship_ID"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "mission",
+      "to": "ship",
+      "child_col": "Ship_ID",
+      "parent_col": "Ship_ID"
+    }
+  ],
+  "centrality": {
+    "mission": 0.0,
+    "ship": 1.0
+  }
+}

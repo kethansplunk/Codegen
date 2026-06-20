@@ -1,0 +1,86 @@
+{
+  "db_name": "journal_committee",
+  "collections": {
+    "journal": {
+      "primary_key": [
+        "Journal_ID"
+      ],
+      "columns": [
+        {
+          "name": "Journal_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Date",
+          "type": "TEXT"
+        },
+        {
+          "name": "Theme",
+          "type": "TEXT"
+        },
+        {
+          "name": "Sales",
+          "type": "INT"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 16
+    },
+    "editor": {
+      "primary_key": [
+        "Editor_ID"
+      ],
+      "columns": [
+        {
+          "name": "Editor_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Age",
+          "type": "REAL"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 9
+    },
+    "journal_committee": {
+      "primary_key": [
+        "Editor_ID",
+        "Journal_ID"
+      ],
+      "columns": [
+        {
+          "name": "Editor_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Journal_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Work_Type",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "journal_committee",
+          "to": "journal",
+          "child_col": "Journal_ID",
+          "parent_col": "Journal_ID"
+        },
+        {
+          "from": "journal_committee",
+          "to": "editor",
+          "child_col": "Editor_ID",
+          "parent_col": "Editor_ID"
+        }
+      ],
+      "row_count": 7
+    }
+  }
+}

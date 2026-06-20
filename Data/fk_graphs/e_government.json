@@ -1,0 +1,354 @@
+{
+  "db_name": "e_government",
+  "nodes": [
+    {
+      "name": "Addresses",
+      "columns": [
+        {
+          "name": "address_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "line_1_number_building",
+          "type": "VARCHAR(80)"
+        },
+        {
+          "name": "town_city",
+          "type": "VARCHAR(50)"
+        },
+        {
+          "name": "zip_postcode",
+          "type": "VARCHAR(20)"
+        },
+        {
+          "name": "state_province_county",
+          "type": "VARCHAR(50)"
+        },
+        {
+          "name": "country",
+          "type": "VARCHAR(50)"
+        }
+      ],
+      "pk": [
+        "address_id"
+      ]
+    },
+    {
+      "name": "Services",
+      "columns": [
+        {
+          "name": "service_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "service_type_code",
+          "type": "VARCHAR(15)"
+        },
+        {
+          "name": "service_name",
+          "type": "VARCHAR(80)"
+        },
+        {
+          "name": "service_descriptio",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "pk": [
+        "service_id"
+      ]
+    },
+    {
+      "name": "Forms",
+      "columns": [
+        {
+          "name": "form_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "form_type_code",
+          "type": "VARCHAR(15)"
+        },
+        {
+          "name": "service_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "form_number",
+          "type": "VARCHAR(50)"
+        },
+        {
+          "name": "form_name",
+          "type": "VARCHAR(80)"
+        },
+        {
+          "name": "form_description",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "pk": [
+        "form_id"
+      ]
+    },
+    {
+      "name": "Individuals",
+      "columns": [
+        {
+          "name": "individual_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "individual_first_name",
+          "type": "VARCHAR(80)"
+        },
+        {
+          "name": "individual_middle_name",
+          "type": "VARCHAR(80)"
+        },
+        {
+          "name": "inidividual_phone",
+          "type": "VARCHAR(80)"
+        },
+        {
+          "name": "individual_email",
+          "type": "VARCHAR(80)"
+        },
+        {
+          "name": "individual_address",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "individual_last_name",
+          "type": "VARCHAR(80)"
+        }
+      ],
+      "pk": [
+        "individual_id"
+      ]
+    },
+    {
+      "name": "Organizations",
+      "columns": [
+        {
+          "name": "organization_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "date_formed",
+          "type": "DATETIME"
+        },
+        {
+          "name": "organization_name",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "uk_vat_number",
+          "type": "VARCHAR(20)"
+        }
+      ],
+      "pk": [
+        "organization_id"
+      ]
+    },
+    {
+      "name": "Parties",
+      "columns": [
+        {
+          "name": "party_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "payment_method_code",
+          "type": "VARCHAR(15)"
+        },
+        {
+          "name": "party_phone",
+          "type": "VARCHAR(80)"
+        },
+        {
+          "name": "party_email",
+          "type": "VARCHAR(80)"
+        }
+      ],
+      "pk": [
+        "party_id"
+      ]
+    },
+    {
+      "name": "Organization_Contact_Individuals",
+      "columns": [
+        {
+          "name": "individual_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "organization_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "date_contact_from",
+          "type": "DATETIME"
+        },
+        {
+          "name": "date_contact_to",
+          "type": "DATETIME"
+        }
+      ],
+      "pk": [
+        "individual_id",
+        "organization_id"
+      ]
+    },
+    {
+      "name": "Party_Addresses",
+      "columns": [
+        {
+          "name": "party_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "address_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "date_address_from",
+          "type": "DATETIME"
+        },
+        {
+          "name": "address_type_code",
+          "type": "VARCHAR(15)"
+        },
+        {
+          "name": "date_address_to",
+          "type": "DATETIME"
+        }
+      ],
+      "pk": [
+        "party_id",
+        "address_id"
+      ]
+    },
+    {
+      "name": "Party_Forms",
+      "columns": [
+        {
+          "name": "party_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "form_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "date_completion_started",
+          "type": "DATETIME"
+        },
+        {
+          "name": "form_status_code",
+          "type": "VARCHAR(15)"
+        },
+        {
+          "name": "date_fully_completed",
+          "type": "DATETIME"
+        }
+      ],
+      "pk": [
+        "party_id",
+        "form_id"
+      ]
+    },
+    {
+      "name": "Party_Services",
+      "columns": [
+        {
+          "name": "booking_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "customer_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "service_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "service_datetime",
+          "type": "DATETIME"
+        },
+        {
+          "name": "booking_made_date",
+          "type": "DATETIME"
+        }
+      ],
+      "pk": []
+    }
+  ],
+  "edges": [
+    {
+      "from": "Forms",
+      "to": "Services",
+      "child_col": "service_id",
+      "parent_col": "service_id"
+    },
+    {
+      "from": "Organization_Contact_Individuals",
+      "to": "Individuals",
+      "child_col": "individual_id",
+      "parent_col": "individual_id"
+    },
+    {
+      "from": "Organization_Contact_Individuals",
+      "to": "Organizations",
+      "child_col": "organization_id",
+      "parent_col": "organization_id"
+    },
+    {
+      "from": "Party_Addresses",
+      "to": "Parties",
+      "child_col": "party_id",
+      "parent_col": "party_id"
+    },
+    {
+      "from": "Party_Addresses",
+      "to": "Addresses",
+      "child_col": "address_id",
+      "parent_col": "address_id"
+    },
+    {
+      "from": "Party_Forms",
+      "to": "Forms",
+      "child_col": "form_id",
+      "parent_col": "form_id"
+    },
+    {
+      "from": "Party_Forms",
+      "to": "Parties",
+      "child_col": "party_id",
+      "parent_col": "party_id"
+    },
+    {
+      "from": "Party_Services",
+      "to": "Parties",
+      "child_col": "customer_id",
+      "parent_col": "party_id"
+    },
+    {
+      "from": "Party_Services",
+      "to": "Services",
+      "child_col": "service_id",
+      "parent_col": "service_id"
+    }
+  ],
+  "centrality": {
+    "Addresses": 0.1111111111111111,
+    "Services": 0.2222222222222222,
+    "Forms": 0.1111111111111111,
+    "Individuals": 0.1111111111111111,
+    "Organizations": 0.1111111111111111,
+    "Parties": 0.3333333333333333,
+    "Organization_Contact_Individuals": 0.0,
+    "Party_Addresses": 0.0,
+    "Party_Forms": 0.0,
+    "Party_Services": 0.0
+  }
+}

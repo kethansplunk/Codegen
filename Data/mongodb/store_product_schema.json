@@ -1,0 +1,165 @@
+{
+  "db_name": "store_product",
+  "collections": {
+    "product": {
+      "primary_key": [
+        "product_id"
+      ],
+      "columns": [
+        {
+          "name": "product_id",
+          "type": "INT"
+        },
+        {
+          "name": "product",
+          "type": "TEXT"
+        },
+        {
+          "name": "dimensions",
+          "type": "TEXT"
+        },
+        {
+          "name": "dpi",
+          "type": "REAL"
+        },
+        {
+          "name": "pages_per_minute_color",
+          "type": "REAL"
+        },
+        {
+          "name": "max_page_size",
+          "type": "TEXT"
+        },
+        {
+          "name": "interface",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 6
+    },
+    "store": {
+      "primary_key": [
+        "Store_ID"
+      ],
+      "columns": [
+        {
+          "name": "Store_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Store_Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Type",
+          "type": "TEXT"
+        },
+        {
+          "name": "Area_size",
+          "type": "REAL"
+        },
+        {
+          "name": "Number_of_product_category",
+          "type": "REAL"
+        },
+        {
+          "name": "Ranking",
+          "type": "INT"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 5
+    },
+    "district": {
+      "primary_key": [
+        "District_ID"
+      ],
+      "columns": [
+        {
+          "name": "District_ID",
+          "type": "INT"
+        },
+        {
+          "name": "District_name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Headquartered_City",
+          "type": "TEXT"
+        },
+        {
+          "name": "City_Population",
+          "type": "REAL"
+        },
+        {
+          "name": "City_Area",
+          "type": "REAL"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 15
+    },
+    "store_product": {
+      "primary_key": [
+        "Store_ID",
+        "Product_ID"
+      ],
+      "columns": [
+        {
+          "name": "Store_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Product_ID",
+          "type": "INT"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "store_product",
+          "to": "product",
+          "child_col": "Product_ID",
+          "parent_col": "Product_ID"
+        },
+        {
+          "from": "store_product",
+          "to": "store",
+          "child_col": "Store_ID",
+          "parent_col": "Store_ID"
+        }
+      ],
+      "row_count": 15
+    },
+    "store_district": {
+      "primary_key": [
+        "Store_ID"
+      ],
+      "columns": [
+        {
+          "name": "Store_ID",
+          "type": "INT"
+        },
+        {
+          "name": "District_ID",
+          "type": "INT"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "store_district",
+          "to": "district",
+          "child_col": "District_ID",
+          "parent_col": "District_ID"
+        },
+        {
+          "from": "store_district",
+          "to": "store",
+          "child_col": "Store_ID",
+          "parent_col": "Store_ID"
+        }
+      ],
+      "row_count": 5
+    }
+  }
+}

@@ -1,0 +1,132 @@
+{
+  "db_name": "phone_1",
+  "nodes": [
+    {
+      "name": "chip_model",
+      "columns": [
+        {
+          "name": "Model_name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Launch_year",
+          "type": "REAL"
+        },
+        {
+          "name": "RAM_MiB",
+          "type": "REAL"
+        },
+        {
+          "name": "ROM_MiB",
+          "type": "REAL"
+        },
+        {
+          "name": "Slots",
+          "type": "TEXT"
+        },
+        {
+          "name": "WiFi",
+          "type": "TEXT"
+        },
+        {
+          "name": "Bluetooth",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "Model_name"
+      ]
+    },
+    {
+      "name": "screen_mode",
+      "columns": [
+        {
+          "name": "Graphics_mode",
+          "type": "REAL"
+        },
+        {
+          "name": "Char_cells",
+          "type": "TEXT"
+        },
+        {
+          "name": "Pixels",
+          "type": "TEXT"
+        },
+        {
+          "name": "Hardware_colours",
+          "type": "REAL"
+        },
+        {
+          "name": "used_kb",
+          "type": "REAL"
+        },
+        {
+          "name": "map",
+          "type": "TEXT"
+        },
+        {
+          "name": "Type",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "Graphics_mode"
+      ]
+    },
+    {
+      "name": "phone",
+      "columns": [
+        {
+          "name": "Company_name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Hardware_Model_name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Accreditation_type",
+          "type": "TEXT"
+        },
+        {
+          "name": "Accreditation_level",
+          "type": "TEXT"
+        },
+        {
+          "name": "Date",
+          "type": "TEXT"
+        },
+        {
+          "name": "chip_model",
+          "type": "TEXT"
+        },
+        {
+          "name": "screen_mode",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "Hardware_Model_name"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "phone",
+      "to": "chip_model",
+      "child_col": "chip_model",
+      "parent_col": "Model_name"
+    },
+    {
+      "from": "phone",
+      "to": "screen_mode",
+      "child_col": "screen_mode",
+      "parent_col": "Graphics_mode"
+    }
+  ],
+  "centrality": {
+    "chip_model": 0.5,
+    "screen_mode": 0.5,
+    "phone": 0.0
+  }
+}

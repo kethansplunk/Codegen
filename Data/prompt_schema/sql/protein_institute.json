@@ -1,0 +1,178 @@
+{
+  "building.building_id": {
+    "sample_values": [
+      "0",
+      "2",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "building.Name": {
+    "sample_values": [
+      "100 North Tampa",
+      "Tampa City Hall",
+      "Floridan Hotel"
+    ],
+    "inferred_type": "string"
+  },
+  "building.Street_address": {
+    "sample_values": [
+      "905 Franklin Street",
+      "400 North Tampa Street",
+      "100 North Tampa Street"
+    ],
+    "inferred_type": "string"
+  },
+  "building.Years_as_tallest": {
+    "sample_values": [
+      "1992\u2013present",
+      "1915\u20131926",
+      "1926\u20131966"
+    ],
+    "inferred_type": "string"
+  },
+  "building.Height_feet": {
+    "sample_values": [
+      145,
+      204,
+      458
+    ],
+    "inferred_type": "integer"
+  },
+  "building.Floors": {
+    "sample_values": [
+      12,
+      17,
+      36
+    ],
+    "inferred_type": "integer"
+  },
+  "Institution.Institution_id": {
+    "sample_values": [
+      "0",
+      "2",
+      "5"
+    ],
+    "inferred_type": "integer"
+  },
+  "Institution.Institution": {
+    "sample_values": [
+      "Webber International University",
+      "Jamestown College",
+      "Dakota State University"
+    ],
+    "inferred_type": "string"
+  },
+  "Institution.Location": {
+    "sample_values": [
+      "Babson Park, Florida",
+      "Jamestown, North Dakota",
+      "Madison, South Dakota"
+    ],
+    "inferred_type": "string"
+  },
+  "Institution.Founded": {
+    "sample_values": [
+      1998.0,
+      1884.0,
+      1889.0
+    ],
+    "inferred_type": "float"
+  },
+  "Institution.Type": {
+    "sample_values": [
+      "Private",
+      "Public",
+      "Tribal"
+    ],
+    "inferred_type": "string"
+  },
+  "Institution.Enrollment": {
+    "sample_values": [
+      1200,
+      1000,
+      825
+    ],
+    "inferred_type": "integer"
+  },
+  "Institution.Team": {
+    "sample_values": [
+      "Warriors",
+      "Jimmies",
+      "Trojans"
+    ],
+    "inferred_type": "string"
+  },
+  "Institution.Primary_Conference": {
+    "sample_values": [
+      "AAC",
+      "none",
+      "MCAC"
+    ],
+    "inferred_type": "string"
+  },
+  "Institution.building_id": {
+    "sample_values": [
+      "1",
+      "5",
+      "0"
+    ],
+    "inferred_type": "integer"
+  },
+  "protein.common_name": {
+    "sample_values": [
+      "southern house mosquito",
+      "purple sea urchin",
+      "porkworm"
+    ],
+    "inferred_type": "string"
+  },
+  "protein.protein_name": {
+    "sample_values": [
+      "uncharacterized protein LOC578090",
+      "conserved hypothetical protein",
+      "Centromeric protein E, putative"
+    ],
+    "inferred_type": "string"
+  },
+  "protein.divergence_from_human_lineage": {
+    "sample_values": [
+      371.2,
+      742.9,
+      782.7
+    ],
+    "inferred_type": "float"
+  },
+  "protein.accession_number": {
+    "sample_values": [
+      "XP_003380263.1",
+      "XP_001843754.1",
+      "XP_002429877.1"
+    ],
+    "inferred_type": "string"
+  },
+  "protein.sequence_length": {
+    "sample_values": [
+      1584.0,
+      1587.0,
+      2086.0
+    ],
+    "inferred_type": "float"
+  },
+  "protein.sequence_identity_to_human_protein": {
+    "sample_values": [
+      "36%",
+      "32%",
+      "30%"
+    ],
+    "inferred_type": "string"
+  },
+  "protein.Institution_id": {
+    "sample_values": [
+      "1",
+      "3",
+      "5"
+    ],
+    "inferred_type": "integer"
+  }
+}

@@ -1,0 +1,353 @@
+{
+  "db_name": "tracking_grants_for_research",
+  "collections": {
+    "Document_Types": {
+      "primary_key": [
+        "document_type_code"
+      ],
+      "columns": [
+        {
+          "name": "document_type_code",
+          "type": "VARCHAR(10)"
+        },
+        {
+          "name": "document_description",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 2
+    },
+    "Documents": {
+      "primary_key": [
+        "document_id"
+      ],
+      "columns": [
+        {
+          "name": "document_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "document_type_code",
+          "type": "VARCHAR(10)"
+        },
+        {
+          "name": "grant_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "sent_date",
+          "type": "DATETIME"
+        },
+        {
+          "name": "response_received_date",
+          "type": "DATETIME"
+        },
+        {
+          "name": "other_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Documents",
+          "to": "Grants",
+          "child_col": "grant_id",
+          "parent_col": "grant_id"
+        },
+        {
+          "from": "Documents",
+          "to": "Document_Types",
+          "child_col": "document_type_code",
+          "parent_col": "document_type_code"
+        }
+      ],
+      "row_count": 15
+    },
+    "Grants": {
+      "primary_key": [
+        "grant_id"
+      ],
+      "columns": [
+        {
+          "name": "grant_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "organisation_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "grant_amount",
+          "type": "DECIMAL(19,4)"
+        },
+        {
+          "name": "grant_start_date",
+          "type": "DATETIME"
+        },
+        {
+          "name": "grant_end_date",
+          "type": "DATETIME"
+        },
+        {
+          "name": "other_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Grants",
+          "to": "Organisations",
+          "child_col": "organisation_id",
+          "parent_col": "organisation_id"
+        }
+      ],
+      "row_count": 15
+    },
+    "Organisation_Types": {
+      "primary_key": [
+        "organisation_type"
+      ],
+      "columns": [
+        {
+          "name": "organisation_type",
+          "type": "VARCHAR(10)"
+        },
+        {
+          "name": "organisation_type_description",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 2
+    },
+    "Organisations": {
+      "primary_key": [
+        "organisation_id"
+      ],
+      "columns": [
+        {
+          "name": "organisation_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "organisation_type",
+          "type": "VARCHAR(10)"
+        },
+        {
+          "name": "organisation_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Organisations",
+          "to": "Organisation_Types",
+          "child_col": "organisation_type",
+          "parent_col": "organisation_type"
+        }
+      ],
+      "row_count": 15
+    },
+    "Project_Outcomes": {
+      "primary_key": [],
+      "columns": [
+        {
+          "name": "project_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "outcome_code",
+          "type": "VARCHAR(10)"
+        },
+        {
+          "name": "outcome_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Project_Outcomes",
+          "to": "Research_Outcomes",
+          "child_col": "outcome_code",
+          "parent_col": "outcome_code"
+        },
+        {
+          "from": "Project_Outcomes",
+          "to": "Projects",
+          "child_col": "project_id",
+          "parent_col": "project_id"
+        }
+      ],
+      "row_count": 15
+    },
+    "Project_Staff": {
+      "primary_key": [
+        "staff_id"
+      ],
+      "columns": [
+        {
+          "name": "staff_id",
+          "type": "DOUBLE"
+        },
+        {
+          "name": "project_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "role_code",
+          "type": "VARCHAR(10)"
+        },
+        {
+          "name": "date_from",
+          "type": "DATETIME"
+        },
+        {
+          "name": "date_to",
+          "type": "DATETIME"
+        },
+        {
+          "name": "other_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Project_Staff",
+          "to": "Staff_Roles",
+          "child_col": "role_code",
+          "parent_col": "role_code"
+        },
+        {
+          "from": "Project_Staff",
+          "to": "Projects",
+          "child_col": "project_id",
+          "parent_col": "project_id"
+        }
+      ],
+      "row_count": 15
+    },
+    "Projects": {
+      "primary_key": [
+        "project_id"
+      ],
+      "columns": [
+        {
+          "name": "project_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "organisation_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "project_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Projects",
+          "to": "Organisations",
+          "child_col": "organisation_id",
+          "parent_col": "organisation_id"
+        }
+      ],
+      "row_count": 15
+    },
+    "Research_Outcomes": {
+      "primary_key": [
+        "outcome_code"
+      ],
+      "columns": [
+        {
+          "name": "outcome_code",
+          "type": "VARCHAR(10)"
+        },
+        {
+          "name": "outcome_description",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 2
+    },
+    "Research_Staff": {
+      "primary_key": [
+        "staff_id"
+      ],
+      "columns": [
+        {
+          "name": "staff_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "employer_organisation_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "staff_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Research_Staff",
+          "to": "Organisations",
+          "child_col": "employer_organisation_id",
+          "parent_col": "organisation_id"
+        }
+      ],
+      "row_count": 15
+    },
+    "Staff_Roles": {
+      "primary_key": [
+        "role_code"
+      ],
+      "columns": [
+        {
+          "name": "role_code",
+          "type": "VARCHAR(10)"
+        },
+        {
+          "name": "role_description",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 2
+    },
+    "Tasks": {
+      "primary_key": [
+        "task_id"
+      ],
+      "columns": [
+        {
+          "name": "task_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "project_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "task_details",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "eg Agree Objectives",
+          "type": "VARCHAR(1)"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Tasks",
+          "to": "Projects",
+          "child_col": "project_id",
+          "parent_col": "project_id"
+        }
+      ],
+      "row_count": 15
+    }
+  }
+}

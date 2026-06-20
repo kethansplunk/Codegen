@@ -1,0 +1,226 @@
+{
+  "match.Location": {
+    "sample_values": [
+      "Swan River , Perth",
+      "Flamengo Beach , Rio de Janeiro",
+      "River Danube , Budapest"
+    ],
+    "inferred_type": "string"
+  },
+  "match.Round": {
+    "sample_values": [
+      "1.0",
+      "3.0",
+      "6.0"
+    ],
+    "inferred_type": "float"
+  },
+  "match.Country": {
+    "sample_values": [
+      "Australia",
+      "United Arab Emirates",
+      "United States"
+    ],
+    "inferred_type": "string"
+  },
+  "match.Date": {
+    "sample_values": [
+      "August 7\u20138",
+      "June 5\u20136",
+      "April 17\u201318"
+    ],
+    "inferred_type": "string"
+  },
+  "match.Winning_Aircraft": {
+    "sample_values": [
+      "5",
+      "1",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "match.Winning_Pilot": {
+    "sample_values": [
+      "1",
+      "2",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "match.Fastest_Qualifying": {
+    "sample_values": [
+      "Cancelled",
+      "Nigel Lamb",
+      "Hannes Arch"
+    ],
+    "inferred_type": "string"
+  },
+  "aircraft.Description": {
+    "sample_values": [
+      "Tandem rotor helicopter",
+      "Light utility helicopter",
+      "Turboshaft utility helicopter"
+    ],
+    "inferred_type": "string"
+  },
+  "aircraft.Max_disk_Loading": {
+    "sample_values": [
+      "15 lb/ft\u00b2 (72 kg/m\u00b2)",
+      "14.5 lb/ft\u00b2 (71 kg/m\u00b2)",
+      "8.8 lb/ft\u00b2 (43 kg/m\u00b2)"
+    ],
+    "inferred_type": "string"
+  },
+  "aircraft.Total_disk_area": {
+    "sample_values": [
+      "4,900 ft\u00b2 (460 m\u00b2)",
+      "8,495 ft\u00b2 (789 m\u00b2)",
+      "872 ft\u00b2 (81.1 m\u00b2)"
+    ],
+    "inferred_type": "string"
+  },
+  "aircraft.Aircraft": {
+    "sample_values": [
+      "CH-47D Chinook",
+      "Mil Mi-26",
+      "Bell 206B3 JetRanger"
+    ],
+    "inferred_type": "string"
+  },
+  "aircraft.Max_Gross_Weight": {
+    "sample_values": [
+      "3,200 lb (1,451 kg)",
+      "50,000 lb (22,680 kg)",
+      "1,370 lb (635 kg)"
+    ],
+    "inferred_type": "string"
+  },
+  "aircraft.Aircraft_ID": {
+    "sample_values": [
+      "5",
+      "1",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "airport.International_Passengers": {
+    "sample_values": [
+      "8853224.0",
+      "18119230.0",
+      "8105162.0"
+    ],
+    "inferred_type": "float"
+  },
+  "airport.Airport_Name": {
+    "sample_values": [
+      "Birmingham Airport",
+      "London Stansted",
+      "Manchester"
+    ],
+    "inferred_type": "string"
+  },
+  "airport.Transit_Passengers": {
+    "sample_values": [
+      "4395.0",
+      "43873.0",
+      "156246.0"
+    ],
+    "inferred_type": "float"
+  },
+  "airport.Airport_ID": {
+    "sample_values": [
+      "5",
+      "1",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "airport.Total_Passengers": {
+    "sample_values": [
+      "5620673.0",
+      "6267114.0",
+      "34205887.0"
+    ],
+    "inferred_type": "float"
+  },
+  "airport.Freight_Metric_Tonnes": {
+    "sample_values": [
+      "107702.0",
+      "3546.0",
+      "3.0"
+    ],
+    "inferred_type": "float"
+  },
+  "airport.Aircraft_Movements": {
+    "sample_values": [
+      "125550.0",
+      "117859.0",
+      "204610.0"
+    ],
+    "inferred_type": "float"
+  },
+  "airport.%_Change_2007": {
+    "sample_values": [
+      "7.0%",
+      "3.8%",
+      "4.0%"
+    ],
+    "inferred_type": "string"
+  },
+  "airport.Domestic_Passengers": {
+    "sample_values": [
+      "1320678.0",
+      "2343428.0",
+      "5281038.0"
+    ],
+    "inferred_type": "float"
+  },
+  "pilot.Name": {
+    "sample_values": [
+      "Elisha Hickle V",
+      "Winnifred Boyle",
+      "Baylee Steuber"
+    ],
+    "inferred_type": "string"
+  },
+  "pilot.Age": {
+    "sample_values": [
+      "23",
+      "30",
+      "31"
+    ],
+    "inferred_type": "integer"
+  },
+  "pilot.Pilot_Id": {
+    "sample_values": [
+      "5",
+      "12",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "airport_aircraft.Aircraft_ID": {
+    "sample_values": [
+      "2",
+      "1",
+      "3"
+    ],
+    "inferred_type": "integer"
+  },
+  "airport_aircraft.ID": {
+    "sample_values": [
+      "1",
+      "3",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "airport_aircraft.Airport_ID": {
+    "sample_values": [
+      "6",
+      "9",
+      "2"
+    ],
+    "inferred_type": "integer"
+  }
+}

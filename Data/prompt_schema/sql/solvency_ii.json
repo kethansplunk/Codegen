@@ -1,0 +1,257 @@
+{
+  "Addresses.Address_ID": {
+    "sample_values": [
+      1,
+      6,
+      11
+    ],
+    "inferred_type": "integer"
+  },
+  "Addresses.address_details": {
+    "sample_values": [
+      "068 O'Connell Tunnel\nWest Colemanburgh, MO 87777",
+      "78950 Kamryn Centers\nChelsealand, NE 22947-6129",
+      "3851 Quigley Flats\nO'Reillychester, CA 92522-9526"
+    ],
+    "inferred_type": "string"
+  },
+  "Locations.Location_ID": {
+    "sample_values": [
+      1,
+      6,
+      11
+    ],
+    "inferred_type": "integer"
+  },
+  "Locations.Other_Details": {
+    "sample_values": [
+      "Daugherty, Nader and Balistreri",
+      "Rowe-Stoltenberg",
+      "Morar-Denesik"
+    ],
+    "inferred_type": "string"
+  },
+  "Products.Product_ID": {
+    "sample_values": [
+      1,
+      10,
+      24
+    ],
+    "inferred_type": "integer"
+  },
+  "Products.Product_Type_Code": {
+    "sample_values": [
+      "Electronics",
+      "Clothes",
+      "Food"
+    ],
+    "inferred_type": "string"
+  },
+  "Products.Product_Name": {
+    "sample_values": [
+      "Dinning",
+      "Men suits",
+      "Special Dinning"
+    ],
+    "inferred_type": "string"
+  },
+  "Products.Product_Price": {
+    "sample_values": [
+      1336.26,
+      4427.49,
+      4895.86
+    ],
+    "inferred_type": "float"
+  },
+  "Parties.Party_ID": {
+    "sample_values": [
+      3,
+      5,
+      7
+    ],
+    "inferred_type": "integer"
+  },
+  "Parties.Party_Details": {
+    "sample_values": [
+      "European People's Party",
+      "European Free Alliance",
+      "European Alliance for Freedom"
+    ],
+    "inferred_type": "string"
+  },
+  "Assets.Asset_ID": {
+    "sample_values": [
+      1,
+      2,
+      3
+    ],
+    "inferred_type": "integer"
+  },
+  "Assets.Other_Details": {
+    "sample_values": [
+      "Transportation Cars",
+      "Meeting Rooms",
+      "Dinning Tables"
+    ],
+    "inferred_type": "string"
+  },
+  "Channels.Channel_ID": {
+    "sample_values": [
+      1,
+      6,
+      11
+    ],
+    "inferred_type": "integer"
+  },
+  "Channels.Other_Details": {
+    "sample_values": [
+      "145",
+      "993",
+      "163"
+    ],
+    "inferred_type": "integer"
+  },
+  "Finances.Finance_ID": {
+    "sample_values": [
+      1,
+      6,
+      11
+    ],
+    "inferred_type": "integer"
+  },
+  "Finances.Other_Details": {
+    "sample_values": [
+      "Mutual",
+      "Good",
+      "Bad"
+    ],
+    "inferred_type": "string"
+  },
+  "Events.Event_ID": {
+    "sample_values": [
+      1,
+      6,
+      11
+    ],
+    "inferred_type": "integer"
+  },
+  "Events.Address_ID": {
+    "sample_values": [
+      3,
+      12,
+      9
+    ],
+    "inferred_type": "integer"
+  },
+  "Events.Channel_ID": {
+    "sample_values": [
+      12,
+      10,
+      15
+    ],
+    "inferred_type": "integer"
+  },
+  "Events.Event_Type_Code": {
+    "sample_values": [
+      "Conference",
+      "Seminar",
+      "Ceremonies"
+    ],
+    "inferred_type": "string"
+  },
+  "Events.Finance_ID": {
+    "sample_values": [
+      2,
+      7,
+      1
+    ],
+    "inferred_type": "integer"
+  },
+  "Events.Location_ID": {
+    "sample_values": [
+      13,
+      9,
+      8
+    ],
+    "inferred_type": "integer"
+  },
+  "Products_in_Events.Product_in_Event_ID": {
+    "sample_values": [
+      13,
+      46,
+      69
+    ],
+    "inferred_type": "integer"
+  },
+  "Products_in_Events.Event_ID": {
+    "sample_values": [
+      4,
+      5,
+      15
+    ],
+    "inferred_type": "integer"
+  },
+  "Products_in_Events.Product_ID": {
+    "sample_values": [
+      29,
+      18,
+      34
+    ],
+    "inferred_type": "integer"
+  },
+  "Parties_in_Events.Party_ID": {
+    "sample_values": [
+      3,
+      4,
+      5
+    ],
+    "inferred_type": "integer"
+  },
+  "Parties_in_Events.Event_ID": {
+    "sample_values": [
+      7,
+      3,
+      15
+    ],
+    "inferred_type": "integer"
+  },
+  "Parties_in_Events.Role_Code": {
+    "sample_values": [
+      "Organizer",
+      "Participant"
+    ],
+    "inferred_type": "string"
+  },
+  "Agreements.Document_ID": {
+    "sample_values": [
+      1,
+      6,
+      11
+    ],
+    "inferred_type": "integer"
+  },
+  "Agreements.Event_ID": {
+    "sample_values": [
+      13,
+      11,
+      6
+    ],
+    "inferred_type": "integer"
+  },
+  "Assets_in_Events.Asset_ID": {
+    "sample_values": [
+      1,
+      2,
+      3
+    ],
+    "inferred_type": "integer"
+  },
+  "Assets_in_Events.Event_ID": {
+    "sample_values": [
+      4,
+      9,
+      8
+    ],
+    "inferred_type": "integer"
+  }
+}

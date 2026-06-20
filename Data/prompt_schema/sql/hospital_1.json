@@ -1,0 +1,507 @@
+{
+  "Physician.EmployeeID": {
+    "sample_values": [
+      1,
+      4,
+      7
+    ],
+    "inferred_type": "integer"
+  },
+  "Physician.Name": {
+    "sample_values": [
+      "Molly Clock",
+      "Christopher Turk",
+      "Elliot Reid"
+    ],
+    "inferred_type": "string"
+  },
+  "Physician.Position": {
+    "sample_values": [
+      "Attending Psychiatrist",
+      "Attending Physician",
+      "Surgical Attending Physician"
+    ],
+    "inferred_type": "string"
+  },
+  "Physician.SSN": {
+    "sample_values": [
+      111111111,
+      444444444,
+      777777777
+    ],
+    "inferred_type": "integer"
+  },
+  "Department.DepartmentID": {
+    "sample_values": [
+      1,
+      2,
+      3
+    ],
+    "inferred_type": "integer"
+  },
+  "Department.Name": {
+    "sample_values": [
+      "General Medicine",
+      "Surgery",
+      "Psychiatry"
+    ],
+    "inferred_type": "string"
+  },
+  "Department.Head": {
+    "sample_values": [
+      4,
+      7,
+      9
+    ],
+    "inferred_type": "integer"
+  },
+  "Affiliated_With.Physician": {
+    "sample_values": [
+      1,
+      4,
+      7
+    ],
+    "inferred_type": "integer"
+  },
+  "Affiliated_With.Department": {
+    "sample_values": [
+      1,
+      2,
+      3
+    ],
+    "inferred_type": "integer"
+  },
+  "Affiliated_With.PrimaryAffiliation": {
+    "sample_values": [
+      1,
+      0
+    ],
+    "inferred_type": "integer"
+  },
+  "Procedures.Code": {
+    "sample_values": [
+      1,
+      3,
+      5
+    ],
+    "inferred_type": "integer"
+  },
+  "Procedures.Name": {
+    "sample_values": [
+      "Follicular Demiectomy",
+      "Obtuse Pyloric Recombobulation",
+      "Folded Demiophtalmectomy"
+    ],
+    "inferred_type": "string"
+  },
+  "Procedures.Cost": {
+    "sample_values": [
+      1500.0,
+      4500.0,
+      4899.0
+    ],
+    "inferred_type": "float"
+  },
+  "Trained_In.Physician": {
+    "sample_values": [
+      3,
+      6,
+      7
+    ],
+    "inferred_type": "integer"
+  },
+  "Trained_In.Treatment": {
+    "sample_values": [
+      1,
+      5,
+      7
+    ],
+    "inferred_type": "integer"
+  },
+  "Trained_In.CertificationDate": {
+    "sample_values": [
+      "2008-01-01",
+      "2007-01-01"
+    ],
+    "inferred_type": "string"
+  },
+  "Trained_In.CertificationExpires": {
+    "sample_values": [
+      "2008-12-31",
+      "2007-12-31"
+    ],
+    "inferred_type": "string"
+  },
+  "Patient.SSN": {
+    "sample_values": [
+      100000001,
+      100000002,
+      100000003
+    ],
+    "inferred_type": "integer"
+  },
+  "Patient.Name": {
+    "sample_values": [
+      "Dennis Doe",
+      "Random J. Patient",
+      "Grace Ritchie"
+    ],
+    "inferred_type": "string"
+  },
+  "Patient.Address": {
+    "sample_values": [
+      "1100 Foobaz Avenue",
+      "101 Omgbbq Street",
+      "37 Snafu Drive"
+    ],
+    "inferred_type": "string"
+  },
+  "Patient.Phone": {
+    "sample_values": [
+      "555-2048",
+      "555-1204",
+      "555-0512"
+    ],
+    "inferred_type": "string"
+  },
+  "Patient.InsuranceID": {
+    "sample_values": [
+      68476213,
+      36546321,
+      65465421
+    ],
+    "inferred_type": "integer"
+  },
+  "Patient.PCP": {
+    "sample_values": [
+      1,
+      2,
+      3
+    ],
+    "inferred_type": "integer"
+  },
+  "Nurse.EmployeeID": {
+    "sample_values": [
+      101,
+      102,
+      103
+    ],
+    "inferred_type": "integer"
+  },
+  "Nurse.Name": {
+    "sample_values": [
+      "Carla Espinosa",
+      "Laverne Roberts",
+      "Paul Flowers"
+    ],
+    "inferred_type": "string"
+  },
+  "Nurse.Position": {
+    "sample_values": [
+      "Head Nurse",
+      "Nurse"
+    ],
+    "inferred_type": "string"
+  },
+  "Nurse.Registered": {
+    "sample_values": [
+      1,
+      0
+    ],
+    "inferred_type": "integer"
+  },
+  "Nurse.SSN": {
+    "sample_values": [
+      111111110,
+      222222220,
+      333333330
+    ],
+    "inferred_type": "integer"
+  },
+  "Appointment.AppointmentID": {
+    "sample_values": [
+      13216584,
+      46846589,
+      76983231
+    ],
+    "inferred_type": "integer"
+  },
+  "Appointment.Patient": {
+    "sample_values": [
+      100000001,
+      100000002,
+      100000004
+    ],
+    "inferred_type": "integer"
+  },
+  "Appointment.PrepNurse": {
+    "sample_values": [
+      101,
+      102,
+      103
+    ],
+    "inferred_type": "integer"
+  },
+  "Appointment.Physician": {
+    "sample_values": [
+      1,
+      2,
+      4
+    ],
+    "inferred_type": "integer"
+  },
+  "Appointment.Start": {
+    "sample_values": [
+      "2008-04-27 10:00",
+      "2008-04-25 10:00",
+      "2008-04-26 11:00"
+    ],
+    "inferred_type": "string"
+  },
+  "Appointment.End": {
+    "sample_values": [
+      "2008-04-27 11:00",
+      "2008-04-25 11:00",
+      "2008-04-26 11:00"
+    ],
+    "inferred_type": "string"
+  },
+  "Appointment.ExaminationRoom": {
+    "sample_values": [
+      "A",
+      "B",
+      "C"
+    ],
+    "inferred_type": "string"
+  },
+  "Medication.Code": {
+    "sample_values": [
+      1,
+      2,
+      3
+    ],
+    "inferred_type": "integer"
+  },
+  "Medication.Name": {
+    "sample_values": [
+      "Melioraurin",
+      "Crescavitin",
+      "Awakin"
+    ],
+    "inferred_type": "string"
+  },
+  "Medication.Brand": {
+    "sample_values": [
+      "Snafu Pharmaceuticals",
+      "Baz Industries",
+      "Bar Laboratories"
+    ],
+    "inferred_type": "string"
+  },
+  "Prescribes.Physician": {
+    "sample_values": [
+      1,
+      9
+    ],
+    "inferred_type": "integer"
+  },
+  "Prescribes.Patient": {
+    "sample_values": [
+      100000001,
+      100000004
+    ],
+    "inferred_type": "integer"
+  },
+  "Prescribes.Medication": {
+    "sample_values": [
+      1,
+      2
+    ],
+    "inferred_type": "integer"
+  },
+  "Prescribes.Date": {
+    "sample_values": [
+      "2008-04-24 10:47",
+      "2008-04-27 10:53",
+      "2008-04-30 16:53"
+    ],
+    "inferred_type": "string"
+  },
+  "Prescribes.Appointment": {
+    "sample_values": [
+      13216584,
+      86213939
+    ],
+    "inferred_type": "integer"
+  },
+  "Prescribes.Dose": {
+    "sample_values": [
+      "5",
+      "10"
+    ],
+    "inferred_type": "integer"
+  },
+  "Block.BlockFloor": {
+    "sample_values": [
+      1,
+      2,
+      3
+    ],
+    "inferred_type": "integer"
+  },
+  "Block.BlockCode": {
+    "sample_values": [
+      1,
+      2,
+      3
+    ],
+    "inferred_type": "integer"
+  },
+  "Room.RoomNumber": {
+    "sample_values": [
+      101,
+      121,
+      211
+    ],
+    "inferred_type": "integer"
+  },
+  "Room.BlockFloor": {
+    "sample_values": [
+      1,
+      2,
+      3
+    ],
+    "inferred_type": "integer"
+  },
+  "Room.BlockCode": {
+    "sample_values": [
+      1,
+      2,
+      3
+    ],
+    "inferred_type": "integer"
+  },
+  "Room.Unavailable": {
+    "sample_values": [
+      0,
+      1
+    ],
+    "inferred_type": "integer"
+  },
+  "On_Call.Nurse": {
+    "sample_values": [
+      101,
+      102,
+      103
+    ],
+    "inferred_type": "integer"
+  },
+  "On_Call.BlockCode": {
+    "sample_values": [
+      1,
+      2,
+      3
+    ],
+    "inferred_type": "integer"
+  },
+  "On_Call.OnCallStart": {
+    "sample_values": [
+      "2008-11-04 11:00",
+      "2008-11-04 19:00"
+    ],
+    "inferred_type": "string"
+  },
+  "On_Call.OnCallEnd": {
+    "sample_values": [
+      "2008-11-04 19:00",
+      "2008-11-05 03:00"
+    ],
+    "inferred_type": "string"
+  },
+  "Stay.StayID": {
+    "sample_values": [
+      3215,
+      3216,
+      3217
+    ],
+    "inferred_type": "integer"
+  },
+  "Stay.Patient": {
+    "sample_values": [
+      100000001,
+      100000003,
+      100000004
+    ],
+    "inferred_type": "integer"
+  },
+  "Stay.Room": {
+    "sample_values": [
+      111,
+      123,
+      112
+    ],
+    "inferred_type": "integer"
+  },
+  "Stay.StayStart": {
+    "sample_values": [
+      "2008-05-01",
+      "2008-05-03",
+      "2008-05-02"
+    ],
+    "inferred_type": "string"
+  },
+  "Stay.StayEnd": {
+    "sample_values": [
+      "2008-05-04",
+      "2008-05-14",
+      "2008-05-03"
+    ],
+    "inferred_type": "string"
+  },
+  "Undergoes.Patient": {
+    "sample_values": [
+      100000001,
+      100000004
+    ],
+    "inferred_type": "integer"
+  },
+  "Undergoes.Procedures": {
+    "sample_values": [
+      2,
+      7,
+      4
+    ],
+    "inferred_type": "integer"
+  },
+  "Undergoes.Stay": {
+    "sample_values": [
+      3215,
+      3217
+    ],
+    "inferred_type": "integer"
+  },
+  "Undergoes.DateUndergoes": {
+    "sample_values": [
+      "2008-05-09",
+      "2008-05-02",
+      "2008-05-07"
+    ],
+    "inferred_type": "string"
+  },
+  "Undergoes.Physician": {
+    "sample_values": [
+      3,
+      7,
+      6
+    ],
+    "inferred_type": "integer"
+  },
+  "Undergoes.AssistingNurse": {
+    "sample_values": [
+      101,
+      102,
+      105
+    ],
+    "inferred_type": "integer"
+  }
+}

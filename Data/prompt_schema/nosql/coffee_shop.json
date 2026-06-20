@@ -1,0 +1,153 @@
+{
+  "member.Time_of_purchase": {
+    "sample_values": [
+      "41",
+      "18",
+      "27"
+    ],
+    "inferred_type": "integer"
+  },
+  "member.Age": {
+    "sample_values": [
+      "34",
+      "67",
+      "29"
+    ],
+    "inferred_type": "integer"
+  },
+  "member.Name": {
+    "sample_values": [
+      "Cobb, Sedrick",
+      "Peeler, Russell",
+      "Campbell, Jessie"
+    ],
+    "inferred_type": "string"
+  },
+  "member.Level_of_membership": {
+    "sample_values": [
+      "5",
+      "2",
+      "22"
+    ],
+    "inferred_type": "integer"
+  },
+  "member.Member_ID": {
+    "sample_values": [
+      "5",
+      "1",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "member.Membership_card": {
+    "sample_values": [
+      "Black",
+      "White"
+    ],
+    "inferred_type": "string"
+  },
+  "member.Address": {
+    "sample_values": [
+      "Cheshire",
+      "Waterbury",
+      "Hartford"
+    ],
+    "inferred_type": "string"
+  },
+  "happy_hour.Shop_ID": {
+    "sample_values": [
+      "5",
+      "10",
+      "1"
+    ],
+    "inferred_type": "integer"
+  },
+  "happy_hour.HH_ID": {
+    "sample_values": [
+      "5",
+      "1",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "happy_hour.Month": {
+    "sample_values": [
+      "June",
+      "April",
+      "July"
+    ],
+    "inferred_type": "string"
+  },
+  "happy_hour.Num_of_shaff_in_charge": {
+    "sample_values": [
+      "5",
+      "15",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "shop.Open_Year": {
+    "sample_values": [
+      "2011",
+      "2010",
+      "2006"
+    ],
+    "inferred_type": "integer"
+  },
+  "shop.Num_of_staff": {
+    "sample_values": [
+      "34",
+      "16",
+      "27"
+    ],
+    "inferred_type": "integer"
+  },
+  "shop.Score": {
+    "sample_values": [
+      "40.0",
+      "32.0",
+      "38.0"
+    ],
+    "inferred_type": "float"
+  },
+  "shop.Shop_ID": {
+    "sample_values": [
+      "5",
+      "1",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "shop.Address": {
+    "sample_values": [
+      "909 Walnut Street",
+      "414 E. 12th Street",
+      "2345 McGee Street"
+    ],
+    "inferred_type": "string"
+  },
+  "happy_hour_member.HH_ID": {
+    "sample_values": [
+      "5",
+      "1",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "happy_hour_member.Total_amount": {
+    "sample_values": [
+      "16.92",
+      "20.92",
+      "16.9"
+    ],
+    "inferred_type": "float"
+  },
+  "happy_hour_member.Member_ID": {
+    "sample_values": [
+      "5",
+      "3",
+      "9"
+    ],
+    "inferred_type": "integer"
+  }
+}

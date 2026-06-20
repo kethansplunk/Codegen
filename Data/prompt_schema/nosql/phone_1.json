@@ -1,0 +1,164 @@
+{
+  "screen_mode.map": {
+    "sample_values": [
+      "5800\u20137FFF",
+      "3000\u20137FFF",
+      "4000\u20137FFF"
+    ],
+    "inferred_type": "string"
+  },
+  "screen_mode.Type": {
+    "sample_values": [
+      "Text",
+      "Graphics"
+    ],
+    "inferred_type": "string"
+  },
+  "screen_mode.used_kb": {
+    "sample_values": [
+      "10.0",
+      "8.0",
+      "16.0"
+    ],
+    "inferred_type": "float"
+  },
+  "screen_mode.Char_cells": {
+    "sample_values": [
+      "40 \u00d7 32",
+      "80 \u00d7 25",
+      "80 \u00d7 32"
+    ],
+    "inferred_type": "string"
+  },
+  "screen_mode.Hardware_colours": {
+    "sample_values": [
+      "8.0",
+      "2.0",
+      "4.0"
+    ],
+    "inferred_type": "float"
+  },
+  "screen_mode.Graphics_mode": {
+    "sample_values": [
+      "6.0",
+      "3.0",
+      "4.0"
+    ],
+    "inferred_type": "float"
+  },
+  "screen_mode.Pixels": {
+    "sample_values": [
+      "640 \u00d7 200",
+      "320 \u00d7 200",
+      "320 \u00d7 256"
+    ],
+    "inferred_type": "string"
+  },
+  "phone.chip_model": {
+    "sample_values": [
+      "X5",
+      "X51v",
+      "X50 Standard"
+    ],
+    "inferred_type": "string"
+  },
+  "phone.Accreditation_level": {
+    "sample_values": [
+      "joyn",
+      "joyn Hot Fixes"
+    ],
+    "inferred_type": "string"
+  },
+  "phone.Company_name": {
+    "sample_values": [
+      "HTC Corporation",
+      "Samsung Electronics Co Ltd",
+      "LG Electronics"
+    ],
+    "inferred_type": "string"
+  },
+  "phone.Date": {
+    "sample_values": [
+      "Approved (valid until 06.04.13)",
+      "Approved (valid until 14.09.13)",
+      "Approved (awarded 15.11.12)"
+    ],
+    "inferred_type": "string"
+  },
+  "phone.Hardware_Model_name": {
+    "sample_values": [
+      "U8815 Asura",
+      "Nokia 700",
+      "GT-I9300"
+    ],
+    "inferred_type": "string"
+  },
+  "phone.screen_mode": {
+    "sample_values": [
+      "5",
+      "2",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "phone.Accreditation_type": {
+    "sample_values": [
+      "Full",
+      "Provisional"
+    ],
+    "inferred_type": "string"
+  },
+  "chip_model.RAM_MiB": {
+    "sample_values": [
+      "64.0",
+      "32.0"
+    ],
+    "inferred_type": "float"
+  },
+  "chip_model.WiFi": {
+    "sample_values": [
+      "No",
+      "802.11b"
+    ],
+    "inferred_type": "string"
+  },
+  "chip_model.Model_name": {
+    "sample_values": [
+      "X5",
+      "X50v",
+      "X51 mid-range"
+    ],
+    "inferred_type": "string"
+  },
+  "chip_model.ROM_MiB": {
+    "sample_values": [
+      "32.0",
+      "256.0",
+      "48.0"
+    ],
+    "inferred_type": "float"
+  },
+  "chip_model.Slots": {
+    "sample_values": [
+      "1SD",
+      "1CFII,1SD"
+    ],
+    "inferred_type": "string"
+  },
+  "chip_model.Bluetooth": {
+    "sample_values": [
+      "Yes",
+      "1.2",
+      "1.1"
+    ],
+    "inferred_type": "string"
+  },
+  "chip_model.Launch_year": {
+    "sample_values": [
+      "2003.0",
+      "2004.0",
+      "2005.0"
+    ],
+    "inferred_type": "float"
+  }
+}

@@ -1,0 +1,184 @@
+{
+  "TV_Channel.id": {
+    "sample_values": [
+      "700",
+      "706",
+      "714"
+    ],
+    "inferred_type": "integer"
+  },
+  "TV_Channel.series_name": {
+    "sample_values": [
+      "Classica",
+      "MTV Dance",
+      "MTV Rocks"
+    ],
+    "inferred_type": "string"
+  },
+  "TV_Channel.Country": {
+    "sample_values": [
+      "Italy",
+      "United Kingdom",
+      "Poland"
+    ],
+    "inferred_type": "string"
+  },
+  "TV_Channel.Language": {
+    "sample_values": [
+      "Italian",
+      "English"
+    ],
+    "inferred_type": "string"
+  },
+  "TV_Channel.Pixel_aspect_ratio_PAR": {
+    "sample_values": [
+      "4:3",
+      "4:3 / 16:9",
+      "16:9"
+    ],
+    "inferred_type": "string"
+  },
+  "TV_Channel.Hight_definition_TV": {
+    "sample_values": [
+      "no",
+      "yes"
+    ],
+    "inferred_type": "string"
+  },
+  "TV_Channel.Package_Option": {
+    "sample_values": [
+      "Option",
+      "Sky Famiglia + Sky HD",
+      "no ( FTV )"
+    ],
+    "inferred_type": "string"
+  },
+  "TV_series.id": {
+    "sample_values": [
+      1.0,
+      5.0,
+      9.0
+    ],
+    "inferred_type": "float"
+  },
+  "TV_series.Episode": {
+    "sample_values": [
+      "The Hanged Man",
+      "The Legend of Dylan McCleen",
+      "Friendly Skies"
+    ],
+    "inferred_type": "string"
+  },
+  "TV_series.Air_Date": {
+    "sample_values": [
+      "December 17, 2007",
+      "October 22, 2007",
+      "October 1, 2007"
+    ],
+    "inferred_type": "string"
+  },
+  "TV_series.Rating": {
+    "sample_values": [
+      "5.8",
+      "4.3",
+      "3.4"
+    ],
+    "inferred_type": "float"
+  },
+  "TV_series.Share": {
+    "sample_values": [
+      9.0,
+      7.0,
+      6.0
+    ],
+    "inferred_type": "float"
+  },
+  "TV_series.18_49_Rating_Share": {
+    "sample_values": [
+      "3.5/9",
+      "2.7/7",
+      "2.1/5"
+    ],
+    "inferred_type": "string"
+  },
+  "TV_series.Viewers_m": {
+    "sample_values": [
+      "9.16",
+      "6.06",
+      "5.61"
+    ],
+    "inferred_type": "float"
+  },
+  "TV_series.Weekly_Rank": {
+    "sample_values": [
+      43.0,
+      72.0,
+      66.0
+    ],
+    "inferred_type": "float"
+  },
+  "TV_series.Channel": {
+    "sample_values": [
+      "700",
+      "713",
+      "717"
+    ],
+    "inferred_type": "integer"
+  },
+  "Cartoon.id": {
+    "sample_values": [
+      1.0,
+      5.0,
+      9.0
+    ],
+    "inferred_type": "float"
+  },
+  "Cartoon.Title": {
+    "sample_values": [
+      "Deep Cover for Batman!",
+      "Invasion of the Secret Santas!",
+      "Terror on Dinosaur Island!"
+    ],
+    "inferred_type": "string"
+  },
+  "Cartoon.Directed_by": {
+    "sample_values": [
+      "Ben Jones",
+      "Brandon Vietti",
+      "Michael Chang"
+    ],
+    "inferred_type": "string"
+  },
+  "Cartoon.Written_by": {
+    "sample_values": [
+      "Matt Wayne",
+      "Steven Melching",
+      "Joseph Kuhr"
+    ],
+    "inferred_type": "string"
+  },
+  "Cartoon.Original_air_date": {
+    "sample_values": [
+      "February27,2009",
+      "December12,2008",
+      "November21,2008"
+    ],
+    "inferred_type": "string"
+  },
+  "Cartoon.Production_code": {
+    "sample_values": [
+      101.0,
+      105.0,
+      109.0
+    ],
+    "inferred_type": "float"
+  },
+  "Cartoon.Channel": {
+    "sample_values": [
+      "700",
+      "704",
+      "707"
+    ],
+    "inferred_type": "integer"
+  }
+}

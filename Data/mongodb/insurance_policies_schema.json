@@ -1,0 +1,178 @@
+{
+  "db_name": "insurance_policies",
+  "collections": {
+    "Customers": {
+      "primary_key": [
+        "Customer_ID"
+      ],
+      "columns": [
+        {
+          "name": "Customer_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Customer_Details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 15
+    },
+    "Customer_Policies": {
+      "primary_key": [
+        "Policy_ID"
+      ],
+      "columns": [
+        {
+          "name": "Policy_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Customer_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Policy_Type_Code",
+          "type": "CHAR(15)"
+        },
+        {
+          "name": "Start_Date",
+          "type": "DATE"
+        },
+        {
+          "name": "End_Date",
+          "type": "DATE"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Customer_Policies",
+          "to": "Customers",
+          "child_col": "Customer_ID",
+          "parent_col": "Customer_ID"
+        }
+      ],
+      "row_count": 15
+    },
+    "Claims": {
+      "primary_key": [
+        "Claim_ID"
+      ],
+      "columns": [
+        {
+          "name": "Claim_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Policy_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Date_Claim_Made",
+          "type": "DATE"
+        },
+        {
+          "name": "Date_Claim_Settled",
+          "type": "DATE"
+        },
+        {
+          "name": "Amount_Claimed",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Amount_Settled",
+          "type": "INTEGER"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Claims",
+          "to": "Customer_Policies",
+          "child_col": "Policy_ID",
+          "parent_col": "Policy_ID"
+        }
+      ],
+      "row_count": 15
+    },
+    "Settlements": {
+      "primary_key": [
+        "Settlement_ID"
+      ],
+      "columns": [
+        {
+          "name": "Settlement_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Claim_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Date_Claim_Made",
+          "type": "DATE"
+        },
+        {
+          "name": "Date_Claim_Settled",
+          "type": "DATE"
+        },
+        {
+          "name": "Amount_Claimed",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Amount_Settled",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Customer_Policy_ID",
+          "type": "INTEGER"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Settlements",
+          "to": "Claims",
+          "child_col": "Claim_ID",
+          "parent_col": "Claim_ID"
+        }
+      ],
+      "row_count": 15
+    },
+    "Payments": {
+      "primary_key": [
+        "Payment_ID"
+      ],
+      "columns": [
+        {
+          "name": "Payment_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Settlement_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Payment_Method_Code",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "Date_Payment_Made",
+          "type": "DATE"
+        },
+        {
+          "name": "Amount_Payment",
+          "type": "INTEGER"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Payments",
+          "to": "Settlements",
+          "child_col": "Settlement_ID",
+          "parent_col": "Settlement_ID"
+        }
+      ],
+      "row_count": 15
+    }
+  }
+}

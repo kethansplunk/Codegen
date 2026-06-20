@@ -1,0 +1,293 @@
+{
+  "db_name": "student_assessment",
+  "nodes": [
+    {
+      "name": "Addresses",
+      "columns": [
+        {
+          "name": "address_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "line_1",
+          "type": "VARCHAR(80)"
+        },
+        {
+          "name": "line_2",
+          "type": "VARCHAR(80)"
+        },
+        {
+          "name": "city",
+          "type": "VARCHAR(50)"
+        },
+        {
+          "name": "zip_postcode",
+          "type": "CHAR(20)"
+        },
+        {
+          "name": "state_province_county",
+          "type": "VARCHAR(50)"
+        },
+        {
+          "name": "country",
+          "type": "VARCHAR(50)"
+        }
+      ],
+      "pk": [
+        "address_id"
+      ]
+    },
+    {
+      "name": "People",
+      "columns": [
+        {
+          "name": "person_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "first_name",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "middle_name",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "last_name",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "cell_mobile_number",
+          "type": "VARCHAR(40)"
+        },
+        {
+          "name": "email_address",
+          "type": "VARCHAR(40)"
+        },
+        {
+          "name": "login_name",
+          "type": "VARCHAR(40)"
+        },
+        {
+          "name": "password",
+          "type": "VARCHAR(40)"
+        }
+      ],
+      "pk": [
+        "person_id"
+      ]
+    },
+    {
+      "name": "Students",
+      "columns": [
+        {
+          "name": "student_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "student_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "pk": [
+        "student_id"
+      ]
+    },
+    {
+      "name": "Courses",
+      "columns": [
+        {
+          "name": "course_id",
+          "type": "VARCHAR(100)"
+        },
+        {
+          "name": "course_name",
+          "type": "VARCHAR(120)"
+        },
+        {
+          "name": "course_description",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "other_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "pk": [
+        "course_id"
+      ]
+    },
+    {
+      "name": "People_Addresses",
+      "columns": [
+        {
+          "name": "person_address_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "person_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "address_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "date_from",
+          "type": "DATETIME"
+        },
+        {
+          "name": "date_to",
+          "type": "DATETIME"
+        }
+      ],
+      "pk": [
+        "person_address_id"
+      ]
+    },
+    {
+      "name": "Student_Course_Registrations",
+      "columns": [
+        {
+          "name": "student_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "course_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "registration_date",
+          "type": "DATETIME"
+        }
+      ],
+      "pk": [
+        "student_id",
+        "course_id"
+      ]
+    },
+    {
+      "name": "Student_Course_Attendance",
+      "columns": [
+        {
+          "name": "student_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "course_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "date_of_attendance",
+          "type": "DATETIME"
+        }
+      ],
+      "pk": [
+        "student_id",
+        "course_id"
+      ]
+    },
+    {
+      "name": "Candidates",
+      "columns": [
+        {
+          "name": "candidate_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "candidate_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "pk": [
+        "candidate_id"
+      ]
+    },
+    {
+      "name": "Candidate_Assessments",
+      "columns": [
+        {
+          "name": "candidate_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "qualification",
+          "type": "CHAR(15)"
+        },
+        {
+          "name": "assessment_date",
+          "type": "DATETIME"
+        },
+        {
+          "name": "asessment_outcome_code",
+          "type": "CHAR(15)"
+        }
+      ],
+      "pk": [
+        "candidate_id",
+        "qualification"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "Students",
+      "to": "People",
+      "child_col": "student_id",
+      "parent_col": "person_id"
+    },
+    {
+      "from": "People_Addresses",
+      "to": "Addresses",
+      "child_col": "address_id",
+      "parent_col": "address_id"
+    },
+    {
+      "from": "People_Addresses",
+      "to": "People",
+      "child_col": "person_id",
+      "parent_col": "person_id"
+    },
+    {
+      "from": "Student_Course_Registrations",
+      "to": "Courses",
+      "child_col": "course_id",
+      "parent_col": "course_id"
+    },
+    {
+      "from": "Student_Course_Registrations",
+      "to": "Students",
+      "child_col": "student_id",
+      "parent_col": "student_id"
+    },
+    {
+      "from": "Student_Course_Attendance",
+      "to": "Student_Course_Registrations",
+      "child_col": "course_id",
+      "parent_col": "course_id"
+    },
+    {
+      "from": "Candidates",
+      "to": "People",
+      "child_col": "candidate_id",
+      "parent_col": "person_id"
+    },
+    {
+      "from": "Candidate_Assessments",
+      "to": "Candidates",
+      "child_col": "candidate_id",
+      "parent_col": "candidate_id"
+    }
+  ],
+  "centrality": {
+    "Addresses": 0.125,
+    "People": 0.375,
+    "Students": 0.125,
+    "Courses": 0.125,
+    "People_Addresses": 0.0,
+    "Student_Course_Registrations": 0.125,
+    "Student_Course_Attendance": 0.0,
+    "Candidates": 0.125,
+    "Candidate_Assessments": 0.0
+  }
+}

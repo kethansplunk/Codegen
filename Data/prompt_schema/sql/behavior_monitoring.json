@@ -1,0 +1,406 @@
+{
+  "Ref_Address_Types.address_type_code": {
+    "sample_values": [
+      "BILL",
+      "HOME"
+    ],
+    "inferred_type": "string"
+  },
+  "Ref_Address_Types.address_type_description": {
+    "sample_values": [
+      "Billing",
+      "Home or Residence"
+    ],
+    "inferred_type": "string"
+  },
+  "Ref_Detention_Type.detention_type_code": {
+    "sample_values": [
+      "AFTER",
+      "BREAK ",
+      "LUNCH"
+    ],
+    "inferred_type": "string"
+  },
+  "Ref_Detention_Type.detention_type_description": {
+    "sample_values": [
+      "During Break time",
+      "After School",
+      "Lunch-time"
+    ],
+    "inferred_type": "string"
+  },
+  "Ref_Incident_Type.incident_type_code": {
+    "sample_values": [
+      "DISTURB",
+      "NOISE",
+      "VIOLENCE"
+    ],
+    "inferred_type": "string"
+  },
+  "Ref_Incident_Type.incident_type_description": {
+    "sample_values": [
+      "Noise",
+      "Violence",
+      "Disturbance"
+    ],
+    "inferred_type": "string"
+  },
+  "Addresses.address_id": {
+    "sample_values": [
+      1,
+      7,
+      13
+    ],
+    "inferred_type": "integer"
+  },
+  "Addresses.line_1": {
+    "sample_values": [
+      "2451 Wiza Inlet",
+      "6960 O'Connell Dale Suite 622",
+      "18327 Jaime Terrace Suite 343"
+    ],
+    "inferred_type": "string"
+  },
+  "Addresses.city": {
+    "sample_values": [
+      "Larkinport",
+      "New Annabellefort",
+      "Edmundton"
+    ],
+    "inferred_type": "string"
+  },
+  "Addresses.zip_postcode": {
+    "sample_values": [
+      "197",
+      "182",
+      "663"
+    ],
+    "inferred_type": "integer"
+  },
+  "Addresses.state_province_county": {
+    "sample_values": [
+      "Alabama",
+      "Kentucky",
+      "Maryland"
+    ],
+    "inferred_type": "string"
+  },
+  "Students.student_id": {
+    "sample_values": [
+      1,
+      6,
+      11
+    ],
+    "inferred_type": "integer"
+  },
+  "Students.address_id": {
+    "sample_values": [
+      19,
+      8,
+      14
+    ],
+    "inferred_type": "integer"
+  },
+  "Students.first_name": {
+    "sample_values": [
+      "Eugene",
+      "Rupert",
+      "Antonietta"
+    ],
+    "inferred_type": "string"
+  },
+  "Students.middle_name": {
+    "sample_values": [
+      "Mustafa",
+      "Lincoln",
+      "Crystal"
+    ],
+    "inferred_type": "string"
+  },
+  "Students.last_name": {
+    "sample_values": [
+      "Tremblay",
+      "Marks",
+      "Fahey"
+    ],
+    "inferred_type": "string"
+  },
+  "Students.cell_mobile_number": {
+    "sample_values": [
+      "1-498-138-8088",
+      "763.072.5520x5907",
+      "(874)070-9495"
+    ],
+    "inferred_type": "string"
+  },
+  "Students.email_address": {
+    "sample_values": [
+      "kertzmann.devon@example.net",
+      "lisette.brekke@example.net",
+      "norwood.howell@example.org"
+    ],
+    "inferred_type": "string"
+  },
+  "Students.date_first_rental": {
+    "sample_values": [
+      "2018-03-11 22:42:47",
+      "2017-09-25 12:02:23",
+      "2017-10-31 12:33:09"
+    ],
+    "inferred_type": "string"
+  },
+  "Students.date_left_university": {
+    "sample_values": [
+      "2018-03-07 11:41:26",
+      "2018-03-01 08:56:04",
+      "2018-03-20 22:01:07"
+    ],
+    "inferred_type": "string"
+  },
+  "Teachers.teacher_id": {
+    "sample_values": [
+      1,
+      6,
+      11
+    ],
+    "inferred_type": "integer"
+  },
+  "Teachers.address_id": {
+    "sample_values": [
+      15,
+      16,
+      2
+    ],
+    "inferred_type": "integer"
+  },
+  "Teachers.first_name": {
+    "sample_values": [
+      "Hobart",
+      "Alvis",
+      "Citlalli"
+    ],
+    "inferred_type": "string"
+  },
+  "Teachers.middle_name": {
+    "sample_values": [
+      "Michel",
+      "Macey",
+      "Ahmad"
+    ],
+    "inferred_type": "string"
+  },
+  "Teachers.last_name": {
+    "sample_values": [
+      "Bergnaum",
+      "Schultz",
+      "Kuhic"
+    ],
+    "inferred_type": "string"
+  },
+  "Teachers.gender": {
+    "sample_values": [
+      "1",
+      "0"
+    ],
+    "inferred_type": "integer"
+  },
+  "Teachers.cell_mobile_number": {
+    "sample_values": [
+      "796-453-5175x64012",
+      "944-154-5379x4990",
+      "017.636.7409"
+    ],
+    "inferred_type": "string"
+  },
+  "Teachers.email_address": {
+    "sample_values": [
+      "willms.lane@example.com",
+      "everardo.lynch@example.net",
+      "kozey.adeline@example.org"
+    ],
+    "inferred_type": "string"
+  },
+  "Assessment_Notes.notes_id": {
+    "sample_values": [
+      1,
+      6,
+      11
+    ],
+    "inferred_type": "integer"
+  },
+  "Assessment_Notes.student_id": {
+    "sample_values": [
+      7,
+      12,
+      13
+    ],
+    "inferred_type": "integer"
+  },
+  "Assessment_Notes.teacher_id": {
+    "sample_values": [
+      3,
+      9,
+      7
+    ],
+    "inferred_type": "integer"
+  },
+  "Assessment_Notes.date_of_notes": {
+    "sample_values": [
+      "1984-09-10 01:18:34",
+      "1984-12-13 23:04:28",
+      "2014-01-31 02:05:02"
+    ],
+    "inferred_type": "string"
+  },
+  "Behavior_Incident.incident_id": {
+    "sample_values": [
+      1,
+      6,
+      11
+    ],
+    "inferred_type": "integer"
+  },
+  "Behavior_Incident.incident_type_code": {
+    "sample_values": [
+      "NOISE",
+      "DISTURB",
+      "VIOLENCE"
+    ],
+    "inferred_type": "string"
+  },
+  "Behavior_Incident.student_id": {
+    "sample_values": [
+      6,
+      10,
+      4
+    ],
+    "inferred_type": "integer"
+  },
+  "Behavior_Incident.date_incident_start": {
+    "sample_values": [
+      "2018-02-05 13:13:45",
+      "2017-04-23 07:03:17",
+      "2017-06-09 18:32:28"
+    ],
+    "inferred_type": "string"
+  },
+  "Behavior_Incident.date_incident_end": {
+    "sample_values": [
+      "2018-03-08 09:00:48",
+      "2018-03-19 02:35:39",
+      "2018-03-20 10:32:10"
+    ],
+    "inferred_type": "string"
+  },
+  "Detention.detention_id": {
+    "sample_values": [
+      1,
+      6,
+      11
+    ],
+    "inferred_type": "integer"
+  },
+  "Detention.detention_type_code": {
+    "sample_values": [
+      "AFTER",
+      "BREAK ",
+      "LUNCH"
+    ],
+    "inferred_type": "string"
+  },
+  "Detention.teacher_id": {
+    "sample_values": [
+      7,
+      8,
+      15
+    ],
+    "inferred_type": "integer"
+  },
+  "Detention.datetime_detention_start": {
+    "sample_values": [
+      "2017-08-21 06:41:29",
+      "2018-02-19 11:44:52",
+      "2017-10-20 22:34:44"
+    ],
+    "inferred_type": "string"
+  },
+  "Detention.datetime_detention_end": {
+    "sample_values": [
+      "2018-03-13 20:37:39",
+      "2018-03-17 12:35:41",
+      "2018-03-11 12:58:40"
+    ],
+    "inferred_type": "string"
+  },
+  "Student_Addresses.student_id": {
+    "sample_values": [
+      6,
+      13,
+      5
+    ],
+    "inferred_type": "integer"
+  },
+  "Student_Addresses.address_id": {
+    "sample_values": [
+      12,
+      16,
+      9
+    ],
+    "inferred_type": "integer"
+  },
+  "Student_Addresses.date_address_from": {
+    "sample_values": [
+      "2017-10-09 17:31:44",
+      "2017-07-21 10:13:10",
+      "2018-01-13 22:56:06"
+    ],
+    "inferred_type": "string"
+  },
+  "Student_Addresses.date_address_to": {
+    "sample_values": [
+      "2018-03-18 03:28:47",
+      "2018-03-20 09:02:48",
+      "2018-03-22 17:56:20"
+    ],
+    "inferred_type": "string"
+  },
+  "Student_Addresses.monthly_rental": {
+    "sample_values": [
+      826.4319,
+      756.6745,
+      800.1214
+    ],
+    "inferred_type": "float"
+  },
+  "Student_Addresses.other_details": {
+    "sample_values": [
+      "house",
+      "apartment"
+    ],
+    "inferred_type": "string"
+  },
+  "Students_in_Detention.student_id": {
+    "sample_values": [
+      3,
+      12,
+      13
+    ],
+    "inferred_type": "integer"
+  },
+  "Students_in_Detention.detention_id": {
+    "sample_values": [
+      15,
+      12,
+      14
+    ],
+    "inferred_type": "integer"
+  },
+  "Students_in_Detention.incident_id": {
+    "sample_values": [
+      1,
+      11,
+      8
+    ],
+    "inferred_type": "integer"
+  }
+}

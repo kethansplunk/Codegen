@@ -1,0 +1,185 @@
+{
+  "db_name": "car_1",
+  "nodes": [
+    {
+      "name": "continents",
+      "columns": [
+        {
+          "name": "ContId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Continent",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "ContId"
+      ]
+    },
+    {
+      "name": "countries",
+      "columns": [
+        {
+          "name": "CountryId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "CountryName",
+          "type": "TEXT"
+        },
+        {
+          "name": "Continent",
+          "type": "INTEGER"
+        }
+      ],
+      "pk": [
+        "CountryId"
+      ]
+    },
+    {
+      "name": "car_makers",
+      "columns": [
+        {
+          "name": "Id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Maker",
+          "type": "TEXT"
+        },
+        {
+          "name": "FullName",
+          "type": "TEXT"
+        },
+        {
+          "name": "Country",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "Id"
+      ]
+    },
+    {
+      "name": "model_list",
+      "columns": [
+        {
+          "name": "ModelId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Maker",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Model",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "ModelId"
+      ]
+    },
+    {
+      "name": "car_names",
+      "columns": [
+        {
+          "name": "MakeId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Model",
+          "type": "TEXT"
+        },
+        {
+          "name": "Make",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "MakeId"
+      ]
+    },
+    {
+      "name": "cars_data",
+      "columns": [
+        {
+          "name": "Id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "MPG",
+          "type": "TEXT"
+        },
+        {
+          "name": "Cylinders",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Edispl",
+          "type": "REAL"
+        },
+        {
+          "name": "Horsepower",
+          "type": "TEXT"
+        },
+        {
+          "name": "Weight",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Accelerate",
+          "type": "REAL"
+        },
+        {
+          "name": "Year",
+          "type": "INTEGER"
+        }
+      ],
+      "pk": [
+        "Id"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "countries",
+      "to": "continents",
+      "child_col": "Continent",
+      "parent_col": "ContId"
+    },
+    {
+      "from": "car_makers",
+      "to": "countries",
+      "child_col": "Country",
+      "parent_col": "CountryId"
+    },
+    {
+      "from": "model_list",
+      "to": "car_makers",
+      "child_col": "Maker",
+      "parent_col": "Id"
+    },
+    {
+      "from": "car_names",
+      "to": "model_list",
+      "child_col": "Model",
+      "parent_col": "Model"
+    },
+    {
+      "from": "cars_data",
+      "to": "car_names",
+      "child_col": "Id",
+      "parent_col": "MakeId"
+    }
+  ],
+  "centrality": {
+    "continents": 0.2,
+    "countries": 0.2,
+    "car_makers": 0.2,
+    "model_list": 0.2,
+    "car_names": 0.2,
+    "cars_data": 0.0
+  }
+}

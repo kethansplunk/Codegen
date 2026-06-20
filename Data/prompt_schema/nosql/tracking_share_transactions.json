@@ -1,0 +1,151 @@
+{
+  "Transactions_Lots.lot_id": {
+    "sample_values": [
+      "10",
+      "8",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "Transactions_Lots.transaction_id": {
+    "sample_values": [
+      "10",
+      "12",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "Purchases.purchase_details": {
+    "sample_values": [
+      "t",
+      "a",
+      "z"
+    ],
+    "inferred_type": "string"
+  },
+  "Purchases.purchase_transaction_id": {
+    "sample_values": [
+      "5",
+      "8",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Ref_Transaction_Types.transaction_type_description": {
+    "sample_values": [
+      "Sale",
+      "Purchase"
+    ],
+    "inferred_type": "string"
+  },
+  "Ref_Transaction_Types.transaction_type_code": {
+    "sample_values": [
+      "PUR",
+      "SALE"
+    ],
+    "inferred_type": "string"
+  },
+  "Transactions.investor_id": {
+    "sample_values": [
+      "17",
+      "19",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "Transactions.transaction_type_code": {
+    "sample_values": [
+      "PUR",
+      "SALE"
+    ],
+    "inferred_type": "string"
+  },
+  "Transactions.date_of_transaction": {
+    "sample_values": [
+      "1977-08-17 13:13:30",
+      "2002-04-07 20:28:37",
+      "1977-08-13 02:18:47"
+    ],
+    "inferred_type": "string"
+  },
+  "Transactions.transaction_id": {
+    "sample_values": [
+      "5",
+      "8",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Transactions.amount_of_transaction": {
+    "sample_values": [
+      "82057.207",
+      "0",
+      "8.9"
+    ],
+    "inferred_type": "float"
+  },
+  "Transactions.share_count": {
+    "sample_values": [
+      "8718572",
+      "674529892",
+      "8040"
+    ],
+    "inferred_type": "string"
+  },
+  "Lots.investor_id": {
+    "sample_values": [
+      "10",
+      "19",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Lots.lot_details": {
+    "sample_values": [
+      "m",
+      "h",
+      "z"
+    ],
+    "inferred_type": "string"
+  },
+  "Lots.lot_id": {
+    "sample_values": [
+      "5",
+      "8",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Sales.sales_details": {
+    "sample_values": [
+      "t",
+      "a",
+      "e"
+    ],
+    "inferred_type": "string"
+  },
+  "Sales.sales_transaction_id": {
+    "sample_values": [
+      "5",
+      "8",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Investors.Investor_details": {
+    "sample_values": [
+      "t",
+      "z",
+      "c"
+    ],
+    "inferred_type": "string"
+  },
+  "Investors.investor_id": {
+    "sample_values": [
+      "13",
+      "3",
+      "9"
+    ],
+    "inferred_type": "integer"
+  }
+}

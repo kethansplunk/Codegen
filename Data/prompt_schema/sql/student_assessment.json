@@ -1,0 +1,289 @@
+{
+  "Addresses.address_id": {
+    "sample_values": [
+      5,
+      45,
+      82
+    ],
+    "inferred_type": "integer"
+  },
+  "Addresses.line_1": {
+    "sample_values": [
+      "521 Paucek Field\nNorth Oscartown, WI 31527",
+      "801 Modesto Island Suite 306\nLacyville, VT 34059",
+      "242 Pacocha Streets\nEast Isabellashire, ND 03506"
+    ],
+    "inferred_type": "string"
+  },
+  "Addresses.line_2": {
+    "sample_values": [
+      "Apt. 849",
+      "Suite 764",
+      "Suite 370"
+    ],
+    "inferred_type": "string"
+  },
+  "Addresses.city": {
+    "sample_values": [
+      "Terencetown",
+      "New Alta",
+      "O'Connellview"
+    ],
+    "inferred_type": "string"
+  },
+  "Addresses.zip_postcode": {
+    "sample_values": [
+      "862",
+      "514",
+      "079"
+    ],
+    "inferred_type": "integer"
+  },
+  "Addresses.state_province_county": {
+    "sample_values": [
+      "Kansas",
+      "Massachusetts",
+      "Texas"
+    ],
+    "inferred_type": "string"
+  },
+  "People.person_id": {
+    "sample_values": [
+      111,
+      131,
+      151
+    ],
+    "inferred_type": "integer"
+  },
+  "People.first_name": {
+    "sample_values": [
+      "Nova",
+      "Virginie",
+      "Dariana"
+    ],
+    "inferred_type": "string"
+  },
+  "People.middle_name": {
+    "sample_values": [
+      "Amiya",
+      "Jasmin",
+      "Hayley"
+    ],
+    "inferred_type": "string"
+  },
+  "People.last_name": {
+    "sample_values": [
+      "Feest",
+      "Hartmann",
+      "Bednar"
+    ],
+    "inferred_type": "string"
+  },
+  "People.cell_mobile_number": {
+    "sample_values": [
+      "766-272-9964",
+      "(508)319-2970x043",
+      "(262)347-9364x516"
+    ],
+    "inferred_type": "string"
+  },
+  "People.email_address": {
+    "sample_values": [
+      "oreynolds@example.com",
+      "boyer.lonie@example.com",
+      "leila14@example.net"
+    ],
+    "inferred_type": "string"
+  },
+  "People.login_name": {
+    "sample_values": [
+      "qrwl",
+      "bkkv",
+      "zops"
+    ],
+    "inferred_type": "string"
+  },
+  "People.password": {
+    "sample_values": [
+      "7dce9b688636ee212294c257dd2f6b85c7f65f2e",
+      "b063331ea8116befaa7b84c59c6a22200f5f8caa",
+      "b20b6a9f24aadeda70d54e410c3219f61fb063fb"
+    ],
+    "inferred_type": "string"
+  },
+  "Students.student_id": {
+    "sample_values": [
+      111,
+      131,
+      151
+    ],
+    "inferred_type": "integer"
+  },
+  "Students.student_details": {
+    "sample_values": [
+      "Nancy",
+      "Martin",
+      "Barry"
+    ],
+    "inferred_type": "string"
+  },
+  "Courses.course_id": {
+    "sample_values": [
+      "301",
+      "303",
+      "305"
+    ],
+    "inferred_type": "integer"
+  },
+  "Courses.course_name": {
+    "sample_values": [
+      "Art history",
+      "English",
+      "database"
+    ],
+    "inferred_type": "string"
+  },
+  "Courses.course_description": {
+    "sample_values": [
+      "Art history",
+      "English",
+      "database"
+    ],
+    "inferred_type": "string"
+  },
+  "People_Addresses.person_address_id": {
+    "sample_values": [
+      122,
+      269,
+      281
+    ],
+    "inferred_type": "integer"
+  },
+  "People_Addresses.person_id": {
+    "sample_values": [
+      111,
+      131,
+      151
+    ],
+    "inferred_type": "integer"
+  },
+  "People_Addresses.address_id": {
+    "sample_values": [
+      9,
+      88,
+      92
+    ],
+    "inferred_type": "integer"
+  },
+  "People_Addresses.date_from": {
+    "sample_values": [
+      "2013-12-26 16:57:01",
+      "2008-07-31 02:17:25",
+      "2008-05-26 20:43:41"
+    ],
+    "inferred_type": "string"
+  },
+  "People_Addresses.date_to": {
+    "sample_values": [
+      "2018-03-03 16:06:17",
+      "2018-03-09 02:11:12",
+      "2018-03-11 20:26:41"
+    ],
+    "inferred_type": "string"
+  },
+  "Student_Course_Registrations.student_id": {
+    "sample_values": [
+      111,
+      131,
+      151
+    ],
+    "inferred_type": "integer"
+  },
+  "Student_Course_Registrations.course_id": {
+    "sample_values": [
+      301,
+      303,
+      302
+    ],
+    "inferred_type": "integer"
+  },
+  "Student_Course_Registrations.registration_date": {
+    "sample_values": [
+      "2008-11-08 10:35:13",
+      "2008-10-04 10:35:13",
+      "2008-11-14 10:35:13"
+    ],
+    "inferred_type": "string"
+  },
+  "Student_Course_Attendance.student_id": {
+    "sample_values": [
+      111,
+      141,
+      161
+    ],
+    "inferred_type": "integer"
+  },
+  "Student_Course_Attendance.course_id": {
+    "sample_values": [
+      301,
+      303,
+      302
+    ],
+    "inferred_type": "integer"
+  },
+  "Student_Course_Attendance.date_of_attendance": {
+    "sample_values": [
+      "2012-09-09 11:44:34",
+      "2012-04-09 11:44:34",
+      "2014-04-09 11:44:34"
+    ],
+    "inferred_type": "string"
+  },
+  "Candidates.candidate_id": {
+    "sample_values": [
+      111,
+      131,
+      151
+    ],
+    "inferred_type": "integer"
+  },
+  "Candidates.candidate_details": {
+    "sample_values": [
+      "Cindy",
+      "Robert",
+      "Alex"
+    ],
+    "inferred_type": "string"
+  },
+  "Candidate_Assessments.candidate_id": {
+    "sample_values": [
+      111,
+      121,
+      131
+    ],
+    "inferred_type": "integer"
+  },
+  "Candidate_Assessments.qualification": {
+    "sample_values": [
+      "A",
+      "B",
+      "D"
+    ],
+    "inferred_type": "string"
+  },
+  "Candidate_Assessments.assessment_date": {
+    "sample_values": [
+      "2010-04-09 11:44:34",
+      "2010-04-06 11:44:34",
+      "2010-04-05 11:44:34"
+    ],
+    "inferred_type": "string"
+  },
+  "Candidate_Assessments.asessment_outcome_code": {
+    "sample_values": [
+      "Pass",
+      "Fail"
+    ],
+    "inferred_type": "string"
+  }
+}

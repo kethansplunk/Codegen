@@ -1,0 +1,150 @@
+{
+  "db_name": "railway",
+  "collections": {
+    "railway": {
+      "primary_key": [
+        "Railway_ID"
+      ],
+      "columns": [
+        {
+          "name": "Railway_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Railway",
+          "type": "TEXT"
+        },
+        {
+          "name": "Builder",
+          "type": "TEXT"
+        },
+        {
+          "name": "Built",
+          "type": "TEXT"
+        },
+        {
+          "name": "Wheels",
+          "type": "TEXT"
+        },
+        {
+          "name": "Location",
+          "type": "TEXT"
+        },
+        {
+          "name": "ObjectNumber",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 10
+    },
+    "train": {
+      "primary_key": [
+        "Train_ID"
+      ],
+      "columns": [
+        {
+          "name": "Train_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Train_Num",
+          "type": "TEXT"
+        },
+        {
+          "name": "Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "From",
+          "type": "TEXT"
+        },
+        {
+          "name": "Arrival",
+          "type": "TEXT"
+        },
+        {
+          "name": "Railway_ID",
+          "type": "INT"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "train",
+          "to": "railway",
+          "child_col": "Railway_ID",
+          "parent_col": "Railway_ID"
+        }
+      ],
+      "row_count": 9
+    },
+    "manager": {
+      "primary_key": [
+        "Manager_ID"
+      ],
+      "columns": [
+        {
+          "name": "Manager_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Country",
+          "type": "TEXT"
+        },
+        {
+          "name": "Working_year_starts",
+          "type": "TEXT"
+        },
+        {
+          "name": "Age",
+          "type": "INT"
+        },
+        {
+          "name": "Level",
+          "type": "INT"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 7
+    },
+    "railway_manage": {
+      "primary_key": [
+        "Railway_ID",
+        "Manager_ID"
+      ],
+      "columns": [
+        {
+          "name": "Railway_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Manager_ID",
+          "type": "INT"
+        },
+        {
+          "name": "From_Year",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "railway_manage",
+          "to": "railway",
+          "child_col": "Railway_ID",
+          "parent_col": "Railway_ID"
+        },
+        {
+          "from": "railway_manage",
+          "to": "manager",
+          "child_col": "Manager_ID",
+          "parent_col": "Manager_ID"
+        }
+      ],
+      "row_count": 4
+    }
+  }
+}

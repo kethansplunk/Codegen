@@ -1,0 +1,152 @@
+{
+  "movie.Title": {
+    "sample_values": [
+      "Battlefield Earth",
+      "The Boondock Saints",
+      "The Art of War"
+    ],
+    "inferred_type": "string"
+  },
+  "movie.Budget_million": {
+    "sample_values": [
+      "41.3",
+      "7.0",
+      "44.0"
+    ],
+    "inferred_type": "float"
+  },
+  "movie.Director": {
+    "sample_values": [
+      "Troy Duffy",
+      "Jonathan Lynn",
+      "Damian Lee"
+    ],
+    "inferred_type": "string"
+  },
+  "movie.movie_id": {
+    "sample_values": [
+      "5",
+      "1",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "movie.Year": {
+    "sample_values": [
+      "2000",
+      "2001",
+      "1999"
+    ],
+    "inferred_type": "integer"
+  },
+  "movie.Gross_worldwide": {
+    "sample_values": [
+      "30471",
+      "543356",
+      "19412993"
+    ],
+    "inferred_type": "integer"
+  },
+  "book_club.Result": {
+    "sample_values": [
+      "Nom",
+      "Won [B ]",
+      "Won"
+    ],
+    "inferred_type": "string"
+  },
+  "book_club.Publisher": {
+    "sample_values": [
+      "St. Martin's Press",
+      "William Morrow",
+      "Alyson"
+    ],
+    "inferred_type": "string"
+  },
+  "book_club.Year": {
+    "sample_values": [
+      "1990",
+      "1989"
+    ],
+    "inferred_type": "integer"
+  },
+  "book_club.Book_Title": {
+    "sample_values": [
+      "Unicorn Mountain",
+      "Lessons In Murder",
+      "Who\u04f3 Next"
+    ],
+    "inferred_type": "string"
+  },
+  "book_club.Author_or_Editor": {
+    "sample_values": [
+      "George Baxt",
+      "Thom Nickels",
+      "Antoinette Azolakov"
+    ],
+    "inferred_type": "string"
+  },
+  "book_club.book_club_id": {
+    "sample_values": [
+      "5",
+      "12",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "book_club.Category": {
+    "sample_values": [
+      "Gay M/SF",
+      "Lesb. M/SF",
+      "Gay SF/F"
+    ],
+    "inferred_type": "string"
+  },
+  "culture_company.Group_Equity_Shareholding": {
+    "sample_values": [
+      "18.77",
+      "60.0",
+      "100.0"
+    ],
+    "inferred_type": "float"
+  },
+  "culture_company.Type": {
+    "sample_values": [
+      "Subsidiary",
+      "Joint Venture",
+      "Corporate"
+    ],
+    "inferred_type": "string"
+  },
+  "culture_company.movie_id": {
+    "sample_values": [
+      "5",
+      "4",
+      "3"
+    ],
+    "inferred_type": "integer"
+  },
+  "culture_company.Company_name": {
+    "sample_values": [
+      "Culture Hong Kong",
+      "Culture China Cargo",
+      "Cathay Pacific Culture"
+    ],
+    "inferred_type": "string"
+  },
+  "culture_company.book_club_id": {
+    "sample_values": [
+      "5",
+      "1",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "culture_company.Incorporated_in": {
+    "sample_values": [
+      "Hong Kong",
+      "China"
+    ],
+    "inferred_type": "string"
+  }
+}

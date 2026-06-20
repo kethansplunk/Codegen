@@ -1,0 +1,154 @@
+{
+  "county.County_Id": {
+    "sample_values": [
+      1,
+      2,
+      3
+    ],
+    "inferred_type": "integer"
+  },
+  "county.County_name": {
+    "sample_values": [
+      "Baltimore County",
+      "Manning",
+      "Mansfield"
+    ],
+    "inferred_type": "string"
+  },
+  "county.Population": {
+    "sample_values": [
+      21000.0,
+      90000.0,
+      79000.0
+    ],
+    "inferred_type": "float"
+  },
+  "county.Zip_code": {
+    "sample_values": [
+      "D11",
+      "D09",
+      "D02"
+    ],
+    "inferred_type": "string"
+  },
+  "party.Party_ID": {
+    "sample_values": [
+      1,
+      3,
+      5
+    ],
+    "inferred_type": "integer"
+  },
+  "party.Year": {
+    "sample_values": [
+      1998.0,
+      2002.0,
+      2006.0
+    ],
+    "inferred_type": "float"
+  },
+  "party.Party": {
+    "sample_values": [
+      "Working Families",
+      "Independence",
+      "Liberal"
+    ],
+    "inferred_type": "string"
+  },
+  "party.Governor": {
+    "sample_values": [
+      "Eliot Spitzer",
+      "Tom Golisano",
+      "Carl McCall"
+    ],
+    "inferred_type": "string"
+  },
+  "party.Lieutenant_Governor": {
+    "sample_values": [
+      "David Paterson",
+      "Mary Donohue",
+      "Dennis Mehiel"
+    ],
+    "inferred_type": "string"
+  },
+  "party.Comptroller": {
+    "sample_values": [
+      "Carl McCall",
+      "Alan Hevesi",
+      "John Faso"
+    ],
+    "inferred_type": "string"
+  },
+  "party.Attorney_General": {
+    "sample_values": [
+      "Eliot Spitzer",
+      "Andrew Cuomo",
+      "Jeanine Pirro"
+    ],
+    "inferred_type": "string"
+  },
+  "party.US_Senate": {
+    "sample_values": [
+      "Charles Schumer",
+      "(no election)",
+      "Hillary Rodham Clinton"
+    ],
+    "inferred_type": "string"
+  },
+  "election.Election_ID": {
+    "sample_values": [
+      1,
+      3,
+      5
+    ],
+    "inferred_type": "integer"
+  },
+  "election.Counties_Represented": {
+    "sample_values": [
+      "13",
+      "12.2 12B",
+      "12.1 12A"
+    ],
+    "inferred_type": "string"
+  },
+  "election.District": {
+    "sample_values": [
+      1,
+      2,
+      3
+    ],
+    "inferred_type": "integer"
+  },
+  "election.Delegate": {
+    "sample_values": [
+      "Turner, Frank S. Frank S. Turner",
+      "Miller, Warren E. Warren E. Miller",
+      "DeBoy, Steven J. Sr. Steven J. DeBoy, Sr."
+    ],
+    "inferred_type": "string"
+  },
+  "election.Party": {
+    "sample_values": [
+      1,
+      2,
+      3
+    ],
+    "inferred_type": "integer"
+  },
+  "election.First_Elected": {
+    "sample_values": [
+      2002.0,
+      2003.0,
+      1994.0
+    ],
+    "inferred_type": "float"
+  },
+  "election.Committee": {
+    "sample_values": [
+      "Ways and Means",
+      "Economic Matters",
+      "Environmental Matters"
+    ],
+    "inferred_type": "string"
+  }
+}

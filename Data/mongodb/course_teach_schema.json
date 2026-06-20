@@ -1,0 +1,87 @@
+{
+  "db_name": "course_teach",
+  "collections": {
+    "course": {
+      "primary_key": [
+        "Course_ID"
+      ],
+      "columns": [
+        {
+          "name": "Course_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Staring_Date",
+          "type": "TEXT"
+        },
+        {
+          "name": "Course",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 10
+    },
+    "teacher": {
+      "primary_key": [
+        "Teacher_ID"
+      ],
+      "columns": [
+        {
+          "name": "Teacher_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Age",
+          "type": "TEXT"
+        },
+        {
+          "name": "Hometown",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 7
+    },
+    "course_arrange": {
+      "primary_key": [
+        "Course_ID",
+        "Teacher_ID",
+        "Grade"
+      ],
+      "columns": [
+        {
+          "name": "Course_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Teacher_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Grade",
+          "type": "INT"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "course_arrange",
+          "to": "teacher",
+          "child_col": "Teacher_ID",
+          "parent_col": "Teacher_ID"
+        },
+        {
+          "from": "course_arrange",
+          "to": "course",
+          "child_col": "Course_ID",
+          "parent_col": "Course_ID"
+        }
+      ],
+      "row_count": 6
+    }
+  }
+}

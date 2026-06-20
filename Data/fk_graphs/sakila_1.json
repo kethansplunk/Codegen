@@ -1,0 +1,631 @@
+{
+  "db_name": "sakila_1",
+  "nodes": [
+    {
+      "name": "actor",
+      "columns": [
+        {
+          "name": "actor_id",
+          "type": "SMALLINT UNSIGNED"
+        },
+        {
+          "name": "first_name",
+          "type": "VARCHAR(45)"
+        },
+        {
+          "name": "last_name",
+          "type": "VARCHAR(45)"
+        },
+        {
+          "name": "last_update",
+          "type": "TIMESTAMP"
+        }
+      ],
+      "pk": [
+        "actor_id"
+      ]
+    },
+    {
+      "name": "address",
+      "columns": [
+        {
+          "name": "address_id",
+          "type": "SMALLINT UNSIGNED"
+        },
+        {
+          "name": "address",
+          "type": "VARCHAR(50)"
+        },
+        {
+          "name": "address2",
+          "type": "VARCHAR(50)"
+        },
+        {
+          "name": "district",
+          "type": "VARCHAR(20)"
+        },
+        {
+          "name": "city_id",
+          "type": "SMALLINT UNSIGNED"
+        },
+        {
+          "name": "postal_code",
+          "type": "VARCHAR(10)"
+        },
+        {
+          "name": "phone",
+          "type": "VARCHAR(20)"
+        },
+        {
+          "name": "last_update",
+          "type": "TIMESTAMP"
+        }
+      ],
+      "pk": [
+        "address_id"
+      ]
+    },
+    {
+      "name": "category",
+      "columns": [
+        {
+          "name": "category_id",
+          "type": "TINYINT UNSIGNED"
+        },
+        {
+          "name": "name",
+          "type": "VARCHAR(25)"
+        },
+        {
+          "name": "last_update",
+          "type": "TIMESTAMP"
+        }
+      ],
+      "pk": [
+        "category_id"
+      ]
+    },
+    {
+      "name": "city",
+      "columns": [
+        {
+          "name": "city_id",
+          "type": "SMALLINT UNSIGNED"
+        },
+        {
+          "name": "city",
+          "type": "VARCHAR(50)"
+        },
+        {
+          "name": "country_id",
+          "type": "SMALLINT UNSIGNED"
+        },
+        {
+          "name": "last_update",
+          "type": "TIMESTAMP"
+        }
+      ],
+      "pk": [
+        "city_id"
+      ]
+    },
+    {
+      "name": "country",
+      "columns": [
+        {
+          "name": "country_id",
+          "type": "SMALLINT UNSIGNED"
+        },
+        {
+          "name": "country",
+          "type": "VARCHAR(50)"
+        },
+        {
+          "name": "last_update",
+          "type": "TIMESTAMP"
+        }
+      ],
+      "pk": [
+        "country_id"
+      ]
+    },
+    {
+      "name": "customer",
+      "columns": [
+        {
+          "name": "customer_id",
+          "type": "SMALLINT UNSIGNED"
+        },
+        {
+          "name": "store_id",
+          "type": "TINYINT UNSIGNED"
+        },
+        {
+          "name": "first_name",
+          "type": "VARCHAR(45)"
+        },
+        {
+          "name": "last_name",
+          "type": "VARCHAR(45)"
+        },
+        {
+          "name": "email",
+          "type": "VARCHAR(50)"
+        },
+        {
+          "name": "address_id",
+          "type": "SMALLINT UNSIGNED"
+        },
+        {
+          "name": "active",
+          "type": "BOOLEAN"
+        },
+        {
+          "name": "create_date",
+          "type": "DATETIME"
+        },
+        {
+          "name": "last_update",
+          "type": "TIMESTAMP"
+        }
+      ],
+      "pk": [
+        "customer_id"
+      ]
+    },
+    {
+      "name": "film",
+      "columns": [
+        {
+          "name": "film_id",
+          "type": "SMALLINT UNSIGNED"
+        },
+        {
+          "name": "title",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "description",
+          "type": "TEXT"
+        },
+        {
+          "name": "release_year",
+          "type": "YEAR"
+        },
+        {
+          "name": "language_id",
+          "type": "TINYINT UNSIGNED"
+        },
+        {
+          "name": "original_language_id",
+          "type": "TINYINT UNSIGNED"
+        },
+        {
+          "name": "rental_duration",
+          "type": "TINYINT UNSIGNED"
+        },
+        {
+          "name": "rental_rate",
+          "type": "DECIMAL(4,2)"
+        },
+        {
+          "name": "length",
+          "type": "SMALLINT UNSIGNED"
+        },
+        {
+          "name": "replacement_cost",
+          "type": "DECIMAL(5,2)"
+        },
+        {
+          "name": "rating",
+          "type": ""
+        },
+        {
+          "name": "special_features",
+          "type": ""
+        },
+        {
+          "name": "last_update",
+          "type": "TIMESTAMP"
+        }
+      ],
+      "pk": [
+        "film_id"
+      ]
+    },
+    {
+      "name": "film_actor",
+      "columns": [
+        {
+          "name": "actor_id",
+          "type": "SMALLINT UNSIGNED"
+        },
+        {
+          "name": "film_id",
+          "type": "SMALLINT UNSIGNED"
+        },
+        {
+          "name": "last_update",
+          "type": "TIMESTAMP"
+        }
+      ],
+      "pk": [
+        "actor_id",
+        "film_id"
+      ]
+    },
+    {
+      "name": "film_category",
+      "columns": [
+        {
+          "name": "film_id",
+          "type": "SMALLINT UNSIGNED"
+        },
+        {
+          "name": "category_id",
+          "type": "TINYINT UNSIGNED"
+        },
+        {
+          "name": "last_update",
+          "type": "TIMESTAMP"
+        }
+      ],
+      "pk": [
+        "film_id",
+        "category_id"
+      ]
+    },
+    {
+      "name": "film_text",
+      "columns": [
+        {
+          "name": "film_id",
+          "type": "SMALLINT"
+        },
+        {
+          "name": "title",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "description",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "film_id"
+      ]
+    },
+    {
+      "name": "inventory",
+      "columns": [
+        {
+          "name": "inventory_id",
+          "type": "MEDIUMINT UNSIGNED"
+        },
+        {
+          "name": "film_id",
+          "type": "SMALLINT UNSIGNED"
+        },
+        {
+          "name": "store_id",
+          "type": "TINYINT UNSIGNED"
+        },
+        {
+          "name": "last_update",
+          "type": "TIMESTAMP"
+        }
+      ],
+      "pk": [
+        "inventory_id"
+      ]
+    },
+    {
+      "name": "language",
+      "columns": [
+        {
+          "name": "language_id",
+          "type": "TINYINT UNSIGNED"
+        },
+        {
+          "name": "name",
+          "type": "CHAR(20)"
+        },
+        {
+          "name": "last_update",
+          "type": "TIMESTAMP"
+        }
+      ],
+      "pk": [
+        "language_id"
+      ]
+    },
+    {
+      "name": "payment",
+      "columns": [
+        {
+          "name": "payment_id",
+          "type": "SMALLINT UNSIGNED"
+        },
+        {
+          "name": "customer_id",
+          "type": "SMALLINT UNSIGNED"
+        },
+        {
+          "name": "staff_id",
+          "type": "TINYINT UNSIGNED"
+        },
+        {
+          "name": "rental_id",
+          "type": "INT"
+        },
+        {
+          "name": "amount",
+          "type": "DECIMAL(5,2)"
+        },
+        {
+          "name": "payment_date",
+          "type": "DATETIME"
+        },
+        {
+          "name": "last_update",
+          "type": "TIMESTAMP"
+        }
+      ],
+      "pk": [
+        "payment_id"
+      ]
+    },
+    {
+      "name": "rental",
+      "columns": [
+        {
+          "name": "rental_id",
+          "type": "INT"
+        },
+        {
+          "name": "rental_date",
+          "type": "DATETIME"
+        },
+        {
+          "name": "inventory_id",
+          "type": "MEDIUMINT UNSIGNED"
+        },
+        {
+          "name": "customer_id",
+          "type": "SMALLINT UNSIGNED"
+        },
+        {
+          "name": "return_date",
+          "type": "DATETIME"
+        },
+        {
+          "name": "staff_id",
+          "type": "TINYINT UNSIGNED"
+        },
+        {
+          "name": "last_update",
+          "type": "TIMESTAMP"
+        }
+      ],
+      "pk": [
+        "rental_id"
+      ]
+    },
+    {
+      "name": "staff",
+      "columns": [
+        {
+          "name": "staff_id",
+          "type": "TINYINT UNSIGNED"
+        },
+        {
+          "name": "first_name",
+          "type": "VARCHAR(45)"
+        },
+        {
+          "name": "last_name",
+          "type": "VARCHAR(45)"
+        },
+        {
+          "name": "address_id",
+          "type": "SMALLINT UNSIGNED"
+        },
+        {
+          "name": "picture",
+          "type": "BLOB"
+        },
+        {
+          "name": "email",
+          "type": "VARCHAR(50)"
+        },
+        {
+          "name": "store_id",
+          "type": "TINYINT UNSIGNED"
+        },
+        {
+          "name": "active",
+          "type": "BOOLEAN"
+        },
+        {
+          "name": "username",
+          "type": "VARCHAR(16)"
+        },
+        {
+          "name": "password",
+          "type": "VARCHAR(40)"
+        },
+        {
+          "name": "last_update",
+          "type": "TIMESTAMP"
+        }
+      ],
+      "pk": [
+        "staff_id"
+      ]
+    },
+    {
+      "name": "store",
+      "columns": [
+        {
+          "name": "store_id",
+          "type": "TINYINT UNSIGNED"
+        },
+        {
+          "name": "manager_staff_id",
+          "type": "TINYINT UNSIGNED"
+        },
+        {
+          "name": "address_id",
+          "type": "SMALLINT UNSIGNED"
+        },
+        {
+          "name": "last_update",
+          "type": "TIMESTAMP"
+        }
+      ],
+      "pk": [
+        "store_id"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "address",
+      "to": "city",
+      "child_col": "city_id",
+      "parent_col": "city_id"
+    },
+    {
+      "from": "city",
+      "to": "country",
+      "child_col": "country_id",
+      "parent_col": "country_id"
+    },
+    {
+      "from": "customer",
+      "to": "store",
+      "child_col": "store_id",
+      "parent_col": "store_id"
+    },
+    {
+      "from": "customer",
+      "to": "address",
+      "child_col": "address_id",
+      "parent_col": "address_id"
+    },
+    {
+      "from": "film",
+      "to": "language",
+      "child_col": "language_id",
+      "parent_col": "language_id"
+    },
+    {
+      "from": "film_actor",
+      "to": "film",
+      "child_col": "film_id",
+      "parent_col": "film_id"
+    },
+    {
+      "from": "film_actor",
+      "to": "actor",
+      "child_col": "actor_id",
+      "parent_col": "actor_id"
+    },
+    {
+      "from": "film_category",
+      "to": "category",
+      "child_col": "category_id",
+      "parent_col": "category_id"
+    },
+    {
+      "from": "film_category",
+      "to": "film",
+      "child_col": "film_id",
+      "parent_col": "film_id"
+    },
+    {
+      "from": "inventory",
+      "to": "film",
+      "child_col": "film_id",
+      "parent_col": "film_id"
+    },
+    {
+      "from": "inventory",
+      "to": "store",
+      "child_col": "store_id",
+      "parent_col": "store_id"
+    },
+    {
+      "from": "payment",
+      "to": "staff",
+      "child_col": "staff_id",
+      "parent_col": "staff_id"
+    },
+    {
+      "from": "payment",
+      "to": "customer",
+      "child_col": "customer_id",
+      "parent_col": "customer_id"
+    },
+    {
+      "from": "payment",
+      "to": "rental",
+      "child_col": "rental_id",
+      "parent_col": "rental_id"
+    },
+    {
+      "from": "rental",
+      "to": "customer",
+      "child_col": "customer_id",
+      "parent_col": "customer_id"
+    },
+    {
+      "from": "rental",
+      "to": "inventory",
+      "child_col": "inventory_id",
+      "parent_col": "inventory_id"
+    },
+    {
+      "from": "rental",
+      "to": "staff",
+      "child_col": "staff_id",
+      "parent_col": "staff_id"
+    },
+    {
+      "from": "staff",
+      "to": "address",
+      "child_col": "address_id",
+      "parent_col": "address_id"
+    },
+    {
+      "from": "store",
+      "to": "address",
+      "child_col": "address_id",
+      "parent_col": "address_id"
+    },
+    {
+      "from": "store",
+      "to": "staff",
+      "child_col": "manager_staff_id",
+      "parent_col": "staff_id"
+    }
+  ],
+  "centrality": {
+    "actor": 0.06666666666666667,
+    "address": 0.2,
+    "category": 0.06666666666666667,
+    "city": 0.06666666666666667,
+    "country": 0.06666666666666667,
+    "customer": 0.13333333333333333,
+    "film": 0.2,
+    "film_actor": 0.0,
+    "film_category": 0.0,
+    "film_text": 0.0,
+    "inventory": 0.06666666666666667,
+    "language": 0.06666666666666667,
+    "payment": 0.0,
+    "rental": 0.06666666666666667,
+    "staff": 0.2,
+    "store": 0.13333333333333333
+  }
+}

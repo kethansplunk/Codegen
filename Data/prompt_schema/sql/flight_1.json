@@ -1,0 +1,129 @@
+{
+  "flight.flno": {
+    "sample_values": [
+      2,
+      33,
+      76
+    ],
+    "inferred_type": "integer"
+  },
+  "flight.origin": {
+    "sample_values": [
+      "Los Angeles",
+      "Chicago"
+    ],
+    "inferred_type": "string"
+  },
+  "flight.destination": {
+    "sample_values": [
+      "New York",
+      "Dallas",
+      "Chicago"
+    ],
+    "inferred_type": "string"
+  },
+  "flight.distance": {
+    "sample_values": [
+      2308,
+      1251,
+      7487
+    ],
+    "inferred_type": "integer"
+  },
+  "flight.departure_date": {
+    "sample_values": [
+      "04/12/2005 09:00",
+      "04/12/2005 11:50",
+      "04/12/2005 08:45"
+    ],
+    "inferred_type": "string"
+  },
+  "flight.arrival_date": {
+    "sample_values": [
+      "04/12/2005 12:02",
+      "04/12/2005 07:05",
+      "04/12/2005 08:45"
+    ],
+    "inferred_type": "string"
+  },
+  "flight.price": {
+    "sample_values": [
+      235.98,
+      261.56,
+      375.23
+    ],
+    "inferred_type": "numeric"
+  },
+  "flight.aid": {
+    "sample_values": [
+      1,
+      2,
+      9
+    ],
+    "inferred_type": "integer"
+  },
+  "aircraft.aid": {
+    "sample_values": [
+      1,
+      6,
+      11
+    ],
+    "inferred_type": "integer"
+  },
+  "aircraft.name": {
+    "sample_values": [
+      "Boeing 727",
+      "Piper Archer III",
+      "SAAB 340"
+    ],
+    "inferred_type": "string"
+  },
+  "aircraft.distance": {
+    "sample_values": [
+      8430,
+      2128,
+      4010
+    ],
+    "inferred_type": "integer"
+  },
+  "employee.eid": {
+    "sample_values": [
+      11564812,
+      242518965,
+      310454876
+    ],
+    "inferred_type": "integer"
+  },
+  "employee.name": {
+    "sample_values": [
+      "Barbara Wilson",
+      "Michael Miller",
+      "Patricia Jones"
+    ],
+    "inferred_type": "string"
+  },
+  "employee.salary": {
+    "sample_values": [
+      120433,
+      212156,
+      84476
+    ],
+    "inferred_type": "integer"
+  },
+  "certificate.eid": {
+    "sample_values": [
+      11564812,
+      269734834,
+      548977562
+    ],
+    "inferred_type": "integer"
+  },
+  "certificate.aid": {
+    "sample_values": [
+      2,
+      3,
+      4
+    ],
+    "inferred_type": "integer"
+  }
+}

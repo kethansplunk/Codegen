@@ -1,0 +1,213 @@
+{
+  "db_name": "music_2",
+  "nodes": [
+    {
+      "name": "Songs",
+      "columns": [
+        {
+          "name": "SongId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Title",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "SongId"
+      ]
+    },
+    {
+      "name": "Albums",
+      "columns": [
+        {
+          "name": "AId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Title",
+          "type": "TEXT"
+        },
+        {
+          "name": "Year",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Label",
+          "type": "TEXT"
+        },
+        {
+          "name": "Type",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "AId"
+      ]
+    },
+    {
+      "name": "Band",
+      "columns": [
+        {
+          "name": "Id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Firstname",
+          "type": "TEXT"
+        },
+        {
+          "name": "Lastname",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "Id"
+      ]
+    },
+    {
+      "name": "Instruments",
+      "columns": [
+        {
+          "name": "SongId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "BandmateId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Instrument",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "SongId",
+        "BandmateId",
+        "Instrument"
+      ]
+    },
+    {
+      "name": "Performance",
+      "columns": [
+        {
+          "name": "SongId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Bandmate",
+          "type": "INTEGER"
+        },
+        {
+          "name": "StagePosition",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "SongId",
+        "Bandmate"
+      ]
+    },
+    {
+      "name": "Tracklists",
+      "columns": [
+        {
+          "name": "AlbumId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Position",
+          "type": "INTEGER"
+        },
+        {
+          "name": "SongId",
+          "type": "INTEGER"
+        }
+      ],
+      "pk": [
+        "AlbumId",
+        "Position"
+      ]
+    },
+    {
+      "name": "Vocals",
+      "columns": [
+        {
+          "name": "SongId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Bandmate",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Type",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "SongId",
+        "Bandmate"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "Instruments",
+      "to": "Band",
+      "child_col": "BandmateId",
+      "parent_col": "Id"
+    },
+    {
+      "from": "Instruments",
+      "to": "Songs",
+      "child_col": "SongId",
+      "parent_col": "SongId"
+    },
+    {
+      "from": "Performance",
+      "to": "Band",
+      "child_col": "Bandmate",
+      "parent_col": "Id"
+    },
+    {
+      "from": "Performance",
+      "to": "Songs",
+      "child_col": "SongId",
+      "parent_col": "SongId"
+    },
+    {
+      "from": "Tracklists",
+      "to": "Albums",
+      "child_col": "AlbumId",
+      "parent_col": "AId"
+    },
+    {
+      "from": "Tracklists",
+      "to": "Songs",
+      "child_col": "SongId",
+      "parent_col": "SongId"
+    },
+    {
+      "from": "Vocals",
+      "to": "Band",
+      "child_col": "Bandmate",
+      "parent_col": "Id"
+    },
+    {
+      "from": "Vocals",
+      "to": "Songs",
+      "child_col": "SongId",
+      "parent_col": "SongId"
+    }
+  ],
+  "centrality": {
+    "Songs": 0.6666666666666666,
+    "Albums": 0.16666666666666666,
+    "Band": 0.5,
+    "Instruments": 0.0,
+    "Performance": 0.0,
+    "Tracklists": 0.0,
+    "Vocals": 0.0
+  }
+}

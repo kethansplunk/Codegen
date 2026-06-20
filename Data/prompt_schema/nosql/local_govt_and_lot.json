@@ -1,0 +1,371 @@
+{
+  "Timed_Status_of_Things.thing_id": {
+    "sample_values": [
+      "47",
+      "35",
+      "85"
+    ],
+    "inferred_type": "integer"
+  },
+  "Timed_Status_of_Things.Status_of_Thing_Code": {
+    "sample_values": [
+      "Open",
+      "In Progress",
+      "Close"
+    ],
+    "inferred_type": "string"
+  },
+  "Timed_Status_of_Things.Date_and_Date": {
+    "sample_values": [
+      "2017-12-28 16:05:08",
+      "2018-02-04 02:44:39",
+      "2017-07-03 02:22:12"
+    ],
+    "inferred_type": "string"
+  },
+  "Properties.property_address": {
+    "sample_values": [
+      "129 Chasity Brook",
+      "824 Kiehn Vista",
+      "2580 Yundt Plains"
+    ],
+    "inferred_type": "string"
+  },
+  "Properties.property_id": {
+    "sample_values": [
+      "108",
+      "748",
+      "373"
+    ],
+    "inferred_type": "integer"
+  },
+  "Properties.property_type_code": {
+    "sample_values": [
+      "house",
+      "flat",
+      "apartment"
+    ],
+    "inferred_type": "string"
+  },
+  "Customer_Event_Notes.resident_id": {
+    "sample_values": [
+      "37",
+      "43",
+      "67"
+    ],
+    "inferred_type": "integer"
+  },
+  "Customer_Event_Notes.service_type_code": {
+    "sample_values": [
+      "Cleanning",
+      "Check"
+    ],
+    "inferred_type": "string"
+  },
+  "Customer_Event_Notes.property_id": {
+    "sample_values": [
+      "849",
+      "605",
+      "373"
+    ],
+    "inferred_type": "integer"
+  },
+  "Customer_Event_Notes.Customer_Event_Note_ID": {
+    "sample_values": [
+      "56",
+      "49",
+      "32"
+    ],
+    "inferred_type": "integer"
+  },
+  "Customer_Event_Notes.Customer_Event_ID": {
+    "sample_values": [
+      "606",
+      "817",
+      "559"
+    ],
+    "inferred_type": "integer"
+  },
+  "Customer_Event_Notes.date_moved_in": {
+    "sample_values": [
+      "2016-05-24 02:56:54",
+      "2016-10-28 01:43:42",
+      "2016-11-23 05:53:40"
+    ],
+    "inferred_type": "string"
+  },
+  "Customer_Events.resident_id": {
+    "sample_values": [
+      "83",
+      "37",
+      "87"
+    ],
+    "inferred_type": "integer"
+  },
+  "Customer_Events.thing_id": {
+    "sample_values": [
+      "68",
+      "1",
+      "92"
+    ],
+    "inferred_type": "integer"
+  },
+  "Customer_Events.property_id": {
+    "sample_values": [
+      "108",
+      "629",
+      "879"
+    ],
+    "inferred_type": "integer"
+  },
+  "Customer_Events.Customer_Event_ID": {
+    "sample_values": [
+      "256",
+      "817",
+      "559"
+    ],
+    "inferred_type": "integer"
+  },
+  "Customer_Events.customer_id": {
+    "sample_values": [
+      "5",
+      "19",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "Customer_Events.date_moved_in": {
+    "sample_values": [
+      "2016-09-27 12:00:00",
+      "2015-03-27 12:00:00"
+    ],
+    "inferred_type": "string"
+  },
+  "Organizations.parent_organization_id": {
+    "sample_values": [
+      "8",
+      "7"
+    ],
+    "inferred_type": "integer"
+  },
+  "Organizations.organization_id": {
+    "sample_values": [
+      "8",
+      "10",
+      "7"
+    ],
+    "inferred_type": "integer"
+  },
+  "Organizations.organization_details": {
+    "sample_values": [
+      "Robel-Schulist Group",
+      "Reinger, Hudson and Nolan Group",
+      "Denesik and Sons Party"
+    ],
+    "inferred_type": "string"
+  },
+  "Things.Type_of_Thing_Code": {
+    "sample_values": [
+      "Commen",
+      "Furniture",
+      "Electronics"
+    ],
+    "inferred_type": "string"
+  },
+  "Things.organization_id": {
+    "sample_values": [
+      "8",
+      "7",
+      "10"
+    ],
+    "inferred_type": "integer"
+  },
+  "Things.service_type_code": {
+    "sample_values": [
+      "Cleanning",
+      "Check"
+    ],
+    "inferred_type": "string"
+  },
+  "Things.service_details": {
+    "sample_values": [
+      "Unsatisfied",
+      "Satisfied"
+    ],
+    "inferred_type": "string"
+  },
+  "Things.thing_id": {
+    "sample_values": [
+      "68",
+      "35",
+      "85"
+    ],
+    "inferred_type": "integer"
+  },
+  "Residents_Services.resident_id": {
+    "sample_values": [
+      "83",
+      "45",
+      "87"
+    ],
+    "inferred_type": "integer"
+  },
+  "Residents_Services.date_requested": {
+    "sample_values": [
+      "2016-09-20 22:50:26",
+      "2016-07-25 01:32:23",
+      "2017-06-14 14:04:50"
+    ],
+    "inferred_type": "string"
+  },
+  "Residents_Services.property_id": {
+    "sample_values": [
+      "108",
+      "629",
+      "373"
+    ],
+    "inferred_type": "integer"
+  },
+  "Residents_Services.other_details": {
+    "sample_values": [
+      "Unsatisfied",
+      "Satisfied"
+    ],
+    "inferred_type": "string"
+  },
+  "Residents_Services.date_provided": {
+    "sample_values": [
+      "2017-10-29 13:12:29",
+      "2018-01-30 09:58:57",
+      "2017-10-17 03:30:08"
+    ],
+    "inferred_type": "string"
+  },
+  "Residents_Services.date_moved_in": {
+    "sample_values": [
+      "2015-03-27 12:00:00",
+      "2016-09-27 12:00:00",
+      "2017-06-17 15:43:33"
+    ],
+    "inferred_type": "string"
+  },
+  "Residents_Services.service_id": {
+    "sample_values": [
+      "41",
+      "49",
+      "87"
+    ],
+    "inferred_type": "integer"
+  },
+  "Customers.customer_id": {
+    "sample_values": [
+      "17",
+      "82",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "Customers.customer_details": {
+    "sample_values": [
+      "Jayme Marquardt",
+      "Monty Sauer III",
+      "Vincenza Price"
+    ],
+    "inferred_type": "string"
+  },
+  "Services.organization_id": {
+    "sample_values": [
+      "7",
+      "8",
+      "10"
+    ],
+    "inferred_type": "integer"
+  },
+  "Services.service_type_code": {
+    "sample_values": [
+      "Pay bills",
+      "Check",
+      "Cleanning"
+    ],
+    "inferred_type": "string"
+  },
+  "Services.service_id": {
+    "sample_values": [
+      "41",
+      "77",
+      "52"
+    ],
+    "inferred_type": "integer"
+  },
+  "Services.service_details": {
+    "sample_values": [
+      "Unsatisfied",
+      "Satisfied"
+    ],
+    "inferred_type": "string"
+  },
+  "Residents.resident_id": {
+    "sample_values": [
+      "83",
+      "45",
+      "28"
+    ],
+    "inferred_type": "integer"
+  },
+  "Residents.property_id": {
+    "sample_values": [
+      "108",
+      "629",
+      "879"
+    ],
+    "inferred_type": "integer"
+  },
+  "Residents.other_details": {
+    "sample_values": [
+      "Prof. Arvel Kozey",
+      "Anderson Batz",
+      "Tomasa Hoeger"
+    ],
+    "inferred_type": "string"
+  },
+  "Residents.date_moved_in": {
+    "sample_values": [
+      "2015-03-27 12:00:00",
+      "2016-09-27 12:00:00",
+      "2017-06-17 15:43:33"
+    ],
+    "inferred_type": "string"
+  },
+  "Residents.date_moved_out": {
+    "sample_values": [
+      "2017-11-14 06:28:48",
+      "2017-12-18 03:46:04",
+      "2017-12-30 23:55:10"
+    ],
+    "inferred_type": "string"
+  },
+  "Timed_Locations_of_Things.thing_id": {
+    "sample_values": [
+      "68",
+      "45",
+      "58"
+    ],
+    "inferred_type": "integer"
+  },
+  "Timed_Locations_of_Things.Date_and_Time": {
+    "sample_values": [
+      "2017-10-21 21:35:37",
+      "2017-10-21 04:21:54",
+      "2017-11-26 00:13:44"
+    ],
+    "inferred_type": "string"
+  },
+  "Timed_Locations_of_Things.Location_Code": {
+    "sample_values": [
+      "113 Geo Glens A",
+      "2677 Runolfsson",
+      "4223 Rae Fork S"
+    ],
+    "inferred_type": "string"
+  }
+}

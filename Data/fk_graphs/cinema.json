@@ -1,0 +1,117 @@
+{
+  "db_name": "cinema",
+  "nodes": [
+    {
+      "name": "film",
+      "columns": [
+        {
+          "name": "Film_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Rank_in_series",
+          "type": "INT"
+        },
+        {
+          "name": "Number_in_season",
+          "type": "INT"
+        },
+        {
+          "name": "Title",
+          "type": "TEXT"
+        },
+        {
+          "name": "Directed_by",
+          "type": "TEXT"
+        },
+        {
+          "name": "Original_air_date",
+          "type": "TEXT"
+        },
+        {
+          "name": "Production_code",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "Film_ID"
+      ]
+    },
+    {
+      "name": "cinema",
+      "columns": [
+        {
+          "name": "Cinema_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Openning_year",
+          "type": "INT"
+        },
+        {
+          "name": "Capacity",
+          "type": "INT"
+        },
+        {
+          "name": "Location",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "Cinema_ID"
+      ]
+    },
+    {
+      "name": "schedule",
+      "columns": [
+        {
+          "name": "Cinema_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Film_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Date",
+          "type": "TEXT"
+        },
+        {
+          "name": "Show_times_per_day",
+          "type": "INT"
+        },
+        {
+          "name": "Price",
+          "type": "float"
+        }
+      ],
+      "pk": [
+        "Cinema_ID",
+        "Film_ID"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "schedule",
+      "to": "cinema",
+      "child_col": "Cinema_ID",
+      "parent_col": "Cinema_ID"
+    },
+    {
+      "from": "schedule",
+      "to": "film",
+      "child_col": "Film_ID",
+      "parent_col": "Film_ID"
+    }
+  ],
+  "centrality": {
+    "film": 0.5,
+    "cinema": 0.5,
+    "schedule": 0.0
+  }
+}

@@ -1,0 +1,108 @@
+{
+  "db_name": "film_rank",
+  "nodes": [
+    {
+      "name": "film",
+      "columns": [
+        {
+          "name": "Film_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Title",
+          "type": "TEXT"
+        },
+        {
+          "name": "Studio",
+          "type": "TEXT"
+        },
+        {
+          "name": "Director",
+          "type": "TEXT"
+        },
+        {
+          "name": "Gross_in_dollar",
+          "type": "INT"
+        }
+      ],
+      "pk": [
+        "Film_ID"
+      ]
+    },
+    {
+      "name": "market",
+      "columns": [
+        {
+          "name": "Market_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Country",
+          "type": "TEXT"
+        },
+        {
+          "name": "Number_cities",
+          "type": "INT"
+        }
+      ],
+      "pk": [
+        "Market_ID"
+      ]
+    },
+    {
+      "name": "film_market_estimation",
+      "columns": [
+        {
+          "name": "Estimation_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Low_Estimate",
+          "type": "REAL"
+        },
+        {
+          "name": "High_Estimate",
+          "type": "REAL"
+        },
+        {
+          "name": "Film_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Type",
+          "type": "TEXT"
+        },
+        {
+          "name": "Market_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Year",
+          "type": "INT"
+        }
+      ],
+      "pk": [
+        "Estimation_ID"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "film_market_estimation",
+      "to": "market",
+      "child_col": "Market_ID",
+      "parent_col": "Market_ID"
+    },
+    {
+      "from": "film_market_estimation",
+      "to": "film",
+      "child_col": "Film_ID",
+      "parent_col": "Film_ID"
+    }
+  ],
+  "centrality": {
+    "film": 0.5,
+    "market": 0.5,
+    "film_market_estimation": 0.0
+  }
+}

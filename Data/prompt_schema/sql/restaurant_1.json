@@ -1,0 +1,156 @@
+{
+  "Student.StuID": {
+    "sample_values": [
+      1001,
+      1007,
+      1014
+    ],
+    "inferred_type": "integer"
+  },
+  "Student.LName": {
+    "sample_values": [
+      "Woods",
+      "Nelson",
+      "Tai"
+    ],
+    "inferred_type": "string"
+  },
+  "Student.Fname": {
+    "sample_values": [
+      "George",
+      "Jandy",
+      "Eric"
+    ],
+    "inferred_type": "string"
+  },
+  "Student.Age": {
+    "sample_values": [
+      18,
+      20,
+      22
+    ],
+    "inferred_type": "integer"
+  },
+  "Student.Sex": {
+    "sample_values": [
+      "F",
+      "M"
+    ],
+    "inferred_type": "string"
+  },
+  "Student.Major": {
+    "sample_values": [
+      600,
+      540,
+      100
+    ],
+    "inferred_type": "integer"
+  },
+  "Student.Advisor": {
+    "sample_values": [
+      1121,
+      9172,
+      8722
+    ],
+    "inferred_type": "integer"
+  },
+  "Student.city_code": {
+    "sample_values": [
+      "BOS",
+      "PHL",
+      "DAL"
+    ],
+    "inferred_type": "string"
+  },
+  "Restaurant.ResID": {
+    "sample_values": [
+      1,
+      2
+    ],
+    "inferred_type": "integer"
+  },
+  "Restaurant.ResName": {
+    "sample_values": [
+      "Subway",
+      "Honeygrow"
+    ],
+    "inferred_type": "string"
+  },
+  "Restaurant.Address": {
+    "sample_values": [
+      "3233 St Paul St, Baltimore, MD 21218",
+      "3212 St Paul St, Baltimore, MD 21218"
+    ],
+    "inferred_type": "string"
+  },
+  "Restaurant.Rating": {
+    "sample_values": [
+      3,
+      4
+    ],
+    "inferred_type": "integer"
+  },
+  "Type_Of_Restaurant.ResID": {
+    "sample_values": [
+      1,
+      2
+    ],
+    "inferred_type": "integer"
+  },
+  "Type_Of_Restaurant.ResTypeID": {
+    "sample_values": [
+      1,
+      2
+    ],
+    "inferred_type": "integer"
+  },
+  "Restaurant_Type.ResTypeID": {
+    "sample_values": [
+      1,
+      2
+    ],
+    "inferred_type": "integer"
+  },
+  "Restaurant_Type.ResTypeName": {
+    "sample_values": [
+      "Sandwich",
+      "Stir-fry"
+    ],
+    "inferred_type": "string"
+  },
+  "Restaurant_Type.ResTypeDescription": {
+    "sample_values": [
+      "Simplest there is.",
+      "Classic Chinese cooking."
+    ],
+    "inferred_type": "string"
+  },
+  "Visits_Restaurant.StuID": {
+    "sample_values": [
+      1001,
+      1032
+    ],
+    "inferred_type": "integer"
+  },
+  "Visits_Restaurant.ResID": {
+    "sample_values": [
+      1,
+      2
+    ],
+    "inferred_type": "integer"
+  },
+  "Visits_Restaurant.Time": {
+    "sample_values": [
+      "2017-10-09 18:15:00",
+      "2017-10-08 13:00:30"
+    ],
+    "inferred_type": "string"
+  },
+  "Visits_Restaurant.Spent": {
+    "sample_values": [
+      6.53,
+      13.2
+    ],
+    "inferred_type": "float"
+  }
+}

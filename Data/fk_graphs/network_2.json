@@ -1,0 +1,63 @@
+{
+  "db_name": "network_2",
+  "nodes": [
+    {
+      "name": "Person",
+      "columns": [
+        {
+          "name": "name",
+          "type": "varchar(20)"
+        },
+        {
+          "name": "age",
+          "type": "INTEGER"
+        },
+        {
+          "name": "city",
+          "type": "TEXT"
+        },
+        {
+          "name": "gender",
+          "type": "TEXT"
+        },
+        {
+          "name": "job",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "name"
+      ]
+    },
+    {
+      "name": "PersonFriend",
+      "columns": [
+        {
+          "name": "name",
+          "type": "varchar(20)"
+        },
+        {
+          "name": "friend",
+          "type": "varchar(20)"
+        },
+        {
+          "name": "year",
+          "type": "INTEGER"
+        }
+      ],
+      "pk": []
+    }
+  ],
+  "edges": [
+    {
+      "from": "PersonFriend",
+      "to": "Person",
+      "child_col": "name",
+      "parent_col": "name"
+    }
+  ],
+  "centrality": {
+    "Person": 1.0,
+    "PersonFriend": 0.0
+  }
+}

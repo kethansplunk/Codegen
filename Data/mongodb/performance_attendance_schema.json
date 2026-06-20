@@ -1,0 +1,94 @@
+{
+  "db_name": "performance_attendance",
+  "collections": {
+    "member": {
+      "primary_key": [
+        "Member_ID"
+      ],
+      "columns": [
+        {
+          "name": "Member_ID",
+          "type": "TEXT"
+        },
+        {
+          "name": "Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Nationality",
+          "type": "TEXT"
+        },
+        {
+          "name": "Role",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 11
+    },
+    "performance": {
+      "primary_key": [
+        "Performance_ID"
+      ],
+      "columns": [
+        {
+          "name": "Performance_ID",
+          "type": "REAL"
+        },
+        {
+          "name": "Date",
+          "type": "TEXT"
+        },
+        {
+          "name": "Host",
+          "type": "TEXT"
+        },
+        {
+          "name": "Location",
+          "type": "TEXT"
+        },
+        {
+          "name": "Attendance",
+          "type": "INT"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 6
+    },
+    "member_attendance": {
+      "primary_key": [
+        "Member_ID",
+        "Performance_ID"
+      ],
+      "columns": [
+        {
+          "name": "Member_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Performance_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Num_of_Pieces",
+          "type": "INT"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "member_attendance",
+          "to": "performance",
+          "child_col": "Performance_ID",
+          "parent_col": "Performance_ID"
+        },
+        {
+          "from": "member_attendance",
+          "to": "member",
+          "child_col": "Member_ID",
+          "parent_col": "Member_ID"
+        }
+      ],
+      "row_count": 8
+    }
+  }
+}

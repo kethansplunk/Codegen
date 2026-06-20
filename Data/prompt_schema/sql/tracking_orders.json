@@ -1,0 +1,186 @@
+{
+  "Customers.customer_id": {
+    "sample_values": [
+      1,
+      6,
+      11
+    ],
+    "inferred_type": "integer"
+  },
+  "Customers.customer_name": {
+    "sample_values": [
+      "Jeramie",
+      "Violet",
+      "Chaz"
+    ],
+    "inferred_type": "string"
+  },
+  "Customers.customer_details": {
+    "sample_values": [
+      "officia",
+      "nostrum",
+      "sequi"
+    ],
+    "inferred_type": "string"
+  },
+  "Invoices.invoice_number": {
+    "sample_values": [
+      1,
+      6,
+      11
+    ],
+    "inferred_type": "integer"
+  },
+  "Invoices.invoice_date": {
+    "sample_values": [
+      "2012-12-08 02:21:54",
+      "1991-01-05 16:44:25",
+      "2007-12-25 15:49:37"
+    ],
+    "inferred_type": "string"
+  },
+  "Invoices.invoice_details": {
+    "sample_values": [
+      "repellat",
+      "optio",
+      "tempore"
+    ],
+    "inferred_type": "string"
+  },
+  "Orders.order_id": {
+    "sample_values": [
+      1,
+      6,
+      11
+    ],
+    "inferred_type": "integer"
+  },
+  "Orders.customer_id": {
+    "sample_values": [
+      2,
+      15,
+      10
+    ],
+    "inferred_type": "integer"
+  },
+  "Orders.order_status": {
+    "sample_values": [
+      "Shipped",
+      "Packing",
+      "On Road"
+    ],
+    "inferred_type": "string"
+  },
+  "Orders.date_order_placed": {
+    "sample_values": [
+      "1971-05-10 01:54:18",
+      "1976-09-01 09:27:00",
+      "1975-12-23 15:59:43"
+    ],
+    "inferred_type": "string"
+  },
+  "Products.product_id": {
+    "sample_values": [
+      1,
+      6,
+      11
+    ],
+    "inferred_type": "integer"
+  },
+  "Products.product_name": {
+    "sample_values": [
+      "music",
+      "phone",
+      "clothes"
+    ],
+    "inferred_type": "string"
+  },
+  "Order_Items.order_item_id": {
+    "sample_values": [
+      1,
+      6,
+      11
+    ],
+    "inferred_type": "integer"
+  },
+  "Order_Items.product_id": {
+    "sample_values": [
+      4,
+      8,
+      3
+    ],
+    "inferred_type": "integer"
+  },
+  "Order_Items.order_id": {
+    "sample_values": [
+      6,
+      5,
+      11
+    ],
+    "inferred_type": "integer"
+  },
+  "Order_Items.order_item_status": {
+    "sample_values": [
+      "Finish",
+      "Payed",
+      "Cancel"
+    ],
+    "inferred_type": "string"
+  },
+  "Shipments.shipment_id": {
+    "sample_values": [
+      1,
+      6,
+      11
+    ],
+    "inferred_type": "integer"
+  },
+  "Shipments.order_id": {
+    "sample_values": [
+      5,
+      4,
+      14
+    ],
+    "inferred_type": "integer"
+  },
+  "Shipments.invoice_number": {
+    "sample_values": [
+      13,
+      5,
+      3
+    ],
+    "inferred_type": "integer"
+  },
+  "Shipments.shipment_tracking_number": {
+    "sample_values": [
+      "3452",
+      "7480",
+      "1334"
+    ],
+    "inferred_type": "integer"
+  },
+  "Shipments.shipment_date": {
+    "sample_values": [
+      "1991-04-01 15:24:24",
+      "1999-10-12 10:41:49",
+      "1978-05-17 00:03:43"
+    ],
+    "inferred_type": "string"
+  },
+  "Shipment_Items.shipment_id": {
+    "sample_values": [
+      11,
+      14,
+      13
+    ],
+    "inferred_type": "integer"
+  },
+  "Shipment_Items.order_item_id": {
+    "sample_values": [
+      12,
+      10,
+      13
+    ],
+    "inferred_type": "integer"
+  }
+}

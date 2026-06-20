@@ -1,0 +1,81 @@
+{
+  "db_name": "voter_1",
+  "collections": {
+    "AREA_CODE_STATE": {
+      "primary_key": [
+        "area_code"
+      ],
+      "columns": [
+        {
+          "name": "area_code",
+          "type": "INTEGER"
+        },
+        {
+          "name": "state",
+          "type": "varchar(2)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 305
+    },
+    "CONTESTANTS": {
+      "primary_key": [
+        "contestant_number"
+      ],
+      "columns": [
+        {
+          "name": "contestant_number",
+          "type": "INTEGER"
+        },
+        {
+          "name": "contestant_name",
+          "type": "varchar(50)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 11
+    },
+    "VOTES": {
+      "primary_key": [
+        "vote_id"
+      ],
+      "columns": [
+        {
+          "name": "vote_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "phone_number",
+          "type": "INTEGER"
+        },
+        {
+          "name": "state",
+          "type": "varchar(2)"
+        },
+        {
+          "name": "contestant_number",
+          "type": "INTEGER"
+        },
+        {
+          "name": "created",
+          "type": "timestamp"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "VOTES",
+          "to": "CONTESTANTS",
+          "child_col": "contestant_number",
+          "parent_col": "contestant_number"
+        },
+        {
+          "from": "VOTES",
+          "to": "AREA_CODE_STATE",
+          "child_col": "state",
+          "parent_col": "state"
+        }
+      ],
+      "row_count": 4
+    }
+  }
+}

@@ -1,0 +1,302 @@
+{
+  "db_name": "solvency_ii",
+  "collections": {
+    "Addresses": {
+      "primary_key": [
+        "Address_ID"
+      ],
+      "columns": [
+        {
+          "name": "Address_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "address_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 15
+    },
+    "Locations": {
+      "primary_key": [
+        "Location_ID"
+      ],
+      "columns": [
+        {
+          "name": "Location_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Other_Details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 15
+    },
+    "Products": {
+      "primary_key": [
+        "Product_ID"
+      ],
+      "columns": [
+        {
+          "name": "Product_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Product_Type_Code",
+          "type": "CHAR(15)"
+        },
+        {
+          "name": "Product_Name",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "Product_Price",
+          "type": "DECIMAL(20,4)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 15
+    },
+    "Parties": {
+      "primary_key": [
+        "Party_ID"
+      ],
+      "columns": [
+        {
+          "name": "Party_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Party_Details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 7
+    },
+    "Assets": {
+      "primary_key": [
+        "Asset_ID"
+      ],
+      "columns": [
+        {
+          "name": "Asset_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Other_Details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 3
+    },
+    "Channels": {
+      "primary_key": [
+        "Channel_ID"
+      ],
+      "columns": [
+        {
+          "name": "Channel_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Other_Details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 15
+    },
+    "Finances": {
+      "primary_key": [
+        "Finance_ID"
+      ],
+      "columns": [
+        {
+          "name": "Finance_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Other_Details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 15
+    },
+    "Events": {
+      "primary_key": [
+        "Event_ID"
+      ],
+      "columns": [
+        {
+          "name": "Event_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Address_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Channel_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Event_Type_Code",
+          "type": "CHAR(15)"
+        },
+        {
+          "name": "Finance_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Location_ID",
+          "type": "INTEGER"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Events",
+          "to": "Finances",
+          "child_col": "Finance_ID",
+          "parent_col": "Finance_ID"
+        },
+        {
+          "from": "Events",
+          "to": "Addresses",
+          "child_col": "Address_ID",
+          "parent_col": "Address_ID"
+        },
+        {
+          "from": "Events",
+          "to": "Locations",
+          "child_col": "Location_ID",
+          "parent_col": "Location_ID"
+        }
+      ],
+      "row_count": 15
+    },
+    "Products_in_Events": {
+      "primary_key": [
+        "Product_in_Event_ID"
+      ],
+      "columns": [
+        {
+          "name": "Product_in_Event_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Event_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Product_ID",
+          "type": "INTEGER"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Products_in_Events",
+          "to": "Products",
+          "child_col": "Product_ID",
+          "parent_col": "Product_ID"
+        },
+        {
+          "from": "Products_in_Events",
+          "to": "Events",
+          "child_col": "Event_ID",
+          "parent_col": "Event_ID"
+        }
+      ],
+      "row_count": 15
+    },
+    "Parties_in_Events": {
+      "primary_key": [
+        "Party_ID",
+        "Event_ID"
+      ],
+      "columns": [
+        {
+          "name": "Party_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Event_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Role_Code",
+          "type": "CHAR(15)"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Parties_in_Events",
+          "to": "Events",
+          "child_col": "Event_ID",
+          "parent_col": "Event_ID"
+        },
+        {
+          "from": "Parties_in_Events",
+          "to": "Parties",
+          "child_col": "Party_ID",
+          "parent_col": "Party_ID"
+        }
+      ],
+      "row_count": 15
+    },
+    "Agreements": {
+      "primary_key": [
+        "Document_ID"
+      ],
+      "columns": [
+        {
+          "name": "Document_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Event_ID",
+          "type": "INTEGER"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Agreements",
+          "to": "Events",
+          "child_col": "Event_ID",
+          "parent_col": "Event_ID"
+        }
+      ],
+      "row_count": 15
+    },
+    "Assets_in_Events": {
+      "primary_key": [
+        "Asset_ID",
+        "Event_ID"
+      ],
+      "columns": [
+        {
+          "name": "Asset_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Event_ID",
+          "type": "INTEGER"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Assets_in_Events",
+          "to": "Events",
+          "child_col": "Event_ID",
+          "parent_col": "Event_ID"
+        }
+      ],
+      "row_count": 12
+    }
+  }
+}

@@ -1,0 +1,412 @@
+{
+  "db_name": "customer_deliveries",
+  "nodes": [
+    {
+      "name": "Products",
+      "columns": [
+        {
+          "name": "product_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "product_name",
+          "type": "VARCHAR(20)"
+        },
+        {
+          "name": "product_price",
+          "type": "DECIMAL(19,4)"
+        },
+        {
+          "name": "product_description",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "pk": [
+        "product_id"
+      ]
+    },
+    {
+      "name": "Addresses",
+      "columns": [
+        {
+          "name": "address_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "address_details",
+          "type": "VARCHAR(80)"
+        },
+        {
+          "name": "city",
+          "type": "VARCHAR(50)"
+        },
+        {
+          "name": "zip_postcode",
+          "type": "VARCHAR(20)"
+        },
+        {
+          "name": "state_province_county",
+          "type": "VARCHAR(50)"
+        },
+        {
+          "name": "country",
+          "type": "VARCHAR(50)"
+        }
+      ],
+      "pk": [
+        "address_id"
+      ]
+    },
+    {
+      "name": "Customers",
+      "columns": [
+        {
+          "name": "customer_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "payment_method",
+          "type": "VARCHAR(10)"
+        },
+        {
+          "name": "customer_name",
+          "type": "VARCHAR(80)"
+        },
+        {
+          "name": "customer_phone",
+          "type": "VARCHAR(80)"
+        },
+        {
+          "name": "customer_email",
+          "type": "VARCHAR(80)"
+        },
+        {
+          "name": "date_became_customer",
+          "type": "DATETIME"
+        }
+      ],
+      "pk": [
+        "customer_id"
+      ]
+    },
+    {
+      "name": "Regular_Orders",
+      "columns": [
+        {
+          "name": "regular_order_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "distributer_id",
+          "type": "INTEGER"
+        }
+      ],
+      "pk": [
+        "regular_order_id"
+      ]
+    },
+    {
+      "name": "Regular_Order_Products",
+      "columns": [
+        {
+          "name": "regular_order_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "product_id",
+          "type": "INTEGER"
+        }
+      ],
+      "pk": []
+    },
+    {
+      "name": "Actual_Orders",
+      "columns": [
+        {
+          "name": "actual_order_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "order_status_code",
+          "type": "VARCHAR(10)"
+        },
+        {
+          "name": "regular_order_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "actual_order_date",
+          "type": "DATETIME"
+        }
+      ],
+      "pk": [
+        "actual_order_id"
+      ]
+    },
+    {
+      "name": "Actual_Order_Products",
+      "columns": [
+        {
+          "name": "actual_order_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "product_id",
+          "type": "INTEGER"
+        }
+      ],
+      "pk": []
+    },
+    {
+      "name": "Customer_Addresses",
+      "columns": [
+        {
+          "name": "customer_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "address_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "date_from",
+          "type": "DATETIME"
+        },
+        {
+          "name": "address_type",
+          "type": "VARCHAR(10)"
+        },
+        {
+          "name": "date_to",
+          "type": "DATETIME"
+        }
+      ],
+      "pk": []
+    },
+    {
+      "name": "Delivery_Routes",
+      "columns": [
+        {
+          "name": "route_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "route_name",
+          "type": "VARCHAR(50)"
+        },
+        {
+          "name": "other_route_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "pk": [
+        "route_id"
+      ]
+    },
+    {
+      "name": "Delivery_Route_Locations",
+      "columns": [
+        {
+          "name": "location_code",
+          "type": "VARCHAR(10)"
+        },
+        {
+          "name": "route_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "location_address_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "location_name",
+          "type": "VARCHAR(50)"
+        }
+      ],
+      "pk": [
+        "location_code"
+      ]
+    },
+    {
+      "name": "Trucks",
+      "columns": [
+        {
+          "name": "truck_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "truck_licence_number",
+          "type": "VARCHAR(20)"
+        },
+        {
+          "name": "truck_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "pk": [
+        "truck_id"
+      ]
+    },
+    {
+      "name": "Employees",
+      "columns": [
+        {
+          "name": "employee_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "employee_address_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "employee_name",
+          "type": "VARCHAR(80)"
+        },
+        {
+          "name": "employee_phone",
+          "type": "VARCHAR(80)"
+        }
+      ],
+      "pk": [
+        "employee_id"
+      ]
+    },
+    {
+      "name": "Order_Deliveries",
+      "columns": [
+        {
+          "name": "location_code",
+          "type": "VARCHAR(10)"
+        },
+        {
+          "name": "actual_order_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "delivery_status_code",
+          "type": "VARCHAR(10)"
+        },
+        {
+          "name": "driver_employee_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "truck_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "delivery_date",
+          "type": "DATETIME"
+        }
+      ],
+      "pk": []
+    }
+  ],
+  "edges": [
+    {
+      "from": "Regular_Orders",
+      "to": "Customers",
+      "child_col": "distributer_id",
+      "parent_col": "customer_id"
+    },
+    {
+      "from": "Regular_Order_Products",
+      "to": "Regular_Orders",
+      "child_col": "regular_order_id",
+      "parent_col": "regular_order_id"
+    },
+    {
+      "from": "Regular_Order_Products",
+      "to": "Products",
+      "child_col": "product_id",
+      "parent_col": "product_id"
+    },
+    {
+      "from": "Actual_Orders",
+      "to": "Regular_Orders",
+      "child_col": "regular_order_id",
+      "parent_col": "regular_order_id"
+    },
+    {
+      "from": "Actual_Order_Products",
+      "to": "Actual_Orders",
+      "child_col": "actual_order_id",
+      "parent_col": "actual_order_id"
+    },
+    {
+      "from": "Actual_Order_Products",
+      "to": "Products",
+      "child_col": "product_id",
+      "parent_col": "product_id"
+    },
+    {
+      "from": "Customer_Addresses",
+      "to": "Addresses",
+      "child_col": "address_id",
+      "parent_col": "address_id"
+    },
+    {
+      "from": "Customer_Addresses",
+      "to": "Customers",
+      "child_col": "customer_id",
+      "parent_col": "customer_id"
+    },
+    {
+      "from": "Delivery_Route_Locations",
+      "to": "Delivery_Routes",
+      "child_col": "route_id",
+      "parent_col": "route_id"
+    },
+    {
+      "from": "Delivery_Route_Locations",
+      "to": "Addresses",
+      "child_col": "location_address_id",
+      "parent_col": "address_id"
+    },
+    {
+      "from": "Employees",
+      "to": "Addresses",
+      "child_col": "employee_address_id",
+      "parent_col": "address_id"
+    },
+    {
+      "from": "Order_Deliveries",
+      "to": "Employees",
+      "child_col": "driver_employee_id",
+      "parent_col": "employee_id"
+    },
+    {
+      "from": "Order_Deliveries",
+      "to": "Delivery_Route_Locations",
+      "child_col": "location_code",
+      "parent_col": "location_code"
+    },
+    {
+      "from": "Order_Deliveries",
+      "to": "Actual_Orders",
+      "child_col": "actual_order_id",
+      "parent_col": "actual_order_id"
+    },
+    {
+      "from": "Order_Deliveries",
+      "to": "Trucks",
+      "child_col": "truck_id",
+      "parent_col": "truck_id"
+    }
+  ],
+  "centrality": {
+    "Products": 0.16666666666666666,
+    "Addresses": 0.25,
+    "Customers": 0.16666666666666666,
+    "Regular_Orders": 0.16666666666666666,
+    "Regular_Order_Products": 0.0,
+    "Actual_Orders": 0.16666666666666666,
+    "Actual_Order_Products": 0.0,
+    "Customer_Addresses": 0.0,
+    "Delivery_Routes": 0.08333333333333333,
+    "Delivery_Route_Locations": 0.08333333333333333,
+    "Trucks": 0.08333333333333333,
+    "Employees": 0.08333333333333333,
+    "Order_Deliveries": 0.0
+  }
+}

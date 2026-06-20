@@ -1,0 +1,220 @@
+{
+  "db_name": "geo",
+  "collections": {
+    "state": {
+      "primary_key": [
+        "state_name"
+      ],
+      "columns": [
+        {
+          "name": "state_name",
+          "type": "TEXT"
+        },
+        {
+          "name": "population",
+          "type": "INTEGER"
+        },
+        {
+          "name": "area",
+          "type": "double"
+        },
+        {
+          "name": "country_name",
+          "type": "varchar(3)"
+        },
+        {
+          "name": "capital",
+          "type": "TEXT"
+        },
+        {
+          "name": "density",
+          "type": "double"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 0
+    },
+    "city": {
+      "primary_key": [
+        "city_name",
+        "state_name"
+      ],
+      "columns": [
+        {
+          "name": "city_name",
+          "type": "TEXT"
+        },
+        {
+          "name": "population",
+          "type": "INTEGER"
+        },
+        {
+          "name": "country_name",
+          "type": "varchar(3)"
+        },
+        {
+          "name": "state_name",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "city",
+          "to": "state",
+          "child_col": "state_name",
+          "parent_col": "state_name"
+        }
+      ],
+      "row_count": 0
+    },
+    "border_info": {
+      "primary_key": [
+        "state_name",
+        "border"
+      ],
+      "columns": [
+        {
+          "name": "state_name",
+          "type": "TEXT"
+        },
+        {
+          "name": "border",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "border_info",
+          "to": "state",
+          "child_col": "state_name",
+          "parent_col": "state_name"
+        }
+      ],
+      "row_count": 0
+    },
+    "highlow": {
+      "primary_key": [
+        "state_name"
+      ],
+      "columns": [
+        {
+          "name": "state_name",
+          "type": "TEXT"
+        },
+        {
+          "name": "highest_elevation",
+          "type": "TEXT"
+        },
+        {
+          "name": "lowest_point",
+          "type": "TEXT"
+        },
+        {
+          "name": "highest_point",
+          "type": "TEXT"
+        },
+        {
+          "name": "lowest_elevation",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "highlow",
+          "to": "state",
+          "child_col": "state_name",
+          "parent_col": "state_name"
+        }
+      ],
+      "row_count": 0
+    },
+    "lake": {
+      "primary_key": [],
+      "columns": [
+        {
+          "name": "lake_name",
+          "type": "TEXT"
+        },
+        {
+          "name": "area",
+          "type": "double"
+        },
+        {
+          "name": "country_name",
+          "type": "varchar(3)"
+        },
+        {
+          "name": "state_name",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 0
+    },
+    "mountain": {
+      "primary_key": [
+        "mountain_name",
+        "state_name"
+      ],
+      "columns": [
+        {
+          "name": "mountain_name",
+          "type": "TEXT"
+        },
+        {
+          "name": "mountain_altitude",
+          "type": "INTEGER"
+        },
+        {
+          "name": "country_name",
+          "type": "varchar(3)"
+        },
+        {
+          "name": "state_name",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "mountain",
+          "to": "state",
+          "child_col": "state_name",
+          "parent_col": "state_name"
+        }
+      ],
+      "row_count": 0
+    },
+    "river": {
+      "primary_key": [
+        "river_name"
+      ],
+      "columns": [
+        {
+          "name": "river_name",
+          "type": "TEXT"
+        },
+        {
+          "name": "length",
+          "type": "INTEGER"
+        },
+        {
+          "name": "country_name",
+          "type": "varchar(3)"
+        },
+        {
+          "name": "traverse",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "river",
+          "to": "state",
+          "child_col": "traverse",
+          "parent_col": "state_name"
+        }
+      ],
+      "row_count": 0
+    }
+  }
+}

@@ -1,0 +1,138 @@
+{
+  "repair.repair_ID": {
+    "sample_values": [
+      1,
+      4,
+      7
+    ],
+    "inferred_type": "integer"
+  },
+  "repair.name": {
+    "sample_values": [
+      "OPS 3360",
+      "Discoverer 3",
+      "Discoverer 1"
+    ],
+    "inferred_type": "string"
+  },
+  "repair.Launch_Date": {
+    "sample_values": [
+      "18 Nov 2014",
+      "03 Jun 2009",
+      "28 Feb 2009"
+    ],
+    "inferred_type": "string"
+  },
+  "repair.Notes": {
+    "sample_values": [
+      "Cameras operated successfully.",
+      "First object in polar orbit",
+      "repair failed. Failed to achieve orbit"
+    ],
+    "inferred_type": "string"
+  },
+  "machine.Machine_ID": {
+    "sample_values": [
+      1,
+      4,
+      7
+    ],
+    "inferred_type": "integer"
+  },
+  "machine.Making_Year": {
+    "sample_values": [
+      1991,
+      1994,
+      1997
+    ],
+    "inferred_type": "integer"
+  },
+  "machine.Team": {
+    "sample_values": [
+      "Team Givi- Honda LCR",
+      "Honda",
+      "Givi Racing- Honda"
+    ],
+    "inferred_type": "string"
+  },
+  "machine.value_points": {
+    "sample_values": [
+      105.0,
+      194.0,
+      238.0
+    ],
+    "inferred_type": "float"
+  },
+  "machine.quality_rank": {
+    "sample_values": [
+      2,
+      5,
+      8
+    ],
+    "inferred_type": "integer"
+  },
+  "technician.technician_id": {
+    "sample_values": [
+      1.0,
+      4.0,
+      7.0
+    ],
+    "inferred_type": "float"
+  },
+  "technician.Name": {
+    "sample_values": [
+      "Mickey Cochrane",
+      "Tony Sewell",
+      "John Brown"
+    ],
+    "inferred_type": "string"
+  },
+  "technician.Team": {
+    "sample_values": [
+      "PHA",
+      "CWS",
+      "CHC"
+    ],
+    "inferred_type": "string"
+  },
+  "technician.Starting_Year": {
+    "sample_values": [
+      2012.0,
+      2005.0,
+      2002.0
+    ],
+    "inferred_type": "float"
+  },
+  "technician.Age": {
+    "sample_values": [
+      37,
+      28,
+      45
+    ],
+    "inferred_type": "integer"
+  },
+  "repair_assignment.technician_id": {
+    "sample_values": [
+      1,
+      2,
+      3
+    ],
+    "inferred_type": "integer"
+  },
+  "repair_assignment.repair_ID": {
+    "sample_values": [
+      1,
+      3,
+      5
+    ],
+    "inferred_type": "integer"
+  },
+  "repair_assignment.Machine_ID": {
+    "sample_values": [
+      1,
+      3,
+      6
+    ],
+    "inferred_type": "integer"
+  }
+}

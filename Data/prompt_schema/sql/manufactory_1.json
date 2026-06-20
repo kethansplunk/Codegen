@@ -1,0 +1,74 @@
+{
+  "Manufacturers.Code": {
+    "sample_values": [
+      1,
+      3,
+      5
+    ],
+    "inferred_type": "integer"
+  },
+  "Manufacturers.Name": {
+    "sample_values": [
+      "Winchester",
+      "Creative Labs",
+      "Iomega"
+    ],
+    "inferred_type": "string"
+  },
+  "Manufacturers.Headquarter": {
+    "sample_values": [
+      "Paris",
+      "Austin",
+      "Beijing"
+    ],
+    "inferred_type": "string"
+  },
+  "Manufacturers.Founder": {
+    "sample_values": [
+      "Robert",
+      "Owen",
+      "Mary"
+    ],
+    "inferred_type": "string"
+  },
+  "Manufacturers.Revenue": {
+    "sample_values": [
+      120.0,
+      50.0,
+      130.0
+    ],
+    "inferred_type": "float"
+  },
+  "Products.Code": {
+    "sample_values": [
+      1,
+      4,
+      7
+    ],
+    "inferred_type": "integer"
+  },
+  "Products.Name": {
+    "sample_values": [
+      "DVD burner",
+      "ZIP drive",
+      "Memory"
+    ],
+    "inferred_type": "string"
+  },
+  "Products.Price": {
+    "sample_values": [
+      240,
+      150,
+      180
+    ],
+    "inferred_type": "integer"
+  },
+  "Products.Manufacturer": {
+    "sample_values": [
+      5,
+      4,
+      2
+    ],
+    "inferred_type": "integer"
+  }
+}

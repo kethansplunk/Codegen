@@ -1,0 +1,106 @@
+{
+  "artist.Artist_ID": {
+    "sample_values": [
+      1,
+      3,
+      5
+    ],
+    "inferred_type": "integer"
+  },
+  "artist.Name": {
+    "sample_values": [
+      "Larry Nelson",
+      "John Daly",
+      "Paul Azinger"
+    ],
+    "inferred_type": "string"
+  },
+  "artist.Country": {
+    "sample_values": [
+      "Fiji",
+      "United States",
+      "Zimbabwe"
+    ],
+    "inferred_type": "string"
+  },
+  "artist.Year_Join": {
+    "sample_values": [
+      1998,
+      1993,
+      1996
+    ],
+    "inferred_type": "integer"
+  },
+  "artist.Age": {
+    "sample_values": [
+      45,
+      47,
+      48
+    ],
+    "inferred_type": "integer"
+  },
+  "exhibition.Exhibition_ID": {
+    "sample_values": [
+      1,
+      3,
+      5
+    ],
+    "inferred_type": "integer"
+  },
+  "exhibition.Year": {
+    "sample_values": [
+      2004,
+      2006,
+      2008
+    ],
+    "inferred_type": "integer"
+  },
+  "exhibition.Theme": {
+    "sample_values": [
+      "Summer",
+      "Christmas stocking",
+      "Christmas Tree"
+    ],
+    "inferred_type": "string"
+  },
+  "exhibition.Artist_ID": {
+    "sample_values": [
+      1,
+      2,
+      4
+    ],
+    "inferred_type": "integer"
+  },
+  "exhibition.Ticket_Price": {
+    "sample_values": [
+      19.95,
+      14.95,
+      16.95
+    ],
+    "inferred_type": "float"
+  },
+  "exhibition_record.Exhibition_ID": {
+    "sample_values": [
+      1,
+      2,
+      3
+    ],
+    "inferred_type": "integer"
+  },
+  "exhibition_record.Date": {
+    "sample_values": [
+      "February 28",
+      "December 9",
+      "December 12"
+    ],
+    "inferred_type": "string"
+  },
+  "exhibition_record.Attendance": {
+    "sample_values": [
+      965,
+      1313,
+      9089
+    ],
+    "inferred_type": "integer"
+  }
+}

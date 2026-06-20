@@ -1,0 +1,686 @@
+{
+  "Player_Attributes.id": {
+    "sample_values": [
+      1,
+      7,
+      13
+    ],
+    "inferred_type": "integer"
+  },
+  "Player_Attributes.player_fifa_api_id": {
+    "sample_values": [
+      218353,
+      221280,
+      213568
+    ],
+    "inferred_type": "integer"
+  },
+  "Player_Attributes.player_api_id": {
+    "sample_values": [
+      505942,
+      564793,
+      163222
+    ],
+    "inferred_type": "integer"
+  },
+  "Player_Attributes.date": {
+    "sample_values": [
+      "2013-12-13 00:00:00",
+      "2016-01-07 00:00:00",
+      "2015-12-24 00:00:00"
+    ],
+    "inferred_type": "string"
+  },
+  "Player_Attributes.overall_rating": {
+    "sample_values": [
+      67,
+      70,
+      51
+    ],
+    "inferred_type": "integer"
+  },
+  "Player_Attributes.potential": {
+    "sample_values": [
+      71,
+      78,
+      67
+    ],
+    "inferred_type": "integer"
+  },
+  "Player_Attributes.preferred_foot": {
+    "sample_values": [
+      "right",
+      "left"
+    ],
+    "inferred_type": "string"
+  },
+  "Player_Attributes.attacking_work_rate": {
+    "sample_values": [
+      "y",
+      "high",
+      "low"
+    ],
+    "inferred_type": "string"
+  },
+  "Player_Attributes.defensive_work_rate": {
+    "sample_values": [
+      "es",
+      "1",
+      "ormal"
+    ],
+    "inferred_type": "string"
+  },
+  "Player_Attributes.crossing": {
+    "sample_values": [
+      49,
+      74,
+      67
+    ],
+    "inferred_type": "integer"
+  },
+  "Player_Attributes.finishing": {
+    "sample_values": [
+      44,
+      40,
+      69
+    ],
+    "inferred_type": "integer"
+  },
+  "Player_Attributes.heading_accuracy": {
+    "sample_values": [
+      71,
+      50,
+      68
+    ],
+    "inferred_type": "integer"
+  },
+  "Player_Attributes.short_passing": {
+    "sample_values": [
+      61,
+      64,
+      66
+    ],
+    "inferred_type": "integer"
+  },
+  "Player_Attributes.volleys": {
+    "sample_values": [
+      44,
+      30,
+      47
+    ],
+    "inferred_type": "integer"
+  },
+  "Player_Attributes.dribbling": {
+    "sample_values": [
+      51,
+      65,
+      69
+    ],
+    "inferred_type": "integer"
+  },
+  "Player_Attributes.curve": {
+    "sample_values": [
+      45,
+      65,
+      43
+    ],
+    "inferred_type": "integer"
+  },
+  "Player_Attributes.free_kick_accuracy": {
+    "sample_values": [
+      39,
+      26,
+      25
+    ],
+    "inferred_type": "integer"
+  },
+  "Player_Attributes.long_passing": {
+    "sample_values": [
+      64,
+      45,
+      58
+    ],
+    "inferred_type": "integer"
+  },
+  "Player_Attributes.ball_control": {
+    "sample_values": [
+      49,
+      66,
+      73
+    ],
+    "inferred_type": "integer"
+  },
+  "Player_Attributes.acceleration": {
+    "sample_values": [
+      60,
+      43,
+      82
+    ],
+    "inferred_type": "integer"
+  },
+  "Player_Attributes.sprint_speed": {
+    "sample_values": [
+      64,
+      46,
+      77
+    ],
+    "inferred_type": "integer"
+  },
+  "Player_Attributes.agility": {
+    "sample_values": [
+      59,
+      85,
+      45
+    ],
+    "inferred_type": "integer"
+  },
+  "Player_Attributes.reactions": {
+    "sample_values": [
+      47,
+      66,
+      57
+    ],
+    "inferred_type": "integer"
+  },
+  "Player_Attributes.balance": {
+    "sample_values": [
+      65,
+      56,
+      66
+    ],
+    "inferred_type": "integer"
+  },
+  "Player_Attributes.shot_power": {
+    "sample_values": [
+      55,
+      47,
+      74
+    ],
+    "inferred_type": "integer"
+  },
+  "Player_Attributes.jumping": {
+    "sample_values": [
+      58,
+      48,
+      67
+    ],
+    "inferred_type": "integer"
+  },
+  "Player_Attributes.stamina": {
+    "sample_values": [
+      54,
+      73,
+      72
+    ],
+    "inferred_type": "integer"
+  },
+  "Player_Attributes.strength": {
+    "sample_values": [
+      76,
+      37,
+      87
+    ],
+    "inferred_type": "integer"
+  },
+  "Player_Attributes.long_shots": {
+    "sample_values": [
+      35,
+      56,
+      52
+    ],
+    "inferred_type": "integer"
+  },
+  "Player_Attributes.aggression": {
+    "sample_values": [
+      71,
+      64,
+      65
+    ],
+    "inferred_type": "integer"
+  },
+  "Player_Attributes.interceptions": {
+    "sample_values": [
+      70,
+      62,
+      44
+    ],
+    "inferred_type": "integer"
+  },
+  "Player_Attributes.positioning": {
+    "sample_values": [
+      45,
+      19,
+      66
+    ],
+    "inferred_type": "integer"
+  },
+  "Player_Attributes.vision": {
+    "sample_values": [
+      54,
+      58,
+      72
+    ],
+    "inferred_type": "integer"
+  },
+  "Player_Attributes.penalties": {
+    "sample_values": [
+      48,
+      29,
+      36
+    ],
+    "inferred_type": "integer"
+  },
+  "Player_Attributes.marking": {
+    "sample_values": [
+      65,
+      64,
+      67
+    ],
+    "inferred_type": "integer"
+  },
+  "Player_Attributes.standing_tackle": {
+    "sample_values": [
+      69,
+      64,
+      71
+    ],
+    "inferred_type": "integer"
+  },
+  "Player_Attributes.sliding_tackle": {
+    "sample_values": [
+      69,
+      24,
+      74
+    ],
+    "inferred_type": "integer"
+  },
+  "Player_Attributes.gk_diving": {
+    "sample_values": [
+      6,
+      8,
+      10
+    ],
+    "inferred_type": "integer"
+  },
+  "Player_Attributes.gk_handling": {
+    "sample_values": [
+      11,
+      12,
+      8
+    ],
+    "inferred_type": "integer"
+  },
+  "Player_Attributes.gk_kicking": {
+    "sample_values": [
+      10,
+      12,
+      61
+    ],
+    "inferred_type": "integer"
+  },
+  "Player_Attributes.gk_positioning": {
+    "sample_values": [
+      8,
+      11,
+      14
+    ],
+    "inferred_type": "integer"
+  },
+  "Player_Attributes.gk_reflexes": {
+    "sample_values": [
+      8,
+      21,
+      9
+    ],
+    "inferred_type": "integer"
+  },
+  "sqlite_sequence.name": {
+    "sample_values": [
+      "Team_Attributes",
+      "Country",
+      "Player"
+    ],
+    "inferred_type": "string"
+  },
+  "sqlite_sequence.seq": {
+    "sample_values": [
+      103916,
+      51958,
+      11075
+    ],
+    "inferred_type": "integer"
+  },
+  "Player.id": {
+    "sample_values": [
+      3879,
+      742,
+      2371
+    ],
+    "inferred_type": "integer"
+  },
+  "Player.player_api_id": {
+    "sample_values": [
+      2625,
+      2802,
+      2977
+    ],
+    "inferred_type": "integer"
+  },
+  "Player.player_name": {
+    "sample_values": [
+      "Abasse Ba",
+      "Aaron Lennon",
+      "Aaron Lennox"
+    ],
+    "inferred_type": "string"
+  },
+  "Player.player_fifa_api_id": {
+    "sample_values": [
+      2,
+      41,
+      185
+    ],
+    "inferred_type": "integer"
+  },
+  "Player.birthday": {
+    "sample_values": [
+      "1976-07-12 00:00:00",
+      "1987-04-16 00:00:00",
+      "1993-02-19 00:00:00"
+    ],
+    "inferred_type": "string"
+  },
+  "Player.height": {
+    "sample_values": [
+      182.88,
+      187.96,
+      193.04
+    ],
+    "inferred_type": "float"
+  },
+  "Player.weight": {
+    "sample_values": [
+      187,
+      139,
+      176
+    ],
+    "inferred_type": "integer"
+  },
+  "League.id": {
+    "sample_values": [
+      1,
+      7809,
+      15722
+    ],
+    "inferred_type": "integer"
+  },
+  "League.country_id": {
+    "sample_values": [
+      1,
+      7809,
+      15722
+    ],
+    "inferred_type": "integer"
+  },
+  "League.name": {
+    "sample_values": [
+      "Switzerland Super League",
+      "Italy Serie A",
+      "England Premier League"
+    ],
+    "inferred_type": "string"
+  },
+  "Country.id": {
+    "sample_values": [
+      1,
+      7809,
+      15722
+    ],
+    "inferred_type": "integer"
+  },
+  "Country.name": {
+    "sample_values": [
+      "Switzerland",
+      "Italy",
+      "England"
+    ],
+    "inferred_type": "string"
+  },
+  "Team.id": {
+    "sample_values": [
+      31446,
+      31458,
+      1042
+    ],
+    "inferred_type": "integer"
+  },
+  "Team.team_api_id": {
+    "sample_values": [
+      1601,
+      2186,
+      6351
+    ],
+    "inferred_type": "integer"
+  },
+  "Team.team_fifa_api_id": {
+    "sample_values": [
+      673,
+      674,
+      100081
+    ],
+    "inferred_type": "integer"
+  },
+  "Team.team_long_name": {
+    "sample_values": [
+      "Lierse SK",
+      "RAEC Mons",
+      "FCV Dender EH"
+    ],
+    "inferred_type": "string"
+  },
+  "Team.team_short_name": {
+    "sample_values": [
+      "EUP",
+      "DEN",
+      "STL"
+    ],
+    "inferred_type": "string"
+  },
+  "Team_Attributes.id": {
+    "sample_values": [
+      1,
+      7,
+      13
+    ],
+    "inferred_type": "integer"
+  },
+  "Team_Attributes.team_fifa_api_id": {
+    "sample_values": [
+      434,
+      245,
+      159
+    ],
+    "inferred_type": "integer"
+  },
+  "Team_Attributes.team_api_id": {
+    "sample_values": [
+      9930,
+      8593,
+      9912
+    ],
+    "inferred_type": "integer"
+  },
+  "Team_Attributes.date": {
+    "sample_values": [
+      "2013-09-20 00:00:00",
+      "2014-09-19 00:00:00",
+      "2011-02-22 00:00:00"
+    ],
+    "inferred_type": "string"
+  },
+  "Team_Attributes.buildUpPlaySpeed": {
+    "sample_values": [
+      60,
+      59,
+      38
+    ],
+    "inferred_type": "integer"
+  },
+  "Team_Attributes.buildUpPlaySpeedClass": {
+    "sample_values": [
+      "Balanced",
+      "Fast",
+      "Slow"
+    ],
+    "inferred_type": "string"
+  },
+  "Team_Attributes.buildUpPlayDribbling": {
+    "sample_values": [
+      48,
+      47,
+      66
+    ],
+    "inferred_type": "integer"
+  },
+  "Team_Attributes.buildUpPlayDribblingClass": {
+    "sample_values": [
+      "Little",
+      "Normal",
+      "Lots"
+    ],
+    "inferred_type": "string"
+  },
+  "Team_Attributes.buildUpPlayPassing": {
+    "sample_values": [
+      50,
+      45,
+      47
+    ],
+    "inferred_type": "integer"
+  },
+  "Team_Attributes.buildUpPlayPassingClass": {
+    "sample_values": [
+      "Mixed",
+      "Long",
+      "Short"
+    ],
+    "inferred_type": "string"
+  },
+  "Team_Attributes.buildUpPlayPositioningClass": {
+    "sample_values": [
+      "Organised",
+      "Free Form"
+    ],
+    "inferred_type": "string"
+  },
+  "Team_Attributes.chanceCreationPassing": {
+    "sample_values": [
+      60,
+      56,
+      66
+    ],
+    "inferred_type": "integer"
+  },
+  "Team_Attributes.chanceCreationPassingClass": {
+    "sample_values": [
+      "Normal",
+      "Risky",
+      "Safe"
+    ],
+    "inferred_type": "string"
+  },
+  "Team_Attributes.chanceCreationCrossing": {
+    "sample_values": [
+      65,
+      72,
+      20
+    ],
+    "inferred_type": "integer"
+  },
+  "Team_Attributes.chanceCreationCrossingClass": {
+    "sample_values": [
+      "Normal",
+      "Lots",
+      "Little"
+    ],
+    "inferred_type": "string"
+  },
+  "Team_Attributes.chanceCreationShooting": {
+    "sample_values": [
+      55,
+      50,
+      44
+    ],
+    "inferred_type": "integer"
+  },
+  "Team_Attributes.chanceCreationShootingClass": {
+    "sample_values": [
+      "Normal",
+      "Lots",
+      "Little"
+    ],
+    "inferred_type": "string"
+  },
+  "Team_Attributes.chanceCreationPositioningClass": {
+    "sample_values": [
+      "Organised",
+      "Free Form"
+    ],
+    "inferred_type": "string"
+  },
+  "Team_Attributes.defencePressure": {
+    "sample_values": [
+      50,
+      49,
+      52
+    ],
+    "inferred_type": "integer"
+  },
+  "Team_Attributes.defencePressureClass": {
+    "sample_values": [
+      "Medium",
+      "Deep",
+      "High"
+    ],
+    "inferred_type": "string"
+  },
+  "Team_Attributes.defenceAggression": {
+    "sample_values": [
+      55,
+      45,
+      38
+    ],
+    "inferred_type": "integer"
+  },
+  "Team_Attributes.defenceAggressionClass": {
+    "sample_values": [
+      "Press",
+      "Double",
+      "Contain"
+    ],
+    "inferred_type": "string"
+  },
+  "Team_Attributes.defenceTeamWidth": {
+    "sample_values": [
+      45,
+      30,
+      62
+    ],
+    "inferred_type": "integer"
+  },
+  "Team_Attributes.defenceTeamWidthClass": {
+    "sample_values": [
+      "Normal",
+      "Wide",
+      "Narrow"
+    ],
+    "inferred_type": "string"
+  },
+  "Team_Attributes.defenceDefenderLineClass": {
+    "sample_values": [
+      "Cover",
+      "Offside Trap"
+    ],
+    "inferred_type": "string"
+  }
+}

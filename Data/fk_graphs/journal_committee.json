@@ -1,0 +1,89 @@
+{
+  "db_name": "journal_committee",
+  "nodes": [
+    {
+      "name": "journal",
+      "columns": [
+        {
+          "name": "Journal_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Date",
+          "type": "TEXT"
+        },
+        {
+          "name": "Theme",
+          "type": "TEXT"
+        },
+        {
+          "name": "Sales",
+          "type": "INT"
+        }
+      ],
+      "pk": [
+        "Journal_ID"
+      ]
+    },
+    {
+      "name": "editor",
+      "columns": [
+        {
+          "name": "Editor_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Age",
+          "type": "REAL"
+        }
+      ],
+      "pk": [
+        "Editor_ID"
+      ]
+    },
+    {
+      "name": "journal_committee",
+      "columns": [
+        {
+          "name": "Editor_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Journal_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Work_Type",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "Editor_ID",
+        "Journal_ID"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "journal_committee",
+      "to": "journal",
+      "child_col": "Journal_ID",
+      "parent_col": "Journal_ID"
+    },
+    {
+      "from": "journal_committee",
+      "to": "editor",
+      "child_col": "Editor_ID",
+      "parent_col": "Editor_ID"
+    }
+  ],
+  "centrality": {
+    "journal": 0.5,
+    "editor": 0.5,
+    "journal_committee": 0.0
+  }
+}

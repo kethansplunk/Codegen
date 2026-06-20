@@ -1,0 +1,138 @@
+{
+  "program.Program_ID": {
+    "sample_values": [
+      1,
+      2,
+      3
+    ],
+    "inferred_type": "integer"
+  },
+  "program.Name": {
+    "sample_values": [
+      "Youman",
+      "Jiajia",
+      "Toonmax"
+    ],
+    "inferred_type": "string"
+  },
+  "program.Origin": {
+    "sample_values": [
+      "Jiangsu",
+      "Guangdong",
+      "Shanghai"
+    ],
+    "inferred_type": "string"
+  },
+  "program.Launch": {
+    "sample_values": [
+      2005.0,
+      2004.0,
+      2007.0
+    ],
+    "inferred_type": "float"
+  },
+  "program.Owner": {
+    "sample_values": [
+      "Jiangsu Broadcasting Corporation (JSBC)",
+      "Southern Media Corporation (SMC)",
+      "Shanghai Media Group (SMG)"
+    ],
+    "inferred_type": "string"
+  },
+  "channel.Channel_ID": {
+    "sample_values": [
+      1,
+      4,
+      7
+    ],
+    "inferred_type": "integer"
+  },
+  "channel.Name": {
+    "sample_values": [
+      "Shandong Satellite TV",
+      "CCTV-8",
+      "Hunan Satellite TV"
+    ],
+    "inferred_type": "string"
+  },
+  "channel.Owner": {
+    "sample_values": [
+      "Shandong Television",
+      "Anhui Television",
+      "HBS"
+    ],
+    "inferred_type": "string"
+  },
+  "channel.Share_in_percent": {
+    "sample_values": [
+      4.9,
+      2.91,
+      2.6
+    ],
+    "inferred_type": "float"
+  },
+  "channel.Rating_in_percent": {
+    "sample_values": [
+      0.54,
+      0.32,
+      0.29
+    ],
+    "inferred_type": "float"
+  },
+  "broadcast.Channel_ID": {
+    "sample_values": [
+      1,
+      4,
+      7
+    ],
+    "inferred_type": "integer"
+  },
+  "broadcast.Program_ID": {
+    "sample_values": [
+      1,
+      2,
+      4
+    ],
+    "inferred_type": "integer"
+  },
+  "broadcast.Time_of_day": {
+    "sample_values": [
+      "Morning",
+      "Night",
+      "Noon"
+    ],
+    "inferred_type": "string"
+  },
+  "broadcast_share.Channel_ID": {
+    "sample_values": [
+      1,
+      4,
+      7
+    ],
+    "inferred_type": "integer"
+  },
+  "broadcast_share.Program_ID": {
+    "sample_values": [
+      1,
+      2,
+      4
+    ],
+    "inferred_type": "integer"
+  },
+  "broadcast_share.Date": {
+    "sample_values": [
+      "13,May",
+      "02,May",
+      "03,May"
+    ],
+    "inferred_type": "string"
+  },
+  "broadcast_share.Share_in_percent": {
+    "sample_values": [
+      3.1,
+      3.2,
+      1.9
+    ],
+    "inferred_type": "float"
+  }
+}

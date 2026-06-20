@@ -1,0 +1,94 @@
+{
+  "db_name": "entertainment_awards",
+  "collections": {
+    "festival_detail": {
+      "primary_key": [
+        "Festival_ID"
+      ],
+      "columns": [
+        {
+          "name": "Festival_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Festival_Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Chair_Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Location",
+          "type": "TEXT"
+        },
+        {
+          "name": "Year",
+          "type": "INT"
+        },
+        {
+          "name": "Num_of_Audience",
+          "type": "INT"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 5
+    },
+    "artwork": {
+      "primary_key": [
+        "Artwork_ID"
+      ],
+      "columns": [
+        {
+          "name": "Artwork_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Type",
+          "type": "TEXT"
+        },
+        {
+          "name": "Name",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 9
+    },
+    "nomination": {
+      "primary_key": [
+        "Artwork_ID",
+        "Festival_ID"
+      ],
+      "columns": [
+        {
+          "name": "Artwork_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Festival_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Result",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "nomination",
+          "to": "festival_detail",
+          "child_col": "Festival_ID",
+          "parent_col": "Festival_ID"
+        },
+        {
+          "from": "nomination",
+          "to": "artwork",
+          "child_col": "Artwork_ID",
+          "parent_col": "Artwork_ID"
+        }
+      ],
+      "row_count": 6
+    }
+  }
+}

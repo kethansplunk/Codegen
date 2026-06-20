@@ -1,0 +1,111 @@
+{
+  "medicine.id": {
+    "sample_values": [
+      1,
+      7,
+      13
+    ],
+    "inferred_type": "integer"
+  },
+  "medicine.name": {
+    "sample_values": [
+      "Ziprasidone",
+      "Iloperidone",
+      "Lurasidone"
+    ],
+    "inferred_type": "string"
+  },
+  "medicine.Trade_Name": {
+    "sample_values": [
+      "Geodon",
+      "Fanapt",
+      "Latuda"
+    ],
+    "inferred_type": "string"
+  },
+  "medicine.FDA_approved": {
+    "sample_values": [
+      "No",
+      "Yes"
+    ],
+    "inferred_type": "string"
+  },
+  "enzyme.id": {
+    "sample_values": [
+      1,
+      3,
+      5
+    ],
+    "inferred_type": "integer"
+  },
+  "enzyme.name": {
+    "sample_values": [
+      "Ferrochelatase",
+      "ALA dehydratase",
+      "PBG deaminase"
+    ],
+    "inferred_type": "string"
+  },
+  "enzyme.Location": {
+    "sample_values": [
+      "Mitochondrion",
+      "Cytosol"
+    ],
+    "inferred_type": "string"
+  },
+  "enzyme.Product": {
+    "sample_values": [
+      "Heme",
+      "Porphobilinogen",
+      "Hydroxymethyl bilane"
+    ],
+    "inferred_type": "string"
+  },
+  "enzyme.Chromosome": {
+    "sample_values": [
+      "18q21.3",
+      "9q34",
+      "11q23.3"
+    ],
+    "inferred_type": "string"
+  },
+  "enzyme.OMIM": {
+    "sample_values": [
+      125290,
+      176000,
+      176100
+    ],
+    "inferred_type": "integer"
+  },
+  "enzyme.Porphyria": {
+    "sample_values": [
+      "variegate porphyria",
+      "congenital erythropoietic porphyria",
+      "porphyria cutanea tarda"
+    ],
+    "inferred_type": "string"
+  },
+  "medicine_enzyme_interaction.enzyme_id": {
+    "sample_values": [
+      1,
+      3,
+      5
+    ],
+    "inferred_type": "integer"
+  },
+  "medicine_enzyme_interaction.medicine_id": {
+    "sample_values": [
+      1,
+      5,
+      9
+    ],
+    "inferred_type": "integer"
+  },
+  "medicine_enzyme_interaction.interaction_type": {
+    "sample_values": [
+      "inhibitor",
+      "activitor"
+    ],
+    "inferred_type": "string"
+  }
+}

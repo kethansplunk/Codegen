@@ -1,0 +1,159 @@
+{
+  "airport.City": {
+    "sample_values": [
+      "Akureyri",
+      "Amsterdam",
+      "Billund"
+    ],
+    "inferred_type": "string"
+  },
+  "airport.name": {
+    "sample_values": [
+      "Baltimore-Washington Airport",
+      "Schiphol Airport",
+      "Billund Airport"
+    ],
+    "inferred_type": "string"
+  },
+  "airport.Country": {
+    "sample_values": [
+      "Norway",
+      "Netherlands",
+      "United States"
+    ],
+    "inferred_type": "string"
+  },
+  "airport.IATA": {
+    "sample_values": [
+      "ANC",
+      "AMS",
+      "BWI"
+    ],
+    "inferred_type": "string"
+  },
+  "airport.id": {
+    "sample_values": [
+      "5",
+      "2",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "airport.ICAO": {
+    "sample_values": [
+      "KBOS",
+      "EBBR",
+      "KBWI"
+    ],
+    "inferred_type": "string"
+  },
+  "flight.Vehicle_Flight_number": {
+    "sample_values": [
+      "M2-F1 #64",
+      "M2-F1 #71",
+      "M2-F1 #6"
+    ],
+    "inferred_type": "string"
+  },
+  "flight.Altitude": {
+    "sample_values": [
+      "3650.0",
+      "0.0"
+    ],
+    "inferred_type": "float"
+  },
+  "flight.airport_id": {
+    "sample_values": [
+      "5",
+      "1",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "flight.Pilot": {
+    "sample_values": [
+      "Thompson",
+      "Peterson"
+    ],
+    "inferred_type": "string"
+  },
+  "flight.Date": {
+    "sample_values": [
+      "August 16, 1963",
+      "September 3, 1963",
+      "March 28, 1966"
+    ],
+    "inferred_type": "string"
+  },
+  "flight.Velocity": {
+    "sample_values": [
+      "135.0",
+      "240.0"
+    ],
+    "inferred_type": "float"
+  },
+  "flight.company_id": {
+    "sample_values": [
+      "5",
+      "4",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "flight.id": {
+    "sample_values": [
+      "5",
+      "1",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "operate_company.Group_Equity_Shareholding": {
+    "sample_values": [
+      "40.0",
+      "18.77",
+      "45.0"
+    ],
+    "inferred_type": "float"
+  },
+  "operate_company.Type": {
+    "sample_values": [
+      "Subsidiary",
+      "Joint Venture",
+      "Corporate"
+    ],
+    "inferred_type": "string"
+  },
+  "operate_company.name": {
+    "sample_values": [
+      "Vogue Laundry Service Limited",
+      "Dragonair Holidays",
+      "Cathay Pacific Catering Services (HK) Limited"
+    ],
+    "inferred_type": "string"
+  },
+  "operate_company.Incorporated_in": {
+    "sample_values": [
+      "China",
+      "Taiwan",
+      "Hong Kong"
+    ],
+    "inferred_type": "string"
+  },
+  "operate_company.Principal_activities": {
+    "sample_values": [
+      "Travel agency",
+      "Catering services",
+      "Cargo"
+    ],
+    "inferred_type": "string"
+  },
+  "operate_company.id": {
+    "sample_values": [
+      "5",
+      "8",
+      "4"
+    ],
+    "inferred_type": "integer"
+  }
+}

@@ -1,0 +1,110 @@
+{
+  "db_name": "company_employee",
+  "collections": {
+    "people": {
+      "primary_key": [
+        "People_ID"
+      ],
+      "columns": [
+        {
+          "name": "People_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Age",
+          "type": "INT"
+        },
+        {
+          "name": "Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Nationality",
+          "type": "TEXT"
+        },
+        {
+          "name": "Graduation_College",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 7
+    },
+    "company": {
+      "primary_key": [
+        "Company_ID"
+      ],
+      "columns": [
+        {
+          "name": "Company_ID",
+          "type": "REAL"
+        },
+        {
+          "name": "Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Headquarters",
+          "type": "TEXT"
+        },
+        {
+          "name": "Industry",
+          "type": "TEXT"
+        },
+        {
+          "name": "Sales_in_Billion",
+          "type": "REAL"
+        },
+        {
+          "name": "Profits_in_Billion",
+          "type": "REAL"
+        },
+        {
+          "name": "Assets_in_Billion",
+          "type": "REAL"
+        },
+        {
+          "name": "Market_Value_in_Billion",
+          "type": "REAL"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 19
+    },
+    "employment": {
+      "primary_key": [
+        "Company_ID",
+        "People_ID"
+      ],
+      "columns": [
+        {
+          "name": "Company_ID",
+          "type": "INT"
+        },
+        {
+          "name": "People_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Year_working",
+          "type": "INT"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "employment",
+          "to": "people",
+          "child_col": "People_ID",
+          "parent_col": "People_ID"
+        },
+        {
+          "from": "employment",
+          "to": "company",
+          "child_col": "Company_ID",
+          "parent_col": "Company_ID"
+        }
+      ],
+      "row_count": 5
+    }
+  }
+}

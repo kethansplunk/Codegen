@@ -1,0 +1,294 @@
+{
+  "Project_Outcomes.outcome_code": {
+    "sample_values": [
+      "Paper",
+      "Patent"
+    ],
+    "inferred_type": "string"
+  },
+  "Project_Outcomes.project_id": {
+    "sample_values": [
+      "5",
+      "9",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "Projects.project_details": {
+    "sample_values": [
+      "doloremque",
+      "non",
+      "porro"
+    ],
+    "inferred_type": "string"
+  },
+  "Projects.organisation_id": {
+    "sample_values": [
+      "10",
+      "1",
+      "13"
+    ],
+    "inferred_type": "integer"
+  },
+  "Projects.project_id": {
+    "sample_values": [
+      "5",
+      "8",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Research_Outcomes.outcome_code": {
+    "sample_values": [
+      "Paper",
+      "Patent"
+    ],
+    "inferred_type": "string"
+  },
+  "Research_Outcomes.outcome_description": {
+    "sample_values": [
+      "Research Patent",
+      "Published Research Paper"
+    ],
+    "inferred_type": "string"
+  },
+  "Documents.response_received_date": {
+    "sample_values": [
+      "1979-12-08 10:38:07",
+      "1986-05-23 07:17:59",
+      "1990-01-19 19:57:14"
+    ],
+    "inferred_type": "string"
+  },
+  "Documents.sent_date": {
+    "sample_values": [
+      "2003-08-29 03:32:52",
+      "1993-02-19 16:31:12",
+      "2001-06-18 06:35:49"
+    ],
+    "inferred_type": "string"
+  },
+  "Documents.grant_id": {
+    "sample_values": [
+      "10",
+      "15",
+      "8"
+    ],
+    "inferred_type": "integer"
+  },
+  "Documents.document_type_code": {
+    "sample_values": [
+      "APP",
+      "REG"
+    ],
+    "inferred_type": "string"
+  },
+  "Documents.document_id": {
+    "sample_values": [
+      "5",
+      "8",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Grants.grant_id": {
+    "sample_values": [
+      "5",
+      "8",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Grants.grant_end_date": {
+    "sample_values": [
+      "2007-04-24 03:04:13",
+      "2014-08-13 22:58:50",
+      "1983-12-17 12:29:58"
+    ],
+    "inferred_type": "string"
+  },
+  "Grants.grant_amount": {
+    "sample_values": [
+      "2001349.459",
+      "0",
+      "24.7"
+    ],
+    "inferred_type": "float"
+  },
+  "Grants.organisation_id": {
+    "sample_values": [
+      "10",
+      "8",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Grants.other_details": {
+    "sample_values": [
+      "explicabo",
+      "dolor",
+      "veniam"
+    ],
+    "inferred_type": "string"
+  },
+  "Grants.grant_start_date": {
+    "sample_values": [
+      "2016-11-20 00:18:51",
+      "2016-02-25 04:28:44",
+      "1990-08-13 20:27:28"
+    ],
+    "inferred_type": "string"
+  },
+  "Staff_Roles.role_description": {
+    "sample_values": [
+      "Project Researcher",
+      "Project Leader"
+    ],
+    "inferred_type": "string"
+  },
+  "Staff_Roles.role_code": {
+    "sample_values": [
+      "leader",
+      "researcher"
+    ],
+    "inferred_type": "string"
+  },
+  "Research_Staff.staff_details": {
+    "sample_values": [
+      "nulla",
+      "sint",
+      "dolor"
+    ],
+    "inferred_type": "string"
+  },
+  "Research_Staff.staff_id": {
+    "sample_values": [
+      "5",
+      "8",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Research_Staff.employer_organisation_id": {
+    "sample_values": [
+      "5",
+      "1",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Tasks.project_id": {
+    "sample_values": [
+      "5",
+      "8",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Tasks.task_details": {
+    "sample_values": [
+      "t",
+      "p",
+      "b"
+    ],
+    "inferred_type": "string"
+  },
+  "Tasks.task_id": {
+    "sample_values": [
+      "5",
+      "8",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Document_Types.document_type_code": {
+    "sample_values": [
+      "APP",
+      "REG"
+    ],
+    "inferred_type": "string"
+  },
+  "Document_Types.document_description": {
+    "sample_values": [
+      "Regular",
+      "Initial Application"
+    ],
+    "inferred_type": "string"
+  },
+  "Organisations.organisation_type": {
+    "sample_values": [
+      "RES",
+      "SPON"
+    ],
+    "inferred_type": "string"
+  },
+  "Organisations.organisation_id": {
+    "sample_values": [
+      "5",
+      "8",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Organisations.organisation_details": {
+    "sample_values": [
+      "quo",
+      "a",
+      "eius"
+    ],
+    "inferred_type": "string"
+  },
+  "Project_Staff.date_to": {
+    "sample_values": [
+      "1993-06-09 12:44:28",
+      "1971-07-19 22:49:05",
+      "1985-05-30 22:26:30"
+    ],
+    "inferred_type": "string"
+  },
+  "Project_Staff.project_id": {
+    "sample_values": [
+      "5",
+      "1",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Project_Staff.role_code": {
+    "sample_values": [
+      "leader",
+      "researcher"
+    ],
+    "inferred_type": "string"
+  },
+  "Project_Staff.staff_id": {
+    "sample_values": [
+      "29.0",
+      "3100031.0",
+      "45.0"
+    ],
+    "inferred_type": "float"
+  },
+  "Project_Staff.date_from": {
+    "sample_values": [
+      "1999-10-21 22:07:15",
+      "2005-01-13 11:49:48",
+      "2004-11-01 23:52:38"
+    ],
+    "inferred_type": "string"
+  },
+  "Organisation_Types.organisation_type_description": {
+    "sample_values": [
+      "Sponsor",
+      "Research"
+    ],
+    "inferred_type": "string"
+  },
+  "Organisation_Types.organisation_type": {
+    "sample_values": [
+      "RES",
+      "SPON"
+    ],
+    "inferred_type": "string"
+  }
+}

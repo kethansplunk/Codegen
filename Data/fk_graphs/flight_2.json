@@ -1,0 +1,95 @@
+{
+  "db_name": "flight_2",
+  "nodes": [
+    {
+      "name": "airlines",
+      "columns": [
+        {
+          "name": "uid",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Airline",
+          "type": "TEXT"
+        },
+        {
+          "name": "Abbreviation",
+          "type": "TEXT"
+        },
+        {
+          "name": "Country",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "uid"
+      ]
+    },
+    {
+      "name": "airports",
+      "columns": [
+        {
+          "name": "City",
+          "type": "TEXT"
+        },
+        {
+          "name": "AirportCode",
+          "type": "TEXT"
+        },
+        {
+          "name": "AirportName",
+          "type": "TEXT"
+        },
+        {
+          "name": "Country",
+          "type": "TEXT"
+        },
+        {
+          "name": "CountryAbbrev",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "AirportCode"
+      ]
+    },
+    {
+      "name": "flights",
+      "columns": [
+        {
+          "name": "Airline",
+          "type": "INTEGER"
+        },
+        {
+          "name": "FlightNo",
+          "type": "INTEGER"
+        },
+        {
+          "name": "SourceAirport",
+          "type": "TEXT"
+        },
+        {
+          "name": "DestAirport",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "Airline",
+        "FlightNo"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "flights",
+      "to": "airports",
+      "child_col": "SourceAirport",
+      "parent_col": "AirportCode"
+    }
+  ],
+  "centrality": {
+    "airlines": 0.0,
+    "airports": 0.5,
+    "flights": 0.0
+  }
+}

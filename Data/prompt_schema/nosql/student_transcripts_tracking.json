@@ -1,0 +1,378 @@
+{
+  "Departments.department_name": {
+    "sample_values": [
+      "linguistic",
+      "art",
+      "geography"
+    ],
+    "inferred_type": "string"
+  },
+  "Departments.department_description": {
+    "sample_values": [
+      "error",
+      "nihil",
+      "in"
+    ],
+    "inferred_type": "string"
+  },
+  "Departments.department_id": {
+    "sample_values": [
+      "5",
+      "8",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Semesters.semester_description": {
+    "sample_values": [
+      "t",
+      "x",
+      "w"
+    ],
+    "inferred_type": "string"
+  },
+  "Semesters.semester_id": {
+    "sample_values": [
+      "5",
+      "8",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Semesters.semester_name": {
+    "sample_values": [
+      "winter 2010",
+      "spring 2014",
+      "spring 2019"
+    ],
+    "inferred_type": "string"
+  },
+  "Sections.course_id": {
+    "sample_values": [
+      "5",
+      "8",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "Sections.section_id": {
+    "sample_values": [
+      "5",
+      "8",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Sections.section_name": {
+    "sample_values": [
+      "f",
+      "g",
+      "e"
+    ],
+    "inferred_type": "string"
+  },
+  "Sections.section_description": {
+    "sample_values": [
+      "nesciunt",
+      "voluptatem",
+      "quis"
+    ],
+    "inferred_type": "string"
+  },
+  "Addresses.line_2": {
+    "sample_values": [
+      "Suite 383",
+      "Suite 674",
+      "Apt. 370"
+    ],
+    "inferred_type": "string"
+  },
+  "Addresses.address_id": {
+    "sample_values": [
+      "5",
+      "8",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Addresses.country": {
+    "sample_values": [
+      "Cook Islands",
+      "Iceland",
+      "Bermuda"
+    ],
+    "inferred_type": "string"
+  },
+  "Addresses.line_1": {
+    "sample_values": [
+      "3999 Aufderhar Ways Suite 593",
+      "492 Wilkinson Route",
+      "7081 Eda Center"
+    ],
+    "inferred_type": "string"
+  },
+  "Addresses.city": {
+    "sample_values": [
+      "Michelleburgh",
+      "Lake Careyberg",
+      "Mariliehaven"
+    ],
+    "inferred_type": "string"
+  },
+  "Addresses.zip_postcode": {
+    "sample_values": [
+      "446",
+      "777",
+      "148"
+    ],
+    "inferred_type": "integer"
+  },
+  "Addresses.state_province_county": {
+    "sample_values": [
+      "Delaware",
+      "Florida",
+      "Idaho"
+    ],
+    "inferred_type": "string"
+  },
+  "Student_Enrolment_Courses.course_id": {
+    "sample_values": [
+      "10",
+      "12",
+      "13"
+    ],
+    "inferred_type": "integer"
+  },
+  "Student_Enrolment_Courses.student_enrolment_id": {
+    "sample_values": [
+      "5",
+      "6",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "Student_Enrolment_Courses.student_course_id": {
+    "sample_values": [
+      "45105806",
+      "604750",
+      "83814225"
+    ],
+    "inferred_type": "integer"
+  },
+  "Student_Enrolment.student_enrolment_id": {
+    "sample_values": [
+      "5",
+      "8",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Student_Enrolment.degree_program_id": {
+    "sample_values": [
+      "5",
+      "12",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "Student_Enrolment.student_id": {
+    "sample_values": [
+      "5",
+      "1",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Student_Enrolment.semester_id": {
+    "sample_values": [
+      "5",
+      "1",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "Degree_Programs.degree_summary_name": {
+    "sample_values": [
+      "PHD",
+      "Bachelor",
+      "Master"
+    ],
+    "inferred_type": "string"
+  },
+  "Degree_Programs.department_id": {
+    "sample_values": [
+      "14",
+      "12",
+      "13"
+    ],
+    "inferred_type": "integer"
+  },
+  "Degree_Programs.degree_program_id": {
+    "sample_values": [
+      "5",
+      "8",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Degree_Programs.degree_summary_description": {
+    "sample_values": [
+      "cumque",
+      "aperiam",
+      "assumenda"
+    ],
+    "inferred_type": "string"
+  },
+  "Transcripts.transcript_id": {
+    "sample_values": [
+      "5",
+      "8",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Transcripts.transcript_date": {
+    "sample_values": [
+      "1975-05-20 18:31:21",
+      "1988-04-30 01:19:47",
+      "1975-10-28 15:16:51"
+    ],
+    "inferred_type": "string"
+  },
+  "Transcript_Contents.transcript_id": {
+    "sample_values": [
+      "13",
+      "8",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "Transcript_Contents.student_course_id": {
+    "sample_values": [
+      "45105806",
+      "28982908",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "Students.permanent_address_id": {
+    "sample_values": [
+      "5",
+      "15",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Students.middle_name": {
+    "sample_values": [
+      "Anna",
+      "Judd",
+      "Osborne"
+    ],
+    "inferred_type": "string"
+  },
+  "Students.current_address_id": {
+    "sample_values": [
+      "10",
+      "12",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "Students.cell_mobile_number": {
+    "sample_values": [
+      "(462)246-7921",
+      "7661787471",
+      "677.401.9382"
+    ],
+    "inferred_type": "string"
+  },
+  "Students.email_address": {
+    "sample_values": [
+      "nya.lesch@example.net",
+      "gracie29@example.com",
+      "jhuel@example.com"
+    ],
+    "inferred_type": "string"
+  },
+  "Students.ssn": {
+    "sample_values": [
+      "39",
+      "6274274",
+      "34458427"
+    ],
+    "inferred_type": "string"
+  },
+  "Students.last_name": {
+    "sample_values": [
+      "Huel",
+      "Rempel",
+      "Ward"
+    ],
+    "inferred_type": "string"
+  },
+  "Students.other_student_details": {
+    "sample_values": [
+      "nesciunt",
+      "autem",
+      "atque"
+    ],
+    "inferred_type": "string"
+  },
+  "Students.first_name": {
+    "sample_values": [
+      "Orrin",
+      "Timmothy",
+      "Warren"
+    ],
+    "inferred_type": "string"
+  },
+  "Students.student_id": {
+    "sample_values": [
+      "5",
+      "8",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Students.date_first_registered": {
+    "sample_values": [
+      "2004-12-24 12:36:46",
+      "1973-05-19 19:12:46",
+      "2009-09-25 00:14:25"
+    ],
+    "inferred_type": "string"
+  },
+  "Students.date_left": {
+    "sample_values": [
+      "1999-08-24 00:07:10",
+      "1990-09-01 05:03:27",
+      "2004-12-08 05:29:11"
+    ],
+    "inferred_type": "string"
+  },
+  "Courses.course_id": {
+    "sample_values": [
+      "5",
+      "8",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Courses.course_name": {
+    "sample_values": [
+      "la",
+      "nlp",
+      "pl"
+    ],
+    "inferred_type": "string"
+  },
+  "Courses.course_description": {
+    "sample_values": [
+      "p",
+      "v",
+      "q"
+    ],
+    "inferred_type": "string"
+  }
+}

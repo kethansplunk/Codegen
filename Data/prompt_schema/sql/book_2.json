@@ -1,0 +1,74 @@
+{
+  "publication.Publication_ID": {
+    "sample_values": [
+      1,
+      3,
+      5
+    ],
+    "inferred_type": "integer"
+  },
+  "publication.Book_ID": {
+    "sample_values": [
+      1,
+      4,
+      7
+    ],
+    "inferred_type": "integer"
+  },
+  "publication.Publisher": {
+    "sample_values": [
+      "Bertelsmann",
+      "Springer Nature",
+      "Wiley"
+    ],
+    "inferred_type": "string"
+  },
+  "publication.Publication_Date": {
+    "sample_values": [
+      "April 2007",
+      "March 2008",
+      "October 2005"
+    ],
+    "inferred_type": "string"
+  },
+  "publication.Price": {
+    "sample_values": [
+      15000000.0,
+      6000000.0,
+      4100000.0
+    ],
+    "inferred_type": "float"
+  },
+  "book.Book_ID": {
+    "sample_values": [
+      1,
+      4,
+      7
+    ],
+    "inferred_type": "integer"
+  },
+  "book.Title": {
+    "sample_values": [
+      "Sheva's War",
+      "Bloody Mary : Lady Liberty",
+      "Bloody Mary"
+    ],
+    "inferred_type": "string"
+  },
+  "book.Issues": {
+    "sample_values": [
+      6.0,
+      12.0,
+      9.0
+    ],
+    "inferred_type": "float"
+  },
+  "book.Writer": {
+    "sample_values": [
+      "Christopher Moeller",
+      "Garth Ennis",
+      "Elaine Lee"
+    ],
+    "inferred_type": "string"
+  }
+}

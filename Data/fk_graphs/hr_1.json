@@ -1,0 +1,255 @@
+{
+  "db_name": "hr_1",
+  "nodes": [
+    {
+      "name": "regions",
+      "columns": [
+        {
+          "name": "REGION_ID",
+          "type": "decimal(5,0)"
+        },
+        {
+          "name": "REGION_NAME",
+          "type": "varchar(25)"
+        }
+      ],
+      "pk": [
+        "REGION_ID"
+      ]
+    },
+    {
+      "name": "countries",
+      "columns": [
+        {
+          "name": "COUNTRY_ID",
+          "type": "varchar(2)"
+        },
+        {
+          "name": "COUNTRY_NAME",
+          "type": "varchar(40)"
+        },
+        {
+          "name": "REGION_ID",
+          "type": "decimal(10,0)"
+        }
+      ],
+      "pk": [
+        "COUNTRY_ID"
+      ]
+    },
+    {
+      "name": "departments",
+      "columns": [
+        {
+          "name": "DEPARTMENT_ID",
+          "type": "decimal(4,0)"
+        },
+        {
+          "name": "DEPARTMENT_NAME",
+          "type": "varchar(30)"
+        },
+        {
+          "name": "MANAGER_ID",
+          "type": "decimal(6,0)"
+        },
+        {
+          "name": "LOCATION_ID",
+          "type": "decimal(4,0)"
+        }
+      ],
+      "pk": [
+        "DEPARTMENT_ID"
+      ]
+    },
+    {
+      "name": "jobs",
+      "columns": [
+        {
+          "name": "JOB_ID",
+          "type": "varchar(10)"
+        },
+        {
+          "name": "JOB_TITLE",
+          "type": "varchar(35)"
+        },
+        {
+          "name": "MIN_SALARY",
+          "type": "decimal(6,0)"
+        },
+        {
+          "name": "MAX_SALARY",
+          "type": "decimal(6,0)"
+        }
+      ],
+      "pk": [
+        "JOB_ID"
+      ]
+    },
+    {
+      "name": "employees",
+      "columns": [
+        {
+          "name": "EMPLOYEE_ID",
+          "type": "decimal(6,0)"
+        },
+        {
+          "name": "FIRST_NAME",
+          "type": "varchar(20)"
+        },
+        {
+          "name": "LAST_NAME",
+          "type": "varchar(25)"
+        },
+        {
+          "name": "EMAIL",
+          "type": "varchar(25)"
+        },
+        {
+          "name": "PHONE_NUMBER",
+          "type": "varchar(20)"
+        },
+        {
+          "name": "HIRE_DATE",
+          "type": "date"
+        },
+        {
+          "name": "JOB_ID",
+          "type": "varchar(10)"
+        },
+        {
+          "name": "SALARY",
+          "type": "decimal(8,2)"
+        },
+        {
+          "name": "COMMISSION_PCT",
+          "type": "decimal(2,2)"
+        },
+        {
+          "name": "MANAGER_ID",
+          "type": "decimal(6,0)"
+        },
+        {
+          "name": "DEPARTMENT_ID",
+          "type": "decimal(4,0)"
+        }
+      ],
+      "pk": [
+        "EMPLOYEE_ID"
+      ]
+    },
+    {
+      "name": "job_history",
+      "columns": [
+        {
+          "name": "EMPLOYEE_ID",
+          "type": "decimal(6,0)"
+        },
+        {
+          "name": "START_DATE",
+          "type": "date"
+        },
+        {
+          "name": "END_DATE",
+          "type": "date"
+        },
+        {
+          "name": "JOB_ID",
+          "type": "varchar(10)"
+        },
+        {
+          "name": "DEPARTMENT_ID",
+          "type": "decimal(4,0)"
+        }
+      ],
+      "pk": [
+        "EMPLOYEE_ID",
+        "START_DATE"
+      ]
+    },
+    {
+      "name": "locations",
+      "columns": [
+        {
+          "name": "LOCATION_ID",
+          "type": "decimal(4,0)"
+        },
+        {
+          "name": "STREET_ADDRESS",
+          "type": "varchar(40)"
+        },
+        {
+          "name": "POSTAL_CODE",
+          "type": "varchar(12)"
+        },
+        {
+          "name": "CITY",
+          "type": "varchar(30)"
+        },
+        {
+          "name": "STATE_PROVINCE",
+          "type": "varchar(25)"
+        },
+        {
+          "name": "COUNTRY_ID",
+          "type": "varchar(2)"
+        }
+      ],
+      "pk": [
+        "LOCATION_ID"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "countries",
+      "to": "regions",
+      "child_col": "REGION_ID",
+      "parent_col": "REGION_ID"
+    },
+    {
+      "from": "employees",
+      "to": "jobs",
+      "child_col": "JOB_ID",
+      "parent_col": "JOB_ID"
+    },
+    {
+      "from": "employees",
+      "to": "departments",
+      "child_col": "DEPARTMENT_ID",
+      "parent_col": "DEPARTMENT_ID"
+    },
+    {
+      "from": "job_history",
+      "to": "jobs",
+      "child_col": "JOB_ID",
+      "parent_col": "JOB_ID"
+    },
+    {
+      "from": "job_history",
+      "to": "departments",
+      "child_col": "DEPARTMENT_ID",
+      "parent_col": "DEPARTMENT_ID"
+    },
+    {
+      "from": "job_history",
+      "to": "employees",
+      "child_col": "EMPLOYEE_ID",
+      "parent_col": "EMPLOYEE_ID"
+    },
+    {
+      "from": "locations",
+      "to": "countries",
+      "child_col": "COUNTRY_ID",
+      "parent_col": "COUNTRY_ID"
+    }
+  ],
+  "centrality": {
+    "regions": 0.16666666666666666,
+    "countries": 0.16666666666666666,
+    "departments": 0.3333333333333333,
+    "jobs": 0.3333333333333333,
+    "employees": 0.16666666666666666,
+    "job_history": 0.0,
+    "locations": 0.0
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "db_name": "ship_1",
+  "nodes": [
+    {
+      "name": "captain",
+      "columns": [
+        {
+          "name": "Captain_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Ship_ID",
+          "type": "INT"
+        },
+        {
+          "name": "age",
+          "type": "TEXT"
+        },
+        {
+          "name": "Class",
+          "type": "TEXT"
+        },
+        {
+          "name": "Rank",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "Captain_ID"
+      ]
+    },
+    {
+      "name": "Ship",
+      "columns": [
+        {
+          "name": "Ship_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Type",
+          "type": "TEXT"
+        },
+        {
+          "name": "Built_Year",
+          "type": "REAL"
+        },
+        {
+          "name": "Class",
+          "type": "TEXT"
+        },
+        {
+          "name": "Flag",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "Ship_ID"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "captain",
+      "to": "Ship",
+      "child_col": "Ship_ID",
+      "parent_col": "Ship_ID"
+    }
+  ],
+  "centrality": {
+    "captain": 0.0,
+    "Ship": 1.0
+  }
+}

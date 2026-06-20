@@ -1,0 +1,70 @@
+{
+  "db_name": "small_bank_1",
+  "collections": {
+    "ACCOUNTS": {
+      "primary_key": [
+        "custid"
+      ],
+      "columns": [
+        {
+          "name": "custid",
+          "type": "BIGINT"
+        },
+        {
+          "name": "name",
+          "type": "VARCHAR(64)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 7
+    },
+    "SAVINGS": {
+      "primary_key": [
+        "custid"
+      ],
+      "columns": [
+        {
+          "name": "custid",
+          "type": "BIGINT"
+        },
+        {
+          "name": "balance",
+          "type": "FLOAT"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "SAVINGS",
+          "to": "ACCOUNTS",
+          "child_col": "custid",
+          "parent_col": "custid"
+        }
+      ],
+      "row_count": 6
+    },
+    "CHECKING": {
+      "primary_key": [
+        "custid"
+      ],
+      "columns": [
+        {
+          "name": "custid",
+          "type": "BIGINT"
+        },
+        {
+          "name": "balance",
+          "type": "FLOAT"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "CHECKING",
+          "to": "ACCOUNTS",
+          "child_col": "custid",
+          "parent_col": "custid"
+        }
+      ],
+      "row_count": 7
+    }
+  }
+}

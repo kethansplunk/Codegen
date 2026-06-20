@@ -1,0 +1,449 @@
+{
+  "db_name": "store_1",
+  "collections": {
+    "artists": {
+      "primary_key": [
+        "id"
+      ],
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "name",
+          "type": "VARCHAR(120)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 275
+    },
+    "sqlite_sequence": {
+      "primary_key": [],
+      "columns": [
+        {
+          "name": "name",
+          "type": ""
+        },
+        {
+          "name": "seq",
+          "type": ""
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 10
+    },
+    "albums": {
+      "primary_key": [
+        "id"
+      ],
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "title",
+          "type": "VARCHAR(160)"
+        },
+        {
+          "name": "artist_id",
+          "type": "INTEGER"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "albums",
+          "to": "artists",
+          "child_col": "artist_id",
+          "parent_col": "id"
+        }
+      ],
+      "row_count": 347
+    },
+    "employees": {
+      "primary_key": [
+        "id"
+      ],
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "last_name",
+          "type": "VARCHAR(20)"
+        },
+        {
+          "name": "first_name",
+          "type": "VARCHAR(20)"
+        },
+        {
+          "name": "title",
+          "type": "VARCHAR(30)"
+        },
+        {
+          "name": "reports_to",
+          "type": "INTEGER"
+        },
+        {
+          "name": "birth_date",
+          "type": "TIMESTAMP"
+        },
+        {
+          "name": "hire_date",
+          "type": "TIMESTAMP"
+        },
+        {
+          "name": "address",
+          "type": "VARCHAR(70)"
+        },
+        {
+          "name": "city",
+          "type": "VARCHAR(40)"
+        },
+        {
+          "name": "state",
+          "type": "VARCHAR(40)"
+        },
+        {
+          "name": "country",
+          "type": "VARCHAR(40)"
+        },
+        {
+          "name": "postal_code",
+          "type": "VARCHAR(10)"
+        },
+        {
+          "name": "phone",
+          "type": "VARCHAR(24)"
+        },
+        {
+          "name": "fax",
+          "type": "VARCHAR(24)"
+        },
+        {
+          "name": "email",
+          "type": "VARCHAR(60)"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "employees",
+          "to": "employees",
+          "child_col": "reports_to",
+          "parent_col": "id"
+        }
+      ],
+      "row_count": 8
+    },
+    "customers": {
+      "primary_key": [
+        "id"
+      ],
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "first_name",
+          "type": "VARCHAR(40)"
+        },
+        {
+          "name": "last_name",
+          "type": "VARCHAR(20)"
+        },
+        {
+          "name": "company",
+          "type": "VARCHAR(80)"
+        },
+        {
+          "name": "address",
+          "type": "VARCHAR(70)"
+        },
+        {
+          "name": "city",
+          "type": "VARCHAR(40)"
+        },
+        {
+          "name": "state",
+          "type": "VARCHAR(40)"
+        },
+        {
+          "name": "country",
+          "type": "VARCHAR(40)"
+        },
+        {
+          "name": "postal_code",
+          "type": "VARCHAR(10)"
+        },
+        {
+          "name": "phone",
+          "type": "VARCHAR(24)"
+        },
+        {
+          "name": "fax",
+          "type": "VARCHAR(24)"
+        },
+        {
+          "name": "email",
+          "type": "VARCHAR(60)"
+        },
+        {
+          "name": "support_rep_id",
+          "type": "INTEGER"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "customers",
+          "to": "employees",
+          "child_col": "support_rep_id",
+          "parent_col": "id"
+        }
+      ],
+      "row_count": 59
+    },
+    "genres": {
+      "primary_key": [
+        "id"
+      ],
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "name",
+          "type": "VARCHAR(120)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 25
+    },
+    "invoices": {
+      "primary_key": [
+        "id"
+      ],
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "customer_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "invoice_date",
+          "type": "TIMESTAMP"
+        },
+        {
+          "name": "billing_address",
+          "type": "VARCHAR(70)"
+        },
+        {
+          "name": "billing_city",
+          "type": "VARCHAR(40)"
+        },
+        {
+          "name": "billing_state",
+          "type": "VARCHAR(40)"
+        },
+        {
+          "name": "billing_country",
+          "type": "VARCHAR(40)"
+        },
+        {
+          "name": "billing_postal_code",
+          "type": "VARCHAR(10)"
+        },
+        {
+          "name": "total",
+          "type": "NUMERIC(10,2)"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "invoices",
+          "to": "customers",
+          "child_col": "customer_id",
+          "parent_col": "id"
+        }
+      ],
+      "row_count": 412
+    },
+    "media_types": {
+      "primary_key": [
+        "id"
+      ],
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "name",
+          "type": "VARCHAR(120)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 5
+    },
+    "tracks": {
+      "primary_key": [
+        "id"
+      ],
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "name",
+          "type": "VARCHAR(200)"
+        },
+        {
+          "name": "album_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "media_type_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "genre_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "composer",
+          "type": "VARCHAR(220)"
+        },
+        {
+          "name": "milliseconds",
+          "type": "INTEGER"
+        },
+        {
+          "name": "bytes",
+          "type": "INTEGER"
+        },
+        {
+          "name": "unit_price",
+          "type": "NUMERIC(10,2)"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "tracks",
+          "to": "media_types",
+          "child_col": "media_type_id",
+          "parent_col": "id"
+        },
+        {
+          "from": "tracks",
+          "to": "genres",
+          "child_col": "genre_id",
+          "parent_col": "id"
+        },
+        {
+          "from": "tracks",
+          "to": "albums",
+          "child_col": "album_id",
+          "parent_col": "id"
+        }
+      ],
+      "row_count": 3503
+    },
+    "invoice_lines": {
+      "primary_key": [
+        "id"
+      ],
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "invoice_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "track_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "unit_price",
+          "type": "NUMERIC(10,2)"
+        },
+        {
+          "name": "quantity",
+          "type": "INTEGER"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "invoice_lines",
+          "to": "tracks",
+          "child_col": "track_id",
+          "parent_col": "id"
+        },
+        {
+          "from": "invoice_lines",
+          "to": "invoices",
+          "child_col": "invoice_id",
+          "parent_col": "id"
+        }
+      ],
+      "row_count": 2240
+    },
+    "playlists": {
+      "primary_key": [
+        "id"
+      ],
+      "columns": [
+        {
+          "name": "id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "name",
+          "type": "VARCHAR(120)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 18
+    },
+    "playlist_tracks": {
+      "primary_key": [
+        "playlist_id",
+        "track_id"
+      ],
+      "columns": [
+        {
+          "name": "playlist_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "track_id",
+          "type": "INTEGER"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "playlist_tracks",
+          "to": "tracks",
+          "child_col": "track_id",
+          "parent_col": "id"
+        },
+        {
+          "from": "playlist_tracks",
+          "to": "playlists",
+          "child_col": "playlist_id",
+          "parent_col": "id"
+        }
+      ],
+      "row_count": 8715
+    }
+  }
+}

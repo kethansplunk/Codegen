@@ -1,0 +1,168 @@
+{
+  "stadium.Stadium_ID": {
+    "sample_values": [
+      1,
+      4,
+      7
+    ],
+    "inferred_type": "integer"
+  },
+  "stadium.Location": {
+    "sample_values": [
+      "Brechin City",
+      "East Fife",
+      "Ayr United"
+    ],
+    "inferred_type": "string"
+  },
+  "stadium.Name": {
+    "sample_values": [
+      "Glebe Park",
+      "Bayview Stadium",
+      "Somerset Park"
+    ],
+    "inferred_type": "string"
+  },
+  "stadium.Capacity": {
+    "sample_values": [
+      10104,
+      52500,
+      3100
+    ],
+    "inferred_type": "integer"
+  },
+  "stadium.Highest": {
+    "sample_values": [
+      4812,
+      1763,
+      1057
+    ],
+    "inferred_type": "integer"
+  },
+  "stadium.Lowest": {
+    "sample_values": [
+      1294,
+      466,
+      331
+    ],
+    "inferred_type": "integer"
+  },
+  "stadium.Average": {
+    "sample_values": [
+      2106,
+      730,
+      637
+    ],
+    "inferred_type": "integer"
+  },
+  "singer.Singer_ID": {
+    "sample_values": [
+      1,
+      3,
+      5
+    ],
+    "inferred_type": "integer"
+  },
+  "singer.Name": {
+    "sample_values": [
+      "Tribal King",
+      "Timbaland",
+      "Rose White"
+    ],
+    "inferred_type": "string"
+  },
+  "singer.Country": {
+    "sample_values": [
+      "Netherlands",
+      "United States",
+      "France"
+    ],
+    "inferred_type": "string"
+  },
+  "singer.Song_Name": {
+    "sample_values": [
+      "Love",
+      "Dangerous",
+      "Sun"
+    ],
+    "inferred_type": "string"
+  },
+  "singer.Song_release_year": {
+    "sample_values": [
+      "1992",
+      "2013",
+      "2014"
+    ],
+    "inferred_type": "integer"
+  },
+  "singer.Age": {
+    "sample_values": [
+      52,
+      29,
+      43
+    ],
+    "inferred_type": "integer"
+  },
+  "singer.Is_male": {
+    "sample_values": [
+      "F",
+      "T"
+    ],
+    "inferred_type": "string"
+  },
+  "concert.concert_ID": {
+    "sample_values": [
+      1,
+      3,
+      5
+    ],
+    "inferred_type": "integer"
+  },
+  "concert.concert_Name": {
+    "sample_values": [
+      "Week 2",
+      "Week 1",
+      "Home Visits"
+    ],
+    "inferred_type": "string"
+  },
+  "concert.Theme": {
+    "sample_values": [
+      "Party All Night",
+      "Free choice 2",
+      "Wide Awake"
+    ],
+    "inferred_type": "string"
+  },
+  "concert.Stadium_ID": {
+    "sample_values": [
+      "1",
+      "2",
+      "10"
+    ],
+    "inferred_type": "integer"
+  },
+  "concert.Year": {
+    "sample_values": [
+      "2014",
+      "2015"
+    ],
+    "inferred_type": "integer"
+  },
+  "singer_in_concert.concert_ID": {
+    "sample_values": [
+      1,
+      3,
+      5
+    ],
+    "inferred_type": "integer"
+  },
+  "singer_in_concert.Singer_ID": {
+    "sample_values": [
+      "2",
+      "3",
+      "5"
+    ],
+    "inferred_type": "integer"
+  }
+}

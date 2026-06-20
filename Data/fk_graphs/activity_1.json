@@ -1,0 +1,162 @@
+{
+  "db_name": "activity_1",
+  "nodes": [
+    {
+      "name": "Activity",
+      "columns": [
+        {
+          "name": "actid",
+          "type": "INTEGER"
+        },
+        {
+          "name": "activity_name",
+          "type": "varchar(25)"
+        }
+      ],
+      "pk": [
+        "actid"
+      ]
+    },
+    {
+      "name": "Participates_in",
+      "columns": [
+        {
+          "name": "stuid",
+          "type": "INTEGER"
+        },
+        {
+          "name": "actid",
+          "type": "INTEGER"
+        }
+      ],
+      "pk": []
+    },
+    {
+      "name": "Faculty_Participates_in",
+      "columns": [
+        {
+          "name": "FacID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "actid",
+          "type": "INTEGER"
+        }
+      ],
+      "pk": []
+    },
+    {
+      "name": "Student",
+      "columns": [
+        {
+          "name": "StuID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "LName",
+          "type": "VARCHAR(12)"
+        },
+        {
+          "name": "Fname",
+          "type": "VARCHAR(12)"
+        },
+        {
+          "name": "Age",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Sex",
+          "type": "VARCHAR(1)"
+        },
+        {
+          "name": "Major",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Advisor",
+          "type": "INTEGER"
+        },
+        {
+          "name": "city_code",
+          "type": "VARCHAR(3)"
+        }
+      ],
+      "pk": [
+        "StuID"
+      ]
+    },
+    {
+      "name": "Faculty",
+      "columns": [
+        {
+          "name": "FacID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Lname",
+          "type": "VARCHAR(15)"
+        },
+        {
+          "name": "Fname",
+          "type": "VARCHAR(15)"
+        },
+        {
+          "name": "Rank",
+          "type": "VARCHAR(15)"
+        },
+        {
+          "name": "Sex",
+          "type": "VARCHAR(1)"
+        },
+        {
+          "name": "Phone",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Room",
+          "type": "VARCHAR(5)"
+        },
+        {
+          "name": "Building",
+          "type": "VARCHAR(13)"
+        }
+      ],
+      "pk": [
+        "FacID"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "Participates_in",
+      "to": "Activity",
+      "child_col": "actid",
+      "parent_col": "actid"
+    },
+    {
+      "from": "Participates_in",
+      "to": "Student",
+      "child_col": "stuid",
+      "parent_col": "StuID"
+    },
+    {
+      "from": "Faculty_Participates_in",
+      "to": "Activity",
+      "child_col": "actid",
+      "parent_col": "actid"
+    },
+    {
+      "from": "Faculty_Participates_in",
+      "to": "Faculty",
+      "child_col": "FacID",
+      "parent_col": "FacID"
+    }
+  ],
+  "centrality": {
+    "Activity": 0.5,
+    "Participates_in": 0.0,
+    "Faculty_Participates_in": 0.0,
+    "Student": 0.25,
+    "Faculty": 0.25
+  }
+}

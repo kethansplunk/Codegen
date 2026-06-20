@@ -1,0 +1,186 @@
+{
+  "db_name": "csu_1",
+  "nodes": [
+    {
+      "name": "Campuses",
+      "columns": [
+        {
+          "name": "Id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Campus",
+          "type": "TEXT"
+        },
+        {
+          "name": "Location",
+          "type": "TEXT"
+        },
+        {
+          "name": "County",
+          "type": "TEXT"
+        },
+        {
+          "name": "Year",
+          "type": "INTEGER"
+        }
+      ],
+      "pk": [
+        "Id"
+      ]
+    },
+    {
+      "name": "csu_fees",
+      "columns": [
+        {
+          "name": "Campus",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Year",
+          "type": "INTEGER"
+        },
+        {
+          "name": "CampusFee",
+          "type": "INTEGER"
+        }
+      ],
+      "pk": [
+        "Campus"
+      ]
+    },
+    {
+      "name": "degrees",
+      "columns": [
+        {
+          "name": "Year",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Campus",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Degrees",
+          "type": "INTEGER"
+        }
+      ],
+      "pk": [
+        "Year",
+        "Campus"
+      ]
+    },
+    {
+      "name": "discipline_enrollments",
+      "columns": [
+        {
+          "name": "Campus",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Discipline",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Year",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Undergraduate",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Graduate",
+          "type": "INTEGER"
+        }
+      ],
+      "pk": [
+        "Campus",
+        "Discipline"
+      ]
+    },
+    {
+      "name": "enrollments",
+      "columns": [
+        {
+          "name": "Campus",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Year",
+          "type": "INTEGER"
+        },
+        {
+          "name": "TotalEnrollment_AY",
+          "type": "INTEGER"
+        },
+        {
+          "name": "FTE_AY",
+          "type": "INTEGER"
+        }
+      ],
+      "pk": [
+        "Campus",
+        "Year"
+      ]
+    },
+    {
+      "name": "faculty",
+      "columns": [
+        {
+          "name": "Campus",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Year",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Faculty",
+          "type": "REAL"
+        }
+      ],
+      "pk": []
+    }
+  ],
+  "edges": [
+    {
+      "from": "csu_fees",
+      "to": "Campuses",
+      "child_col": "Campus",
+      "parent_col": "Id"
+    },
+    {
+      "from": "degrees",
+      "to": "Campuses",
+      "child_col": "Campus",
+      "parent_col": "Id"
+    },
+    {
+      "from": "discipline_enrollments",
+      "to": "Campuses",
+      "child_col": "Campus",
+      "parent_col": "Id"
+    },
+    {
+      "from": "enrollments",
+      "to": "Campuses",
+      "child_col": "Campus",
+      "parent_col": "Id"
+    },
+    {
+      "from": "faculty",
+      "to": "Campuses",
+      "child_col": "Campus",
+      "parent_col": "Id"
+    }
+  ],
+  "centrality": {
+    "Campuses": 1.0,
+    "csu_fees": 0.0,
+    "degrees": 0.0,
+    "discipline_enrollments": 0.0,
+    "enrollments": 0.0,
+    "faculty": 0.0
+  }
+}

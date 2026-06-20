@@ -1,0 +1,123 @@
+{
+  "db_name": "wine_1",
+  "collections": {
+    "grapes": {
+      "primary_key": [
+        "ID"
+      ],
+      "columns": [
+        {
+          "name": "ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Grape",
+          "type": "TEXT"
+        },
+        {
+          "name": "Color",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 20
+    },
+    "appellations": {
+      "primary_key": [
+        "No"
+      ],
+      "columns": [
+        {
+          "name": "No",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Appelation",
+          "type": "TEXT"
+        },
+        {
+          "name": "County",
+          "type": "TEXT"
+        },
+        {
+          "name": "State",
+          "type": "TEXT"
+        },
+        {
+          "name": "Area",
+          "type": "TEXT"
+        },
+        {
+          "name": "isAVA",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 57
+    },
+    "wine": {
+      "primary_key": [],
+      "columns": [
+        {
+          "name": "No",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Grape",
+          "type": "TEXT"
+        },
+        {
+          "name": "Winery",
+          "type": "TEXT"
+        },
+        {
+          "name": "Appelation",
+          "type": "TEXT"
+        },
+        {
+          "name": "State",
+          "type": "TEXT"
+        },
+        {
+          "name": "Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Year",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Price",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Score",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Cases",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Drink",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "wine",
+          "to": "appellations",
+          "child_col": "Appelation",
+          "parent_col": "Appelation"
+        },
+        {
+          "from": "wine",
+          "to": "grapes",
+          "child_col": "Grape",
+          "parent_col": "Grape"
+        }
+      ],
+      "row_count": 500
+    }
+  }
+}

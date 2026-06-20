@@ -1,0 +1,146 @@
+{
+  "city.City_ID": {
+    "sample_values": [
+      "17",
+      "15",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "city.County_ID": {
+    "sample_values": [
+      "5",
+      "2",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "city.Amerindian": {
+    "sample_values": [
+      "0.4",
+      "1.0",
+      "0.2"
+    ],
+    "inferred_type": "float"
+  },
+  "city.Multiracial": {
+    "sample_values": [
+      "3.4",
+      "13.0",
+      "16.1"
+    ],
+    "inferred_type": "float"
+  },
+  "city.Name": {
+    "sample_values": [
+      "Aguada",
+      "Caguas",
+      "Barranquitas"
+    ],
+    "inferred_type": "string"
+  },
+  "city.Hispanic": {
+    "sample_values": [
+      "99.4",
+      "98.6",
+      "99.5"
+    ],
+    "inferred_type": "float"
+  },
+  "city.White": {
+    "sample_values": [
+      "72.5",
+      "82.0",
+      "83.5"
+    ],
+    "inferred_type": "float"
+  },
+  "city.Asian": {
+    "sample_values": [
+      "0.4",
+      "0.1",
+      "0.2"
+    ],
+    "inferred_type": "float"
+  },
+  "city.Black": {
+    "sample_values": [
+      "12.6",
+      "7.2",
+      "10.3"
+    ],
+    "inferred_type": "float"
+  },
+  "county_public_safety.Crime_rate": {
+    "sample_values": [
+      "118.0",
+      "150.0",
+      "174.0"
+    ],
+    "inferred_type": "float"
+  },
+  "county_public_safety.County_ID": {
+    "sample_values": [
+      "5",
+      "2",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "county_public_safety.Location": {
+    "sample_values": [
+      "East",
+      "North",
+      "West"
+    ],
+    "inferred_type": "string"
+  },
+  "county_public_safety.Name": {
+    "sample_values": [
+      "Burnaby",
+      "Campbell River",
+      "Central Saanich"
+    ],
+    "inferred_type": "string"
+  },
+  "county_public_safety.Population": {
+    "sample_values": [
+      "128165",
+      "16821",
+      "204320"
+    ],
+    "inferred_type": "integer"
+  },
+  "county_public_safety.Residents_per_officer": {
+    "sample_values": [
+      "808",
+      "711",
+      "803"
+    ],
+    "inferred_type": "integer"
+  },
+  "county_public_safety.Police_officers": {
+    "sample_values": [
+      "253",
+      "91",
+      "40"
+    ],
+    "inferred_type": "integer"
+  },
+  "county_public_safety.Case_burden": {
+    "sample_values": [
+      "137",
+      "140",
+      "107"
+    ],
+    "inferred_type": "integer"
+  },
+  "county_public_safety.Police_force": {
+    "sample_values": [
+      "RCMP",
+      "Central Saanich Police",
+      "Abbotsford Police Department"
+    ],
+    "inferred_type": "string"
+  }
+}

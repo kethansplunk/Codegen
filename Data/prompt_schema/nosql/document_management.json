@@ -1,0 +1,237 @@
+{
+  "Document_Sections.section_title": {
+    "sample_values": [
+      "before",
+      "after"
+    ],
+    "inferred_type": "string"
+  },
+  "Document_Sections.document_code": {
+    "sample_values": [
+      "675",
+      "566",
+      "217"
+    ],
+    "inferred_type": "integer"
+  },
+  "Document_Sections.section_code": {
+    "sample_values": [
+      "34",
+      "49",
+      "38"
+    ],
+    "inferred_type": "integer"
+  },
+  "Document_Sections.section_id": {
+    "sample_values": [
+      "40",
+      "54",
+      "21"
+    ],
+    "inferred_type": "integer"
+  },
+  "Document_Sections.section_sequence": {
+    "sample_values": [
+      "6521",
+      "7236",
+      "2354"
+    ],
+    "inferred_type": "integer"
+  },
+  "Document_Functional_Areas.document_code": {
+    "sample_values": [
+      "349",
+      "465",
+      "989"
+    ],
+    "inferred_type": "integer"
+  },
+  "Document_Functional_Areas.functional_area_code": {
+    "sample_values": [
+      "8",
+      "1",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Functional_Areas.functional_area_code": {
+    "sample_values": [
+      "8",
+      "1",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Functional_Areas.functional_area_description": {
+    "sample_values": [
+      "Keep blank",
+      "Signature",
+      "Acknowledgement"
+    ],
+    "inferred_type": "string"
+  },
+  "Document_Structures.parent_document_structure_code": {
+    "sample_values": [
+      "8",
+      "1",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "Document_Structures.document_structure_description": {
+    "sample_values": [
+      "Header",
+      "Main section",
+      "Image section"
+    ],
+    "inferred_type": "string"
+  },
+  "Document_Structures.document_structure_code": {
+    "sample_values": [
+      "5",
+      "8",
+      "1"
+    ],
+    "inferred_type": "integer"
+  },
+  "Images.image_url": {
+    "sample_values": [
+      "http://www.hermann.com/1.jpg",
+      "http://www.heller.com/1.jpg",
+      "http://www.fritsch.net/1.jpg"
+    ],
+    "inferred_type": "string"
+  },
+  "Images.image_id": {
+    "sample_values": [
+      "5",
+      "8",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Images.image_alt_text": {
+    "sample_values": [
+      "Lea",
+      "Mohamed",
+      "Miller"
+    ],
+    "inferred_type": "string"
+  },
+  "Images.image_name": {
+    "sample_values": [
+      "chapter1",
+      "chapter2",
+      "top2"
+    ],
+    "inferred_type": "string"
+  },
+  "Document_Sections_Images.image_id": {
+    "sample_values": [
+      "5",
+      "8",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "Document_Sections_Images.section_id": {
+    "sample_values": [
+      "40",
+      "89",
+      "27"
+    ],
+    "inferred_type": "integer"
+  },
+  "Documents.document_structure_code": {
+    "sample_values": [
+      "5",
+      "8",
+      "1"
+    ],
+    "inferred_type": "integer"
+  },
+  "Documents.document_code": {
+    "sample_values": [
+      "349",
+      "713",
+      "706"
+    ],
+    "inferred_type": "integer"
+  },
+  "Documents.document_type_code": {
+    "sample_values": [
+      "Book",
+      "Advertisement",
+      "Paper"
+    ],
+    "inferred_type": "string"
+  },
+  "Documents.access_count": {
+    "sample_values": [
+      "2910",
+      "5924",
+      "8208"
+    ],
+    "inferred_type": "integer"
+  },
+  "Documents.document_name": {
+    "sample_values": [
+      "Summer Sails",
+      "How to cook pasta",
+      "Spring Sails"
+    ],
+    "inferred_type": "string"
+  },
+  "Roles.role_description": {
+    "sample_values": [
+      "Project Manager",
+      "Database Administrator"
+    ],
+    "inferred_type": "string"
+  },
+  "Roles.role_code": {
+    "sample_values": [
+      "PROJ-MGR",
+      "DBA"
+    ],
+    "inferred_type": "string"
+  },
+  "Users.password": {
+    "sample_values": [
+      "1fb26eea854962d41512827bf90a5b7ce4b359d8",
+      "f6977378f409f5d2d230016a6678a582e14f43b0",
+      "3f6affa583bfdf7fac6faeb2ca418431909d4b39"
+    ],
+    "inferred_type": "string"
+  },
+  "Users.user_id": {
+    "sample_values": [
+      "5",
+      "8",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Users.role_code": {
+    "sample_values": [
+      "PROJ-MGR",
+      "DBA"
+    ],
+    "inferred_type": "string"
+  },
+  "Users.user_name": {
+    "sample_values": [
+      "jacklyn.schmitt",
+      "heller.harley",
+      "roger.o'conner"
+    ],
+    "inferred_type": "string"
+  },
+  "Users.user_login": {
+    "sample_values": [
+      "1",
+      "0"
+    ],
+    "inferred_type": "integer"
+  }
+}

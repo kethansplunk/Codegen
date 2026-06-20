@@ -1,0 +1,126 @@
+{
+  "db_name": "game_injury",
+  "collections": {
+    "stadium": {
+      "primary_key": [
+        "id"
+      ],
+      "columns": [
+        {
+          "name": "id",
+          "type": "INT"
+        },
+        {
+          "name": "name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Home_Games",
+          "type": "INT"
+        },
+        {
+          "name": "Average_Attendance",
+          "type": "REAL"
+        },
+        {
+          "name": "Total_Attendance",
+          "type": "REAL"
+        },
+        {
+          "name": "Capacity_Percentage",
+          "type": "REAL"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 13
+    },
+    "game": {
+      "primary_key": [
+        "id"
+      ],
+      "columns": [
+        {
+          "name": "stadium_id",
+          "type": "INT"
+        },
+        {
+          "name": "id",
+          "type": "INT"
+        },
+        {
+          "name": "Season",
+          "type": "INT"
+        },
+        {
+          "name": "Date",
+          "type": "TEXT"
+        },
+        {
+          "name": "Home_team",
+          "type": "TEXT"
+        },
+        {
+          "name": "Away_team",
+          "type": "TEXT"
+        },
+        {
+          "name": "Score",
+          "type": "TEXT"
+        },
+        {
+          "name": "Competition",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "game",
+          "to": "stadium",
+          "child_col": "stadium_id",
+          "parent_col": "id"
+        }
+      ],
+      "row_count": 20
+    },
+    "injury_accident": {
+      "primary_key": [
+        "id"
+      ],
+      "columns": [
+        {
+          "name": "game_id",
+          "type": "INT"
+        },
+        {
+          "name": "id",
+          "type": "INT"
+        },
+        {
+          "name": "Player",
+          "type": "TEXT"
+        },
+        {
+          "name": "Injury",
+          "type": "TEXT"
+        },
+        {
+          "name": "Number_of_matches",
+          "type": "TEXT"
+        },
+        {
+          "name": "Source",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "injury_accident",
+          "to": "game",
+          "child_col": "game_id",
+          "parent_col": "id"
+        }
+      ],
+      "row_count": 15
+    }
+  }
+}

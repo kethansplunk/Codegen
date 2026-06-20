@@ -1,0 +1,86 @@
+{
+  "db_name": "movie_1",
+  "nodes": [
+    {
+      "name": "Movie",
+      "columns": [
+        {
+          "name": "mID",
+          "type": "INT"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        },
+        {
+          "name": "year",
+          "type": "INT"
+        },
+        {
+          "name": "director",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "mID"
+      ]
+    },
+    {
+      "name": "Reviewer",
+      "columns": [
+        {
+          "name": "rID",
+          "type": "INT"
+        },
+        {
+          "name": "name",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "rID"
+      ]
+    },
+    {
+      "name": "Rating",
+      "columns": [
+        {
+          "name": "rID",
+          "type": "INT"
+        },
+        {
+          "name": "mID",
+          "type": "INT"
+        },
+        {
+          "name": "stars",
+          "type": "INT"
+        },
+        {
+          "name": "ratingDate",
+          "type": "date"
+        }
+      ],
+      "pk": []
+    }
+  ],
+  "edges": [
+    {
+      "from": "Rating",
+      "to": "Reviewer",
+      "child_col": "rID",
+      "parent_col": "rID"
+    },
+    {
+      "from": "Rating",
+      "to": "Movie",
+      "child_col": "mID",
+      "parent_col": "mID"
+    }
+  ],
+  "centrality": {
+    "Movie": 0.5,
+    "Reviewer": 0.5,
+    "Rating": 0.0
+  }
+}

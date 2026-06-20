@@ -1,0 +1,125 @@
+{
+  "db_name": "school_finance",
+  "nodes": [
+    {
+      "name": "School",
+      "columns": [
+        {
+          "name": "School_id",
+          "type": "TEXT"
+        },
+        {
+          "name": "School_name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Location",
+          "type": "TEXT"
+        },
+        {
+          "name": "Mascot",
+          "type": "TEXT"
+        },
+        {
+          "name": "Enrollment",
+          "type": "INT"
+        },
+        {
+          "name": "IHSAA_Class",
+          "type": "TEXT"
+        },
+        {
+          "name": "IHSAA_Football_Class",
+          "type": "TEXT"
+        },
+        {
+          "name": "County",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "School_id"
+      ]
+    },
+    {
+      "name": "budget",
+      "columns": [
+        {
+          "name": "School_id",
+          "type": "INT"
+        },
+        {
+          "name": "Year",
+          "type": "INT"
+        },
+        {
+          "name": "Budgeted",
+          "type": "INT"
+        },
+        {
+          "name": "total_budget_percent_budgeted",
+          "type": "REAL"
+        },
+        {
+          "name": "Invested",
+          "type": "INT"
+        },
+        {
+          "name": "total_budget_percent_invested",
+          "type": "REAL"
+        },
+        {
+          "name": "Budget_invested_percent",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "School_id",
+        "Year"
+      ]
+    },
+    {
+      "name": "endowment",
+      "columns": [
+        {
+          "name": "endowment_id",
+          "type": "INT"
+        },
+        {
+          "name": "School_id",
+          "type": "INT"
+        },
+        {
+          "name": "donator_name",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        }
+      ],
+      "pk": [
+        "endowment_id"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "budget",
+      "to": "School",
+      "child_col": "School_id",
+      "parent_col": "School_id"
+    },
+    {
+      "from": "endowment",
+      "to": "School",
+      "child_col": "School_id",
+      "parent_col": "School_id"
+    }
+  ],
+  "centrality": {
+    "School": 1.0,
+    "budget": 0.0,
+    "endowment": 0.0
+  }
+}

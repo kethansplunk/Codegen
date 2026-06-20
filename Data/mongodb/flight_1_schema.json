@@ -1,0 +1,126 @@
+{
+  "db_name": "flight_1",
+  "collections": {
+    "flight": {
+      "primary_key": [
+        "flno"
+      ],
+      "columns": [
+        {
+          "name": "flno",
+          "type": "number(4,0)"
+        },
+        {
+          "name": "origin",
+          "type": "varchar2(20)"
+        },
+        {
+          "name": "destination",
+          "type": "varchar2(20)"
+        },
+        {
+          "name": "distance",
+          "type": "number(6,0)"
+        },
+        {
+          "name": "departure_date",
+          "type": "date"
+        },
+        {
+          "name": "arrival_date",
+          "type": "date"
+        },
+        {
+          "name": "price",
+          "type": "number(7,2)"
+        },
+        {
+          "name": "aid",
+          "type": "number(9,0)"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "flight",
+          "to": "aircraft",
+          "child_col": "aid",
+          "parent_col": "aid"
+        }
+      ],
+      "row_count": 10
+    },
+    "aircraft": {
+      "primary_key": [
+        "aid"
+      ],
+      "columns": [
+        {
+          "name": "aid",
+          "type": "number(9,0)"
+        },
+        {
+          "name": "name",
+          "type": "varchar2(30)"
+        },
+        {
+          "name": "distance",
+          "type": "number(6,0)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 16
+    },
+    "employee": {
+      "primary_key": [
+        "eid"
+      ],
+      "columns": [
+        {
+          "name": "eid",
+          "type": "number(9,0)"
+        },
+        {
+          "name": "name",
+          "type": "varchar2(30)"
+        },
+        {
+          "name": "salary",
+          "type": "number(10,2)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 31
+    },
+    "certificate": {
+      "primary_key": [
+        "eid",
+        "aid"
+      ],
+      "columns": [
+        {
+          "name": "eid",
+          "type": "number(9,0)"
+        },
+        {
+          "name": "aid",
+          "type": "number(9,0)"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "certificate",
+          "to": "aircraft",
+          "child_col": "aid",
+          "parent_col": "aid"
+        },
+        {
+          "from": "certificate",
+          "to": "employee",
+          "child_col": "eid",
+          "parent_col": "eid"
+        }
+      ],
+      "row_count": 69
+    }
+  }
+}

@@ -1,0 +1,97 @@
+{
+  "db_name": "inn_1",
+  "nodes": [
+    {
+      "name": "Rooms",
+      "columns": [
+        {
+          "name": "RoomId",
+          "type": "TEXT"
+        },
+        {
+          "name": "roomName",
+          "type": "TEXT"
+        },
+        {
+          "name": "beds",
+          "type": "INTEGER"
+        },
+        {
+          "name": "bedType",
+          "type": "TEXT"
+        },
+        {
+          "name": "maxOccupancy",
+          "type": "INTEGER"
+        },
+        {
+          "name": "basePrice",
+          "type": "INTEGER"
+        },
+        {
+          "name": "decor",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "RoomId"
+      ]
+    },
+    {
+      "name": "Reservations",
+      "columns": [
+        {
+          "name": "Code",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Room",
+          "type": "TEXT"
+        },
+        {
+          "name": "CheckIn",
+          "type": "TEXT"
+        },
+        {
+          "name": "CheckOut",
+          "type": "TEXT"
+        },
+        {
+          "name": "Rate",
+          "type": "REAL"
+        },
+        {
+          "name": "LastName",
+          "type": "TEXT"
+        },
+        {
+          "name": "FirstName",
+          "type": "TEXT"
+        },
+        {
+          "name": "Adults",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Kids",
+          "type": "INTEGER"
+        }
+      ],
+      "pk": [
+        "Code"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "Reservations",
+      "to": "Rooms",
+      "child_col": "Room",
+      "parent_col": "RoomId"
+    }
+  ],
+  "centrality": {
+    "Rooms": 1.0,
+    "Reservations": 0.0
+  }
+}

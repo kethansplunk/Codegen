@@ -1,0 +1,269 @@
+{
+  "db_name": "cre_Doc_Tracking_DB",
+  "collections": {
+    "Ref_Document_Types": {
+      "primary_key": [
+        "Document_Type_Code"
+      ],
+      "columns": [
+        {
+          "name": "Document_Type_Code",
+          "type": "CHAR(15)"
+        },
+        {
+          "name": "Document_Type_Name",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "Document_Type_Description",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 4
+    },
+    "Ref_Calendar": {
+      "primary_key": [
+        "Calendar_Date"
+      ],
+      "columns": [
+        {
+          "name": "Calendar_Date",
+          "type": "DATETIME"
+        },
+        {
+          "name": "Day_Number",
+          "type": "INTEGER"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 15
+    },
+    "Ref_Locations": {
+      "primary_key": [
+        "Location_Code"
+      ],
+      "columns": [
+        {
+          "name": "Location_Code",
+          "type": "CHAR(15)"
+        },
+        {
+          "name": "Location_Name",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "Location_Description",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 5
+    },
+    "Roles": {
+      "primary_key": [
+        "Role_Code"
+      ],
+      "columns": [
+        {
+          "name": "Role_Code",
+          "type": "CHAR(15)"
+        },
+        {
+          "name": "Role_Name",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "Role_Description",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 5
+    },
+    "All_Documents": {
+      "primary_key": [
+        "Document_ID"
+      ],
+      "columns": [
+        {
+          "name": "Document_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Date_Stored",
+          "type": "DATETIME"
+        },
+        {
+          "name": "Document_Type_Code",
+          "type": "CHAR(15)"
+        },
+        {
+          "name": "Document_Name",
+          "type": "CHAR(255)"
+        },
+        {
+          "name": "Document_Description",
+          "type": "CHAR(255)"
+        },
+        {
+          "name": "Other_Details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "All_Documents",
+          "to": "Ref_Calendar",
+          "child_col": "Date_Stored",
+          "parent_col": "Calendar_Date"
+        },
+        {
+          "from": "All_Documents",
+          "to": "Ref_Document_Types",
+          "child_col": "Document_Type_Code",
+          "parent_col": "Document_Type_Code"
+        }
+      ],
+      "row_count": 15
+    },
+    "Employees": {
+      "primary_key": [
+        "Employee_ID"
+      ],
+      "columns": [
+        {
+          "name": "Employee_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Role_Code",
+          "type": "CHAR(15)"
+        },
+        {
+          "name": "Employee_Name",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "Gender_MFU",
+          "type": "CHAR(1)"
+        },
+        {
+          "name": "Date_of_Birth",
+          "type": "DATETIME"
+        },
+        {
+          "name": "Other_Details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Employees",
+          "to": "Roles",
+          "child_col": "Role_Code",
+          "parent_col": "Role_Code"
+        }
+      ],
+      "row_count": 15
+    },
+    "Document_Locations": {
+      "primary_key": [
+        "Document_ID",
+        "Location_Code",
+        "Date_in_Location_From"
+      ],
+      "columns": [
+        {
+          "name": "Document_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Location_Code",
+          "type": "CHAR(15)"
+        },
+        {
+          "name": "Date_in_Location_From",
+          "type": "DATETIME"
+        },
+        {
+          "name": "Date_in_Locaton_To",
+          "type": "DATETIME"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Document_Locations",
+          "to": "All_Documents",
+          "child_col": "Document_ID",
+          "parent_col": "Document_ID"
+        },
+        {
+          "from": "Document_Locations",
+          "to": "Ref_Calendar",
+          "child_col": "Date_in_Location_From",
+          "parent_col": "Calendar_Date"
+        },
+        {
+          "from": "Document_Locations",
+          "to": "Ref_Locations",
+          "child_col": "Location_Code",
+          "parent_col": "Location_Code"
+        }
+      ],
+      "row_count": 15
+    },
+    "Documents_to_be_Destroyed": {
+      "primary_key": [
+        "Document_ID"
+      ],
+      "columns": [
+        {
+          "name": "Document_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Destruction_Authorised_by_Employee_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Destroyed_by_Employee_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Planned_Destruction_Date",
+          "type": "DATETIME"
+        },
+        {
+          "name": "Actual_Destruction_Date",
+          "type": "DATETIME"
+        },
+        {
+          "name": "Other_Details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Documents_to_be_Destroyed",
+          "to": "All_Documents",
+          "child_col": "Document_ID",
+          "parent_col": "Document_ID"
+        },
+        {
+          "from": "Documents_to_be_Destroyed",
+          "to": "Ref_Calendar",
+          "child_col": "Planned_Destruction_Date",
+          "parent_col": "Calendar_Date"
+        },
+        {
+          "from": "Documents_to_be_Destroyed",
+          "to": "Employees",
+          "child_col": "Destroyed_by_Employee_ID",
+          "parent_col": "Employee_ID"
+        }
+      ],
+      "row_count": 11
+    }
+  }
+}

@@ -1,0 +1,488 @@
+{
+  "Album.AlbumId": {
+    "sample_values": [
+      1,
+      7,
+      271
+    ],
+    "inferred_type": "integer"
+  },
+  "Album.Title": {
+    "sample_values": [
+      "The Best Of Buddy Guy - The Millenium Collection",
+      "Warner 25 Anos",
+      "Plays Metallica By Four Cellos"
+    ],
+    "inferred_type": "string"
+  },
+  "Album.ArtistId": {
+    "sample_values": [
+      1,
+      7,
+      13
+    ],
+    "inferred_type": "integer"
+  },
+  "Artist.ArtistId": {
+    "sample_values": [
+      1,
+      7,
+      13
+    ],
+    "inferred_type": "integer"
+  },
+  "Artist.Name": {
+    "sample_values": [
+      "Cl\u00e1udio Zoli",
+      "Audioslave",
+      "BackBeat"
+    ],
+    "inferred_type": "string"
+  },
+  "Customer.CustomerId": {
+    "sample_values": [
+      1,
+      24,
+      42
+    ],
+    "inferred_type": "integer"
+  },
+  "Customer.FirstName": {
+    "sample_values": [
+      "Dan",
+      "Daan",
+      "Kara"
+    ],
+    "inferred_type": "string"
+  },
+  "Customer.LastName": {
+    "sample_values": [
+      "Miller",
+      "Peeters",
+      "Nielsen"
+    ],
+    "inferred_type": "string"
+  },
+  "Customer.Company": {
+    "sample_values": [
+      "Apple Inc.",
+      "Woodstock Discos",
+      "JetBrains s.r.o."
+    ],
+    "inferred_type": "string"
+  },
+  "Customer.Address": {
+    "sample_values": [
+      "541 Del Medio Avenue",
+      "Gr\u00e9trystraat 63",
+      "S\u00f8nder Boulevard 51"
+    ],
+    "inferred_type": "string"
+  },
+  "Customer.City": {
+    "sample_values": [
+      "Boston",
+      "Copenhagen",
+      "S\u00e3o Paulo"
+    ],
+    "inferred_type": "string"
+  },
+  "Customer.State": {
+    "sample_values": [
+      "MB",
+      "WA",
+      "NY"
+    ],
+    "inferred_type": "string"
+  },
+  "Customer.Country": {
+    "sample_values": [
+      "United Kingdom",
+      "Denmark",
+      "USA"
+    ],
+    "inferred_type": "string"
+  },
+  "Customer.PostalCode": {
+    "sample_values": [
+      "94040-111",
+      "1000",
+      "1720"
+    ],
+    "inferred_type": "string"
+  },
+  "Customer.Phone": {
+    "sample_values": [
+      "+1 (650) 644-3358",
+      "+32 02 219 03 03",
+      "+453 3331 9991"
+    ],
+    "inferred_type": "string"
+  },
+  "Customer.Fax": {
+    "sample_values": [
+      "+1 (408) 996-1011",
+      "+55 (21) 2271-7070",
+      "+420 2 4172 5555"
+    ],
+    "inferred_type": "string"
+  },
+  "Customer.Email": {
+    "sample_values": [
+      "dmiller@comcast.com",
+      "daan_peeters@apple.be",
+      "kara.nielsen@jubii.dk"
+    ],
+    "inferred_type": "string"
+  },
+  "Customer.SupportRepId": {
+    "sample_values": [
+      3,
+      4,
+      5
+    ],
+    "inferred_type": "integer"
+  },
+  "Employee.EmployeeId": {
+    "sample_values": [
+      1,
+      6,
+      4
+    ],
+    "inferred_type": "integer"
+  },
+  "Employee.LastName": {
+    "sample_values": [
+      "Callahan",
+      "Edwards",
+      "Peacock"
+    ],
+    "inferred_type": "string"
+  },
+  "Employee.FirstName": {
+    "sample_values": [
+      "Laura",
+      "Nancy",
+      "Jane"
+    ],
+    "inferred_type": "string"
+  },
+  "Employee.Title": {
+    "sample_values": [
+      "IT Staff",
+      "IT Manager",
+      "Sales Support Agent"
+    ],
+    "inferred_type": "string"
+  },
+  "Employee.ReportsTo": {
+    "sample_values": [
+      1,
+      2,
+      6
+    ],
+    "inferred_type": "integer"
+  },
+  "Employee.BirthDate": {
+    "sample_values": [
+      "1968-01-09 00:00:00",
+      "1958-12-08 00:00:00",
+      "1973-08-29 00:00:00"
+    ],
+    "inferred_type": "string"
+  },
+  "Employee.HireDate": {
+    "sample_values": [
+      "2004-03-04 00:00:00",
+      "2002-05-01 00:00:00",
+      "2002-04-01 00:00:00"
+    ],
+    "inferred_type": "string"
+  },
+  "Employee.Address": {
+    "sample_values": [
+      "923 7 ST NW",
+      "825 8 Ave SW",
+      "1111 6 Ave SW"
+    ],
+    "inferred_type": "string"
+  },
+  "Employee.City": {
+    "sample_values": [
+      "Edmonton",
+      "Calgary",
+      "Lethbridge"
+    ],
+    "inferred_type": "string"
+  },
+  "Employee.PostalCode": {
+    "sample_values": [
+      "T1H 1Y8",
+      "T2P 2T3",
+      "T2P 5M5"
+    ],
+    "inferred_type": "string"
+  },
+  "Employee.Phone": {
+    "sample_values": [
+      "+1 (403) 467-3351",
+      "+1 (403) 262-3443",
+      "+1 (403) 263-4423"
+    ],
+    "inferred_type": "string"
+  },
+  "Employee.Fax": {
+    "sample_values": [
+      "+1 (403) 467-8772",
+      "+1 (403) 262-3322",
+      "+1 (403) 262-6712"
+    ],
+    "inferred_type": "string"
+  },
+  "Employee.Email": {
+    "sample_values": [
+      "laura@chinookcorp.com",
+      "nancy@chinookcorp.com",
+      "jane@chinookcorp.com"
+    ],
+    "inferred_type": "string"
+  },
+  "Genre.GenreId": {
+    "sample_values": [
+      1,
+      7,
+      13
+    ],
+    "inferred_type": "integer"
+  },
+  "Genre.Name": {
+    "sample_values": [
+      "Sci Fi & Fantasy",
+      "Reggae",
+      "Pop"
+    ],
+    "inferred_type": "string"
+  },
+  "Invoice.InvoiceId": {
+    "sample_values": [
+      98,
+      382,
+      241
+    ],
+    "inferred_type": "integer"
+  },
+  "Invoice.CustomerId": {
+    "sample_values": [
+      1,
+      7,
+      13
+    ],
+    "inferred_type": "integer"
+  },
+  "Invoice.InvoiceDate": {
+    "sample_values": [
+      "2009-04-05 00:00:00",
+      "2009-02-02 00:00:00",
+      "2009-02-03 00:00:00"
+    ],
+    "inferred_type": "string"
+  },
+  "Invoice.BillingAddress": {
+    "sample_values": [
+      "Calle Lira, 198",
+      "8, Rue Hanovre",
+      "9, Place Louis Barthou"
+    ],
+    "inferred_type": "string"
+  },
+  "Invoice.BillingCity": {
+    "sample_values": [
+      "Santiago",
+      "Paris",
+      "Bordeaux"
+    ],
+    "inferred_type": "string"
+  },
+  "Invoice.BillingState": {
+    "sample_values": [
+      "TX",
+      "NS",
+      "NSW"
+    ],
+    "inferred_type": "string"
+  },
+  "Invoice.BillingCountry": {
+    "sample_values": [
+      "Italy",
+      "United Kingdom",
+      "Australia"
+    ],
+    "inferred_type": "string"
+  },
+  "Invoice.BillingPostalCode": {
+    "sample_values": [
+      "01007-010",
+      "75002",
+      "33000"
+    ],
+    "inferred_type": "string"
+  },
+  "Invoice.Total": {
+    "sample_values": [
+      1.98,
+      6.94,
+      9.91
+    ],
+    "inferred_type": "float"
+  },
+  "InvoiceLine.InvoiceLineId": {
+    "sample_values": [
+      579,
+      3,
+      6
+    ],
+    "inferred_type": "integer"
+  },
+  "InvoiceLine.InvoiceId": {
+    "sample_values": [
+      1,
+      7,
+      13
+    ],
+    "inferred_type": "integer"
+  },
+  "InvoiceLine.TrackId": {
+    "sample_values": [
+      1,
+      8,
+      15
+    ],
+    "inferred_type": "integer"
+  },
+  "InvoiceLine.UnitPrice": {
+    "sample_values": [
+      0.99,
+      1.99
+    ],
+    "inferred_type": "float"
+  },
+  "MediaType.MediaTypeId": {
+    "sample_values": [
+      1,
+      2,
+      3
+    ],
+    "inferred_type": "integer"
+  },
+  "MediaType.Name": {
+    "sample_values": [
+      "AAC audio file",
+      "Purchased AAC audio file",
+      "Protected MPEG-4 video file"
+    ],
+    "inferred_type": "string"
+  },
+  "Playlist.PlaylistId": {
+    "sample_values": [
+      1,
+      7,
+      13
+    ],
+    "inferred_type": "integer"
+  },
+  "Playlist.Name": {
+    "sample_values": [
+      "On-The-Go 1",
+      "Music Videos",
+      "Audiobooks"
+    ],
+    "inferred_type": "string"
+  },
+  "PlaylistTrack.PlaylistId": {
+    "sample_values": [
+      1,
+      9,
+      13
+    ],
+    "inferred_type": "integer"
+  },
+  "PlaylistTrack.TrackId": {
+    "sample_values": [
+      1,
+      7,
+      13
+    ],
+    "inferred_type": "integer"
+  },
+  "Track.TrackId": {
+    "sample_values": [
+      1,
+      11,
+      17
+    ],
+    "inferred_type": "integer"
+  },
+  "Track.Name": {
+    "sample_values": [
+      "Overdose",
+      "Inject The Venom",
+      "Snowballed"
+    ],
+    "inferred_type": "string"
+  },
+  "Track.AlbumId": {
+    "sample_values": [
+      1,
+      7,
+      13
+    ],
+    "inferred_type": "integer"
+  },
+  "Track.MediaTypeId": {
+    "sample_values": [
+      1,
+      2,
+      3
+    ],
+    "inferred_type": "integer"
+  },
+  "Track.GenreId": {
+    "sample_values": [
+      1,
+      7,
+      13
+    ],
+    "inferred_type": "integer"
+  },
+  "Track.Composer": {
+    "sample_values": [
+      "Jerry Cantrell, Michael Starr, Sean Kinney",
+      "Steven Tyler, Joe Perry, Jim Vallance, Holly Knight",
+      "Steven Tyler, Joe Perry, Desmond Child"
+    ],
+    "inferred_type": "string"
+  },
+  "Track.Milliseconds": {
+    "sample_values": [
+      343719,
+      233926,
+      205688
+    ],
+    "inferred_type": "integer"
+  },
+  "Track.Bytes": {
+    "sample_values": [
+      11170334,
+      7636561,
+      6706347
+    ],
+    "inferred_type": "integer"
+  },
+  "Track.UnitPrice": {
+    "sample_values": [
+      0.99,
+      1.99
+    ],
+    "inferred_type": "float"
+  }
+}

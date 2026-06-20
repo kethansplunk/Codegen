@@ -1,0 +1,137 @@
+{
+  "Office_locations.company_id": {
+    "sample_values": [
+      "5",
+      "2",
+      "19"
+    ],
+    "inferred_type": "integer"
+  },
+  "Office_locations.move_in_year": {
+    "sample_values": [
+      "2024",
+      "2027",
+      "2025"
+    ],
+    "inferred_type": "integer"
+  },
+  "Office_locations.building_id": {
+    "sample_values": [
+      "5",
+      "1",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Companies.Profits_billion": {
+    "sample_values": [
+      "11.6",
+      "16.4",
+      "21.2"
+    ],
+    "inferred_type": "float"
+  },
+  "Companies.name": {
+    "sample_values": [
+      "Berkshire Hathaway",
+      "BNP Paribas",
+      "Wells Fargo"
+    ],
+    "inferred_type": "string"
+  },
+  "Companies.Market_Value_billion": {
+    "sample_values": [
+      "168.2",
+      "172.9",
+      "407.2"
+    ],
+    "inferred_type": "float"
+  },
+  "Companies.Sales_billion": {
+    "sample_values": [
+      "421.8",
+      "121.3",
+      "189.6"
+    ],
+    "inferred_type": "float"
+  },
+  "Companies.Industry": {
+    "sample_values": [
+      "Telecommunications",
+      "Oil and gas",
+      "Conglomerate"
+    ],
+    "inferred_type": "string"
+  },
+  "Companies.Assets_billion": {
+    "sample_values": [
+      "1723.5",
+      "268.5",
+      "2467.9"
+    ],
+    "inferred_type": "float"
+  },
+  "Companies.id": {
+    "sample_values": [
+      "13",
+      "3",
+      "7"
+    ],
+    "inferred_type": "integer"
+  },
+  "Companies.Headquarters": {
+    "sample_values": [
+      "Russia",
+      "UK",
+      "Brazil"
+    ],
+    "inferred_type": "string"
+  },
+  "buildings.name": {
+    "sample_values": [
+      "LIU East",
+      "Torre Mitikah",
+      "Residencial Vidalta Torre Altaire 3"
+    ],
+    "inferred_type": "string"
+  },
+  "buildings.City": {
+    "sample_values": [
+      "Monterrey",
+      "Mexico City"
+    ],
+    "inferred_type": "string"
+  },
+  "buildings.Stories": {
+    "sample_values": [
+      "34",
+      "100",
+      "60"
+    ],
+    "inferred_type": "integer"
+  },
+  "buildings.Height": {
+    "sample_values": [
+      "300",
+      "210",
+      "330"
+    ],
+    "inferred_type": "integer"
+  },
+  "buildings.Status": {
+    "sample_values": [
+      "proposed",
+      "under construction",
+      "on-hold"
+    ],
+    "inferred_type": "string"
+  },
+  "buildings.id": {
+    "sample_values": [
+      "5",
+      "12",
+      "6"
+    ],
+    "inferred_type": "integer"
+  }
+}

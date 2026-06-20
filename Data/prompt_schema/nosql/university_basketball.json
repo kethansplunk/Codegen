@@ -1,0 +1,160 @@
+{
+  "basketball_match.Team_ID": {
+    "sample_values": [
+      "1",
+      "3",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "basketball_match.ACC_Home": {
+    "sample_values": [
+      "6\u20132",
+      "7\u20131"
+    ],
+    "inferred_type": "string"
+  },
+  "basketball_match.All_Home": {
+    "sample_values": [
+      "14\u20132",
+      "15\u20131",
+      "14\u20133"
+    ],
+    "inferred_type": "string"
+  },
+  "basketball_match.All_Games": {
+    "sample_values": [
+      "35\u20132",
+      "21\u201314",
+      "28\u20136"
+    ],
+    "inferred_type": "string"
+  },
+  "basketball_match.All_Road": {
+    "sample_values": [
+      "8\u20132",
+      "13\u20130",
+      "6\u20135"
+    ],
+    "inferred_type": "string"
+  },
+  "basketball_match.Team_Name": {
+    "sample_values": [
+      "Virginia Tech",
+      "North Carolina",
+      "Clemson"
+    ],
+    "inferred_type": "string"
+  },
+  "basketball_match.All_Neutral": {
+    "sample_values": [
+      "3\u20133",
+      "9\u20131",
+      "5\u20133"
+    ],
+    "inferred_type": "string"
+  },
+  "basketball_match.All_Games_Percent": {
+    "sample_values": [
+      "0.824",
+      "0.6",
+      "0.706"
+    ],
+    "inferred_type": "float"
+  },
+  "basketball_match.School_ID": {
+    "sample_values": [
+      "1",
+      "5",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "basketball_match.ACC_Road": {
+    "sample_values": [
+      "6\u20132",
+      "8\u20130",
+      "3\u20135"
+    ],
+    "inferred_type": "string"
+  },
+  "basketball_match.ACC_Percent": {
+    "sample_values": [
+      "0.563",
+      "0.875",
+      "0.625"
+    ],
+    "inferred_type": "float"
+  },
+  "basketball_match.ACC_Regular_Season": {
+    "sample_values": [
+      "10\u20136",
+      "13\u20133",
+      "9\u20137"
+    ],
+    "inferred_type": "string"
+  },
+  "university.Primary_conference": {
+    "sample_values": [
+      "America East Conference ( D-I )",
+      "American Athletic Conference ( D-I )",
+      "Atlantic 10 Conference ( D-I )"
+    ],
+    "inferred_type": "string"
+  },
+  "university.Founded": {
+    "sample_values": [
+      "1766.0",
+      "1957.0",
+      "1743.0"
+    ],
+    "inferred_type": "float"
+  },
+  "university.Location": {
+    "sample_values": [
+      "Newark, DE",
+      "Annville, PA",
+      "Stony Brook, NY"
+    ],
+    "inferred_type": "string"
+  },
+  "university.Enrollment": {
+    "sample_values": [
+      "56868.0",
+      "19067.0",
+      "2100.0"
+    ],
+    "inferred_type": "float"
+  },
+  "university.Nickname": {
+    "sample_values": [
+      "Rams",
+      "Fightin' Blue Hens",
+      "Scarlet Knights"
+    ],
+    "inferred_type": "string"
+  },
+  "university.Affiliation": {
+    "sample_values": [
+      "Private/Methodist",
+      "Public"
+    ],
+    "inferred_type": "string"
+  },
+  "university.School_ID": {
+    "sample_values": [
+      "5",
+      "1",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "university.School": {
+    "sample_values": [
+      "University of Delaware",
+      "University of Rhode Island",
+      "Stony Brook University"
+    ],
+    "inferred_type": "string"
+  }
+}

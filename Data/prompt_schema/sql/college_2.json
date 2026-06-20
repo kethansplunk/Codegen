@@ -1,0 +1,365 @@
+{
+  "classroom.building": {
+    "sample_values": [
+      "Whitman",
+      "Grace",
+      "Lambeau"
+    ],
+    "inferred_type": "string"
+  },
+  "classroom.room_number": {
+    "sample_values": [
+      "143",
+      "145",
+      "134"
+    ],
+    "inferred_type": "integer"
+  },
+  "classroom.capacity": {
+    "sample_values": [
+      10,
+      109,
+      32
+    ],
+    "inferred_type": "integer"
+  },
+  "department.dept_name": {
+    "sample_values": [
+      "Statistics",
+      "Elec. Eng.",
+      "English"
+    ],
+    "inferred_type": "string"
+  },
+  "department.building": {
+    "sample_values": [
+      "Rauch",
+      "Palmer",
+      "Whitman"
+    ],
+    "inferred_type": "string"
+  },
+  "department.budget": {
+    "sample_values": [
+      255041.46,
+      611042.66,
+      794541.46
+    ],
+    "inferred_type": "float"
+  },
+  "course.course_id": {
+    "sample_values": [
+      "101",
+      "137",
+      "195"
+    ],
+    "inferred_type": "integer"
+  },
+  "course.title": {
+    "sample_values": [
+      "The Monkeys",
+      "Geology",
+      "Mobile Computing"
+    ],
+    "inferred_type": "string"
+  },
+  "course.dept_name": {
+    "sample_values": [
+      "Astronomy",
+      "Cybernetics",
+      "Marketing"
+    ],
+    "inferred_type": "string"
+  },
+  "course.credits": {
+    "sample_values": [
+      4,
+      3
+    ],
+    "inferred_type": "integer"
+  },
+  "instructor.ID": {
+    "sample_values": [
+      "14365",
+      "28097",
+      "35579"
+    ],
+    "inferred_type": "integer"
+  },
+  "instructor.name": {
+    "sample_values": [
+      "Choll",
+      "Shuming",
+      "Queiroz"
+    ],
+    "inferred_type": "string"
+  },
+  "instructor.dept_name": {
+    "sample_values": [
+      "Geology",
+      "Physics",
+      "Elec. Eng."
+    ],
+    "inferred_type": "string"
+  },
+  "instructor.salary": {
+    "sample_values": [
+      94333.99,
+      89805.83,
+      121141.99
+    ],
+    "inferred_type": "float"
+  },
+  "section.course_id": {
+    "sample_values": [
+      "105",
+      "237",
+      "304"
+    ],
+    "inferred_type": "integer"
+  },
+  "section.sec_id": {
+    "sample_values": [
+      "1",
+      "2",
+      "3"
+    ],
+    "inferred_type": "integer"
+  },
+  "section.semester": {
+    "sample_values": [
+      "Fall",
+      "Spring"
+    ],
+    "inferred_type": "string"
+  },
+  "section.year": {
+    "sample_values": [
+      2009,
+      2007,
+      2003
+    ],
+    "inferred_type": "integer"
+  },
+  "section.building": {
+    "sample_values": [
+      "Rathbone",
+      "Taylor",
+      "Lamberton"
+    ],
+    "inferred_type": "string"
+  },
+  "section.room_number": {
+    "sample_values": [
+      "804",
+      "134",
+      "45"
+    ],
+    "inferred_type": "integer"
+  },
+  "section.time_slot_id": {
+    "sample_values": [
+      "N",
+      "J",
+      "E"
+    ],
+    "inferred_type": "string"
+  },
+  "teaches.ID": {
+    "sample_values": [
+      "14365",
+      "28400",
+      "4233"
+    ],
+    "inferred_type": "integer"
+  },
+  "teaches.course_id": {
+    "sample_values": [
+      "747",
+      "561",
+      "400"
+    ],
+    "inferred_type": "integer"
+  },
+  "teaches.sec_id": {
+    "sample_values": [
+      "1",
+      "2",
+      "3"
+    ],
+    "inferred_type": "integer"
+  },
+  "teaches.semester": {
+    "sample_values": [
+      "Spring",
+      "Fall"
+    ],
+    "inferred_type": "string"
+  },
+  "teaches.year": {
+    "sample_values": [
+      2004,
+      2003,
+      2002
+    ],
+    "inferred_type": "integer"
+  },
+  "student.ID": {
+    "sample_values": [
+      "1000",
+      "10269",
+      "10693"
+    ],
+    "inferred_type": "integer"
+  },
+  "student.name": {
+    "sample_values": [
+      "Krishnakumar",
+      "Sowerby",
+      "Coppens"
+    ],
+    "inferred_type": "string"
+  },
+  "student.dept_name": {
+    "sample_values": [
+      "Geology",
+      "Math",
+      "Marketing"
+    ],
+    "inferred_type": "string"
+  },
+  "student.tot_cred": {
+    "sample_values": [
+      4,
+      108,
+      78
+    ],
+    "inferred_type": "integer"
+  },
+  "takes.ID": {
+    "sample_values": [
+      "1000",
+      "10269",
+      "10693"
+    ],
+    "inferred_type": "integer"
+  },
+  "takes.course_id": {
+    "sample_values": [
+      "239",
+      "663",
+      "972"
+    ],
+    "inferred_type": "integer"
+  },
+  "takes.sec_id": {
+    "sample_values": [
+      "1",
+      "2",
+      "3"
+    ],
+    "inferred_type": "integer"
+  },
+  "takes.semester": {
+    "sample_values": [
+      "Fall",
+      "Spring"
+    ],
+    "inferred_type": "string"
+  },
+  "takes.year": {
+    "sample_values": [
+      2006,
+      2010,
+      2008
+    ],
+    "inferred_type": "integer"
+  },
+  "takes.grade": {
+    "sample_values": [
+      "C-",
+      "A ",
+      "C+"
+    ],
+    "inferred_type": "string"
+  },
+  "advisor.s_ID": {
+    "sample_values": [
+      "1000",
+      "10269",
+      "10693"
+    ],
+    "inferred_type": "integer"
+  },
+  "advisor.i_ID": {
+    "sample_values": [
+      "19368",
+      "90643",
+      "28097"
+    ],
+    "inferred_type": "integer"
+  },
+  "time_slot.time_slot_id": {
+    "sample_values": [
+      "A",
+      "C",
+      "E"
+    ],
+    "inferred_type": "string"
+  },
+  "time_slot.day": {
+    "sample_values": [
+      "F",
+      "M",
+      "W"
+    ],
+    "inferred_type": "string"
+  },
+  "time_slot.start_hr": {
+    "sample_values": [
+      8,
+      11,
+      10
+    ],
+    "inferred_type": "integer"
+  },
+  "time_slot.start_min": {
+    "sample_values": [
+      0,
+      30
+    ],
+    "inferred_type": "integer"
+  },
+  "time_slot.end_hr": {
+    "sample_values": [
+      8,
+      11,
+      15
+    ],
+    "inferred_type": "integer"
+  },
+  "time_slot.end_min": {
+    "sample_values": [
+      50,
+      45,
+      30
+    ],
+    "inferred_type": "integer"
+  },
+  "prereq.course_id": {
+    "sample_values": [
+      "133",
+      "239",
+      "276"
+    ],
+    "inferred_type": "integer"
+  },
+  "prereq.prereq_id": {
+    "sample_values": [
+      "130",
+      "408",
+      "634"
+    ],
+    "inferred_type": "integer"
+  }
+}

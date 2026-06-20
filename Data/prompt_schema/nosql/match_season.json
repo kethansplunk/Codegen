@@ -1,0 +1,170 @@
+{
+  "player.Total_WL": {
+    "sample_values": [
+      "2\u20130",
+      "3\u20134",
+      "6\u20134"
+    ],
+    "inferred_type": "string"
+  },
+  "player.Player_ID": {
+    "sample_values": [
+      "5",
+      "1",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "player.Years_Played": {
+    "sample_values": [
+      "2 (2010\u20132011)",
+      "8 (2003\u20132005, 2007\u20132011)",
+      "2 (1988, 1990)"
+    ],
+    "inferred_type": "string"
+  },
+  "player.Doubles_WL": {
+    "sample_values": [
+      "2\u20130",
+      "2\u20132",
+      "0\u20131"
+    ],
+    "inferred_type": "string"
+  },
+  "player.Team": {
+    "sample_values": [
+      "8",
+      "1",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "player.Player": {
+    "sample_values": [
+      "Bae Nam-Ju",
+      "Chung Hong (717)",
+      "Im Kyu-tae (492)"
+    ],
+    "inferred_type": "string"
+  },
+  "player.Singles_WL": {
+    "sample_values": [
+      "5\u20136",
+      "3\u20132",
+      "1\u20130"
+    ],
+    "inferred_type": "string"
+  },
+  "team.Name": {
+    "sample_values": [
+      "Miami Fusion",
+      "Ryley Goldner",
+      "Columbus Crew"
+    ],
+    "inferred_type": "string"
+  },
+  "team.Team_id": {
+    "sample_values": [
+      "5",
+      "1",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "match_season.Country": {
+    "sample_values": [
+      "1",
+      "6",
+      "5"
+    ],
+    "inferred_type": "integer"
+  },
+  "match_season.Season": {
+    "sample_values": [
+      "2003.0",
+      "1997.0",
+      "2009.0"
+    ],
+    "inferred_type": "float"
+  },
+  "match_season.Draft_Pick_Number": {
+    "sample_values": [
+      "5",
+      "6",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "match_season.College": {
+    "sample_values": [
+      "Concordia College",
+      "Maryland",
+      "Furman"
+    ],
+    "inferred_type": "string"
+  },
+  "match_season.Draft_Class": {
+    "sample_values": [
+      "1996 MLS College Draft",
+      "1999 MLS College Draft",
+      "1996 MLS Inaugural Player Draft"
+    ],
+    "inferred_type": "string"
+  },
+  "match_season.Team": {
+    "sample_values": [
+      "5",
+      "1",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "match_season.Position": {
+    "sample_values": [
+      "Forward",
+      "Defender",
+      "Midfielder"
+    ],
+    "inferred_type": "string"
+  },
+  "match_season.Player": {
+    "sample_values": [
+      "C. J. Sapong Category:Articles with hCards",
+      "Jonathan Bornstein Category:Articles with hCards",
+      "Michael Parkhurst Category:Articles with hCards"
+    ],
+    "inferred_type": "string"
+  },
+  "country.Country_id": {
+    "sample_values": [
+      "5",
+      "2",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "country.Capital": {
+    "sample_values": [
+      "Baghdad",
+      "Jakarta",
+      "Douglas"
+    ],
+    "inferred_type": "string"
+  },
+  "country.Country_name": {
+    "sample_values": [
+      "Ireland",
+      "Iran",
+      "Isle of Man"
+    ],
+    "inferred_type": "string"
+  },
+  "country.Official_native_language": {
+    "sample_values": [
+      "Persian ( Arabic script )",
+      "Irish English",
+      "English"
+    ],
+    "inferred_type": "string"
+  }
+}

@@ -1,0 +1,392 @@
+{
+  "db_name": "student_transcripts_tracking",
+  "collections": {
+    "Addresses": {
+      "primary_key": [
+        "address_id"
+      ],
+      "columns": [
+        {
+          "name": "address_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "line_1",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "line_2",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "line_3",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "city",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "zip_postcode",
+          "type": "VARCHAR(20)"
+        },
+        {
+          "name": "state_province_county",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "country",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "other_address_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 15
+    },
+    "Courses": {
+      "primary_key": [
+        "course_id"
+      ],
+      "columns": [
+        {
+          "name": "course_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "course_name",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "course_description",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "other_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 15
+    },
+    "Departments": {
+      "primary_key": [
+        "department_id"
+      ],
+      "columns": [
+        {
+          "name": "department_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "department_name",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "department_description",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "other_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 15
+    },
+    "Degree_Programs": {
+      "primary_key": [
+        "degree_program_id"
+      ],
+      "columns": [
+        {
+          "name": "degree_program_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "department_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "degree_summary_name",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "degree_summary_description",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "other_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Degree_Programs",
+          "to": "Departments",
+          "child_col": "department_id",
+          "parent_col": "department_id"
+        }
+      ],
+      "row_count": 15
+    },
+    "Sections": {
+      "primary_key": [
+        "section_id"
+      ],
+      "columns": [
+        {
+          "name": "section_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "course_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "section_name",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "section_description",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "other_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Sections",
+          "to": "Courses",
+          "child_col": "course_id",
+          "parent_col": "course_id"
+        }
+      ],
+      "row_count": 15
+    },
+    "Semesters": {
+      "primary_key": [
+        "semester_id"
+      ],
+      "columns": [
+        {
+          "name": "semester_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "semester_name",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "semester_description",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "other_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 15
+    },
+    "Students": {
+      "primary_key": [
+        "student_id"
+      ],
+      "columns": [
+        {
+          "name": "student_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "current_address_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "permanent_address_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "first_name",
+          "type": "VARCHAR(80)"
+        },
+        {
+          "name": "middle_name",
+          "type": "VARCHAR(40)"
+        },
+        {
+          "name": "last_name",
+          "type": "VARCHAR(40)"
+        },
+        {
+          "name": "cell_mobile_number",
+          "type": "VARCHAR(40)"
+        },
+        {
+          "name": "email_address",
+          "type": "VARCHAR(40)"
+        },
+        {
+          "name": "ssn",
+          "type": "VARCHAR(40)"
+        },
+        {
+          "name": "date_first_registered",
+          "type": "DATETIME"
+        },
+        {
+          "name": "date_left",
+          "type": "DATETIME"
+        },
+        {
+          "name": "other_student_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Students",
+          "to": "Addresses",
+          "child_col": "current_address_id",
+          "parent_col": "address_id"
+        }
+      ],
+      "row_count": 15
+    },
+    "Student_Enrolment": {
+      "primary_key": [
+        "student_enrolment_id"
+      ],
+      "columns": [
+        {
+          "name": "student_enrolment_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "degree_program_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "semester_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "student_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "other_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Student_Enrolment",
+          "to": "Students",
+          "child_col": "student_id",
+          "parent_col": "student_id"
+        },
+        {
+          "from": "Student_Enrolment",
+          "to": "Semesters",
+          "child_col": "semester_id",
+          "parent_col": "semester_id"
+        },
+        {
+          "from": "Student_Enrolment",
+          "to": "Degree_Programs",
+          "child_col": "degree_program_id",
+          "parent_col": "degree_program_id"
+        }
+      ],
+      "row_count": 15
+    },
+    "Student_Enrolment_Courses": {
+      "primary_key": [
+        "student_course_id"
+      ],
+      "columns": [
+        {
+          "name": "student_course_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "course_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "student_enrolment_id",
+          "type": "INTEGER"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Student_Enrolment_Courses",
+          "to": "Student_Enrolment",
+          "child_col": "student_enrolment_id",
+          "parent_col": "student_enrolment_id"
+        },
+        {
+          "from": "Student_Enrolment_Courses",
+          "to": "Courses",
+          "child_col": "course_id",
+          "parent_col": "course_id"
+        }
+      ],
+      "row_count": 15
+    },
+    "Transcripts": {
+      "primary_key": [
+        "transcript_id"
+      ],
+      "columns": [
+        {
+          "name": "transcript_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "transcript_date",
+          "type": "DATETIME"
+        },
+        {
+          "name": "other_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 15
+    },
+    "Transcript_Contents": {
+      "primary_key": [],
+      "columns": [
+        {
+          "name": "student_course_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "transcript_id",
+          "type": "INTEGER"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Transcript_Contents",
+          "to": "Transcripts",
+          "child_col": "transcript_id",
+          "parent_col": "transcript_id"
+        },
+        {
+          "from": "Transcript_Contents",
+          "to": "Student_Enrolment_Courses",
+          "child_col": "student_course_id",
+          "parent_col": "student_course_id"
+        }
+      ],
+      "row_count": 15
+    }
+  }
+}

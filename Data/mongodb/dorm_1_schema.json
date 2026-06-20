@@ -1,0 +1,144 @@
+{
+  "db_name": "dorm_1",
+  "collections": {
+    "Student": {
+      "primary_key": [
+        "StuID"
+      ],
+      "columns": [
+        {
+          "name": "StuID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "LName",
+          "type": "VARCHAR(12)"
+        },
+        {
+          "name": "Fname",
+          "type": "VARCHAR(12)"
+        },
+        {
+          "name": "Age",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Sex",
+          "type": "VARCHAR(1)"
+        },
+        {
+          "name": "Major",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Advisor",
+          "type": "INTEGER"
+        },
+        {
+          "name": "city_code",
+          "type": "VARCHAR(3)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 34
+    },
+    "Dorm": {
+      "primary_key": [],
+      "columns": [
+        {
+          "name": "dormid",
+          "type": "INTEGER"
+        },
+        {
+          "name": "dorm_name",
+          "type": "VARCHAR(20)"
+        },
+        {
+          "name": "student_capacity",
+          "type": "INTEGER"
+        },
+        {
+          "name": "gender",
+          "type": "VARCHAR(1)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 7
+    },
+    "Dorm_amenity": {
+      "primary_key": [],
+      "columns": [
+        {
+          "name": "amenid",
+          "type": "INTEGER"
+        },
+        {
+          "name": "amenity_name",
+          "type": "VARCHAR(25)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 12
+    },
+    "Has_amenity": {
+      "primary_key": [],
+      "columns": [
+        {
+          "name": "dormid",
+          "type": "INTEGER"
+        },
+        {
+          "name": "amenid",
+          "type": "INTEGER"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Has_amenity",
+          "to": "Dorm_amenity",
+          "child_col": "amenid",
+          "parent_col": "amenid"
+        },
+        {
+          "from": "Has_amenity",
+          "to": "Dorm",
+          "child_col": "dormid",
+          "parent_col": "dormid"
+        }
+      ],
+      "row_count": 40
+    },
+    "Lives_in": {
+      "primary_key": [],
+      "columns": [
+        {
+          "name": "stuid",
+          "type": "INTEGER"
+        },
+        {
+          "name": "dormid",
+          "type": "INTEGER"
+        },
+        {
+          "name": "room_number",
+          "type": "INTEGER"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Lives_in",
+          "to": "Dorm",
+          "child_col": "dormid",
+          "parent_col": "dormid"
+        },
+        {
+          "from": "Lives_in",
+          "to": "Student",
+          "child_col": "stuid",
+          "parent_col": "StuID"
+        }
+      ],
+      "row_count": 31
+    }
+  }
+}

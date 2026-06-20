@@ -1,0 +1,98 @@
+{
+  "furniture_manufacte.Furniture_ID": {
+    "sample_values": [
+      "1",
+      "2",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "furniture_manufacte.Manufacturer_ID": {
+    "sample_values": [
+      "1",
+      "5",
+      "7"
+    ],
+    "inferred_type": "integer"
+  },
+  "furniture_manufacte.Price_in_Dollar": {
+    "sample_values": [
+      "239.0",
+      "1234.0",
+      "443.0"
+    ],
+    "inferred_type": "float"
+  },
+  "manufacturer.Open_Year": {
+    "sample_values": [
+      "2001.0",
+      "1991.0",
+      "2000.0"
+    ],
+    "inferred_type": "float"
+  },
+  "manufacturer.Num_of_Shops": {
+    "sample_values": [
+      "8",
+      "2",
+      "19"
+    ],
+    "inferred_type": "integer"
+  },
+  "manufacturer.Name": {
+    "sample_values": [
+      "Ford Make",
+      "Chevrolet",
+      "Chevrolet House"
+    ],
+    "inferred_type": "string"
+  },
+  "manufacturer.Num_of_Factories": {
+    "sample_values": [
+      "36",
+      "12",
+      "21"
+    ],
+    "inferred_type": "integer"
+  },
+  "manufacturer.Manufacturer_ID": {
+    "sample_values": [
+      "5",
+      "2",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "furniture.Market_Rate": {
+    "sample_values": [
+      "40.0",
+      "3.5",
+      "2.0"
+    ],
+    "inferred_type": "float"
+  },
+  "furniture.Name": {
+    "sample_values": [
+      "Billiard table",
+      "Chabudai",
+      "Hatstand"
+    ],
+    "inferred_type": "string"
+  },
+  "furniture.Furniture_ID": {
+    "sample_values": [
+      "5",
+      "2",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "furniture.Num_of_Component": {
+    "sample_values": [
+      "5",
+      "12",
+      "6"
+    ],
+    "inferred_type": "integer"
+  }
+}

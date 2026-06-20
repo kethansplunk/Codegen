@@ -1,0 +1,112 @@
+{
+  "device.Device": {
+    "sample_values": [
+      "Xiaomi",
+      "Apple",
+      "Galaxy"
+    ],
+    "inferred_type": "string"
+  },
+  "device.Carrier": {
+    "sample_values": [
+      "Vodafone AU",
+      "Verizon Wireless",
+      "Iusacell"
+    ],
+    "inferred_type": "string"
+  },
+  "device.Software_Platform": {
+    "sample_values": [
+      "iOS",
+      "Android"
+    ],
+    "inferred_type": "string"
+  },
+  "device.Package_Version": {
+    "sample_values": [
+      "5.0.0.808",
+      "4.7.0.208",
+      "5.0.0.742"
+    ],
+    "inferred_type": "string"
+  },
+  "device.Applications": {
+    "sample_values": [
+      "5.0.0.328",
+      "5.0.0.419",
+      "4.7.0.151"
+    ],
+    "inferred_type": "string"
+  },
+  "device.Device_ID": {
+    "sample_values": [
+      "5",
+      "2",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "stock.Shop_ID": {
+    "sample_values": [
+      "1",
+      "4",
+      "3"
+    ],
+    "inferred_type": "integer"
+  },
+  "stock.Device_ID": {
+    "sample_values": [
+      "6",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "stock.Quantity": {
+    "sample_values": [
+      "56",
+      "200",
+      "134"
+    ],
+    "inferred_type": "integer"
+  },
+  "shop.Open_Year": {
+    "sample_values": [
+      "2015",
+      "2006",
+      "2009"
+    ],
+    "inferred_type": "integer"
+  },
+  "shop.Open_Date": {
+    "sample_values": [
+      "10 June",
+      "11 April",
+      "10 December"
+    ],
+    "inferred_type": "string"
+  },
+  "shop.Location": {
+    "sample_values": [
+      "Maerdy",
+      "Pentre",
+      "Porth"
+    ],
+    "inferred_type": "string"
+  },
+  "shop.Shop_Name": {
+    "sample_values": [
+      "Naval's shop",
+      "Gelli repair",
+      "Ferndale"
+    ],
+    "inferred_type": "string"
+  },
+  "shop.Shop_ID": {
+    "sample_values": [
+      "5",
+      "12",
+      "6"
+    ],
+    "inferred_type": "integer"
+  }
+}

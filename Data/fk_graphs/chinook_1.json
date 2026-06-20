@@ -1,0 +1,431 @@
+{
+  "db_name": "chinook_1",
+  "nodes": [
+    {
+      "name": "Album",
+      "columns": [
+        {
+          "name": "AlbumId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Title",
+          "type": "varchar(160)"
+        },
+        {
+          "name": "ArtistId",
+          "type": "INTEGER"
+        }
+      ],
+      "pk": [
+        "AlbumId"
+      ]
+    },
+    {
+      "name": "Artist",
+      "columns": [
+        {
+          "name": "ArtistId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Name",
+          "type": "varchar(120)"
+        }
+      ],
+      "pk": [
+        "ArtistId"
+      ]
+    },
+    {
+      "name": "Customer",
+      "columns": [
+        {
+          "name": "CustomerId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "FirstName",
+          "type": "varchar(40)"
+        },
+        {
+          "name": "LastName",
+          "type": "varchar(20)"
+        },
+        {
+          "name": "Company",
+          "type": "varchar(80)"
+        },
+        {
+          "name": "Address",
+          "type": "varchar(70)"
+        },
+        {
+          "name": "City",
+          "type": "varchar(40)"
+        },
+        {
+          "name": "State",
+          "type": "varchar(40)"
+        },
+        {
+          "name": "Country",
+          "type": "varchar(40)"
+        },
+        {
+          "name": "PostalCode",
+          "type": "varchar(10)"
+        },
+        {
+          "name": "Phone",
+          "type": "varchar(24)"
+        },
+        {
+          "name": "Fax",
+          "type": "varchar(24)"
+        },
+        {
+          "name": "Email",
+          "type": "varchar(60)"
+        },
+        {
+          "name": "SupportRepId",
+          "type": "INTEGER"
+        }
+      ],
+      "pk": [
+        "CustomerId"
+      ]
+    },
+    {
+      "name": "Employee",
+      "columns": [
+        {
+          "name": "EmployeeId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "LastName",
+          "type": "varchar(20)"
+        },
+        {
+          "name": "FirstName",
+          "type": "varchar(20)"
+        },
+        {
+          "name": "Title",
+          "type": "varchar(30)"
+        },
+        {
+          "name": "ReportsTo",
+          "type": "INTEGER"
+        },
+        {
+          "name": "BirthDate",
+          "type": "datetime"
+        },
+        {
+          "name": "HireDate",
+          "type": "datetime"
+        },
+        {
+          "name": "Address",
+          "type": "varchar(70)"
+        },
+        {
+          "name": "City",
+          "type": "varchar(40)"
+        },
+        {
+          "name": "State",
+          "type": "varchar(40)"
+        },
+        {
+          "name": "Country",
+          "type": "varchar(40)"
+        },
+        {
+          "name": "PostalCode",
+          "type": "varchar(10)"
+        },
+        {
+          "name": "Phone",
+          "type": "varchar(24)"
+        },
+        {
+          "name": "Fax",
+          "type": "varchar(24)"
+        },
+        {
+          "name": "Email",
+          "type": "varchar(60)"
+        }
+      ],
+      "pk": [
+        "EmployeeId"
+      ]
+    },
+    {
+      "name": "Genre",
+      "columns": [
+        {
+          "name": "GenreId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Name",
+          "type": "varchar(120)"
+        }
+      ],
+      "pk": [
+        "GenreId"
+      ]
+    },
+    {
+      "name": "Invoice",
+      "columns": [
+        {
+          "name": "InvoiceId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "CustomerId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "InvoiceDate",
+          "type": "datetime"
+        },
+        {
+          "name": "BillingAddress",
+          "type": "varchar(70)"
+        },
+        {
+          "name": "BillingCity",
+          "type": "varchar(40)"
+        },
+        {
+          "name": "BillingState",
+          "type": "varchar(40)"
+        },
+        {
+          "name": "BillingCountry",
+          "type": "varchar(40)"
+        },
+        {
+          "name": "BillingPostalCode",
+          "type": "varchar(10)"
+        },
+        {
+          "name": "Total",
+          "type": "decimal(10,2)"
+        }
+      ],
+      "pk": [
+        "InvoiceId"
+      ]
+    },
+    {
+      "name": "InvoiceLine",
+      "columns": [
+        {
+          "name": "InvoiceLineId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "InvoiceId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "TrackId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "UnitPrice",
+          "type": "decimal(10,2)"
+        },
+        {
+          "name": "Quantity",
+          "type": "INTEGER"
+        }
+      ],
+      "pk": [
+        "InvoiceLineId"
+      ]
+    },
+    {
+      "name": "MediaType",
+      "columns": [
+        {
+          "name": "MediaTypeId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Name",
+          "type": "varchar(120)"
+        }
+      ],
+      "pk": [
+        "MediaTypeId"
+      ]
+    },
+    {
+      "name": "Playlist",
+      "columns": [
+        {
+          "name": "PlaylistId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Name",
+          "type": "varchar(120)"
+        }
+      ],
+      "pk": [
+        "PlaylistId"
+      ]
+    },
+    {
+      "name": "PlaylistTrack",
+      "columns": [
+        {
+          "name": "PlaylistId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "TrackId",
+          "type": "INTEGER"
+        }
+      ],
+      "pk": [
+        "PlaylistId",
+        "TrackId"
+      ]
+    },
+    {
+      "name": "Track",
+      "columns": [
+        {
+          "name": "TrackId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Name",
+          "type": "varchar(200)"
+        },
+        {
+          "name": "AlbumId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "MediaTypeId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "GenreId",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Composer",
+          "type": "varchar(220)"
+        },
+        {
+          "name": "Milliseconds",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Bytes",
+          "type": "INTEGER"
+        },
+        {
+          "name": "UnitPrice",
+          "type": "decimal(10,2)"
+        }
+      ],
+      "pk": [
+        "TrackId"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "Album",
+      "to": "Artist",
+      "child_col": "ArtistId",
+      "parent_col": "ArtistId"
+    },
+    {
+      "from": "Customer",
+      "to": "Employee",
+      "child_col": "SupportRepId",
+      "parent_col": "EmployeeId"
+    },
+    {
+      "from": "Employee",
+      "to": "Employee",
+      "child_col": "ReportsTo",
+      "parent_col": "EmployeeId"
+    },
+    {
+      "from": "Invoice",
+      "to": "Customer",
+      "child_col": "CustomerId",
+      "parent_col": "CustomerId"
+    },
+    {
+      "from": "InvoiceLine",
+      "to": "Track",
+      "child_col": "TrackId",
+      "parent_col": "TrackId"
+    },
+    {
+      "from": "InvoiceLine",
+      "to": "Invoice",
+      "child_col": "InvoiceId",
+      "parent_col": "InvoiceId"
+    },
+    {
+      "from": "PlaylistTrack",
+      "to": "Track",
+      "child_col": "TrackId",
+      "parent_col": "TrackId"
+    },
+    {
+      "from": "PlaylistTrack",
+      "to": "Playlist",
+      "child_col": "PlaylistId",
+      "parent_col": "PlaylistId"
+    },
+    {
+      "from": "Track",
+      "to": "MediaType",
+      "child_col": "MediaTypeId",
+      "parent_col": "MediaTypeId"
+    },
+    {
+      "from": "Track",
+      "to": "Genre",
+      "child_col": "GenreId",
+      "parent_col": "GenreId"
+    },
+    {
+      "from": "Track",
+      "to": "Album",
+      "child_col": "AlbumId",
+      "parent_col": "AlbumId"
+    }
+  ],
+  "centrality": {
+    "Album": 0.1,
+    "Artist": 0.1,
+    "Customer": 0.1,
+    "Employee": 0.2,
+    "Genre": 0.1,
+    "Invoice": 0.1,
+    "InvoiceLine": 0.0,
+    "MediaType": 0.1,
+    "Playlist": 0.1,
+    "PlaylistTrack": 0.0,
+    "Track": 0.2
+  }
+}

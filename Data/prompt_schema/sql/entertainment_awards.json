@@ -1,0 +1,89 @@
+{
+  "festival_detail.Festival_ID": {
+    "sample_values": [
+      1,
+      2,
+      3
+    ],
+    "inferred_type": "integer"
+  },
+  "festival_detail.Festival_Name": {
+    "sample_values": [
+      "LA Awards",
+      "Gobel Awards",
+      "Cherry Awards"
+    ],
+    "inferred_type": "string"
+  },
+  "festival_detail.Chair_Name": {
+    "sample_values": [
+      "Lucy Lu",
+      "Arnold Palmer",
+      "Doug Ford"
+    ],
+    "inferred_type": "string"
+  },
+  "festival_detail.Year": {
+    "sample_values": [
+      2006,
+      2007,
+      2008
+    ],
+    "inferred_type": "integer"
+  },
+  "festival_detail.Num_of_Audience": {
+    "sample_values": [
+      152,
+      155,
+      160
+    ],
+    "inferred_type": "integer"
+  },
+  "artwork.Artwork_ID": {
+    "sample_values": [
+      1,
+      4,
+      7
+    ],
+    "inferred_type": "integer"
+  },
+  "artwork.Type": {
+    "sample_values": [
+      "Presenter Talent Show",
+      "Program Talent Show",
+      "Presenter Music/Variety Show"
+    ],
+    "inferred_type": "string"
+  },
+  "artwork.Name": {
+    "sample_values": [
+      "Back Home",
+      "Loving you",
+      "I Know"
+    ],
+    "inferred_type": "string"
+  },
+  "nomination.Artwork_ID": {
+    "sample_values": [
+      1,
+      3,
+      8
+    ],
+    "inferred_type": "integer"
+  },
+  "nomination.Festival_ID": {
+    "sample_values": [
+      2,
+      1,
+      5
+    ],
+    "inferred_type": "integer"
+  },
+  "nomination.Result": {
+    "sample_values": [
+      "Nominated",
+      "Won"
+    ],
+    "inferred_type": "string"
+  }
+}

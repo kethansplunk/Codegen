@@ -1,0 +1,178 @@
+{
+  "Customers.Customer_ID": {
+    "sample_values": [
+      194,
+      641,
+      882
+    ],
+    "inferred_type": "integer"
+  },
+  "Customers.Customer_name": {
+    "sample_values": [
+      "Jay Chou",
+      "Mr. Edwardo Blanda I",
+      "Dayana Robel"
+    ],
+    "inferred_type": "string"
+  },
+  "Services.Service_ID": {
+    "sample_values": [
+      1,
+      4,
+      6
+    ],
+    "inferred_type": "integer"
+  },
+  "Services.Service_name": {
+    "sample_values": [
+      "Upgrade a policy",
+      "Change a policy",
+      "Close a policy"
+    ],
+    "inferred_type": "string"
+  },
+  "Available_Policies.Policy_ID": {
+    "sample_values": [
+      246,
+      366,
+      636
+    ],
+    "inferred_type": "integer"
+  },
+  "Available_Policies.policy_type_code": {
+    "sample_values": [
+      "Travel Insurance",
+      "Mortgage Insurance",
+      "Property Insurance"
+    ],
+    "inferred_type": "string"
+  },
+  "Available_Policies.Customer_Phone": {
+    "sample_values": [
+      "405.090.8654x021",
+      "+85(6)1302858396",
+      "(379)862-8274x12620"
+    ],
+    "inferred_type": "string"
+  },
+  "Customers_Policies.Customer_ID": {
+    "sample_values": [
+      214,
+      582,
+      826
+    ],
+    "inferred_type": "integer"
+  },
+  "Customers_Policies.Policy_ID": {
+    "sample_values": [
+      257,
+      346,
+      472
+    ],
+    "inferred_type": "integer"
+  },
+  "Customers_Policies.Date_Opened": {
+    "sample_values": [
+      "2016-07-03",
+      "2016-04-11",
+      "2017-01-09"
+    ],
+    "inferred_type": "string"
+  },
+  "Customers_Policies.Date_Closed": {
+    "sample_values": [
+      "2018-03-20",
+      "2018-03-17",
+      "2018-03-08"
+    ],
+    "inferred_type": "string"
+  },
+  "First_Notification_of_Loss.FNOL_ID": {
+    "sample_values": [
+      532,
+      1722,
+      4226
+    ],
+    "inferred_type": "integer"
+  },
+  "First_Notification_of_Loss.Customer_ID": {
+    "sample_values": [
+      214,
+      996,
+      892
+    ],
+    "inferred_type": "integer"
+  },
+  "First_Notification_of_Loss.Policy_ID": {
+    "sample_values": [
+      257,
+      879,
+      927
+    ],
+    "inferred_type": "integer"
+  },
+  "First_Notification_of_Loss.Service_ID": {
+    "sample_values": [
+      6,
+      9,
+      1
+    ],
+    "inferred_type": "integer"
+  },
+  "Claims.Claim_ID": {
+    "sample_values": [
+      134,
+      309,
+      428
+    ],
+    "inferred_type": "integer"
+  },
+  "Claims.FNOL_ID": {
+    "sample_values": [
+      1722,
+      532,
+      4226
+    ],
+    "inferred_type": "integer"
+  },
+  "Claims.Effective_Date": {
+    "sample_values": [
+      "1996-11-29",
+      "1975-05-07",
+      "2014-10-19"
+    ],
+    "inferred_type": "string"
+  },
+  "Settlements.Settlement_ID": {
+    "sample_values": [
+      161,
+      208,
+      544
+    ],
+    "inferred_type": "integer"
+  },
+  "Settlements.Claim_ID": {
+    "sample_values": [
+      717,
+      428,
+      311
+    ],
+    "inferred_type": "integer"
+  },
+  "Settlements.Effective_Date": {
+    "sample_values": [
+      "2001-07-02",
+      "1978-09-09",
+      "1971-06-29"
+    ],
+    "inferred_type": "string"
+  },
+  "Settlements.Settlement_Amount": {
+    "sample_values": [
+      6451.65,
+      8827.06,
+      9164.1
+    ],
+    "inferred_type": "float"
+  }
+}

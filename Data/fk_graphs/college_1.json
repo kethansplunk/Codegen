@@ -1,0 +1,294 @@
+{
+  "db_name": "college_1",
+  "nodes": [
+    {
+      "name": "CLASS",
+      "columns": [
+        {
+          "name": "CLASS_CODE",
+          "type": "varchar(5)"
+        },
+        {
+          "name": "CRS_CODE",
+          "type": "varchar(10)"
+        },
+        {
+          "name": "CLASS_SECTION",
+          "type": "varchar(2)"
+        },
+        {
+          "name": "CLASS_TIME",
+          "type": "varchar(20)"
+        },
+        {
+          "name": "CLASS_ROOM",
+          "type": "varchar(8)"
+        },
+        {
+          "name": "PROF_NUM",
+          "type": "INT"
+        }
+      ],
+      "pk": [
+        "CLASS_CODE"
+      ]
+    },
+    {
+      "name": "COURSE",
+      "columns": [
+        {
+          "name": "CRS_CODE",
+          "type": "varchar(10)"
+        },
+        {
+          "name": "DEPT_CODE",
+          "type": "varchar(10)"
+        },
+        {
+          "name": "CRS_DESCRIPTION",
+          "type": "varchar(35)"
+        },
+        {
+          "name": "CRS_CREDIT",
+          "type": "float(8)"
+        }
+      ],
+      "pk": [
+        "CRS_CODE"
+      ]
+    },
+    {
+      "name": "DEPARTMENT",
+      "columns": [
+        {
+          "name": "DEPT_CODE",
+          "type": "varchar(10)"
+        },
+        {
+          "name": "DEPT_NAME",
+          "type": "varchar(30)"
+        },
+        {
+          "name": "SCHOOL_CODE",
+          "type": "varchar(8)"
+        },
+        {
+          "name": "EMP_NUM",
+          "type": "INT"
+        },
+        {
+          "name": "DEPT_ADDRESS",
+          "type": "varchar(20)"
+        },
+        {
+          "name": "DEPT_EXTENSION",
+          "type": "varchar(4)"
+        }
+      ],
+      "pk": [
+        "DEPT_CODE"
+      ]
+    },
+    {
+      "name": "EMPLOYEE",
+      "columns": [
+        {
+          "name": "EMP_NUM",
+          "type": "INT"
+        },
+        {
+          "name": "EMP_LNAME",
+          "type": "varchar(15)"
+        },
+        {
+          "name": "EMP_FNAME",
+          "type": "varchar(12)"
+        },
+        {
+          "name": "EMP_INITIAL",
+          "type": "varchar(1)"
+        },
+        {
+          "name": "EMP_JOBCODE",
+          "type": "varchar(5)"
+        },
+        {
+          "name": "EMP_HIREDATE",
+          "type": "datetime"
+        },
+        {
+          "name": "EMP_DOB",
+          "type": "datetime"
+        }
+      ],
+      "pk": [
+        "EMP_NUM"
+      ]
+    },
+    {
+      "name": "ENROLL",
+      "columns": [
+        {
+          "name": "CLASS_CODE",
+          "type": "varchar(5)"
+        },
+        {
+          "name": "STU_NUM",
+          "type": "INT"
+        },
+        {
+          "name": "ENROLL_GRADE",
+          "type": "varchar(50)"
+        }
+      ],
+      "pk": []
+    },
+    {
+      "name": "PROFESSOR",
+      "columns": [
+        {
+          "name": "EMP_NUM",
+          "type": "INT"
+        },
+        {
+          "name": "DEPT_CODE",
+          "type": "varchar(10)"
+        },
+        {
+          "name": "PROF_OFFICE",
+          "type": "varchar(50)"
+        },
+        {
+          "name": "PROF_EXTENSION",
+          "type": "varchar(4)"
+        },
+        {
+          "name": "PROF_HIGH_DEGREE",
+          "type": "varchar(5)"
+        }
+      ],
+      "pk": []
+    },
+    {
+      "name": "STUDENT",
+      "columns": [
+        {
+          "name": "STU_NUM",
+          "type": "INT"
+        },
+        {
+          "name": "STU_LNAME",
+          "type": "varchar(15)"
+        },
+        {
+          "name": "STU_FNAME",
+          "type": "varchar(15)"
+        },
+        {
+          "name": "STU_INIT",
+          "type": "varchar(1)"
+        },
+        {
+          "name": "STU_DOB",
+          "type": "datetime"
+        },
+        {
+          "name": "STU_HRS",
+          "type": "INT"
+        },
+        {
+          "name": "STU_CLASS",
+          "type": "varchar(2)"
+        },
+        {
+          "name": "STU_GPA",
+          "type": "float(8)"
+        },
+        {
+          "name": "STU_TRANSFER",
+          "type": "numeric"
+        },
+        {
+          "name": "DEPT_CODE",
+          "type": "varchar(18)"
+        },
+        {
+          "name": "STU_PHONE",
+          "type": "varchar(4)"
+        },
+        {
+          "name": "PROF_NUM",
+          "type": "INT"
+        }
+      ],
+      "pk": [
+        "STU_NUM"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "CLASS",
+      "to": "EMPLOYEE",
+      "child_col": "PROF_NUM",
+      "parent_col": "EMP_NUM"
+    },
+    {
+      "from": "CLASS",
+      "to": "COURSE",
+      "child_col": "CRS_CODE",
+      "parent_col": "CRS_CODE"
+    },
+    {
+      "from": "COURSE",
+      "to": "DEPARTMENT",
+      "child_col": "DEPT_CODE",
+      "parent_col": "DEPT_CODE"
+    },
+    {
+      "from": "DEPARTMENT",
+      "to": "EMPLOYEE",
+      "child_col": "EMP_NUM",
+      "parent_col": "EMP_NUM"
+    },
+    {
+      "from": "ENROLL",
+      "to": "STUDENT",
+      "child_col": "STU_NUM",
+      "parent_col": "STU_NUM"
+    },
+    {
+      "from": "ENROLL",
+      "to": "CLASS",
+      "child_col": "CLASS_CODE",
+      "parent_col": "CLASS_CODE"
+    },
+    {
+      "from": "PROFESSOR",
+      "to": "DEPARTMENT",
+      "child_col": "DEPT_CODE",
+      "parent_col": "DEPT_CODE"
+    },
+    {
+      "from": "PROFESSOR",
+      "to": "EMPLOYEE",
+      "child_col": "EMP_NUM",
+      "parent_col": "EMP_NUM"
+    },
+    {
+      "from": "STUDENT",
+      "to": "DEPARTMENT",
+      "child_col": "DEPT_CODE",
+      "parent_col": "DEPT_CODE"
+    }
+  ],
+  "centrality": {
+    "CLASS": 0.16666666666666666,
+    "COURSE": 0.16666666666666666,
+    "DEPARTMENT": 0.5,
+    "EMPLOYEE": 0.5,
+    "ENROLL": 0.0,
+    "PROFESSOR": 0.0,
+    "STUDENT": 0.16666666666666666
+  }
+}

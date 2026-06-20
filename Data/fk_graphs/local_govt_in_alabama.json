@@ -1,0 +1,104 @@
+{
+  "db_name": "local_govt_in_alabama",
+  "nodes": [
+    {
+      "name": "Services",
+      "columns": [
+        {
+          "name": "Service_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Service_Type_Code",
+          "type": "CHAR(15)"
+        }
+      ],
+      "pk": [
+        "Service_ID"
+      ]
+    },
+    {
+      "name": "Participants",
+      "columns": [
+        {
+          "name": "Participant_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Participant_Type_Code",
+          "type": "CHAR(15)"
+        },
+        {
+          "name": "Participant_Details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "pk": [
+        "Participant_ID"
+      ]
+    },
+    {
+      "name": "Events",
+      "columns": [
+        {
+          "name": "Event_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Service_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Event_Details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "pk": [
+        "Event_ID"
+      ]
+    },
+    {
+      "name": "Participants_in_Events",
+      "columns": [
+        {
+          "name": "Event_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Participant_ID",
+          "type": "INTEGER"
+        }
+      ],
+      "pk": [
+        "Event_ID",
+        "Participant_ID"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "Events",
+      "to": "Services",
+      "child_col": "Service_ID",
+      "parent_col": "Service_ID"
+    },
+    {
+      "from": "Participants_in_Events",
+      "to": "Events",
+      "child_col": "Event_ID",
+      "parent_col": "Event_ID"
+    },
+    {
+      "from": "Participants_in_Events",
+      "to": "Participants",
+      "child_col": "Participant_ID",
+      "parent_col": "Participant_ID"
+    }
+  ],
+  "centrality": {
+    "Services": 0.3333333333333333,
+    "Participants": 0.3333333333333333,
+    "Events": 0.3333333333333333,
+    "Participants_in_Events": 0.0
+  }
+}

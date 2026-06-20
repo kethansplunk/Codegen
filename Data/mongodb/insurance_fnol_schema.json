@@ -1,0 +1,197 @@
+{
+  "db_name": "insurance_fnol",
+  "collections": {
+    "Customers": {
+      "primary_key": [
+        "Customer_ID"
+      ],
+      "columns": [
+        {
+          "name": "Customer_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Customer_name",
+          "type": "VARCHAR(40)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 15
+    },
+    "Services": {
+      "primary_key": [
+        "Service_ID"
+      ],
+      "columns": [
+        {
+          "name": "Service_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Service_name",
+          "type": "VARCHAR(40)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 4
+    },
+    "Available_Policies": {
+      "primary_key": [
+        "Policy_ID"
+      ],
+      "columns": [
+        {
+          "name": "Policy_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "policy_type_code",
+          "type": "CHAR(15)"
+        },
+        {
+          "name": "Customer_Phone",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 15
+    },
+    "Customers_Policies": {
+      "primary_key": [
+        "Customer_ID",
+        "Policy_ID"
+      ],
+      "columns": [
+        {
+          "name": "Customer_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Policy_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Date_Opened",
+          "type": "DATE"
+        },
+        {
+          "name": "Date_Closed",
+          "type": "DATE"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Customers_Policies",
+          "to": "Available_Policies",
+          "child_col": "Policy_ID",
+          "parent_col": "Policy_ID"
+        },
+        {
+          "from": "Customers_Policies",
+          "to": "Customers",
+          "child_col": "Customer_ID",
+          "parent_col": "Customer_ID"
+        }
+      ],
+      "row_count": 14
+    },
+    "First_Notification_of_Loss": {
+      "primary_key": [
+        "FNOL_ID"
+      ],
+      "columns": [
+        {
+          "name": "FNOL_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Customer_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Policy_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Service_ID",
+          "type": "INTEGER"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "First_Notification_of_Loss",
+          "to": "Customers_Policies",
+          "child_col": "Policy_ID",
+          "parent_col": "Policy_ID"
+        },
+        {
+          "from": "First_Notification_of_Loss",
+          "to": "Services",
+          "child_col": "Service_ID",
+          "parent_col": "Service_ID"
+        }
+      ],
+      "row_count": 7
+    },
+    "Claims": {
+      "primary_key": [
+        "Claim_ID"
+      ],
+      "columns": [
+        {
+          "name": "Claim_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "FNOL_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Effective_Date",
+          "type": "DATE"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Claims",
+          "to": "First_Notification_of_Loss",
+          "child_col": "FNOL_ID",
+          "parent_col": "FNOL_ID"
+        }
+      ],
+      "row_count": 10
+    },
+    "Settlements": {
+      "primary_key": [
+        "Settlement_ID"
+      ],
+      "columns": [
+        {
+          "name": "Settlement_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Claim_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Effective_Date",
+          "type": "DATE"
+        },
+        {
+          "name": "Settlement_Amount",
+          "type": "REAL"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Settlements",
+          "to": "Claims",
+          "child_col": "Claim_ID",
+          "parent_col": "Claim_ID"
+        }
+      ],
+      "row_count": 10
+    }
+  }
+}

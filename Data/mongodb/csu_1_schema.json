@@ -1,0 +1,187 @@
+{
+  "db_name": "csu_1",
+  "collections": {
+    "Campuses": {
+      "primary_key": [
+        "Id"
+      ],
+      "columns": [
+        {
+          "name": "Id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Campus",
+          "type": "TEXT"
+        },
+        {
+          "name": "Location",
+          "type": "TEXT"
+        },
+        {
+          "name": "County",
+          "type": "TEXT"
+        },
+        {
+          "name": "Year",
+          "type": "INTEGER"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 23
+    },
+    "csu_fees": {
+      "primary_key": [
+        "Campus"
+      ],
+      "columns": [
+        {
+          "name": "Campus",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Year",
+          "type": "INTEGER"
+        },
+        {
+          "name": "CampusFee",
+          "type": "INTEGER"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "csu_fees",
+          "to": "Campuses",
+          "child_col": "Campus",
+          "parent_col": "Id"
+        }
+      ],
+      "row_count": 23
+    },
+    "degrees": {
+      "primary_key": [
+        "Year",
+        "Campus"
+      ],
+      "columns": [
+        {
+          "name": "Year",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Campus",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Degrees",
+          "type": "INTEGER"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "degrees",
+          "to": "Campuses",
+          "child_col": "Campus",
+          "parent_col": "Id"
+        }
+      ],
+      "row_count": 320
+    },
+    "discipline_enrollments": {
+      "primary_key": [
+        "Campus",
+        "Discipline"
+      ],
+      "columns": [
+        {
+          "name": "Campus",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Discipline",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Year",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Undergraduate",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Graduate",
+          "type": "INTEGER"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "discipline_enrollments",
+          "to": "Campuses",
+          "child_col": "Campus",
+          "parent_col": "Id"
+        }
+      ],
+      "row_count": 395
+    },
+    "enrollments": {
+      "primary_key": [
+        "Campus",
+        "Year"
+      ],
+      "columns": [
+        {
+          "name": "Campus",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Year",
+          "type": "INTEGER"
+        },
+        {
+          "name": "TotalEnrollment_AY",
+          "type": "INTEGER"
+        },
+        {
+          "name": "FTE_AY",
+          "type": "INTEGER"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "enrollments",
+          "to": "Campuses",
+          "child_col": "Campus",
+          "parent_col": "Id"
+        }
+      ],
+      "row_count": 1113
+    },
+    "faculty": {
+      "primary_key": [],
+      "columns": [
+        {
+          "name": "Campus",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Year",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Faculty",
+          "type": "REAL"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "faculty",
+          "to": "Campuses",
+          "child_col": "Campus",
+          "parent_col": "Id"
+        }
+      ],
+      "row_count": 69
+    }
+  }
+}

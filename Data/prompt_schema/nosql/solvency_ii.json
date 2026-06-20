@@ -1,0 +1,257 @@
+{
+  "Agreements.Event_ID": {
+    "sample_values": [
+      "10",
+      "6",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Agreements.Document_ID": {
+    "sample_values": [
+      "5",
+      "8",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Assets_in_Events.Event_ID": {
+    "sample_values": [
+      "10",
+      "14",
+      "12"
+    ],
+    "inferred_type": "integer"
+  },
+  "Assets_in_Events.Asset_ID": {
+    "sample_values": [
+      "1",
+      "3",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "Addresses.address_details": {
+    "sample_values": [
+      "382 Demond Alley\nLuellamouth, MT 67912",
+      "682 Kautzer Forest Apt. 509\nJaydenfurt, NE 85011-5059",
+      "669 Carter Trafficway\nPort Delbert, OK 66249"
+    ],
+    "inferred_type": "string"
+  },
+  "Addresses.Address_ID": {
+    "sample_values": [
+      "5",
+      "8",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Events.Channel_ID": {
+    "sample_values": [
+      "10",
+      "12",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "Events.Event_Type_Code": {
+    "sample_values": [
+      "Press Conferenc",
+      "Conference",
+      "Ceremonies"
+    ],
+    "inferred_type": "string"
+  },
+  "Events.Finance_ID": {
+    "sample_values": [
+      "5",
+      "10",
+      "1"
+    ],
+    "inferred_type": "integer"
+  },
+  "Events.Event_ID": {
+    "sample_values": [
+      "5",
+      "8",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Events.Location_ID": {
+    "sample_values": [
+      "10",
+      "6",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Events.Address_ID": {
+    "sample_values": [
+      "10",
+      "15",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Products_in_Events.Product_in_Event_ID": {
+    "sample_values": [
+      "63",
+      "64",
+      "50"
+    ],
+    "inferred_type": "integer"
+  },
+  "Products_in_Events.Event_ID": {
+    "sample_values": [
+      "5",
+      "10",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "Products_in_Events.Product_ID": {
+    "sample_values": [
+      "34",
+      "45",
+      "29"
+    ],
+    "inferred_type": "integer"
+  },
+  "Assets.Other_Details": {
+    "sample_values": [
+      "Dinning Tables",
+      "Meeting Rooms",
+      "Transportation Cars"
+    ],
+    "inferred_type": "string"
+  },
+  "Assets.Asset_ID": {
+    "sample_values": [
+      "1",
+      "3",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "Channels.Channel_ID": {
+    "sample_values": [
+      "5",
+      "8",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Channels.Other_Details": {
+    "sample_values": [
+      "58",
+      "631",
+      "249"
+    ],
+    "inferred_type": "integer"
+  },
+  "Parties.Party_Details": {
+    "sample_values": [
+      "European People's Party",
+      "Alliance of Liberals and Democrats for Europe",
+      "European Christian Political Movement"
+    ],
+    "inferred_type": "string"
+  },
+  "Parties.Party_ID": {
+    "sample_values": [
+      "5",
+      "9",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "Locations.Location_ID": {
+    "sample_values": [
+      "5",
+      "8",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Locations.Other_Details": {
+    "sample_values": [
+      "Wintheiser-Sauer",
+      "Prohaska LLC",
+      "Morar-Denesik"
+    ],
+    "inferred_type": "string"
+  },
+  "Parties_in_Events.Party_ID": {
+    "sample_values": [
+      "5",
+      "9",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "Parties_in_Events.Role_Code": {
+    "sample_values": [
+      "Participant",
+      "Organizer"
+    ],
+    "inferred_type": "string"
+  },
+  "Parties_in_Events.Event_ID": {
+    "sample_values": [
+      "10",
+      "1",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "Finances.Finance_ID": {
+    "sample_values": [
+      "5",
+      "8",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Finances.Other_Details": {
+    "sample_values": [
+      "Good",
+      "Mutual",
+      "Bad"
+    ],
+    "inferred_type": "string"
+  },
+  "Products.Product_Price": {
+    "sample_values": [
+      "502.15",
+      "3215.66",
+      "932.25"
+    ],
+    "inferred_type": "float"
+  },
+  "Products.Product_Name": {
+    "sample_values": [
+      "Dinning",
+      "Business Policy",
+      "Business Policy B"
+    ],
+    "inferred_type": "string"
+  },
+  "Products.Product_Type_Code": {
+    "sample_values": [
+      "Electronics",
+      "Clothes",
+      "Books"
+    ],
+    "inferred_type": "string"
+  },
+  "Products.Product_ID": {
+    "sample_values": [
+      "34",
+      "18",
+      "6"
+    ],
+    "inferred_type": "integer"
+  }
+}

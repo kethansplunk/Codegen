@@ -1,0 +1,106 @@
+{
+  "people.Age": {
+    "sample_values": [
+      "23.0",
+      "20.0",
+      "19.0"
+    ],
+    "inferred_type": "float"
+  },
+  "people.Hometown": {
+    "sample_values": [
+      "Miami",
+      "Santiago de los Caballeros",
+      "Santo Domingo"
+    ],
+    "inferred_type": "string"
+  },
+  "people.Name": {
+    "sample_values": [
+      "Paul Hamm",
+      "Elizabeth Qui\u00f1\u00f3nez Aroyo",
+      "Nadia Caba Rodr\u00edguez"
+    ],
+    "inferred_type": "string"
+  },
+  "people.Height": {
+    "sample_values": [
+      "1.79",
+      "1.72",
+      "1.71"
+    ],
+    "inferred_type": "float"
+  },
+  "people.People_ID": {
+    "sample_values": [
+      "5",
+      "1",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "gymnast.Floor_Exercise_Points": {
+    "sample_values": [
+      "9.7",
+      "9.412",
+      "9.725"
+    ],
+    "inferred_type": "float"
+  },
+  "gymnast.Vault_Points": {
+    "sample_values": [
+      "9.65",
+      "9.55",
+      "9.637"
+    ],
+    "inferred_type": "float"
+  },
+  "gymnast.Rings_Points": {
+    "sample_values": [
+      "9.75",
+      "9.3",
+      "9.625"
+    ],
+    "inferred_type": "float"
+  },
+  "gymnast.Parallel_Bars_Points": {
+    "sample_values": [
+      "9.587",
+      "9.562",
+      "9.725"
+    ],
+    "inferred_type": "float"
+  },
+  "gymnast.Horizontal_Bar_Points": {
+    "sample_values": [
+      "9.412",
+      "9.75",
+      "9.725"
+    ],
+    "inferred_type": "float"
+  },
+  "gymnast.Gymnast_ID": {
+    "sample_values": [
+      "10",
+      "1",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "gymnast.Pommel_Horse_Points": {
+    "sample_values": [
+      "9.712",
+      "9.325",
+      "9.675"
+    ],
+    "inferred_type": "float"
+  },
+  "gymnast.Total_Points": {
+    "sample_values": [
+      "58.061",
+      "57.374",
+      "57.436"
+    ],
+    "inferred_type": "float"
+  }
+}

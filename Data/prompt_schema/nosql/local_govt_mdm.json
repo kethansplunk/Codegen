@@ -1,0 +1,136 @@
+{
+  "Electoral_Register.cmi_cross_ref_id": {
+    "sample_values": [
+      "83",
+      "75",
+      "100"
+    ],
+    "inferred_type": "integer"
+  },
+  "Electoral_Register.electoral_register_id": {
+    "sample_values": [
+      "8",
+      "4",
+      "3"
+    ],
+    "inferred_type": "integer"
+  },
+  "Business_Rates.cmi_cross_ref_id": {
+    "sample_values": [
+      "49",
+      "95",
+      "99"
+    ],
+    "inferred_type": "integer"
+  },
+  "Business_Rates.business_rates_id": {
+    "sample_values": [
+      "8",
+      "5",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "CMI_Cross_References.cmi_cross_ref_id": {
+    "sample_values": [
+      "83",
+      "105",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "CMI_Cross_References.master_customer_id": {
+    "sample_values": [
+      "5",
+      "9",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "CMI_Cross_References.source_system_code": {
+    "sample_values": [
+      "Rent",
+      "Tax",
+      "Business"
+    ],
+    "inferred_type": "string"
+  },
+  "Council_Tax.council_tax_id": {
+    "sample_values": [
+      "8",
+      "2",
+      "3"
+    ],
+    "inferred_type": "integer"
+  },
+  "Council_Tax.cmi_cross_ref_id": {
+    "sample_values": [
+      "105",
+      "104",
+      "102"
+    ],
+    "inferred_type": "integer"
+  },
+  "Customer_Master_Index.master_customer_id": {
+    "sample_values": [
+      "5",
+      "2",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "Customer_Master_Index.cmi_details": {
+    "sample_values": [
+      "Volkman, Mills and Ferry",
+      "Schmidt, Kertzmann and Lubowitz",
+      "Quigley-Paucek"
+    ],
+    "inferred_type": "string"
+  },
+  "Parking_Fines.council_tax_id": {
+    "sample_values": [
+      "10",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Parking_Fines.cmi_cross_ref_id": {
+    "sample_values": [
+      "81",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "Benefits_Overpayments.council_tax_id": {
+    "sample_values": [
+      "8",
+      "6",
+      "3"
+    ],
+    "inferred_type": "integer"
+  },
+  "Benefits_Overpayments.cmi_cross_ref_id": {
+    "sample_values": [
+      "83",
+      "41",
+      "48"
+    ],
+    "inferred_type": "integer"
+  },
+  "Rent_Arrears.council_tax_id": {
+    "sample_values": [
+      "7",
+      "1",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "Rent_Arrears.cmi_cross_ref_id": {
+    "sample_values": [
+      "100",
+      "8",
+      "2"
+    ],
+    "inferred_type": "integer"
+  }
+}

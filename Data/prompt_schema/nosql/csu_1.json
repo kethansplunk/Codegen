@@ -1,0 +1,176 @@
+{
+  "degrees.Degrees": {
+    "sample_values": [
+      "1651",
+      "1728",
+      "2401"
+    ],
+    "inferred_type": "integer"
+  },
+  "degrees.Year": {
+    "sample_values": [
+      "1993",
+      "2004",
+      "1999"
+    ],
+    "inferred_type": "integer"
+  },
+  "degrees.Campus": {
+    "sample_values": [
+      "5",
+      "1",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "faculty.Year": {
+    "sample_values": [
+      "2002",
+      "2003",
+      "2004"
+    ],
+    "inferred_type": "integer"
+  },
+  "faculty.Campus": {
+    "sample_values": [
+      "23",
+      "15",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "faculty.Faculty": {
+    "sample_values": [
+      "1257.3",
+      "738.0",
+      "357.1"
+    ],
+    "inferred_type": "float"
+  },
+  "enrollments.TotalEnrollment_AY": {
+    "sample_values": [
+      "3326",
+      "492",
+      "5313"
+    ],
+    "inferred_type": "integer"
+  },
+  "enrollments.Year": {
+    "sample_values": [
+      "1956",
+      "2004",
+      "1992"
+    ],
+    "inferred_type": "integer"
+  },
+  "enrollments.Campus": {
+    "sample_values": [
+      "1",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "enrollments.FTE_AY": {
+    "sample_values": [
+      "358",
+      "203",
+      "2338"
+    ],
+    "inferred_type": "integer"
+  },
+  "Campuses.Campus": {
+    "sample_values": [
+      "California Polytechnic State University-San Luis Obispo",
+      "California State University-Dominguez Hills",
+      "California State University-East Bay"
+    ],
+    "inferred_type": "string"
+  },
+  "Campuses.Location": {
+    "sample_values": [
+      "Long Beach",
+      "San Luis Obispo",
+      "Vallejo"
+    ],
+    "inferred_type": "string"
+  },
+  "Campuses.County": {
+    "sample_values": [
+      "San Luis Obispo",
+      "San Bernardino",
+      "Solano"
+    ],
+    "inferred_type": "string"
+  },
+  "Campuses.Year": {
+    "sample_values": [
+      "1897",
+      "1947",
+      "1994"
+    ],
+    "inferred_type": "integer"
+  },
+  "Campuses.Id": {
+    "sample_values": [
+      "23",
+      "15",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "csu_fees.Year": {
+    "sample_values": [
+      "1996",
+      "2003"
+    ],
+    "inferred_type": "integer"
+  },
+  "csu_fees.Campus": {
+    "sample_values": [
+      "23",
+      "15",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "csu_fees.CampusFee": {
+    "sample_values": [
+      "1720",
+      "1915",
+      "2110"
+    ],
+    "inferred_type": "integer"
+  },
+  "discipline_enrollments.Campus": {
+    "sample_values": [
+      "1",
+      "3",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "discipline_enrollments.Discipline": {
+    "sample_values": [
+      "22",
+      "12",
+      "7"
+    ],
+    "inferred_type": "integer"
+  },
+  "discipline_enrollments.Graduate": {
+    "sample_values": [
+      "108",
+      "19",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "discipline_enrollments.Undergraduate": {
+    "sample_values": [
+      "584",
+      "643",
+      "516"
+    ],
+    "inferred_type": "integer"
+  }
+}

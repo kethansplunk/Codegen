@@ -1,0 +1,141 @@
+{
+  "db_name": "shop_membership",
+  "collections": {
+    "member": {
+      "primary_key": [
+        "Member_ID"
+      ],
+      "columns": [
+        {
+          "name": "Member_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Card_Number",
+          "type": "TEXT"
+        },
+        {
+          "name": "Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Hometown",
+          "type": "TEXT"
+        },
+        {
+          "name": "Level",
+          "type": "INT"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 10
+    },
+    "branch": {
+      "primary_key": [
+        "Branch_ID"
+      ],
+      "columns": [
+        {
+          "name": "Branch_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Open_year",
+          "type": "TEXT"
+        },
+        {
+          "name": "Address_road",
+          "type": "TEXT"
+        },
+        {
+          "name": "City",
+          "type": "TEXT"
+        },
+        {
+          "name": "membership_amount",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 8
+    },
+    "membership_register_branch": {
+      "primary_key": [
+        "Member_ID"
+      ],
+      "columns": [
+        {
+          "name": "Member_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Branch_ID",
+          "type": "TEXT"
+        },
+        {
+          "name": "Register_Year",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "membership_register_branch",
+          "to": "branch",
+          "child_col": "Branch_ID",
+          "parent_col": "Branch_ID"
+        },
+        {
+          "from": "membership_register_branch",
+          "to": "member",
+          "child_col": "Member_ID",
+          "parent_col": "Member_ID"
+        }
+      ],
+      "row_count": 8
+    },
+    "purchase": {
+      "primary_key": [
+        "Member_ID",
+        "Branch_ID",
+        "Year"
+      ],
+      "columns": [
+        {
+          "name": "Member_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Branch_ID",
+          "type": "TEXT"
+        },
+        {
+          "name": "Year",
+          "type": "TEXT"
+        },
+        {
+          "name": "Total_pounds",
+          "type": "REAL"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "purchase",
+          "to": "branch",
+          "child_col": "Branch_ID",
+          "parent_col": "Branch_ID"
+        },
+        {
+          "from": "purchase",
+          "to": "member",
+          "child_col": "Member_ID",
+          "parent_col": "Member_ID"
+        }
+      ],
+      "row_count": 8
+    }
+  }
+}

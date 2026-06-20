@@ -1,0 +1,81 @@
+{
+  "db_name": "election_representative",
+  "nodes": [
+    {
+      "name": "election",
+      "columns": [
+        {
+          "name": "Election_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Representative_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Date",
+          "type": "TEXT"
+        },
+        {
+          "name": "Votes",
+          "type": "REAL"
+        },
+        {
+          "name": "Vote_Percent",
+          "type": "REAL"
+        },
+        {
+          "name": "Seats",
+          "type": "REAL"
+        },
+        {
+          "name": "Place",
+          "type": "REAL"
+        }
+      ],
+      "pk": [
+        "Election_ID"
+      ]
+    },
+    {
+      "name": "representative",
+      "columns": [
+        {
+          "name": "Representative_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "State",
+          "type": "TEXT"
+        },
+        {
+          "name": "Party",
+          "type": "TEXT"
+        },
+        {
+          "name": "Lifespan",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "Representative_ID"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "election",
+      "to": "representative",
+      "child_col": "Representative_ID",
+      "parent_col": "Representative_ID"
+    }
+  ],
+  "centrality": {
+    "election": 0.0,
+    "representative": 1.0
+  }
+}

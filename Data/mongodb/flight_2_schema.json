@@ -1,0 +1,92 @@
+{
+  "db_name": "flight_2",
+  "collections": {
+    "airlines": {
+      "primary_key": [
+        "uid"
+      ],
+      "columns": [
+        {
+          "name": "uid",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Airline",
+          "type": "TEXT"
+        },
+        {
+          "name": "Abbreviation",
+          "type": "TEXT"
+        },
+        {
+          "name": "Country",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 12
+    },
+    "airports": {
+      "primary_key": [
+        "AirportCode"
+      ],
+      "columns": [
+        {
+          "name": "City",
+          "type": "TEXT"
+        },
+        {
+          "name": "AirportCode",
+          "type": "TEXT"
+        },
+        {
+          "name": "AirportName",
+          "type": "TEXT"
+        },
+        {
+          "name": "Country",
+          "type": "TEXT"
+        },
+        {
+          "name": "CountryAbbrev",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 100
+    },
+    "flights": {
+      "primary_key": [
+        "Airline",
+        "FlightNo"
+      ],
+      "columns": [
+        {
+          "name": "Airline",
+          "type": "INTEGER"
+        },
+        {
+          "name": "FlightNo",
+          "type": "INTEGER"
+        },
+        {
+          "name": "SourceAirport",
+          "type": "TEXT"
+        },
+        {
+          "name": "DestAirport",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "flights",
+          "to": "airports",
+          "child_col": "SourceAirport",
+          "parent_col": "AirportCode"
+        }
+      ],
+      "row_count": 1200
+    }
+  }
+}

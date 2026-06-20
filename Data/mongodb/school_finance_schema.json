@@ -1,0 +1,123 @@
+{
+  "db_name": "school_finance",
+  "collections": {
+    "School": {
+      "primary_key": [
+        "School_id"
+      ],
+      "columns": [
+        {
+          "name": "School_id",
+          "type": "TEXT"
+        },
+        {
+          "name": "School_name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Location",
+          "type": "TEXT"
+        },
+        {
+          "name": "Mascot",
+          "type": "TEXT"
+        },
+        {
+          "name": "Enrollment",
+          "type": "INT"
+        },
+        {
+          "name": "IHSAA_Class",
+          "type": "TEXT"
+        },
+        {
+          "name": "IHSAA_Football_Class",
+          "type": "TEXT"
+        },
+        {
+          "name": "County",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 8
+    },
+    "budget": {
+      "primary_key": [
+        "School_id",
+        "Year"
+      ],
+      "columns": [
+        {
+          "name": "School_id",
+          "type": "INT"
+        },
+        {
+          "name": "Year",
+          "type": "INT"
+        },
+        {
+          "name": "Budgeted",
+          "type": "INT"
+        },
+        {
+          "name": "total_budget_percent_budgeted",
+          "type": "REAL"
+        },
+        {
+          "name": "Invested",
+          "type": "INT"
+        },
+        {
+          "name": "total_budget_percent_invested",
+          "type": "REAL"
+        },
+        {
+          "name": "Budget_invested_percent",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "budget",
+          "to": "School",
+          "child_col": "School_id",
+          "parent_col": "School_id"
+        }
+      ],
+      "row_count": 8
+    },
+    "endowment": {
+      "primary_key": [
+        "endowment_id"
+      ],
+      "columns": [
+        {
+          "name": "endowment_id",
+          "type": "INT"
+        },
+        {
+          "name": "School_id",
+          "type": "INT"
+        },
+        {
+          "name": "donator_name",
+          "type": "TEXT"
+        },
+        {
+          "name": "amount",
+          "type": "REAL"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "endowment",
+          "to": "School",
+          "child_col": "School_id",
+          "parent_col": "School_id"
+        }
+      ],
+      "row_count": 11
+    }
+  }
+}

@@ -1,0 +1,106 @@
+{
+  "people.Home Town": {
+    "sample_values": [
+      "Altoona, PA",
+      "Los Angeles, CA",
+      "Austin, TX"
+    ],
+    "inferred_type": "string"
+  },
+  "people.Name": {
+    "sample_values": [
+      "John Danks",
+      "Rob Cunningham",
+      "Jim Krivacs"
+    ],
+    "inferred_type": "string"
+  },
+  "people.Height": {
+    "sample_values": [
+      "6.5",
+      "6.1",
+      "6.8"
+    ],
+    "inferred_type": "float"
+  },
+  "people.Weight": {
+    "sample_values": [
+      "205.0",
+      "185.0",
+      "190.0"
+    ],
+    "inferred_type": "float"
+  },
+  "people.People_ID": {
+    "sample_values": [
+      "5",
+      "1",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "perpetrator.Location": {
+    "sample_values": [
+      "Zhaodong",
+      "Kaio",
+      "Uiryeong"
+    ],
+    "inferred_type": "string"
+  },
+  "perpetrator.Perpetrator_ID": {
+    "sample_values": [
+      "5",
+      "1",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "perpetrator.Year": {
+    "sample_values": [
+      "1994.0",
+      "1995.0",
+      "1938.0"
+    ],
+    "inferred_type": "float"
+  },
+  "perpetrator.Country": {
+    "sample_values": [
+      "China",
+      "India",
+      "South Korea"
+    ],
+    "inferred_type": "string"
+  },
+  "perpetrator.Injured": {
+    "sample_values": [
+      "16",
+      "0",
+      "37"
+    ],
+    "inferred_type": "integer"
+  },
+  "perpetrator.Date": {
+    "sample_values": [
+      "04.00 April",
+      "05.21 May 21",
+      "11.18 Nov. 18"
+    ],
+    "inferred_type": "string"
+  },
+  "perpetrator.Killed": {
+    "sample_values": [
+      "56",
+      "23",
+      "30"
+    ],
+    "inferred_type": "integer"
+  },
+  "perpetrator.People_ID": {
+    "sample_values": [
+      "8",
+      "1",
+      "4"
+    ],
+    "inferred_type": "integer"
+  }
+}

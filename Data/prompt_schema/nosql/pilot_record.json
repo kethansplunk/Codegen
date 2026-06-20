@@ -1,0 +1,153 @@
+{
+  "aircraft.Fleet_Series": {
+    "sample_values": [
+      "310-329 (20)",
+      "465-467 (3)",
+      "468-473 (6)"
+    ],
+    "inferred_type": "string"
+  },
+  "aircraft.Manufacturer": {
+    "sample_values": [
+      "NFI",
+      "Gillig"
+    ],
+    "inferred_type": "string"
+  },
+  "aircraft.Powertrain": {
+    "sample_values": [
+      "Cummins ISC Allison WB-400R",
+      "DD S50 Allison WB-400R",
+      "Cummins ISL Allison WB-400R"
+    ],
+    "inferred_type": "string"
+  },
+  "aircraft.Fuel_Propulsion": {
+    "sample_values": [
+      "CNG",
+      "Diesel",
+      "Hybrid"
+    ],
+    "inferred_type": "string"
+  },
+  "aircraft.Aircraft_ID": {
+    "sample_values": [
+      "5",
+      "2",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "aircraft.Model": {
+    "sample_values": [
+      "Phantom (High Floor)",
+      "C40LFR",
+      "GE40LFR"
+    ],
+    "inferred_type": "string"
+  },
+  "aircraft.Order_Year": {
+    "sample_values": [
+      "2011",
+      "2010",
+      "1998"
+    ],
+    "inferred_type": "integer"
+  },
+  "pilot.Rank": {
+    "sample_values": [
+      "34",
+      "13",
+      "45"
+    ],
+    "inferred_type": "integer"
+  },
+  "pilot.Age": {
+    "sample_values": [
+      "37",
+      "33",
+      "22"
+    ],
+    "inferred_type": "integer"
+  },
+  "pilot.Nationality": {
+    "sample_values": [
+      "Nigeria",
+      "United States",
+      "United Kindom"
+    ],
+    "inferred_type": "string"
+  },
+  "pilot.Pilot_name": {
+    "sample_values": [
+      "Hakeem Olajuwon",
+      "Jermaine O'Neal",
+      "Dan O'Sullivan"
+    ],
+    "inferred_type": "string"
+  },
+  "pilot.Join_Year": {
+    "sample_values": [
+      "2010",
+      "1999",
+      "2009"
+    ],
+    "inferred_type": "integer"
+  },
+  "pilot.Team": {
+    "sample_values": [
+      "Virginia Union",
+      "Houston",
+      "Bradley"
+    ],
+    "inferred_type": "string"
+  },
+  "pilot.Position": {
+    "sample_values": [
+      "Forward Team",
+      "Center Team",
+      "Forward-Center Team"
+    ],
+    "inferred_type": "string"
+  },
+  "pilot.Pilot_ID": {
+    "sample_values": [
+      "5",
+      "1",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "pilot_record.Record_ID": {
+    "sample_values": [
+      "5",
+      "2",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "pilot_record.Pilot_ID": {
+    "sample_values": [
+      "1",
+      "3",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "pilot_record.Aircraft_ID": {
+    "sample_values": [
+      "5",
+      "1",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "pilot_record.Date": {
+    "sample_values": [
+      "2004/01/04",
+      "2006/01/04",
+      "2003/01/04"
+    ],
+    "inferred_type": "string"
+  }
+}

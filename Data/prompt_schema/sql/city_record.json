@@ -1,0 +1,217 @@
+{
+  "city.City_ID": {
+    "sample_values": [
+      1,
+      5,
+      9
+    ],
+    "inferred_type": "integer"
+  },
+  "city.City": {
+    "sample_values": [
+      "Yangzhou ( Jiangsu )",
+      "Wuxi ( Jiangsu )",
+      "Suzhou ( Jiangsu )"
+    ],
+    "inferred_type": "string"
+  },
+  "city.Hanzi": {
+    "sample_values": [
+      "\u626c\u5dde/ \u63da\u5dde",
+      "\u65e0\u9521/ \u7121\u932b",
+      "\u82cf\u5dde/ \u8607\u5dde"
+    ],
+    "inferred_type": "string"
+  },
+  "city.Hanyu_Pinyin": {
+    "sample_values": [
+      "Y\u00e1ngzh\u014du",
+      "W\u00fax\u012b",
+      "S\u016bzh\u014du"
+    ],
+    "inferred_type": "string"
+  },
+  "city.Regional_Population": {
+    "sample_values": [
+      23019148,
+      7605689,
+      4591972
+    ],
+    "inferred_type": "integer"
+  },
+  "city.GDP": {
+    "sample_values": [
+      1919.57,
+      601.05,
+      358.04
+    ],
+    "inferred_type": "float"
+  },
+  "match.Match_ID": {
+    "sample_values": [
+      1,
+      3,
+      5
+    ],
+    "inferred_type": "integer"
+  },
+  "match.Date": {
+    "sample_values": [
+      "23 July 2000",
+      "4 April 1993",
+      "23 July 1992"
+    ],
+    "inferred_type": "string"
+  },
+  "match.Venue": {
+    "sample_values": [
+      "Estadio Cuscatl\u00e1n , San Salvador , El Salvador",
+      "Estadio Rigoberto L\u00f3pez , Managua , Nicaragua"
+    ],
+    "inferred_type": "string"
+  },
+  "match.Score": {
+    "sample_values": [
+      "1-0",
+      "3-0",
+      "1\u20130"
+    ],
+    "inferred_type": "string"
+  },
+  "match.Result": {
+    "sample_values": [
+      "2-0",
+      "5-0",
+      "5-1"
+    ],
+    "inferred_type": "string"
+  },
+  "match.Competition": {
+    "sample_values": [
+      "Friendly match",
+      "1994 FIFA World Cup qualification",
+      "2002 FIFA World Cup qualification"
+    ],
+    "inferred_type": "string"
+  },
+  "temperature.City_ID": {
+    "sample_values": [
+      1,
+      3,
+      6
+    ],
+    "inferred_type": "integer"
+  },
+  "temperature.Jan": {
+    "sample_values": [
+      17.8,
+      18.9,
+      17.2
+    ],
+    "inferred_type": "float"
+  },
+  "temperature.Feb": {
+    "sample_values": [
+      17.8,
+      18.3,
+      17.2
+    ],
+    "inferred_type": "float"
+  },
+  "temperature.Mar": {
+    "sample_values": [
+      18.3,
+      26.1,
+      19.4
+    ],
+    "inferred_type": "float"
+  },
+  "temperature.Apr": {
+    "sample_values": [
+      18.9,
+      20.0,
+      27.8
+    ],
+    "inferred_type": "float"
+  },
+  "temperature.Jun": {
+    "sample_values": [
+      20.0,
+      22.2,
+      20.6
+    ],
+    "inferred_type": "float"
+  },
+  "temperature.Jul": {
+    "sample_values": [
+      20.6,
+      23.3,
+      21.7
+    ],
+    "inferred_type": "float"
+  },
+  "temperature.Aug": {
+    "sample_values": [
+      20.6,
+      23.9,
+      21.7
+    ],
+    "inferred_type": "float"
+  },
+  "temperature.Sep": {
+    "sample_values": [
+      20.6,
+      23.3,
+      21.1
+    ],
+    "inferred_type": "float"
+  },
+  "temperature.Oct": {
+    "sample_values": [
+      20.0,
+      22.8,
+      20.6
+    ],
+    "inferred_type": "float"
+  },
+  "temperature.Nov": {
+    "sample_values": [
+      19.4,
+      27.2,
+      21.7
+    ],
+    "inferred_type": "float"
+  },
+  "temperature.Dec": {
+    "sample_values": [
+      18.3,
+      26.7,
+      20.0
+    ],
+    "inferred_type": "float"
+  },
+  "hosting_city.Year": {
+    "sample_values": [
+      2008,
+      2010,
+      2012
+    ],
+    "inferred_type": "integer"
+  },
+  "hosting_city.Match_ID": {
+    "sample_values": [
+      1,
+      3,
+      5
+    ],
+    "inferred_type": "integer"
+  },
+  "hosting_city.Host_City": {
+    "sample_values": [
+      "1",
+      "2",
+      "6"
+    ],
+    "inferred_type": "integer"
+  }
+}

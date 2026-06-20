@@ -1,0 +1,134 @@
+{
+  "db_name": "protein_institute",
+  "collections": {
+    "building": {
+      "primary_key": [
+        "building_id"
+      ],
+      "columns": [
+        {
+          "name": "building_id",
+          "type": "TEXT"
+        },
+        {
+          "name": "Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Street_address",
+          "type": "TEXT"
+        },
+        {
+          "name": "Years_as_tallest",
+          "type": "TEXT"
+        },
+        {
+          "name": "Height_feet",
+          "type": "INT"
+        },
+        {
+          "name": "Floors",
+          "type": "INT"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 8
+    },
+    "Institution": {
+      "primary_key": [
+        "Institution_id"
+      ],
+      "columns": [
+        {
+          "name": "Institution_id",
+          "type": "TEXT"
+        },
+        {
+          "name": "Institution",
+          "type": "TEXT"
+        },
+        {
+          "name": "Location",
+          "type": "TEXT"
+        },
+        {
+          "name": "Founded",
+          "type": "REAL"
+        },
+        {
+          "name": "Type",
+          "type": "TEXT"
+        },
+        {
+          "name": "Enrollment",
+          "type": "INT"
+        },
+        {
+          "name": "Team",
+          "type": "TEXT"
+        },
+        {
+          "name": "Primary_Conference",
+          "type": "TEXT"
+        },
+        {
+          "name": "building_id",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Institution",
+          "to": "building",
+          "child_col": "building_id",
+          "parent_col": "building_id"
+        }
+      ],
+      "row_count": 11
+    },
+    "protein": {
+      "primary_key": [
+        "common_name"
+      ],
+      "columns": [
+        {
+          "name": "common_name",
+          "type": "TEXT"
+        },
+        {
+          "name": "protein_name",
+          "type": "TEXT"
+        },
+        {
+          "name": "divergence_from_human_lineage",
+          "type": "REAL"
+        },
+        {
+          "name": "accession_number",
+          "type": "TEXT"
+        },
+        {
+          "name": "sequence_length",
+          "type": "REAL"
+        },
+        {
+          "name": "sequence_identity_to_human_protein",
+          "type": "TEXT"
+        },
+        {
+          "name": "Institution_id",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "protein",
+          "to": "Institution",
+          "child_col": "Institution_id",
+          "parent_col": "Institution_id"
+        }
+      ],
+      "row_count": 5
+    }
+  }
+}

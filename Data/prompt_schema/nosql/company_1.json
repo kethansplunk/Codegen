@@ -1,0 +1,224 @@
+{
+  "dept_locations.Dlocation": {
+    "sample_values": [
+      "Sugarland",
+      "Bellaire",
+      "Houston"
+    ],
+    "inferred_type": "string"
+  },
+  "dept_locations.Dnumber": {
+    "sample_values": [
+      "1",
+      "5",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "department.Mgr_start_date": {
+    "sample_values": [
+      "1988-05-22",
+      "1995-01-01",
+      "1981-06-19"
+    ],
+    "inferred_type": "string"
+  },
+  "department.Dname": {
+    "sample_values": [
+      "Research",
+      "Headquarters",
+      "Administration"
+    ],
+    "inferred_type": "string"
+  },
+  "department.Mgr_ssn": {
+    "sample_values": [
+      "987654321",
+      "333445555",
+      "888665555"
+    ],
+    "inferred_type": "integer"
+  },
+  "department.Dnumber": {
+    "sample_values": [
+      "1",
+      "5",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "employee.Fname": {
+    "sample_values": [
+      "James",
+      "Ramesh",
+      "Franklin"
+    ],
+    "inferred_type": "string"
+  },
+  "employee.Minit": {
+    "sample_values": [
+      "S",
+      "K",
+      "J"
+    ],
+    "inferred_type": "string"
+  },
+  "employee.Salary": {
+    "sample_values": [
+      "30000",
+      "55000",
+      "25000"
+    ],
+    "inferred_type": "integer"
+  },
+  "employee.Super_ssn": {
+    "sample_values": [
+      "987654321",
+      "333445555",
+      "888665555"
+    ],
+    "inferred_type": "integer"
+  },
+  "employee.Lname": {
+    "sample_values": [
+      "Wong",
+      "Jabbar",
+      "Borg"
+    ],
+    "inferred_type": "string"
+  },
+  "employee.Sex": {
+    "sample_values": [
+      "F",
+      "M"
+    ],
+    "inferred_type": "string"
+  },
+  "employee.Bdate": {
+    "sample_values": [
+      "1937-11-10",
+      "1955-12-08",
+      "1972-07-31"
+    ],
+    "inferred_type": "string"
+  },
+  "employee.Dno": {
+    "sample_values": [
+      "1",
+      "5",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "employee.Ssn": {
+    "sample_values": [
+      "987654321",
+      "987987987",
+      "123456789"
+    ],
+    "inferred_type": "integer"
+  },
+  "employee.Address": {
+    "sample_values": [
+      "3321 Castle, Spring, TX",
+      "5631 Rice, Houston, TX",
+      "450 Stone, Houston, TX"
+    ],
+    "inferred_type": "string"
+  },
+  "project.Dnum": {
+    "sample_values": [
+      "1",
+      "5",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "project.Pname": {
+    "sample_values": [
+      "Reorganization",
+      "ProductZ",
+      "ProductY"
+    ],
+    "inferred_type": "string"
+  },
+  "project.Plocation": {
+    "sample_values": [
+      "Sugarland",
+      "Bellaire",
+      "Houston"
+    ],
+    "inferred_type": "string"
+  },
+  "project.Pnumber": {
+    "sample_values": [
+      "10",
+      "30",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "dependent.Relationship": {
+    "sample_values": [
+      "Spouse",
+      "Son",
+      "Daughter"
+    ],
+    "inferred_type": "string"
+  },
+  "dependent.Sex": {
+    "sample_values": [
+      "F",
+      "M"
+    ],
+    "inferred_type": "string"
+  },
+  "dependent.Bdate": {
+    "sample_values": [
+      "1942-02-28",
+      "1967-05-05",
+      "1983-10-25"
+    ],
+    "inferred_type": "string"
+  },
+  "dependent.Essn": {
+    "sample_values": [
+      "123456789",
+      "987654321",
+      "333445555"
+    ],
+    "inferred_type": "integer"
+  },
+  "dependent.Dependent_name": {
+    "sample_values": [
+      "Theodore",
+      "Joy",
+      "Michael"
+    ],
+    "inferred_type": "string"
+  },
+  "works_on.Hours": {
+    "sample_values": [
+      "40.0",
+      "20.0",
+      "15.0"
+    ],
+    "inferred_type": "float"
+  },
+  "works_on.Pno": {
+    "sample_values": [
+      "10",
+      "30",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "works_on.Essn": {
+    "sample_values": [
+      "987654321",
+      "999887777",
+      "123456789"
+    ],
+    "inferred_type": "integer"
+  }
+}

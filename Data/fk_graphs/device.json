@@ -1,0 +1,105 @@
+{
+  "db_name": "device",
+  "nodes": [
+    {
+      "name": "device",
+      "columns": [
+        {
+          "name": "Device_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Device",
+          "type": "TEXT"
+        },
+        {
+          "name": "Carrier",
+          "type": "TEXT"
+        },
+        {
+          "name": "Package_Version",
+          "type": "TEXT"
+        },
+        {
+          "name": "Applications",
+          "type": "TEXT"
+        },
+        {
+          "name": "Software_Platform",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "Device_ID"
+      ]
+    },
+    {
+      "name": "shop",
+      "columns": [
+        {
+          "name": "Shop_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Shop_Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Location",
+          "type": "TEXT"
+        },
+        {
+          "name": "Open_Date",
+          "type": "TEXT"
+        },
+        {
+          "name": "Open_Year",
+          "type": "INT"
+        }
+      ],
+      "pk": [
+        "Shop_ID"
+      ]
+    },
+    {
+      "name": "stock",
+      "columns": [
+        {
+          "name": "Shop_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Device_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Quantity",
+          "type": "INT"
+        }
+      ],
+      "pk": [
+        "Shop_ID",
+        "Device_ID"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "stock",
+      "to": "device",
+      "child_col": "Device_ID",
+      "parent_col": "Device_ID"
+    },
+    {
+      "from": "stock",
+      "to": "shop",
+      "child_col": "Shop_ID",
+      "parent_col": "Shop_ID"
+    }
+  ],
+  "centrality": {
+    "device": 0.5,
+    "shop": 0.5,
+    "stock": 0.0
+  }
+}

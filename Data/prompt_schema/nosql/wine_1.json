@@ -1,0 +1,143 @@
+{
+  "appellations.No": {
+    "sample_values": [
+      "34",
+      "25",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "appellations.isAVA": {
+    "sample_values": [
+      "No",
+      "Yes"
+    ],
+    "inferred_type": "string"
+  },
+  "appellations.County": {
+    "sample_values": [
+      "San Luis Obispo",
+      "Napa",
+      "Alameda"
+    ],
+    "inferred_type": "string"
+  },
+  "appellations.Appelation": {
+    "sample_values": [
+      "Howell Mountain",
+      "Oakville",
+      "Sonoma County"
+    ],
+    "inferred_type": "string"
+  },
+  "appellations.Area": {
+    "sample_values": [
+      "Santa Cruz Mountains",
+      "Central Valley",
+      "Central Coast"
+    ],
+    "inferred_type": "string"
+  },
+  "grapes.Color": {
+    "sample_values": [
+      "Red",
+      "White"
+    ],
+    "inferred_type": "string"
+  },
+  "grapes.ID": {
+    "sample_values": [
+      "13",
+      "3",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "grapes.Grape": {
+    "sample_values": [
+      "Marsanne",
+      "Tempranillo",
+      "Muscat"
+    ],
+    "inferred_type": "string"
+  },
+  "wine.No": {
+    "sample_values": [
+      "34",
+      "25",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "wine.Price": {
+    "sample_values": [
+      "23",
+      "30",
+      "38"
+    ],
+    "inferred_type": "integer"
+  },
+  "wine.Year": {
+    "sample_values": [
+      "2009",
+      "2007",
+      "2008"
+    ],
+    "inferred_type": "integer"
+  },
+  "wine.Name": {
+    "sample_values": [
+      "au Naturel",
+      "Mesa Verde Vineyard",
+      "Black Chicken"
+    ],
+    "inferred_type": "string"
+  },
+  "wine.Winery": {
+    "sample_values": [
+      "Mirassou",
+      "Handley",
+      "No"
+    ],
+    "inferred_type": "string"
+  },
+  "wine.Grape": {
+    "sample_values": [
+      "Cabernet Sauvingnon",
+      "Zinfandel",
+      "Sauvignon Blanc"
+    ],
+    "inferred_type": "string"
+  },
+  "wine.Appelation": {
+    "sample_values": [
+      "Sonoma County",
+      "Dry Creek Valley",
+      "Bennett Valley"
+    ],
+    "inferred_type": "string"
+  },
+  "wine.Cases": {
+    "sample_values": [
+      "875",
+      "1700",
+      "857"
+    ],
+    "inferred_type": "integer"
+  },
+  "wine.Score": {
+    "sample_values": [
+      "93",
+      "87",
+      "90"
+    ],
+    "inferred_type": "integer"
+  },
+  "wine.Drink": {
+    "sample_values": [
+      "2012",
+      "now"
+    ],
+    "inferred_type": "string"
+  }
+}

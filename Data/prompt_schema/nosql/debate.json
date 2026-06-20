@@ -1,0 +1,105 @@
+{
+  "people.Age": {
+    "sample_values": [
+      "42",
+      "43",
+      "35"
+    ],
+    "inferred_type": "integer"
+  },
+  "people.Party": {
+    "sample_values": [
+      "Republican",
+      "Anti-Lecompton Democrat",
+      "Democratic"
+    ],
+    "inferred_type": "string"
+  },
+  "people.Name": {
+    "sample_values": [
+      "James Humphrey",
+      "Thomas J. Barr",
+      "Daniel Sickles"
+    ],
+    "inferred_type": "string"
+  },
+  "people.District": {
+    "sample_values": [
+      "New York 4",
+      "New York 6",
+      "New York 10"
+    ],
+    "inferred_type": "string"
+  },
+  "people.People_ID": {
+    "sample_values": [
+      "5",
+      "1",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "debate.Debate_ID": {
+    "sample_values": [
+      "5",
+      "2",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "debate.Venue": {
+    "sample_values": [
+      "Manama , Bahrain",
+      "Doha , Qatar",
+      "Dubai , UAE"
+    ],
+    "inferred_type": "string"
+  },
+  "debate.Date": {
+    "sample_values": [
+      "August 3, 2015",
+      "October 21, 2011",
+      "January 12, 2017"
+    ],
+    "inferred_type": "string"
+  },
+  "debate.Num_of_Audience": {
+    "sample_values": [
+      "134",
+      "159",
+      "209"
+    ],
+    "inferred_type": "integer"
+  },
+  "debate_people.Debate_ID": {
+    "sample_values": [
+      "5",
+      "1",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "debate_people.If_Affirmative_Win": {
+    "sample_values": [
+      "F",
+      "T"
+    ],
+    "inferred_type": "string"
+  },
+  "debate_people.Affirmative": {
+    "sample_values": [
+      "1",
+      "5",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "debate_people.Negative": {
+    "sample_values": [
+      "8",
+      "7",
+      "6"
+    ],
+    "inferred_type": "integer"
+  }
+}

@@ -1,0 +1,114 @@
+{
+  "db_name": "company_office",
+  "collections": {
+    "buildings": {
+      "primary_key": [
+        "id"
+      ],
+      "columns": [
+        {
+          "name": "id",
+          "type": "INT"
+        },
+        {
+          "name": "name",
+          "type": "TEXT"
+        },
+        {
+          "name": "City",
+          "type": "TEXT"
+        },
+        {
+          "name": "Height",
+          "type": "INT"
+        },
+        {
+          "name": "Stories",
+          "type": "INT"
+        },
+        {
+          "name": "Status",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 12
+    },
+    "Companies": {
+      "primary_key": [
+        "id"
+      ],
+      "columns": [
+        {
+          "name": "id",
+          "type": "INT"
+        },
+        {
+          "name": "name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Headquarters",
+          "type": "TEXT"
+        },
+        {
+          "name": "Industry",
+          "type": "TEXT"
+        },
+        {
+          "name": "Sales_billion",
+          "type": "REAL"
+        },
+        {
+          "name": "Profits_billion",
+          "type": "REAL"
+        },
+        {
+          "name": "Assets_billion",
+          "type": "REAL"
+        },
+        {
+          "name": "Market_Value_billion",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 19
+    },
+    "Office_locations": {
+      "primary_key": [
+        "building_id",
+        "company_id"
+      ],
+      "columns": [
+        {
+          "name": "building_id",
+          "type": "INT"
+        },
+        {
+          "name": "company_id",
+          "type": "INT"
+        },
+        {
+          "name": "move_in_year",
+          "type": "INT"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Office_locations",
+          "to": "Companies",
+          "child_col": "company_id",
+          "parent_col": "id"
+        },
+        {
+          "from": "Office_locations",
+          "to": "buildings",
+          "child_col": "building_id",
+          "parent_col": "id"
+        }
+      ],
+      "row_count": 16
+    }
+  }
+}

@@ -1,0 +1,224 @@
+{
+  "db_name": "apartment_rentals",
+  "collections": {
+    "Apartment_Buildings": {
+      "primary_key": [
+        "building_id"
+      ],
+      "columns": [
+        {
+          "name": "building_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "building_short_name",
+          "type": "CHAR(15)"
+        },
+        {
+          "name": "building_full_name",
+          "type": "VARCHAR(80)"
+        },
+        {
+          "name": "building_description",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "building_address",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "building_manager",
+          "type": "VARCHAR(50)"
+        },
+        {
+          "name": "building_phone",
+          "type": "VARCHAR(80)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 15
+    },
+    "Apartments": {
+      "primary_key": [
+        "apt_id"
+      ],
+      "columns": [
+        {
+          "name": "apt_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "building_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "apt_type_code",
+          "type": "CHAR(15)"
+        },
+        {
+          "name": "apt_number",
+          "type": "CHAR(10)"
+        },
+        {
+          "name": "bathroom_count",
+          "type": "INTEGER"
+        },
+        {
+          "name": "bedroom_count",
+          "type": "INTEGER"
+        },
+        {
+          "name": "room_count",
+          "type": "CHAR(5)"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Apartments",
+          "to": "Apartment_Buildings",
+          "child_col": "building_id",
+          "parent_col": "building_id"
+        }
+      ],
+      "row_count": 15
+    },
+    "Apartment_Facilities": {
+      "primary_key": [
+        "apt_id",
+        "facility_code"
+      ],
+      "columns": [
+        {
+          "name": "apt_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "facility_code",
+          "type": "CHAR(15)"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Apartment_Facilities",
+          "to": "Apartments",
+          "child_col": "apt_id",
+          "parent_col": "apt_id"
+        }
+      ],
+      "row_count": 7
+    },
+    "Guests": {
+      "primary_key": [
+        "guest_id"
+      ],
+      "columns": [
+        {
+          "name": "guest_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "gender_code",
+          "type": "CHAR(1)"
+        },
+        {
+          "name": "guest_first_name",
+          "type": "VARCHAR(80)"
+        },
+        {
+          "name": "guest_last_name",
+          "type": "VARCHAR(80)"
+        },
+        {
+          "name": "date_of_birth",
+          "type": "DATETIME"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 15
+    },
+    "Apartment_Bookings": {
+      "primary_key": [
+        "apt_booking_id"
+      ],
+      "columns": [
+        {
+          "name": "apt_booking_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "apt_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "guest_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "booking_status_code",
+          "type": "CHAR(15)"
+        },
+        {
+          "name": "booking_start_date",
+          "type": "DATETIME"
+        },
+        {
+          "name": "booking_end_date",
+          "type": "DATETIME"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Apartment_Bookings",
+          "to": "Guests",
+          "child_col": "guest_id",
+          "parent_col": "guest_id"
+        },
+        {
+          "from": "Apartment_Bookings",
+          "to": "Apartments",
+          "child_col": "apt_id",
+          "parent_col": "apt_id"
+        }
+      ],
+      "row_count": 15
+    },
+    "View_Unit_Status": {
+      "primary_key": [
+        "status_date"
+      ],
+      "columns": [
+        {
+          "name": "apt_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "apt_booking_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "status_date",
+          "type": "DATETIME"
+        },
+        {
+          "name": "available_yn",
+          "type": "BIT"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "View_Unit_Status",
+          "to": "Apartment_Bookings",
+          "child_col": "apt_booking_id",
+          "parent_col": "apt_booking_id"
+        },
+        {
+          "from": "View_Unit_Status",
+          "to": "Apartments",
+          "child_col": "apt_id",
+          "parent_col": "apt_id"
+        }
+      ],
+      "row_count": 20
+    }
+  }
+}

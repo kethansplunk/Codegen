@@ -1,0 +1,224 @@
+{
+  "Addresses.address_id": {
+    "sample_values": [
+      1,
+      6,
+      11
+    ],
+    "inferred_type": "integer"
+  },
+  "Addresses.address_content": {
+    "sample_values": [
+      "41632 Kerluke Field",
+      "59540 Grover Wells Apt. 814",
+      "826 Murray Locks Apt. 654"
+    ],
+    "inferred_type": "string"
+  },
+  "Addresses.city": {
+    "sample_values": [
+      "East Pascale",
+      "Lake Walterton",
+      "South Meghanview"
+    ],
+    "inferred_type": "string"
+  },
+  "Addresses.zip_postcode": {
+    "sample_values": [
+      "416",
+      "918",
+      "623"
+    ],
+    "inferred_type": "integer"
+  },
+  "Addresses.state_province_county": {
+    "sample_values": [
+      "Kentucky",
+      "Mississippi",
+      "SouthCarolina"
+    ],
+    "inferred_type": "string"
+  },
+  "Products.product_id": {
+    "sample_values": [
+      1,
+      2,
+      3
+    ],
+    "inferred_type": "integer"
+  },
+  "Products.product_details": {
+    "sample_values": [
+      "Americano",
+      "Dove Chocolate",
+      "Latte"
+    ],
+    "inferred_type": "string"
+  },
+  "Customers.customer_id": {
+    "sample_values": [
+      1,
+      6,
+      11
+    ],
+    "inferred_type": "integer"
+  },
+  "Customers.payment_method": {
+    "sample_values": [
+      "Cash",
+      "Cheque",
+      "Credit Card"
+    ],
+    "inferred_type": "string"
+  },
+  "Customers.customer_name": {
+    "sample_values": [
+      "Prof. Ibrahim Bashirian",
+      "Mozell Morissette",
+      "Maudie Kertzmann"
+    ],
+    "inferred_type": "string"
+  },
+  "Customers.date_became_customer": {
+    "sample_values": [
+      "2018-03-15 02:54:27",
+      "2018-02-25 13:15:04",
+      "2018-02-26 11:57:47"
+    ],
+    "inferred_type": "string"
+  },
+  "Customer_Addresses.customer_id": {
+    "sample_values": [
+      2,
+      10,
+      4
+    ],
+    "inferred_type": "integer"
+  },
+  "Customer_Addresses.address_id": {
+    "sample_values": [
+      11,
+      15,
+      12
+    ],
+    "inferred_type": "integer"
+  },
+  "Customer_Addresses.date_address_from": {
+    "sample_values": [
+      "1979-01-11 13:53:30",
+      "1990-11-25 12:40:25",
+      "1979-01-26 17:55:38"
+    ],
+    "inferred_type": "string"
+  },
+  "Customer_Addresses.address_type": {
+    "sample_values": [
+      "Billing",
+      "Residential"
+    ],
+    "inferred_type": "string"
+  },
+  "Customer_Addresses.date_address_to": {
+    "sample_values": [
+      "1971-11-17 18:29:57",
+      "1974-03-28 18:09:39",
+      "1977-07-07 08:38:29"
+    ],
+    "inferred_type": "string"
+  },
+  "Customer_Contact_Channels.customer_id": {
+    "sample_values": [
+      9,
+      3,
+      6
+    ],
+    "inferred_type": "integer"
+  },
+  "Customer_Contact_Channels.channel_code": {
+    "sample_values": [
+      "Mobile",
+      "Fax",
+      "Handheld"
+    ],
+    "inferred_type": "string"
+  },
+  "Customer_Contact_Channels.active_from_date": {
+    "sample_values": [
+      "2017-10-17 11:46:37",
+      "2017-05-23 15:20:20",
+      "2017-08-26 15:16:44"
+    ],
+    "inferred_type": "string"
+  },
+  "Customer_Contact_Channels.active_to_date": {
+    "sample_values": [
+      "2018-03-08 20:07:20",
+      "2018-03-15 02:34:01",
+      "2018-03-16 14:00:15"
+    ],
+    "inferred_type": "string"
+  },
+  "Customer_Contact_Channels.contact_number": {
+    "sample_values": [
+      "846.043.4809x0426",
+      "542.983.0224",
+      "(379)834-0867x267"
+    ],
+    "inferred_type": "string"
+  },
+  "Customer_Orders.order_id": {
+    "sample_values": [
+      1,
+      6,
+      11
+    ],
+    "inferred_type": "integer"
+  },
+  "Customer_Orders.customer_id": {
+    "sample_values": [
+      15,
+      5,
+      10
+    ],
+    "inferred_type": "integer"
+  },
+  "Customer_Orders.order_status": {
+    "sample_values": [
+      "Cancelled",
+      "Delivered"
+    ],
+    "inferred_type": "string"
+  },
+  "Customer_Orders.order_date": {
+    "sample_values": [
+      "2018-03-06 12:31:35",
+      "2018-03-23 04:39:50",
+      "2018-03-10 06:12:51"
+    ],
+    "inferred_type": "string"
+  },
+  "Order_Items.order_id": {
+    "sample_values": [
+      14,
+      2,
+      10
+    ],
+    "inferred_type": "integer"
+  },
+  "Order_Items.product_id": {
+    "sample_values": [
+      2,
+      3,
+      1
+    ],
+    "inferred_type": "integer"
+  },
+  "Order_Items.order_quantity": {
+    "sample_values": [
+      "5",
+      "2",
+      "8"
+    ],
+    "inferred_type": "integer"
+  }
+}

@@ -1,0 +1,194 @@
+{
+  "db_name": "local_govt_mdm",
+  "collections": {
+    "Customer_Master_Index": {
+      "primary_key": [
+        "master_customer_id"
+      ],
+      "columns": [
+        {
+          "name": "master_customer_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "cmi_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 9
+    },
+    "CMI_Cross_References": {
+      "primary_key": [
+        "cmi_cross_ref_id"
+      ],
+      "columns": [
+        {
+          "name": "cmi_cross_ref_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "master_customer_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "source_system_code",
+          "type": "CHAR(15)"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "CMI_Cross_References",
+          "to": "Customer_Master_Index",
+          "child_col": "master_customer_id",
+          "parent_col": "master_customer_id"
+        }
+      ],
+      "row_count": 21
+    },
+    "Council_Tax": {
+      "primary_key": [
+        "council_tax_id"
+      ],
+      "columns": [
+        {
+          "name": "council_tax_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "cmi_cross_ref_id",
+          "type": "INTEGER"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Council_Tax",
+          "to": "CMI_Cross_References",
+          "child_col": "cmi_cross_ref_id",
+          "parent_col": "cmi_cross_ref_id"
+        }
+      ],
+      "row_count": 6
+    },
+    "Business_Rates": {
+      "primary_key": [
+        "business_rates_id"
+      ],
+      "columns": [
+        {
+          "name": "business_rates_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "cmi_cross_ref_id",
+          "type": "INTEGER"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Business_Rates",
+          "to": "CMI_Cross_References",
+          "child_col": "cmi_cross_ref_id",
+          "parent_col": "cmi_cross_ref_id"
+        }
+      ],
+      "row_count": 3
+    },
+    "Benefits_Overpayments": {
+      "primary_key": [
+        "council_tax_id"
+      ],
+      "columns": [
+        {
+          "name": "council_tax_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "cmi_cross_ref_id",
+          "type": "INTEGER"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Benefits_Overpayments",
+          "to": "CMI_Cross_References",
+          "child_col": "cmi_cross_ref_id",
+          "parent_col": "cmi_cross_ref_id"
+        }
+      ],
+      "row_count": 4
+    },
+    "Parking_Fines": {
+      "primary_key": [
+        "council_tax_id"
+      ],
+      "columns": [
+        {
+          "name": "council_tax_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "cmi_cross_ref_id",
+          "type": "INTEGER"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Parking_Fines",
+          "to": "CMI_Cross_References",
+          "child_col": "cmi_cross_ref_id",
+          "parent_col": "cmi_cross_ref_id"
+        }
+      ],
+      "row_count": 2
+    },
+    "Rent_Arrears": {
+      "primary_key": [
+        "council_tax_id"
+      ],
+      "columns": [
+        {
+          "name": "council_tax_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "cmi_cross_ref_id",
+          "type": "INTEGER"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Rent_Arrears",
+          "to": "CMI_Cross_References",
+          "child_col": "cmi_cross_ref_id",
+          "parent_col": "cmi_cross_ref_id"
+        }
+      ],
+      "row_count": 4
+    },
+    "Electoral_Register": {
+      "primary_key": [
+        "electoral_register_id"
+      ],
+      "columns": [
+        {
+          "name": "electoral_register_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "cmi_cross_ref_id",
+          "type": "INTEGER"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Electoral_Register",
+          "to": "CMI_Cross_References",
+          "child_col": "cmi_cross_ref_id",
+          "parent_col": "cmi_cross_ref_id"
+        }
+      ],
+      "row_count": 6
+    }
+  }
+}

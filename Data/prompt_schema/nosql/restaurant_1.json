@@ -1,0 +1,156 @@
+{
+  "Student.Fname": {
+    "sample_values": [
+      "George",
+      "Mark",
+      "Susan"
+    ],
+    "inferred_type": "string"
+  },
+  "Student.Age": {
+    "sample_values": [
+      "17",
+      "18",
+      "21"
+    ],
+    "inferred_type": "integer"
+  },
+  "Student.city_code": {
+    "sample_values": [
+      "BOS",
+      "YYZ",
+      "HOU"
+    ],
+    "inferred_type": "string"
+  },
+  "Student.Advisor": {
+    "sample_values": [
+      "7712",
+      "7271",
+      "8723"
+    ],
+    "inferred_type": "integer"
+  },
+  "Student.StuID": {
+    "sample_values": [
+      "1020",
+      "1023",
+      "1018"
+    ],
+    "inferred_type": "integer"
+  },
+  "Student.Sex": {
+    "sample_values": [
+      "F",
+      "M"
+    ],
+    "inferred_type": "string"
+  },
+  "Student.Major": {
+    "sample_values": [
+      "550",
+      "50",
+      "520"
+    ],
+    "inferred_type": "integer"
+  },
+  "Student.LName": {
+    "sample_values": [
+      "Goldman",
+      "Prater",
+      "Brody"
+    ],
+    "inferred_type": "string"
+  },
+  "Restaurant_Type.ResTypeID": {
+    "sample_values": [
+      "1",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "Restaurant_Type.ResTypeName": {
+    "sample_values": [
+      "Stir-fry",
+      "Sandwich"
+    ],
+    "inferred_type": "string"
+  },
+  "Restaurant_Type.ResTypeDescription": {
+    "sample_values": [
+      "Simplest there is.",
+      "Classic Chinese cooking."
+    ],
+    "inferred_type": "string"
+  },
+  "Type_Of_Restaurant.ResTypeID": {
+    "sample_values": [
+      "1",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "Type_Of_Restaurant.ResID": {
+    "sample_values": [
+      "1",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "Visits_Restaurant.Spent": {
+    "sample_values": [
+      "6.53",
+      "13.2"
+    ],
+    "inferred_type": "float"
+  },
+  "Visits_Restaurant.Time": {
+    "sample_values": [
+      "2017-10-09 18:15:00",
+      "2017-10-08 13:00:30"
+    ],
+    "inferred_type": "string"
+  },
+  "Visits_Restaurant.StuID": {
+    "sample_values": [
+      "1001",
+      "1032"
+    ],
+    "inferred_type": "integer"
+  },
+  "Visits_Restaurant.ResID": {
+    "sample_values": [
+      "1",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "Restaurant.Rating": {
+    "sample_values": [
+      "3",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "Restaurant.ResID": {
+    "sample_values": [
+      "1",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "Restaurant.ResName": {
+    "sample_values": [
+      "Honeygrow",
+      "Subway"
+    ],
+    "inferred_type": "string"
+  },
+  "Restaurant.Address": {
+    "sample_values": [
+      "3212 St Paul St, Baltimore, MD 21218",
+      "3233 St Paul St, Baltimore, MD 21218"
+    ],
+    "inferred_type": "string"
+  }
+}

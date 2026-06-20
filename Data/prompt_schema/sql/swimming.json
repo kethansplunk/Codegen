@@ -1,0 +1,202 @@
+{
+  "swimmer.ID": {
+    "sample_values": [
+      1,
+      3,
+      5
+    ],
+    "inferred_type": "integer"
+  },
+  "swimmer.name": {
+    "sample_values": [
+      "Oussama Mellouli",
+      "Craig Stevens",
+      "Federico Colbertaldo"
+    ],
+    "inferred_type": "string"
+  },
+  "swimmer.Nationality": {
+    "sample_values": [
+      "Tunisia",
+      "Australia",
+      "Italy"
+    ],
+    "inferred_type": "string"
+  },
+  "swimmer.meter_100": {
+    "sample_values": [
+      57.31,
+      57.66,
+      57.34
+    ],
+    "inferred_type": "float"
+  },
+  "swimmer.meter_200": {
+    "sample_values": [
+      "1:56.44",
+      "1:56.34",
+      "1:56.77"
+    ],
+    "inferred_type": "string"
+  },
+  "swimmer.meter_300": {
+    "sample_values": [
+      "2:55.94",
+      "2:55.90",
+      "2:56.04"
+    ],
+    "inferred_type": "string"
+  },
+  "swimmer.meter_400": {
+    "sample_values": [
+      "3:55.49",
+      "3:55.72",
+      "3:55.37"
+    ],
+    "inferred_type": "string"
+  },
+  "swimmer.meter_500": {
+    "sample_values": [
+      "4:54.19",
+      "4:55.08",
+      "4:54.48"
+    ],
+    "inferred_type": "string"
+  },
+  "swimmer.meter_600": {
+    "sample_values": [
+      "5:52.92",
+      "5:54.45",
+      "5:53.53"
+    ],
+    "inferred_type": "string"
+  },
+  "swimmer.meter_700": {
+    "sample_values": [
+      "6:50.80",
+      "6:52.69",
+      "6:52.58"
+    ],
+    "inferred_type": "string"
+  },
+  "swimmer.Time": {
+    "sample_values": [
+      "7:46.95",
+      "7:48.67",
+      "7:49.98"
+    ],
+    "inferred_type": "string"
+  },
+  "stadium.ID": {
+    "sample_values": [
+      1,
+      4,
+      7
+    ],
+    "inferred_type": "integer"
+  },
+  "stadium.name": {
+    "sample_values": [
+      "Yubileyniy Stadium",
+      "Baku Olympic Stadium",
+      "Gazprom Arena"
+    ],
+    "inferred_type": "string"
+  },
+  "stadium.Capacity": {
+    "sample_values": [
+      75000,
+      67500,
+      56250
+    ],
+    "inferred_type": "integer"
+  },
+  "stadium.City": {
+    "sample_values": [
+      "Saransk",
+      "Baku",
+      "Saint Petersburg"
+    ],
+    "inferred_type": "string"
+  },
+  "stadium.Country": {
+    "sample_values": [
+      "England",
+      "Russia",
+      "Hungary"
+    ],
+    "inferred_type": "string"
+  },
+  "stadium.Opening_year": {
+    "sample_values": [
+      2004,
+      2005,
+      2006
+    ],
+    "inferred_type": "integer"
+  },
+  "event.ID": {
+    "sample_values": [
+      1,
+      3,
+      5
+    ],
+    "inferred_type": "integer"
+  },
+  "event.Name": {
+    "sample_values": [
+      "European FINA",
+      "Pacific",
+      "World Junior"
+    ],
+    "inferred_type": "string"
+  },
+  "event.Stadium_ID": {
+    "sample_values": [
+      1,
+      2,
+      4
+    ],
+    "inferred_type": "integer"
+  },
+  "event.Year": {
+    "sample_values": [
+      "2016",
+      "2012",
+      "2014"
+    ],
+    "inferred_type": "integer"
+  },
+  "record.ID": {
+    "sample_values": [
+      1,
+      5,
+      9
+    ],
+    "inferred_type": "integer"
+  },
+  "record.Result": {
+    "sample_values": [
+      "NC",
+      "Win",
+      "Loss"
+    ],
+    "inferred_type": "string"
+  },
+  "record.Swimmer_ID": {
+    "sample_values": [
+      1,
+      3,
+      5
+    ],
+    "inferred_type": "integer"
+  },
+  "record.Event_ID": {
+    "sample_values": [
+      1,
+      2,
+      3
+    ],
+    "inferred_type": "integer"
+  }
+}

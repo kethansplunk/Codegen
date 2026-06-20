@@ -1,0 +1,187 @@
+{
+  "db_name": "riding_club",
+  "collections": {
+    "player": {
+      "primary_key": [
+        "Player_ID"
+      ],
+      "columns": [
+        {
+          "name": "Player_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Sponsor_name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Player_name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Gender",
+          "type": "TEXT"
+        },
+        {
+          "name": "Residence",
+          "type": "TEXT"
+        },
+        {
+          "name": "Occupation",
+          "type": "TEXT"
+        },
+        {
+          "name": "Votes",
+          "type": "INT"
+        },
+        {
+          "name": "Rank",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 14
+    },
+    "club": {
+      "primary_key": [
+        "Club_ID"
+      ],
+      "columns": [
+        {
+          "name": "Club_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Club_name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Region",
+          "type": "TEXT"
+        },
+        {
+          "name": "Start_year",
+          "type": "INT"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 6
+    },
+    "coach": {
+      "primary_key": [
+        "Coach_ID"
+      ],
+      "columns": [
+        {
+          "name": "Coach_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Coach_name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Gender",
+          "type": "TEXT"
+        },
+        {
+          "name": "Club_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Rank",
+          "type": "INT"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "coach",
+          "to": "club",
+          "child_col": "Club_ID",
+          "parent_col": "Club_ID"
+        }
+      ],
+      "row_count": 5
+    },
+    "player_coach": {
+      "primary_key": [
+        "Player_ID",
+        "Coach_ID"
+      ],
+      "columns": [
+        {
+          "name": "Player_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Coach_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Starting_year",
+          "type": "INT"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "player_coach",
+          "to": "coach",
+          "child_col": "Coach_ID",
+          "parent_col": "Coach_ID"
+        },
+        {
+          "from": "player_coach",
+          "to": "player",
+          "child_col": "Player_ID",
+          "parent_col": "Player_ID"
+        }
+      ],
+      "row_count": 7
+    },
+    "match_result": {
+      "primary_key": [
+        "Rank",
+        "Club_ID"
+      ],
+      "columns": [
+        {
+          "name": "Rank",
+          "type": "INT"
+        },
+        {
+          "name": "Club_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Gold",
+          "type": "INT"
+        },
+        {
+          "name": "Big_Silver",
+          "type": "INT"
+        },
+        {
+          "name": "Small_Silver",
+          "type": "INT"
+        },
+        {
+          "name": "Bronze",
+          "type": "INT"
+        },
+        {
+          "name": "Points",
+          "type": "INT"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "match_result",
+          "to": "club",
+          "child_col": "Club_ID",
+          "parent_col": "Club_ID"
+        }
+      ],
+      "row_count": 6
+    }
+  }
+}

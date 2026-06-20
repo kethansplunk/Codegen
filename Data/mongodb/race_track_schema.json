@@ -1,0 +1,70 @@
+{
+  "db_name": "race_track",
+  "collections": {
+    "race": {
+      "primary_key": [
+        "Race_ID"
+      ],
+      "columns": [
+        {
+          "name": "Race_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Class",
+          "type": "TEXT"
+        },
+        {
+          "name": "Date",
+          "type": "TEXT"
+        },
+        {
+          "name": "Track_ID",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "race",
+          "to": "track",
+          "child_col": "Track_ID",
+          "parent_col": "Track_ID"
+        }
+      ],
+      "row_count": 7
+    },
+    "track": {
+      "primary_key": [
+        "Track_ID"
+      ],
+      "columns": [
+        {
+          "name": "Track_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Location",
+          "type": "TEXT"
+        },
+        {
+          "name": "Seating",
+          "type": "REAL"
+        },
+        {
+          "name": "Year_Opened",
+          "type": "REAL"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 9
+    }
+  }
+}

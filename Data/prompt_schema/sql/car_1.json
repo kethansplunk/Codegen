@@ -1,0 +1,186 @@
+{
+  "continents.ContId": {
+    "sample_values": [
+      1,
+      2,
+      3
+    ],
+    "inferred_type": "integer"
+  },
+  "continents.Continent": {
+    "sample_values": [
+      "australia",
+      "africa",
+      "asia"
+    ],
+    "inferred_type": "string"
+  },
+  "countries.CountryId": {
+    "sample_values": [
+      1,
+      6,
+      11
+    ],
+    "inferred_type": "integer"
+  },
+  "countries.CountryName": {
+    "sample_values": [
+      "brazil",
+      "uk",
+      "sweden"
+    ],
+    "inferred_type": "string"
+  },
+  "countries.Continent": {
+    "sample_values": [
+      1,
+      2,
+      3
+    ],
+    "inferred_type": "integer"
+  },
+  "car_makers.Id": {
+    "sample_values": [
+      1,
+      7,
+      14
+    ],
+    "inferred_type": "integer"
+  },
+  "car_makers.Maker": {
+    "sample_values": [
+      "volvo",
+      "nissan",
+      "fiat"
+    ],
+    "inferred_type": "string"
+  },
+  "car_makers.FullName": {
+    "sample_values": [
+      "Volvo",
+      "Nissan Motors",
+      "Fiat"
+    ],
+    "inferred_type": "string"
+  },
+  "car_makers.Country": {
+    "sample_values": [
+      "1",
+      "3",
+      "5"
+    ],
+    "inferred_type": "integer"
+  },
+  "model_list.ModelId": {
+    "sample_values": [
+      1,
+      7,
+      13
+    ],
+    "inferred_type": "integer"
+  },
+  "model_list.Maker": {
+    "sample_values": [
+      1,
+      7,
+      13
+    ],
+    "inferred_type": "integer"
+  },
+  "model_list.Model": {
+    "sample_values": [
+      "mercedes",
+      "chrysler",
+      "citroen"
+    ],
+    "inferred_type": "string"
+  },
+  "car_names.MakeId": {
+    "sample_values": [
+      1,
+      7,
+      13
+    ],
+    "inferred_type": "integer"
+  },
+  "car_names.Model": {
+    "sample_values": [
+      "oldsmobile",
+      "dodge",
+      "toyota"
+    ],
+    "inferred_type": "string"
+  },
+  "car_names.Make": {
+    "sample_values": [
+      "buick estate wagon (sw)",
+      "plymouth fury iii",
+      "pontiac catalina"
+    ],
+    "inferred_type": "string"
+  },
+  "cars_data.Id": {
+    "sample_values": [
+      1,
+      7,
+      13
+    ],
+    "inferred_type": "integer"
+  },
+  "cars_data.MPG": {
+    "sample_values": [
+      "23",
+      "22",
+      "21"
+    ],
+    "inferred_type": "string"
+  },
+  "cars_data.Cylinders": {
+    "sample_values": [
+      8,
+      4,
+      6
+    ],
+    "inferred_type": "integer"
+  },
+  "cars_data.Edispl": {
+    "sample_values": [
+      307.0,
+      454.0,
+      383.0
+    ],
+    "inferred_type": "float"
+  },
+  "cars_data.Horsepower": {
+    "sample_values": [
+      "130",
+      "215",
+      "170"
+    ],
+    "inferred_type": "integer"
+  },
+  "cars_data.Weight": {
+    "sample_values": [
+      3504,
+      4354,
+      4034
+    ],
+    "inferred_type": "integer"
+  },
+  "cars_data.Accelerate": {
+    "sample_values": [
+      12.0,
+      8.5,
+      16.0
+    ],
+    "inferred_type": "float"
+  },
+  "cars_data.Year": {
+    "sample_values": [
+      1970,
+      1974,
+      1978
+    ],
+    "inferred_type": "integer"
+  }
+}

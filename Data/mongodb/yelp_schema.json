@@ -1,0 +1,267 @@
+{
+  "db_name": "yelp",
+  "collections": {
+    "business": {
+      "primary_key": [
+        "bid"
+      ],
+      "columns": [
+        {
+          "name": "bid",
+          "type": "INT"
+        },
+        {
+          "name": "business_id",
+          "type": "TEXT"
+        },
+        {
+          "name": "name",
+          "type": "TEXT"
+        },
+        {
+          "name": "full_address",
+          "type": "TEXT"
+        },
+        {
+          "name": "city",
+          "type": "TEXT"
+        },
+        {
+          "name": "latitude",
+          "type": "TEXT"
+        },
+        {
+          "name": "longitude",
+          "type": "TEXT"
+        },
+        {
+          "name": "review_count",
+          "type": "INT"
+        },
+        {
+          "name": "is_open",
+          "type": "INT"
+        },
+        {
+          "name": "rating",
+          "type": "REAL"
+        },
+        {
+          "name": "state",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 0
+    },
+    "category": {
+      "primary_key": [
+        "id"
+      ],
+      "columns": [
+        {
+          "name": "id",
+          "type": "INT"
+        },
+        {
+          "name": "business_id",
+          "type": "TEXT"
+        },
+        {
+          "name": "category_name",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "category",
+          "to": "business",
+          "child_col": "business_id",
+          "parent_col": "business_id"
+        }
+      ],
+      "row_count": 0
+    },
+    "user": {
+      "primary_key": [
+        "uid"
+      ],
+      "columns": [
+        {
+          "name": "uid",
+          "type": "INT"
+        },
+        {
+          "name": "user_id",
+          "type": "TEXT"
+        },
+        {
+          "name": "name",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 0
+    },
+    "checkin": {
+      "primary_key": [
+        "cid"
+      ],
+      "columns": [
+        {
+          "name": "cid",
+          "type": "INT"
+        },
+        {
+          "name": "business_id",
+          "type": "TEXT"
+        },
+        {
+          "name": "count",
+          "type": "INT"
+        },
+        {
+          "name": "day",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "checkin",
+          "to": "business",
+          "child_col": "business_id",
+          "parent_col": "business_id"
+        }
+      ],
+      "row_count": 0
+    },
+    "neighbourhood": {
+      "primary_key": [
+        "id"
+      ],
+      "columns": [
+        {
+          "name": "id",
+          "type": "INT"
+        },
+        {
+          "name": "business_id",
+          "type": "TEXT"
+        },
+        {
+          "name": "neighbourhood_name",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "neighbourhood",
+          "to": "business",
+          "child_col": "business_id",
+          "parent_col": "business_id"
+        }
+      ],
+      "row_count": 0
+    },
+    "review": {
+      "primary_key": [
+        "rid"
+      ],
+      "columns": [
+        {
+          "name": "rid",
+          "type": "INT"
+        },
+        {
+          "name": "business_id",
+          "type": "TEXT"
+        },
+        {
+          "name": "user_id",
+          "type": "TEXT"
+        },
+        {
+          "name": "rating",
+          "type": "REAL"
+        },
+        {
+          "name": "text",
+          "type": "TEXT"
+        },
+        {
+          "name": "year",
+          "type": "INT"
+        },
+        {
+          "name": "month",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "review",
+          "to": "user",
+          "child_col": "user_id",
+          "parent_col": "user_id"
+        },
+        {
+          "from": "review",
+          "to": "business",
+          "child_col": "business_id",
+          "parent_col": "business_id"
+        }
+      ],
+      "row_count": 0
+    },
+    "tip": {
+      "primary_key": [
+        "tip_id"
+      ],
+      "columns": [
+        {
+          "name": "tip_id",
+          "type": "INT"
+        },
+        {
+          "name": "business_id",
+          "type": "TEXT"
+        },
+        {
+          "name": "text",
+          "type": "TEXT"
+        },
+        {
+          "name": "user_id",
+          "type": "TEXT"
+        },
+        {
+          "name": "likes",
+          "type": "INT"
+        },
+        {
+          "name": "year",
+          "type": "INT"
+        },
+        {
+          "name": "month",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "tip",
+          "to": "user",
+          "child_col": "user_id",
+          "parent_col": "user_id"
+        },
+        {
+          "from": "tip",
+          "to": "business",
+          "child_col": "business_id",
+          "parent_col": "business_id"
+        }
+      ],
+      "row_count": 0
+    }
+  }
+}

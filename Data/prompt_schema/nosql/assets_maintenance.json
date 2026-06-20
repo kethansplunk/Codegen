@@ -1,0 +1,452 @@
+{
+  "Part_Faults.part_fault_id": {
+    "sample_values": [
+      "5",
+      "8",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Part_Faults.part_id": {
+    "sample_values": [
+      "1",
+      "3",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "Part_Faults.fault_description": {
+    "sample_values": [
+      "Medium Scale Wrong",
+      "Top Parts Wrong",
+      "Package Wrong"
+    ],
+    "inferred_type": "string"
+  },
+  "Part_Faults.fault_short_name": {
+    "sample_values": [
+      "MW",
+      "TW",
+      "PW"
+    ],
+    "inferred_type": "string"
+  },
+  "Skills_Required_To_Fix.skill_id": {
+    "sample_values": [
+      "1",
+      "3",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "Skills_Required_To_Fix.part_fault_id": {
+    "sample_values": [
+      "5",
+      "10",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "Fault_Log.fault_log_entry_datetime": {
+    "sample_values": [
+      "2018-02-28 02:07:36",
+      "2018-03-03 10:41:52",
+      "2018-02-28 20:15:25"
+    ],
+    "inferred_type": "string"
+  },
+  "Fault_Log.fault_description": {
+    "sample_values": [
+      "system error",
+      "failed parts"
+    ],
+    "inferred_type": "string"
+  },
+  "Fault_Log.asset_id": {
+    "sample_values": [
+      "5",
+      "12",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "Fault_Log.recorded_by_staff_id": {
+    "sample_values": [
+      "10",
+      "8",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "Fault_Log.fault_log_entry_id": {
+    "sample_values": [
+      "5",
+      "8",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Engineer_Visits.engineer_visit_id": {
+    "sample_values": [
+      "5",
+      "8",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Engineer_Visits.engineer_id": {
+    "sample_values": [
+      "10",
+      "8",
+      "1"
+    ],
+    "inferred_type": "integer"
+  },
+  "Engineer_Visits.fault_status": {
+    "sample_values": [
+      "Waiting",
+      "Return",
+      "Fixed"
+    ],
+    "inferred_type": "string"
+  },
+  "Engineer_Visits.visit_end_datetime": {
+    "sample_values": [
+      "1970-03-25 14:44:29",
+      "1971-03-29 23:46:30",
+      "2008-03-24 22:18:47"
+    ],
+    "inferred_type": "string"
+  },
+  "Engineer_Visits.contact_staff_id": {
+    "sample_values": [
+      "14",
+      "12",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "Engineer_Visits.visit_start_datetime": {
+    "sample_values": [
+      "1984-07-14 22:47:51",
+      "1975-04-06 11:09:23",
+      "1970-07-19 19:21:32"
+    ],
+    "inferred_type": "string"
+  },
+  "Engineer_Visits.fault_log_entry_id": {
+    "sample_values": [
+      "10",
+      "12",
+      "13"
+    ],
+    "inferred_type": "integer"
+  },
+  "Third_Party_Companies.company_address": {
+    "sample_values": [
+      "680 Hammes Ways",
+      "846 Casper Route",
+      "60743 Dion Harbors Suite 825"
+    ],
+    "inferred_type": "string"
+  },
+  "Third_Party_Companies.other_company_details": {
+    "sample_values": [
+      "China",
+      "Ethiopia",
+      "Western Sahara"
+    ],
+    "inferred_type": "string"
+  },
+  "Third_Party_Companies.company_name": {
+    "sample_values": [
+      "Wisoky, Toy and Bashirian",
+      "Grimes, Mosciski and Renner",
+      "Dooley-Langosh"
+    ],
+    "inferred_type": "string"
+  },
+  "Third_Party_Companies.company_id": {
+    "sample_values": [
+      "5",
+      "8",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Third_Party_Companies.company_type": {
+    "sample_values": [
+      "Maintenance Contractor",
+      "Supplier"
+    ],
+    "inferred_type": "string"
+  },
+  "Asset_Parts.asset_id": {
+    "sample_values": [
+      "10",
+      "14",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "Asset_Parts.part_id": {
+    "sample_values": [
+      "1",
+      "3",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "Parts.chargeable_yn": {
+    "sample_values": [
+      "1",
+      "0"
+    ],
+    "inferred_type": "integer"
+  },
+  "Parts.part_id": {
+    "sample_values": [
+      "1",
+      "3",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "Parts.chargeable_amount": {
+    "sample_values": [
+      "9",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "Parts.part_name": {
+    "sample_values": [
+      "middle",
+      "package",
+      "top"
+    ],
+    "inferred_type": "string"
+  },
+  "Fault_Log_Parts.fault_log_entry_id": {
+    "sample_values": [
+      "14",
+      "4",
+      "3"
+    ],
+    "inferred_type": "integer"
+  },
+  "Fault_Log_Parts.fault_status": {
+    "sample_values": [
+      "Waiting",
+      "Reported",
+      "Fixed"
+    ],
+    "inferred_type": "string"
+  },
+  "Fault_Log_Parts.part_fault_id": {
+    "sample_values": [
+      "10",
+      "8",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "Skills.skill_description": {
+    "sample_values": [
+      "Mechanical",
+      "Electrical",
+      "TV, Video"
+    ],
+    "inferred_type": "string"
+  },
+  "Skills.skill_id": {
+    "sample_values": [
+      "1",
+      "3",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "Skills.skill_code": {
+    "sample_values": [
+      "ELEC",
+      "MECH",
+      "TV"
+    ],
+    "inferred_type": "string"
+  },
+  "Assets.asset_disposed_date": {
+    "sample_values": [
+      "2018-03-08 18:42:41",
+      "2018-03-17 00:51:14",
+      "2018-03-22 23:48:15"
+    ],
+    "inferred_type": "string"
+  },
+  "Assets.asset_make": {
+    "sample_values": [
+      "FR",
+      "GB",
+      "CN"
+    ],
+    "inferred_type": "string"
+  },
+  "Assets.maintenance_contract_id": {
+    "sample_values": [
+      "10",
+      "8",
+      "13"
+    ],
+    "inferred_type": "integer"
+  },
+  "Assets.asset_model": {
+    "sample_values": [
+      "08 yy",
+      "95 vn",
+      "66 xm"
+    ],
+    "inferred_type": "string"
+  },
+  "Assets.asset_acquired_date": {
+    "sample_values": [
+      "2018-01-27 00:59:46",
+      "2017-04-22 12:33:39",
+      "2017-12-18 19:21:11"
+    ],
+    "inferred_type": "string"
+  },
+  "Assets.supplier_company_id": {
+    "sample_values": [
+      "5",
+      "1",
+      "13"
+    ],
+    "inferred_type": "integer"
+  },
+  "Assets.asset_details": {
+    "sample_values": [
+      "dell laptop1",
+      "system2",
+      "dell laptop5"
+    ],
+    "inferred_type": "string"
+  },
+  "Assets.asset_id": {
+    "sample_values": [
+      "5",
+      "8",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Staff.staff_id": {
+    "sample_values": [
+      "5",
+      "8",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Staff.other_staff_details": {
+    "sample_values": [
+      "Woker",
+      "Manager"
+    ],
+    "inferred_type": "string"
+  },
+  "Staff.staff_name": {
+    "sample_values": [
+      "Rodger",
+      "Edmond",
+      "Oren"
+    ],
+    "inferred_type": "string"
+  },
+  "Staff.gender": {
+    "sample_values": [
+      "1",
+      "0"
+    ],
+    "inferred_type": "integer"
+  },
+  "Maintenance_Contracts.maintenance_contract_id": {
+    "sample_values": [
+      "5",
+      "8",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Maintenance_Contracts.contract_end_date": {
+    "sample_values": [
+      "2018-03-02 22:26:54",
+      "2018-03-05 21:24:36",
+      "2018-03-23 17:29:21"
+    ],
+    "inferred_type": "string"
+  },
+  "Maintenance_Contracts.contract_start_date": {
+    "sample_values": [
+      "2018-01-24 00:06:30",
+      "2017-09-19 17:57:17",
+      "2017-05-14 11:57:50"
+    ],
+    "inferred_type": "string"
+  },
+  "Maintenance_Contracts.maintenance_contract_company_id": {
+    "sample_values": [
+      "10",
+      "6",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "Engineer_Skills.engineer_id": {
+    "sample_values": [
+      "10",
+      "12",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "Engineer_Skills.skill_id": {
+    "sample_values": [
+      "1",
+      "3",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "Maintenance_Engineers.engineer_id": {
+    "sample_values": [
+      "5",
+      "8",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Maintenance_Engineers.last_name": {
+    "sample_values": [
+      "Goldner",
+      "Kunde",
+      "Hirthe"
+    ],
+    "inferred_type": "string"
+  },
+  "Maintenance_Engineers.first_name": {
+    "sample_values": [
+      "Etha",
+      "Samanta",
+      "Jules"
+    ],
+    "inferred_type": "string"
+  },
+  "Maintenance_Engineers.company_id": {
+    "sample_values": [
+      "10",
+      "1",
+      "4"
+    ],
+    "inferred_type": "integer"
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "db_name": "poker_player",
+  "nodes": [
+    {
+      "name": "poker_player",
+      "columns": [
+        {
+          "name": "Poker_Player_ID",
+          "type": "INT"
+        },
+        {
+          "name": "People_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Final_Table_Made",
+          "type": "REAL"
+        },
+        {
+          "name": "Best_Finish",
+          "type": "REAL"
+        },
+        {
+          "name": "Money_Rank",
+          "type": "REAL"
+        },
+        {
+          "name": "Earnings",
+          "type": "REAL"
+        }
+      ],
+      "pk": [
+        "Poker_Player_ID"
+      ]
+    },
+    {
+      "name": "people",
+      "columns": [
+        {
+          "name": "People_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Nationality",
+          "type": "TEXT"
+        },
+        {
+          "name": "Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Birth_Date",
+          "type": "TEXT"
+        },
+        {
+          "name": "Height",
+          "type": "REAL"
+        }
+      ],
+      "pk": [
+        "People_ID"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "poker_player",
+      "to": "people",
+      "child_col": "People_ID",
+      "parent_col": "People_ID"
+    }
+  ],
+  "centrality": {
+    "poker_player": 0.0,
+    "people": 1.0
+  }
+}

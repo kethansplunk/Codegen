@@ -1,0 +1,70 @@
+{
+  "db_name": "entrepreneur",
+  "collections": {
+    "entrepreneur": {
+      "primary_key": [
+        "Entrepreneur_ID"
+      ],
+      "columns": [
+        {
+          "name": "Entrepreneur_ID",
+          "type": "INT"
+        },
+        {
+          "name": "People_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Company",
+          "type": "TEXT"
+        },
+        {
+          "name": "Money_Requested",
+          "type": "REAL"
+        },
+        {
+          "name": "Investor",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "entrepreneur",
+          "to": "people",
+          "child_col": "People_ID",
+          "parent_col": "People_ID"
+        }
+      ],
+      "row_count": 6
+    },
+    "people": {
+      "primary_key": [
+        "People_ID"
+      ],
+      "columns": [
+        {
+          "name": "People_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Height",
+          "type": "REAL"
+        },
+        {
+          "name": "Weight",
+          "type": "REAL"
+        },
+        {
+          "name": "Date_of_Birth",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 8
+    }
+  }
+}

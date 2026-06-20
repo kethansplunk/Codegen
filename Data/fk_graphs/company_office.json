@@ -1,0 +1,117 @@
+{
+  "db_name": "company_office",
+  "nodes": [
+    {
+      "name": "buildings",
+      "columns": [
+        {
+          "name": "id",
+          "type": "INT"
+        },
+        {
+          "name": "name",
+          "type": "TEXT"
+        },
+        {
+          "name": "City",
+          "type": "TEXT"
+        },
+        {
+          "name": "Height",
+          "type": "INT"
+        },
+        {
+          "name": "Stories",
+          "type": "INT"
+        },
+        {
+          "name": "Status",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "id"
+      ]
+    },
+    {
+      "name": "Companies",
+      "columns": [
+        {
+          "name": "id",
+          "type": "INT"
+        },
+        {
+          "name": "name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Headquarters",
+          "type": "TEXT"
+        },
+        {
+          "name": "Industry",
+          "type": "TEXT"
+        },
+        {
+          "name": "Sales_billion",
+          "type": "REAL"
+        },
+        {
+          "name": "Profits_billion",
+          "type": "REAL"
+        },
+        {
+          "name": "Assets_billion",
+          "type": "REAL"
+        },
+        {
+          "name": "Market_Value_billion",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "id"
+      ]
+    },
+    {
+      "name": "Office_locations",
+      "columns": [
+        {
+          "name": "building_id",
+          "type": "INT"
+        },
+        {
+          "name": "company_id",
+          "type": "INT"
+        },
+        {
+          "name": "move_in_year",
+          "type": "INT"
+        }
+      ],
+      "pk": [
+        "building_id",
+        "company_id"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "Office_locations",
+      "to": "Companies",
+      "child_col": "company_id",
+      "parent_col": "id"
+    },
+    {
+      "from": "Office_locations",
+      "to": "buildings",
+      "child_col": "building_id",
+      "parent_col": "id"
+    }
+  ],
+  "centrality": {
+    "buildings": 0.5,
+    "Companies": 0.5,
+    "Office_locations": 0.0
+  }
+}

@@ -1,0 +1,289 @@
+{
+  "People.middle_name": {
+    "sample_values": [
+      "Hayley",
+      "Mercedes",
+      "Haley"
+    ],
+    "inferred_type": "string"
+  },
+  "People.password": {
+    "sample_values": [
+      "7be9c03d5467d563555c51ebb3eb78e7f90832ec",
+      "7dce9b688636ee212294c257dd2f6b85c7f65f2e",
+      "b063331ea8116befaa7b84c59c6a22200f5f8caa"
+    ],
+    "inferred_type": "string"
+  },
+  "People.cell_mobile_number": {
+    "sample_values": [
+      "766-272-9964",
+      "1-372-548-7538x314",
+      "812.228.0645x91481"
+    ],
+    "inferred_type": "string"
+  },
+  "People.email_address": {
+    "sample_values": [
+      "boyer.lonie@example.com",
+      "adele.gibson@example.net",
+      "terry.kuhlman@example.org"
+    ],
+    "inferred_type": "string"
+  },
+  "People.last_name": {
+    "sample_values": [
+      "Hartmann",
+      "Feest",
+      "Grant"
+    ],
+    "inferred_type": "string"
+  },
+  "People.first_name": {
+    "sample_values": [
+      "Dariana",
+      "Lizeth",
+      "Virginie"
+    ],
+    "inferred_type": "string"
+  },
+  "People.login_name": {
+    "sample_values": [
+      "mkou",
+      "zops",
+      "qrwl"
+    ],
+    "inferred_type": "string"
+  },
+  "People.person_id": {
+    "sample_values": [
+      "181",
+      "141",
+      "111"
+    ],
+    "inferred_type": "integer"
+  },
+  "Courses.course_id": {
+    "sample_values": [
+      "306",
+      "304",
+      "303"
+    ],
+    "inferred_type": "integer"
+  },
+  "Courses.course_name": {
+    "sample_values": [
+      "data structure",
+      "French",
+      "Art history"
+    ],
+    "inferred_type": "string"
+  },
+  "Courses.course_description": {
+    "sample_values": [
+      "data structure",
+      "French",
+      "Art history"
+    ],
+    "inferred_type": "string"
+  },
+  "Student_Course_Registrations.course_id": {
+    "sample_values": [
+      "305",
+      "303",
+      "301"
+    ],
+    "inferred_type": "integer"
+  },
+  "Student_Course_Registrations.registration_date": {
+    "sample_values": [
+      "2008-11-08 10:35:13",
+      "2008-11-14 10:35:13",
+      "2008-11-05 10:35:13"
+    ],
+    "inferred_type": "string"
+  },
+  "Student_Course_Registrations.student_id": {
+    "sample_values": [
+      "121",
+      "171",
+      "151"
+    ],
+    "inferred_type": "integer"
+  },
+  "People_Addresses.address_id": {
+    "sample_values": [
+      "5",
+      "9",
+      "82"
+    ],
+    "inferred_type": "integer"
+  },
+  "People_Addresses.date_to": {
+    "sample_values": [
+      "2018-03-11 20:26:41",
+      "2018-03-12 21:10:02",
+      "2018-02-23 22:44:18"
+    ],
+    "inferred_type": "string"
+  },
+  "People_Addresses.person_id": {
+    "sample_values": [
+      "181",
+      "141",
+      "111"
+    ],
+    "inferred_type": "integer"
+  },
+  "People_Addresses.person_address_id": {
+    "sample_values": [
+      "257",
+      "122",
+      "396"
+    ],
+    "inferred_type": "integer"
+  },
+  "People_Addresses.date_from": {
+    "sample_values": [
+      "2008-05-26 20:43:41",
+      "2010-11-26 05:21:12",
+      "2008-07-31 02:17:25"
+    ],
+    "inferred_type": "string"
+  },
+  "Students.student_details": {
+    "sample_values": [
+      "Nancy",
+      "Marry",
+      "Barry"
+    ],
+    "inferred_type": "string"
+  },
+  "Students.student_id": {
+    "sample_values": [
+      "181",
+      "141",
+      "111"
+    ],
+    "inferred_type": "integer"
+  },
+  "Candidate_Assessments.candidate_id": {
+    "sample_values": [
+      "121",
+      "141",
+      "111"
+    ],
+    "inferred_type": "integer"
+  },
+  "Candidate_Assessments.qualification": {
+    "sample_values": [
+      "A",
+      "C",
+      "D"
+    ],
+    "inferred_type": "string"
+  },
+  "Candidate_Assessments.asessment_outcome_code": {
+    "sample_values": [
+      "Fail",
+      "Pass"
+    ],
+    "inferred_type": "string"
+  },
+  "Candidate_Assessments.assessment_date": {
+    "sample_values": [
+      "2010-04-17 11:44:34",
+      "2010-04-06 11:44:34",
+      "2010-04-05 11:44:34"
+    ],
+    "inferred_type": "string"
+  },
+  "Addresses.line_2": {
+    "sample_values": [
+      "Suite 087",
+      "Apt. 617",
+      "Apt. 903"
+    ],
+    "inferred_type": "string"
+  },
+  "Addresses.address_id": {
+    "sample_values": [
+      "68",
+      "43",
+      "55"
+    ],
+    "inferred_type": "integer"
+  },
+  "Addresses.line_1": {
+    "sample_values": [
+      "0900 Roderick Oval\nNew Albina, WA 19200-7914",
+      "28550 Broderick Underpass Suite 667\nZakaryhaven, WY 22945-1534",
+      "228 Fahey Land\nBaileymouth, FL 06297-5606"
+    ],
+    "inferred_type": "string"
+  },
+  "Addresses.city": {
+    "sample_values": [
+      "Lake Devon",
+      "Hannahside",
+      "Boyleshire"
+    ],
+    "inferred_type": "string"
+  },
+  "Addresses.zip_postcode": {
+    "sample_values": [
+      "244",
+      "514",
+      "862"
+    ],
+    "inferred_type": "integer"
+  },
+  "Addresses.state_province_county": {
+    "sample_values": [
+      "Connecticut",
+      "Vermont",
+      "NewMexico"
+    ],
+    "inferred_type": "string"
+  },
+  "Candidates.candidate_id": {
+    "sample_values": [
+      "181",
+      "141",
+      "111"
+    ],
+    "inferred_type": "integer"
+  },
+  "Candidates.candidate_details": {
+    "sample_values": [
+      "Alex",
+      "Robert",
+      "Tao"
+    ],
+    "inferred_type": "string"
+  },
+  "Student_Course_Attendance.course_id": {
+    "sample_values": [
+      "305",
+      "303",
+      "301"
+    ],
+    "inferred_type": "integer"
+  },
+  "Student_Course_Attendance.date_of_attendance": {
+    "sample_values": [
+      "2014-01-09 11:44:34",
+      "2008-11-04 10:35:13",
+      "2012-05-09 11:44:34"
+    ],
+    "inferred_type": "string"
+  },
+  "Student_Course_Attendance.student_id": {
+    "sample_values": [
+      "121",
+      "141",
+      "151"
+    ],
+    "inferred_type": "integer"
+  }
+}

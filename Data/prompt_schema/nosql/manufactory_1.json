@@ -1,0 +1,74 @@
+{
+  "Manufacturers.Revenue": {
+    "sample_values": [
+      "120.0",
+      "130.0",
+      "30.0"
+    ],
+    "inferred_type": "float"
+  },
+  "Manufacturers.Name": {
+    "sample_values": [
+      "Winchester",
+      "Hewlett-Packard",
+      "Iomega"
+    ],
+    "inferred_type": "string"
+  },
+  "Manufacturers.Headquarter": {
+    "sample_values": [
+      "Paris",
+      "Austin",
+      "Beijing"
+    ],
+    "inferred_type": "string"
+  },
+  "Manufacturers.Code": {
+    "sample_values": [
+      "5",
+      "2",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "Manufacturers.Founder": {
+    "sample_values": [
+      "James",
+      "Andy",
+      "Mary"
+    ],
+    "inferred_type": "string"
+  },
+  "Products.Manufacturer": {
+    "sample_values": [
+      "5",
+      "2",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "Products.Code": {
+    "sample_values": [
+      "5",
+      "1",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Products.Price": {
+    "sample_values": [
+      "120",
+      "66",
+      "150"
+    ],
+    "inferred_type": "integer"
+  },
+  "Products.Name": {
+    "sample_values": [
+      "Printer",
+      "Monitor",
+      "ZIP drive"
+    ],
+    "inferred_type": "string"
+  }
+}

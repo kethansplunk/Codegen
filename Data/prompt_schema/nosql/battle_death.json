@@ -1,0 +1,146 @@
+{
+  "battle.date": {
+    "sample_values": [
+      "14 April 1205",
+      "31 June 1208",
+      "1235"
+    ],
+    "inferred_type": "string"
+  },
+  "battle.name": {
+    "sample_values": [
+      "Battle of Philippopolis",
+      "Battle of Adrianople",
+      "Battle of Boruy"
+    ],
+    "inferred_type": "string"
+  },
+  "battle.bulgarian_commander": {
+    "sample_values": [
+      "Ivan Asen II",
+      "Unknown",
+      "Kaloyan"
+    ],
+    "inferred_type": "string"
+  },
+  "battle.result": {
+    "sample_values": [
+      "Bulgarian victory",
+      "Latin victory",
+      "Two Year Truce"
+    ],
+    "inferred_type": "string"
+  },
+  "battle.id": {
+    "sample_values": [
+      "5",
+      "1",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "battle.latin_commander": {
+    "sample_values": [
+      "Thierry de Termond",
+      "Baldwin I",
+      "Unknown"
+    ],
+    "inferred_type": "string"
+  },
+  "ship.location": {
+    "sample_values": [
+      "SW Approaches",
+      "Mid-Atlantic",
+      "English Channel"
+    ],
+    "inferred_type": "string"
+  },
+  "ship.name": {
+    "sample_values": [
+      "Lettice",
+      "Three Brothers",
+      "Mary"
+    ],
+    "inferred_type": "string"
+  },
+  "ship.tonnage": {
+    "sample_values": [
+      "t",
+      "391",
+      "225"
+    ],
+    "inferred_type": "string"
+  },
+  "ship.disposition_of_ship": {
+    "sample_values": [
+      "Sank",
+      "Scuttled",
+      "Wrecked"
+    ],
+    "inferred_type": "string"
+  },
+  "ship.lost_in_battle": {
+    "sample_values": [
+      "5",
+      "8",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "ship.id": {
+    "sample_values": [
+      "5",
+      "2",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "ship.ship_type": {
+    "sample_values": [
+      "8 gun Brig",
+      "Brig",
+      "18-gun Brig"
+    ],
+    "inferred_type": "string"
+  },
+  "death.injured": {
+    "sample_values": [
+      "5",
+      "0",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "death.caused_by_ship_id": {
+    "sample_values": [
+      "5",
+      "2",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "death.note": {
+    "sample_values": [
+      "Bastar, Chattisgarh",
+      "Gajapati, Odisha",
+      "Dantewada, Chhattisgarh"
+    ],
+    "inferred_type": "string"
+  },
+  "death.id": {
+    "sample_values": [
+      "5",
+      "1",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "death.killed": {
+    "sample_values": [
+      "25",
+      "0",
+      "2"
+    ],
+    "inferred_type": "integer"
+  }
+}

@@ -1,0 +1,111 @@
+{
+  "enzyme.Location": {
+    "sample_values": [
+      "Cytosol",
+      "Mitochondrion"
+    ],
+    "inferred_type": "string"
+  },
+  "enzyme.name": {
+    "sample_values": [
+      "Coproporphyrinogen III oxidase",
+      "Uroporphyrinogen III synthase",
+      "Ferrochelatase"
+    ],
+    "inferred_type": "string"
+  },
+  "enzyme.Product": {
+    "sample_values": [
+      "Uroporphyrinogen III",
+      "Protoporphyrin IX",
+      "Hydroxymethyl bilane"
+    ],
+    "inferred_type": "string"
+  },
+  "enzyme.Chromosome": {
+    "sample_values": [
+      "3q12",
+      "18q21.3",
+      "9q34"
+    ],
+    "inferred_type": "string"
+  },
+  "enzyme.OMIM": {
+    "sample_values": [
+      "176000",
+      "125270",
+      "606938"
+    ],
+    "inferred_type": "integer"
+  },
+  "enzyme.id": {
+    "sample_values": [
+      "5",
+      "1",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "enzyme.Porphyria": {
+    "sample_values": [
+      "variegate porphyria",
+      "porphyria cutanea tarda",
+      "congenital erythropoietic porphyria"
+    ],
+    "inferred_type": "string"
+  },
+  "medicine.name": {
+    "sample_values": [
+      "Mosapramine",
+      "Sertindole",
+      "Amisulpride"
+    ],
+    "inferred_type": "string"
+  },
+  "medicine.id": {
+    "sample_values": [
+      "21",
+      "3",
+      "7"
+    ],
+    "inferred_type": "integer"
+  },
+  "medicine.Trade_Name": {
+    "sample_values": [
+      "Clozaril",
+      "Serdolect",
+      "Abilify"
+    ],
+    "inferred_type": "string"
+  },
+  "medicine.FDA_approved": {
+    "sample_values": [
+      "No",
+      "Yes"
+    ],
+    "inferred_type": "string"
+  },
+  "medicine_enzyme_interaction.medicine_id": {
+    "sample_values": [
+      "5",
+      "8",
+      "13"
+    ],
+    "inferred_type": "integer"
+  },
+  "medicine_enzyme_interaction.enzyme_id": {
+    "sample_values": [
+      "5",
+      "2",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "medicine_enzyme_interaction.interaction_type": {
+    "sample_values": [
+      "activitor",
+      "inhibitor"
+    ],
+    "inferred_type": "string"
+  }
+}

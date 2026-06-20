@@ -1,0 +1,341 @@
+{
+  "CLASS.CLASS_CODE": {
+    "sample_values": [
+      "10012",
+      "10016",
+      "10020"
+    ],
+    "inferred_type": "integer"
+  },
+  "CLASS.CRS_CODE": {
+    "sample_values": [
+      "QM-362",
+      "ACCT-212",
+      "CIS-420"
+    ],
+    "inferred_type": "string"
+  },
+  "CLASS.CLASS_SECTION": {
+    "sample_values": [
+      "1",
+      "2",
+      "3"
+    ],
+    "inferred_type": "integer"
+  },
+  "CLASS.CLASS_TIME": {
+    "sample_values": [
+      "MWF 11:00-11:50 a.m.",
+      "MWF 9:00-9:50 a.m.",
+      "TTh 2:30-3:45 p.m."
+    ],
+    "inferred_type": "string"
+  },
+  "CLASS.CLASS_ROOM": {
+    "sample_values": [
+      "KLR200",
+      "BUS200",
+      "KLR209"
+    ],
+    "inferred_type": "string"
+  },
+  "CLASS.PROF_NUM": {
+    "sample_values": [
+      105,
+      301,
+      114
+    ],
+    "inferred_type": "integer"
+  },
+  "COURSE.CRS_CODE": {
+    "sample_values": [
+      "QM-362",
+      "ACCT-212",
+      "CIS-420"
+    ],
+    "inferred_type": "string"
+  },
+  "COURSE.DEPT_CODE": {
+    "sample_values": [
+      "ACCT",
+      "CIS"
+    ],
+    "inferred_type": "string"
+  },
+  "COURSE.CRS_DESCRIPTION": {
+    "sample_values": [
+      "Statistical Applications",
+      "Accounting II",
+      "Database Design and Implementation"
+    ],
+    "inferred_type": "string"
+  },
+  "COURSE.CRS_CREDIT": {
+    "sample_values": [
+      3.0,
+      4.0
+    ],
+    "inferred_type": "float"
+  },
+  "DEPARTMENT.DEPT_CODE": {
+    "sample_values": [
+      "SOC",
+      "ECON/FIN",
+      "ART"
+    ],
+    "inferred_type": "string"
+  },
+  "DEPARTMENT.DEPT_NAME": {
+    "sample_values": [
+      "Sociology",
+      "Economics/Finance",
+      "Fine Arts"
+    ],
+    "inferred_type": "string"
+  },
+  "DEPARTMENT.SCHOOL_CODE": {
+    "sample_values": [
+      "BUS",
+      "A&SCI"
+    ],
+    "inferred_type": "string"
+  },
+  "DEPARTMENT.EMP_NUM": {
+    "sample_values": [
+      114,
+      209,
+      103
+    ],
+    "inferred_type": "integer"
+  },
+  "DEPARTMENT.DEPT_ADDRESS": {
+    "sample_values": [
+      "BBG 208, Box 132",
+      "KLR 284, Box 63",
+      "BBG 185, Box 128"
+    ],
+    "inferred_type": "string"
+  },
+  "DEPARTMENT.DEPT_EXTENSION": {
+    "sample_values": [
+      "3119",
+      "3245",
+      "1867"
+    ],
+    "inferred_type": "integer"
+  },
+  "EMPLOYEE.EMP_NUM": {
+    "sample_values": [
+      100,
+      106,
+      124
+    ],
+    "inferred_type": "integer"
+  },
+  "EMPLOYEE.EMP_LNAME": {
+    "sample_values": [
+      "Teng",
+      "Robertson",
+      "Thieu"
+    ],
+    "inferred_type": "string"
+  },
+  "EMPLOYEE.EMP_FNAME": {
+    "sample_values": [
+      "Weston",
+      "Elaine",
+      "Van"
+    ],
+    "inferred_type": "string"
+  },
+  "EMPLOYEE.EMP_INITIAL": {
+    "sample_values": [
+      "F",
+      "W",
+      ""
+    ],
+    "inferred_type": "string"
+  },
+  "EMPLOYEE.EMP_JOBCODE": {
+    "sample_values": [
+      "CLRK",
+      "PROF",
+      "TECH"
+    ],
+    "inferred_type": "string"
+  },
+  "EMPLOYEE.EMP_HIREDATE": {
+    "sample_values": [
+      "1990-8-18",
+      "1983-10-18",
+      "1989-8-1"
+    ],
+    "inferred_type": "string"
+  },
+  "EMPLOYEE.EMP_DOB": {
+    "sample_values": [
+      "1965-8-29",
+      "1961-6-20",
+      "1951-8-12"
+    ],
+    "inferred_type": "string"
+  },
+  "ENROLL.CLASS_CODE": {
+    "sample_values": [
+      "10014",
+      "10018",
+      "10021"
+    ],
+    "inferred_type": "integer"
+  },
+  "ENROLL.STU_NUM": {
+    "sample_values": [
+      321452,
+      324257
+    ],
+    "inferred_type": "integer"
+  },
+  "ENROLL.ENROLL_GRADE": {
+    "sample_values": [
+      "C",
+      "B",
+      "A"
+    ],
+    "inferred_type": "string"
+  },
+  "PROFESSOR.EMP_NUM": {
+    "sample_values": [
+      103,
+      155,
+      228
+    ],
+    "inferred_type": "integer"
+  },
+  "PROFESSOR.DEPT_CODE": {
+    "sample_values": [
+      "ART",
+      "BIOL",
+      "ENG"
+    ],
+    "inferred_type": "string"
+  },
+  "PROFESSOR.PROF_OFFICE": {
+    "sample_values": [
+      "BBG 185",
+      "KLR 203E",
+      "KLR 409B"
+    ],
+    "inferred_type": "string"
+  },
+  "PROFESSOR.PROF_EXTENSION": {
+    "sample_values": [
+      "6783",
+      "4440",
+      "3000"
+    ],
+    "inferred_type": "integer"
+  },
+  "PROFESSOR.PROF_HIGH_DEGREE": {
+    "sample_values": [
+      "MBA",
+      "DBA",
+      "MA"
+    ],
+    "inferred_type": "string"
+  },
+  "STUDENT.STU_NUM": {
+    "sample_values": [
+      321452,
+      324258,
+      324273
+    ],
+    "inferred_type": "integer"
+  },
+  "STUDENT.STU_LNAME": {
+    "sample_values": [
+      "Robertson",
+      "Smithson",
+      "Brewer"
+    ],
+    "inferred_type": "string"
+  },
+  "STUDENT.STU_FNAME": {
+    "sample_values": [
+      "Gerald",
+      "Anne",
+      "Juliette"
+    ],
+    "inferred_type": "string"
+  },
+  "STUDENT.STU_INIT": {
+    "sample_values": [
+      "C",
+      "",
+      "D"
+    ],
+    "inferred_type": "string"
+  },
+  "STUDENT.STU_DOB": {
+    "sample_values": [
+      "1986-11-30",
+      "1981-11-15",
+      "1969-8-23"
+    ],
+    "inferred_type": "string"
+  },
+  "STUDENT.STU_HRS": {
+    "sample_values": [
+      42,
+      36,
+      102
+    ],
+    "inferred_type": "integer"
+  },
+  "STUDENT.STU_CLASS": {
+    "sample_values": [
+      "Fr",
+      "Sr",
+      "Jr"
+    ],
+    "inferred_type": "string"
+  },
+  "STUDENT.STU_GPA": {
+    "sample_values": [
+      2.84,
+      2.26,
+      2.11
+    ],
+    "inferred_type": "float"
+  },
+  "STUDENT.STU_TRANSFER": {
+    "sample_values": [
+      0,
+      1
+    ],
+    "inferred_type": "integer"
+  },
+  "STUDENT.DEPT_CODE": {
+    "sample_values": [
+      "EDU",
+      "ENGL",
+      "ACCT"
+    ],
+    "inferred_type": "string"
+  },
+  "STUDENT.STU_PHONE": {
+    "sample_values": [
+      "2134",
+      "2114",
+      "2267"
+    ],
+    "inferred_type": "integer"
+  },
+  "STUDENT.PROF_NUM": {
+    "sample_values": [
+      205,
+      228,
+      311
+    ],
+    "inferred_type": "integer"
+  }
+}

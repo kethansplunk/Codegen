@@ -1,0 +1,77 @@
+{
+  "db_name": "scientist_1",
+  "nodes": [
+    {
+      "name": "Scientists",
+      "columns": [
+        {
+          "name": "SSN",
+          "type": "INT"
+        },
+        {
+          "name": "Name",
+          "type": "Char(30)"
+        }
+      ],
+      "pk": [
+        "SSN"
+      ]
+    },
+    {
+      "name": "Projects",
+      "columns": [
+        {
+          "name": "Code",
+          "type": "Char(4)"
+        },
+        {
+          "name": "Name",
+          "type": "Char(50)"
+        },
+        {
+          "name": "Hours",
+          "type": "INT"
+        }
+      ],
+      "pk": [
+        "Code"
+      ]
+    },
+    {
+      "name": "AssignedTo",
+      "columns": [
+        {
+          "name": "Scientist",
+          "type": "INT"
+        },
+        {
+          "name": "Project",
+          "type": "char(4)"
+        }
+      ],
+      "pk": [
+        "Scientist",
+        "Project"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "AssignedTo",
+      "to": "Projects",
+      "child_col": "Project",
+      "parent_col": "Code"
+    },
+    {
+      "from": "AssignedTo",
+      "to": "Scientists",
+      "child_col": "Scientist",
+      "parent_col": "SSN"
+    }
+  ],
+  "centrality": {
+    "Scientists": 0.5,
+    "Projects": 0.5,
+    "AssignedTo": 0.0
+  }
+}

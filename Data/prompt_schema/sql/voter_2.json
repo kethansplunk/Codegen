@@ -1,0 +1,133 @@
+{
+  "Student.StuID": {
+    "sample_values": [
+      1001,
+      1007,
+      1014
+    ],
+    "inferred_type": "integer"
+  },
+  "Student.LName": {
+    "sample_values": [
+      "Woods",
+      "Nelson",
+      "Tai"
+    ],
+    "inferred_type": "string"
+  },
+  "Student.Fname": {
+    "sample_values": [
+      "George",
+      "Jandy",
+      "Eric"
+    ],
+    "inferred_type": "string"
+  },
+  "Student.Age": {
+    "sample_values": [
+      18,
+      20,
+      22
+    ],
+    "inferred_type": "integer"
+  },
+  "Student.Sex": {
+    "sample_values": [
+      "F",
+      "M"
+    ],
+    "inferred_type": "string"
+  },
+  "Student.Major": {
+    "sample_values": [
+      600,
+      540,
+      100
+    ],
+    "inferred_type": "integer"
+  },
+  "Student.Advisor": {
+    "sample_values": [
+      1121,
+      9172,
+      8722
+    ],
+    "inferred_type": "integer"
+  },
+  "Student.city_code": {
+    "sample_values": [
+      "BOS",
+      "PHL",
+      "DAL"
+    ],
+    "inferred_type": "string"
+  },
+  "Voting_record.StuID": {
+    "sample_values": [
+      1001,
+      1002,
+      1003
+    ],
+    "inferred_type": "integer"
+  },
+  "Voting_record.Registration_Date": {
+    "sample_values": [
+      "08/30/2012",
+      "08/30/2013",
+      "08/30/2014"
+    ],
+    "inferred_type": "string"
+  },
+  "Voting_record.Election_Cycle": {
+    "sample_values": [
+      "Spring",
+      "Fall"
+    ],
+    "inferred_type": "string"
+  },
+  "Voting_record.President_Vote": {
+    "sample_values": [
+      1004,
+      1014,
+      1024
+    ],
+    "inferred_type": "integer"
+  },
+  "Voting_record.Vice_President_Vote": {
+    "sample_values": [
+      1007,
+      1017
+    ],
+    "inferred_type": "integer"
+  },
+  "Voting_record.Secretary_Vote": {
+    "sample_values": [
+      1010,
+      1020,
+      1030
+    ],
+    "inferred_type": "integer"
+  },
+  "Voting_record.Treasurer_Vote": {
+    "sample_values": [
+      1035,
+      1025
+    ],
+    "inferred_type": "integer"
+  },
+  "Voting_record.Class_President_Vote": {
+    "sample_values": [
+      1001,
+      1021,
+      1031
+    ],
+    "inferred_type": "integer"
+  },
+  "Voting_record.Class_Senator_Vote": {
+    "sample_values": [
+      1028,
+      1018
+    ],
+    "inferred_type": "integer"
+  }
+}

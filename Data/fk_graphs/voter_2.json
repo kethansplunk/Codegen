@@ -1,0 +1,99 @@
+{
+  "db_name": "voter_2",
+  "nodes": [
+    {
+      "name": "Student",
+      "columns": [
+        {
+          "name": "StuID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "LName",
+          "type": "VARCHAR(12)"
+        },
+        {
+          "name": "Fname",
+          "type": "VARCHAR(12)"
+        },
+        {
+          "name": "Age",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Sex",
+          "type": "VARCHAR(1)"
+        },
+        {
+          "name": "Major",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Advisor",
+          "type": "INTEGER"
+        },
+        {
+          "name": "city_code",
+          "type": "VARCHAR(3)"
+        }
+      ],
+      "pk": [
+        "StuID"
+      ]
+    },
+    {
+      "name": "Voting_record",
+      "columns": [
+        {
+          "name": "StuID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Registration_Date",
+          "type": "VARCHAR(12)"
+        },
+        {
+          "name": "Election_Cycle",
+          "type": "VARCHAR(12)"
+        },
+        {
+          "name": "President_Vote",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Vice_President_Vote",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Secretary_Vote",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Treasurer_Vote",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Class_President_Vote",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Class_Senator_Vote",
+          "type": "INTEGER"
+        }
+      ],
+      "pk": []
+    }
+  ],
+  "edges": [
+    {
+      "from": "Voting_record",
+      "to": "Student",
+      "child_col": "StuID",
+      "parent_col": "StuID"
+    }
+  ],
+  "centrality": {
+    "Student": 1.0,
+    "Voting_record": 0.0
+  }
+}

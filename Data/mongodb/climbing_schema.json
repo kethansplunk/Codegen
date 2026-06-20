@@ -1,0 +1,78 @@
+{
+  "db_name": "climbing",
+  "collections": {
+    "mountain": {
+      "primary_key": [
+        "Mountain_ID"
+      ],
+      "columns": [
+        {
+          "name": "Mountain_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Height",
+          "type": "REAL"
+        },
+        {
+          "name": "Prominence",
+          "type": "REAL"
+        },
+        {
+          "name": "Range",
+          "type": "TEXT"
+        },
+        {
+          "name": "Country",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 7
+    },
+    "climber": {
+      "primary_key": [
+        "Climber_ID"
+      ],
+      "columns": [
+        {
+          "name": "Climber_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Country",
+          "type": "TEXT"
+        },
+        {
+          "name": "Time",
+          "type": "TEXT"
+        },
+        {
+          "name": "Points",
+          "type": "REAL"
+        },
+        {
+          "name": "Mountain_ID",
+          "type": "INT"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "climber",
+          "to": "mountain",
+          "child_col": "Mountain_ID",
+          "parent_col": "Mountain_ID"
+        }
+      ],
+      "row_count": 10
+    }
+  }
+}

@@ -1,0 +1,146 @@
+{
+  "county_public_safety.County_ID": {
+    "sample_values": [
+      1,
+      3,
+      5
+    ],
+    "inferred_type": "integer"
+  },
+  "county_public_safety.Name": {
+    "sample_values": [
+      "Chilliwack",
+      "Burnaby",
+      "Castlegar"
+    ],
+    "inferred_type": "string"
+  },
+  "county_public_safety.Population": {
+    "sample_values": [
+      128165,
+      30810,
+      16821
+    ],
+    "inferred_type": "integer"
+  },
+  "county_public_safety.Police_officers": {
+    "sample_values": [
+      187,
+      40,
+      21
+    ],
+    "inferred_type": "integer"
+  },
+  "county_public_safety.Residents_per_officer": {
+    "sample_values": [
+      685,
+      770,
+      801
+    ],
+    "inferred_type": "integer"
+  },
+  "county_public_safety.Case_burden": {
+    "sample_values": [
+      81,
+      137,
+      39
+    ],
+    "inferred_type": "integer"
+  },
+  "county_public_safety.Crime_rate": {
+    "sample_values": [
+      118.0,
+      178.0,
+      49.0
+    ],
+    "inferred_type": "float"
+  },
+  "county_public_safety.Police_force": {
+    "sample_values": [
+      "Abbotsford Police Department",
+      "RCMP",
+      "Central Saanich Police"
+    ],
+    "inferred_type": "string"
+  },
+  "county_public_safety.Location": {
+    "sample_values": [
+      "East",
+      "West",
+      "North"
+    ],
+    "inferred_type": "string"
+  },
+  "city.City_ID": {
+    "sample_values": [
+      1,
+      6,
+      11
+    ],
+    "inferred_type": "integer"
+  },
+  "city.County_ID": {
+    "sample_values": [
+      1,
+      3,
+      5
+    ],
+    "inferred_type": "integer"
+  },
+  "city.Name": {
+    "sample_values": [
+      "Cata\u00f1o",
+      "Arroyo",
+      "Arecibo"
+    ],
+    "inferred_type": "string"
+  },
+  "city.White": {
+    "sample_values": [
+      93.1,
+      82.0,
+      78.3
+    ],
+    "inferred_type": "float"
+  },
+  "city.Black": {
+    "sample_values": [
+      3.1,
+      7.2,
+      10.3
+    ],
+    "inferred_type": "float"
+  },
+  "city.Amerindian": {
+    "sample_values": [
+      0.3,
+      0.2,
+      0.9
+    ],
+    "inferred_type": "float"
+  },
+  "city.Asian": {
+    "sample_values": [
+      0.0,
+      0.1,
+      0.2
+    ],
+    "inferred_type": "float"
+  },
+  "city.Multiracial": {
+    "sample_values": [
+      3.4,
+      10.3,
+      10.7
+    ],
+    "inferred_type": "float"
+  },
+  "city.Hispanic": {
+    "sample_values": [
+      99.6,
+      99.5,
+      99.1
+    ],
+    "inferred_type": "float"
+  }
+}

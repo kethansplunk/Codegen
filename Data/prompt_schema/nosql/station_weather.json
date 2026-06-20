@@ -1,0 +1,146 @@
+{
+  "route.station_id": {
+    "sample_values": [
+      "5",
+      "2",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "route.train_id": {
+    "sample_values": [
+      "5",
+      "1",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "train.name": {
+    "sample_values": [
+      "Jayanthi Janatha Express",
+      "Quilon Fast Passenger",
+      "Ananthapuri Express"
+    ],
+    "inferred_type": "string"
+  },
+  "train.destination": {
+    "sample_values": [
+      "Chennai",
+      "Bangalore",
+      "Trivandrum"
+    ],
+    "inferred_type": "string"
+  },
+  "train.time": {
+    "sample_values": [
+      "06:30",
+      "11:15",
+      "4:49"
+    ],
+    "inferred_type": "string"
+  },
+  "train.origin": {
+    "sample_values": [
+      "Chennai",
+      "Bangalore",
+      "Trivandrum"
+    ],
+    "inferred_type": "string"
+  },
+  "train.train_number": {
+    "sample_values": [
+      "16723",
+      "56700",
+      "16724"
+    ],
+    "inferred_type": "integer"
+  },
+  "train.id": {
+    "sample_values": [
+      "5",
+      "1",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "station.id": {
+    "sample_values": [
+      "5",
+      "1",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "station.services": {
+    "sample_values": [
+      "Metropolitan line",
+      "Metropolitan line and Chiltern Railways",
+      "Greater Anglia"
+    ],
+    "inferred_type": "string"
+  },
+  "station.network_name": {
+    "sample_values": [
+      "Broxbourne",
+      "Carpenders Park",
+      "Chafford Hundred"
+    ],
+    "inferred_type": "string"
+  },
+  "station.local_authority": {
+    "sample_values": [
+      "Broxbourne",
+      "Watford",
+      "Chiltern"
+    ],
+    "inferred_type": "string"
+  },
+  "weekly_weather.station_id": {
+    "sample_values": [
+      "10",
+      "1",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "weekly_weather.high_temperature": {
+    "sample_values": [
+      "66",
+      "50",
+      "55"
+    ],
+    "inferred_type": "integer"
+  },
+  "weekly_weather.wind_speed_mph": {
+    "sample_values": [
+      "17",
+      "10",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "weekly_weather.day_of_week": {
+    "sample_values": [
+      "Saturday",
+      "Friday",
+      "Monday"
+    ],
+    "inferred_type": "string"
+  },
+  "weekly_weather.precipitation": {
+    "sample_values": [
+      "20.0",
+      "70.0",
+      "50.0"
+    ],
+    "inferred_type": "float"
+  },
+  "weekly_weather.low_temperature": {
+    "sample_values": [
+      "56",
+      "54",
+      "55"
+    ],
+    "inferred_type": "integer"
+  }
+}

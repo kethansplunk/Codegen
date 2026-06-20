@@ -1,0 +1,183 @@
+{
+  "Ref_Feature_Types.feature_type_code": {
+    "sample_values": [
+      "Amenity",
+      "Security"
+    ],
+    "inferred_type": "string"
+  },
+  "Ref_Feature_Types.feature_type_name": {
+    "sample_values": [
+      "Amenity, eg Pool.",
+      "Securiyt, eg Burglar Alarm."
+    ],
+    "inferred_type": "string"
+  },
+  "Ref_Property_Types.property_type_code": {
+    "sample_values": [
+      "Shop",
+      "Other",
+      "House"
+    ],
+    "inferred_type": "string"
+  },
+  "Ref_Property_Types.property_type_description": {
+    "sample_values": [
+      "Shop, Retail Outlet.",
+      "Other, to be determined.",
+      "Field, Meadow."
+    ],
+    "inferred_type": "string"
+  },
+  "Other_Available_Features.feature_id": {
+    "sample_values": [
+      2,
+      3,
+      4
+    ],
+    "inferred_type": "integer"
+  },
+  "Other_Available_Features.feature_type_code": {
+    "sample_values": [
+      "Amenity",
+      "Security"
+    ],
+    "inferred_type": "string"
+  },
+  "Other_Available_Features.feature_name": {
+    "sample_values": [
+      "AirCon",
+      "Pool",
+      "BurglarAlarm"
+    ],
+    "inferred_type": "string"
+  },
+  "Other_Available_Features.feature_description": {
+    "sample_values": [
+      "Air Conditioning.",
+      "Swimming Pool.",
+      "Burglar Alarm"
+    ],
+    "inferred_type": "string"
+  },
+  "Properties.property_id": {
+    "sample_values": [
+      1,
+      6,
+      11
+    ],
+    "inferred_type": "integer"
+  },
+  "Properties.property_type_code": {
+    "sample_values": [
+      "Shop",
+      "Apartment",
+      "Field"
+    ],
+    "inferred_type": "string"
+  },
+  "Properties.date_on_market": {
+    "sample_values": [
+      "1993-08-04 10:49:04",
+      "1996-09-16 22:04:27",
+      "1994-02-14 02:27:13"
+    ],
+    "inferred_type": "string"
+  },
+  "Properties.date_sold": {
+    "sample_values": [
+      "1984-02-01 19:54:54",
+      "1998-09-15 05:26:22",
+      "1995-01-31 11:18:42"
+    ],
+    "inferred_type": "string"
+  },
+  "Properties.property_name": {
+    "sample_values": [
+      "parc coliseum",
+      "avalon",
+      "high line"
+    ],
+    "inferred_type": "string"
+  },
+  "Properties.property_address": {
+    "sample_values": [
+      "986 Hagenes Drives\nDraketon, UT 83411-3393",
+      "092 Paucek Highway Apt. 772\nEast Erika, IA 61358",
+      "6837 Darien Views Apt. 475\nSouth Maraview, KS 77770"
+    ],
+    "inferred_type": "string"
+  },
+  "Properties.room_count": {
+    "sample_values": [
+      7,
+      8,
+      5
+    ],
+    "inferred_type": "integer"
+  },
+  "Properties.vendor_requested_price": {
+    "sample_values": [
+      372652.2909,
+      2573,
+      6713620.9
+    ],
+    "inferred_type": "numeric"
+  },
+  "Properties.buyer_offered_price": {
+    "sample_values": [
+      1.68,
+      10.1067,
+      1.5509
+    ],
+    "inferred_type": "numeric"
+  },
+  "Properties.agreed_selling_price": {
+    "sample_values": [
+      4201.8,
+      1.0012,
+      3344706.5755
+    ],
+    "inferred_type": "numeric"
+  },
+  "Properties.apt_feature_1": {
+    "sample_values": [
+      "qui",
+      "quo",
+      "est"
+    ],
+    "inferred_type": "string"
+  },
+  "Properties.apt_feature_2": {
+    "sample_values": [
+      "iusto",
+      "culpa",
+      "adipisci"
+    ],
+    "inferred_type": "string"
+  },
+  "Other_Property_Features.property_id": {
+    "sample_values": [
+      15,
+      7,
+      1
+    ],
+    "inferred_type": "integer"
+  },
+  "Other_Property_Features.feature_id": {
+    "sample_values": [
+      3,
+      4,
+      2
+    ],
+    "inferred_type": "integer"
+  },
+  "Other_Property_Features.property_feature_description": {
+    "sample_values": [
+      "modi",
+      "quo",
+      "hic"
+    ],
+    "inferred_type": "string"
+  }
+}

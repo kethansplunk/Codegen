@@ -1,0 +1,53 @@
+{
+  "db_name": "student_1",
+  "collections": {
+    "list": {
+      "primary_key": [
+        "LastName",
+        "FirstName"
+      ],
+      "columns": [
+        {
+          "name": "LastName",
+          "type": "TEXT"
+        },
+        {
+          "name": "FirstName",
+          "type": "TEXT"
+        },
+        {
+          "name": "Grade",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Classroom",
+          "type": "INTEGER"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 60
+    },
+    "teachers": {
+      "primary_key": [
+        "LastName",
+        "FirstName"
+      ],
+      "columns": [
+        {
+          "name": "LastName",
+          "type": "TEXT"
+        },
+        {
+          "name": "FirstName",
+          "type": "TEXT"
+        },
+        {
+          "name": "Classroom",
+          "type": "INTEGER"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 12
+    }
+  }
+}

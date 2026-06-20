@@ -1,0 +1,154 @@
+{
+  "School.School_id": {
+    "sample_values": [
+      "1",
+      "3",
+      "5"
+    ],
+    "inferred_type": "integer"
+  },
+  "School.School_name": {
+    "sample_values": [
+      "Triton",
+      "Culver Community",
+      "Glenn"
+    ],
+    "inferred_type": "string"
+  },
+  "School.Location": {
+    "sample_values": [
+      "Bourbon",
+      "Culver",
+      "Walkerton"
+    ],
+    "inferred_type": "string"
+  },
+  "School.Mascot": {
+    "sample_values": [
+      "Trojans",
+      "Cavaliers",
+      "Falcons"
+    ],
+    "inferred_type": "string"
+  },
+  "School.Enrollment": {
+    "sample_values": [
+      495,
+      605,
+      620
+    ],
+    "inferred_type": "integer"
+  },
+  "School.IHSAA_Class": {
+    "sample_values": [
+      "AA",
+      "A",
+      "AAA"
+    ],
+    "inferred_type": "string"
+  },
+  "School.IHSAA_Football_Class": {
+    "sample_values": [
+      "AAAA",
+      "AAA",
+      "A"
+    ],
+    "inferred_type": "string"
+  },
+  "School.County": {
+    "sample_values": [
+      "46 LaPorte 71 St. Joseph",
+      "75 Starke",
+      "20 Elkhart"
+    ],
+    "inferred_type": "string"
+  },
+  "budget.School_id": {
+    "sample_values": [
+      1,
+      2,
+      3
+    ],
+    "inferred_type": "integer"
+  },
+  "budget.Year": {
+    "sample_values": [
+      2003,
+      2000,
+      2002
+    ],
+    "inferred_type": "integer"
+  },
+  "budget.Budgeted": {
+    "sample_values": [
+      4979,
+      6803,
+      74849
+    ],
+    "inferred_type": "integer"
+  },
+  "budget.total_budget_percent_budgeted": {
+    "sample_values": [
+      2.0,
+      2.4,
+      1.3
+    ],
+    "inferred_type": "float"
+  },
+  "budget.Invested": {
+    "sample_values": [
+      2134,
+      8335,
+      95542
+    ],
+    "inferred_type": "integer"
+  },
+  "budget.total_budget_percent_invested": {
+    "sample_values": [
+      2.0,
+      2.2,
+      2.7
+    ],
+    "inferred_type": "float"
+  },
+  "budget.Budget_invested_percent": {
+    "sample_values": [
+      "42.9",
+      "122.5",
+      "71.3"
+    ],
+    "inferred_type": "float"
+  },
+  "endowment.endowment_id": {
+    "sample_values": [
+      1,
+      4,
+      7
+    ],
+    "inferred_type": "integer"
+  },
+  "endowment.School_id": {
+    "sample_values": [
+      1,
+      3,
+      5
+    ],
+    "inferred_type": "integer"
+  },
+  "endowment.donator_name": {
+    "sample_values": [
+      "Peravia",
+      "San Crist\u00f3bal",
+      "San Jos\u00e9 de Ocoa"
+    ],
+    "inferred_type": "string"
+  },
+  "endowment.amount": {
+    "sample_values": [
+      9.51,
+      9.73,
+      8.85
+    ],
+    "inferred_type": "float"
+  }
+}

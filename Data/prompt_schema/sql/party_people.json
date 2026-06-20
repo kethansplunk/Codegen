@@ -1,0 +1,162 @@
+{
+  "region.Region_ID": {
+    "sample_values": [
+      1,
+      2,
+      3
+    ],
+    "inferred_type": "integer"
+  },
+  "region.Region_name": {
+    "sample_values": [
+      "United Kingdom",
+      "Japan",
+      "United States"
+    ],
+    "inferred_type": "string"
+  },
+  "region.Date": {
+    "sample_values": [
+      "1 July 2002",
+      "3 July 2002",
+      "16 July 2002"
+    ],
+    "inferred_type": "string"
+  },
+  "region.Label": {
+    "sample_values": [
+      "Parlophone",
+      "Toshiba-EMI",
+      "Astralwerks"
+    ],
+    "inferred_type": "string"
+  },
+  "region.Format": {
+    "sample_values": [
+      "CD",
+      "2\u00d7 LP",
+      "CD digipak"
+    ],
+    "inferred_type": "string"
+  },
+  "region.Catalogue": {
+    "sample_values": [
+      "ASW 40522",
+      "ASW 40362",
+      "TOCP-66045"
+    ],
+    "inferred_type": "string"
+  },
+  "party.Party_ID": {
+    "sample_values": [
+      1,
+      2,
+      3
+    ],
+    "inferred_type": "integer"
+  },
+  "party.Minister": {
+    "sample_values": [
+      "Imoru Egala (MP)",
+      "Ebenezer Ako-Adjei (MP)",
+      "Kojo Botsio (MP)"
+    ],
+    "inferred_type": "string"
+  },
+  "party.Took_office": {
+    "sample_values": [
+      "1957",
+      "1958",
+      "1959"
+    ],
+    "inferred_type": "integer"
+  },
+  "party.Left_office": {
+    "sample_values": [
+      "1958",
+      "1959",
+      "1960"
+    ],
+    "inferred_type": "integer"
+  },
+  "party.Region_ID": {
+    "sample_values": [
+      1,
+      2,
+      3
+    ],
+    "inferred_type": "integer"
+  },
+  "party.Party_name": {
+    "sample_values": [
+      "Sinefine Party",
+      "Progress Party",
+      "Convention Union Party"
+    ],
+    "inferred_type": "string"
+  },
+  "member.Member_ID": {
+    "sample_values": [
+      1,
+      6,
+      11
+    ],
+    "inferred_type": "integer"
+  },
+  "member.Member_Name": {
+    "sample_values": [
+      "Hon Bruce Billson",
+      "Hon Fran Bailey",
+      "Hon Kevin Andrews"
+    ],
+    "inferred_type": "string"
+  },
+  "member.Party_ID": {
+    "sample_values": [
+      "3",
+      "2",
+      "1"
+    ],
+    "inferred_type": "integer"
+  },
+  "member.In_office": {
+    "sample_values": [
+      "1990\u20132010",
+      "1996\u20132007",
+      "1993\u20132013"
+    ],
+    "inferred_type": "string"
+  },
+  "party_events.Event_ID": {
+    "sample_values": [
+      1,
+      3,
+      5
+    ],
+    "inferred_type": "integer"
+  },
+  "party_events.Event_Name": {
+    "sample_values": [
+      "Election Meeting",
+      "Budget Meeting",
+      "Conference"
+    ],
+    "inferred_type": "string"
+  },
+  "party_events.Party_ID": {
+    "sample_values": [
+      1,
+      2,
+      3
+    ],
+    "inferred_type": "integer"
+  },
+  "party_events.Member_in_charge_ID": {
+    "sample_values": [
+      4,
+      2,
+      10
+    ],
+    "inferred_type": "integer"
+  }
+}

@@ -1,0 +1,128 @@
+{
+  "Reservations.FirstName": {
+    "sample_values": [
+      "DAMIEN",
+      "DAN",
+      "LORITA"
+    ],
+    "inferred_type": "string"
+  },
+  "Reservations.CheckOut": {
+    "sample_values": [
+      "18-OCT-10",
+      "18-MAR-10",
+      "22-SEP-10"
+    ],
+    "inferred_type": "string"
+  },
+  "Reservations.Kids": {
+    "sample_values": [
+      "3",
+      "1",
+      "0"
+    ],
+    "inferred_type": "integer"
+  },
+  "Reservations.Rate": {
+    "sample_values": [
+      "287.5",
+      "218.75",
+      "67.5"
+    ],
+    "inferred_type": "float"
+  },
+  "Reservations.CheckIn": {
+    "sample_values": [
+      "04-JUL-10",
+      "02-FEB-10",
+      "15-FEB-10"
+    ],
+    "inferred_type": "string"
+  },
+  "Reservations.Code": {
+    "sample_values": [
+      "13136",
+      "12631",
+      "10489"
+    ],
+    "inferred_type": "integer"
+  },
+  "Reservations.LastName": {
+    "sample_values": [
+      "DAYA",
+      "SWEAZY",
+      "KUDRON"
+    ],
+    "inferred_type": "string"
+  },
+  "Reservations.Room": {
+    "sample_values": [
+      "TAA",
+      "IBD",
+      "RND"
+    ],
+    "inferred_type": "string"
+  },
+  "Reservations.Adults": {
+    "sample_values": [
+      "1",
+      "3",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "Rooms.RoomId": {
+    "sample_values": [
+      "FNA",
+      "AOB",
+      "RND"
+    ],
+    "inferred_type": "string"
+  },
+  "Rooms.decor": {
+    "sample_values": [
+      "modern",
+      "traditional",
+      "rustic"
+    ],
+    "inferred_type": "string"
+  },
+  "Rooms.beds": {
+    "sample_values": [
+      "1",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "Rooms.bedType": {
+    "sample_values": [
+      "Double",
+      "King",
+      "Queen"
+    ],
+    "inferred_type": "string"
+  },
+  "Rooms.roomName": {
+    "sample_values": [
+      "Harbinger but bequest",
+      "Mendicant with cryptic",
+      "Riddle to exculpate"
+    ],
+    "inferred_type": "string"
+  },
+  "Rooms.basePrice": {
+    "sample_values": [
+      "75",
+      "150",
+      "125"
+    ],
+    "inferred_type": "integer"
+  },
+  "Rooms.maxOccupancy": {
+    "sample_values": [
+      "2",
+      "4"
+    ],
+    "inferred_type": "integer"
+  }
+}

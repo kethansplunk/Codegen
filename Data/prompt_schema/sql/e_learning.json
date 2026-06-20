@@ -1,0 +1,256 @@
+{
+  "Course_Authors_and_Tutors.author_id": {
+    "sample_values": [
+      1,
+      6,
+      11
+    ],
+    "inferred_type": "integer"
+  },
+  "Course_Authors_and_Tutors.author_tutor_ATB": {
+    "sample_values": [
+      "331",
+      "817",
+      "229"
+    ],
+    "inferred_type": "integer"
+  },
+  "Course_Authors_and_Tutors.login_name": {
+    "sample_values": [
+      "ekshlerin",
+      "marty.bergnaum",
+      "al75"
+    ],
+    "inferred_type": "string"
+  },
+  "Course_Authors_and_Tutors.password": {
+    "sample_values": [
+      "6d587cec8006e3a40565e1dad2c5b5b12b475b8f",
+      "3e2f7bf1e6acf0d616a8703ee0050fba13bc007f",
+      "e96c0bcbbbb14747747a56ff4c17354f343a5b4f"
+    ],
+    "inferred_type": "string"
+  },
+  "Course_Authors_and_Tutors.personal_name": {
+    "sample_values": [
+      "Shakira",
+      "Logan",
+      "Adolf"
+    ],
+    "inferred_type": "string"
+  },
+  "Course_Authors_and_Tutors.middle_name": {
+    "sample_values": [
+      "Fritz",
+      "Ethelyn",
+      "Keira"
+    ],
+    "inferred_type": "string"
+  },
+  "Course_Authors_and_Tutors.family_name": {
+    "sample_values": [
+      "Haley",
+      "Treutel",
+      "Rohan"
+    ],
+    "inferred_type": "string"
+  },
+  "Course_Authors_and_Tutors.gender_mf": {
+    "sample_values": [
+      "0",
+      "1"
+    ],
+    "inferred_type": "integer"
+  },
+  "Course_Authors_and_Tutors.address_line_1": {
+    "sample_values": [
+      "8928 Kunze Valley Apt. 747\nSouth Jedidiahmouth, DE 28167",
+      "67541 Osborne Creek Suite 532\nBernhardview, WV 30288-1050",
+      "92220 Hellen Skyway Apt. 635\nRennerview, MS 81036"
+    ],
+    "inferred_type": "string"
+  },
+  "Students.student_id": {
+    "sample_values": [
+      1,
+      6,
+      11
+    ],
+    "inferred_type": "integer"
+  },
+  "Students.date_of_registration": {
+    "sample_values": [
+      "2016-01-12 15:33:36",
+      "2015-09-05 10:49:02",
+      "2015-05-12 03:59:32"
+    ],
+    "inferred_type": "string"
+  },
+  "Students.date_of_latest_logon": {
+    "sample_values": [
+      "2018-02-22 18:38:02",
+      "2017-07-17 23:13:31",
+      "2017-09-09 13:19:18"
+    ],
+    "inferred_type": "string"
+  },
+  "Students.login_name": {
+    "sample_values": [
+      "jgulgowski",
+      "darrin56",
+      "bmarquardt"
+    ],
+    "inferred_type": "string"
+  },
+  "Students.password": {
+    "sample_values": [
+      "0f37421f02",
+      "35cd4a47a3",
+      "3e72450865"
+    ],
+    "inferred_type": "string"
+  },
+  "Students.personal_name": {
+    "sample_values": [
+      "Eliza",
+      "Jewel",
+      "Bernie"
+    ],
+    "inferred_type": "string"
+  },
+  "Students.middle_name": {
+    "sample_values": [
+      "Shanel",
+      "Marianne",
+      "Asa"
+    ],
+    "inferred_type": "string"
+  },
+  "Students.family_name": {
+    "sample_values": [
+      "Leannon",
+      "Hodkiewicz",
+      "Zieme"
+    ],
+    "inferred_type": "string"
+  },
+  "Subjects.subject_id": {
+    "sample_values": [
+      1,
+      2,
+      3
+    ],
+    "inferred_type": "integer"
+  },
+  "Subjects.subject_name": {
+    "sample_values": [
+      "Computer Science",
+      "Arts",
+      "Language"
+    ],
+    "inferred_type": "string"
+  },
+  "Courses.course_id": {
+    "sample_values": [
+      1,
+      6,
+      11
+    ],
+    "inferred_type": "integer"
+  },
+  "Courses.author_id": {
+    "sample_values": [
+      8,
+      14,
+      4
+    ],
+    "inferred_type": "integer"
+  },
+  "Courses.subject_id": {
+    "sample_values": [
+      1,
+      2,
+      3
+    ],
+    "inferred_type": "integer"
+  },
+  "Courses.course_name": {
+    "sample_values": [
+      "Chinese Painting",
+      "French",
+      "English"
+    ],
+    "inferred_type": "string"
+  },
+  "Courses.course_description": {
+    "sample_values": [
+      "Chinese Painting",
+      "French",
+      "English"
+    ],
+    "inferred_type": "string"
+  },
+  "Student_Course_Enrolment.registration_id": {
+    "sample_values": [
+      1,
+      7,
+      13
+    ],
+    "inferred_type": "integer"
+  },
+  "Student_Course_Enrolment.student_id": {
+    "sample_values": [
+      11,
+      14,
+      3
+    ],
+    "inferred_type": "integer"
+  },
+  "Student_Course_Enrolment.course_id": {
+    "sample_values": [
+      2,
+      7,
+      9
+    ],
+    "inferred_type": "integer"
+  },
+  "Student_Course_Enrolment.date_of_enrolment": {
+    "sample_values": [
+      "2017-12-04 12:16:10",
+      "2017-12-07 02:21:13",
+      "2017-08-02 17:21:44"
+    ],
+    "inferred_type": "string"
+  },
+  "Student_Course_Enrolment.date_of_completion": {
+    "sample_values": [
+      "2018-03-14 23:33:47",
+      "2018-02-27 20:06:06",
+      "2018-03-07 00:39:37"
+    ],
+    "inferred_type": "string"
+  },
+  "Student_Tests_Taken.registration_id": {
+    "sample_values": [
+      12,
+      4,
+      9
+    ],
+    "inferred_type": "integer"
+  },
+  "Student_Tests_Taken.date_test_taken": {
+    "sample_values": [
+      "2018-03-19 14:48:12",
+      "2018-03-25 21:22:00",
+      "2018-03-25 12:00:08"
+    ],
+    "inferred_type": "string"
+  },
+  "Student_Tests_Taken.test_result": {
+    "sample_values": [
+      "Fail",
+      "Pass"
+    ],
+    "inferred_type": "string"
+  }
+}

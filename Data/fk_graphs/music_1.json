@@ -1,0 +1,159 @@
+{
+  "db_name": "music_1",
+  "nodes": [
+    {
+      "name": "genre",
+      "columns": [
+        {
+          "name": "g_name",
+          "type": "varchar2(20)"
+        },
+        {
+          "name": "rating",
+          "type": "varchar2(10)"
+        },
+        {
+          "name": "most_popular_in",
+          "type": "varchar2(50)"
+        }
+      ],
+      "pk": [
+        "g_name"
+      ]
+    },
+    {
+      "name": "artist",
+      "columns": [
+        {
+          "name": "artist_name",
+          "type": "varchar2(50)"
+        },
+        {
+          "name": "country",
+          "type": "varchar2(20)"
+        },
+        {
+          "name": "gender",
+          "type": "varchar2(20)"
+        },
+        {
+          "name": "preferred_genre",
+          "type": "varchar2(50)"
+        }
+      ],
+      "pk": [
+        "artist_name"
+      ]
+    },
+    {
+      "name": "files",
+      "columns": [
+        {
+          "name": "f_id",
+          "type": "number(10)"
+        },
+        {
+          "name": "artist_name",
+          "type": "varchar2(50)"
+        },
+        {
+          "name": "file_size",
+          "type": "varchar2(20)"
+        },
+        {
+          "name": "duration",
+          "type": "varchar2(20)"
+        },
+        {
+          "name": "formats",
+          "type": "varchar2(20)"
+        }
+      ],
+      "pk": [
+        "f_id"
+      ]
+    },
+    {
+      "name": "song",
+      "columns": [
+        {
+          "name": "song_name",
+          "type": "varchar2(50)"
+        },
+        {
+          "name": "artist_name",
+          "type": "varchar2(50)"
+        },
+        {
+          "name": "country",
+          "type": "varchar2(20)"
+        },
+        {
+          "name": "f_id",
+          "type": "number(10)"
+        },
+        {
+          "name": "genre_is",
+          "type": "varchar2(20)"
+        },
+        {
+          "name": "rating",
+          "type": "number(10)"
+        },
+        {
+          "name": "languages",
+          "type": "varchar2(20)"
+        },
+        {
+          "name": "releasedate",
+          "type": "Date"
+        },
+        {
+          "name": "resolution",
+          "type": "number(10)"
+        }
+      ],
+      "pk": [
+        "song_name"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "artist",
+      "to": "genre",
+      "child_col": "preferred_genre",
+      "parent_col": "g_name"
+    },
+    {
+      "from": "files",
+      "to": "artist",
+      "child_col": "artist_name",
+      "parent_col": "artist_name"
+    },
+    {
+      "from": "song",
+      "to": "genre",
+      "child_col": "genre_is",
+      "parent_col": "g_name"
+    },
+    {
+      "from": "song",
+      "to": "files",
+      "child_col": "f_id",
+      "parent_col": "f_id"
+    },
+    {
+      "from": "song",
+      "to": "artist",
+      "child_col": "artist_name",
+      "parent_col": "artist_name"
+    }
+  ],
+  "centrality": {
+    "genre": 0.6666666666666666,
+    "artist": 0.6666666666666666,
+    "files": 0.3333333333333333,
+    "song": 0.0
+  }
+}

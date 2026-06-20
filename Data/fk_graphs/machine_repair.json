@@ -1,0 +1,141 @@
+{
+  "db_name": "machine_repair",
+  "nodes": [
+    {
+      "name": "repair",
+      "columns": [
+        {
+          "name": "repair_ID",
+          "type": "INT"
+        },
+        {
+          "name": "name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Launch_Date",
+          "type": "TEXT"
+        },
+        {
+          "name": "Notes",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "repair_ID"
+      ]
+    },
+    {
+      "name": "machine",
+      "columns": [
+        {
+          "name": "Machine_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Making_Year",
+          "type": "INT"
+        },
+        {
+          "name": "Class",
+          "type": "TEXT"
+        },
+        {
+          "name": "Team",
+          "type": "TEXT"
+        },
+        {
+          "name": "Machine_series",
+          "type": "TEXT"
+        },
+        {
+          "name": "value_points",
+          "type": "REAL"
+        },
+        {
+          "name": "quality_rank",
+          "type": "INT"
+        }
+      ],
+      "pk": [
+        "Machine_ID"
+      ]
+    },
+    {
+      "name": "technician",
+      "columns": [
+        {
+          "name": "technician_id",
+          "type": "REAL"
+        },
+        {
+          "name": "Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Team",
+          "type": "TEXT"
+        },
+        {
+          "name": "Starting_Year",
+          "type": "REAL"
+        },
+        {
+          "name": "Age",
+          "type": "INT"
+        }
+      ],
+      "pk": [
+        "technician_id"
+      ]
+    },
+    {
+      "name": "repair_assignment",
+      "columns": [
+        {
+          "name": "technician_id",
+          "type": "INT"
+        },
+        {
+          "name": "repair_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Machine_ID",
+          "type": "INT"
+        }
+      ],
+      "pk": [
+        "technician_id",
+        "repair_ID",
+        "Machine_ID"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "repair_assignment",
+      "to": "machine",
+      "child_col": "Machine_ID",
+      "parent_col": "Machine_ID"
+    },
+    {
+      "from": "repair_assignment",
+      "to": "repair",
+      "child_col": "repair_ID",
+      "parent_col": "repair_ID"
+    },
+    {
+      "from": "repair_assignment",
+      "to": "technician",
+      "child_col": "technician_id",
+      "parent_col": "technician_id"
+    }
+  ],
+  "centrality": {
+    "repair": 0.3333333333333333,
+    "machine": 0.3333333333333333,
+    "technician": 0.3333333333333333,
+    "repair_assignment": 0.0
+  }
+}

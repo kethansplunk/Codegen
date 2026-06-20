@@ -1,0 +1,317 @@
+{
+  "db_name": "cre_Doc_Control_Systems",
+  "collections": {
+    "Ref_Document_Types": {
+      "primary_key": [
+        "document_type_code"
+      ],
+      "columns": [
+        {
+          "name": "document_type_code",
+          "type": "CHAR(15)"
+        },
+        {
+          "name": "document_type_description",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 3
+    },
+    "Roles": {
+      "primary_key": [
+        "role_code"
+      ],
+      "columns": [
+        {
+          "name": "role_code",
+          "type": "CHAR(15)"
+        },
+        {
+          "name": "role_description",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 4
+    },
+    "Addresses": {
+      "primary_key": [
+        "address_id"
+      ],
+      "columns": [
+        {
+          "name": "address_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "address_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 10
+    },
+    "Ref_Document_Status": {
+      "primary_key": [
+        "document_status_code"
+      ],
+      "columns": [
+        {
+          "name": "document_status_code",
+          "type": "CHAR(15)"
+        },
+        {
+          "name": "document_status_description",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 3
+    },
+    "Ref_Shipping_Agents": {
+      "primary_key": [
+        "shipping_agent_code"
+      ],
+      "columns": [
+        {
+          "name": "shipping_agent_code",
+          "type": "CHAR(15)"
+        },
+        {
+          "name": "shipping_agent_name",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "shipping_agent_description",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 5
+    },
+    "Documents": {
+      "primary_key": [
+        "document_id"
+      ],
+      "columns": [
+        {
+          "name": "document_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "document_status_code",
+          "type": "CHAR(15)"
+        },
+        {
+          "name": "document_type_code",
+          "type": "CHAR(15)"
+        },
+        {
+          "name": "shipping_agent_code",
+          "type": "CHAR(15)"
+        },
+        {
+          "name": "receipt_date",
+          "type": "DATETIME"
+        },
+        {
+          "name": "receipt_number",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "other_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Documents",
+          "to": "Ref_Shipping_Agents",
+          "child_col": "shipping_agent_code",
+          "parent_col": "shipping_agent_code"
+        },
+        {
+          "from": "Documents",
+          "to": "Ref_Document_Status",
+          "child_col": "document_status_code",
+          "parent_col": "document_status_code"
+        },
+        {
+          "from": "Documents",
+          "to": "Ref_Document_Types",
+          "child_col": "document_type_code",
+          "parent_col": "document_type_code"
+        }
+      ],
+      "row_count": 15
+    },
+    "Employees": {
+      "primary_key": [
+        "employee_id"
+      ],
+      "columns": [
+        {
+          "name": "employee_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "role_code",
+          "type": "CHAR(15)"
+        },
+        {
+          "name": "employee_name",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "other_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Employees",
+          "to": "Roles",
+          "child_col": "role_code",
+          "parent_col": "role_code"
+        }
+      ],
+      "row_count": 6
+    },
+    "Document_Drafts": {
+      "primary_key": [
+        "document_id",
+        "draft_number"
+      ],
+      "columns": [
+        {
+          "name": "document_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "draft_number",
+          "type": "INTEGER"
+        },
+        {
+          "name": "draft_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Document_Drafts",
+          "to": "Documents",
+          "child_col": "document_id",
+          "parent_col": "document_id"
+        }
+      ],
+      "row_count": 15
+    },
+    "Draft_Copies": {
+      "primary_key": [
+        "document_id",
+        "draft_number",
+        "copy_number"
+      ],
+      "columns": [
+        {
+          "name": "document_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "draft_number",
+          "type": "INTEGER"
+        },
+        {
+          "name": "copy_number",
+          "type": "INTEGER"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Draft_Copies",
+          "to": "Document_Drafts",
+          "child_col": "draft_number",
+          "parent_col": "draft_number"
+        }
+      ],
+      "row_count": 8
+    },
+    "Circulation_History": {
+      "primary_key": [
+        "document_id",
+        "draft_number",
+        "copy_number",
+        "employee_id"
+      ],
+      "columns": [
+        {
+          "name": "document_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "draft_number",
+          "type": "INTEGER"
+        },
+        {
+          "name": "copy_number",
+          "type": "INTEGER"
+        },
+        {
+          "name": "employee_id",
+          "type": "INTEGER"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Circulation_History",
+          "to": "Employees",
+          "child_col": "employee_id",
+          "parent_col": "employee_id"
+        },
+        {
+          "from": "Circulation_History",
+          "to": "Draft_Copies",
+          "child_col": "copy_number",
+          "parent_col": "copy_number"
+        }
+      ],
+      "row_count": 4
+    },
+    "Documents_Mailed": {
+      "primary_key": [
+        "document_id",
+        "mailed_to_address_id"
+      ],
+      "columns": [
+        {
+          "name": "document_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "mailed_to_address_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "mailing_date",
+          "type": "DATETIME"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Documents_Mailed",
+          "to": "Addresses",
+          "child_col": "mailed_to_address_id",
+          "parent_col": "address_id"
+        },
+        {
+          "from": "Documents_Mailed",
+          "to": "Documents",
+          "child_col": "document_id",
+          "parent_col": "document_id"
+        }
+      ],
+      "row_count": 14
+    }
+  }
+}

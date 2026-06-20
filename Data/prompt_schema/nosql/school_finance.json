@@ -1,0 +1,154 @@
+{
+  "budget.total_budget_percent_budgeted": {
+    "sample_values": [
+      "2.4",
+      "2.0",
+      "1.3"
+    ],
+    "inferred_type": "float"
+  },
+  "budget.total_budget_percent_invested": {
+    "sample_values": [
+      "2.2",
+      "2.0",
+      "2.7"
+    ],
+    "inferred_type": "float"
+  },
+  "budget.Year": {
+    "sample_values": [
+      "2005",
+      "2003",
+      "2000"
+    ],
+    "inferred_type": "integer"
+  },
+  "budget.Invested": {
+    "sample_values": [
+      "85249",
+      "140102",
+      "95542"
+    ],
+    "inferred_type": "integer"
+  },
+  "budget.Budgeted": {
+    "sample_values": [
+      "74849",
+      "61283",
+      "4979"
+    ],
+    "inferred_type": "integer"
+  },
+  "budget.Budget_invested_percent": {
+    "sample_values": [
+      "71.3",
+      "228.6",
+      "159.3"
+    ],
+    "inferred_type": "float"
+  },
+  "budget.School_id": {
+    "sample_values": [
+      "5",
+      "1",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "endowment.donator_name": {
+    "sample_values": [
+      "Monte Plata",
+      "San Jos\u00e9 de Ocoa",
+      "Santiago"
+    ],
+    "inferred_type": "string"
+  },
+  "endowment.School_id": {
+    "sample_values": [
+      "5",
+      "1",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "endowment.endowment_id": {
+    "sample_values": [
+      "5",
+      "1",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "endowment.amount": {
+    "sample_values": [
+      "9.51",
+      "8.43",
+      "8.85"
+    ],
+    "inferred_type": "float"
+  },
+  "School.Location": {
+    "sample_values": [
+      "Bourbon",
+      "Culver",
+      "Bremen"
+    ],
+    "inferred_type": "string"
+  },
+  "School.Enrollment": {
+    "sample_values": [
+      "379",
+      "495",
+      "620"
+    ],
+    "inferred_type": "integer"
+  },
+  "School.Mascot": {
+    "sample_values": [
+      "Trojans",
+      "Jimmies",
+      "Cavaliers"
+    ],
+    "inferred_type": "string"
+  },
+  "School.School_name": {
+    "sample_values": [
+      "Triton",
+      "Bremen",
+      "Glenn"
+    ],
+    "inferred_type": "string"
+  },
+  "School.IHSAA_Football_Class": {
+    "sample_values": [
+      "AAAA",
+      "AA",
+      "AAA"
+    ],
+    "inferred_type": "string"
+  },
+  "School.County": {
+    "sample_values": [
+      "75 Starke",
+      "50 Marshall",
+      "46 LaPorte 71 St. Joseph"
+    ],
+    "inferred_type": "string"
+  },
+  "School.IHSAA_Class": {
+    "sample_values": [
+      "A",
+      "AAA",
+      "AA"
+    ],
+    "inferred_type": "string"
+  },
+  "School.School_id": {
+    "sample_values": [
+      "5",
+      "1",
+      "4"
+    ],
+    "inferred_type": "integer"
+  }
+}

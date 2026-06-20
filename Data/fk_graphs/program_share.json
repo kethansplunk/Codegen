@@ -1,0 +1,139 @@
+{
+  "db_name": "program_share",
+  "nodes": [
+    {
+      "name": "program",
+      "columns": [
+        {
+          "name": "Program_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Origin",
+          "type": "TEXT"
+        },
+        {
+          "name": "Launch",
+          "type": "REAL"
+        },
+        {
+          "name": "Owner",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "Program_ID"
+      ]
+    },
+    {
+      "name": "channel",
+      "columns": [
+        {
+          "name": "Channel_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Owner",
+          "type": "TEXT"
+        },
+        {
+          "name": "Share_in_percent",
+          "type": "REAL"
+        },
+        {
+          "name": "Rating_in_percent",
+          "type": "REAL"
+        }
+      ],
+      "pk": [
+        "Channel_ID"
+      ]
+    },
+    {
+      "name": "broadcast",
+      "columns": [
+        {
+          "name": "Channel_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Program_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Time_of_day",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "Channel_ID",
+        "Program_ID"
+      ]
+    },
+    {
+      "name": "broadcast_share",
+      "columns": [
+        {
+          "name": "Channel_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Program_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Date",
+          "type": "TEXT"
+        },
+        {
+          "name": "Share_in_percent",
+          "type": "REAL"
+        }
+      ],
+      "pk": [
+        "Channel_ID",
+        "Program_ID"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "broadcast",
+      "to": "program",
+      "child_col": "Program_ID",
+      "parent_col": "Program_ID"
+    },
+    {
+      "from": "broadcast",
+      "to": "channel",
+      "child_col": "Channel_ID",
+      "parent_col": "Channel_ID"
+    },
+    {
+      "from": "broadcast_share",
+      "to": "program",
+      "child_col": "Program_ID",
+      "parent_col": "Program_ID"
+    },
+    {
+      "from": "broadcast_share",
+      "to": "channel",
+      "child_col": "Channel_ID",
+      "parent_col": "Channel_ID"
+    }
+  ],
+  "centrality": {
+    "program": 0.6666666666666666,
+    "channel": 0.6666666666666666,
+    "broadcast": 0.0,
+    "broadcast_share": 0.0
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "db_name": "music_4",
+  "nodes": [
+    {
+      "name": "artist",
+      "columns": [
+        {
+          "name": "Artist_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Artist",
+          "type": "TEXT"
+        },
+        {
+          "name": "Age",
+          "type": "INT"
+        },
+        {
+          "name": "Famous_Title",
+          "type": "TEXT"
+        },
+        {
+          "name": "Famous_Release_date",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "Artist_ID"
+      ]
+    },
+    {
+      "name": "volume",
+      "columns": [
+        {
+          "name": "Volume_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Volume_Issue",
+          "type": "TEXT"
+        },
+        {
+          "name": "Issue_Date",
+          "type": "TEXT"
+        },
+        {
+          "name": "Weeks_on_Top",
+          "type": "REAL"
+        },
+        {
+          "name": "Song",
+          "type": "TEXT"
+        },
+        {
+          "name": "Artist_ID",
+          "type": "INT"
+        }
+      ],
+      "pk": [
+        "Volume_ID"
+      ]
+    },
+    {
+      "name": "music_festival",
+      "columns": [
+        {
+          "name": "ID",
+          "type": "INT"
+        },
+        {
+          "name": "Music_Festival",
+          "type": "TEXT"
+        },
+        {
+          "name": "Date_of_ceremony",
+          "type": "TEXT"
+        },
+        {
+          "name": "Category",
+          "type": "TEXT"
+        },
+        {
+          "name": "Volume",
+          "type": "INT"
+        },
+        {
+          "name": "Result",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "ID"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "volume",
+      "to": "artist",
+      "child_col": "Artist_ID",
+      "parent_col": "Artist_ID"
+    },
+    {
+      "from": "music_festival",
+      "to": "volume",
+      "child_col": "Volume",
+      "parent_col": "Volume_ID"
+    }
+  ],
+  "centrality": {
+    "artist": 0.5,
+    "volume": 0.5,
+    "music_festival": 0.0
+  }
+}

@@ -1,0 +1,202 @@
+{
+  "Payments.Settlement_ID": {
+    "sample_values": [
+      "527",
+      "512",
+      "648"
+    ],
+    "inferred_type": "integer"
+  },
+  "Payments.Date_Payment_Made": {
+    "sample_values": [
+      "2017-08-06",
+      "2017-10-07",
+      "2018-02-16"
+    ],
+    "inferred_type": "string"
+  },
+  "Payments.Amount_Payment": {
+    "sample_values": [
+      "155654",
+      "319142",
+      "459407"
+    ],
+    "inferred_type": "integer"
+  },
+  "Payments.Payment_ID": {
+    "sample_values": [
+      "774",
+      "542",
+      "559"
+    ],
+    "inferred_type": "integer"
+  },
+  "Payments.Payment_Method_Code": {
+    "sample_values": [
+      "MasterCard",
+      "American Express",
+      "Discover Card"
+    ],
+    "inferred_type": "string"
+  },
+  "Customers.Customer_ID": {
+    "sample_values": [
+      "5",
+      "8",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "Customers.Customer_Details": {
+    "sample_values": [
+      "Lauriane Ferry PhD",
+      "Dr. Diana Rath",
+      "Miss Felicita Reichel"
+    ],
+    "inferred_type": "string"
+  },
+  "Claims.Date_Claim_Settled": {
+    "sample_values": [
+      "2017-09-04",
+      "2017-11-19",
+      "2018-01-11"
+    ],
+    "inferred_type": "string"
+  },
+  "Claims.Claim_ID": {
+    "sample_values": [
+      "935",
+      "563",
+      "957"
+    ],
+    "inferred_type": "integer"
+  },
+  "Claims.Policy_ID": {
+    "sample_values": [
+      "744",
+      "141",
+      "143"
+    ],
+    "inferred_type": "integer"
+  },
+  "Claims.Amount_Settled": {
+    "sample_values": [
+      "1639",
+      "1085",
+      "1652"
+    ],
+    "inferred_type": "integer"
+  },
+  "Claims.Date_Claim_Made": {
+    "sample_values": [
+      "2017-07-17",
+      "2017-03-11",
+      "2016-08-12"
+    ],
+    "inferred_type": "string"
+  },
+  "Claims.Amount_Claimed": {
+    "sample_values": [
+      "43884",
+      "46479",
+      "35824"
+    ],
+    "inferred_type": "integer"
+  },
+  "Settlements.Settlement_ID": {
+    "sample_values": [
+      "527",
+      "682",
+      "597"
+    ],
+    "inferred_type": "integer"
+  },
+  "Settlements.Date_Claim_Settled": {
+    "sample_values": [
+      "2017-11-04",
+      "2018-03-02",
+      "2018-02-14"
+    ],
+    "inferred_type": "string"
+  },
+  "Settlements.Claim_ID": {
+    "sample_values": [
+      "486",
+      "571",
+      "569"
+    ],
+    "inferred_type": "integer"
+  },
+  "Settlements.Amount_Settled": {
+    "sample_values": [
+      "1266",
+      "1427",
+      "1698"
+    ],
+    "inferred_type": "integer"
+  },
+  "Settlements.Customer_Policy_ID": {
+    "sample_values": [
+      "564",
+      "678",
+      "133"
+    ],
+    "inferred_type": "integer"
+  },
+  "Settlements.Date_Claim_Made": {
+    "sample_values": [
+      "2016-07-19",
+      "2018-11-10",
+      "2017-05-19"
+    ],
+    "inferred_type": "string"
+  },
+  "Settlements.Amount_Claimed": {
+    "sample_values": [
+      "57669",
+      "25078",
+      "4456"
+    ],
+    "inferred_type": "integer"
+  },
+  "Customer_Policies.Start_Date": {
+    "sample_values": [
+      "2016-07-17",
+      "2017-06-16",
+      "2017-12-01"
+    ],
+    "inferred_type": "string"
+  },
+  "Customer_Policies.Customer_ID": {
+    "sample_values": [
+      "5",
+      "12",
+      "13"
+    ],
+    "inferred_type": "integer"
+  },
+  "Customer_Policies.Policy_ID": {
+    "sample_values": [
+      "744",
+      "738",
+      "587"
+    ],
+    "inferred_type": "integer"
+  },
+  "Customer_Policies.End_Date": {
+    "sample_values": [
+      "2017-09-01",
+      "2017-12-14",
+      "2018-03-07"
+    ],
+    "inferred_type": "string"
+  },
+  "Customer_Policies.Policy_Type_Code": {
+    "sample_values": [
+      "Property",
+      "Life",
+      "Travel"
+    ],
+    "inferred_type": "string"
+  }
+}

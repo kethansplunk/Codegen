@@ -1,0 +1,147 @@
+{
+  "db_name": "match_season",
+  "nodes": [
+    {
+      "name": "country",
+      "columns": [
+        {
+          "name": "Country_id",
+          "type": "INT"
+        },
+        {
+          "name": "Country_name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Capital",
+          "type": "TEXT"
+        },
+        {
+          "name": "Official_native_language",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "Country_id"
+      ]
+    },
+    {
+      "name": "team",
+      "columns": [
+        {
+          "name": "Team_id",
+          "type": "INT"
+        },
+        {
+          "name": "Name",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "Team_id"
+      ]
+    },
+    {
+      "name": "match_season",
+      "columns": [
+        {
+          "name": "Season",
+          "type": "REAL"
+        },
+        {
+          "name": "Player",
+          "type": "TEXT"
+        },
+        {
+          "name": "Position",
+          "type": "TEXT"
+        },
+        {
+          "name": "Country",
+          "type": "INT"
+        },
+        {
+          "name": "Team",
+          "type": "INT"
+        },
+        {
+          "name": "Draft_Pick_Number",
+          "type": "INT"
+        },
+        {
+          "name": "Draft_Class",
+          "type": "TEXT"
+        },
+        {
+          "name": "College",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "Season"
+      ]
+    },
+    {
+      "name": "player",
+      "columns": [
+        {
+          "name": "Player_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Player",
+          "type": "TEXT"
+        },
+        {
+          "name": "Years_Played",
+          "type": "TEXT"
+        },
+        {
+          "name": "Total_WL",
+          "type": "TEXT"
+        },
+        {
+          "name": "Singles_WL",
+          "type": "TEXT"
+        },
+        {
+          "name": "Doubles_WL",
+          "type": "TEXT"
+        },
+        {
+          "name": "Team",
+          "type": "INT"
+        }
+      ],
+      "pk": [
+        "Player_ID"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "match_season",
+      "to": "team",
+      "child_col": "Team",
+      "parent_col": "Team_id"
+    },
+    {
+      "from": "match_season",
+      "to": "country",
+      "child_col": "Country",
+      "parent_col": "Country_id"
+    },
+    {
+      "from": "player",
+      "to": "team",
+      "child_col": "Team",
+      "parent_col": "Team_id"
+    }
+  ],
+  "centrality": {
+    "country": 0.3333333333333333,
+    "team": 0.6666666666666666,
+    "match_season": 0.0,
+    "player": 0.0
+  }
+}

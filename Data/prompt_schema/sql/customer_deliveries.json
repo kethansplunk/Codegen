@@ -1,0 +1,401 @@
+{
+  "Products.product_id": {
+    "sample_values": [
+      1,
+      3,
+      5
+    ],
+    "inferred_type": "integer"
+  },
+  "Products.product_name": {
+    "sample_values": [
+      "gift",
+      "cloth",
+      "books"
+    ],
+    "inferred_type": "string"
+  },
+  "Products.product_price": {
+    "sample_values": [
+      1322.78,
+      2511.29,
+      3644.45
+    ],
+    "inferred_type": "float"
+  },
+  "Products.product_description": {
+    "sample_values": [
+      "good condition",
+      "great condition",
+      "bad condition"
+    ],
+    "inferred_type": "string"
+  },
+  "Addresses.address_id": {
+    "sample_values": [
+      1,
+      6,
+      11
+    ],
+    "inferred_type": "integer"
+  },
+  "Addresses.address_details": {
+    "sample_values": [
+      "06959 Garett Meadows Apt. 259",
+      "6187 Feil Extension Apt. 749",
+      "203 Joseph Hills"
+    ],
+    "inferred_type": "string"
+  },
+  "Addresses.city": {
+    "sample_values": [
+      "New Lizziechester",
+      "East Frederic",
+      "Giovannaton"
+    ],
+    "inferred_type": "string"
+  },
+  "Addresses.zip_postcode": {
+    "sample_values": [
+      "271",
+      "827",
+      "234"
+    ],
+    "inferred_type": "integer"
+  },
+  "Addresses.state_province_county": {
+    "sample_values": [
+      "Massachusetts",
+      "Tennessee",
+      "Kentucky"
+    ],
+    "inferred_type": "string"
+  },
+  "Customers.customer_id": {
+    "sample_values": [
+      1,
+      6,
+      11
+    ],
+    "inferred_type": "integer"
+  },
+  "Customers.payment_method": {
+    "sample_values": [
+      "American",
+      "Discover",
+      "MasterCard"
+    ],
+    "inferred_type": "string"
+  },
+  "Customers.customer_name": {
+    "sample_values": [
+      "Aracely Borer V",
+      "Emmanuel Reilly",
+      "Dr. Karine Farrell"
+    ],
+    "inferred_type": "string"
+  },
+  "Customers.customer_phone": {
+    "sample_values": [
+      "531-617-3230",
+      "129.959.6420",
+      "+49(2)0677806107"
+    ],
+    "inferred_type": "string"
+  },
+  "Customers.customer_email": {
+    "sample_values": [
+      "rollin95@example.net",
+      "gleichner.ethelyn@example.net",
+      "reichel.winnifred@example.org"
+    ],
+    "inferred_type": "string"
+  },
+  "Customers.date_became_customer": {
+    "sample_values": [
+      "2015-09-13 22:39:50",
+      "2013-11-29 06:15:22",
+      "2010-11-06 08:42:56"
+    ],
+    "inferred_type": "string"
+  },
+  "Regular_Orders.regular_order_id": {
+    "sample_values": [
+      1,
+      6,
+      11
+    ],
+    "inferred_type": "integer"
+  },
+  "Regular_Orders.distributer_id": {
+    "sample_values": [
+      12,
+      3,
+      2
+    ],
+    "inferred_type": "integer"
+  },
+  "Regular_Order_Products.regular_order_id": {
+    "sample_values": [
+      5,
+      8,
+      6
+    ],
+    "inferred_type": "integer"
+  },
+  "Regular_Order_Products.product_id": {
+    "sample_values": [
+      3,
+      5,
+      4
+    ],
+    "inferred_type": "integer"
+  },
+  "Actual_Orders.actual_order_id": {
+    "sample_values": [
+      1,
+      6,
+      11
+    ],
+    "inferred_type": "integer"
+  },
+  "Actual_Orders.order_status_code": {
+    "sample_values": [
+      "Success",
+      "Cancel"
+    ],
+    "inferred_type": "string"
+  },
+  "Actual_Orders.regular_order_id": {
+    "sample_values": [
+      8,
+      10,
+      1
+    ],
+    "inferred_type": "integer"
+  },
+  "Actual_Orders.actual_order_date": {
+    "sample_values": [
+      "2018-03-10 18:22:34",
+      "2018-03-06 12:20:31",
+      "2018-03-12 05:33:57"
+    ],
+    "inferred_type": "string"
+  },
+  "Actual_Order_Products.actual_order_id": {
+    "sample_values": [
+      2,
+      9,
+      6
+    ],
+    "inferred_type": "integer"
+  },
+  "Actual_Order_Products.product_id": {
+    "sample_values": [
+      1,
+      6,
+      3
+    ],
+    "inferred_type": "integer"
+  },
+  "Customer_Addresses.customer_id": {
+    "sample_values": [
+      5,
+      10,
+      3
+    ],
+    "inferred_type": "integer"
+  },
+  "Customer_Addresses.address_id": {
+    "sample_values": [
+      6,
+      1,
+      7
+    ],
+    "inferred_type": "integer"
+  },
+  "Customer_Addresses.date_from": {
+    "sample_values": [
+      "2017-11-01 10:59:35",
+      "2016-08-17 17:45:20",
+      "2012-05-24 11:47:54"
+    ],
+    "inferred_type": "string"
+  },
+  "Customer_Addresses.address_type": {
+    "sample_values": [
+      "House",
+      "Flat",
+      "Apartment"
+    ],
+    "inferred_type": "string"
+  },
+  "Customer_Addresses.date_to": {
+    "sample_values": [
+      "2018-03-09 05:05:17",
+      "2018-03-16 14:09:24",
+      "2018-03-14 20:26:33"
+    ],
+    "inferred_type": "string"
+  },
+  "Delivery_Routes.route_id": {
+    "sample_values": [
+      1,
+      6,
+      11
+    ],
+    "inferred_type": "integer"
+  },
+  "Delivery_Routes.route_name": {
+    "sample_values": [
+      "Hegmann-Waters",
+      "Adams, Macejkovic and Carroll",
+      "Abshire Ltd"
+    ],
+    "inferred_type": "string"
+  },
+  "Delivery_Routes.other_route_details": {
+    "sample_values": [
+      "719 Vito Parks\nKassulkeville, NH 77748",
+      "941 Ritchie Plains Suite 833\nNorth Jerry, LA 32804-7405",
+      "36578 Kirsten Terrace\nKrajcikside, NH 29063"
+    ],
+    "inferred_type": "string"
+  },
+  "Delivery_Route_Locations.location_code": {
+    "sample_values": [
+      "84 Temple Rd",
+      "58 Roof Av",
+      "38 Enisner Av"
+    ],
+    "inferred_type": "string"
+  },
+  "Delivery_Route_Locations.route_id": {
+    "sample_values": [
+      11,
+      14,
+      15
+    ],
+    "inferred_type": "integer"
+  },
+  "Delivery_Route_Locations.location_address_id": {
+    "sample_values": [
+      5,
+      7,
+      8
+    ],
+    "inferred_type": "integer"
+  },
+  "Delivery_Route_Locations.location_name": {
+    "sample_values": [
+      "Bartoletti, Keebler and Crona",
+      "Strosin, Hegmann and Abbott",
+      "Hessel and Sons"
+    ],
+    "inferred_type": "string"
+  },
+  "Trucks.truck_id": {
+    "sample_values": [
+      1,
+      6,
+      11
+    ],
+    "inferred_type": "integer"
+  },
+  "Trucks.truck_licence_number": {
+    "sample_values": [
+      "58110",
+      "25232",
+      "49160"
+    ],
+    "inferred_type": "integer"
+  },
+  "Trucks.truck_details": {
+    "sample_values": [
+      "Efren",
+      "Stacy",
+      "Deon"
+    ],
+    "inferred_type": "string"
+  },
+  "Employees.employee_id": {
+    "sample_values": [
+      1,
+      6,
+      11
+    ],
+    "inferred_type": "integer"
+  },
+  "Employees.employee_address_id": {
+    "sample_values": [
+      4,
+      11,
+      6
+    ],
+    "inferred_type": "integer"
+  },
+  "Employees.employee_name": {
+    "sample_values": [
+      "Allison",
+      "Sasha",
+      "Matteo"
+    ],
+    "inferred_type": "string"
+  },
+  "Employees.employee_phone": {
+    "sample_values": [
+      "+48(5)2807285053",
+      "1-547-775-6049",
+      "620.905.4152x7146"
+    ],
+    "inferred_type": "string"
+  },
+  "Order_Deliveries.location_code": {
+    "sample_values": [
+      "58 Roof Av",
+      "34 Benz St",
+      "73 Nancy Av"
+    ],
+    "inferred_type": "string"
+  },
+  "Order_Deliveries.actual_order_id": {
+    "sample_values": [
+      11,
+      2,
+      5
+    ],
+    "inferred_type": "integer"
+  },
+  "Order_Deliveries.delivery_status_code": {
+    "sample_values": [
+      "Ready",
+      "On Road",
+      "Delivered"
+    ],
+    "inferred_type": "string"
+  },
+  "Order_Deliveries.driver_employee_id": {
+    "sample_values": [
+      6,
+      12,
+      14
+    ],
+    "inferred_type": "integer"
+  },
+  "Order_Deliveries.truck_id": {
+    "sample_values": [
+      11,
+      2,
+      4
+    ],
+    "inferred_type": "integer"
+  },
+  "Order_Deliveries.delivery_date": {
+    "sample_values": [
+      "2018-03-01 00:50:45",
+      "2018-03-22 22:09:56",
+      "2018-03-12 20:45:27"
+    ],
+    "inferred_type": "string"
+  }
+}

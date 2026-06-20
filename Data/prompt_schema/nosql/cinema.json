@@ -1,0 +1,137 @@
+{
+  "cinema.Location": {
+    "sample_values": [
+      "County Clare",
+      "County Wicklow",
+      "County Tipperary"
+    ],
+    "inferred_type": "string"
+  },
+  "cinema.Cinema_ID": {
+    "sample_values": [
+      "5",
+      "1",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "cinema.Name": {
+    "sample_values": [
+      "Dublin Array",
+      "Codling",
+      "Moneypoint"
+    ],
+    "inferred_type": "string"
+  },
+  "cinema.Capacity": {
+    "sample_values": [
+      "368",
+      "305",
+      "908"
+    ],
+    "inferred_type": "integer"
+  },
+  "cinema.Openning_year": {
+    "sample_values": [
+      "2015",
+      "2010",
+      "2009"
+    ],
+    "inferred_type": "integer"
+  },
+  "schedule.Show_times_per_day": {
+    "sample_values": [
+      "2",
+      "3",
+      "5"
+    ],
+    "inferred_type": "integer"
+  },
+  "schedule.Price": {
+    "sample_values": [
+      "8.99",
+      "12.99",
+      "15.99"
+    ],
+    "inferred_type": "float"
+  },
+  "schedule.Cinema_ID": {
+    "sample_values": [
+      "10",
+      "1",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "schedule.Date": {
+    "sample_values": [
+      "2 Aug",
+      "11 July",
+      "21 Jun"
+    ],
+    "inferred_type": "string"
+  },
+  "schedule.Film_ID": {
+    "sample_values": [
+      "5",
+      "1",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "film.Title": {
+    "sample_values": [
+      "The Case: Off the Record",
+      "The Case of the Mystery Weekend",
+      "The Case of the Bermuda Triangle"
+    ],
+    "inferred_type": "string"
+  },
+  "film.Rank_in_series": {
+    "sample_values": [
+      "30",
+      "29",
+      "28"
+    ],
+    "inferred_type": "integer"
+  },
+  "film.Number_in_season": {
+    "sample_values": [
+      "5",
+      "1",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "film.Original_air_date": {
+    "sample_values": [
+      "October 19\u201323, 1992",
+      "September 28\u2013October 2, 1992",
+      "October 12\u201316, 1992"
+    ],
+    "inferred_type": "string"
+  },
+  "film.Film_ID": {
+    "sample_values": [
+      "5",
+      "1",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "film.Directed_by": {
+    "sample_values": [
+      "Bill Schreiner",
+      "Jesus Salvador Trevi\u00f1o"
+    ],
+    "inferred_type": "string"
+  },
+  "film.Production_code": {
+    "sample_values": [
+      "50011\u201350015",
+      "50231\u201350235",
+      "50241\u201350245"
+    ],
+    "inferred_type": "string"
+  }
+}

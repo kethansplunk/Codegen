@@ -1,0 +1,106 @@
+{
+  "perpetrator.Perpetrator_ID": {
+    "sample_values": [
+      1,
+      2,
+      3
+    ],
+    "inferred_type": "integer"
+  },
+  "perpetrator.People_ID": {
+    "sample_values": [
+      1,
+      3,
+      4
+    ],
+    "inferred_type": "integer"
+  },
+  "perpetrator.Date": {
+    "sample_values": [
+      "04.00 April",
+      "09.20 Sep. 20",
+      "05.21 May 21"
+    ],
+    "inferred_type": "string"
+  },
+  "perpetrator.Year": {
+    "sample_values": [
+      1982.0,
+      1995.0,
+      1938.0
+    ],
+    "inferred_type": "float"
+  },
+  "perpetrator.Location": {
+    "sample_values": [
+      "Nainital",
+      "Beijing",
+      "Kaio"
+    ],
+    "inferred_type": "string"
+  },
+  "perpetrator.Country": {
+    "sample_values": [
+      "India",
+      "Japan",
+      "China"
+    ],
+    "inferred_type": "string"
+  },
+  "perpetrator.Killed": {
+    "sample_values": [
+      56,
+      32,
+      30
+    ],
+    "inferred_type": "integer"
+  },
+  "perpetrator.Injured": {
+    "sample_values": [
+      37,
+      16,
+      3
+    ],
+    "inferred_type": "integer"
+  },
+  "people.People_ID": {
+    "sample_values": [
+      1,
+      4,
+      7
+    ],
+    "inferred_type": "integer"
+  },
+  "people.Name": {
+    "sample_values": [
+      "Mike Murphy",
+      "John Danks",
+      "Brent Boyd"
+    ],
+    "inferred_type": "string"
+  },
+  "people.Height": {
+    "sample_values": [
+      6.4,
+      6.7,
+      6.6
+    ],
+    "inferred_type": "float"
+  },
+  "people.Weight": {
+    "sample_values": [
+      205.0,
+      220.0,
+      190.0
+    ],
+    "inferred_type": "float"
+  },
+  "people.Home Town": {
+    "sample_values": [
+      "Austin, TX",
+      "Placentia, CA",
+      "Baton Rouge, LA"
+    ],
+    "inferred_type": "string"
+  }
+}

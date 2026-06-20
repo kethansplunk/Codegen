@@ -1,0 +1,174 @@
+{
+  "db_name": "company_1",
+  "collections": {
+    "works_on": {
+      "primary_key": [
+        "Essn",
+        "Pno"
+      ],
+      "columns": [
+        {
+          "name": "Essn",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Pno",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Hours",
+          "type": "REAL"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 16
+    },
+    "employee": {
+      "primary_key": [
+        "Ssn"
+      ],
+      "columns": [
+        {
+          "name": "Fname",
+          "type": "TEXT"
+        },
+        {
+          "name": "Minit",
+          "type": "TEXT"
+        },
+        {
+          "name": "Lname",
+          "type": "TEXT"
+        },
+        {
+          "name": "Ssn",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Bdate",
+          "type": "TEXT"
+        },
+        {
+          "name": "Address",
+          "type": "TEXT"
+        },
+        {
+          "name": "Sex",
+          "type": "TEXT"
+        },
+        {
+          "name": "Salary",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Super_ssn",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Dno",
+          "type": "INTEGER"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 8
+    },
+    "department": {
+      "primary_key": [
+        "Dnumber"
+      ],
+      "columns": [
+        {
+          "name": "Dname",
+          "type": "TEXT"
+        },
+        {
+          "name": "Dnumber",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Mgr_ssn",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Mgr_start_date",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 3
+    },
+    "project": {
+      "primary_key": [
+        "Pnumber"
+      ],
+      "columns": [
+        {
+          "name": "Pname",
+          "type": "TEXT"
+        },
+        {
+          "name": "Pnumber",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Plocation",
+          "type": "TEXT"
+        },
+        {
+          "name": "Dnum",
+          "type": "INTEGER"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 6
+    },
+    "dependent": {
+      "primary_key": [
+        "Essn",
+        "Dependent_name"
+      ],
+      "columns": [
+        {
+          "name": "Essn",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Dependent_name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Sex",
+          "type": "TEXT"
+        },
+        {
+          "name": "Bdate",
+          "type": "TEXT"
+        },
+        {
+          "name": "Relationship",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 7
+    },
+    "dept_locations": {
+      "primary_key": [
+        "Dnumber",
+        "Dlocation"
+      ],
+      "columns": [
+        {
+          "name": "Dnumber",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Dlocation",
+          "type": "TEXT"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 5
+    }
+  }
+}

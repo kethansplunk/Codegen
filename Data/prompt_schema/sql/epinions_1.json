@@ -1,0 +1,97 @@
+{
+  "item.i_id": {
+    "sample_values": [
+      0,
+      2,
+      4
+    ],
+    "inferred_type": "integer"
+  },
+  "item.title": {
+    "sample_values": [
+      "cup",
+      "orange",
+      "apple"
+    ],
+    "inferred_type": "string"
+  },
+  "review.a_id": {
+    "sample_values": [
+      1,
+      6,
+      5
+    ],
+    "inferred_type": "integer"
+  },
+  "review.u_id": {
+    "sample_values": [
+      1,
+      2
+    ],
+    "inferred_type": "integer"
+  },
+  "review.i_id": {
+    "sample_values": [
+      1,
+      3,
+      4
+    ],
+    "inferred_type": "integer"
+  },
+  "review.rating": {
+    "sample_values": [
+      10,
+      5,
+      7
+    ],
+    "inferred_type": "integer"
+  },
+  "review.rank": {
+    "sample_values": [
+      1,
+      3,
+      4
+    ],
+    "inferred_type": "integer"
+  },
+  "useracct.u_id": {
+    "sample_values": [
+      1,
+      3,
+      5
+    ],
+    "inferred_type": "integer"
+  },
+  "useracct.name": {
+    "sample_values": [
+      "Emily",
+      "Mark",
+      "Terry"
+    ],
+    "inferred_type": "string"
+  },
+  "trust.source_u_id": {
+    "sample_values": [
+      1,
+      2,
+      3
+    ],
+    "inferred_type": "integer"
+  },
+  "trust.target_u_id": {
+    "sample_values": [
+      2,
+      3,
+      4
+    ],
+    "inferred_type": "integer"
+  },
+  "trust.trust": {
+    "sample_values": [
+      10,
+      8,
+      2
+    ],
+    "inferred_type": "integer"
+  }
+}

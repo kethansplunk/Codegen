@@ -1,0 +1,95 @@
+{
+  "wrestler.Wrestler_ID": {
+    "sample_values": [
+      1,
+      4,
+      7
+    ],
+    "inferred_type": "integer"
+  },
+  "wrestler.Name": {
+    "sample_values": [
+      "Shinjiro Otani \u00a7",
+      "Villa\u00f1o IV",
+      "Fishman"
+    ],
+    "inferred_type": "string"
+  },
+  "wrestler.Reign": {
+    "sample_values": [
+      "1",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "wrestler.Days_held": {
+    "sample_values": [
+      "344",
+      "960",
+      "54"
+    ],
+    "inferred_type": "integer"
+  },
+  "wrestler.Location": {
+    "sample_values": [
+      "Nagoya , Japan",
+      "Sapporo , Japan",
+      "Osaka , Japan"
+    ],
+    "inferred_type": "string"
+  },
+  "wrestler.Event": {
+    "sample_values": [
+      "Live event",
+      "Wrestling World 1997"
+    ],
+    "inferred_type": "string"
+  },
+  "Elimination.Elimination_ID": {
+    "sample_values": [
+      "1",
+      "3",
+      "5"
+    ],
+    "inferred_type": "integer"
+  },
+  "Elimination.Wrestler_ID": {
+    "sample_values": [
+      "1",
+      "4",
+      "7"
+    ],
+    "inferred_type": "integer"
+  },
+  "Elimination.Team": {
+    "sample_values": [
+      "Team Orton",
+      "Team Batista"
+    ],
+    "inferred_type": "string"
+  },
+  "Elimination.Eliminated_By": {
+    "sample_values": [
+      "Batista",
+      "Benjamin",
+      "Rhodes"
+    ],
+    "inferred_type": "string"
+  },
+  "Elimination.Elimination_Move": {
+    "sample_values": [
+      "Spear",
+      "Paydirt",
+      "Silver Spoon DDT"
+    ],
+    "inferred_type": "string"
+  },
+  "Elimination.Time": {
+    "sample_values": [
+      "14:32",
+      "07:38",
+      "13:06"
+    ],
+    "inferred_type": "string"
+  }
+}

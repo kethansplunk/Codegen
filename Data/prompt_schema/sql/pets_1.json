@@ -1,0 +1,111 @@
+{
+  "Student.StuID": {
+    "sample_values": [
+      1001,
+      1007,
+      1014
+    ],
+    "inferred_type": "integer"
+  },
+  "Student.LName": {
+    "sample_values": [
+      "Woods",
+      "Nelson",
+      "Tai"
+    ],
+    "inferred_type": "string"
+  },
+  "Student.Fname": {
+    "sample_values": [
+      "George",
+      "Jandy",
+      "Eric"
+    ],
+    "inferred_type": "string"
+  },
+  "Student.Age": {
+    "sample_values": [
+      18,
+      20,
+      22
+    ],
+    "inferred_type": "integer"
+  },
+  "Student.Sex": {
+    "sample_values": [
+      "F",
+      "M"
+    ],
+    "inferred_type": "string"
+  },
+  "Student.Major": {
+    "sample_values": [
+      600,
+      540,
+      100
+    ],
+    "inferred_type": "integer"
+  },
+  "Student.Advisor": {
+    "sample_values": [
+      1121,
+      9172,
+      8722
+    ],
+    "inferred_type": "integer"
+  },
+  "Student.city_code": {
+    "sample_values": [
+      "BOS",
+      "PHL",
+      "DAL"
+    ],
+    "inferred_type": "string"
+  },
+  "Has_Pet.StuID": {
+    "sample_values": [
+      1001,
+      1002
+    ],
+    "inferred_type": "integer"
+  },
+  "Has_Pet.PetID": {
+    "sample_values": [
+      2001,
+      2002,
+      2003
+    ],
+    "inferred_type": "integer"
+  },
+  "Pets.PetID": {
+    "sample_values": [
+      2001,
+      2002,
+      2003
+    ],
+    "inferred_type": "integer"
+  },
+  "Pets.PetType": {
+    "sample_values": [
+      "cat",
+      "dog"
+    ],
+    "inferred_type": "string"
+  },
+  "Pets.pet_age": {
+    "sample_values": [
+      3,
+      2,
+      1
+    ],
+    "inferred_type": "integer"
+  },
+  "Pets.weight": {
+    "sample_values": [
+      12.0,
+      13.4,
+      9.3
+    ],
+    "inferred_type": "float"
+  }
+}

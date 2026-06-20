@@ -1,0 +1,101 @@
+{
+  "db_name": "theme_gallery",
+  "nodes": [
+    {
+      "name": "artist",
+      "columns": [
+        {
+          "name": "Artist_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Country",
+          "type": "TEXT"
+        },
+        {
+          "name": "Year_Join",
+          "type": "INT"
+        },
+        {
+          "name": "Age",
+          "type": "INT"
+        }
+      ],
+      "pk": [
+        "Artist_ID"
+      ]
+    },
+    {
+      "name": "exhibition",
+      "columns": [
+        {
+          "name": "Exhibition_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Year",
+          "type": "INT"
+        },
+        {
+          "name": "Theme",
+          "type": "TEXT"
+        },
+        {
+          "name": "Artist_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Ticket_Price",
+          "type": "REAL"
+        }
+      ],
+      "pk": [
+        "Exhibition_ID"
+      ]
+    },
+    {
+      "name": "exhibition_record",
+      "columns": [
+        {
+          "name": "Exhibition_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Date",
+          "type": "TEXT"
+        },
+        {
+          "name": "Attendance",
+          "type": "INT"
+        }
+      ],
+      "pk": [
+        "Exhibition_ID",
+        "Date"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "exhibition",
+      "to": "artist",
+      "child_col": "Artist_ID",
+      "parent_col": "Artist_ID"
+    },
+    {
+      "from": "exhibition_record",
+      "to": "exhibition",
+      "child_col": "Exhibition_ID",
+      "parent_col": "Exhibition_ID"
+    }
+  ],
+  "centrality": {
+    "artist": 0.5,
+    "exhibition": 0.5,
+    "exhibition_record": 0.0
+  }
+}

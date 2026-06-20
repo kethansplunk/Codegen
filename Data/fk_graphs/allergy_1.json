@@ -1,0 +1,94 @@
+{
+  "db_name": "allergy_1",
+  "nodes": [
+    {
+      "name": "Allergy_Type",
+      "columns": [
+        {
+          "name": "Allergy",
+          "type": "VARCHAR(20)"
+        },
+        {
+          "name": "AllergyType",
+          "type": "VARCHAR(20)"
+        }
+      ],
+      "pk": [
+        "Allergy"
+      ]
+    },
+    {
+      "name": "Has_Allergy",
+      "columns": [
+        {
+          "name": "StuID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Allergy",
+          "type": "VARCHAR(20)"
+        }
+      ],
+      "pk": []
+    },
+    {
+      "name": "Student",
+      "columns": [
+        {
+          "name": "StuID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "LName",
+          "type": "VARCHAR(12)"
+        },
+        {
+          "name": "Fname",
+          "type": "VARCHAR(12)"
+        },
+        {
+          "name": "Age",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Sex",
+          "type": "VARCHAR(1)"
+        },
+        {
+          "name": "Major",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Advisor",
+          "type": "INTEGER"
+        },
+        {
+          "name": "city_code",
+          "type": "VARCHAR(3)"
+        }
+      ],
+      "pk": [
+        "StuID"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "Has_Allergy",
+      "to": "Allergy_Type",
+      "child_col": "Allergy",
+      "parent_col": "Allergy"
+    },
+    {
+      "from": "Has_Allergy",
+      "to": "Student",
+      "child_col": "StuID",
+      "parent_col": "StuID"
+    }
+  ],
+  "centrality": {
+    "Allergy_Type": 0.5,
+    "Has_Allergy": 0.0,
+    "Student": 0.5
+  }
+}

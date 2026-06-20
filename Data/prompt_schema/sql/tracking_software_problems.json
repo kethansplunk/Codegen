@@ -1,0 +1,223 @@
+{
+  "Problem_Category_Codes.problem_category_code": {
+    "sample_values": [
+      "Datatabase",
+      "GUI",
+      "Middleware"
+    ],
+    "inferred_type": "string"
+  },
+  "Problem_Category_Codes.problem_category_description": {
+    "sample_values": [
+      "Database design or contents.",
+      "User Interface.",
+      "Infrastructrure and Architecture"
+    ],
+    "inferred_type": "string"
+  },
+  "Problem_Log.problem_log_id": {
+    "sample_values": [
+      1,
+      6,
+      11
+    ],
+    "inferred_type": "integer"
+  },
+  "Problem_Log.assigned_to_staff_id": {
+    "sample_values": [
+      11,
+      2,
+      10
+    ],
+    "inferred_type": "integer"
+  },
+  "Problem_Log.problem_id": {
+    "sample_values": [
+      11,
+      12,
+      10
+    ],
+    "inferred_type": "integer"
+  },
+  "Problem_Log.problem_category_code": {
+    "sample_values": [
+      "Middleware",
+      "GUI",
+      "Datatabase"
+    ],
+    "inferred_type": "string"
+  },
+  "Problem_Log.problem_status_code": {
+    "sample_values": [
+      "Solved",
+      "Reported"
+    ],
+    "inferred_type": "string"
+  },
+  "Problem_Log.log_entry_date": {
+    "sample_values": [
+      "1982-11-17 06:05:52",
+      "1974-09-13 00:37:26",
+      "1983-07-01 02:12:36"
+    ],
+    "inferred_type": "string"
+  },
+  "Problem_Log.log_entry_description": {
+    "sample_values": [
+      "t",
+      "h",
+      "d"
+    ],
+    "inferred_type": "string"
+  },
+  "Problem_Log.log_entry_fix": {
+    "sample_values": [
+      "k",
+      "g",
+      "x"
+    ],
+    "inferred_type": "string"
+  },
+  "Problem_Log.other_log_details": {
+    "sample_values": [
+      "p",
+      "u",
+      "f"
+    ],
+    "inferred_type": "string"
+  },
+  "Problem_Status_Codes.problem_status_code": {
+    "sample_values": [
+      "Reported",
+      "Solved"
+    ],
+    "inferred_type": "string"
+  },
+  "Problem_Status_Codes.problem_status_description": {
+    "sample_values": [
+      "Reported",
+      "Solved"
+    ],
+    "inferred_type": "string"
+  },
+  "Product.product_id": {
+    "sample_values": [
+      1,
+      6,
+      11
+    ],
+    "inferred_type": "integer"
+  },
+  "Product.product_name": {
+    "sample_values": [
+      "game",
+      "messager",
+      "keep"
+    ],
+    "inferred_type": "string"
+  },
+  "Product.product_details": {
+    "sample_values": [
+      "k",
+      "r",
+      "u"
+    ],
+    "inferred_type": "string"
+  },
+  "Staff.staff_id": {
+    "sample_values": [
+      1,
+      6,
+      11
+    ],
+    "inferred_type": "integer"
+  },
+  "Staff.staff_first_name": {
+    "sample_values": [
+      "Israel",
+      "Kenton",
+      "Kristian"
+    ],
+    "inferred_type": "string"
+  },
+  "Staff.staff_last_name": {
+    "sample_values": [
+      "Dickens",
+      "Champlin",
+      "Lynch"
+    ],
+    "inferred_type": "string"
+  },
+  "Staff.other_staff_details": {
+    "sample_values": [
+      "m",
+      "p",
+      "d"
+    ],
+    "inferred_type": "string"
+  },
+  "Problems.problem_id": {
+    "sample_values": [
+      1,
+      6,
+      11
+    ],
+    "inferred_type": "integer"
+  },
+  "Problems.product_id": {
+    "sample_values": [
+      4,
+      13,
+      5
+    ],
+    "inferred_type": "integer"
+  },
+  "Problems.closure_authorised_by_staff_id": {
+    "sample_values": [
+      4,
+      12,
+      14
+    ],
+    "inferred_type": "integer"
+  },
+  "Problems.reported_by_staff_id": {
+    "sample_values": [
+      2,
+      7,
+      13
+    ],
+    "inferred_type": "integer"
+  },
+  "Problems.date_problem_reported": {
+    "sample_values": [
+      "1970-10-27 16:35:34",
+      "1996-04-19 15:54:13",
+      "2010-10-05 02:25:37"
+    ],
+    "inferred_type": "string"
+  },
+  "Problems.date_problem_closed": {
+    "sample_values": [
+      "1999-09-28 21:29:12",
+      "1974-09-20 13:42:19",
+      "1998-07-03 14:53:59"
+    ],
+    "inferred_type": "string"
+  },
+  "Problems.problem_description": {
+    "sample_values": [
+      "x",
+      "y",
+      "i"
+    ],
+    "inferred_type": "string"
+  },
+  "Problems.other_problem_details": {
+    "sample_values": [
+      "p",
+      "k",
+      "v"
+    ],
+    "inferred_type": "string"
+  }
+}

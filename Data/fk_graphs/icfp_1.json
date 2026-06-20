@@ -1,0 +1,113 @@
+{
+  "db_name": "icfp_1",
+  "nodes": [
+    {
+      "name": "Inst",
+      "columns": [
+        {
+          "name": "instID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "name",
+          "type": "TEXT"
+        },
+        {
+          "name": "country",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "instID"
+      ]
+    },
+    {
+      "name": "Authors",
+      "columns": [
+        {
+          "name": "authID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "lname",
+          "type": "TEXT"
+        },
+        {
+          "name": "fname",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "authID"
+      ]
+    },
+    {
+      "name": "Papers",
+      "columns": [
+        {
+          "name": "paperID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "title",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "paperID"
+      ]
+    },
+    {
+      "name": "Authorship",
+      "columns": [
+        {
+          "name": "authID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "instID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "paperID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "authOrder",
+          "type": "INTEGER"
+        }
+      ],
+      "pk": [
+        "authID",
+        "instID",
+        "paperID"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "Authorship",
+      "to": "Papers",
+      "child_col": "paperID",
+      "parent_col": "paperID"
+    },
+    {
+      "from": "Authorship",
+      "to": "Inst",
+      "child_col": "instID",
+      "parent_col": "instID"
+    },
+    {
+      "from": "Authorship",
+      "to": "Authors",
+      "child_col": "authID",
+      "parent_col": "authID"
+    }
+  ],
+  "centrality": {
+    "Inst": 0.3333333333333333,
+    "Authors": 0.3333333333333333,
+    "Papers": 0.3333333333333333,
+    "Authorship": 0.0
+  }
+}

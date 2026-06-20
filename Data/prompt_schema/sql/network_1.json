@@ -1,0 +1,58 @@
+{
+  "Highschooler.ID": {
+    "sample_values": [
+      1025,
+      1381,
+      1661
+    ],
+    "inferred_type": "integer"
+  },
+  "Highschooler.name": {
+    "sample_values": [
+      "Logan",
+      "Andrew",
+      "Cassandra"
+    ],
+    "inferred_type": "string"
+  },
+  "Highschooler.grade": {
+    "sample_values": [
+      9,
+      10,
+      11
+    ],
+    "inferred_type": "integer"
+  },
+  "Friend.student_id": {
+    "sample_values": [
+      1101,
+      1381,
+      1661
+    ],
+    "inferred_type": "integer"
+  },
+  "Friend.friend_id": {
+    "sample_values": [
+      1381,
+      1468,
+      1911
+    ],
+    "inferred_type": "integer"
+  },
+  "Likes.student_id": {
+    "sample_values": [
+      1025,
+      1501,
+      1709
+    ],
+    "inferred_type": "integer"
+  },
+  "Likes.liked_id": {
+    "sample_values": [
+      1709,
+      1247,
+      1304
+    ],
+    "inferred_type": "integer"
+  }
+}

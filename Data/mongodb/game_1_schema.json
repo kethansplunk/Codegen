@@ -1,0 +1,133 @@
+{
+  "db_name": "game_1",
+  "collections": {
+    "Student": {
+      "primary_key": [
+        "StuID"
+      ],
+      "columns": [
+        {
+          "name": "StuID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "LName",
+          "type": "VARCHAR(12)"
+        },
+        {
+          "name": "Fname",
+          "type": "VARCHAR(12)"
+        },
+        {
+          "name": "Age",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Sex",
+          "type": "VARCHAR(1)"
+        },
+        {
+          "name": "Major",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Advisor",
+          "type": "INTEGER"
+        },
+        {
+          "name": "city_code",
+          "type": "VARCHAR(3)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 34
+    },
+    "Video_Games": {
+      "primary_key": [
+        "GameID"
+      ],
+      "columns": [
+        {
+          "name": "GameID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "GName",
+          "type": "VARCHAR(40)"
+        },
+        {
+          "name": "GType",
+          "type": "VARCHAR(40)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 6
+    },
+    "Plays_Games": {
+      "primary_key": [],
+      "columns": [
+        {
+          "name": "StuID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "GameID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Hours_Played",
+          "type": "INTEGER"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Plays_Games",
+          "to": "Student",
+          "child_col": "StuID",
+          "parent_col": "StuID"
+        },
+        {
+          "from": "Plays_Games",
+          "to": "Video_Games",
+          "child_col": "GameID",
+          "parent_col": "GameID"
+        }
+      ],
+      "row_count": 10
+    },
+    "SportsInfo": {
+      "primary_key": [],
+      "columns": [
+        {
+          "name": "StuID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "SportName",
+          "type": "VARCHAR(32)"
+        },
+        {
+          "name": "HoursPerWeek",
+          "type": "INTEGER"
+        },
+        {
+          "name": "GamesPlayed",
+          "type": "INTEGER"
+        },
+        {
+          "name": "OnScholarship",
+          "type": "VARCHAR(1)"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "SportsInfo",
+          "to": "Student",
+          "child_col": "StuID",
+          "parent_col": "StuID"
+        }
+      ],
+      "row_count": 14
+    }
+  }
+}

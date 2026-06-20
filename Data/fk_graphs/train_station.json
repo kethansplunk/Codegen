@@ -1,0 +1,105 @@
+{
+  "db_name": "train_station",
+  "nodes": [
+    {
+      "name": "station",
+      "columns": [
+        {
+          "name": "Station_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Annual_entry_exit",
+          "type": "REAL"
+        },
+        {
+          "name": "Annual_interchanges",
+          "type": "REAL"
+        },
+        {
+          "name": "Total_Passengers",
+          "type": "REAL"
+        },
+        {
+          "name": "Location",
+          "type": "TEXT"
+        },
+        {
+          "name": "Main_Services",
+          "type": "TEXT"
+        },
+        {
+          "name": "Number_of_Platforms",
+          "type": "INT"
+        }
+      ],
+      "pk": [
+        "Station_ID"
+      ]
+    },
+    {
+      "name": "train",
+      "columns": [
+        {
+          "name": "Train_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Time",
+          "type": "TEXT"
+        },
+        {
+          "name": "Service",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "Train_ID"
+      ]
+    },
+    {
+      "name": "train_station",
+      "columns": [
+        {
+          "name": "Train_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Station_ID",
+          "type": "INT"
+        }
+      ],
+      "pk": [
+        "Train_ID",
+        "Station_ID"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "train_station",
+      "to": "station",
+      "child_col": "Station_ID",
+      "parent_col": "Station_ID"
+    },
+    {
+      "from": "train_station",
+      "to": "train",
+      "child_col": "Train_ID",
+      "parent_col": "Train_ID"
+    }
+  ],
+  "centrality": {
+    "station": 0.5,
+    "train": 0.5,
+    "train_station": 0.0
+  }
+}

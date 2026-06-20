@@ -1,0 +1,167 @@
+{
+  "genre.g_name": {
+    "sample_values": [
+      "folk",
+      "blues",
+      "nazrul"
+    ],
+    "inferred_type": "string"
+  },
+  "genre.rating": {
+    "sample_values": [
+      "8",
+      "9",
+      "7"
+    ],
+    "inferred_type": "integer"
+  },
+  "genre.most_popular_in": {
+    "sample_values": [
+      "Sylhet,Chittagong,Kustia",
+      "America",
+      "Bangladesh"
+    ],
+    "inferred_type": "string"
+  },
+  "files.formats": {
+    "sample_values": [
+      "mp4",
+      "mp3"
+    ],
+    "inferred_type": "string"
+  },
+  "files.duration": {
+    "sample_values": [
+      "4:30",
+      "4:12",
+      "2:56"
+    ],
+    "inferred_type": "string"
+  },
+  "files.artist_name": {
+    "sample_values": [
+      "Michel",
+      "Shrikanta",
+      "Topu"
+    ],
+    "inferred_type": "string"
+  },
+  "files.file_size": {
+    "sample_values": [
+      "4.10 MB",
+      "3.78 MB",
+      "3.69 MB"
+    ],
+    "inferred_type": "string"
+  },
+  "files.f_id": {
+    "sample_values": [
+      "5",
+      "2",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "artist.preferred_genre": {
+    "sample_values": [
+      "folk",
+      "blues",
+      "nazrul"
+    ],
+    "inferred_type": "string"
+  },
+  "artist.country": {
+    "sample_values": [
+      "USA",
+      "UK",
+      "Bangladesh"
+    ],
+    "inferred_type": "string"
+  },
+  "artist.artist_name": {
+    "sample_values": [
+      "Michel",
+      "Shrikanta",
+      "Topu"
+    ],
+    "inferred_type": "string"
+  },
+  "artist.gender": {
+    "sample_values": [
+      "Male",
+      "Female"
+    ],
+    "inferred_type": "string"
+  },
+  "song.genre_is": {
+    "sample_values": [
+      "folk",
+      "blues",
+      "nazrul"
+    ],
+    "inferred_type": "string"
+  },
+  "song.artist_name": {
+    "sample_values": [
+      "Michel",
+      "Shrikanta",
+      "Topu"
+    ],
+    "inferred_type": "string"
+  },
+  "song.song_name": {
+    "sample_values": [
+      "Just beat it",
+      "Tumi robe nirobe",
+      "Shukno patar nupur pae"
+    ],
+    "inferred_type": "string"
+  },
+  "song.country": {
+    "sample_values": [
+      "USA",
+      "UK",
+      "Bangladesh"
+    ],
+    "inferred_type": "string"
+  },
+  "song.f_id": {
+    "sample_values": [
+      "5",
+      "2",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "song.languages": {
+    "sample_values": [
+      "bangla",
+      "english"
+    ],
+    "inferred_type": "string"
+  },
+  "song.resolution": {
+    "sample_values": [
+      "720",
+      "1080",
+      "320"
+    ],
+    "inferred_type": "integer"
+  },
+  "song.rating": {
+    "sample_values": [
+      "10",
+      "5",
+      "8"
+    ],
+    "inferred_type": "integer"
+  },
+  "song.releasedate": {
+    "sample_values": [
+      "27-MAR-2004",
+      "28-AUG-2011",
+      "24-JAN-2007"
+    ],
+    "inferred_type": "string"
+  }
+}

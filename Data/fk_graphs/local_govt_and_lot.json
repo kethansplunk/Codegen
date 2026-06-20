@@ -1,0 +1,373 @@
+{
+  "db_name": "local_govt_and_lot",
+  "nodes": [
+    {
+      "name": "Customers",
+      "columns": [
+        {
+          "name": "customer_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "customer_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "pk": [
+        "customer_id"
+      ]
+    },
+    {
+      "name": "Properties",
+      "columns": [
+        {
+          "name": "property_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "property_type_code",
+          "type": "CHAR(15)"
+        },
+        {
+          "name": "property_address",
+          "type": "VARCHAR(255)"
+        },
+        {
+          "name": "other_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "pk": [
+        "property_id"
+      ]
+    },
+    {
+      "name": "Residents",
+      "columns": [
+        {
+          "name": "resident_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "property_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "date_moved_in",
+          "type": "DATETIME"
+        },
+        {
+          "name": "date_moved_out",
+          "type": "DATETIME"
+        },
+        {
+          "name": "other_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "pk": [
+        "resident_id",
+        "property_id",
+        "date_moved_in"
+      ]
+    },
+    {
+      "name": "Organizations",
+      "columns": [
+        {
+          "name": "organization_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "parent_organization_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "organization_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "pk": [
+        "organization_id"
+      ]
+    },
+    {
+      "name": "Services",
+      "columns": [
+        {
+          "name": "service_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "organization_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "service_type_code",
+          "type": "CHAR(15)"
+        },
+        {
+          "name": "service_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "pk": [
+        "service_id"
+      ]
+    },
+    {
+      "name": "Residents_Services",
+      "columns": [
+        {
+          "name": "resident_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "service_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "date_moved_in",
+          "type": "DATETIME"
+        },
+        {
+          "name": "property_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "date_requested",
+          "type": "DATETIME"
+        },
+        {
+          "name": "date_provided",
+          "type": "DATETIME"
+        },
+        {
+          "name": "other_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "pk": [
+        "resident_id",
+        "service_id"
+      ]
+    },
+    {
+      "name": "Things",
+      "columns": [
+        {
+          "name": "thing_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "organization_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Type_of_Thing_Code",
+          "type": "CHAR(15)"
+        },
+        {
+          "name": "service_type_code",
+          "type": "CHAR(10)"
+        },
+        {
+          "name": "service_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "pk": [
+        "thing_id"
+      ]
+    },
+    {
+      "name": "Customer_Events",
+      "columns": [
+        {
+          "name": "Customer_Event_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "customer_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "date_moved_in",
+          "type": "DATETIME"
+        },
+        {
+          "name": "property_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "resident_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "thing_id",
+          "type": "INTEGER"
+        }
+      ],
+      "pk": [
+        "Customer_Event_ID"
+      ]
+    },
+    {
+      "name": "Customer_Event_Notes",
+      "columns": [
+        {
+          "name": "Customer_Event_Note_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Customer_Event_ID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "service_type_code",
+          "type": "CHAR(15)"
+        },
+        {
+          "name": "resident_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "property_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "date_moved_in",
+          "type": "DATETIME"
+        }
+      ],
+      "pk": [
+        "Customer_Event_Note_ID"
+      ]
+    },
+    {
+      "name": "Timed_Status_of_Things",
+      "columns": [
+        {
+          "name": "thing_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Date_and_Date",
+          "type": "DATETIME"
+        },
+        {
+          "name": "Status_of_Thing_Code",
+          "type": "CHAR(15)"
+        }
+      ],
+      "pk": [
+        "thing_id",
+        "Date_and_Date",
+        "Status_of_Thing_Code"
+      ]
+    },
+    {
+      "name": "Timed_Locations_of_Things",
+      "columns": [
+        {
+          "name": "thing_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Date_and_Time",
+          "type": "DATETIME"
+        },
+        {
+          "name": "Location_Code",
+          "type": "CHAR(15)"
+        }
+      ],
+      "pk": [
+        "thing_id",
+        "Date_and_Time",
+        "Location_Code"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "Residents",
+      "to": "Properties",
+      "child_col": "property_id",
+      "parent_col": "property_id"
+    },
+    {
+      "from": "Services",
+      "to": "Organizations",
+      "child_col": "organization_id",
+      "parent_col": "organization_id"
+    },
+    {
+      "from": "Residents_Services",
+      "to": "Residents",
+      "child_col": "date_moved_in",
+      "parent_col": "date_moved_in"
+    },
+    {
+      "from": "Residents_Services",
+      "to": "Services",
+      "child_col": "service_id",
+      "parent_col": "service_id"
+    },
+    {
+      "from": "Things",
+      "to": "Organizations",
+      "child_col": "organization_id",
+      "parent_col": "organization_id"
+    },
+    {
+      "from": "Customer_Events",
+      "to": "Residents",
+      "child_col": "date_moved_in",
+      "parent_col": "date_moved_in"
+    },
+    {
+      "from": "Customer_Events",
+      "to": "Customers",
+      "child_col": "customer_id",
+      "parent_col": "customer_id"
+    },
+    {
+      "from": "Customer_Events",
+      "to": "Things",
+      "child_col": "thing_id",
+      "parent_col": "thing_id"
+    },
+    {
+      "from": "Customer_Event_Notes",
+      "to": "Customer_Events",
+      "child_col": "Customer_Event_ID",
+      "parent_col": "Customer_Event_ID"
+    },
+    {
+      "from": "Timed_Status_of_Things",
+      "to": "Things",
+      "child_col": "thing_id",
+      "parent_col": "thing_id"
+    },
+    {
+      "from": "Timed_Locations_of_Things",
+      "to": "Things",
+      "child_col": "thing_id",
+      "parent_col": "thing_id"
+    }
+  ],
+  "centrality": {
+    "Customers": 0.1,
+    "Properties": 0.1,
+    "Residents": 0.2,
+    "Organizations": 0.2,
+    "Services": 0.1,
+    "Residents_Services": 0.0,
+    "Things": 0.30000000000000004,
+    "Customer_Events": 0.1,
+    "Customer_Event_Notes": 0.0,
+    "Timed_Status_of_Things": 0.0,
+    "Timed_Locations_of_Things": 0.0
+  }
+}

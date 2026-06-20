@@ -1,0 +1,106 @@
+{
+  "station.Station_ID": {
+    "sample_values": [
+      1,
+      5,
+      9
+    ],
+    "inferred_type": "integer"
+  },
+  "station.Name": {
+    "sample_values": [
+      "Stratford",
+      "London Euston",
+      "London Victoria"
+    ],
+    "inferred_type": "string"
+  },
+  "station.Annual_entry_exit": {
+    "sample_values": [
+      94.046,
+      36.609,
+      26.639
+    ],
+    "inferred_type": "float"
+  },
+  "station.Annual_interchanges": {
+    "sample_values": [
+      9.489,
+      3.832,
+      3.018
+    ],
+    "inferred_type": "float"
+  },
+  "station.Total_Passengers": {
+    "sample_values": [
+      103.534,
+      40.44,
+      29.658
+    ],
+    "inferred_type": "float"
+  },
+  "station.Location": {
+    "sample_values": [
+      "London",
+      "Birmingham",
+      "Glasgow"
+    ],
+    "inferred_type": "string"
+  },
+  "station.Main_Services": {
+    "sample_values": [
+      "Brighton Main Line Chatham Main Line",
+      "Brighton Main Line",
+      "South Western Main Line West of England Main Line"
+    ],
+    "inferred_type": "string"
+  },
+  "station.Number_of_Platforms": {
+    "sample_values": [
+      19,
+      18,
+      13
+    ],
+    "inferred_type": "integer"
+  },
+  "train.Train_ID": {
+    "sample_values": [
+      1,
+      4,
+      7
+    ],
+    "inferred_type": "integer"
+  },
+  "train.Name": {
+    "sample_values": [
+      "Parasuram Express",
+      "Guruvayur Express",
+      "Jayanthi Janatha Express"
+    ],
+    "inferred_type": "string"
+  },
+  "train.Time": {
+    "sample_values": [
+      "04:20",
+      "06:30",
+      "22:10"
+    ],
+    "inferred_type": "string"
+  },
+  "train_station.Train_ID": {
+    "sample_values": [
+      1,
+      4,
+      7
+    ],
+    "inferred_type": "integer"
+  },
+  "train_station.Station_ID": {
+    "sample_values": [
+      1,
+      3,
+      8
+    ],
+    "inferred_type": "integer"
+  }
+}

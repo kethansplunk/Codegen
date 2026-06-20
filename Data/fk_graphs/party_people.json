@@ -1,0 +1,149 @@
+{
+  "db_name": "party_people",
+  "nodes": [
+    {
+      "name": "region",
+      "columns": [
+        {
+          "name": "Region_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Region_name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Date",
+          "type": "TEXT"
+        },
+        {
+          "name": "Label",
+          "type": "TEXT"
+        },
+        {
+          "name": "Format",
+          "type": "TEXT"
+        },
+        {
+          "name": "Catalogue",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "Region_ID"
+      ]
+    },
+    {
+      "name": "party",
+      "columns": [
+        {
+          "name": "Party_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Minister",
+          "type": "TEXT"
+        },
+        {
+          "name": "Took_office",
+          "type": "TEXT"
+        },
+        {
+          "name": "Left_office",
+          "type": "TEXT"
+        },
+        {
+          "name": "Region_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Party_name",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "Party_ID"
+      ]
+    },
+    {
+      "name": "member",
+      "columns": [
+        {
+          "name": "Member_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Member_Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Party_ID",
+          "type": "TEXT"
+        },
+        {
+          "name": "In_office",
+          "type": "TEXT"
+        }
+      ],
+      "pk": [
+        "Member_ID"
+      ]
+    },
+    {
+      "name": "party_events",
+      "columns": [
+        {
+          "name": "Event_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Event_Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Party_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Member_in_charge_ID",
+          "type": "INT"
+        }
+      ],
+      "pk": [
+        "Event_ID"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "party",
+      "to": "region",
+      "child_col": "Region_ID",
+      "parent_col": "Region_ID"
+    },
+    {
+      "from": "member",
+      "to": "party",
+      "child_col": "Party_ID",
+      "parent_col": "Party_ID"
+    },
+    {
+      "from": "party_events",
+      "to": "member",
+      "child_col": "Member_in_charge_ID",
+      "parent_col": "Member_ID"
+    },
+    {
+      "from": "party_events",
+      "to": "party",
+      "child_col": "Party_ID",
+      "parent_col": "Party_ID"
+    }
+  ],
+  "centrality": {
+    "region": 0.3333333333333333,
+    "party": 0.6666666666666666,
+    "member": 0.3333333333333333,
+    "party_events": 0.0
+  }
+}

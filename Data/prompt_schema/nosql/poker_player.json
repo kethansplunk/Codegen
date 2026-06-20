@@ -1,0 +1,89 @@
+{
+  "poker_player.Poker_Player_ID": {
+    "sample_values": [
+      "5",
+      "1",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "poker_player.Earnings": {
+    "sample_values": [
+      "142800.0",
+      "476090.0",
+      "104871.0"
+    ],
+    "inferred_type": "float"
+  },
+  "poker_player.Best_Finish": {
+    "sample_values": [
+      "3.0",
+      "1.0",
+      "2.0"
+    ],
+    "inferred_type": "float"
+  },
+  "poker_player.Final_Table_Made": {
+    "sample_values": [
+      "42.0",
+      "10.0",
+      "19.0"
+    ],
+    "inferred_type": "float"
+  },
+  "poker_player.People_ID": {
+    "sample_values": [
+      "5",
+      "1",
+      "2"
+    ],
+    "inferred_type": "integer"
+  },
+  "poker_player.Money_Rank": {
+    "sample_values": [
+      "141.0",
+      "154.0",
+      "166.0"
+    ],
+    "inferred_type": "float"
+  },
+  "people.Nationality": {
+    "sample_values": [
+      "Bulgaria",
+      "Russia"
+    ],
+    "inferred_type": "string"
+  },
+  "people.Birth_Date": {
+    "sample_values": [
+      "April 17, 1987",
+      "January 22, 1987",
+      "August 8, 1986"
+    ],
+    "inferred_type": "string"
+  },
+  "people.Name": {
+    "sample_values": [
+      "Yevgeni Sivozhelez",
+      "Aleksey Ostapenko",
+      "Semen Poltavskiy"
+    ],
+    "inferred_type": "string"
+  },
+  "people.Height": {
+    "sample_values": [
+      "194.0",
+      "196.0",
+      "187.0"
+    ],
+    "inferred_type": "float"
+  },
+  "people.People_ID": {
+    "sample_values": [
+      "5",
+      "2",
+      "6"
+    ],
+    "inferred_type": "integer"
+  }
+}

@@ -1,0 +1,183 @@
+{
+  "routes.src_apid": {
+    "sample_values": [
+      "2962",
+      "2965",
+      "2936"
+    ],
+    "inferred_type": "integer"
+  },
+  "routes.dst_ap": {
+    "sample_values": [
+      "SVX",
+      "ED",
+      "KGD"
+    ],
+    "inferred_type": "string"
+  },
+  "routes.rid": {
+    "sample_values": [
+      "83",
+      "47",
+      "53"
+    ],
+    "inferred_type": "integer"
+  },
+  "routes.airline": {
+    "sample_values": [
+      "2B",
+      "2G"
+    ],
+    "inferred_type": "string"
+  },
+  "routes.dst_apid": {
+    "sample_values": [
+      "6924",
+      "2990",
+      "2966"
+    ],
+    "inferred_type": "integer"
+  },
+  "routes.alid": {
+    "sample_values": [
+      "1654",
+      "410"
+    ],
+    "inferred_type": "integer"
+  },
+  "routes.src_ap": {
+    "sample_values": [
+      "SVX",
+      "X",
+      "ED"
+    ],
+    "inferred_type": "string"
+  },
+  "airlines.active": {
+    "sample_values": [
+      "N",
+      "Y"
+    ],
+    "inferred_type": "string"
+  },
+  "airlines.callsign": {
+    "sample_values": [
+      "ALBERTA CITYLINK",
+      "CLOUD RUNNER",
+      "DONUT"
+    ],
+    "inferred_type": "string"
+  },
+  "airlines.name": {
+    "sample_values": [
+      "223 Flight Unit State Airline",
+      "Aban Air",
+      "African Business and Transportations"
+    ],
+    "inferred_type": "string"
+  },
+  "airlines.icao": {
+    "sample_values": [
+      "AAK",
+      "AAS",
+      "AAD"
+    ],
+    "inferred_type": "string"
+  },
+  "airlines.country": {
+    "sample_values": [
+      "Ivory Coast",
+      "Spain",
+      "Gambia"
+    ],
+    "inferred_type": "string"
+  },
+  "airlines.iata": {
+    "sample_values": [
+      "Q5",
+      "AQ",
+      "Q9"
+    ],
+    "inferred_type": "string"
+  },
+  "airlines.alid": {
+    "sample_values": [
+      "34",
+      "25",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "airports.x": {
+    "sample_values": [
+      "-70.99639892578125",
+      "-117.632003784",
+      "145.789001465"
+    ],
+    "inferred_type": "float"
+  },
+  "airports.elevation": {
+    "sample_values": [
+      "108",
+      "2298",
+      "8"
+    ],
+    "inferred_type": "integer"
+  },
+  "airports.name": {
+    "sample_values": [
+      "St. Anthony Airport",
+      "\u00cdsafj\u00f6r\u00f0ur Airport",
+      "Nanaimo Airport"
+    ],
+    "inferred_type": "string"
+  },
+  "airports.country": {
+    "sample_values": [
+      "Papua New Guinea",
+      "Iceland",
+      "Greenland"
+    ],
+    "inferred_type": "string"
+  },
+  "airports.y": {
+    "sample_values": [
+      "61.37110137939453",
+      "47.990799",
+      "49.91"
+    ],
+    "inferred_type": "float"
+  },
+  "airports.icao": {
+    "sample_values": [
+      "CYCW",
+      "AYWK",
+      "BIPA"
+    ],
+    "inferred_type": "string"
+  },
+  "airports.city": {
+    "sample_values": [
+      "Narssarssuaq",
+      "Siglufjordur",
+      "Tofino"
+    ],
+    "inferred_type": "string"
+  },
+  "airports.iata": {
+    "sample_values": [
+      "YBK",
+      "YCG",
+      "YAY"
+    ],
+    "inferred_type": "string"
+  },
+  "airports.apid": {
+    "sample_values": [
+      "34",
+      "25",
+      "2"
+    ],
+    "inferred_type": "integer"
+  }
+}

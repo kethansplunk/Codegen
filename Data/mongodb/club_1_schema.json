@@ -1,0 +1,103 @@
+{
+  "db_name": "club_1",
+  "collections": {
+    "Student": {
+      "primary_key": [
+        "StuID"
+      ],
+      "columns": [
+        {
+          "name": "StuID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "LName",
+          "type": "VARCHAR(12)"
+        },
+        {
+          "name": "Fname",
+          "type": "VARCHAR(12)"
+        },
+        {
+          "name": "Age",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Sex",
+          "type": "VARCHAR(1)"
+        },
+        {
+          "name": "Major",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Advisor",
+          "type": "INTEGER"
+        },
+        {
+          "name": "city_code",
+          "type": "VARCHAR(3)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 34
+    },
+    "Club": {
+      "primary_key": [
+        "ClubID"
+      ],
+      "columns": [
+        {
+          "name": "ClubID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "ClubName",
+          "type": "VARCHAR(40)"
+        },
+        {
+          "name": "ClubDesc",
+          "type": "VARCHAR(1024)"
+        },
+        {
+          "name": "ClubLocation",
+          "type": "VARCHAR(40)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 4
+    },
+    "Member_of_club": {
+      "primary_key": [],
+      "columns": [
+        {
+          "name": "StuID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "ClubID",
+          "type": "INTEGER"
+        },
+        {
+          "name": "Position",
+          "type": "VARCHAR(40)"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Member_of_club",
+          "to": "Club",
+          "child_col": "ClubID",
+          "parent_col": "ClubID"
+        },
+        {
+          "from": "Member_of_club",
+          "to": "Student",
+          "child_col": "StuID",
+          "parent_col": "StuID"
+        }
+      ],
+      "row_count": 4
+    }
+  }
+}

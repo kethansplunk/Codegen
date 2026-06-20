@@ -1,0 +1,94 @@
+{
+  "db_name": "manufacturer",
+  "collections": {
+    "manufacturer": {
+      "primary_key": [
+        "Manufacturer_ID"
+      ],
+      "columns": [
+        {
+          "name": "Manufacturer_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Open_Year",
+          "type": "REAL"
+        },
+        {
+          "name": "Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Num_of_Factories",
+          "type": "INT"
+        },
+        {
+          "name": "Num_of_Shops",
+          "type": "INT"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 7
+    },
+    "furniture": {
+      "primary_key": [
+        "Furniture_ID"
+      ],
+      "columns": [
+        {
+          "name": "Furniture_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Name",
+          "type": "TEXT"
+        },
+        {
+          "name": "Num_of_Component",
+          "type": "INT"
+        },
+        {
+          "name": "Market_Rate",
+          "type": "REAL"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 7
+    },
+    "furniture_manufacte": {
+      "primary_key": [
+        "Manufacturer_ID",
+        "Furniture_ID"
+      ],
+      "columns": [
+        {
+          "name": "Manufacturer_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Furniture_ID",
+          "type": "INT"
+        },
+        {
+          "name": "Price_in_Dollar",
+          "type": "REAL"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "furniture_manufacte",
+          "to": "furniture",
+          "child_col": "Furniture_ID",
+          "parent_col": "Furniture_ID"
+        },
+        {
+          "from": "furniture_manufacte",
+          "to": "manufacturer",
+          "child_col": "Manufacturer_ID",
+          "parent_col": "Manufacturer_ID"
+        }
+      ],
+      "row_count": 5
+    }
+  }
+}

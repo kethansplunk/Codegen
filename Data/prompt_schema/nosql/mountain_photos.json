@@ -1,0 +1,129 @@
+{
+  "mountain.Range": {
+    "sample_values": [
+      "Aberdare Range",
+      "Kollo Massif",
+      "Arsi Mountains"
+    ],
+    "inferred_type": "string"
+  },
+  "mountain.Prominence": {
+    "sample_values": [
+      "1510.0",
+      "610.0",
+      "530.0"
+    ],
+    "inferred_type": "float"
+  },
+  "mountain.name": {
+    "sample_values": [
+      "Bada",
+      "Muggia",
+      "Mount Kinangop"
+    ],
+    "inferred_type": "string"
+  },
+  "mountain.Country": {
+    "sample_values": [
+      "Kenya",
+      "Cameroon",
+      "Morocco"
+    ],
+    "inferred_type": "string"
+  },
+  "mountain.Height": {
+    "sample_values": [
+      "4260.0",
+      "4127.0",
+      "3996.0"
+    ],
+    "inferred_type": "float"
+  },
+  "mountain.id": {
+    "sample_values": [
+      "23",
+      "15",
+      "4"
+    ],
+    "inferred_type": "integer"
+  },
+  "camera_lens.name": {
+    "sample_values": [
+      "Sigma 19mm f2.8 EX DN",
+      "Schneider Kreuznach Super Angulon 14mm f /2.0",
+      "Olympus M.Zuiko Digital ED 45mm f/1.8"
+    ],
+    "inferred_type": "string"
+  },
+  "camera_lens.brand": {
+    "sample_values": [
+      "Sigma",
+      "Panasonic",
+      "Olympus"
+    ],
+    "inferred_type": "string"
+  },
+  "camera_lens.id": {
+    "sample_values": [
+      "5",
+      "1",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "camera_lens.focal_length_mm": {
+    "sample_values": [
+      "14.0",
+      "15.0",
+      "45.0"
+    ],
+    "inferred_type": "float"
+  },
+  "camera_lens.max_aperture": {
+    "sample_values": [
+      "1.8",
+      "1.2",
+      "2.0"
+    ],
+    "inferred_type": "float"
+  },
+  "photos.camera_lens_id": {
+    "sample_values": [
+      "5",
+      "10",
+      "1"
+    ],
+    "inferred_type": "integer"
+  },
+  "photos.name": {
+    "sample_values": [
+      "deers",
+      "rabbits",
+      "river"
+    ],
+    "inferred_type": "string"
+  },
+  "photos.color": {
+    "sample_values": [
+      "Black/White",
+      "RBG"
+    ],
+    "inferred_type": "string"
+  },
+  "photos.id": {
+    "sample_values": [
+      "5",
+      "1",
+      "9"
+    ],
+    "inferred_type": "integer"
+  },
+  "photos.mountain_id": {
+    "sample_values": [
+      "10",
+      "20",
+      "12"
+    ],
+    "inferred_type": "integer"
+  }
+}

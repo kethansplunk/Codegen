@@ -1,0 +1,50 @@
+{
+  "ACCOUNTS.name": {
+    "sample_values": [
+      "Granger",
+      "Wang",
+      "Brown"
+    ],
+    "inferred_type": "string"
+  },
+  "ACCOUNTS.custid": {
+    "sample_values": [
+      "5",
+      "2",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "SAVINGS.custid": {
+    "sample_values": [
+      "5",
+      "2",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "SAVINGS.balance": {
+    "sample_values": [
+      "200000.0",
+      "230000.0",
+      "999999999.0"
+    ],
+    "inferred_type": "float"
+  },
+  "CHECKING.custid": {
+    "sample_values": [
+      "5",
+      "2",
+      "6"
+    ],
+    "inferred_type": "integer"
+  },
+  "CHECKING.balance": {
+    "sample_values": [
+      "7000.0",
+      "77.0",
+      "10000.0"
+    ],
+    "inferred_type": "float"
+  }
+}

@@ -1,0 +1,230 @@
+{
+  "db_name": "customers_and_addresses",
+  "collections": {
+    "Addresses": {
+      "primary_key": [
+        "address_id"
+      ],
+      "columns": [
+        {
+          "name": "address_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "address_content",
+          "type": "VARCHAR(80)"
+        },
+        {
+          "name": "city",
+          "type": "VARCHAR(50)"
+        },
+        {
+          "name": "zip_postcode",
+          "type": "VARCHAR(20)"
+        },
+        {
+          "name": "state_province_county",
+          "type": "VARCHAR(50)"
+        },
+        {
+          "name": "country",
+          "type": "VARCHAR(50)"
+        },
+        {
+          "name": "other_address_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 15
+    },
+    "Products": {
+      "primary_key": [
+        "product_id"
+      ],
+      "columns": [
+        {
+          "name": "product_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "product_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 3
+    },
+    "Customers": {
+      "primary_key": [
+        "customer_id"
+      ],
+      "columns": [
+        {
+          "name": "customer_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "payment_method",
+          "type": "VARCHAR(15)"
+        },
+        {
+          "name": "customer_name",
+          "type": "VARCHAR(80)"
+        },
+        {
+          "name": "date_became_customer",
+          "type": "DATETIME"
+        },
+        {
+          "name": "other_customer_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "foreign_keys": [],
+      "row_count": 15
+    },
+    "Customer_Addresses": {
+      "primary_key": [],
+      "columns": [
+        {
+          "name": "customer_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "address_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "date_address_from",
+          "type": "DATETIME"
+        },
+        {
+          "name": "address_type",
+          "type": "VARCHAR(15)"
+        },
+        {
+          "name": "date_address_to",
+          "type": "DATETIME"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Customer_Addresses",
+          "to": "Customers",
+          "child_col": "customer_id",
+          "parent_col": "customer_id"
+        },
+        {
+          "from": "Customer_Addresses",
+          "to": "Addresses",
+          "child_col": "address_id",
+          "parent_col": "address_id"
+        }
+      ],
+      "row_count": 15
+    },
+    "Customer_Contact_Channels": {
+      "primary_key": [],
+      "columns": [
+        {
+          "name": "customer_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "channel_code",
+          "type": "VARCHAR(15)"
+        },
+        {
+          "name": "active_from_date",
+          "type": "DATETIME"
+        },
+        {
+          "name": "active_to_date",
+          "type": "DATETIME"
+        },
+        {
+          "name": "contact_number",
+          "type": "VARCHAR(50)"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Customer_Contact_Channels",
+          "to": "Customers",
+          "child_col": "customer_id",
+          "parent_col": "customer_id"
+        }
+      ],
+      "row_count": 20
+    },
+    "Customer_Orders": {
+      "primary_key": [
+        "order_id"
+      ],
+      "columns": [
+        {
+          "name": "order_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "customer_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "order_status",
+          "type": "VARCHAR(15)"
+        },
+        {
+          "name": "order_date",
+          "type": "DATETIME"
+        },
+        {
+          "name": "order_details",
+          "type": "VARCHAR(255)"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Customer_Orders",
+          "to": "Customers",
+          "child_col": "customer_id",
+          "parent_col": "customer_id"
+        }
+      ],
+      "row_count": 15
+    },
+    "Order_Items": {
+      "primary_key": [],
+      "columns": [
+        {
+          "name": "order_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "product_id",
+          "type": "INTEGER"
+        },
+        {
+          "name": "order_quantity",
+          "type": "VARCHAR(15)"
+        }
+      ],
+      "foreign_keys": [
+        {
+          "from": "Order_Items",
+          "to": "Customer_Orders",
+          "child_col": "order_id",
+          "parent_col": "order_id"
+        },
+        {
+          "from": "Order_Items",
+          "to": "Products",
+          "child_col": "product_id",
+          "parent_col": "product_id"
+        }
+      ],
+      "row_count": 15
+    }
+  }
+}
