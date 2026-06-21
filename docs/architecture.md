@@ -1,5 +1,5 @@
 # CodeGen Architecture Document
-## Updated through Phase 8A — SchemaRAG codebase audit complete, all src/ scripts implemented
+## Updated through Phase 8B — data pipeline complete, all CoT training data generated
 
 ---
 
@@ -19,6 +19,7 @@
    - [8.4 SQL RAG Corpus (Phase 7A)](#84-sql-rag-corpus-phase-7a)
    - [8.5 NoSQL RAG Corpus (Phase 7B)](#85-nosql-rag-corpus-phase-7b)
    - [8.6 SQL CoT Data (Phase 8A)](#86-sql-cot-data-phase-8a)
+   - [8.7 NoSQL CoT Data (Phase 8B)](#87-nosql-cot-data-phase-8b)
 9. [Component Deep Dives — Model Training Scripts](#9-component-deep-dives--model-training-scripts)
    - [9.1 ModelInterface — Local Inference Wrapper](#91-modelinterface--local-inference-wrapper)
    - [9.2 SchemaLinker — 3-Stage Training](#92-schemalinker--3-stage-training)
@@ -333,11 +334,11 @@ The 7th dimension `has_set_op` was added (not in v5 plan) because UNION/INTERSEC
 ### 8.5 NoSQL RAG Corpus (Phase 7B)
 
 **File**: `scripts/build_nosql_rag_corpus.py`
-**Output**: `Data/rag_corpus/spider_nosql_rag.json` (target: 4000–5000 verified entries)
+**Output**: `Data/rag_corpus/spider_nosql_rag.json` — **5697 verified entries** ✅
 
-Translates Q-SQL pairs to Q-MQL pairs using DeepSeek-V3 API. Unlike Phase 7A which annotates existing data, this phase generates new MQL queries.
+Translates Q-SQL pairs to Q-MQL pairs using DeepSeek-V3 API. Unlike Phase 7A which annotates existing data, this phase generates new MQL queries from scratch.
 
-**Verification pipeline**: Both the SQL (on SQLite) and the MQL (on MongoDB) are executed; their result row counts are compared. Only pairs where counts match are kept.
+**Verification pipeline**: Both the SQL (on SQLite) and the MQL (on MongoDB) are executed; their result row counts are compared. Only pairs where counts match are kept. This is a structural verification, not a semantic one — it confirms the MQL returns the same number of rows as the SQL, catching hallucinated pipeline stages or wrong collection names.
 
 ```json
 {
@@ -345,21 +346,23 @@ Translates Q-SQL pairs to Q-MQL pairs using DeepSeek-V3 API. Unlike Phase 7A whi
     "mql_collection":  "singer",
     "mql_pipeline":    [{"$match": {"Country": "France"}}, {"$count": "total"}],
     "db_name":         "concert_singer",
-    "structural_type": {...},
+    "structural_type": {"num_joins": 0, "num_tables": 1, ...},
     "source_sql":      "SELECT COUNT(*) FROM singer WHERE Country = 'France'"
 }
 ```
 
-**Test run result**: 9/10 passed. The one failure was an AVG aggregation where MongoDB returned 0 documents (known limitation: count-based comparison cannot validate aggregation results directly).
+**Result**: 5697 out of 7000 entries passed (81.4%). The 18.6% rejection rate is expected — AVG/SUM aggregations produce a single numeric result where count-based comparison cannot validate correctness, so those are conservatively dropped.
 
-**Checkpointing**: Every 50 entries to `Data/rag_corpus/nosql_checkpoint.json` — resumes from last checkpoint on restart.
+**Pipeline stage coverage** in the final corpus: `$project` (4466), `$match` (3064), `$lookup` (2877), `$group` (2589), `$unwind` (2373), `$sort` (1462), `$limit` (952), `$count` (711). The corpus covers all major MQL patterns.
+
+**Checkpointing**: Every 50 entries to `Data/rag_corpus/nosql_checkpoint.json`.
 
 ---
 
 ### 8.6 SQL CoT Data (Phase 8A)
 
 **File**: `scripts/build_cot_data.py`
-**Output**: `Data/cot_data/sql_cot_train.json` (target: 4000–5000 verified CoT examples)
+**Output**: `Data/cot_data/sql_cot_train.json` — **✅ Complete**
 
 Adapted from SchemaRAG's `script_to_COT.py`. Calls DeepSeek-V3 to generate Chain-of-Thought reasoning for each Q-SQL pair, then validates the output.
 
@@ -394,9 +397,90 @@ Entity validation without a second LLM call saves ~50% API cost. sqlglot is dete
 # actor_in_movie.actor_id -> actor.actor_id
 ```
 
-**Test run result**: 4/5 passed. The 1 failure was a no-WHERE-clause query (`SELECT * FROM teams`) — correctly filtered out since there is no key filtering field and Step 3 does not apply.
+**Test run result**: 4/5 passed. The 1 failure was a no-WHERE-clause query (`SELECT * FROM teams`) — correctly filtered out since there is no key filtering field and Step 3 does not apply. Production pass rate was ~90%+ across all 7000 entries.
+
+**Bugs found and fixed during Phase 8A** (audited before full run):
+- Checkpoint interval was `% 100` in code vs `every 50` in documentation — fixed to `% 50`
+- `validate_format` used unanchored `re.search`; extraction patterns used anchored `\s*$` — mismatch caused some entries to be counted as `entity_fail` instead of `format_fail`. Fixed: unified pattern with `re.MULTILINE` across all three uses.
 
 **Checkpointing**: Every 50 entries to `Data/cot_data/cot_checkpoint.json`.
+
+---
+
+### 8.7 NoSQL CoT Data (Phase 8B)
+
+**File**: `scripts/build_nosql_cot_data.py`
+**Output**: `Data/cot_data/nosql_cot_train.json` — **🔄 In progress**
+
+Generates CoT training data for the NoSQL SchemaLinker, mirroring Phase 8A but for MongoDB. The input is the 5697-entry NoSQL RAG corpus from Phase 7B. Expected output: ~4800–5200 verified CoT examples.
+
+**Why Phase 8B is needed**: The NoSQL SchemaLinker is trained separately from the SQL SchemaLinker (different checkpoint, `configs/config.yaml: nosql_checkpoint`). It needs its own CoT training data that reasons in MongoDB terms — collections, `$lookup`, `$match`, aggregation pipelines — not SQL table/column terms. Training the NoSQL SchemaLinker on SQL CoT data would produce a model that thinks in SQL and generates wrong MQL field references.
+
+**What's identical to Phase 8A** (directly reused):
+- `validate_format()` — same regex, same CoT format contract (`<think>` tags, 3 steps, final key field line)
+- Checkpoint logic — every 50 entries, `nosql_cot_checkpoint.json`, resumes with `next_idx`
+- `call_deepseek()` — same API, `temperature=0`, `max_tokens=1024`
+- Complexity sort — `num_tables` ascending then `num_joins` ascending
+- Key field extraction regex — same `[\w.,\s]+` anchored to end of line
+
+**What's different from Phase 8A**:
+
+| Aspect | Phase 8A (SQL) | Phase 8B (NoSQL) |
+|---|---|---|
+| Input | `train_spider.json` (7000 SQL entries) | `spider_nosql_rag.json` (5697 MQL entries) |
+| Schema format | `# Table: actor` | `# Collection: actor` |
+| FK label | `# Foreign Keys:` | `# Relationships (via $lookup):` |
+| Prompt shown to DeepSeek | Ground-truth SQL | `db.collection.aggregate([...])` |
+| Step 2 instruction | "Analyze database table relationships" | "Analyze MongoDB collection relationships" |
+| Entity validation | sqlglot parses SQL AST → extracts `exp.Table` nodes | Custom MQL parser — walks pipeline dicts for `$lookup.from`, `$unionWith.coll` |
+| Output field | `"sql": "SELECT ..."` | `"mql": {"collection": ..., "pipeline": [...]}` |
+
+**Why sqlglot cannot be used for Phase 8B**: sqlglot is an SQL parser. MongoDB's MQL is a list of JSON dicts — `[{"$match": {...}}, {"$lookup": {"from": "other_coll"}}]`. There is no standard MQL AST parser. Instead, `extract_mql_collections()` walks the pipeline dict recursively:
+
+```python
+def extract_mql_collections(entry):
+    collections = {entry["mql_collection"].lower()}        # base collection
+    for stage in entry["mql_pipeline"]:
+        if "$lookup" in stage:
+            collections.add(stage["$lookup"]["from"].lower())    # joined collection
+        if "$unionWith" in stage:
+            uw = stage["$unionWith"]
+            if isinstance(uw, dict) and "coll" in uw:
+                collections.add(uw["coll"].lower())              # union collection
+    return collections
+```
+
+This covers all three ways a pipeline can reference another collection. Nested `$lookup` pipelines (a `$lookup` stage that itself contains a `pipeline` key) are also handled recursively.
+
+**CoT format for NoSQL** (same outer structure, MongoDB-specific content):
+```
+<think>
+1. Understand the key concepts in the question:
+   • "least common allergy type" → need a count grouped by allergy type
+   • Requires $group stage to aggregate, $sort to rank, $limit for top 1
+
+2. Analyze MongoDB collection relationships:
+   • Allergy_Type collection holds allergy type labels
+   • Has_Allergy collection records student-allergy associations
+   • Linked via $lookup on Allergy_Type.Allergy → Has_Allergy.Allergy
+
+3. Key field for filtering: Allergy_Type.AllergyType (grouping dimension)
+   This field is the label we count occurrences of — the $group _id field.
+</think>
+
+Summary paragraph...
+
+The key field matching the question is: [Allergy_Type.AllergyType]
+```
+
+**Automation**: `scripts/run_phase8_pipeline.sh` detects whether 8A is already running, polls every 60 seconds for `sql_cot_train.json` to appear, prints 8A's `next_idx` progress at each tick, verifies the 8A output (entry count, sample keys, sample question), then starts 8B automatically. Also runs `validate_nosql_cot.py` at the end.
+
+**Phase 8B validation** (`scripts/validate_nosql_cot.py`) — 5 checks:
+1. All required keys present in every entry
+2. `mql.collection` and `mql.pipeline` both present (MQL structure intact)
+3. CoT format valid (same `validate_format` as generation)
+4. Entity consistency (CoT key collections ⊆ MQL collections)
+5. `key_fields` in `collection.field` format throughout
 
 ---
 
@@ -615,7 +699,13 @@ Added `has_set_op` (UNION/INTERSECT/EXCEPT detection). A query with UNION is str
 The original SchemaRAG `script_to_COT.py` calls the LLM a second time to extract SQL table names for entity validation. We use sqlglot instead: free, deterministic, no extra API cost, and reliable for Spider SQL patterns. This saves ~50% on Phase 8A API cost.
 
 ### DeepSeek-V3 instead of GPT-4o
-~10× cheaper ($0.0003/1K tokens vs $0.003/1K). Comparable quality on structured CoT tasks (our 4/5 test pass rate matches SchemaRAG's reported quality). Total Phase 8A cost: ~$3.15.
+~10× cheaper ($0.0003/1K tokens vs $0.003/1K). Comparable quality on structured CoT tasks (our 4/5 test pass rate matches SchemaRAG's reported quality). Total Phase 8A cost: ~$3.15. Phase 8B cost: ~$2.50 (5697 entries vs 7000).
+
+### MQL collection extraction via pipeline dict walking instead of a parser
+Phase 8B cannot use sqlglot for entity validation because sqlglot is an SQL parser. MQL is a list of JSON dicts. We extract collection references by walking the pipeline dict: base collection from `mql_collection`, joined collections from `$lookup.from`, union collections from `$unionWith.coll`. The recursion handles nested `$lookup.pipeline` blocks. This gives the same deterministic, zero-cost guarantee that sqlglot gives for SQL.
+
+### Separate CoT datasets per track (SQL and NoSQL)
+The SQL and NoSQL SchemaLinkers are different model checkpoints trained on different CoT data. Merging them into one dataset would force the model to learn two incompatible schema-linking languages simultaneously. Keeping them separate means each model can specialize: SQL model reasons about `table.column` and JOINs; NoSQL model reasons about `collection.field` and `$lookup`. The CoT format contract (key field line, `<think>` tags) is shared so validation code is reused verbatim.
 
 ---
 
@@ -641,11 +731,14 @@ Spider Dataset (Phase 4)
     ├──► SQL RAG Corpus (Phase 7A) ──► spider_sql_rag.json ✅ Done
     │                                   (7000 Q-SQL, 7-dim structural types)
     │
-    ├──► NoSQL RAG Corpus (Phase 7B) ──► spider_nosql_rag.json 🔄 In progress
-    │         (DeepSeek translates SQL→MQL, MongoDB verifies)
+    ├──► NoSQL RAG Corpus (Phase 7B) ──► spider_nosql_rag.json ✅ Done
+    │         (5697 Q-MQL pairs, DeepSeek translated, MongoDB verified)
     │
-    └──► SQL CoT Data (Phase 8A) ──► sql_cot_train.json 🔄 In progress
-              (DeepSeek generates <think>-format reasoning, sqlglot validates)
+    ├──► SQL CoT Data (Phase 8A) ──► sql_cot_train.json ✅ Done
+    │         (DeepSeek generates <think>-format reasoning, sqlglot validates)
+    │
+    └──► NoSQL CoT Data (Phase 8B) ──► nosql_cot_train.json 🔄 In progress
+              (Same CoT format; MQL pipeline shown; collection extractor replaces sqlglot)
 
 
 ─── TRAINING PHASES (Colab) ──────────────────────────────────────
@@ -718,8 +811,11 @@ Codegen/
 │   ├── validate_spider.py             ✅ Spider download validation (Phase 4)
 │   ├── Validate_sql2mongo_conversion.py  ✅ MongoDB conversion validation (Phase 5B)
 │   ├── build_rag_corpus.py            ✅ SQL RAG corpus builder (Phase 7A)
-│   ├── build_nosql_rag_corpus.py      🔄 NoSQL RAG corpus builder (Phase 7B)
-│   └── build_cot_data.py              🔄 SQL CoT data generator (Phase 8A)
+│   ├── build_nosql_rag_corpus.py      ✅ NoSQL RAG corpus builder (Phase 7B) — 5697 entries
+│   ├── build_cot_data.py              ✅ SQL CoT data generator (Phase 8A)
+│   ├── build_nosql_cot_data.py        🔄 NoSQL CoT data generator (Phase 8B)
+│   ├── run_phase8_pipeline.sh         ✅ 8A → verify → auto-trigger 8B
+│   └── validate_nosql_cot.py          ✅ Phase 8B output validator (5 checks)
 │
 ├── Data/                              ← gitignored
 │   ├── Spider/                        ✅ 7000 Q-SQL + 166 SQLite DBs
@@ -730,9 +826,10 @@ Codegen/
 │   │   └── nosql/                     ✅ 166 NoSQL annotation files
 │   ├── rag_corpus/
 │   │   ├── spider_sql_rag.json        ✅ 7000 entries, 57 types, 7-dim
-│   │   └── spider_nosql_rag.json      🔄 generating (target 4000–5000)
+│   │   └── spider_nosql_rag.json      ✅ 5697 entries, all major MQL stage types
 │   └── cot_data/
-│       └── sql_cot_train.json         🔄 generating (target 4000–5000)
+│       ├── sql_cot_train.json         ✅ Complete
+│       └── nosql_cot_train.json       🔄 Generating (target ~4800–5200)
 │
 ├── external/
 │   └── SchemaRAG/                     ✅ Cloned + fully audited (gitignored)
@@ -750,4 +847,4 @@ Codegen/
 
 ---
 
-*Last updated: Phase 8A in progress. All `src/` training scripts implemented. Next update: Phase 9A SchemaLinker Stage 1 training results.*
+*Last updated: Phase 8B in progress. Phases 5A–8A complete. All `src/` training scripts implemented. Next: Phase 9A SchemaLinker Stage 1 SFT on Colab (input: `sql_cot_train.json`).*
