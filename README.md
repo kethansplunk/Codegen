@@ -31,9 +31,9 @@ Given a natural language question and a database, the system produces the correc
 | 5B | MongoDB converter — all 166 databases converted and verified | ✅ Done |
 | 6 | PromptSchema — BM25S column annotations for SQL and NoSQL | ✅ Done |
 | 7A | SQL RAG corpus — 7000 Q-SQL pairs with 57 structural types (7-dim) | ✅ Done |
-| 7B | NoSQL RAG corpus — Q-MQL pair generation via DeepSeek API | 🔄 In progress |
-| 8A | SQL CoT data — adapted from SchemaRAG's script_to_COT.py | 🔄 In progress |
-| 8B | NoSQL CoT data | ⏳ Blocked on 7B |
+| 7B | NoSQL RAG corpus — 5697 Q-MQL pairs verified against MongoDB | ✅ Done |
+| 8A | SQL CoT data — ~6000+ CoT examples generated and validated | ✅ Done |
+| 8B | NoSQL CoT data — MQL CoT generation via DeepSeek API | 🔄 In progress |
 | 9–11 | SchemaLinker training (SQL + NoSQL, all 3 stages) | ⏳ Pending — scripts ready |
 | 12 | SAR training (SQL + NoSQL) | ⏳ Pending — scripts ready |
 | 13–20 | ChromaDB, Generator, POSG, eval, demo | ⏳ Pending |
@@ -55,6 +55,15 @@ python scripts/build_nosql_rag_corpus.py
 
 # Phase 8A — build SQL CoT training data (runs ~35–45 min, checkpoints every 50)
 python scripts/build_cot_data.py
+
+# Phase 8B — build NoSQL CoT training data (runs ~25–35 min, checkpoints every 50)
+python scripts/build_nosql_cot_data.py
+
+# Run 8A then trigger 8B automatically (safe to run while 8A is in progress)
+bash scripts/run_phase8_pipeline.sh
+
+# Validate Phase 8B output
+python scripts/validate_nosql_cot.py
 ```
 
 ## Training scripts (run on Colab)
@@ -109,14 +118,17 @@ scripts/
   build_rag_corpus.py                   SQL RAG corpus builder (Phase 7A)
   build_nosql_rag_corpus.py             NoSQL RAG corpus builder (Phase 7B)
   build_cot_data.py                     SQL CoT data generator (Phase 8A)
+  build_nosql_cot_data.py               NoSQL CoT data generator (Phase 8B)
+  run_phase8_pipeline.sh                Runs 8A → verifies → triggers 8B automatically
+  validate_nosql_cot.py                 Phase 8B output validation (5 checks)
 
 Data/
   Spider/                 7000 Q-SQL pairs + 166 SQLite databases
   fk_graphs/              FK graphs for all 166 databases
   mongodb/                MongoDB schema cache
   prompt_schema/          BM25S column annotations (sql/ + nosql/)
-  rag_corpus/             SQL corpus (done) + NoSQL corpus (in progress)
-  cot_data/               SQL CoT data (in progress)
+  rag_corpus/             SQL corpus (done) + NoSQL corpus (done)
+  cot_data/               SQL CoT data (done) + NoSQL CoT data (in progress)
 
 external/
   SchemaRAG/              Reference implementation — all scripts audited and adapted
