@@ -158,7 +158,7 @@ def main():
         warmup_ratio=0.1,
         lr_scheduler_type="cosine",
         logging_steps=10,
-        evaluation_strategy="steps",
+        eval_strategy="steps",
         eval_steps=200,
         save_strategy="steps",
         save_steps=200,
