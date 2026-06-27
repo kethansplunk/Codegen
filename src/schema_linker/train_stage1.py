@@ -8,18 +8,22 @@ Adapted from SchemaRAG train_SchemaLinker_CoT_peft.py:
 - Removed hardcoded /path/to/ paths.
 - modelscope → transformers.
 - LoRA r raised to 64 (matches SchemaRAG MTL config, better for complex reasoning).
+- save_strategy="steps" (every 200 steps ≈ every 20 min) so Colab disconnects
+  lose at most 20 min of work; auto-resumes from latest checkpoint on restart.
 
-Run on Colab T4 (16GB):
+Run on Colab T4 (16GB) — point --out at Google Drive for persistence:
     python -m src.schema_linker.train_stage1 \
         --data  Data/cot_data/sql_cot_train.json \
-        --model Qwen/Qwen2.5-7B \
-        --out   models/schema_linker_cot
+        --model Qwen/Qwen3-8B \
+        --out   /content/drive/MyDrive/codegen/checkpoints/sl_sql_stage1
 """
 
 from __future__ import annotations
 
 import argparse
+import glob
 import json
+import os
 import random
 
 import torch
@@ -102,7 +106,7 @@ def split_dataset(data: list, train_ratio: float = 0.9, seed: int = 42):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--data",  required=True, help="Path to sql_cot_train.json")
-    parser.add_argument("--model", default="Qwen/Qwen2.5-7B", help="Base model name or path")
+    parser.add_argument("--model", default="Qwen/Qwen3-8B", help="Base model name or path")
     parser.add_argument("--out",   default="models/schema_linker_cot", help="Output directory")
     parser.add_argument("--epochs", type=int, default=3)
     parser.add_argument("--max_len", type=int, default=2048)
@@ -136,13 +140,17 @@ def main():
     train_ds = CoTDataset(train_data, tokenizer, args.max_len)
     val_ds   = CoTDataset(val_data,   tokenizer, args.max_len)
 
+    # ~380 optimizer steps per epoch (6073 examples / batch 4 / accum 4).
+    # Save and eval every 200 steps ≈ every 20 min on T4 — limits work lost
+    # if Colab disconnects to at most one 20-min window.
+    # Early stopping patience=4 ≈ 800 steps ≈ 2 epochs of no improvement.
     training_args = TrainingArguments(
         output_dir=args.out,
-        overwrite_output_dir=True,
+        overwrite_output_dir=False,       # keep existing checkpoints for resume
         num_train_epochs=args.epochs,
         per_device_train_batch_size=4,
         per_device_eval_batch_size=4,
-        gradient_accumulation_steps=4,   # effective batch = 16
+        gradient_accumulation_steps=4,    # effective batch = 16
         learning_rate=2e-4,
         weight_decay=0.01,
         max_grad_norm=1.0,
@@ -150,14 +158,26 @@ def main():
         warmup_ratio=0.1,
         lr_scheduler_type="cosine",
         logging_steps=10,
-        evaluation_strategy="epoch",
-        save_strategy="epoch",
-        save_total_limit=2,
+        evaluation_strategy="steps",
+        eval_steps=200,
+        save_strategy="steps",
+        save_steps=200,
+        save_total_limit=3,               # keep last 3 checkpoints on Drive
         metric_for_best_model="eval_loss",
         load_best_model_at_end=True,
         greater_is_better=False,
         label_names=["labels"],
     )
+
+    # Auto-resume from latest checkpoint if output dir already has checkpoints.
+    # On first run: no checkpoints → trains from scratch.
+    # After Colab disconnect: reconnect, re-run same command → resumes automatically.
+    existing = sorted(glob.glob(os.path.join(args.out, "checkpoint-*")))
+    resume_from = existing[-1] if existing else None
+    if resume_from:
+        print(f"Resuming from checkpoint: {resume_from}")
+    else:
+        print("No checkpoint found — training from scratch.")
 
     trainer = Trainer(
         model=model,
@@ -165,9 +185,9 @@ def main():
         train_dataset=train_ds,
         eval_dataset=val_ds,
         data_collator=DataCollatorForLanguageModeling(tokenizer, mlm=False),
-        callbacks=[EarlyStoppingCallback(early_stopping_patience=2)],
+        callbacks=[EarlyStoppingCallback(early_stopping_patience=4)],
     )
-    trainer.train()
+    trainer.train(resume_from_checkpoint=resume_from)
 
     model.save_pretrained(args.out)
     tokenizer.save_pretrained(args.out)

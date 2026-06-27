@@ -17,7 +17,7 @@ prompt_schema:
   top_k_values: 3
 
 schema_linker:
-  base_model: Qwen/Qwen2.5-7B
+  base_model: Qwen/Qwen3-8B
   sql_checkpoint: models/schema_linker_sql/
   nosql_checkpoint: models/schema_linker_nosql/
   self_consistency_k: 5        # k=5 for eval, k=1 for demo
