@@ -39,7 +39,7 @@ User Natural Language Question
     ┌───────▼────────┐
     │  Shared Core   │
     │ PromptSchema   │  ← BM25S build-time (Phase 6) + query-time (Phase 13)
-    │ SchemaLinker   │  ← Qwen-7B, 3-stage: CoT SFT → MTL → GRPO (Phases 9–11)
+    │ SchemaLinker   │  ← Qwen3-8B, 3-stage: CoT SFT → MTL → GRPO (Phases 9–11)
     │     SAR        │  ← BGE-large + SchemaAwareModel (Phase 12)
     │  Generator     │  ← Qwen2.5-Coder-7B fine-tuned (Phase 14)
     │     POSG       │  ← Pareto-optimal: executability + schema conformity + AST distance (Phase 15)
@@ -71,9 +71,9 @@ This is deliberate — the TEND paper shows direct generation outperforms cascad
 |---|---|---|
 | Data prep, FK graphs, BM25S, MongoDB conversion | Mac M1 | No GPU needed |
 | CoT generation + MQL translation (API calls) | Mac M1 | Network I/O, no GPU |
-| SchemaLinker Stage 1 SFT | Colab T4 (free) | 16GB fits Qwen-7B with LoRA r=64 |
+| SchemaLinker Stage 1 SFT | Colab T4 (free) | 16GB fits Qwen3-8B with LoRA r=64 at bf16 |
 | SchemaLinker Stage 2 MTL | Colab T4 (free) | Same |
-| SchemaLinker Stage 3 GRPO | **Colab A100 (Pro)** | G=8 samples × Qwen-7B ≈ 28GB min |
+| SchemaLinker Stage 3 GRPO | **Colab A100 (Pro)** | G=8 samples × Qwen3-8B ≈ 30GB min |
 | SAR training | Colab T4 (free) | BGE-large encoder + SchemaAwareModel |
 | Qwen2.5-Coder-7B SFT (Generator) | **Colab A100 (Pro)** | 7B + LoRA needs 24GB+ for batch |
 | Inference / pipeline testing | Mac M1 (4-bit GGUF) or Colab T4 | |
@@ -386,7 +386,9 @@ Same process as 8A but for MongoDB schemas. Blocked until Phase 7B produces `spi
 
 ### PHASE 9A — SchemaLinker Stage 1: SQL CoT SFT [🔵, Colab T4]
 
-Fine-tune Qwen-7B on `sql_cot_train.json`. Script: `src/schema_linker/train_stage1.py`.
+Fine-tune Qwen3-8B on `sql_cot_train.json`. Script: `src/schema_linker/train_stage1.py`.
+
+**Why Qwen3-8B over Qwen2.5-7B**: Qwen3 was natively trained with `<think>...</think>` tags — the exact format our CoT SFT uses. The base model already understands the reasoning format before fine-tuning starts, reducing the data needed to converge and producing cleaner CoT output.
 
 **LoRA config** (updated from v5 — r raised from 16 to 64):
 ```python
@@ -415,7 +417,7 @@ You are a Schema Linking Expert<|im_end|>
 ```bash
 python -m src.schema_linker.train_stage1 \
     --data  Data/cot_data/sql_cot_train.json \
-    --model Qwen/Qwen2.5-7B \
+    --model Qwen/Qwen3-8B \
     --out   models/schema_linker_cot
 ```
 
@@ -707,12 +709,12 @@ Error taxonomy (from SchemaRAG Figure 9):
 | Routing strategy | Session-based (Option A) | Simpler; no ambiguity; sufficient for capstone |
 | Text-to-NoSQL approach | Direct generation (SMART) | TEND paper: direct 65% EX vs cascade 44% EX — 21-point gap |
 | NoSQL dataset source | Spider SQLite → MongoDB via DeepSeek | Reuses verified 7000 Q-SQL pairs; avoids building dataset from scratch |
-| SchemaLinker base model | Qwen/Qwen2.5-7B (general) | CoT reasoning requires general intelligence, not code syntax |
+| SchemaLinker base model | Qwen/Qwen3-8B | Natively trained with &lt;think&gt; tags — matches our CoT format; better reasoning than Qwen2.5-7B |
 | Generator base model | Qwen/Qwen2.5-Coder-7B-Instruct | Best open-source SQL benchmark; Qwen-7B in paper achieves 80.4% |
 | SQL RAG parser | **sqlglot** (not sqlparse) | 0 failures on all 7000 Spider SQLs; typed AST nodes |
 | POSG AST parser | **sqlparse** | Token-tree structure suits edit distance; not used for structural type |
 | Structural type vector | **7 dimensions** (added has_set_op) | UNION/INTERSECT/EXCEPT incompatible with plain SELECT in contrastive training |
-| LoRA rank | **r=64** (not r=16 from paper) | Higher capacity; T4 still fits Qwen-7B at bf16 |
+| LoRA rank | **r=64** (not r=16 from paper) | Higher capacity; T4 still fits Qwen3-8B at bf16 (~16GB) |
 | CoT format | **`<think>` tags** (SchemaRAG updated format) | Adopted from SchemaRAG's `script_to_COT.py`; enables easier parsing |
 | CoT entity validation | **sqlglot** (not second LLM call) | Free; no extra API cost; reliable for Spider SQL patterns |
 | BM25S: build vs query time | Build-time for training; query-time for inference | Training needs pre-computed annotations; inference benefits from question-aware values |
@@ -739,7 +741,7 @@ From SchemaRAG (performance targets):
 | w/o SAR (Qwen-7B) | 72.5% | 46.7% |
 | w/o SchemaLinker (Qwen-7B) | 78.1% | 55.2% |
 
-**Our realistic target**: 80–82% Spider EX with Qwen-7B SchemaLinker + Qwen2.5-Coder-7B generator (r=64 LoRA should close the ~2pt gap from paper's r=16).
+**Our realistic target**: 81–83% Spider EX with Qwen3-8B SchemaLinker + Qwen2.5-Coder-7B generator. Qwen3-8B's native `<think>` format and stronger reasoning should match or exceed the paper's Qwen-7B baseline of 80.4%; r=64 LoRA adds further headroom.
 
 From TEND paper (NoSQL targets):
 

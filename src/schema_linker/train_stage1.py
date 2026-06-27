@@ -12,7 +12,7 @@ Adapted from SchemaRAG train_SchemaLinker_CoT_peft.py:
 Run on Colab T4 (16GB):
     python -m src.schema_linker.train_stage1 \
         --data  Data/cot_data/sql_cot_train.json \
-        --model Qwen/Qwen2.5-7B \
+        --model Qwen/Qwen3-8B \
         --out   models/schema_linker_cot
 """
 
@@ -102,7 +102,7 @@ def split_dataset(data: list, train_ratio: float = 0.9, seed: int = 42):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--data",  required=True, help="Path to sql_cot_train.json")
-    parser.add_argument("--model", default="Qwen/Qwen2.5-7B", help="Base model name or path")
+    parser.add_argument("--model", default="Qwen/Qwen3-8B", help="Base model name or path")
     parser.add_argument("--out",   default="models/schema_linker_cot", help="Output directory")
     parser.add_argument("--epochs", type=int, default=3)
     parser.add_argument("--max_len", type=int, default=2048)
