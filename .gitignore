@@ -1,6 +1,5 @@
 data/Spider
 Data/cot_data/cot_checkpoint.json
-Data/cot_data/nosql_cot_train.json
 Data/cot_data/nosql_cot_checkpoint.json
 models/
 indexes/
