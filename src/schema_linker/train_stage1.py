@@ -110,9 +110,10 @@ def main():
     parser.add_argument("--model", default="Qwen/Qwen3-8B", help="Base model name or path")
     parser.add_argument("--out",   default="models/schema_linker_cot", help="Output directory")
     parser.add_argument("--epochs", type=int, default=3)
-    parser.add_argument("--max_len", type=int, default=2048)
+    parser.add_argument("--max_len", type=int, default=1024)
     args = parser.parse_args()
 
+    os.environ.setdefault("PYTORCH_CUDA_ALLOC_CONF", "expandable_segments:True")
     torch.cuda.empty_cache()
 
     tokenizer = AutoTokenizer.from_pretrained(args.model)
@@ -132,7 +133,9 @@ def main():
         quantization_config=bnb_config,
         device_map="auto",
     )
-    model = prepare_model_for_kbit_training(model)
+    # use_gradient_checkpointing recomputes activations during backward pass
+    # instead of storing them — trades ~30% compute for ~60% activation memory saving.
+    model = prepare_model_for_kbit_training(model, use_gradient_checkpointing=True)
 
     peft_config = LoraConfig(
         task_type=TaskType.CAUSAL_LM,
@@ -152,16 +155,18 @@ def main():
     train_ds = CoTDataset(train_data, tokenizer, args.max_len)
     val_ds   = CoTDataset(val_data,   tokenizer, args.max_len)
 
-    # ~380 optimizer steps per epoch (6073 examples / batch 4 / accum 4).
-    # Save and eval every 200 steps ≈ every 20 min on T4 — limits work lost
-    # if Colab disconnects to at most one 20-min window.
-    # Early stopping patience=4 ≈ 800 steps ≈ 2 epochs of no improvement.
+    # ~1520 optimizer steps per epoch (6073 examples / batch 1 / accum 4 = 1518).
+    # batch=1 + accum=16 keeps effective batch=16 while using 4x less activation memory.
+    # gradient_checkpointing saves another ~60% activation memory at ~30% compute cost.
+    # Save and eval every 500 steps ≈ every 20-25 min on T4.
+    # Early stopping patience=4 ≈ 2000 steps ≈ ~1.3 epochs of no improvement.
     training_args = TrainingArguments(
         output_dir=args.out,
         num_train_epochs=args.epochs,
-        per_device_train_batch_size=4,
-        per_device_eval_batch_size=4,
-        gradient_accumulation_steps=4,    # effective batch = 16
+        per_device_train_batch_size=1,
+        per_device_eval_batch_size=1,
+        gradient_accumulation_steps=16,   # effective batch = 16
+        gradient_checkpointing=True,
         learning_rate=2e-4,
         weight_decay=0.01,
         max_grad_norm=1.0,
@@ -171,9 +176,9 @@ def main():
         lr_scheduler_type="cosine",
         logging_steps=10,
         eval_strategy="steps",
-        eval_steps=200,
+        eval_steps=500,
         save_strategy="steps",
-        save_steps=200,
+        save_steps=500,
         save_total_limit=3,               # keep last 3 checkpoints on Drive
         metric_for_best_model="eval_loss",
         load_best_model_at_end=True,

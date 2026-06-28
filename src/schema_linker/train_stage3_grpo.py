@@ -142,7 +142,7 @@ def main():
         quantization_config=bnb_config,
         device_map="auto",
     )
-    model = prepare_model_for_kbit_training(model)
+    model = prepare_model_for_kbit_training(model, use_gradient_checkpointing=True)
 
     peft_config = LoraConfig(
         r=64, lora_alpha=32, lora_dropout=0.05,
@@ -158,8 +158,9 @@ def main():
     grpo_config = GRPOConfig(
         output_dir=args.out,
         num_train_epochs=args.epochs,
-        per_device_train_batch_size=2,
-        gradient_accumulation_steps=4,
+        per_device_train_batch_size=1,
+        gradient_accumulation_steps=16,
+        gradient_checkpointing=True,
         learning_rate=5e-6,
         bf16=False,
         fp16=False,

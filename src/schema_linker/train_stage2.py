@@ -183,7 +183,7 @@ def main():
         quantization_config=bnb_config,
         device_map="auto",
     )
-    model = prepare_model_for_kbit_training(model)
+    model = prepare_model_for_kbit_training(model, use_gradient_checkpointing=True)
 
     peft_config = LoraConfig(
         task_type=TaskType.CAUSAL_LM,
@@ -207,9 +207,10 @@ def main():
     training_args = TrainingArguments(
         output_dir=args.out,
         num_train_epochs=args.epochs,
-        per_device_train_batch_size=2,
-        per_device_eval_batch_size=2,
-        gradient_accumulation_steps=4,
+        per_device_train_batch_size=1,
+        per_device_eval_batch_size=1,
+        gradient_accumulation_steps=16,
+        gradient_checkpointing=True,
         learning_rate=1e-5,
         weight_decay=0.01,
         max_grad_norm=1.0,
