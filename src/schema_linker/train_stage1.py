@@ -176,9 +176,9 @@ def main():
         lr_scheduler_type="cosine",
         logging_steps=10,
         eval_strategy="steps",
-        eval_steps=500,
+        eval_steps=30,
         save_strategy="steps",
-        save_steps=500,
+        save_steps=30,
         save_total_limit=3,               # keep last 3 checkpoints on Drive
         metric_for_best_model="eval_loss",
         load_best_model_at_end=True,
