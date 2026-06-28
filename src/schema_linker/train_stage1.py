@@ -158,7 +158,6 @@ def main():
     # Early stopping patience=4 ≈ 800 steps ≈ 2 epochs of no improvement.
     training_args = TrainingArguments(
         output_dir=args.out,
-        overwrite_output_dir=False,       # keep existing checkpoints for resume
         num_train_epochs=args.epochs,
         per_device_train_batch_size=4,
         per_device_eval_batch_size=4,
