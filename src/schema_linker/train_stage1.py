@@ -249,6 +249,7 @@ def main():
         warmup_ratio=0.1,
         lr_scheduler_type="cosine",
         logging_steps=10,
+        disable_tqdm=True,
         eval_strategy="steps",
         eval_steps=30,
         save_strategy="steps",
