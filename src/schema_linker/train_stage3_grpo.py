@@ -21,9 +21,9 @@ from dataclasses import dataclass
 from typing import Set
 
 import torch
-from peft import LoraConfig
+from peft import LoraConfig, prepare_model_for_kbit_training
 from torch.utils.data import Dataset
-from transformers import AutoModelForCausalLM, AutoTokenizer
+from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
 from trl import GRPOConfig, GRPOTrainer
 
 
@@ -131,9 +131,18 @@ def main():
     if tokenizer.pad_token is None:
         tokenizer.add_special_tokens({"pad_token": "<|padding|>"})
 
-    model = AutoModelForCausalLM.from_pretrained(
-        args.model, torch_dtype=torch.bfloat16, device_map="auto"
+    bnb_config = BitsAndBytesConfig(
+        load_in_4bit=True,
+        bnb_4bit_quant_type="nf4",
+        bnb_4bit_compute_dtype=torch.bfloat16,
+        bnb_4bit_use_double_quant=True,
     )
+    model = AutoModelForCausalLM.from_pretrained(
+        args.model,
+        quantization_config=bnb_config,
+        device_map="auto",
+    )
+    model = prepare_model_for_kbit_training(model)
 
     peft_config = LoraConfig(
         r=64, lora_alpha=32, lora_dropout=0.05,
@@ -152,7 +161,8 @@ def main():
         per_device_train_batch_size=2,
         gradient_accumulation_steps=4,
         learning_rate=5e-6,
-        bf16=True,
+        bf16=False,
+        fp16=False,
         logging_steps=10,
         save_steps=100,
         max_new_tokens=512,

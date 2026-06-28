@@ -179,7 +179,8 @@ def train_sar(
     device = get_device()
     os.makedirs(output_dir, exist_ok=True)
 
-    corpus = json.load(open(corpus_path))
+    with open(corpus_path, encoding="utf-8") as f:
+        corpus = json.load(f)
     print(f"Corpus: {len(corpus)} entries")
 
     flag_model = FlagModel(bge_model, use_fp16=(device != "cpu"))

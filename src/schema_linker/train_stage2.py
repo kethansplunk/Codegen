@@ -21,16 +21,19 @@ Run on Colab T4:
 from __future__ import annotations
 
 import argparse
+import glob
 import json
+import os
 import random
 
 import torch
 import torch.nn as nn
-from peft import LoraConfig, TaskType, get_peft_model
+from peft import LoraConfig, TaskType, get_peft_model, prepare_model_for_kbit_training
 from torch.utils.data import Dataset, WeightedRandomSampler
 from transformers import (
     AutoModelForCausalLM,
     AutoTokenizer,
+    BitsAndBytesConfig,
     DataCollatorForLanguageModeling,
     EarlyStoppingCallback,
     Trainer,
@@ -169,9 +172,18 @@ def main():
     if tokenizer.pad_token is None:
         tokenizer.add_special_tokens({"pad_token": "<|padding|>"})
 
-    model = AutoModelForCausalLM.from_pretrained(
-        args.model, torch_dtype=torch.bfloat16, device_map="auto"
+    bnb_config = BitsAndBytesConfig(
+        load_in_4bit=True,
+        bnb_4bit_quant_type="nf4",
+        bnb_4bit_compute_dtype=torch.bfloat16,
+        bnb_4bit_use_double_quant=True,
     )
+    model = AutoModelForCausalLM.from_pretrained(
+        args.model,
+        quantization_config=bnb_config,
+        device_map="auto",
+    )
+    model = prepare_model_for_kbit_training(model)
 
     peft_config = LoraConfig(
         task_type=TaskType.CAUSAL_LM,
@@ -194,7 +206,6 @@ def main():
 
     training_args = TrainingArguments(
         output_dir=args.out,
-        overwrite_output_dir=True,
         num_train_epochs=args.epochs,
         per_device_train_batch_size=2,
         per_device_eval_batch_size=2,
@@ -202,18 +213,28 @@ def main():
         learning_rate=1e-5,
         weight_decay=0.01,
         max_grad_norm=1.0,
-        bf16=True,
+        bf16=False,
+        fp16=False,
         warmup_ratio=0.1,
         lr_scheduler_type="cosine",
         logging_steps=10,
-        evaluation_strategy="epoch",
-        save_strategy="epoch",
+        eval_strategy="steps",
+        eval_steps=200,
+        save_strategy="steps",
+        save_steps=200,
         save_total_limit=3,
         metric_for_best_model="eval_loss",
         load_best_model_at_end=True,
         greater_is_better=False,
         label_names=["labels"],
     )
+
+    existing = sorted(glob.glob(os.path.join(args.out, "checkpoint-*")))
+    resume_from = existing[-1] if existing else None
+    if resume_from:
+        print(f"Resuming from checkpoint: {resume_from}")
+    else:
+        print("No checkpoint found — training from scratch.")
 
     trainer = MTLTrainer(
         model=model,
@@ -224,7 +245,7 @@ def main():
         callbacks=[EarlyStoppingCallback(early_stopping_patience=3)],
         w_error=0.3, w_correction=0.4, w_generation=1.0,
     )
-    trainer.train()
+    trainer.train(resume_from_checkpoint=resume_from)
 
     model.save_pretrained(args.out)
     tokenizer.save_pretrained(args.out)
