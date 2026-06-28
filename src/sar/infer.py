@@ -38,7 +38,8 @@ class SARRetriever:
         )
         self.sar_model.eval()
 
-        self.corpus = json.load(open(corpus_path))
+        with open(corpus_path, encoding="utf-8") as f:
+            self.corpus = json.load(f)
         print(f"Loaded corpus: {len(self.corpus)} entries")
 
         print("Pre-computing corpus embeddings ...")
