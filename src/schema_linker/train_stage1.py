@@ -110,7 +110,7 @@ def main():
     parser.add_argument("--model", default="Qwen/Qwen3-8B", help="Base model name or path")
     parser.add_argument("--out",   default="models/schema_linker_cot", help="Output directory")
     parser.add_argument("--epochs", type=int, default=3)
-    parser.add_argument("--max_len", type=int, default=1024)
+    parser.add_argument("--max_len", type=int, default=512)
     args = parser.parse_args()
 
     os.environ.setdefault("PYTORCH_CUDA_ALLOC_CONF", "expandable_segments:True")
@@ -163,9 +163,9 @@ def main():
     training_args = TrainingArguments(
         output_dir=args.out,
         num_train_epochs=args.epochs,
-        per_device_train_batch_size=1,
-        per_device_eval_batch_size=1,
-        gradient_accumulation_steps=16,   # effective batch = 16
+        per_device_train_batch_size=2,
+        per_device_eval_batch_size=2,
+        gradient_accumulation_steps=8,    # effective batch = 16
         gradient_checkpointing=True,
         learning_rate=2e-4,
         weight_decay=0.01,
