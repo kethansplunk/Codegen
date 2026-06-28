@@ -209,7 +209,7 @@ def main():
         model = AutoModelForCausalLM.from_pretrained(
             args.model, quantization_config=bnb_config, device_map="auto"
         )
-    model = prepare_model_for_kbit_training(model, use_gradient_checkpointing=False)
+    model = prepare_model_for_kbit_training(model, use_gradient_checkpointing=True)
 
     peft_config = LoraConfig(
         task_type=TaskType.CAUSAL_LM,
@@ -240,7 +240,8 @@ def main():
         per_device_train_batch_size=train_batch,
         per_device_eval_batch_size=train_batch,
         gradient_accumulation_steps=accum_steps,
-        gradient_checkpointing=False,
+        gradient_checkpointing=True,
+        gradient_checkpointing_kwargs={"use_reentrant": False},
         learning_rate=2e-4,
         weight_decay=0.01,
         max_grad_norm=1.0,
