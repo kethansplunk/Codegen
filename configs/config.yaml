@@ -17,10 +17,16 @@ prompt_schema:
   top_k_values: 3
 
 schema_linker:
-  base_model: Qwen/Qwen3-8B
+  # "api"   → DeepSeek API (primary, no GPU needed, set DEEPSEEK_API_KEY)
+  # "model" → trained local PEFT adapter (switch here once training is done)
+  mode: api
+  api_model: deepseek-chat
+  api_key_env: DEEPSEEK_API_KEY
+  max_retries: 3
+  base_model: Qwen/Qwen3-8B        # used when mode=model
   sql_checkpoint: models/schema_linker_sql/
   nosql_checkpoint: models/schema_linker_nosql/
-  self_consistency_k: 5        # k=5 for eval, k=1 for demo
+  self_consistency_k: 5            # k=5 for eval, k=1 for demo
 
 sar:
   encoder_model: BAAI/bge-large-en-v1.5
