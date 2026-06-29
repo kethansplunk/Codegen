@@ -3,6 +3,8 @@ Data/cot_data/cot_checkpoint.json
 Data/cot_data/nosql_cot_checkpoint.json
 models/
 indexes/
+Data/sar_emb_cache.pkl
+Data/sar_emb_cache_nosql.pkl
 .env
 __pycache__/
 *.ckpt

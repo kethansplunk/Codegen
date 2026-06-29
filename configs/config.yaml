@@ -29,9 +29,18 @@ schema_linker:
   self_consistency_k: 5            # k=5 for eval, k=1 for demo
 
 sar:
+  # "memory" → SARRetriever: re-encodes corpus at startup (~30 sec). No ChromaDB needed.
+  # "chroma" → ChromaSARRetriever: instant startup using pre-built index (Phase 13).
+  backend: chroma
   encoder_model: BAAI/bge-large-en-v1.5
-  sql_checkpoint: models/sar_sql/
-  nosql_checkpoint: models/sar_nosql/
+  sql_checkpoint: models/sar_sql/sar_model.pt
+  nosql_checkpoint: models/sar_nosql/sar_model.pt
+  sql_corpus: Data/rag_corpus/spider_sql_rag.json
+  nosql_corpus: Data/rag_corpus/spider_nosql_rag.json
+  sql_chroma_dir: indexes/chroma_sql
+  nosql_chroma_dir: indexes/chroma_nosql
+  sql_collection: sar_sql
+  nosql_collection: sar_nosql
   top_k: 3
   # SchemaAwareModel has exactly 2 fixed stages (table_column + question_table attention).
   # num_heads is the only architectural param; SQL uses 8, NoSQL uses 2 (smaller dataset).

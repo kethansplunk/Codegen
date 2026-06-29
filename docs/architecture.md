@@ -1,5 +1,5 @@
 # CodeGen Architecture Document
-## Updated through Phase 8B — data pipeline complete, all CoT training data generated
+## Updated through Phase 13 — SAR training complete, ChromaDB index building in progress
 
 ---
 
@@ -505,11 +505,43 @@ class ModelInterface:
 
 ---
 
-### 9.2 SchemaLinker — 3-Stage Training
+### 9.2 SchemaLinker — API mode (active) + 3-Stage Training (deferred)
 
 The SchemaLinker reduces "all tables and columns in the database" to "only the ones needed to answer this question." For large databases with 50+ tables, the Generator cannot reason over all of them simultaneously — schema linking is the gating step.
 
-#### Stage 1 — CoT SFT (`src/schema_linker/train_stage1.py`)
+#### Current mode — DeepSeek API (`src/schema_linker/linker.py`)
+
+Training Qwen-7B on a T4 with gradient checkpointing takes ~38 hours per track — impractical. The decision was made to use DeepSeek API as the primary SchemaLinker and defer model training. All training code is preserved and the switch is one config line.
+
+**`src/schema_linker/linker.py`** provides two interchangeable classes:
+
+```python
+class ApiSchemaLinker:
+    # Calls DeepSeek API with the same CoT prompt format used for training data
+    # Returns key_fields list; retries up to max_retries on parse failure
+    def link(self, question: str, schema: str) -> List[str]: ...
+
+class ModelSchemaLinker:
+    # Loads a trained PEFT adapter via ModelInterface
+    def link(self, question: str, schema: str) -> List[str]: ...
+
+def get_schema_linker(sl_config: dict, track: str = "sql"):
+    # Returns ApiSchemaLinker if mode="api", ModelSchemaLinker if mode="model"
+```
+
+**Switch in `configs/config.yaml`**:
+```yaml
+schema_linker:
+  mode: api          # "api" → DeepSeek API (active); "model" → trained adapter
+  api_model: deepseek-chat
+  api_key_env: DEEPSEEK_API_KEY
+  sql_checkpoint: models/schema_linker_sql/    # used when mode=model
+  nosql_checkpoint: models/schema_linker_nosql/
+```
+
+Set `DEEPSEEK_API_KEY` in a `.env` file. The DeepSeek API uses the same `<think>` CoT format that was used for training data generation — the prompt is identical so reasoning quality is consistent.
+
+#### Stage 1 — CoT SFT (`src/schema_linker/train_stage1.py`) — deferred
 
 Fine-tune Qwen-7B on `sql_cot_train.json` from Phase 8A. The model learns to reason step-by-step before declaring which schema elements are relevant.
 
@@ -523,9 +555,9 @@ LoraConfig(
 )
 ```
 
-Training: 3 epochs, effective batch 16, LR=2e-4, bf16, cosine schedule.
+Training: 3 epochs, effective batch 16, LR=2e-4, bf16, cosine schedule. Requires Colab A100 (~4 hours) or T4 with gradient checkpointing (~38 hours).
 
-#### Stage 2 — MTL (`src/schema_linker/train_stage2.py`)
+#### Stage 2 — MTL (`src/schema_linker/train_stage2.py`) — deferred
 
 Three tasks trained simultaneously:
 - **Task 0** — error detection (weight 0.3): classify whether a Stage-1 prediction is wrong
@@ -534,9 +566,7 @@ Three tasks trained simultaneously:
 
 `WeightedRandomSampler` balances task distribution proportional to inverse frequency × task weight.
 
-Error dataset construction: run Stage-1 inference on all 7000 Spider train entries → collect failures → filter with DeepSeek (only keep cases where wrong schema → wrong SQL) → target ~500–800 examples.
-
-#### Stage 3 — GRPO (`src/schema_linker/train_stage3_grpo.py`)
+#### Stage 3 — GRPO (`src/schema_linker/train_stage3_grpo.py`) — deferred
 
 Reinforcement learning where the model generates G=4 candidate schema linkings per question and receives per-token rewards:
 
@@ -550,13 +580,11 @@ reward = (
 # format_fail = -1000 (ensures output format is always valid)
 ```
 
-FN penalty is strongest because a missing required table makes correct SQL generation impossible. An extra table is ignorable by the Generator.
-
-Requires Colab A100 (Pro) — G=4 forward passes on Qwen-7B ≈ 28GB.
+FN penalty is strongest because a missing required table makes correct SQL generation impossible. Requires Colab A100 (Pro) — G=4 forward passes on Qwen-7B ≈ 28GB.
 
 #### SchemaLinker fix (`src/schema_linker/fix.py`)
 
-Applied after Stage 3 inference. Uses BGE-large-en-v1.5 cosine similarity to snap predicted links to the nearest real `table.column` pair. Corrects hallucinations like `actor.nationality → actor.country` without rerunning the model.
+Applied after inference (both API and model modes). Uses BGE-large-en-v1.5 cosine similarity to snap predicted links to the nearest real `table.column` pair. Corrects hallucinations like `actor.nationality → actor.country` without rerunning the model.
 
 #### SchemaLinker inference (`src/schema_linker/infer.py`)
 
@@ -596,14 +624,30 @@ Stage 2 — Question-schema fusion (question_table_attention):
 
 Contrastive triplet loss (margin=0.3): anchor question, positive (same `structural_type` from Phase 7A), negative (different `structural_type`). `EmbeddingCache` with pickle + md5 hash keys avoids recomputing BGE embeddings across epochs.
 
+#### SAR training results (Phase 12A/12B)
+
+Both tracks trained on Colab T4 (~2 minutes each):
+
+| Track | Corpus size | Structural types | Final loss | Model size |
+|---|---|---|---|---|
+| SQL (Phase 12A) | 7,000 entries | 57 types | 0.15 → 0.02 | 50.4 MB |
+| NoSQL (Phase 12B) | 5,697 entries | 52 types | 0.16 → 0.02 | ~50 MB |
+
+Models saved to Google Drive at `checkpoints/sar_sql/sar_model.pt` and `checkpoints/sar_nosql/sar_model.pt`.
+
 #### Inference (`src/sar/infer.py`)
 
-`SARRetriever` pre-computes corpus embeddings at load time (one BGE pass over all corpus questions). Retrieval is then a single matrix multiply:
+Two retriever backends, switchable via `sar.backend` in `configs/config.yaml`:
 
+**`SARRetriever`** (backend: `memory`) — original. Pre-computes all corpus embeddings at load time (one BGE pass, ~30 sec). Retrieval is a single matrix multiply:
 ```python
 scores  = torch.matmul(q_emb, self.corpus_embs.T).squeeze(0)  # [N]
 top_idx = torch.topk(scores, k=top_k).indices
 ```
+
+**`ChromaSARRetriever`** (backend: `chroma`, Phase 13) — instant startup. Requires `scripts/build_chroma_index.py` to have been run first. Queries a pre-built ChromaDB HNSW index on disk instead of recomputing corpus embeddings at every startup. The SAR model is still loaded at query time to encode the incoming question.
+
+**`get_sar_retriever(sar_config, track)`** — factory function. Reads `sar.backend` from config and returns the appropriate retriever.
 
 ---
 
@@ -737,23 +781,33 @@ Spider Dataset (Phase 4)
     ├──► SQL CoT Data (Phase 8A) ──► sql_cot_train.json ✅ Done
     │         (DeepSeek generates <think>-format reasoning, sqlglot validates)
     │
-    └──► NoSQL CoT Data (Phase 8B) ──► nosql_cot_train.json 🔄 In progress
+    └──► NoSQL CoT Data (Phase 8B) ──► nosql_cot_train.json ✅ Done
               (Same CoT format; MQL pipeline shown; collection extractor replaces sqlglot)
 
 
-─── TRAINING PHASES (Colab) ──────────────────────────────────────
+─── SCHEMALINKER (Phases 9–11) ────────────────────────────────────
 
-CoT Data ──► SchemaLinker Stage 1 SFT (Phase 9) ──► sl_cot checkpoint
+CoT Data ──► DeepSeek API (active, mode=api in config.yaml)
+             OR
+             SchemaLinker Stage 1 SFT (Phase 9) ──► sl_cot checkpoint  [deferred]
                     │
-             Stage 2 MTL (Phase 10) ──► sl_mtl checkpoint
+             Stage 2 MTL (Phase 10) ──► sl_mtl checkpoint               [deferred]
                     │
-             Stage 3 GRPO (Phase 11) ──► sl_final checkpoint
+             Stage 3 GRPO (Phase 11) ──► sl_final checkpoint            [deferred]
                     │
               fix.py (BGE snap) ──► corrected schema links
 
-SQL RAG Corpus ──► SAR Training (Phase 12) ──► sar checkpoint
-                        │
-                   ChromaDB Index (Phase 13)
+─── SAR TRAINING (Colab T4) ───────────────────────────────────────
+
+SQL RAG Corpus ──► SAR Training Phase 12A ──► sar_sql/sar_model.pt ✅
+NoSQL RAG Corpus ──► SAR Training Phase 12B ──► sar_nosql/sar_model.pt ✅
+
+─── CHROMADB INDEX (Phase 13) ─────────────────────────────────────
+
+sar_sql/sar_model.pt + spider_sql_rag.json
+    ──► build_chroma_index.py ──► indexes/chroma_sql/ ✅
+sar_nosql/sar_model.pt + spider_nosql_rag.json
+    ──► build_chroma_index.py ──► indexes/chroma_nosql/ 🔄
 
 ─── FINE-TUNING ────────────────────────────────────────────────
 
@@ -766,8 +820,8 @@ PromptSchema + SchemaLinker + SAR ──► Generator Fine-tuning (Phase 14)
 Question
    │
    ├─ schema_utils.py (query-time BM25S)
-   ├─ schema_linker/infer.py → fix.py
-   ├─ sar/infer.py → ChromaDB → top-3 examples
+   ├─ schema_linker/linker.py (ApiSchemaLinker or ModelSchemaLinker) → fix.py
+   ├─ sar/infer.py → ChromaSARRetriever → ChromaDB → top-3 examples
    ├─ generator/infer.py → 5 candidates
    └─ posg/posg_sql.py or posg_nosql.py → final query
 ```
@@ -786,15 +840,16 @@ Codegen/
 │   ├── schema_utils.py                ✅ BM25S query-time annotation (SchemaRAG)
 │   ├── model_interface.py             ✅ Qwen inference wrapper (SchemaRAG)
 │   ├── schema_linker/
-│   │   ├── train_stage1.py            ✅ CoT SFT — LoRA r=64, Qwen-7B
-│   │   ├── train_stage2.py            ✅ MTL — 3 tasks, WeightedRandomSampler
-│   │   ├── train_stage3_grpo.py       ✅ GRPO — TP/FP/FN reward function
+│   │   ├── linker.py                  ✅ ApiSchemaLinker + ModelSchemaLinker (switchable)
+│   │   ├── train_stage1.py            ✅ CoT SFT — LoRA r=64, Qwen-7B (deferred)
+│   │   ├── train_stage2.py            ✅ MTL — 3 tasks, WeightedRandomSampler (deferred)
+│   │   ├── train_stage3_grpo.py       ✅ GRPO — TP/FP/FN reward function (deferred)
 │   │   ├── infer.py                   ✅ Inference + retry loop (max 3)
 │   │   └── fix.py                     ✅ BGE embedding snap to real columns
 │   ├── sar/
 │   │   ├── sar_model.py               ✅ SchemaAwareModel — dual cross-attention
 │   │   ├── train.py                   ✅ Contrastive training — triplet loss
-│   │   ├── infer.py                   ✅ SARRetriever — pre-computed corpus embs
+│   │   ├── infer.py                   ✅ SARRetriever + ChromaSARRetriever + factory
 │   │   └── format_schema.py           ✅ Schema text → parsed dict
 │   ├── generator/
 │   │   ├── train.py                   ⏳ Phase 14 (stub)
@@ -813,9 +868,16 @@ Codegen/
 │   ├── build_rag_corpus.py            ✅ SQL RAG corpus builder (Phase 7A)
 │   ├── build_nosql_rag_corpus.py      ✅ NoSQL RAG corpus builder (Phase 7B) — 5697 entries
 │   ├── build_cot_data.py              ✅ SQL CoT data generator (Phase 8A)
-│   ├── build_nosql_cot_data.py        🔄 NoSQL CoT data generator (Phase 8B)
+│   ├── build_nosql_cot_data.py        ✅ NoSQL CoT data generator (Phase 8B)
 │   ├── run_phase8_pipeline.sh         ✅ 8A → verify → auto-trigger 8B
-│   └── validate_nosql_cot.py          ✅ Phase 8B output validator (5 checks)
+│   ├── validate_nosql_cot.py          ✅ Phase 8B output validator (5 checks)
+│   └── build_chroma_index.py          ✅ ChromaDB index builder — BGE+SAR encode → store (Phase 13)
+│
+├── notebooks/
+│   ├── phase9a_sl_train.ipynb         ✅ SchemaLinker SQL training on Colab (preserved, deferred)
+│   ├── phase12a_sar_sql_train.ipynb   ✅ SAR SQL training on Colab T4 (Phase 12A)
+│   ├── phase12b_sar_nosql_train.ipynb ✅ SAR NoSQL training on Colab T4 (Phase 12B)
+│   └── phase13_chroma_index.ipynb     🔄 ChromaDB index building on Colab (Phase 13)
 │
 ├── Data/                              ← gitignored
 │   ├── Spider/                        ✅ 7000 Q-SQL + 166 SQLite DBs
@@ -829,7 +891,7 @@ Codegen/
 │   │   └── spider_nosql_rag.json      ✅ 5697 entries, all major MQL stage types
 │   └── cot_data/
 │       ├── sql_cot_train.json         ✅ Complete
-│       └── nosql_cot_train.json       🔄 Generating (target ~4800–5200)
+│       └── nosql_cot_train.json       ✅ Complete
 │
 ├── external/
 │   └── SchemaRAG/                     ✅ Cloned + fully audited (gitignored)
@@ -838,7 +900,11 @@ Codegen/
 │   └── config.yaml
 │
 ├── models/                            ← gitignored
+│   ├── sar_sql/sar_model.pt           ✅ Trained Phase 12A (50.4 MB, on Drive)
+│   └── sar_nosql/sar_model.pt         ✅ Trained Phase 12B (~50 MB, on Drive)
 ├── indexes/                           ← gitignored
+│   ├── chroma_sql/                    🔄 Phase 13 (building)
+│   └── chroma_nosql/                  🔄 Phase 13 (building)
 └── docs/
     ├── architecture.md                ← this file
     ├── SchemaRAG.pdf
@@ -847,4 +913,4 @@ Codegen/
 
 ---
 
-*Last updated: Phase 8B in progress. Phases 5A–8A complete. All `src/` training scripts implemented. Next: Phase 9A SchemaLinker Stage 1 SFT on Colab (input: `sql_cot_train.json`).*
+*Last updated: Phase 13 in progress. Data pipeline (5A–8B) complete. SchemaLinker using DeepSeek API (training deferred). SAR training complete for both tracks (Phase 12A/12B). ChromaDB index build scripts ready (Phase 13). Next: Phase 14 Generator fine-tuning (Qwen2.5-Coder-7B-Instruct).*
