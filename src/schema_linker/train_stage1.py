@@ -26,6 +26,8 @@ import json
 import os
 import random
 
+import time
+
 import torch
 from peft import LoraConfig, TaskType, get_peft_model, prepare_model_for_kbit_training
 from torch.utils.data import Dataset
@@ -36,8 +38,68 @@ from transformers import (
     DataCollatorForLanguageModeling,
     EarlyStoppingCallback,
     Trainer,
+    TrainerCallback,
     TrainingArguments,
 )
+
+
+# ---------------------------------------------------------------------------
+# Status callback — prints a clear progress line every logging_steps
+# ---------------------------------------------------------------------------
+
+class StatusCallback(TrainerCallback):
+    def __init__(self):
+        self._start_time = None
+        self._step_start = None
+
+    def on_train_begin(self, args, state, control, **kwargs):
+        self._start_time = time.time()
+        print(f"\n{'='*60}")
+        print(f"Training started — {state.max_steps} total steps")
+        print(f"Checkpoint every {args.save_steps} steps → Google Drive")
+        print(f"{'='*60}\n", flush=True)
+
+    def on_step_begin(self, args, state, control, **kwargs):
+        self._step_start = time.time()
+
+    def on_log(self, args, state, control, logs=None, **kwargs):
+        if not logs:
+            return
+        step       = state.global_step
+        total      = state.max_steps or 1
+        pct        = step / total * 100
+        elapsed    = time.time() - (self._start_time or time.time())
+        eta_sec    = (elapsed / max(step, 1)) * (total - step)
+        eta_min    = eta_sec / 60
+
+        loss     = logs.get("loss", "")
+        eval_loss= logs.get("eval_loss", "")
+        lr       = logs.get("learning_rate", "")
+
+        parts = [f"[{step}/{total} | {pct:.1f}%]"]
+        if loss:      parts.append(f"loss={loss:.4f}")
+        if eval_loss: parts.append(f"eval_loss={eval_loss:.4f}")
+        if lr:        parts.append(f"lr={lr:.2e}")
+        parts.append(f"ETA={eta_min:.0f}min")
+        print("  ".join(parts), flush=True)
+
+    def on_evaluate(self, args, state, control, metrics=None, **kwargs):
+        if metrics:
+            print(f"  → Eval: loss={metrics.get('eval_loss', '?'):.4f}", flush=True)
+
+    def on_save(self, args, state, control, **kwargs):
+        print(f"  ✅ Checkpoint saved: step {state.global_step} → {args.output_dir}", flush=True)
+
+    def on_epoch_end(self, args, state, control, **kwargs):
+        elapsed = (time.time() - self._start_time) / 60
+        print(f"\n  📍 Epoch {int(state.epoch)} complete — {elapsed:.0f} min elapsed\n", flush=True)
+
+    def on_train_end(self, args, state, control, **kwargs):
+        elapsed = (time.time() - self._start_time) / 60
+        print(f"\n{'='*60}")
+        print(f"Training complete — {elapsed:.0f} min total")
+        print(f"Best eval loss: {state.best_metric}")
+        print(f"{'='*60}\n", flush=True)
 
 
 # ---------------------------------------------------------------------------
@@ -110,29 +172,47 @@ def main():
     parser.add_argument("--model", default="Qwen/Qwen3-8B", help="Base model name or path")
     parser.add_argument("--out",   default="models/schema_linker_cot", help="Output directory")
     parser.add_argument("--epochs", type=int, default=3)
-    parser.add_argument("--max_len", type=int, default=2048)
+    parser.add_argument("--max_len", type=int, default=256)
+    parser.add_argument("--gpu", choices=["t4", "a100"], default="t4",
+                        help="GPU type — controls batch size, max_len, and quantization")
     args = parser.parse_args()
 
+    os.environ.setdefault("PYTORCH_CUDA_ALLOC_CONF", "expandable_segments:True")
     torch.cuda.empty_cache()
+
+    # A100 (40GB): full bf16, no quantization needed, larger batches, full seq length.
+    # T4 (15GB):   QLoRA 4-bit + smaller batch + shorter sequences to fit in VRAM.
+    use_a100 = args.gpu == "a100"
+    if use_a100:
+        args.max_len = 1024
+        train_batch  = 8
+        accum_steps  = 2    # effective batch = 16
+    else:
+        train_batch  = 2
+        accum_steps  = 8    # effective batch = 16
 
     tokenizer = AutoTokenizer.from_pretrained(args.model)
     if tokenizer.pad_token is None:
         tokenizer.add_special_tokens({"pad_token": "<|padding|>"})
 
-    # QLoRA: 4-bit NF4 quantization keeps Qwen3-8B at ~4.5GB on T4 (vs ~16.7GB bf16).
-    # LoRA adapters remain in bf16 — training quality is unchanged vs full bf16 LoRA.
-    bnb_config = BitsAndBytesConfig(
-        load_in_4bit=True,
-        bnb_4bit_quant_type="nf4",
-        bnb_4bit_compute_dtype=torch.bfloat16,
-        bnb_4bit_use_double_quant=True,
-    )
-    model = AutoModelForCausalLM.from_pretrained(
-        args.model,
-        quantization_config=bnb_config,
-        device_map="auto",
-    )
-    model = prepare_model_for_kbit_training(model)
+    if use_a100:
+        # A100: full bf16, no quantization, no gradient checkpointing needed
+        model = AutoModelForCausalLM.from_pretrained(
+            args.model, torch_dtype=torch.bfloat16, device_map="auto"
+        )
+        model.enable_input_require_grads()
+    else:
+        # T4: QLoRA 4-bit + gradient checkpointing to fit in 15GB
+        bnb_config = BitsAndBytesConfig(
+            load_in_4bit=True,
+            bnb_4bit_quant_type="nf4",
+            bnb_4bit_compute_dtype=torch.bfloat16,
+            bnb_4bit_use_double_quant=True,
+        )
+        model = AutoModelForCausalLM.from_pretrained(
+            args.model, quantization_config=bnb_config, device_map="auto"
+        )
+        model = prepare_model_for_kbit_training(model, use_gradient_checkpointing=True)
 
     peft_config = LoraConfig(
         task_type=TaskType.CAUSAL_LM,
@@ -152,28 +232,32 @@ def main():
     train_ds = CoTDataset(train_data, tokenizer, args.max_len)
     val_ds   = CoTDataset(val_data,   tokenizer, args.max_len)
 
-    # ~380 optimizer steps per epoch (6073 examples / batch 4 / accum 4).
-    # Save and eval every 200 steps ≈ every 20 min on T4 — limits work lost
-    # if Colab disconnects to at most one 20-min window.
-    # Early stopping patience=4 ≈ 800 steps ≈ 2 epochs of no improvement.
+    # ~1520 optimizer steps per epoch (6073 examples / batch 1 / accum 4 = 1518).
+    # batch=1 + accum=16 keeps effective batch=16 while using 4x less activation memory.
+    # gradient_checkpointing saves another ~60% activation memory at ~30% compute cost.
+    # Save and eval every 500 steps ≈ every 20-25 min on T4.
+    # Early stopping patience=4 ≈ 2000 steps ≈ ~1.3 epochs of no improvement.
     training_args = TrainingArguments(
         output_dir=args.out,
         num_train_epochs=args.epochs,
-        per_device_train_batch_size=4,
-        per_device_eval_batch_size=4,
-        gradient_accumulation_steps=4,    # effective batch = 16
+        per_device_train_batch_size=train_batch,
+        per_device_eval_batch_size=train_batch,
+        gradient_accumulation_steps=accum_steps,
+        gradient_checkpointing=not use_a100,
+        gradient_checkpointing_kwargs={"use_reentrant": False} if not use_a100 else {},
         learning_rate=2e-4,
         weight_decay=0.01,
         max_grad_norm=1.0,
-        bf16=False,
+        bf16=use_a100,
         fp16=False,
         warmup_ratio=0.1,
         lr_scheduler_type="cosine",
         logging_steps=10,
+        disable_tqdm=True,
         eval_strategy="steps",
-        eval_steps=200,
+        eval_steps=30,
         save_strategy="steps",
-        save_steps=200,
+        save_steps=30,
         save_total_limit=3,               # keep last 3 checkpoints on Drive
         metric_for_best_model="eval_loss",
         load_best_model_at_end=True,
@@ -197,7 +281,7 @@ def main():
         train_dataset=train_ds,
         eval_dataset=val_ds,
         data_collator=DataCollatorForLanguageModeling(tokenizer, mlm=False),
-        callbacks=[EarlyStoppingCallback(early_stopping_patience=4)],
+        callbacks=[EarlyStoppingCallback(early_stopping_patience=4), StatusCallback()],
     )
     trainer.train(resume_from_checkpoint=resume_from)
 
