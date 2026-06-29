@@ -196,10 +196,13 @@ def main():
         tokenizer.add_special_tokens({"pad_token": "<|padding|>"})
 
     if use_a100:
+        # A100: full bf16, no quantization, no gradient checkpointing needed
         model = AutoModelForCausalLM.from_pretrained(
             args.model, torch_dtype=torch.bfloat16, device_map="auto"
         )
+        model.enable_input_require_grads()
     else:
+        # T4: QLoRA 4-bit + gradient checkpointing to fit in 15GB
         bnb_config = BitsAndBytesConfig(
             load_in_4bit=True,
             bnb_4bit_quant_type="nf4",
@@ -209,7 +212,7 @@ def main():
         model = AutoModelForCausalLM.from_pretrained(
             args.model, quantization_config=bnb_config, device_map="auto"
         )
-    model = prepare_model_for_kbit_training(model, use_gradient_checkpointing=True)
+        model = prepare_model_for_kbit_training(model, use_gradient_checkpointing=True)
 
     peft_config = LoraConfig(
         task_type=TaskType.CAUSAL_LM,
@@ -240,12 +243,12 @@ def main():
         per_device_train_batch_size=train_batch,
         per_device_eval_batch_size=train_batch,
         gradient_accumulation_steps=accum_steps,
-        gradient_checkpointing=True,
-        gradient_checkpointing_kwargs={"use_reentrant": False},
+        gradient_checkpointing=not use_a100,
+        gradient_checkpointing_kwargs={"use_reentrant": False} if not use_a100 else {},
         learning_rate=2e-4,
         weight_decay=0.01,
         max_grad_norm=1.0,
-        bf16=False,
+        bf16=use_a100,
         fp16=False,
         warmup_ratio=0.1,
         lr_scheduler_type="cosine",
