@@ -68,7 +68,7 @@ def build_chroma_index(
     # Load models
     # ------------------------------------------------------------------
     print("Loading BGE model ...")
-    flag_model = FlagModel(bge_model, use_fp16=(device != "cpu"))
+    flag_model = FlagModel(bge_model, use_fp16=(device == "cuda"))
 
     print(f"Loading SAR model from {model_path} ...")
     sar_model = SchemaAwareModel(embed_dim=embed_dim).to(device)

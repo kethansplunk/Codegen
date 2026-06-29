@@ -182,7 +182,7 @@ def train_sar(
         corpus = json.load(f)
     print(f"Corpus: {len(corpus)} entries")
 
-    flag_model = FlagModel(bge_model, use_fp16=(device != "cpu"))
+    flag_model = FlagModel(bge_model, use_fp16=(device == "cuda"))
     cache      = EmbeddingCache(cache_path)
 
     questions = [item["question"] for item in corpus]

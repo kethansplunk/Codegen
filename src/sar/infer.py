@@ -44,7 +44,7 @@ class SARRetriever:
         from FlagEmbedding import FlagModel
 
         self.device     = get_device()
-        self.flag_model = FlagModel(bge_model, use_fp16=(self.device != "cpu"))
+        self.flag_model = FlagModel(bge_model, use_fp16=(self.device == "cuda"))
 
         self.sar_model = SchemaAwareModel(embed_dim=embed_dim).to(self.device)
         self.sar_model.load_state_dict(
@@ -132,7 +132,7 @@ class ChromaSARRetriever:
         from FlagEmbedding import FlagModel
 
         self.device     = get_device()
-        self.flag_model = FlagModel(bge_model, use_fp16=(self.device != "cpu"))
+        self.flag_model = FlagModel(bge_model, use_fp16=(self.device == "cuda"))
 
         self.sar_model = SchemaAwareModel(embed_dim=embed_dim).to(self.device)
         self.sar_model.load_state_dict(
