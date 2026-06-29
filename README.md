@@ -14,12 +14,12 @@ Given a natural language question and a database, the system produces the correc
 
 ## Models
 
-| Component | Base Model |
-|---|---|
-| SchemaLinker | Qwen/Qwen3-8B |
-| SAR encoder | BAAI/bge-large-en-v1.5 + SchemaAwareModel |
-| Query Generator | Qwen/Qwen2.5-Coder-7B-Instruct |
-| CoT teacher | DeepSeek-V3 (API) |
+| Component | Base Model | Status |
+|---|---|---|
+| SchemaLinker | DeepSeek API (primary) / Qwen/Qwen3-8B (switchable) | API active |
+| SAR encoder | BAAI/bge-large-en-v1.5 + SchemaAwareModel (~16M params) | ✅ Trained |
+| Query Generator | Qwen/Qwen2.5-Coder-7B-Instruct | ⏳ Phase 14 |
+| CoT teacher | DeepSeek-V3 (API) | Used for data gen |
 
 ## Current status
 
@@ -32,11 +32,15 @@ Given a natural language question and a database, the system produces the correc
 | 6 | PromptSchema — BM25S column annotations for SQL and NoSQL | ✅ Done |
 | 7A | SQL RAG corpus — 7000 Q-SQL pairs with 57 structural types (7-dim) | ✅ Done |
 | 7B | NoSQL RAG corpus — 5697 Q-MQL pairs verified against MongoDB | ✅ Done |
-| 8A | SQL CoT data — ~6000+ CoT examples generated and validated | ✅ Done |
-| 8B | NoSQL CoT data — MQL CoT generation via DeepSeek API | 🔄 In progress |
-| 9–11 | SchemaLinker training (SQL + NoSQL, all 3 stages) | ⏳ Pending — scripts ready |
-| 12 | SAR training (SQL + NoSQL) | ⏳ Pending — scripts ready |
-| 13–20 | ChromaDB, Generator, POSG, eval, demo | ⏳ Pending |
+| 8A | SQL CoT data — 6000+ CoT examples generated and validated | ✅ Done |
+| 8B | NoSQL CoT data — 5697-entry MQL CoT dataset via DeepSeek API | ✅ Done |
+| 9A/9B | SchemaLinker SQL/NoSQL SFT | ⏸ Deferred — using DeepSeek API (switchable via config) |
+| 10A/10B | Error mining for MTL | ⏸ Deferred — linked to SchemaLinker training |
+| 11A/11B | SchemaLinker MTL + GRPO | ⏸ Deferred — linked to SchemaLinker training |
+| 12A | SAR SQL training — 7000 entries, 57 types, loss 0.15 → 0.02 | ✅ Done |
+| 12B | SAR NoSQL training — 5697 entries, 52 types, loss 0.16 → 0.02 | ✅ Done |
+| 13 | ChromaDB index building — persistent vector indexes for both tracks | 🔄 In progress |
+| 14–20 | Generator fine-tuning, POSG, eval, LangGraph demo | ⏳ Pending |
 
 ## Setup
 
@@ -66,18 +70,58 @@ bash scripts/run_phase8_pipeline.sh
 python scripts/validate_nosql_cot.py
 ```
 
+## SchemaLinker — API vs model mode
+
+SchemaLinker is switchable via `configs/config.yaml`:
+
+```yaml
+schema_linker:
+  mode: api      # "api" → DeepSeek API (active); "model" → trained PEFT adapter
+  api_model: deepseek-chat
+  api_key_env: DEEPSEEK_API_KEY
+```
+
+Set `DEEPSEEK_API_KEY` in a `.env` file at the project root. Switch `mode: model` and set `sql_checkpoint` / `nosql_checkpoint` once training is done.
+
+## SAR — ChromaDB vs in-memory mode
+
+SAR retrieval is switchable via `configs/config.yaml`:
+
+```yaml
+sar:
+  backend: chroma   # "chroma" → pre-built ChromaDB index (instant startup)
+                    # "memory" → re-encodes all questions at startup (~30 sec)
+```
+
 ## Training scripts (run on Colab)
 
 ```bash
-# SchemaLinker Stage 1 — CoT SFT
+# SchemaLinker Stage 1 — CoT SFT (deferred; using API for now)
 python -m src.schema_linker.train_stage1 \
     --data Data/cot_data/sql_cot_train.json \
     --model Qwen/Qwen3-8B --out models/schema_linker_cot
 
-# SAR training
+# SAR training — SQL (Phase 12A, complete)
 python -m src.sar.train \
     --corpus Data/rag_corpus/spider_sql_rag.json \
     --out models/sar_sql --epochs 10
+
+# SAR training — NoSQL (Phase 12B, complete)
+python -m src.sar.train \
+    --corpus Data/rag_corpus/spider_nosql_rag.json \
+    --out models/sar_nosql --epochs 10
+
+# ChromaDB index building — SQL (Phase 13, run locally or on Colab)
+python -m scripts.build_chroma_index \
+    --corpus Data/rag_corpus/spider_sql_rag.json \
+    --model  models/sar_sql/sar_model.pt \
+    --out    indexes/chroma_sql --name sar_sql
+
+# ChromaDB index building — NoSQL
+python -m scripts.build_chroma_index \
+    --corpus Data/rag_corpus/spider_nosql_rag.json \
+    --model  models/sar_nosql/sar_model.pt \
+    --out    indexes/chroma_nosql --name sar_nosql
 ```
 
 ## Project structure
@@ -91,15 +135,16 @@ src/                          reusable library code
   model_interface.py          Qwen inference wrapper (ModelInterface class)
   mongodb_converter.py        SQLite → MongoDB converter (Phase 5B)
   schema_linker/
-    train_stage1.py           CoT SFT — LoRA r=64 on Qwen-7B
-    train_stage2.py           MTL — error detection + correction + generation
-    train_stage3_grpo.py      GRPO — TP/FP/FN reward (FN penalty = -3)
+    linker.py                 ApiSchemaLinker (DeepSeek) + ModelSchemaLinker — switchable
+    train_stage1.py           CoT SFT — LoRA r=64 on Qwen-7B (deferred)
+    train_stage2.py           MTL — error detection + correction + generation (deferred)
+    train_stage3_grpo.py      GRPO — TP/FP/FN reward (FN penalty = -3) (deferred)
     infer.py                  SchemaLinker inference with retry loop
     fix.py                    BGE embedding fix — snaps hallucinated links to real columns
   sar/
     sar_model.py              SchemaAwareModel — dual cross-attention architecture
     train.py                  SAR contrastive training (triplet loss, margin=0.3)
-    infer.py                  SARRetriever — pre-computes corpus embeddings at load
+    infer.py                  SARRetriever + ChromaSARRetriever + get_sar_retriever()
     format_schema.py          Schema text parser for SAR training
   generator/
     train.py                  Qwen2.5-Coder-7B fine-tuning (Phase 14, stub)
@@ -121,6 +166,12 @@ scripts/
   build_nosql_cot_data.py               NoSQL CoT data generator (Phase 8B)
   run_phase8_pipeline.sh                Runs 8A → verifies → triggers 8B automatically
   validate_nosql_cot.py                 Phase 8B output validation (5 checks)
+  build_chroma_index.py                 ChromaDB index builder (Phase 13) — SQL + NoSQL
+
+notebooks/
+  phase12a_sar_sql_train.ipynb          SAR SQL training on Colab T4 (Phase 12A) ✅
+  phase12b_sar_nosql_train.ipynb        SAR NoSQL training on Colab T4 (Phase 12B) ✅
+  phase13_chroma_index.ipynb            ChromaDB index building on Colab (Phase 13)
 
 Data/
   Spider/                 7000 Q-SQL pairs + 166 SQLite databases
