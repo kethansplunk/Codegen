@@ -16,7 +16,7 @@ Given a natural language question and a database, the system produces the correc
 
 | Component | Base Model |
 |---|---|
-| SchemaLinker | Qwen/Qwen2.5-7B |
+| SchemaLinker | Qwen/Qwen3-8B |
 | SAR encoder | BAAI/bge-large-en-v1.5 + SchemaAwareModel |
 | Query Generator | Qwen/Qwen2.5-Coder-7B-Instruct |
 | CoT teacher | DeepSeek-V3 (API) |
@@ -72,7 +72,7 @@ python scripts/validate_nosql_cot.py
 # SchemaLinker Stage 1 — CoT SFT
 python -m src.schema_linker.train_stage1 \
     --data Data/cot_data/sql_cot_train.json \
-    --model Qwen/Qwen2.5-7B --out models/schema_linker_cot
+    --model Qwen/Qwen3-8B --out models/schema_linker_cot
 
 # SAR training
 python -m src.sar.train \
