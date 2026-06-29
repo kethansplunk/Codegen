@@ -11,8 +11,7 @@ Adapted from SchemaRAG train_SAR.py:
 Run on Colab T4:
     python -m src.sar.train \
         --corpus Data/rag_corpus/spider_sql_rag.json \
-        --cot    Data/cot_data/sql_cot_train.json \
-        --out    models/sar
+        --out    models/sar_sql
 """
 
 from __future__ import annotations
