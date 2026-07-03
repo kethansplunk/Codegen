@@ -11,6 +11,7 @@ Adapted from SchemaRAG po.py (SQL version) for MongoDB MQL:
 from __future__ import annotations
 
 from dataclasses import dataclass
+from difflib import SequenceMatcher
 from typing import Dict, List, Optional, Set, Tuple
 
 from pymongo import MongoClient
@@ -43,13 +44,20 @@ def pipeline_stage_types(pipeline: list) -> List[str]:
 
 
 def stage_similarity(p1: list, p2: list) -> float:
+    """
+    Similarity of two pipelines by their stage-type *sequences*.
+
+    Uses SequenceMatcher.ratio(), which is order- and count-sensitive
+    (2 * matched_in_order / total_stages). Set-based Jaccard was wrong
+    here: it scored [$match,$group,$sort] and [$sort,$group,$match] as
+    identical even though their execution structure differs.
+    """
     t1, t2 = pipeline_stage_types(p1), pipeline_stage_types(p2)
     if not t1 and not t2:
         return 1.0
     if not t1 or not t2:
         return 0.0
-    common = len(set(t1) & set(t2))
-    return common / max(len(set(t1) | set(t2)), 1)
+    return SequenceMatcher(None, t1, t2).ratio()
 
 
 # ---------------------------------------------------------------------------
@@ -67,6 +75,25 @@ class ParetoOptimalMQL:
         if self._client is None:
             self._client = MongoClient(self.mongo_uri)
         return self._client[self.db_name]
+
+    def close(self):
+        """Close the underlying MongoClient. Safe to call more than once."""
+        if self._client is not None:
+            self._client.close()
+            self._client = None
+
+    def __enter__(self):
+        return self
+
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        self.close()
+
+    def __del__(self):
+        # Best-effort cleanup if the caller never closed explicitly.
+        try:
+            self.close()
+        except Exception:
+            pass
 
     # --- executability ---
 

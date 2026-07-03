@@ -70,7 +70,9 @@ def fix_schema_links(
     if not real_columns or not predicted_links:
         return predicted_links
 
-    flag_model = FlagModel(model_name, use_fp16=(device != "cpu"))
+    # fp16 only on CUDA — FlagEmbedding's fp16 path is incompatible with
+    # Mac MPS (passes an unsupported dtype kwarg to BertModel on some versions).
+    flag_model = FlagModel(model_name, use_fp16=(device == "cuda"))
 
     db_embeds   = torch.tensor(flag_model.encode(real_columns),    dtype=torch.float32)
     pred_embeds = torch.tensor(flag_model.encode(predicted_links), dtype=torch.float32)

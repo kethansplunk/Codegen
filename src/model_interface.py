@@ -30,7 +30,10 @@ class ModelInterface:
         print(f"Loading model from {self.model_path} on {self.device} ...")
         self.tokenizer = AutoTokenizer.from_pretrained(self.model_path)
         if self.tokenizer.pad_token is None:
-            self.tokenizer.add_special_tokens({"pad_token": "<|padding|>"})
+            # Reuse EOS as pad rather than adding a new token — adding one grows
+            # the vocab and would require model.resize_token_embeddings, otherwise
+            # the new id indexes past the embedding matrix.
+            self.tokenizer.pad_token = self.tokenizer.eos_token
 
         dtype = torch.bfloat16 if self.device != "cpu" else torch.float32
         self.model = AutoModelForCausalLM.from_pretrained(
@@ -77,14 +80,31 @@ class ModelInterface:
         text = self.tokenizer.apply_chat_template(messages, **template_kwargs)
         inputs = self.tokenizer([text], return_tensors="pt").to(self.device)
 
+        # Decoding strategy for n candidates:
+        #   n == 1                  → greedy (deterministic)
+        #   n > 1, num_beams >= n   → beam search (caller explicitly asked)
+        #   n > 1, otherwise        → multinomial sampling (diverse candidates,
+        #                             what POSG needs — beam search returns the
+        #                             top-n near-duplicate beams, not diverse ones)
         gen_params: Dict[str, Any] = {
-            "max_new_tokens":      kwargs.get("max_new_tokens", self.max_new_tokens),
-            "num_beams":           max(num_beams, n),
+            "max_new_tokens":       kwargs.get("max_new_tokens", self.max_new_tokens),
             "num_return_sequences": n,
-            "early_stopping":      kwargs.get("early_stopping", True),
-            "temperature":         kwargs.get("temperature", 1.0),
-            "repetition_penalty":  kwargs.get("repetition_penalty", 1.1),
+            "repetition_penalty":   kwargs.get("repetition_penalty", 1.1),
         }
+        if n > 1 and num_beams >= n:
+            gen_params["do_sample"]      = False
+            gen_params["num_beams"]      = num_beams
+            gen_params["early_stopping"] = kwargs.get("early_stopping", True)
+        elif n > 1:
+            gen_params["do_sample"]   = True
+            gen_params["num_beams"]   = 1
+            gen_params["temperature"] = kwargs.get("temperature", 0.8)
+            gen_params["top_p"]       = kwargs.get("top_p", 0.95)
+        else:
+            gen_params["do_sample"] = False
+            gen_params["num_beams"] = max(num_beams, 1)
+            if num_beams > 1:
+                gen_params["early_stopping"] = kwargs.get("early_stopping", True)
 
         with torch.no_grad():
             generated_ids = self.model.generate(**inputs, **gen_params)

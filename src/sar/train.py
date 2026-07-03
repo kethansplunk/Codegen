@@ -27,7 +27,6 @@ import numpy as np
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-from sklearn.metrics.pairwise import cosine_similarity
 from torch.utils.data import DataLoader, Dataset
 from tqdm import tqdm
 
@@ -119,10 +118,9 @@ class SARDataset(Dataset):
     Anchor and positive share the same structural_type key; negative differs.
     """
 
-    def __init__(self, corpus: list, question_embeds: np.ndarray, schema_embeds: np.ndarray):
+    def __init__(self, corpus: list, question_embeds: np.ndarray):
         self.corpus          = corpus
         self.question_embeds = question_embeds
-        self.schema_embeds   = schema_embeds
 
         # Group indices by structural type
         type_to_indices: Dict[tuple, List[int]] = {}
@@ -189,11 +187,7 @@ def train_sar(
     print("Encoding questions ...")
     q_embs = encode_with_cache(questions, flag_model, cache)
 
-    # For schema embeddings we use just the question for now;
-    # the SchemaAwareModel will enrich at forward pass
-    s_embs = q_embs.copy()
-
-    dataset    = SARDataset(corpus, q_embs, s_embs)
+    dataset    = SARDataset(corpus, q_embs)
     dataloader = DataLoader(dataset, batch_size=batch_size, shuffle=True)
 
     sar_model = SchemaAwareModel(embed_dim=embed_dim).to(device)
