@@ -82,20 +82,16 @@ def build(
         embed_dim=embed_dim,
     )
 
-    # Resume from checkpoint
+    # Resume: each entry writes exactly one line, so the number of lines
+    # already in the output file is exactly the number of entries processed.
+    # Using the line count (not a separate checkpoint counter) keeps the
+    # resume point aligned with what was actually written, so an interrupted
+    # run never re-appends the entries between the last checkpoint and the crash.
     start_idx = 0
-    existing: list = []
-    ckpt_path = out_path + ".ckpt.json"
-    if os.path.exists(ckpt_path):
-        with open(ckpt_path) as f:
-            ck = json.load(f)
-        start_idx = ck.get("next_idx", 0)
-        print(f"Resuming from checkpoint at index {start_idx}")
-
     if os.path.exists(out_path):
         with open(out_path, encoding="utf-8") as f:
-            existing = f.readlines()
-        print(f"  {len(existing)} entries already written")
+            start_idx = sum(1 for _ in f)
+        print(f"Resuming: {start_idx} entries already written")
 
     with open(out_path, "a", encoding="utf-8") as fout:
         for i, entry in enumerate(cot_data):
@@ -116,15 +112,10 @@ def build(
 
             text = _format_entry(question, schema, key_fields, sar_examples, sql)
             fout.write(json.dumps({"text": text}, ensure_ascii=False) + "\n")
+            fout.flush()
 
             if (i + 1) % checkpoint_every == 0:
-                with open(ckpt_path, "w") as cf:
-                    json.dump({"next_idx": i + 1}, cf)
                 print(f"  {i + 1}/{len(cot_data)} entries written")
-
-    # Final checkpoint
-    with open(ckpt_path, "w") as cf:
-        json.dump({"next_idx": len(cot_data)}, cf)
 
     with open(out_path, encoding="utf-8") as f:
         total = sum(1 for _ in f)

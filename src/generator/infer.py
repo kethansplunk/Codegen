@@ -104,12 +104,22 @@ class GeneratorInfer:
         )
         inputs = self.tokenizer(prompt, return_tensors="pt").to(self.device)
 
-        do_sample = self.temperature > 0 and self.n_candidates > 1
+        # Greedy decoding (do_sample=False) cannot produce more than one
+        # distinct sequence — transformers raises if num_return_sequences>1
+        # without sampling. So sample whenever multiple candidates are asked
+        # for, falling back to a small temperature if the caller passed 0.
+        if self.n_candidates > 1:
+            do_sample   = True
+            temperature = self.temperature if self.temperature > 0 else 0.8
+        else:
+            do_sample   = self.temperature > 0
+            temperature = self.temperature if do_sample else None
+
         gen_kwargs = dict(
             **inputs,
             max_new_tokens=self.max_new_tokens,
             do_sample=do_sample,
-            temperature=self.temperature if do_sample else None,
+            temperature=temperature,
             num_return_sequences=self.n_candidates,
             pad_token_id=self.tokenizer.eos_token_id,
         )
