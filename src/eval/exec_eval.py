@@ -110,16 +110,18 @@ def replace_cur_year(query: str) -> str:
 
 def exec_sql(db_path: str, sql: str) -> Any:
     sql = replace_cur_year(sql)
+    conn = None
     try:
         conn = sqlite3.connect(db_path)
         conn.text_factory = lambda b: b.decode("utf-8", errors="replace")
         cursor = conn.cursor()
         cursor.execute(sql)
-        result = cursor.fetchall()
-        conn.close()
-        return result
+        return cursor.fetchall()
     except Exception:
         return None
+    finally:
+        if conn is not None:
+            conn.close()
 
 
 def has_order_by(sql: str) -> bool:

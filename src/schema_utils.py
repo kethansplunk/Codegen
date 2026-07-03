@@ -35,6 +35,7 @@ def get_schema_dict(db_path: str) -> Dict[str, Dict[str, str]]:
 
 def execute_sql(db_path: str, sql: str, fetch: Union[str, int] = "all") -> Any:
     """Execute SQL and return results."""
+    conn = None
     try:
         conn = sqlite3.connect(db_path)
         conn.text_factory = lambda b: b.decode("utf-8", errors="replace")
@@ -49,10 +50,13 @@ def execute_sql(db_path: str, sql: str, fetch: Union[str, int] = "all") -> Any:
             return random.choice(samples) if samples else []
         elif isinstance(fetch, int):
             return cursor.fetchmany(fetch)
-        conn.close()
+        return []
     except Exception as e:
         logging.error(f"execute_sql error: {e}  SQL: {sql}")
         return []
+    finally:
+        if conn is not None:
+            conn.close()
 
 
 def extract_db_samples_enriched_bm25(

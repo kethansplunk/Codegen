@@ -164,6 +164,7 @@ class ParetoOptimal:
                 return 1.0
             except Exception:
                 return 0.0
+        conn = None
         try:
             conn   = sqlite3.connect(self.db_path)
             conn.text_factory = lambda b: b.decode("utf-8", errors="replace")
@@ -174,10 +175,12 @@ class ParetoOptimal:
             if not re.search(r'\bLIMIT\b', sql_exec, re.IGNORECASE):
                 sql_exec += " LIMIT 1"
             cursor.execute(sql_exec)
-            conn.close()
             return 1.0
         except Exception:
             return 0.0
+        finally:
+            if conn is not None:
+                conn.close()
 
     # --- schema conformity ---
 
