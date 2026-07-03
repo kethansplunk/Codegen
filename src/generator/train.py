@@ -19,6 +19,7 @@ from __future__ import annotations
 
 import argparse
 import os
+import time
 
 import torch
 from datasets import load_dataset
@@ -27,12 +28,57 @@ from transformers import (
     AutoModelForCausalLM,
     AutoTokenizer,
     BitsAndBytesConfig,
+    TrainerCallback,
     TrainingArguments,
 )
 from trl import DataCollatorForCompletionOnlyLM, SFTTrainer
 
 BASE_MODEL = "Qwen/Qwen2.5-Coder-7B-Instruct"
 RESPONSE_TEMPLATE = "<|im_start|>assistant\n"
+
+
+class ProgressCallback(TrainerCallback):
+    """
+    Prints training progress at every 10% and announces each checkpoint save.
+
+    Emits:
+      [TRAIN] plan   — once, up front: total steps, steps/epoch, when ckpts save
+      [TRAIN] NN%    — at 10, 20, ... 100% with elapsed + ETA (real, measured)
+      [CKPT]  saved  — each time the Trainer writes a checkpoint
+    """
+
+    def __init__(self):
+        self._start = None
+        self._next_pct = 10
+
+    def on_train_begin(self, args, state, control, **kwargs):
+        self._start = time.time()
+        total = state.max_steps
+        epochs = args.num_train_epochs
+        steps_per_epoch = max(1, round(total / epochs))
+        print(f"[TRAIN] plan | {total} total steps | ~{steps_per_epoch} steps/epoch "
+              f"| {epochs} epochs", flush=True)
+        print(f"[TRAIN] plan | save_strategy=epoch → checkpoint 1 at ~step "
+              f"{steps_per_epoch} (end of epoch 1, ~1/{epochs} of total time)", flush=True)
+
+    def on_step_end(self, args, state, control, **kwargs):
+        total = state.max_steps
+        if not total:
+            return
+        pct = 100 * state.global_step / total
+        if pct >= self._next_pct:
+            elapsed = time.time() - self._start
+            per_step = elapsed / max(1, state.global_step)
+            eta = per_step * (total - state.global_step)
+            print(f"[TRAIN] {int(self._next_pct)}% | step {state.global_step}/{total} "
+                  f"| elapsed {elapsed/60:.1f}m | ETA {eta/60:.1f}m "
+                  f"| {per_step:.2f}s/step", flush=True)
+            self._next_pct += 10
+
+    def on_save(self, args, state, control, **kwargs):
+        elapsed = time.time() - self._start if self._start else 0.0
+        print(f"[CKPT] saved | step {state.global_step} | epoch {state.epoch:.2f} "
+              f"| elapsed {elapsed/60:.1f}m", flush=True)
 
 LORA_CONFIG = LoraConfig(
     r=64,
@@ -107,6 +153,14 @@ def train(
     dataset = load_dataset("json", data_files=data_path, split="train")
     print(f"Training examples: {len(dataset)}")
 
+    # Step math (so the plan is visible before the first step runs)
+    effective_batch = batch_size * grad_accum
+    steps_per_epoch = max(1, -(-len(dataset) // effective_batch))  # ceil div
+    total_steps     = steps_per_epoch * epochs
+    print(f"Effective batch: {effective_batch} ({batch_size} x {grad_accum} accum)")
+    print(f"Steps/epoch: {steps_per_epoch} | total steps: {total_steps} "
+          f"| checkpoint after each epoch ({epochs} checkpoints)")
+
     # Only compute loss on assistant (SQL) tokens
     collator = DataCollatorForCompletionOnlyLM(
         response_template=RESPONSE_TEMPLATE,
@@ -142,6 +196,7 @@ def train(
         dataset_text_field="text",
         max_seq_length=max_seq_length,
         tokenizer=tokenizer,
+        callbacks=[ProgressCallback()],
     )
 
     trainer.train()
