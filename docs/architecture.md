@@ -1,5 +1,5 @@
 # CodeGen Architecture Document
-## Updated through Phase 13 — SAR training complete, ChromaDB index building in progress
+## Updated through Phase 14 — SQL + NoSQL generators trained (LoRA), POSG next
 
 ---
 
@@ -24,8 +24,9 @@
    - [9.1 ModelInterface — Local Inference Wrapper](#91-modelinterface--local-inference-wrapper)
    - [9.2 SchemaLinker — 3-Stage Training](#92-schemalinker--3-stage-training)
    - [9.3 SAR — Schema-Aware Retriever](#93-sar--schema-aware-retriever)
-   - [9.4 POSG — Pareto-Optimal Generator](#94-posg--pareto-optimal-generator)
-   - [9.5 EX Evaluation Metric](#95-ex-evaluation-metric)
+   - [9.4 Generator — Query Generation (Phase 14)](#94-generator--query-generation-phase-14)
+   - [9.5 POSG — Pareto-Optimal Generator](#95-posg--pareto-optimal-generator)
+   - [9.6 EX Evaluation Metric](#96-ex-evaluation-metric)
 10. [Key Design Decisions and Why](#10-key-design-decisions-and-why)
 11. [Data Flow — End to End](#11-data-flow--end-to-end)
 12. [File and Folder Structure](#12-file-and-folder-structure)
@@ -118,7 +119,8 @@ User Natural Language Question
     │     (SARRetriever, top-k cosine)   │
     │                                    │
     │  4. Generator                      │
-    │     src/generator/infer.py (stub)  │
+    │     src/generator/infer.py         │
+    │     (GeneratorInfer, LoRA adapter) │
     │                                    │
     │  5. POSG                           │
     │     src/posg/posg_sql.py           │
@@ -651,7 +653,54 @@ top_idx = torch.topk(scores, k=top_k).indices
 
 ---
 
-### 9.4 POSG — Pareto-Optimal Generator
+### 9.4 Generator — Query Generation (Phase 14)
+
+**Files**: `src/generator/train.py`, `src/generator/infer.py`, `scripts/build_generator_training_data.py`
+**Base model**: `Qwen/Qwen2.5-Coder-7B-Instruct` (LoRA r=64)
+**Checkpoints**: `generator_sql/` (Phase 14A), `generator_nosql/` (Phase 14B)
+
+The Generator is the component that actually writes the query. It consumes the full pipeline context — enriched schema + SchemaLinker key fields + top-3 SAR examples + question — and produces SQL (14A) or a MongoDB aggregation pipeline (14B). Both tracks are separate LoRA adapters on the same base model.
+
+#### Training data (`scripts/build_generator_training_data.py`)
+
+One JSONL entry per CoT example, in Qwen instruct format. For each entry the builder queries the ChromaDB SAR index for the top-3 structurally similar past examples and embeds them in the prompt. `--track sql|nosql` switches the label and example rendering:
+
+| | SQL (14A) | NoSQL (14B) |
+|---|---|---|
+| System prompt | "expert SQL query writer" | "expert MongoDB query writer" |
+| Schema label | `# Table:` | `# Collection:` |
+| Example line | `SQL: SELECT ...` | `MQL: {"collection":..,"pipeline":[..]}` |
+| Assistant label | the SQL string | the MQL JSON dict |
+| Entries | 6748 | 5410 |
+
+Loss is computed **only on the assistant span** (the query), not the prompt — the tokenizer splits each entry at the `<|im_start|>assistant\n` marker and masks the prompt tokens with `-100`. About 10% (SQL) / 16% (NoSQL) of entries exceed the 2048 sequence length; their label is truncated and masked out (contributes no loss).
+
+#### Training (`src/generator/train.py`)
+
+Uses **plain `transformers.Trainer`** (not `trl.SFTTrainer`) — TRL's API churns and Colab installs breaking versions, so we do the prompt-masking ourselves and depend only on the stable `transformers` API. LoRA r=64 on all attention + MLP projections.
+
+| Path | Precision | Batch × accum | Seq len | Notes |
+|---|---|---|---|---|
+| A100 (`--use_a100`) | bf16 | 2 × 8 = 16 | 2048 | gradient checkpointing, SDPA attention |
+| T4 (default) | 4-bit QLoRA NF4 | 1 × 16 = 16 | 1024 | `prepare_model_for_kbit_training` |
+
+Key robustness features (all learned the hard way on Colab):
+- **`--init_from` warm-start (14B)**: merges the 14A SQL adapter into the base (`PeftModel.from_pretrained` + `merge_and_unload`), then trains a fresh LoRA on MQL. bf16/A100 only — merging can't happen on 4-bit weights.
+- **Auto-resume**: `get_last_checkpoint(output_dir)` → `trainer.train(resume_from_checkpoint=...)`, so a Colab disconnect resumes from the last epoch checkpoint on Drive instead of restarting.
+- **torchao guard neutralized**: recent peft raises on Colab's torchao 0.10.0 during LoRA injection; `_disable_peft_torchao()` stubs `is_torchao_available()` to False (we don't use torchao).
+- **`ProgressCallback`**: prints `[TRAIN] NN%` with measured ETA and `[CKPT] saved` per epoch.
+
+#### Inference (`src/generator/infer.py`)
+
+`GeneratorInfer(checkpoint_path, track=...)` loads the base + adapter via `AutoPeftModelForCausalLM` and rebuilds the exact training prompt for the given track. `generate()` returns `n_candidates` query strings — `n_candidates=5, temperature=0.8` for POSG (multi-candidate forces sampling so the candidates are diverse, not near-duplicate beams).
+
+#### Results
+
+Both smoke-tested end-to-end. SQL: `SELECT born_state FROM head GROUP BY born_state HAVING count(*) >= 3` and similar — correct columns, correct structure. NoSQL: `{"collection": "singer", "pipeline": [{"$match": {"country": "France"}}, {"$project": {"name": 1, "_id": 0}}]}` — valid pipelines, idiomatic `$project` with `_id: 0`.
+
+---
+
+### 9.5 POSG — Pareto-Optimal Generator
 
 **Files**: `src/posg/posg_sql.py`, `src/posg/posg_nosql.py`
 
@@ -685,7 +734,7 @@ No standard MQL AST parser exists. Stage-type similarity (`$match`, `$group`, `$
 
 ---
 
-### 9.5 EX Evaluation Metric
+### 9.6 EX Evaluation Metric
 
 **File**: `src/eval/exec_eval.py`
 
@@ -811,9 +860,9 @@ sar_nosql/sar_model.pt + spider_nosql_rag.json
 
 ─── FINE-TUNING ────────────────────────────────────────────────
 
-PromptSchema + SchemaLinker + SAR ──► Generator Fine-tuning (Phase 14)
-                                                │
-                                        generator checkpoint
+PromptSchema + SchemaLinker + SAR ──► Generator Fine-tuning
+   SQL   (Phase 14A) ──► generator_sql/   ✅
+   NoSQL (Phase 14B, warm-start from 14A) ──► generator_nosql/  ✅
 
 ─── INFERENCE PIPELINE ─────────────────────────────────────────
 
@@ -852,8 +901,8 @@ Codegen/
 │   │   ├── infer.py                   ✅ SARRetriever + ChromaSARRetriever + factory
 │   │   └── format_schema.py           ✅ Schema text → parsed dict
 │   ├── generator/
-│   │   ├── train.py                   ⏳ Phase 14 (stub)
-│   │   └── infer.py                   ⏳ Phase 16 (stub)
+│   │   ├── train.py                   ✅ LoRA SFT (14A/14B) — warm-start, auto-resume
+│   │   └── infer.py                   ✅ GeneratorInfer — track-aware (sql/nosql)
 │   ├── posg/
 │   │   ├── posg_sql.py                ✅ ASTProcessor + Pareto front (SQL)
 │   │   └── posg_nosql.py              ✅ Stage-type similarity + Pareto front (MQL)
@@ -913,4 +962,4 @@ Codegen/
 
 ---
 
-*Last updated: Phase 13 in progress. Data pipeline (5A–8B) complete. SchemaLinker using DeepSeek API (training deferred). SAR training complete for both tracks (Phase 12A/12B). ChromaDB index build scripts ready (Phase 13). Next: Phase 14 Generator fine-tuning (Qwen2.5-Coder-7B-Instruct).*
+*Last updated: Phase 14 complete. Data pipeline (5A–8B) done. SchemaLinker using DeepSeek API (training deferred). SAR trained both tracks (12A/12B). ChromaDB indexes built (13). Generators trained: SQL (14A, 6748 examples) and NoSQL (14B, 5410 examples, warm-started from 14A) — both LoRA on Qwen2.5-Coder-7B-Instruct, validated end-to-end. Next: Phase 15 POSG (Pareto-optimal candidate selection), then Phase 16 end-to-end pipeline.*

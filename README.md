@@ -18,7 +18,7 @@ Given a natural language question and a database, the system produces the correc
 |---|---|---|
 | SchemaLinker | DeepSeek API (primary) / Qwen/Qwen3-8B (switchable) | API active |
 | SAR encoder | BAAI/bge-large-en-v1.5 + SchemaAwareModel (~16M params) | ✅ Trained |
-| Query Generator | Qwen/Qwen2.5-Coder-7B-Instruct | 🔄 Phase 14A training |
+| Query Generator | Qwen/Qwen2.5-Coder-7B-Instruct (LoRA, SQL + NoSQL) | ✅ Both trained |
 | CoT teacher | DeepSeek-V3 (API) | Used for data gen |
 
 ## Current status
@@ -40,9 +40,10 @@ Given a natural language question and a database, the system produces the correc
 | 12A | SAR SQL training — 7000 entries, 57 types, loss 0.15 → 0.02 | ✅ Done |
 | 12B | SAR NoSQL training — 5697 entries, 52 types, loss 0.16 → 0.02 | ✅ Done |
 | 13 | ChromaDB index building — SQL + NoSQL persistent vector indexes built | ✅ Done |
-| 14A | SQL Generator — training data built (6748 entries), fine-tuning on A100 | 🔄 In progress |
-| 14B | NoSQL Generator — initializes from 14A checkpoint | ⏳ Pending |
-| 15–20 | POSG, end-to-end pipeline, eval, LangGraph demo | ⏳ Pending |
+| 14A | SQL Generator — LoRA SFT on 6748 examples, validated on A100 | ✅ Done |
+| 14B | NoSQL Generator — LoRA SFT on 5410 examples, warm-started from 14A | ✅ Done |
+| 15 | POSG — Pareto-optimal candidate selection (code ready, wiring next) | ⏳ Next |
+| 16–20 | End-to-end pipeline, eval, LangGraph demo | ⏳ Pending |
 
 ## Setup
 
@@ -127,17 +128,31 @@ python -m scripts.build_chroma_index \
 
 # Phase 14A — build SQL generator training data (local; queries ChromaDB for
 # top-3 SAR examples per entry, writes Qwen-format JSONL). ~15-20 min on MPS.
-python -m scripts.build_generator_training_data \
+python -m scripts.build_generator_training_data --track sql \
     --cot        Data/cot_data/sql_cot_train.json \
     --chroma_dir indexes/chroma_sql \
     --sar_model  models/sar_sql/sar_model.pt \
     --out        Data/generator_data/sql_generator_train.jsonl
 
 # Phase 14A — fine-tune SQL Generator (Colab A100 recommended: ~45-60 min).
-# Prints live [TRAIN] xx% progress + [CKPT] on each epoch checkpoint.
+# Prints live [TRAIN] xx% progress + [CKPT] on each epoch checkpoint; auto-resumes.
 python -m src.generator.train \
     --data Data/generator_data/sql_generator_train.jsonl \
     --out  models/generator_sql --use_a100
+
+# Phase 14B — build NoSQL generator training data (MQL labels).
+python -m scripts.build_generator_training_data --track nosql \
+    --cot        Data/cot_data/nosql_cot_train.json \
+    --chroma_dir indexes/chroma_nosql \
+    --sar_model  models/sar_nosql/sar_model.pt \
+    --out        Data/generator_data/nosql_generator_train.jsonl
+
+# Phase 14B — fine-tune NoSQL Generator, warm-started from the 14A checkpoint
+# (--init_from merges the SQL adapter into base, then trains a fresh LoRA on MQL).
+python -m src.generator.train \
+    --data      Data/generator_data/nosql_generator_train.jsonl \
+    --out       models/generator_nosql --use_a100 \
+    --init_from models/generator_sql
 ```
 
 ## Project structure
@@ -163,8 +178,8 @@ src/                          reusable library code
     infer.py                  SARRetriever + ChromaSARRetriever + get_sar_retriever()
     format_schema.py          Schema text parser for SAR training
   generator/
-    train.py                  Qwen2.5-Coder-7B LoRA SFT (Phase 14A) — T4/A100 paths, live progress
-    infer.py                  GeneratorInfer — n-candidate SQL generation for POSG
+    train.py                  Qwen2.5-Coder-7B LoRA SFT (14A/14B) — warm-start, auto-resume, live progress
+    infer.py                  GeneratorInfer — track-aware (sql/nosql) n-candidate generation for POSG
   posg/
     posg_sql.py               Pareto-optimal SQL selector (ASTProcessor + 3-dim Pareto)
     posg_nosql.py             Pareto-optimal MQL selector (stage-type similarity)
@@ -183,14 +198,15 @@ scripts/
   run_phase8_pipeline.sh                Runs 8A → verifies → triggers 8B automatically
   validate_nosql_cot.py                 Phase 8B output validation (5 checks)
   build_chroma_index.py                 ChromaDB index builder (Phase 13) — SQL + NoSQL
-  build_generator_training_data.py      SQL generator training data builder (Phase 14A)
+  build_generator_training_data.py      Generator training data builder — --track sql|nosql (14A/14B)
 
 notebooks/
   phase9a_sl_train.ipynb                SchemaLinker SQL SFT on Colab (Phase 9A, deferred)
   phase12a_sar_sql_train.ipynb          SAR SQL training on Colab T4 (Phase 12A) ✅
   phase12b_sar_nosql_train.ipynb        SAR NoSQL training on Colab T4 (Phase 12B) ✅
   phase13_chroma_index.ipynb            ChromaDB index building on Colab (Phase 13) ✅
-  phase14a_generator_sql_train.ipynb    SQL Generator fine-tuning on Colab A100 (Phase 14A)
+  phase14a_generator_sql_train.ipynb    SQL Generator fine-tuning on Colab A100 (Phase 14A) ✅
+  phase14b_generator_nosql_train.ipynb  NoSQL Generator fine-tuning on Colab A100 (Phase 14B) ✅
 
 Data/
   Spider/                 7000 Q-SQL pairs + 166 SQLite databases
@@ -199,7 +215,7 @@ Data/
   prompt_schema/          BM25S column annotations (sql/ + nosql/)
   rag_corpus/             SQL corpus (done) + NoSQL corpus (done)
   cot_data/               SQL CoT data (done) + NoSQL CoT data (done)
-  generator_data/         SQL generator training JSONL (Phase 14A, gitignored)
+  generator_data/         SQL + NoSQL generator training JSONL (14A/14B, gitignored)
 
 external/
   SchemaRAG/              Reference implementation — all scripts audited and adapted

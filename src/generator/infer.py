@@ -34,36 +34,60 @@ def _disable_peft_torchao():
         except Exception:
             pass
 
-_SYSTEM = (
-    "You are an expert SQL query writer. "
-    "Given a database schema, key fields, and similar example queries, "
-    "generate the correct SQL query for the question."
-)
+# Must match the prompts built in scripts/build_generator_training_data.py
+_SYSTEM = {
+    "sql": (
+        "You are an expert SQL query writer. "
+        "Given a database schema, key fields, and similar example queries, "
+        "generate the correct SQL query for the question."
+    ),
+    "nosql": (
+        "You are an expert MongoDB query writer. "
+        "Given a database schema, key fields, and similar example pipelines, "
+        "generate the correct MongoDB aggregation query for the question as a "
+        'JSON object: {"collection": <name>, "pipeline": [<stages>]}.'
+    ),
+}
 
 
-def _build_user_prompt(question: str, schema: str,
-                        key_fields: List[str], sar_examples: List[dict]) -> str:
+def _example_query(ex: dict, track: str) -> str:
+    """Render a retrieved SAR example's query, matching the training format."""
+    if track == "sql":
+        return f"SQL: {ex['sql']}"
+    import json
+    mql = {"collection": ex.get("mql_collection", ""),
+           "pipeline":   ex.get("mql_pipeline", [])}
+    return f"MQL: {json.dumps(mql, ensure_ascii=False)}"
+
+
+def _build_user_prompt(question: str, schema: str, key_fields: List[str],
+                       sar_examples: List[dict], track: str) -> str:
     kf_str = ", ".join(key_fields) if key_fields else "N/A"
-    ex_parts = []
-    for i, ex in enumerate(sar_examples, 1):
-        ex_parts.append(f"Example {i}:\nQ: {ex['question']}\nSQL: {ex['sql']}")
+    ex_parts = [
+        f"Example {i}:\nQ: {ex['question']}\n{_example_query(ex, track)}"
+        for i, ex in enumerate(sar_examples, 1)
+    ]
     examples_str = "\n\n".join(ex_parts) if ex_parts else "N/A"
+    verb = "SQL query" if track == "sql" else "MongoDB query"
     return (
         f"## Database Schema\n{schema}\n\n"
         f"## Key Fields\n{kf_str}\n\n"
         f"## Similar Examples\n{examples_str}\n\n"
         f"## Question\n{question}\n\n"
-        f"Generate the SQL query:"
+        f"Generate the {verb}:"
     )
 
 
 class GeneratorInfer:
     """
-    SQL Generator inference wrapper.
+    Generator inference wrapper (SQL or NoSQL).
 
     Args:
         checkpoint_path: Path to the fine-tuned LoRA adapter directory.
-        n_candidates:    Number of SQL candidates to generate (for POSG, use 5).
+        track:           "sql" (default) or "nosql" — selects the prompt format
+                         and system message, which must match how the adapter
+                         was trained.
+        n_candidates:    Number of candidates to generate (for POSG, use 5).
         temperature:     Sampling temperature (0.0 = greedy, 0.8 for diverse k>1).
         max_new_tokens:  Maximum tokens to generate.
     """
@@ -71,6 +95,7 @@ class GeneratorInfer:
     def __init__(
         self,
         checkpoint_path: str,
+        track: str = "sql",
         n_candidates: int = 1,
         temperature: float = 0.0,
         max_new_tokens: int = 512,
@@ -83,6 +108,7 @@ class GeneratorInfer:
 
         _disable_peft_torchao()   # must run before AutoPeftModelForCausalLM loads the adapter
 
+        self.track       = track
         self.device      = get_device()
         self.n_candidates = n_candidates
         self.temperature  = temperature
@@ -112,16 +138,16 @@ class GeneratorInfer:
         sar_examples: List[dict],
     ) -> List[str]:
         """
-        Generate SQL candidates.
+        Generate query candidates (SQL strings, or MQL JSON strings for nosql).
 
         Returns:
-            List of SQL strings, length == n_candidates.
+            List of query strings, length == n_candidates.
         """
         import torch
 
-        user_content = _build_user_prompt(question, schema, key_fields, sar_examples)
+        user_content = _build_user_prompt(question, schema, key_fields, sar_examples, self.track)
         messages = [
-            {"role": "system",    "content": _SYSTEM},
+            {"role": "system",    "content": _SYSTEM[self.track]},
             {"role": "user",      "content": user_content},
         ]
         prompt = self.tokenizer.apply_chat_template(
