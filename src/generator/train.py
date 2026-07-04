@@ -136,11 +136,13 @@ def train(
             torch_dtype=torch.bfloat16,
             device_map="auto",
             trust_remote_code=True,
+            attn_implementation="sdpa",   # memory-efficient attention
         )
         model.enable_input_require_grads()
+        model.config.use_cache = False    # required with gradient checkpointing
         max_seq_length = 2048
-        batch_size     = 4
-        grad_accum     = 4
+        batch_size     = 2                # 2 x 8 accum = effective batch 16
+        grad_accum     = 8
     else:
         bnb_cfg = BitsAndBytesConfig(
             load_in_4bit=True,
@@ -227,7 +229,7 @@ def train(
         warmup_ratio=0.05,
         logging_steps=10,
         save_strategy="epoch",
-        gradient_checkpointing=not use_a100,
+        gradient_checkpointing=True,   # both paths — needed to fit 7B at seq 2048
         gradient_checkpointing_kwargs={"use_reentrant": False},
         report_to="none",
         dataloader_num_workers=0,
