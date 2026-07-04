@@ -277,7 +277,18 @@ def train(
         callbacks=[ProgressCallback()],
     )
 
-    trainer.train()
+    # Auto-resume: if the output dir already has a checkpoint (e.g. Colab
+    # disconnected mid-run), continue from the latest one instead of restarting
+    # at step 0. Full state (adapter weights, optimizer, scheduler, step, RNG)
+    # is restored from the checkpoint on Drive.
+    from transformers.trainer_utils import get_last_checkpoint
+    last_ckpt = get_last_checkpoint(output_dir) if os.path.isdir(output_dir) else None
+    if last_ckpt:
+        print(f"Resuming from checkpoint: {last_ckpt}", flush=True)
+    else:
+        print("No prior checkpoint — training from step 0", flush=True)
+
+    trainer.train(resume_from_checkpoint=last_ckpt)
     trainer.save_model(output_dir)
     tokenizer.save_pretrained(output_dir)
     print(f"Generator saved to {output_dir}")
