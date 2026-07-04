@@ -9,6 +9,13 @@ Used by the end-to-end pipeline (Phase 16) and POSG (Phase 15A).
 
 from __future__ import annotations
 
+import sys
+
+# Mask Colab's old torchao (0.10.0) so peft's version guard doesn't raise when
+# loading the adapter — same reason as src/generator/train.py. We don't use
+# torchao. Must run before peft is imported (lazily, inside GeneratorInfer).
+sys.modules["torchao"] = None
+
 from typing import List
 
 _SYSTEM = (
