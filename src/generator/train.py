@@ -19,7 +19,18 @@ from __future__ import annotations
 
 import argparse
 import os
+import sys
 import time
+
+# --- Neutralize peft's torchao version guard --------------------------------
+# Colab ships torchao 0.10.0, and recent peft RAISES on any torchao < 0.16.0
+# during get_peft_model(). We don't use torchao (A100 path = bf16, T4 path =
+# bitsandbytes). Masking it as absent here — importlib.util.find_spec returns
+# None when sys.modules[name] is None — makes peft's is_torchao_available()
+# return False instead of raising, with no environment changes required. This
+# must run before `from peft import ...` below.
+sys.modules["torchao"] = None
+# ----------------------------------------------------------------------------
 
 import torch
 from datasets import load_dataset
