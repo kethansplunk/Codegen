@@ -19,6 +19,18 @@ from __future__ import annotations
 
 import argparse
 import os
+import sys
+import time
+
+# --- Neutralize peft's torchao version guard --------------------------------
+# Colab ships torchao 0.10.0, and recent peft RAISES on any torchao < 0.16.0
+# during get_peft_model(). We don't use torchao (A100 path = bf16, T4 path =
+# bitsandbytes). Masking it as absent here — importlib.util.find_spec returns
+# None when sys.modules[name] is None — makes peft's is_torchao_available()
+# return False instead of raising, with no environment changes required. This
+# must run before `from peft import ...` below.
+sys.modules["torchao"] = None
+# ----------------------------------------------------------------------------
 
 import torch
 from datasets import load_dataset
@@ -27,12 +39,64 @@ from transformers import (
     AutoModelForCausalLM,
     AutoTokenizer,
     BitsAndBytesConfig,
+    DataCollatorForSeq2Seq,
+    Trainer,
+    TrainerCallback,
     TrainingArguments,
 )
-from trl import DataCollatorForCompletionOnlyLM, SFTTrainer
+
+# NOTE: This intentionally uses plain transformers.Trainer (not trl.SFTTrainer).
+# TRL's API churns fast — recent versions removed DataCollatorForCompletionOnlyLM
+# and changed the SFTTrainer signature. transformers.Trainer is stable, and we do
+# the prompt-masking ourselves (see _tokenize below), so training works with
+# whatever transformers/peft Colab happens to install.
 
 BASE_MODEL = "Qwen/Qwen2.5-Coder-7B-Instruct"
 RESPONSE_TEMPLATE = "<|im_start|>assistant\n"
+
+
+class ProgressCallback(TrainerCallback):
+    """
+    Prints training progress at every 10% and announces each checkpoint save.
+
+    Emits:
+      [TRAIN] plan   — once, up front: total steps, steps/epoch, when ckpts save
+      [TRAIN] NN%    — at 10, 20, ... 100% with elapsed + ETA (real, measured)
+      [CKPT]  saved  — each time the Trainer writes a checkpoint
+    """
+
+    def __init__(self):
+        self._start = None
+        self._next_pct = 10
+
+    def on_train_begin(self, args, state, control, **kwargs):
+        self._start = time.time()
+        total = state.max_steps
+        epochs = args.num_train_epochs
+        steps_per_epoch = max(1, round(total / epochs))
+        print(f"[TRAIN] plan | {total} total steps | ~{steps_per_epoch} steps/epoch "
+              f"| {epochs} epochs", flush=True)
+        print(f"[TRAIN] plan | save_strategy=epoch → checkpoint 1 at ~step "
+              f"{steps_per_epoch} (end of epoch 1, ~1/{epochs} of total time)", flush=True)
+
+    def on_step_end(self, args, state, control, **kwargs):
+        total = state.max_steps
+        if not total:
+            return
+        pct = 100 * state.global_step / total
+        if pct >= self._next_pct:
+            elapsed = time.time() - self._start
+            per_step = elapsed / max(1, state.global_step)
+            eta = per_step * (total - state.global_step)
+            print(f"[TRAIN] {int(self._next_pct)}% | step {state.global_step}/{total} "
+                  f"| elapsed {elapsed/60:.1f}m | ETA {eta/60:.1f}m "
+                  f"| {per_step:.2f}s/step", flush=True)
+            self._next_pct += 10
+
+    def on_save(self, args, state, control, **kwargs):
+        elapsed = time.time() - self._start if self._start else 0.0
+        print(f"[CKPT] saved | step {state.global_step} | epoch {state.epoch:.2f} "
+              f"| elapsed {elapsed/60:.1f}m", flush=True)
 
 LORA_CONFIG = LoraConfig(
     r=64,
@@ -72,11 +136,13 @@ def train(
             torch_dtype=torch.bfloat16,
             device_map="auto",
             trust_remote_code=True,
+            attn_implementation="sdpa",   # memory-efficient attention
         )
         model.enable_input_require_grads()
+        model.config.use_cache = False    # required with gradient checkpointing
         max_seq_length = 2048
-        batch_size     = 4
-        grad_accum     = 4
+        batch_size     = 2                # 2 x 8 accum = effective batch 16
+        grad_accum     = 8
     else:
         bnb_cfg = BitsAndBytesConfig(
             load_in_4bit=True,
@@ -102,15 +168,50 @@ def train(
     model.print_trainable_parameters()
 
     # ------------------------------------------------------------------
-    # Dataset
+    # Dataset — tokenize and mask the prompt so loss is only on the SQL
     # ------------------------------------------------------------------
     dataset = load_dataset("json", data_files=data_path, split="train")
     print(f"Training examples: {len(dataset)}")
 
-    # Only compute loss on assistant (SQL) tokens
-    collator = DataCollatorForCompletionOnlyLM(
-        response_template=RESPONSE_TEMPLATE,
-        tokenizer=tokenizer,
+    def _tokenize(example):
+        """
+        Split each example at the assistant marker, tokenize the prompt and the
+        completion separately, and mask the prompt tokens with -100 so the model
+        only learns to predict the SQL. Truncates to max_seq_length; if the prompt
+        alone overflows, the whole example is masked out (contributes no loss).
+        """
+        text = example["text"]
+        if RESPONSE_TEMPLATE in text:
+            prompt_text, completion_text = text.split(RESPONSE_TEMPLATE, 1)
+            prompt_text += RESPONSE_TEMPLATE
+        else:
+            prompt_text, completion_text = text, ""
+
+        prompt_ids     = tokenizer(prompt_text,     add_special_tokens=False)["input_ids"]
+        completion_ids = tokenizer(completion_text, add_special_tokens=False)["input_ids"]
+
+        input_ids = (prompt_ids + completion_ids)[:max_seq_length]
+        labels    = ([-100] * len(prompt_ids) + completion_ids)[:max_seq_length]
+        return {
+            "input_ids":      input_ids,
+            "attention_mask": [1] * len(input_ids),
+            "labels":         labels,
+        }
+
+    tokenized = dataset.map(_tokenize, remove_columns=dataset.column_names,
+                            desc="Tokenizing + masking prompts")
+
+    # Step math (so the plan is visible before the first step runs)
+    effective_batch = batch_size * grad_accum
+    steps_per_epoch = max(1, -(-len(tokenized) // effective_batch))  # ceil div
+    total_steps     = steps_per_epoch * epochs
+    print(f"Effective batch: {effective_batch} ({batch_size} x {grad_accum} accum)")
+    print(f"Steps/epoch: {steps_per_epoch} | total steps: {total_steps} "
+          f"| checkpoint after each epoch ({epochs} checkpoints)")
+
+    # Pads input_ids/attention_mask/labels (labels padded with -100) per batch.
+    collator = DataCollatorForSeq2Seq(
+        tokenizer, padding="longest", label_pad_token_id=-100,
     )
 
     # ------------------------------------------------------------------
@@ -128,20 +229,18 @@ def train(
         warmup_ratio=0.05,
         logging_steps=10,
         save_strategy="epoch",
-        gradient_checkpointing=not use_a100,
+        gradient_checkpointing=True,   # both paths — needed to fit 7B at seq 2048
         gradient_checkpointing_kwargs={"use_reentrant": False},
         report_to="none",
         dataloader_num_workers=0,
     )
 
-    trainer = SFTTrainer(
+    trainer = Trainer(
         model=model,
         args=training_args,
-        train_dataset=dataset,
+        train_dataset=tokenized,
         data_collator=collator,
-        dataset_text_field="text",
-        max_seq_length=max_seq_length,
-        tokenizer=tokenizer,
+        callbacks=[ProgressCallback()],
     )
 
     trainer.train()

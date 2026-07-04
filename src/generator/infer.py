@@ -9,7 +9,30 @@ Used by the end-to-end pipeline (Phase 16) and POSG (Phase 15A).
 
 from __future__ import annotations
 
+import importlib
+import sys
+
 from typing import List
+
+
+def _disable_peft_torchao():
+    """
+    Stop peft's LoRA dispatcher raising on Colab's old torchao (0.10.0).
+
+    peft's is_torchao_available() raises on any torchao < 0.16.0, and its LoRA
+    dispatch_torchao() calls it while injecting the adapter. Masking torchao in
+    sys.modules is fragile — transformers re-imports the real torchao during
+    model load — so we stub the checker to return False in the modules that use
+    it. dispatch_torchao() then short-circuits and standard LoRA is used. We do
+    not use torchao (A100 = bf16, T4 = bitsandbytes). Call before loading the
+    adapter, after peft is importable.
+    """
+    sys.modules["torchao"] = None
+    for mod_name in ("peft.import_utils", "peft.tuners.lora.torchao"):
+        try:
+            importlib.import_module(mod_name).is_torchao_available = lambda: False
+        except Exception:
+            pass
 
 _SYSTEM = (
     "You are an expert SQL query writer. "
@@ -57,6 +80,8 @@ class GeneratorInfer:
         from transformers import AutoTokenizer
 
         from src.device import get_device
+
+        _disable_peft_torchao()   # must run before AutoPeftModelForCausalLM loads the adapter
 
         self.device      = get_device()
         self.n_candidates = n_candidates
