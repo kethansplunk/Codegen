@@ -55,6 +55,23 @@ BASE_MODEL = "Qwen/Qwen2.5-Coder-7B-Instruct"
 RESPONSE_TEMPLATE = "<|im_start|>assistant\n"
 
 
+def _disable_peft_torchao():
+    """
+    Belt-and-suspenders for peft's torchao guard: the sys.modules mask above can
+    be undone when transformers re-imports torchao during model load, so also
+    stub is_torchao_available() to False in the modules that call it. peft's LoRA
+    dispatch_torchao() then short-circuits. Call right before any peft model op
+    (get_peft_model / PeftModel.from_pretrained).
+    """
+    import importlib
+    sys.modules["torchao"] = None
+    for mod_name in ("peft.import_utils", "peft.tuners.lora.torchao"):
+        try:
+            importlib.import_module(mod_name).is_torchao_available = lambda: False
+        except Exception:
+            pass
+
+
 class ProgressCallback(TrainerCallback):
     """
     Prints training progress at every 10% and announces each checkpoint save.
@@ -117,6 +134,7 @@ def train(
     use_a100: bool = False,
     epochs: int = 3,
     lr: float = 2e-4,
+    init_from: str | None = None,
 ):
     os.makedirs(output_dir, exist_ok=True)
 
@@ -163,6 +181,22 @@ def train(
         max_seq_length = 1024
         batch_size     = 1
         grad_accum     = 16
+
+    _disable_peft_torchao()   # before any peft model op (merge / get_peft_model)
+
+    # Optional warm-start (Phase 14B): merge a prior adapter (e.g. the SQL
+    # generator) into the base weights, then train a fresh LoRA on top. Merging
+    # needs full-precision weights, so it is only supported on the bf16 (A100)
+    # path — on 4-bit it is skipped with a warning.
+    if init_from:
+        if use_a100:
+            from peft import PeftModel
+            print(f"Warm-start: merging adapter from {init_from} into base ...")
+            model = PeftModel.from_pretrained(model, init_from)
+            model = model.merge_and_unload()
+        else:
+            print(f"WARNING: --init_from ignored on 4-bit path (cannot merge into "
+                  f"quantized weights). Training NoSQL LoRA from base instead.")
 
     model = get_peft_model(model, LORA_CONFIG)
     model.print_trainable_parameters()
@@ -251,12 +285,16 @@ def train(
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--data",     required=True, help="sql_generator_train.jsonl")
-    parser.add_argument("--out",      default="models/generator_sql")
-    parser.add_argument("--epochs",   type=int,   default=3)
-    parser.add_argument("--lr",       type=float, default=2e-4)
-    parser.add_argument("--use_a100", action="store_true",
+    parser.add_argument("--data",      required=True, help="generator training JSONL")
+    parser.add_argument("--out",       default="models/generator_sql")
+    parser.add_argument("--epochs",    type=int,   default=3)
+    parser.add_argument("--lr",        type=float, default=2e-4)
+    parser.add_argument("--use_a100",  action="store_true",
                         help="A100 path: bf16 full LoRA, larger batch")
+    parser.add_argument("--init_from", default=None,
+                        help="Warm-start: adapter to merge into base before "
+                             "training (e.g. the SQL generator for Phase 14B). "
+                             "bf16/A100 only.")
     args = parser.parse_args()
 
     train(
@@ -265,6 +303,7 @@ def main():
         use_a100=args.use_a100,
         epochs=args.epochs,
         lr=args.lr,
+        init_from=args.init_from,
     )
 
 
