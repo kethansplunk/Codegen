@@ -28,10 +28,17 @@ from transformers import (
     AutoModelForCausalLM,
     AutoTokenizer,
     BitsAndBytesConfig,
+    DataCollatorForSeq2Seq,
+    Trainer,
     TrainerCallback,
     TrainingArguments,
 )
-from trl import DataCollatorForCompletionOnlyLM, SFTTrainer
+
+# NOTE: This intentionally uses plain transformers.Trainer (not trl.SFTTrainer).
+# TRL's API churns fast — recent versions removed DataCollatorForCompletionOnlyLM
+# and changed the SFTTrainer signature. transformers.Trainer is stable, and we do
+# the prompt-masking ourselves (see _tokenize below), so training works with
+# whatever transformers/peft Colab happens to install.
 
 BASE_MODEL = "Qwen/Qwen2.5-Coder-7B-Instruct"
 RESPONSE_TEMPLATE = "<|im_start|>assistant\n"
@@ -148,23 +155,50 @@ def train(
     model.print_trainable_parameters()
 
     # ------------------------------------------------------------------
-    # Dataset
+    # Dataset — tokenize and mask the prompt so loss is only on the SQL
     # ------------------------------------------------------------------
     dataset = load_dataset("json", data_files=data_path, split="train")
     print(f"Training examples: {len(dataset)}")
 
+    def _tokenize(example):
+        """
+        Split each example at the assistant marker, tokenize the prompt and the
+        completion separately, and mask the prompt tokens with -100 so the model
+        only learns to predict the SQL. Truncates to max_seq_length; if the prompt
+        alone overflows, the whole example is masked out (contributes no loss).
+        """
+        text = example["text"]
+        if RESPONSE_TEMPLATE in text:
+            prompt_text, completion_text = text.split(RESPONSE_TEMPLATE, 1)
+            prompt_text += RESPONSE_TEMPLATE
+        else:
+            prompt_text, completion_text = text, ""
+
+        prompt_ids     = tokenizer(prompt_text,     add_special_tokens=False)["input_ids"]
+        completion_ids = tokenizer(completion_text, add_special_tokens=False)["input_ids"]
+
+        input_ids = (prompt_ids + completion_ids)[:max_seq_length]
+        labels    = ([-100] * len(prompt_ids) + completion_ids)[:max_seq_length]
+        return {
+            "input_ids":      input_ids,
+            "attention_mask": [1] * len(input_ids),
+            "labels":         labels,
+        }
+
+    tokenized = dataset.map(_tokenize, remove_columns=dataset.column_names,
+                            desc="Tokenizing + masking prompts")
+
     # Step math (so the plan is visible before the first step runs)
     effective_batch = batch_size * grad_accum
-    steps_per_epoch = max(1, -(-len(dataset) // effective_batch))  # ceil div
+    steps_per_epoch = max(1, -(-len(tokenized) // effective_batch))  # ceil div
     total_steps     = steps_per_epoch * epochs
     print(f"Effective batch: {effective_batch} ({batch_size} x {grad_accum} accum)")
     print(f"Steps/epoch: {steps_per_epoch} | total steps: {total_steps} "
           f"| checkpoint after each epoch ({epochs} checkpoints)")
 
-    # Only compute loss on assistant (SQL) tokens
-    collator = DataCollatorForCompletionOnlyLM(
-        response_template=RESPONSE_TEMPLATE,
-        tokenizer=tokenizer,
+    # Pads input_ids/attention_mask/labels (labels padded with -100) per batch.
+    collator = DataCollatorForSeq2Seq(
+        tokenizer, padding="longest", label_pad_token_id=-100,
     )
 
     # ------------------------------------------------------------------
@@ -188,14 +222,11 @@ def train(
         dataloader_num_workers=0,
     )
 
-    trainer = SFTTrainer(
+    trainer = Trainer(
         model=model,
         args=training_args,
-        train_dataset=dataset,
+        train_dataset=tokenized,
         data_collator=collator,
-        dataset_text_field="text",
-        max_seq_length=max_seq_length,
-        tokenizer=tokenizer,
         callbacks=[ProgressCallback()],
     )
 
