@@ -1,5 +1,5 @@
 # CodeGen Architecture Document
-## Updated through Phase 14 — SQL + NoSQL generators trained (LoRA), POSG next
+## Updated through Phase 15 — POSG wired and validated end-to-end (SQL + NoSQL)
 
 ---
 
@@ -26,6 +26,7 @@
    - [9.3 SAR — Schema-Aware Retriever](#93-sar--schema-aware-retriever)
    - [9.4 Generator — Query Generation (Phase 14)](#94-generator--query-generation-phase-14)
    - [9.5 POSG — Pareto-Optimal Generator](#95-posg--pareto-optimal-generator)
+   - [9.5.1 Phase 15 wiring and validation results](#951-phase-15-wiring-and-validation-results)
    - [9.6 EX Evaluation Metric](#96-ex-evaluation-metric)
 10. [Key Design Decisions and Why](#10-key-design-decisions-and-why)
 11. [Data Flow — End to End](#11-data-flow--end-to-end)
@@ -732,6 +733,26 @@ Same algorithm; MQL-specific adjustments:
 
 No standard MQL AST parser exists. Stage-type similarity (`$match`, `$group`, `$sort` sequence comparison) replaces AST edit distance. Two pipelines with the same sequence of stage types are structurally similar even with different field names.
 
+#### 9.5.1 Phase 15 wiring and validation results
+
+**Files**: `scripts/run_posg_sql.py` (15A), `scripts/run_posg_nosql.py` (15B), `scripts/build_dev_eval_set.py`. Full writeup: `docs/phase15_posg_findings.md`.
+
+Through Phase 14, `posg_sql.py`/`posg_nosql.py` existed but nothing called them — the Generator's output was never actually run through Pareto selection. Phase 15 closes that gap: each `run_posg_*.py` script chains SAR retrieval → Generator (5 sampled candidates) → `ParetoOptimal(MQL)` selection → EX comparison against gold, and measures whether POSG selection beats taking the Generator's first candidate (greedy).
+
+| Track | Sample | POSG EX | Greedy EX | Divergence | Never worse? |
+|---|---|---|---|---|---|
+| SQL (15A) | 30 Q, Spider **dev** split (held out), `--hard` filter, ~20 DBs | **63.3%** (19/30) | 60.0% (18/30) | 6/30 | Yes |
+| NoSQL (15B) | 30 Q, **train** split, `$lookup`/`$group`/multi-stage filter | **76.7%** (23/30) | 73.3% (22/30) | 5/30 | Yes |
+
+Both tracks land on the same qualitative result via independent implementations: POSG never picks a worse candidate than greedy in these samples, and typically wins by catching crashes (non-executable candidates get excluded by the Pareto front's hard filter) or genuine correctness differences, with the remainder being equally-correct-but-better-phrased ties.
+
+**Methodology notes** (see findings doc for full detail):
+- SQL's first two attempts (train-split smoke test, then a 10-question dev sample) were both invalid — train data is memorized by the Generator (near-zero candidate diversity), and the small dev sample happened to concentrate on one trivial database. The 30-question full-dev-split `--hard` run above is the first valid measurement.
+- NoSQL hit a false-positive trap where MongoDB silently returns `[]` for a missing/empty collection instead of raising, which made an early run's empty-vs-empty comparisons look like 100% EX for both POSG and greedy. Fixed by tracking `gold_row_count` and excluding empty-gold examples from the EX average instead of counting them as matches.
+- `configs/config.yaml`'s `sar.backend` was switched from `chroma` to `memory` for this work — ChromaDB's `PersistentClient` can't open the Phase 13 index over a Google Drive FUSE mount on Colab, and re-encoding the corpus at startup costs ~1s on GPU.
+
+**Known limitation (not fixed, low priority)**: `ParetoOptimal._extract_schema_from_sql` extracts a `set()` of SQL identifier tokens via regex, which has no concept of alias binding — `stadium AS T1 JOIN concert AS T2` and the reversed aliasing produce an identical token set, so `schema_conformity` can't distinguish candidates that differ only in which alias is bound to which table. This is a text-parsing limitation local to `posg_sql.py`'s scoring of already-generated SQL; it is unrelated to the SAR schema fusion gap noted in the top-level README's "Known Gaps" (that gap affects retrieval quality before generation, not scoring of already-generated text). No test run has yet shown this costing a wrong answer, so a fix (alias resolution before token extraction) is deferred.
+
 ---
 
 ### 9.6 EX Evaluation Metric
@@ -856,7 +877,7 @@ NoSQL RAG Corpus ──► SAR Training Phase 12B ──► sar_nosql/sar_model.
 sar_sql/sar_model.pt + spider_sql_rag.json
     ──► build_chroma_index.py ──► indexes/chroma_sql/ ✅
 sar_nosql/sar_model.pt + spider_nosql_rag.json
-    ──► build_chroma_index.py ──► indexes/chroma_nosql/ 🔄
+    ──► build_chroma_index.py ──► indexes/chroma_nosql/ ✅
 
 ─── FINE-TUNING ────────────────────────────────────────────────
 
@@ -870,10 +891,12 @@ Question
    │
    ├─ schema_utils.py (query-time BM25S)
    ├─ schema_linker/linker.py (ApiSchemaLinker or ModelSchemaLinker) → fix.py
-   ├─ sar/infer.py → ChromaSARRetriever → ChromaDB → top-3 examples
+   ├─ sar/infer.py → SARRetriever (memory) or ChromaSARRetriever → top-3 examples
    ├─ generator/infer.py → 5 candidates
-   └─ posg/posg_sql.py or posg_nosql.py → final query
+   └─ posg/posg_sql.py or posg_nosql.py → final query   ✅ wired + validated (Phase 15, scripts/run_posg_*.py)
 ```
+
+This inference chain is exercised end-to-end today by `scripts/run_posg_sql.py` / `scripts/run_posg_nosql.py` (Phase 15); it is not yet wrapped in a reusable `src/pipeline_*.py` module — that assembly is Phase 16.
 
 ---
 
@@ -904,8 +927,8 @@ Codegen/
 │   │   ├── train.py                   ✅ LoRA SFT (14A/14B) — warm-start, auto-resume
 │   │   └── infer.py                   ✅ GeneratorInfer — track-aware (sql/nosql)
 │   ├── posg/
-│   │   ├── posg_sql.py                ✅ ASTProcessor + Pareto front (SQL)
-│   │   └── posg_nosql.py              ✅ Stage-type similarity + Pareto front (MQL)
+│   │   ├── posg_sql.py                ✅ ASTProcessor + Pareto front (SQL) — wired + validated (15A)
+│   │   └── posg_nosql.py              ✅ Stage-type similarity + Pareto front (MQL) — wired + validated (15B)
 │   ├── eval/
 │   │   └── exec_eval.py               ✅ EX metric — permutation-aware result eq
 │   └── router/
@@ -920,13 +943,19 @@ Codegen/
 │   ├── build_nosql_cot_data.py        ✅ NoSQL CoT data generator (Phase 8B)
 │   ├── run_phase8_pipeline.sh         ✅ 8A → verify → auto-trigger 8B
 │   ├── validate_nosql_cot.py          ✅ Phase 8B output validator (5 checks)
-│   └── build_chroma_index.py          ✅ ChromaDB index builder — BGE+SAR encode → store (Phase 13)
+│   ├── build_chroma_index.py          ✅ ChromaDB index builder — BGE+SAR encode → store (Phase 13)
+│   ├── build_generator_training_data.py  ✅ Generator training data builder — --track sql|nosql (14A/14B)
+│   ├── build_dev_eval_set.py          ✅ Held-out Spider dev-split eval set via live SchemaLinker (Phase 15A)
+│   ├── run_posg_sql.py                ✅ SAR → Generator → POSG → EX pipeline, SQL (Phase 15A)
+│   └── run_posg_nosql.py              ✅ SAR → Generator → POSG → EX pipeline, NoSQL (Phase 15B)
 │
 ├── notebooks/
 │   ├── phase9a_sl_train.ipynb         ✅ SchemaLinker SQL training on Colab (preserved, deferred)
 │   ├── phase12a_sar_sql_train.ipynb   ✅ SAR SQL training on Colab T4 (Phase 12A)
 │   ├── phase12b_sar_nosql_train.ipynb ✅ SAR NoSQL training on Colab T4 (Phase 12B)
-│   └── phase13_chroma_index.ipynb     🔄 ChromaDB index building on Colab (Phase 13)
+│   ├── phase13_chroma_index.ipynb     ✅ ChromaDB index building on Colab (Phase 13)
+│   ├── phase14a_generator_sql_train.ipynb    ✅ SQL Generator fine-tuning on Colab A100 (Phase 14A)
+│   └── phase14b_generator_nosql_train.ipynb  ✅ NoSQL Generator fine-tuning on Colab A100 (Phase 14B)
 │
 ├── Data/                              ← gitignored
 │   ├── Spider/                        ✅ 7000 Q-SQL + 166 SQLite DBs
@@ -938,9 +967,13 @@ Codegen/
 │   ├── rag_corpus/
 │   │   ├── spider_sql_rag.json        ✅ 7000 entries, 57 types, 7-dim
 │   │   └── spider_nosql_rag.json      ✅ 5697 entries, all major MQL stage types
-│   └── cot_data/
-│       ├── sql_cot_train.json         ✅ Complete
-│       └── nosql_cot_train.json       ✅ Complete
+│   ├── cot_data/
+│   │   ├── sql_cot_train.json         ✅ Complete
+│   │   ├── nosql_cot_train.json       ✅ Complete
+│   │   └── sql_dev_eval_full.json     ✅ Held-out Spider dev-split eval set (Phase 15A, build_dev_eval_set.py)
+│   └── generator_data/
+│       ├── sql_generator_train.jsonl  ✅ 6748 examples (Phase 14A, gitignored)
+│       └── nosql_generator_train.jsonl ✅ 5410 examples (Phase 14B, gitignored)
 │
 ├── external/
 │   └── SchemaRAG/                     ✅ Cloned + fully audited (gitignored)
@@ -950,16 +983,19 @@ Codegen/
 │
 ├── models/                            ← gitignored
 │   ├── sar_sql/sar_model.pt           ✅ Trained Phase 12A (50.4 MB, on Drive)
-│   └── sar_nosql/sar_model.pt         ✅ Trained Phase 12B (~50 MB, on Drive)
+│   ├── sar_nosql/sar_model.pt         ✅ Trained Phase 12B (~50 MB, on Drive)
+│   ├── generator_sql/                 ✅ LoRA adapter, Phase 14A (on Drive)
+│   └── generator_nosql/               ✅ LoRA adapter, Phase 14B, warm-started from 14A (on Drive)
 ├── indexes/                           ← gitignored
-│   ├── chroma_sql/                    🔄 Phase 13 (building)
-│   └── chroma_nosql/                  🔄 Phase 13 (building)
+│   ├── chroma_sql/                    ✅ Phase 13 (built; sar.backend defaults to `memory` as of Phase 15, see §9.5.1)
+│   └── chroma_nosql/                  ✅ Phase 13 (built; sar.backend defaults to `memory` as of Phase 15, see §9.5.1)
 └── docs/
     ├── architecture.md                ← this file
+    ├── phase15_posg_findings.md       ✅ POSG wiring methodology + EX results (Phase 15A/15B)
     ├── SchemaRAG.pdf
     └── Text_to_NoSQL.pdf
 ```
 
 ---
 
-*Last updated: Phase 14 complete. Data pipeline (5A–8B) done. SchemaLinker using DeepSeek API (training deferred). SAR trained both tracks (12A/12B). ChromaDB indexes built (13). Generators trained: SQL (14A, 6748 examples) and NoSQL (14B, 5410 examples, warm-started from 14A) — both LoRA on Qwen2.5-Coder-7B-Instruct, validated end-to-end. Next: Phase 15 POSG (Pareto-optimal candidate selection), then Phase 16 end-to-end pipeline.*
+*Last updated: Phase 15 complete. Data pipeline (5A–8B) done. SchemaLinker using DeepSeek API (training deferred). SAR trained both tracks (12A/12B). ChromaDB indexes built (13). Generators trained: SQL (14A, 6748 examples) and NoSQL (14B, 5410 examples, warm-started from 14A) — both LoRA on Qwen2.5-Coder-7B-Instruct, validated end-to-end. POSG wired and validated both tracks (15A/15B): SAR → Generator → Pareto selection → EX, beating greedy candidate-0 selection on Spider dev (SQL, 63.3% vs 60.0% EX) and train-split MQL (NoSQL, 76.7% vs 73.3% EX); see `docs/phase15_posg_findings.md`. Next: Phase 16 end-to-end pipeline assembly (`src/pipeline_sql.py` / `src/pipeline_nosql.py`).*

@@ -10,7 +10,7 @@ Given a natural language question and a database, the system produces the correc
 2. **SchemaLinker** — identifies the relevant tables and columns from the schema (3-stage: CoT SFT → MTL → GRPO)
 3. **SAR (Schema-Aware Retriever)** — retrieves structurally similar past examples using a dual cross-attention model trained on structural type similarity
 4. **Generator** — produces the final query using a fine-tuned Qwen2.5-Coder-7B model
-5. **POSG** — generates 5 candidates and selects the best one via Pareto-optimal scoring (executability + schema conformity + structural distance)
+5. **POSG** — generates 5 candidates and selects the best one via Pareto-optimal scoring (executability + schema conformity + structural distance); wired end-to-end and validated on both tracks (Phase 15)
 
 ## Models
 
@@ -42,8 +42,10 @@ Given a natural language question and a database, the system produces the correc
 | 13 | ChromaDB index building — SQL + NoSQL persistent vector indexes built | ✅ Done |
 | 14A | SQL Generator — LoRA SFT on 6748 examples, validated on A100 | ✅ Done |
 | 14B | NoSQL Generator — LoRA SFT on 5410 examples, warm-started from 14A | ✅ Done |
-| 15 | POSG — Pareto-optimal candidate selection (code ready, wiring next) | ⏳ Next |
-| 16–20 | End-to-end pipeline, eval, LangGraph demo | ⏳ Pending |
+| 15A | POSG wired for SQL — SAR → Generator (5 cand.) → Pareto → EX, validated on Spider dev (63.3% vs 60.0% greedy EX, `--hard` subset) | ✅ Done |
+| 15B | POSG wired for NoSQL — mirrors 15A for MQL, validated on train split (76.7% vs 73.3% greedy EX) | ✅ Done |
+| 16 | End-to-end pipeline assembly (`src/pipeline_sql.py` / `src/pipeline_nosql.py`) | ⏳ Next |
+| 17–20 | LangGraph router + self-correction, eval, error analysis, demo | ⏳ Pending |
 
 ## Setup
 
@@ -92,9 +94,32 @@ SAR retrieval is switchable via `configs/config.yaml`:
 
 ```yaml
 sar:
-  backend: chroma   # "chroma" → pre-built ChromaDB index (instant startup)
-                    # "memory" → re-encodes all questions at startup (~30 sec)
+  backend: memory   # "memory" → re-encodes corpus at startup (~1s on GPU, ~30s on CPU) [current default]
+                    # "chroma" → pre-built ChromaDB index (instant startup)
 ```
+
+Default is `memory` as of Phase 15 — ChromaDB's `PersistentClient` can't open the Phase 13 index over a Google Drive FUSE mount on Colab, and re-encoding is cheap at this corpus size. Switch back to `chroma` when running locally off a real filesystem.
+
+## Running POSG (Phase 15)
+
+`scripts/run_posg_sql.py` and `scripts/run_posg_nosql.py` wire SAR retrieval → Generator (5 candidates) → POSG Pareto selection → EX scoring into a runnable pipeline, per track:
+
+```bash
+# SQL — sample n questions from a CoT/eval file, compare POSG vs greedy EX
+python scripts/run_posg_sql.py --data Data/cot_data/sql_dev_eval_full.json --n 30 --hard
+
+# SQL — single question smoke test
+python scripts/run_posg_sql.py --smoke_test
+
+# NoSQL — mirrors the SQL script for MQL
+python scripts/run_posg_nosql.py --data Data/cot_data/nosql_cot_train.json --n 30 --hard
+
+# Build a held-out Spider dev-split eval set (real DeepSeek SchemaLinker predictions,
+# not oracle labels — train-split smoke tests are memorization-inflated, see findings doc)
+python scripts/build_dev_eval_set.py --dev Data/Spider/dev.json --out Data/cot_data/sql_dev_eval_full.json
+```
+
+`--strategy` selects Pareto tie-break weighting (`balanced` default, `schema_priority`, `example_priority`). Full methodology, false starts, and a known alias-blindness limitation in `posg_sql.py`'s schema-conformity scoring are written up in `docs/phase15_posg_findings.md`.
 
 ## Training scripts (run on Colab)
 
@@ -181,8 +206,8 @@ src/                          reusable library code
     train.py                  Qwen2.5-Coder-7B LoRA SFT (14A/14B) — warm-start, auto-resume, live progress
     infer.py                  GeneratorInfer — track-aware (sql/nosql) n-candidate generation for POSG
   posg/
-    posg_sql.py               Pareto-optimal SQL selector (ASTProcessor + 3-dim Pareto)
-    posg_nosql.py             Pareto-optimal MQL selector (stage-type similarity)
+    posg_sql.py               Pareto-optimal SQL selector (ASTProcessor + 3-dim Pareto) — wired + validated (15A)
+    posg_nosql.py             Pareto-optimal MQL selector (stage-type similarity) — wired + validated (15B)
   eval/
     exec_eval.py              EX metric — column-permutation-aware result comparison
   router/
@@ -199,6 +224,9 @@ scripts/
   validate_nosql_cot.py                 Phase 8B output validation (5 checks)
   build_chroma_index.py                 ChromaDB index builder (Phase 13) — SQL + NoSQL
   build_generator_training_data.py      Generator training data builder — --track sql|nosql (14A/14B)
+  build_dev_eval_set.py                 Held-out Spider dev-split eval set via live SchemaLinker (Phase 15A)
+  run_posg_sql.py                       SAR → Generator → POSG → EX pipeline for SQL (Phase 15A)
+  run_posg_nosql.py                     SAR → Generator → POSG → EX pipeline for NoSQL (Phase 15B)
 
 notebooks/
   phase9a_sl_train.ipynb                SchemaLinker SQL SFT on Colab (Phase 9A, deferred)
@@ -228,6 +256,7 @@ The `external/SchemaRAG/` directory contains the SchemaRAG reference implementat
 ## Reference documents
 
 - `docs/architecture.md` — full architecture with design decisions and component deep dives
+- `docs/phase15_posg_findings.md` — POSG wiring methodology, EX results, and known limitations (SQL + NoSQL)
 - `CodeGen_Plan_v6_DualTrack.md` — full 20-phase implementation plan (latest)
 - `docs/SchemaRAG.pdf` — primary SQL track paper (SIGMOD 2026)
 - `docs/Text_to_NoSQL.pdf` — NoSQL track paper (TEND)
