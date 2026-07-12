@@ -31,7 +31,7 @@ schema_linker:
 sar:
   # "memory" → SARRetriever: re-encodes corpus at startup (~30 sec). No ChromaDB needed.
   # "chroma" → ChromaSARRetriever: instant startup using pre-built index (Phase 13).
-  backend: chroma
+  backend: memory
   encoder_model: BAAI/bge-large-en-v1.5
   sql_checkpoint: models/sar_sql/sar_model.pt
   nosql_checkpoint: models/sar_nosql/sar_model.pt
