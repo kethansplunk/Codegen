@@ -120,12 +120,36 @@ class GeneratorInfer:
         self.tokenizer.pad_token = self.tokenizer.eos_token
 
         dtype = torch.bfloat16 if self.device in ("cuda", "mps") else torch.float32
-        self.model = AutoPeftModelForCausalLM.from_pretrained(
-            checkpoint_path,
-            torch_dtype=dtype,
-            device_map="auto" if self.device == "cuda" else None,
-            trust_remote_code=True,
-        )
+        load_kwargs = {
+            "torch_dtype": dtype,
+            "trust_remote_code": True,
+        }
+        if self.device == "cuda":
+            # device_map="auto" lets accelerate offload layers to CPU/disk when the
+            # full model doesn't fit in VRAM (e.g. a 7B model on a 16GB T4 vs a 40GB
+            # A100) -- offload_folder is required for that path or it raises instead
+            # of degrading gracefully. Use mkdtemp (not a fixed /tmp path) since /tmp
+            # is world-writable and a predictable path is a symlink-attack risk.
+            import tempfile
+            offload_dir = tempfile.mkdtemp(prefix="generator_offload_")
+            load_kwargs["device_map"] = "auto"
+            load_kwargs["offload_folder"] = offload_dir
+
+            # On multi-GPU boxes (e.g. Kaggle's T4 x2), accelerate's "auto" balancer
+            # only looks at static weight size when placing layers -- since the ~13GB
+            # model technically fits on one 16GB card, it happily crams everything
+            # onto GPU 0 and leaves GPU 1 empty, then OOMs later once the KV cache
+            # for n_candidates parallel sequences grows during actual generation.
+            # Capping max_memory per GPU forces a real multi-GPU split instead.
+            n_gpus = torch.cuda.device_count()
+            if n_gpus > 1:
+                max_memory = {}
+                for i in range(n_gpus):
+                    total_gb = torch.cuda.get_device_properties(i).total_memory / (1024 ** 3)
+                    max_memory[i] = f"{total_gb * 0.6:.1f}GiB"   # leave headroom for KV cache
+                load_kwargs["max_memory"] = max_memory
+
+        self.model = AutoPeftModelForCausalLM.from_pretrained(checkpoint_path, **load_kwargs)
         if self.device != "cuda":
             self.model = self.model.to(self.device)
         self.model.eval()
