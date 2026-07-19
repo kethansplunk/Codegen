@@ -54,6 +54,13 @@ def run_one(
     sar_examples = [ex for ex in retrieved if ex["question"].strip() != question.strip()][:3]
 
     candidates = generator.generate(question, schema, key_fields, sar_examples)
+    if not candidates:
+        raise RuntimeError(
+            f"Generator.generate() returned {candidates!r} (expected a "
+            f"non-empty list of query strings) for question={question!r} "
+            f"db_name={db_name!r}. This should be structurally impossible -- "
+            f"see the matching check in src/generator/infer.py's generate()."
+        )
 
     db_path = os.path.join(db_dir, db_name, f"{db_name}.sqlite")
     pareto  = ParetoOptimal(db_path=db_path if os.path.exists(db_path) else None)

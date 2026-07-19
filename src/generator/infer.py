@@ -90,6 +90,14 @@ class GeneratorInfer:
         n_candidates:    Number of candidates to generate (for POSG, use 5).
         temperature:     Sampling temperature (0.0 = greedy, 0.8 for diverse k>1).
         max_new_tokens:  Maximum tokens to generate.
+        seed:            If set, pins torch's RNG once at construction time so
+                         a run's full sequence of generate() calls is
+                         reproducible. Unset by default -- candidate sampling
+                         (do_sample=True, temperature>0) is otherwise
+                         unseeded, so identical inputs can produce different
+                         candidates and different EX numbers between runs
+                         (confirmed varying by several points at n=30 in
+                         docs/phase15_posg_findings.md).
     """
 
     def __init__(
@@ -99,6 +107,7 @@ class GeneratorInfer:
         n_candidates: int = 1,
         temperature: float = 0.0,
         max_new_tokens: int = 512,
+        seed: int | None = None,
     ):
         import torch
         from peft import AutoPeftModelForCausalLM
@@ -107,6 +116,9 @@ class GeneratorInfer:
         from src.device import get_device
 
         _disable_peft_torchao()   # must run before AutoPeftModelForCausalLM loads the adapter
+
+        if seed is not None:
+            torch.manual_seed(seed)
 
         self.track       = track
         self.device      = get_device()
@@ -219,6 +231,20 @@ class GeneratorInfer:
 
         with torch.no_grad():
             output_ids = self.model.generate(**gen_kwargs)
+
+        if output_ids is None:
+            # model.generate() is documented to always return a tensor or
+            # raise -- this should be unreachable. If it fires, something
+            # (an accelerate hook, a quantization edge case) is swallowing a
+            # real error upstream; surface that here instead of letting an
+            # empty/None result silently propagate into a confusing
+            # 'NoneType is not iterable' three calls downstream in POSG.
+            raise RuntimeError(
+                "model.generate() returned None instead of raising or "
+                "returning a tensor -- this indicates a suppressed error "
+                "during generation. Re-run with CUDA_LAUNCH_BLOCKING=1 for a "
+                "synchronous (attributable) stack trace."
+            )
 
         input_len = inputs["input_ids"].shape[1]
         results = []

@@ -92,6 +92,13 @@ def run_one(
     sar_examples = [ex for ex in retrieved if ex["question"].strip() != question.strip()][:3]
 
     raw_candidates = generator.generate(question, schema, key_fields, sar_examples)
+    if not raw_candidates:
+        raise RuntimeError(
+            f"Generator.generate() returned {raw_candidates!r} (expected a "
+            f"non-empty list of query strings) for question={question!r} "
+            f"db_name={db_name!r}. This should be structurally impossible -- "
+            f"see the matching check in src/generator/infer.py's generate()."
+        )
     candidates = [_parse_candidate(c) for c in raw_candidates]
 
     schema_links = _collection_links_set(key_fields)

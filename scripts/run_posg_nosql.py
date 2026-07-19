@@ -87,6 +87,7 @@ def smoke_test(config: dict, n: int, strategy: str, seed: int, hard: bool, data_
         track="nosql",
         n_candidates=config["generator"]["n_candidates"],
         temperature=config["generator"]["temperature"],
+        seed=seed,
     )
 
     results = []
