@@ -132,8 +132,51 @@ answer in practice.
 - Optionally fix the alias-resolution gap in `_extract_schema_from_sql` if a
   future, larger test run surfaces a case where it actually costs a wrong
   answer.
-- Optionally re-run without `--hard` on a large sample to get an EX number
-  comparable to the plan's >82% target.
+- ~~Optionally re-run without `--hard` on a large sample to get an EX number
+  comparable to the plan's >82% target.~~ Done — see below.
+
+## Full-difficulty dev-set result (2026-07-19, A100 re-run)
+
+Same `sql_dev_eval_full.json` source, same `n=30`, but **without** the
+`--hard` filter — the number comparable to the plan's >82% EX target that
+Phase 15A's headline result above deliberately excluded.
+
+| | exact-match | EX |
+|---|---|---|
+| POSG | 53.3% (16/30) | 86.7% (26/30) |
+| Greedy (candidate 0 only) | 50.0% (15/30) | **90.0% (27/30)** |
+
+Both clear the plan's >82% target. But on the full difficulty distribution,
+**greedy edged out POSG** (27/30 vs 26/30) — the opposite of the `--hard`
+result above, where POSG was never worse than greedy on any divergence.
+
+**Reading, consistent with the blind-spot analysis above**: the full dev set
+is dominated by easy single-table questions, where (per the "Caveats on the
+headline number" section) greedy's first sampled candidate is already
+correct ~100% of the time. POSG's 5-candidate sampling has nothing to fix on
+those questions and only downside risk — a worse candidate occasionally
+scores higher than the correct greedy pick on `schema_conformity`/
+`example_consistency`, costing a point it didn't need to spend. On the
+`--hard` subset, by contrast, greedy's first sample is wrong often enough
+that POSG's alternatives have real problems to fix, so the net effect is
+positive. **Net takeaway: POSG's value is concentrated in structurally
+difficult queries, not a uniform improvement across the full difficulty
+distribution** — worth stating explicitly rather than only reporting the
+`--hard` number as if it generalized.
+
+This was a single `n=30` run, not repeated — see the NoSQL reproducibility
+note below for why re-running the identical command would likely shift this
+by a few points either way; the ranking (greedy ≥ POSG on full difficulty)
+is the more load-bearing finding here than the exact percentages.
+
+**Update (2026-07-19, Phase 16 regression re-run, same command, seed fix
+active)**: POSG 90.0% (27/30) vs greedy 86.7% (26/30) — the exact opposite
+ranking of the run above. See the NoSQL reproducibility note below: this
+happened *with* `--seed` wired into generation, confirming seeding alone
+doesn't make these runs reproducible. Net effect: **both directions have now
+been observed on this exact test** (POSG ahead once, greedy ahead once) —
+treat any single-run SQL full-difficulty number as within a few points of a
+tie between POSG and greedy, not a settled ranking either way.
 
 ---
 
@@ -233,6 +276,25 @@ in any future EX-style comparison added to this project, SQL or NoSQL.
   SchemaLinker call (unlike the SQL dev-set test) — consistent with a
   train-split test, but means this isn't fully mirroring Phase 16's live
   inference path the way the SQL dev-set test did.
+- **Not reproducible run-to-run, even with `--seed` wired into generation
+  (confirmed 2026-07-19, three runs of the identical command)**:
+  `--seed` (`random.seed(seed)`) picks *which* 30 questions are sampled;
+  `GeneratorInfer` also now accepts a `seed` param and calls
+  `torch.manual_seed(seed)` once at construction (both CLI scripts pass
+  their `--seed` through). This was expected to make runs reproducible but
+  did not: three runs of `--smoke_test --n 30` (no `--hard`), all with the
+  seed fix active on the third, returned EX 76.7%/73.3% (POSG ahead,
+  original baseline), 80.0%/86.7% (greedy ahead), then 83.3%/80.0% (POSG
+  ahead) — three different results from the nominally same deterministic
+  command. `torch.manual_seed()` seeds RNG state but does not by itself make
+  CUDA kernels bit-deterministic (cuDNN/cuBLAS reduction order, etc. --
+  would need `torch.use_deterministic_algorithms(True)` and matching cuDNN
+  flags, not yet tried, and may not have deterministic implementations for
+  every op involved or may be substantially slower). At n=30 a couple of
+  flipped candidates move the percentage by ~3.3pp each, so single-run
+  headline numbers on either track should be read as noisy point estimates
+  within a few points of each other, not stable measurements, regardless of
+  whether `--seed` is set.
 
 ### Next steps
 
@@ -242,3 +304,15 @@ in any future EX-style comparison added to this project, SQL or NoSQL.
 - Same alias/structural-blindness question as SQL is worth periodically
   re-checking in `posg_nosql.py`'s `evaluate_schema_conformity` (collection-
   level Jaccard) as more diverse tests are run.
+- ~~Consider pinning `torch.manual_seed()` in `GeneratorInfer.generate()` (or
+  exposing it as a param) so smoke-test runs are reproducible~~ Attempted,
+  **did not fully fix it** — `GeneratorInfer` takes an optional `seed` param
+  (pinned once at construction, wired through `--seed` in both CLI scripts),
+  but a same-seed re-run still produced a third, different EX number (see
+  above). `torch.manual_seed()` isn't sufficient for GPU run-to-run
+  determinism on its own. If exact reproducibility is ever actually needed
+  (not just "roughly stable"), the next thing to try is
+  `torch.use_deterministic_algorithms(True)` + `torch.backends.cudnn.
+  deterministic = True`, accepting the likely throughput cost — not yet
+  attempted. Until then, treat every EX number in this document as a noisy
+  point estimate, not a reproducible measurement.

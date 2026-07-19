@@ -44,7 +44,7 @@ Given a natural language question and a database, the system produces the correc
 | 14B | NoSQL Generator — LoRA SFT on 5410 examples, warm-started from 14A | ✅ Done |
 | 15A | POSG wired for SQL — SAR → Generator (5 cand.) → Pareto → EX, validated on Spider dev (63.3% vs 60.0% greedy EX, `--hard` subset) | ✅ Done |
 | 15B | POSG wired for NoSQL — mirrors 15A for MQL, validated on train split (76.7% vs 73.3% greedy EX) | ✅ Done |
-| 16 | End-to-end pipeline assembly (`src/pipeline_sql.py` / `src/pipeline_nosql.py`) | ⏳ Next |
+| 16 | End-to-end pipeline assembly (`src/pipeline_sql.py` / `src/pipeline_nosql.py`) | ✅ Done |
 | 17–20 | LangGraph router + self-correction, eval, error analysis, demo | ⏳ Pending |
 
 ## Setup
@@ -208,6 +208,8 @@ src/                          reusable library code
   posg/
     posg_sql.py               Pareto-optimal SQL selector (ASTProcessor + 3-dim Pareto) — wired + validated (15A)
     posg_nosql.py             Pareto-optimal MQL selector (stage-type similarity) — wired + validated (15B)
+  pipeline_sql.py              SchemaLinker → SAR → Generator → POSG library for SQL — run_pipeline() (Phase 16)
+  pipeline_nosql.py            SchemaLinker → SAR → Generator → POSG library for NoSQL — run_pipeline() (Phase 16)
   eval/
     exec_eval.py              EX metric — column-permutation-aware result comparison
   router/

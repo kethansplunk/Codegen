@@ -90,6 +90,14 @@ class GeneratorInfer:
         n_candidates:    Number of candidates to generate (for POSG, use 5).
         temperature:     Sampling temperature (0.0 = greedy, 0.8 for diverse k>1).
         max_new_tokens:  Maximum tokens to generate.
+        seed:            If set, pins torch's RNG once at construction time so
+                         a run's full sequence of generate() calls is
+                         reproducible. Unset by default -- candidate sampling
+                         (do_sample=True, temperature>0) is otherwise
+                         unseeded, so identical inputs can produce different
+                         candidates and different EX numbers between runs
+                         (confirmed varying by several points at n=30 in
+                         docs/phase15_posg_findings.md).
     """
 
     def __init__(
@@ -99,6 +107,7 @@ class GeneratorInfer:
         n_candidates: int = 1,
         temperature: float = 0.0,
         max_new_tokens: int = 512,
+        seed: int | None = None,
     ):
         import torch
         from peft import AutoPeftModelForCausalLM
@@ -107,6 +116,9 @@ class GeneratorInfer:
         from src.device import get_device
 
         _disable_peft_torchao()   # must run before AutoPeftModelForCausalLM loads the adapter
+
+        if seed is not None:
+            torch.manual_seed(seed)
 
         self.track       = track
         self.device      = get_device()
@@ -125,29 +137,47 @@ class GeneratorInfer:
             "trust_remote_code": True,
         }
         if self.device == "cuda":
-            # device_map="auto" lets accelerate offload layers to CPU/disk when the
-            # full model doesn't fit in VRAM (e.g. a 7B model on a 16GB T4 vs a 40GB
-            # A100) -- offload_folder is required for that path or it raises instead
-            # of degrading gracefully. Use mkdtemp (not a fixed /tmp path) since /tmp
-            # is world-writable and a predictable path is a symlink-attack risk.
-            import tempfile
-            offload_dir = tempfile.mkdtemp(prefix="generator_offload_")
-            load_kwargs["device_map"] = "auto"
-            load_kwargs["offload_folder"] = offload_dir
+            gpu0_gb = torch.cuda.get_device_properties(0).total_memory / (1024 ** 3)
+            if gpu0_gb < 24:
+                # T4-class GPU (16GB): bf16 (~14GB) plus SAR retriever + KV cache
+                # for n_candidates parallel sequences doesn't fit, so
+                # device_map="auto" silently offloads layers to CPU/disk instead
+                # of erroring. CPU-side generation for a 7B model then takes
+                # minutes per candidate instead of seconds -- looks hung, isn't.
+                # int8 quantization (~7GB) fits with room to spare, so the whole
+                # model stays on GPU. Requires the `bitsandbytes` package.
+                from transformers import BitsAndBytesConfig
+                load_kwargs.pop("torch_dtype")
+                load_kwargs["quantization_config"] = BitsAndBytesConfig(load_in_8bit=True)
+                load_kwargs["device_map"] = "auto"
+            else:
+                # A100-class GPU (40GB+): full bf16 fits without offload or
+                # quantization. device_map="auto" + offload_folder is kept as a
+                # safety net (raises instead of erroring if it somehow doesn't
+                # fit) -- offload_folder uses mkdtemp (not a fixed /tmp path)
+                # since /tmp is world-writable and a predictable path is a
+                # symlink-attack risk.
+                import tempfile
+                offload_dir = tempfile.mkdtemp(prefix="generator_offload_")
+                load_kwargs["device_map"] = "auto"
+                load_kwargs["offload_folder"] = offload_dir
 
-            # On multi-GPU boxes (e.g. Kaggle's T4 x2), accelerate's "auto" balancer
-            # only looks at static weight size when placing layers -- since the ~13GB
-            # model technically fits on one 16GB card, it happily crams everything
-            # onto GPU 0 and leaves GPU 1 empty, then OOMs later once the KV cache
-            # for n_candidates parallel sequences grows during actual generation.
-            # Capping max_memory per GPU forces a real multi-GPU split instead.
-            n_gpus = torch.cuda.device_count()
-            if n_gpus > 1:
-                max_memory = {}
-                for i in range(n_gpus):
-                    total_gb = torch.cuda.get_device_properties(i).total_memory / (1024 ** 3)
-                    max_memory[i] = f"{total_gb * 0.6:.1f}GiB"   # leave headroom for KV cache
-                load_kwargs["max_memory"] = max_memory
+                # On multi-GPU boxes (e.g. Kaggle's T4 x2 -- both under 24GB, so
+                # they'd hit the quantized branch above instead, but a mixed or
+                # multi-A100 host could still land here), accelerate's "auto"
+                # balancer only looks at static weight size when placing layers
+                # -- since the ~13GB model technically fits on one card, it
+                # happily crams everything onto GPU 0 and leaves the rest empty,
+                # then OOMs later once the KV cache for n_candidates parallel
+                # sequences grows during actual generation. Capping max_memory
+                # per GPU forces a real multi-GPU split instead.
+                n_gpus = torch.cuda.device_count()
+                if n_gpus > 1:
+                    max_memory = {}
+                    for i in range(n_gpus):
+                        total_gb = torch.cuda.get_device_properties(i).total_memory / (1024 ** 3)
+                        max_memory[i] = f"{total_gb * 0.6:.1f}GiB"   # leave headroom for KV cache
+                    load_kwargs["max_memory"] = max_memory
 
         self.model = AutoPeftModelForCausalLM.from_pretrained(checkpoint_path, **load_kwargs)
         if self.device != "cuda":
@@ -201,6 +231,20 @@ class GeneratorInfer:
 
         with torch.no_grad():
             output_ids = self.model.generate(**gen_kwargs)
+
+        if output_ids is None:
+            # model.generate() is documented to always return a tensor or
+            # raise -- this should be unreachable. If it fires, something
+            # (an accelerate hook, a quantization edge case) is swallowing a
+            # real error upstream; surface that here instead of letting an
+            # empty/None result silently propagate into a confusing
+            # 'NoneType is not iterable' three calls downstream in POSG.
+            raise RuntimeError(
+                "model.generate() returned None instead of raising or "
+                "returning a tensor -- this indicates a suppressed error "
+                "during generation. Re-run with CUDA_LAUNCH_BLOCKING=1 for a "
+                "synchronous (attributable) stack trace."
+            )
 
         input_len = inputs["input_ids"].shape[1]
         results = []
