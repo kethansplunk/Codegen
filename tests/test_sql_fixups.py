@@ -49,3 +49,27 @@ def test_idempotent_on_already_qualified_columns():
 def test_empty_and_none_input():
     assert fix_ambiguous_columns("") == ""
     assert fix_ambiguous_columns(None) is None
+
+
+def test_does_not_leak_alias_across_except_boundary():
+    # Regression: a Phase 18 rerun showed the naive whole-string version
+    # rewriting the EXCEPT's *first* branch's bare `transcript_id` (no `T1`
+    # in scope there) using the alias from the *second* branch's JOIN...ON.
+    sql = ("SELECT transcript_date ,  transcript_id FROM TRANSCRIPTS "
+           "EXCEPT SELECT T1.transcript_date ,  T1.transcript_id FROM TRANSCRIPTS AS T1 "
+           "JOIN transcript_contents AS T2 ON T1.transcript_id  =  T2.transcript_id "
+           "GROUP BY T1.transcript_id ORDER BY count(*) DESC LIMIT 1")
+    fixed = fix_ambiguous_columns(sql)
+    first_branch = fixed.split("EXCEPT")[0]
+    assert "T1." not in first_branch
+    assert "GROUP BY T1.transcript_id" in fixed   # second branch still qualified
+
+
+def test_split_respects_parens_around_subquery():
+    # A UNION/EXCEPT keyword inside a parenthesized subquery is not a
+    # top-level branch boundary and must not be split on.
+    sql = ("SELECT owner_id FROM owners JOIN dogs ON owners.owner_id = dogs.owner_id "
+           "WHERE owner_id IN (SELECT x FROM t1 EXCEPT SELECT y FROM t2)")
+    fixed = fix_ambiguous_columns(sql)
+    assert "(SELECT x FROM t1 EXCEPT SELECT y FROM t2)" in fixed
+    assert "SELECT owners.owner_id FROM owners" in fixed

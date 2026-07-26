@@ -23,6 +23,17 @@ one-to-many join" or "ties collapsed by ORDER BY ... LIMIT 1" failure patterns
 from the same error analysis -- those require judging the query's semantic
 intent, and a blanket rule risks changing results for currently-correct
 queries. Left as a documented limitation for Phase 19 instead.
+
+Scoping: a JOIN...ON's aliases are only in scope within its own top-level
+SELECT branch. A naive whole-string substitution would leak a qualification
+across a UNION/EXCEPT/INTERSECT boundary into a sibling SELECT that never
+defined that alias -- confirmed in practice on a Phase 18 rerun, where an
+EXCEPT's second branch's `ON T1.transcript_id = T2.transcript_id` caused the
+first branch's unrelated, alias-free `transcript_id` to be rewritten to
+`T1.transcript_id`, a column that doesn't exist there. fix_ambiguous_columns()
+therefore splits on top-level set operators (respecting parenthesis depth, so
+operators inside a subquery aren't treated as top-level) and fixes each branch
+independently.
 """
 
 from __future__ import annotations
@@ -35,11 +46,40 @@ _ON_CLAUSE = re.compile(
     re.IGNORECASE | re.DOTALL,
 )
 _EQUI_PAIR = re.compile(r"(\w+)\.(\w+)\s*=\s*(\w+)\.(\w+)")
+_SET_OP = re.compile(r"\b(UNION\s+ALL|UNION|EXCEPT|INTERSECT)\b", re.IGNORECASE)
 
 
-def fix_ambiguous_columns(sql: str) -> str:
-    """Qualify columns that are ambiguous under a JOIN but safe to resolve."""
-    if not sql or "JOIN" not in sql.upper():
+def _split_top_level_branches(sql: str) -> list:
+    """[(keyword_before, segment), ...] split at paren-depth-0 set operators.
+
+    `keyword_before` is "" for the first segment. Concatenating
+    keyword_before + segment for every entry reconstructs `sql` exactly, since
+    each segment is the untouched slice between two match boundaries.
+    """
+    depth = 0
+    depth_at = [0] * (len(sql) + 1)
+    for i, ch in enumerate(sql):
+        if ch == "(":
+            depth += 1
+        elif ch == ")":
+            depth -= 1
+        depth_at[i + 1] = depth
+
+    boundaries = [m for m in _SET_OP.finditer(sql) if depth_at[m.start()] == 0]
+    if not boundaries:
+        return [("", sql)]
+
+    branches, prev_end, keyword = [], 0, ""
+    for m in boundaries:
+        branches.append((keyword, sql[prev_end:m.start()]))
+        keyword, prev_end = m.group(1), m.end()
+    branches.append((keyword, sql[prev_end:]))
+    return branches
+
+
+def _fix_branch(sql: str) -> str:
+    """Ambiguous-column fix for a single SELECT branch (no set operators)."""
+    if "JOIN" not in sql.upper():
         return sql
 
     ambiguous: dict[str, str] = {}
@@ -58,3 +98,14 @@ def fix_ambiguous_columns(sql: str) -> str:
         # so this is idempotent and never double-qualifies.
         fixed = re.sub(rf"(?<!\.)\b{re.escape(col)}\b", qualified, fixed, flags=re.IGNORECASE)
     return fixed
+
+
+def fix_ambiguous_columns(sql: str) -> str:
+    """Qualify columns that are ambiguous under a JOIN but safe to resolve."""
+    if not sql or "JOIN" not in sql.upper():
+        return sql
+
+    branches = _split_top_level_branches(sql)
+    if len(branches) == 1:
+        return _fix_branch(sql)
+    return "".join(keyword + _fix_branch(segment) for keyword, segment in branches)
