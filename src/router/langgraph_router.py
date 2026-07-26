@@ -137,8 +137,15 @@ class _SqlTrack:
         return os.path.join(self.db_dir, db_name, f"{db_name}.sqlite")
 
     def parse_candidates(self, raw: list) -> list:
-        """Generator output -> executable query objects. SQL needs no parsing."""
-        return list(raw)
+        """Generator output -> executable query objects.
+
+        Runs each candidate through fix_ambiguous_columns() -- a mechanical,
+        provably-safe rewrite for the "ambiguous column name" execution
+        failures found in the Phase 18 error analysis. See
+        src/generator/sql_fixups.py for why this is safe to apply blindly.
+        """
+        from src.generator.sql_fixups import fix_ambiguous_columns
+        return [fix_ambiguous_columns(c) for c in raw]
 
     def rank_candidates(self, raw: list, key_fields: list, sar_examples: list,
                         db_name: str, strategy: str) -> list:
