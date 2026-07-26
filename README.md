@@ -45,14 +45,21 @@ Given a natural language question and a database, the system produces the correc
 | 15A | POSG wired for SQL — SAR → Generator (5 cand.) → Pareto → EX, validated on Spider dev (63.3% vs 60.0% greedy EX, `--hard` subset) | ✅ Done |
 | 15B | POSG wired for NoSQL — mirrors 15A for MQL, validated on train split (76.7% vs 73.3% greedy EX) | ✅ Done |
 | 16 | End-to-end pipeline assembly (`src/pipeline_sql.py` / `src/pipeline_nosql.py`) | ✅ Done |
-| 17–20 | LangGraph router + self-correction, eval, error analysis, demo | ⏳ Pending |
+| 17 | LangGraph router + self-correction — session-based routing, execute + retry ladder (`src/router/langgraph_router.py`), 19 tests green on Mac | ✅ Done |
+| 18 | Evaluation harness + SchemaRAG Table 5 ablation (`src/eval/harness.py`), CP1 baseline driver — 31 tests green on Mac; **numbers not yet produced** (needs a GPU run) | 🔄 Code ready |
+| 19–20 | Error analysis, demo | ⏳ Pending |
 
 ## Setup
 
 ```bash
 conda activate text2sql
-pip install torch transformers datasets peft trl langgraph chromadb pymongo rapidfuzz bm25s sqlglot sqlparse networkx FlagEmbedding
+pip install torch transformers datasets peft trl langgraph chromadb pymongo rapidfuzz bm25s sqlglot sqlparse networkx FlagEmbedding bitsandbytes
+pip install pytest          # tests/ only
 ```
+
+`bitsandbytes` is required only when running the Generator on a GPU under 20GiB
+(T4 / V100-class), where `src/generator/infer.py` loads the 7B model in int8 so it
+fits entirely in VRAM. It is unused on Mac/MPS and on ≥20GiB GPUs (bf16 path).
 
 Configure paths in `configs/config.yaml` before running any scripts.
 
@@ -120,6 +127,76 @@ python scripts/build_dev_eval_set.py --dev Data/Spider/dev.json --out Data/cot_d
 ```
 
 `--strategy` selects Pareto tie-break weighting (`balanced` default, `schema_priority`, `example_priority`). Full methodology, false starts, and a known alias-blindness limitation in `posg_sql.py`'s schema-conformity scoring are written up in `docs/phase15_posg_findings.md`.
+
+## Running the router (Phase 17)
+
+`src/router/langgraph_router.py` wraps the Phase 16 pipeline in a LangGraph state machine that **executes** the selected query and retries on failure. Routing is session-based (Option A): the track is fixed with `--track`, not classified per question. SchemaLinker / SAR / Generator are built once and reused for every question in the session.
+
+```bash
+# Single question
+python -m scripts.run_router --track sql --db_name concert_singer \
+    --question "How many singers are there?"
+
+# Interactive session (the 7B model loads once, then stays warm)
+python -m scripts.run_router --track sql --db_name concert_singer
+
+# Batch, with retry statistics
+python -m scripts.run_router --track sql --batch Data/cot_data/sql_dev_eval_full.json --n 20
+
+# NoSQL track (needs a live mongod, same as Phase 15B/16)
+python -m scripts.run_router --track nosql --db_name concert_singer --question "How many singers?"
+```
+
+Retry ladder on execution failure (`--max_retries`, default 3):
+
+1. **Next POSG candidate** — already generated, so no GPU cost and fully in-distribution for the fine-tuned adapter.
+2. **Generator re-prompt** — only once the ranked candidates are exhausted, the failing query and its execution error are fed back via `GeneratorInfer.generate(previous_attempt=..., error=...)`. The last retry is reserved for this. Note the two extra prompt sections are *not* in the Phase 14 SFT format, so this path leans on the base instruct model's instruction-following.
+
+Because POSG's executability dimension already runs every candidate, a batch containing any working query gets it ranked first and the ladder never fires — it is reached mainly when POSG's Pareto front came back empty. `tests/test_router.py` pins that behaviour.
+
+Tests run on Mac with no GPU and no checkpoints (SchemaLinker/SAR/Generator stubbed, real graph + real POSG + a real temp SQLite DB):
+
+```bash
+pytest tests/test_router.py -v
+```
+
+## Evaluation + ablation (Phase 18)
+
+`src/eval/harness.py` scores the pipeline on a held-out set and replicates SchemaRAG's Table 5 ablation. `scripts/run_eval.py` drives it:
+
+```bash
+# Full pipeline, 100 held-out Spider dev questions
+python -m scripts.run_eval --track sql --data Data/cot_data/sql_dev_eval_full.json --n 100
+
+# Full Table 5 sweep — 4 configurations
+python -m scripts.run_eval --track sql --data Data/cot_data/sql_dev_eval_full.json --n 100 --ablation all
+
+# NoSQL (needs a live mongod with the databases loaded)
+python -m scripts.run_eval --track nosql --data Data/cot_data/nosql_cot_train.json --n 100
+
+# CP1 baseline — codegen-350M, the "no schema-awareness" floor (~45–55% expected)
+python -m scripts.run_baseline --data Data/cot_data/sql_dev_eval_full.json --n 100
+```
+
+| Configuration | What changes |
+|---|---|
+| `full` | SchemaLinker + SAR + POSG |
+| `no_schema_linker` | `key_fields` forced to `[]` — Generator sees "N/A", POSG's schema-conformity goes flat |
+| `no_sar` | `sar_examples` forced to `[]` — Generator sees "N/A", POSG's example-consistency goes flat |
+| `no_posg` | POSG selection replaced by the greedy top-1 candidate |
+
+Configurations sharing generator inputs share a generation pass, so the four-way sweep costs **three** generation passes per question, not four (`full` and `no_posg` differ only in how a candidate is picked). `plan_generation_passes()` makes the grouping explicit and it's pinned by a test.
+
+**Two things to know about the reported EX:**
+
+- EX is the mean over questions whose *gold* query executed, not over all questions. A missing local `.sqlite` (SQL) or a gold pipeline returning 0 rows (NoSQL, meaning the database was never loaded into Mongo) is excluded and counted separately — scoring those as wrong would silently deflate EX. `format_summary()` prints the excluded count.
+- `exact_match` is reported because it needs no database, but it badly understates correctness — a correct query phrased differently scores 0. EX is the headline number. Targets: >82% SQL, >60% NoSQL.
+
+Reports are written to `evaluation/results/` with every per-question query kept, as the input for Phase 19 error analysis.
+
+```bash
+pytest tests/test_eval_harness.py -v
+```
 
 ## Training scripts (run on Colab)
 
@@ -212,8 +289,9 @@ src/                          reusable library code
   pipeline_nosql.py            SchemaLinker → SAR → Generator → POSG library for NoSQL — run_pipeline() (Phase 16)
   eval/
     exec_eval.py              EX metric — column-permutation-aware result comparison
+    harness.py                Ablation-aware evaluation + reporting (Phase 18)
   router/
-    langgraph_router.py       LangGraph state machine (Phase 17, stub)
+    langgraph_router.py       LangGraph state machine — Router, execute + retry ladder (Phase 17)
 
 scripts/
   validate_spider.py                    Spider download validation (Phase 4)
@@ -229,6 +307,13 @@ scripts/
   build_dev_eval_set.py                 Held-out Spider dev-split eval set via live SchemaLinker (Phase 15A)
   run_posg_sql.py                       SAR → Generator → POSG → EX pipeline for SQL (Phase 15A)
   run_posg_nosql.py                     SAR → Generator → POSG → EX pipeline for NoSQL (Phase 15B)
+  run_router.py                         Router session CLI — single/interactive/batch (Phase 17)
+  run_eval.py                           Evaluation + Table 5 ablation driver (Phase 18)
+  run_baseline.py                       CP1 baseline — codegen-350M EX floor (Phase 18C)
+
+tests/
+  test_router.py                        Router graph + retry ladder, stubbed models (Phase 17)
+  test_eval_harness.py                  Ablation grouping + EX semantics + reporting (Phase 18)
 
 notebooks/
   phase9a_sl_train.ipynb                SchemaLinker SQL SFT on Colab (Phase 9A, deferred)

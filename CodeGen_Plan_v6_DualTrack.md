@@ -642,13 +642,34 @@ Wire all components into `src/pipeline_sql.py` and `src/pipeline_nosql.py`.
 
 ---
 
-### PHASE 17 — LangGraph Router + Self-Correction [⚪, Mac]
+### PHASE 17 — LangGraph Router + Self-Correction [✅, Mac]
 
-Script: `src/router/langgraph_router.py`. State machine with retry on execution failure (max 3 retries, self-correction prompt on each).
+`src/router/langgraph_router.py` — `Router` compiles a LangGraph state machine:
+`schema_link → retrieve → generate → select → execute`, with conditional edges
+back to `select` (next candidate) or through `self_correct` on failure.
+Session-based routing (Option A): track fixed at construction; SchemaLinker /
+SAR / Generator built once and reused for every question in the session.
+
+Retry ladder (max_retries=3, changed from "self-correction prompt on *each*
+retry"): retries walk the POSG-ranked candidates first — already generated, so
+zero GPU cost and in-distribution for the fine-tuned adapter — and only
+re-prompt the generator with the failing query + its execution error once those
+are exhausted. The corrective prompt adds `## Previous Attempt` / `## Execution
+Error` sections that are **not** in the Phase 14 SFT format, so that path relies
+on the base instruct model's instruction-following; reserving it for last keeps
+the common case in-distribution.
+
+Note: POSG's executability dimension already executes every candidate, so a
+batch containing any working query gets it ranked first and the ladder never
+fires. It is reached mainly when POSG's Pareto front came back empty.
+
+CLI: `scripts/run_router.py` (single / interactive / `--batch` with retry stats).
+Tests: `tests/test_router.py`, 19 tests, run on Mac with no GPU or checkpoints
+(models stubbed; real graph, real POSG, real temp SQLite DB).
 
 ---
 
-### PHASE 18 — Evaluation [⚪]
+### PHASE 18 — Evaluation [🔄 code ready, numbers pending]
 
 **EX metric**: `src/eval/exec_eval.py` (adapted from SchemaRAG `eval/exec_eval.py`).
 
@@ -659,9 +680,30 @@ Script: `src/router/langgraph_router.py`. State machine with retry on execution 
 | Spider EX (SQL) | >82% | SchemaRAG + Qwen-7B achieves 80.4%; our r=64 LoRA should close the gap |
 | MongoDB EX (NoSQL) | >60% | TEND SMART baseline: 65.08% |
 
-**Ablation** (replicate SchemaRAG Table 5): Full vs w/o SchemaLinker vs w/o SAR vs w/o POSG.
+**Harness**: `src/eval/harness.py`, driven by `scripts/run_eval.py`.
 
-**CP1 Baseline**: codegen-350M EX on Spider dev (~45–55%). Establishes "without schema-awareness" floor.
+**Ablation** (replicates SchemaRAG Table 5): `full` / `no_schema_linker`
+(key_fields → []) / `no_sar` (sar_examples → []) / `no_posg` (greedy top-1
+instead of Pareto selection). Configurations sharing generator inputs share a
+generation pass, so the four-way sweep costs **three** passes per question, not
+four — `full` and `no_posg` differ only at selection time.
+
+**EX denominator**: the mean over questions whose *gold* query executed, not
+over all questions. A missing local `.sqlite`, or a NoSQL gold pipeline
+returning 0 rows (database never loaded into Mongo), is excluded and reported
+separately — counting those as wrong would silently deflate EX by however many
+databases happen to be absent. `exact_match` is also reported but badly
+understates correctness; EX is the headline number.
+
+**CP1 Baseline**: codegen-350M EX on Spider dev (~45–55%), via
+`scripts/run_baseline.py` — a plain pretrained code LM, no SchemaLinker/SAR/
+POSG/fine-tuning, scored by the same scorer for a paired comparison.
+Establishes the "without schema-awareness" floor.
+
+**Status**: code + 31 tests (`tests/test_eval_harness.py`) green on Mac with
+models stubbed. **No EX numbers produced yet** — that needs a GPU run against a
+held-out set (`Data/cot_data/sql_dev_eval_full.json`), not the train CoT files
+the Generator was fine-tuned on.
 
 ---
 
@@ -766,9 +808,9 @@ From TEND paper (NoSQL targets):
 | SQL RAG corpus (7000 entries, 7-dim structural type) | 7A | ✅ Done |
 | NoSQL RAG corpus started | 7B | 🔄 In progress |
 | CoT data generation started | 8A | 🔄 In progress |
-| Evaluation framework (EX metric script) | 18 | ✅ Done (src/eval/exec_eval.py) |
+| Evaluation framework (EX metric script) | 18 | ✅ Done (src/eval/exec_eval.py + src/eval/harness.py) |
 | SchemaRAG codebase audit + all scripts adapted | — | ✅ Done |
-| Baseline: codegen-350M EX on Spider dev | 18C | ⏳ Pending |
+| Baseline: codegen-350M EX on Spider dev | 18C | 🔄 Driver ready (scripts/run_baseline.py); number pending a GPU run |
 
 ### CP2 Deliverables
 | Item | Phase | Status |
@@ -787,7 +829,7 @@ From TEND paper (NoSQL targets):
 |---|---|---|
 | ChromaDB indices built | 13 | ⏳ Pending |
 | End-to-end pipelines assembled | 16 | ⏳ Pending |
-| LangGraph router + self-correction | 17 | ⏳ Pending |
+| LangGraph router + self-correction | 17 | ✅ Done (src/router/langgraph_router.py) |
 | Full ablation study documented | 18 | ⏳ Pending |
 | Text-to-SQL EX > 85% | 18A | ⏳ Pending |
 | Text-to-NoSQL EX > 60% | 18B | ⏳ Pending |
