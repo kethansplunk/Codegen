@@ -46,7 +46,7 @@ Given a natural language question and a database, the system produces the correc
 | 15B | POSG wired for NoSQL — mirrors 15A for MQL, validated on train split (76.7% vs 73.3% greedy EX) | ✅ Done |
 | 16 | End-to-end pipeline assembly (`src/pipeline_sql.py` / `src/pipeline_nosql.py`) | ✅ Done |
 | 17 | LangGraph router + self-correction — session-based routing, execute + retry ladder (`src/router/langgraph_router.py`), 19 tests green on Mac | ✅ Done |
-| 18 | Evaluation harness + SchemaRAG Table 5 ablation (`src/eval/harness.py`), CP1 baseline driver — 31 tests green on Mac; **numbers not yet produced** (needs a GPU run) | 🔄 Code ready |
+| 18 | Evaluation harness + SchemaRAG Table 5 ablation — **SQL 79–80% EX** (target >82%, 3 runs; root causes identified below), **NoSQL 84.2% EX** (meets >60% target); CP1 baseline not yet run | ✅ Done |
 | 19–20 | Error analysis, demo | ⏳ Pending |
 
 ## Setup
@@ -198,6 +198,24 @@ Reports are written to `evaluation/results/` with every per-question query kept,
 pytest tests/test_eval_harness.py -v
 ```
 
+### Results (n=100, Colab A100, 2026-07-26)
+
+| Track | `full` EX | Target | `no_schema_linker` | `no_sar` | `no_posg` |
+|---|---|---|---|---|---|
+| SQL   | 79–80% (3 runs) | >82% — **below** | −5 to −6% | ~0% | −1 to −2% |
+| NoSQL | 84.2% (95/100 scored) | >60% — **meets** | +0.0% | **−20.0%** | −1.1% |
+
+**SAR's contribution is track-dependent** — negligible for SQL (0% delta, reconfirmed across 3 separate runs), but the single largest ablation effect on NoSQL (−20%). Likely explanation: the NoSQL Generator (5,410 fine-tuning examples, warm-started from the SQL adapter, MongoDB's less-regular aggregation-pipeline syntax) leans on SAR's retrieved few-shot examples much more than the SQL Generator does. Don't generalize either track's finding to the other. NoSQL's number is on the **train split** (`nosql_cot_train.json` — no held-out NoSQL set exists), so treat it as an upper bound, not a pure generalization result.
+
+**SQL's shortfall (79–80% vs. >82%) is concentrated in the hard-query bucket** (JOIN/subquery/GROUP BY — ~68–70% EX vs. ~95% on easy questions). Per-question error analysis of `evaluation/results/phase18_sql_full.json` found distinct, well-defined root causes rather than uniform noise:
+- **Missing `DISTINCT` after a one-to-many JOIN** (the largest category) — the Generator doesn't dedupe rows that a JOIN multiplies
+- **Wrong column chosen under ambiguous naming** (e.g. picking a code column like `Maker` instead of `FullName`, or missing an `OR` across two FK directions)
+- **Ties collapsed by `ORDER BY ... LIMIT 1`** instead of the correct `WHERE x = (SELECT MIN/MAX ...)` form, which can return multiple tied rows
+- **Occasional hallucination** — a nonsensical `EXCEPT`/`INTERSECT` chain unrelated to the question; traced to SAR retrieving directionally-biased examples (e.g. all "most X" (`DESC`) examples for a "least X" (`ASC`) question) in one case, and unexplained by retrieval in another
+- **A couple of likely Spider gold-label quirks** (e.g. "greater than **any**" labeled with `MIN` where `MAX` is the more natural reading) — the true EX is probably a point or two above the reported number
+
+One class of failure — **ambiguous column names causing an outright SQLite execution error** (`ambiguous column name: X`) — was a genuine, safely-fixable bug rather than a model-judgment issue, and is fixed: see `src/generator/sql_fixups.py`.
+
 ## Training scripts (run on Colab)
 
 ```bash
@@ -282,6 +300,7 @@ src/                          reusable library code
   generator/
     train.py                  Qwen2.5-Coder-7B LoRA SFT (14A/14B) — warm-start, auto-resume, live progress
     infer.py                  GeneratorInfer — track-aware (sql/nosql) n-candidate generation for POSG
+    sql_fixups.py              Deterministic post-generation SQL fixups (Phase 18 error analysis) — qualifies columns ambiguous under a JOIN
   posg/
     posg_sql.py               Pareto-optimal SQL selector (ASTProcessor + 3-dim Pareto) — wired + validated (15A)
     posg_nosql.py             Pareto-optimal MQL selector (stage-type similarity) — wired + validated (15B)
@@ -314,6 +333,7 @@ scripts/
 tests/
   test_router.py                        Router graph + retry ladder, stubbed models (Phase 17)
   test_eval_harness.py                  Ablation grouping + EX semantics + reporting (Phase 18)
+  test_sql_fixups.py                    Ambiguous-column fixup — correctness + set-operator scoping (Phase 18)
 
 notebooks/
   phase9a_sl_train.ipynb                SchemaLinker SQL SFT on Colab (Phase 9A, deferred)
@@ -322,6 +342,7 @@ notebooks/
   phase13_chroma_index.ipynb            ChromaDB index building on Colab (Phase 13) ✅
   phase14a_generator_sql_train.ipynb    SQL Generator fine-tuning on Colab A100 (Phase 14A) ✅
   phase14b_generator_nosql_train.ipynb  NoSQL Generator fine-tuning on Colab A100 (Phase 14B) ✅
+  phase18_eval_ablation.ipynb           CP1 baseline + full Table 5 ablation sweep, both tracks, on Colab A100 (Phase 18) ✅
 
 Data/
   Spider/                 7000 Q-SQL pairs + 166 SQLite databases
