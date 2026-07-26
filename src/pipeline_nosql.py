@@ -102,6 +102,18 @@ def run_one(
     candidates = [_parse_candidate(c) for c in raw_candidates]
 
     schema_links = _collection_links_set(key_fields)
+    if not schema_links:
+        # Empty key_fields — usually a SchemaLinker call that failed or returned
+        # nothing — makes evaluate_schema_conformity return a constant 1.0 for
+        # *every* candidate (posg_nosql short-circuits on empty links; note the
+        # SQL track returns 0.0 in the same situation). Either way the objective
+        # is flat, carries no signal, and POSG silently degrades to
+        # executability + example consistency. Selection still works, but it is
+        # no longer schema-aware, so flag it instead of letting the run look
+        # normal (reported as schema_links_empty in the returned dict too).
+        print(f"[warn] no collection links for question={question!r} db_name={db_name!r} "
+              f"(key_fields={key_fields!r}) — schema_conformity will be a constant 1.0 "
+              f"for every candidate and POSG will select on the other two objectives only.")
 
     with ParetoOptimalMQL(db_name=db_name, mongo_uri=mongo_uri) as pareto:
         evaluated    = pareto.evaluate_candidates(candidates, schema_links, sar_examples)
@@ -123,6 +135,7 @@ def run_one(
             ],
             "pareto_front_size": len(pareto_front),
             "n_unique_candidates": len({json.dumps(c, sort_keys=True) for c in candidates}),
+            "schema_links_empty": not schema_links,
             "greedy": greedy,
             "selected": selected,
             "posg_diverged": selected != greedy,
@@ -156,30 +169,51 @@ def run_pipeline(
     strategy: str = "balanced",
     schema: str | None = None,
     gold_mql: dict | None = None,
+    seed: int | None = None,
+    linker=None,
+    sar=None,
+    generator=None,
 ) -> dict:
     """
     Full SchemaLinker -> SAR -> Generator -> POSG pipeline for one question.
     Builds the schema text and instantiates every component from `config`
     (the loaded configs/config.yaml dict) if not already supplied.
+
+    Args:
+        seed:      Forwarded to GeneratorInfer to pin candidate sampling. Only
+                   used when `generator` is not supplied (an injected generator
+                   was already seeded at its own construction).
+        linker,
+        sar,
+        generator: Pre-built components to reuse. Loading the 7B generator (and
+                   SAR's bge-large encoder) takes tens of seconds and several GB
+                   of VRAM, so any caller issuing more than one question --
+                   notably Phase 17's LangGraph router -- must build them once
+                   and pass them in here rather than paying that cost per call.
+                   Anything left as None is constructed from `config`.
     """
     from scripts.build_nosql_cot_data import format_schema_text
-    from src.generator.infer import GeneratorInfer
-    from src.sar.infer import get_sar_retriever
-    from src.schema_linker.linker import get_schema_linker
 
     schema = schema or format_schema_text(db_name)
 
-    linker     = get_schema_linker(config["schema_linker"], track="nosql")
+    if linker is None:
+        from src.schema_linker.linker import get_schema_linker
+        linker = get_schema_linker(config["schema_linker"], track="nosql")
     key_fields = linker.link(question=question, schema=schema)
 
-    sar = get_sar_retriever(config["sar"], track="nosql")
+    if sar is None:
+        from src.sar.infer import get_sar_retriever
+        sar = get_sar_retriever(config["sar"], track="nosql")
 
-    generator = GeneratorInfer(
-        checkpoint_path=config["generator"]["nosql_checkpoint"],
-        track="nosql",
-        n_candidates=config["generator"]["n_candidates"],
-        temperature=config["generator"]["temperature"],
-    )
+    if generator is None:
+        from src.generator.infer import GeneratorInfer
+        generator = GeneratorInfer(
+            checkpoint_path=config["generator"]["nosql_checkpoint"],
+            track="nosql",
+            n_candidates=config["generator"]["n_candidates"],
+            temperature=config["generator"]["temperature"],
+            seed=seed,
+        )
 
     mongo_uri = f"mongodb://{config['mongodb']['host']}:{config['mongodb']['port']}"
     return run_one(

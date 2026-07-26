@@ -138,10 +138,11 @@ def smoke_test(config: dict, n: int, strategy: str, seed: int, hard: bool, data_
           f"; Pareto front had >1 candidate on {n_multi_front}/{len(results)}")
 
 
-def single_question(config: dict, question: str, db_name: str, strategy: str, schema: str | None):
+def single_question(config: dict, question: str, db_name: str, strategy: str,
+                    schema: str | None, seed: int):
     from src.pipeline_sql import run_pipeline
 
-    r = run_pipeline(question, db_name, config, strategy=strategy, schema=schema)
+    r = run_pipeline(question, db_name, config, strategy=strategy, schema=schema, seed=seed)
     print(f"\ncandidates:")
     for c in r["candidates"]:
         print(f"  - {c}")
@@ -164,7 +165,12 @@ def main():
                               "has memorized this — use scripts/build_dev_eval_set.py "
                               "output here instead for a real generalization test).")
     parser.add_argument("--n", type=int, default=10)
-    parser.add_argument("--seed", type=int, default=0)
+    parser.add_argument("--seed", type=int, default=0,
+                         help="Seeds both which questions --smoke_test samples and "
+                              "the Generator's candidate sampling (torch.manual_seed). "
+                              "In --question mode only the latter applies. See "
+                              "docs/phase15_posg_findings.md — this pins the RNG but "
+                              "is not sufficient for full GPU run-to-run determinism.")
     parser.add_argument("--hard", action="store_true",
                          help="Only sample questions whose gold SQL has a JOIN, "
                               "subquery, or GROUP BY — the cases POSG is more "
@@ -187,7 +193,7 @@ def main():
     if not args.question or not args.db_name:
         parser.error("--question and --db_name are required unless --smoke_test is set")
 
-    single_question(config, args.question, args.db_name, args.strategy, args.schema)
+    single_question(config, args.question, args.db_name, args.strategy, args.schema, args.seed)
 
 
 if __name__ == "__main__":

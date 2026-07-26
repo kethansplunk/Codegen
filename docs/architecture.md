@@ -930,9 +930,10 @@ Codegen/
 │   │   ├── posg_sql.py                ✅ ASTProcessor + Pareto front (SQL) — wired + validated (15A)
 │   │   └── posg_nosql.py              ✅ Stage-type similarity + Pareto front (MQL) — wired + validated (15B)
 │   ├── eval/
-│   │   └── exec_eval.py               ✅ EX metric — permutation-aware result eq
+│   │   ├── exec_eval.py               ✅ EX metric — permutation-aware result eq
+│   │   └── harness.py                 ✅ Ablation-aware eval + reporting (Phase 18)
 │   └── router/
-│       └── langgraph_router.py        ⏳ Phase 17 (stub)
+│       └── langgraph_router.py        ✅ Router state machine + retry ladder (Phase 17)
 │
 ├── scripts/
 │   ├── validate_spider.py             ✅ Spider download validation (Phase 4)

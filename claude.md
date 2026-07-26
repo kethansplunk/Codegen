@@ -7,7 +7,7 @@ An AIML Capstone (Project 6) building a dual-track natural language to query sys
 - Orchestrated by LangGraph with session-based routing (Option A)
 
 ## Current Phase
-Phase 14B complete — both Generators (SQL + NoSQL) fine-tuned (Qwen2.5-Coder-7B LoRA) and validated on A100. Next: Phase 15 — wire up POSG (Pareto-optimal candidate selection); code exists but isn't wired into the pipeline yet.
+Phase 18 code complete, **numbers not yet produced**. `src/eval/harness.py` + `scripts/run_eval.py` run the SchemaRAG Table 5 ablation (full / no_schema_linker / no_sar / no_posg); `scripts/run_baseline.py` is the CP1 codegen-350M floor. 50 tests green on Mac (`pytest tests/`), but every EX number in the plan still needs an actual GPU run against a held-out set — do NOT report EX figures until that run happens. Next: run the eval on Colab, then Phase 19 error analysis.
 
 ## Key Reference Documents (read these for full context)
 - Project plan (latest): `CodeGen_Plan_v6_DualTrack.md` (20-phase plan, project root)
@@ -48,6 +48,13 @@ BM25S PromptSchema → SchemaLinker (DeepSeek API / Qwen3-8B, 3-stage, currently
 - Phase 13: ChromaDB persistent indexes built (SQL + NoSQL)
 - Phase 14A: SQL Generator LoRA SFT (6748 examples, A100)
 - Phase 14B: NoSQL Generator LoRA SFT (5410 examples, warm-started from 14A)
+- Phase 15A/15B: POSG wired for both tracks (`scripts/run_posg_*.py`)
+- Phase 16: pipeline extracted to `src/pipeline_sql.py` / `src/pipeline_nosql.py` (`run_pipeline()` accepts injected linker/sar/generator)
+- Phase 17: LangGraph router + self-correction (`src/router/langgraph_router.py`, `scripts/run_router.py`, `tests/test_router.py`)
+- Phase 18 (code only): eval harness + ablation (`src/eval/harness.py`, `scripts/run_eval.py`, `scripts/run_baseline.py`, `tests/test_eval_harness.py`)
+
+## Testing
+`pytest tests/` — 50 tests, all run on Mac with no GPU and no checkpoints (SchemaLinker/SAR/Generator stubbed; real LangGraph graph, real POSG, real temp SQLite DBs). Needs `pytest`, `sqlparse`, `langgraph` installed.
 
 ## Known Gaps
 - SAR schema fusion gap (Phase 12): SAR never fuses real table/column data into retrieval — fix was deferred pending Phase 14 eval results. Now that both generators are trained, revisit this before/alongside Phase 15 POSG wiring.
