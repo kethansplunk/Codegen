@@ -6,6 +6,7 @@ indexes/
 Data/sar_emb_cache.pkl
 Data/sar_emb_cache_nosql.pkl
 Data/generator_data/
+evaluation/results/
 .env
 __pycache__/
 *.ckpt
