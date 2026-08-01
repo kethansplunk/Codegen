@@ -50,7 +50,7 @@ Given a natural language question and a database, the system produces the correc
 | 19 | Error analysis — 19/100 misses in the latest run categorized by root cause; two fixes landed (`flight_2` DB fix, eval harness candidate fallback); several patterns scoped but deliberately left unfixed (see below) | ✅ Done |
 | 20A | Streamlit demo (`app.py`) — verified end-to-end on the SQL track, k=1 candidates per the plan's <8s target (confirmed 2.7s); launches on Colab via `notebooks/phase20a_streamlit_demo.ipynb` + `cloudflared` | ✅ Done |
 | 20B | FastAPI backend (`api.py`) — `/query`, `/databases`, `/health`; same `Router`, cached per settings combo like `app.py`; 5 tests (`tests/test_api.py`) | ✅ Done |
-| 20C | SQL-to-NoSQL migration utility | ⏳ Pending |
+| 20C | SQL-to-NoSQL migration utility (`scripts/migrate_sql_to_nosql.py`) — reuses `MongoDBConverter` (5B) directly; verified end-to-end against a real local `mongod` (`concert_singer`, 31 docs across 4 collections); 3 tests | ✅ Done |
 
 ## Setup
 
@@ -273,6 +273,30 @@ pytest tests/test_api.py -v
 
 Tests run on Mac with no GPU/checkpoints — same stubbing approach as `test_router.py` (real LangGraph graph, real POSG, a real temp SQLite DB; SchemaLinker/SAR/Generator stubbed and inserted directly into `api._router_cache`, bypassing the real config/checkpoint-loading path entirely).
 
+## SQL-to-NoSQL migration utility (Phase 20C)
+
+`scripts/migrate_sql_to_nosql.py` migrates one Spider SQL database (schema + data) to MongoDB, reusing `MongoDBConverter` (Phase 5B) directly — the same converter `convert_all()` already runs in a loop for all 166 databases, just pointed at a single `db_name`:
+
+```bash
+python -m scripts.migrate_sql_to_nosql --db_name concert_singer
+
+# Also run one real question through the NoSQL Router afterward, confirming
+# the migration produced a genuinely working database (needs real
+# checkpoints, DEEPSEEK_API_KEY, and the live mongod above)
+python -m scripts.migrate_sql_to_nosql --db_name concert_singer \
+    --verify --question "How many singers are there?"
+```
+
+Needs the target `db_name` to already have an FK graph (`Data/fk_graphs/`, Phase 5A) and NoSQL PromptSchema (`Data/prompt_schema/nosql/`, Phase 6) — both already exist for all 166 Spider databases, so migrating any of them needs no extra setup. Once migrated, the database is immediately queryable through the existing NoSQL pipeline (`Router`, `app.py`, `api.py`) — none of those care how the data got into Mongo.
+
+Verified end-to-end against a real local `mongod` (not just unit tests): `concert_singer` → 31 documents across 4 collections (`stadium`, `singer`, `concert`, `singer_in_concert`), confirmed present via a direct `pymongo` query afterward.
+
+```bash
+pytest tests/test_migrate_sql_to_nosql.py -v
+```
+
+`migrate()` takes an injectable `converter` (same rationale as `Router`'s injectable `linker`/`sar`/`generator`), so the 3 tests verify the orchestration logic — schema-cache writing, missing-database error handling, summary formatting — against a stub, no real/mocked MongoDB connection needed.
+
 ## Training scripts (run on Colab)
 
 ```bash
@@ -395,12 +419,14 @@ scripts/
   run_router.py                         Router session CLI — single/interactive/batch (Phase 17)
   run_eval.py                           Evaluation + Table 5 ablation driver (Phase 18)
   run_baseline.py                       CP1 baseline — codegen-350M EX floor (Phase 18C)
+  migrate_sql_to_nosql.py               SQL-to-NoSQL migration utility — reuses MongoDBConverter (Phase 20C)
 
 tests/
   test_router.py                        Router graph + retry ladder, stubbed models (Phase 17)
   test_eval_harness.py                  Ablation grouping + EX semantics + reporting (Phase 18)
   test_sql_fixups.py                    Ambiguous-column fixup — correctness + set-operator scoping (Phase 18)
   test_api.py                           FastAPI endpoints, stubbed models (Phase 20B)
+  test_migrate_sql_to_nosql.py          Migration utility — orchestration logic against a stub converter (Phase 20C)
 
 notebooks/
   phase9a_sl_train.ipynb                SchemaLinker SQL SFT on Colab (Phase 9A, deferred)
