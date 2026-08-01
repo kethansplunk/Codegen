@@ -46,8 +46,10 @@ Given a natural language question and a database, the system produces the correc
 | 15B | POSG wired for NoSQL — mirrors 15A for MQL, validated on train split (76.7% vs 73.3% greedy EX) | ✅ Done |
 | 16 | End-to-end pipeline assembly (`src/pipeline_sql.py` / `src/pipeline_nosql.py`) | ✅ Done |
 | 17 | LangGraph router + self-correction — session-based routing, execute + retry ladder (`src/router/langgraph_router.py`), 19 tests green on Mac | ✅ Done |
-| 18 | Evaluation harness + SchemaRAG Table 5 ablation — **SQL 79–80% EX** (target >82%, 3 runs; root causes identified below), **NoSQL 84.2% EX** (meets >60% target); CP1 baseline not yet run | ✅ Done |
-| 19–20 | Error analysis, demo | ⏳ Pending |
+| 18 | Evaluation harness + SchemaRAG Table 5 ablation — **SQL 80–81% EX** (target >82%, up from 79–80% after two Phase 19 fixes; root causes below), **NoSQL 84.2% EX** (meets >60% target); CP1 baseline run — 3.0% EX few-shot, 0.0% zero-shot, both well below the ~45–55% plan estimate | ✅ Done |
+| 19 | Error analysis — 19/100 misses in the latest run categorized by root cause; two fixes landed (`flight_2` DB fix, eval harness candidate fallback); several patterns scoped but deliberately left unfixed (see below) | ✅ Done |
+| 20A | Streamlit demo (`app.py`) — verified end-to-end on the SQL track, k=1 candidates per the plan's <8s target (confirmed 2.7s); launches on Colab via `notebooks/phase20a_streamlit_demo.ipynb` + `cloudflared` | ✅ Done |
+| 20B/20C | FastAPI backend, SQL-to-NoSQL migration utility | ⏳ Pending |
 
 ## Setup
 
@@ -198,23 +200,54 @@ Reports are written to `evaluation/results/` with every per-question query kept,
 pytest tests/test_eval_harness.py -v
 ```
 
-### Results (n=100, Colab A100, 2026-07-26)
+### Results (n=100, Colab A100, 2026-07-26 initial run; fixes below landed 2026-08-01)
 
 | Track | `full` EX | Target | `no_schema_linker` | `no_sar` | `no_posg` |
 |---|---|---|---|---|---|
-| SQL   | 79–80% (3 runs) | >82% — **below** | −5 to −6% | ~0% | −1 to −2% |
+| SQL   | 80–81% (post-fix, 2 runs) | >82% — **below** | −6.0% | −1.0% | −2.0% |
 | NoSQL | 84.2% (95/100 scored) | >60% — **meets** | +0.0% | **−20.0%** | −1.1% |
 
-**SAR's contribution is track-dependent** — negligible for SQL (0% delta, reconfirmed across 3 separate runs), but the single largest ablation effect on NoSQL (−20%). Likely explanation: the NoSQL Generator (5,410 fine-tuning examples, warm-started from the SQL adapter, MongoDB's less-regular aggregation-pipeline syntax) leans on SAR's retrieved few-shot examples much more than the SQL Generator does. Don't generalize either track's finding to the other. NoSQL's number is on the **train split** (`nosql_cot_train.json` — no held-out NoSQL set exists), so treat it as an upper bound, not a pure generalization result.
+**SAR's contribution is track-dependent** — small but nonzero for SQL (−1.0%, consistent across post-fix runs), but the single largest ablation effect on NoSQL (−20%). Likely explanation: the NoSQL Generator (5,410 fine-tuning examples, warm-started from the SQL adapter, MongoDB's less-regular aggregation-pipeline syntax) leans on SAR's retrieved few-shot examples much more than the SQL Generator does. Don't generalize either track's finding to the other. NoSQL's number is on the **train split** (`nosql_cot_train.json` — no held-out NoSQL set exists), so treat it as an upper bound, not a pure generalization result. Note the ablation *deltas* are far more stable than the absolute `full` number, which still swings ±1 point between `n=100` runs from generation sampling noise (`temperature=0.8`) — the full 1034-question held-out set would remove most of that, but hasn't been run.
 
-**SQL's shortfall (79–80% vs. >82%) is concentrated in the hard-query bucket** (JOIN/subquery/GROUP BY — ~68–70% EX vs. ~95% on easy questions). Per-question error analysis of `evaluation/results/phase18_sql_full.json` found distinct, well-defined root causes rather than uniform noise:
-- **Missing `DISTINCT` after a one-to-many JOIN** (the largest category) — the Generator doesn't dedupe rows that a JOIN multiplies
-- **Wrong column chosen under ambiguous naming** (e.g. picking a code column like `Maker` instead of `FullName`, or missing an `OR` across two FK directions)
-- **Ties collapsed by `ORDER BY ... LIMIT 1`** instead of the correct `WHERE x = (SELECT MIN/MAX ...)` form, which can return multiple tied rows
-- **Occasional hallucination** — a nonsensical `EXCEPT`/`INTERSECT` chain unrelated to the question; traced to SAR retrieving directionally-biased examples (e.g. all "most X" (`DESC`) examples for a "least X" (`ASC`) question) in one case, and unexplained by retrieval in another
-- **A couple of likely Spider gold-label quirks** (e.g. "greater than **any**" labeled with `MIN` where `MAX` is the more natural reading) — the true EX is probably a point or two above the reported number
+**Two fixes landed from the Phase 19 error analysis, moving SQL from 79–80% to 80–81%:**
+
+1. **`flight_2` database bug** (found via the Phase 20A demo, not the offline analysis): `Flights.SourceAirport`/`DestAirport` are stored with a leading space that `Airports.AirportCode` and every gold-query literal lack, so any `WHERE`/`JOIN` comparing them silently returned 0/empty instead of erroring — **gold itself** was scoring wrong on 42/1034 held-out questions (4.1%), not just predictions. Scanned all 166 Spider databases; `flight_2` is the only one where this reaches a column the held-out dev set actually filters/joins on. Fixed via `TRIM()`, applied fresh inside `notebooks/phase18_eval_ablation_res.ipynb` right after the DB unzip step (self-applying on every run). Clean copy linked from `datasets/spider/README.md`.
+2. **Eval harness only scored the top-ranked POSG candidate** (`ranked[0]`) — a failed top candidate sank the question even when a lower-ranked one (already generated in the same batched `generate()` call, no extra GPU cost) would have executed fine. `src/eval/harness.py`'s `_pick_executable()` now walks `ranked[]` on execution failure, mirroring the Router's own retry ladder. Checks executability only, never compares to gold mid-selection — no answer-leaking. Applies to `full`/`no_sar`/`no_schema_linker`; `no_posg` stays pure greedy top-1 by design.
+
+**SQL's remaining shortfall (80–81% vs. >82%) is concentrated in the hard-query bucket** (JOIN/subquery/GROUP BY — 71.2% EX vs. 95.1% on easy questions, 19 misses out of 100 scored in the latest run). Bucketed by root cause:
+
+| Category | Count | Mechanically fixable? |
+|---|---|---|
+| Missing `DISTINCT` after a one-to-many JOIN | 4 | Only 2 of 4 share a safe shape — see below |
+| Gold query itself looks questionable | 3+ | No — this is a data-quality thread, not a model bug |
+| Wrong column/table picked (schema-linking) | 3–4 | No — requires better retrieval/linking, not post-processing |
+| Hallucinated `EXCEPT`/`INTERSECT` chain | 2 | No — traced to SAR retrieving directionally-biased examples in one case |
+| Genuine comprehension error (e.g. MIN/MAX confusion on "greater than **any**", literal `=2` instead of counting) | 2 | No — real NL-understanding gap |
+| Ties collapsed by `ORDER BY ... LIMIT 1` | 1 | No — needs the `WHERE x = (SELECT MIN/MAX...)` rewrite, changes result shape |
+| Minor/debatable (extra column, alternate valid interpretation) | 2 | N/A |
+
+On the missing-`DISTINCT` category: only 2 of the 4 cases share a genuinely safe, mechanical shape — a bare `SELECT` (no aggregate, no `GROUP BY`) joining a "one" table to a "many" table while selecting only "one"-side columns. That's provably lossless to `DISTINCT` (nothing from the "many" side is displayed, so the JOIN can only produce identical fanned-out copies of the same row). The other 2 cases need real restructuring — one has an aggregate (`AVG`) where naively adding `DISTINCT` to the wrong column would itself introduce a bug, the other has no JOIN at all and needs schema knowledge of which column means "degree name." Scoped but **deliberately not built this round** — same judgment call as the original decision to leave `sql_fixups.py` narrow.
 
 One class of failure — **ambiguous column names causing an outright SQLite execution error** (`ambiguous column name: X`) — was a genuine, safely-fixable bug rather than a model-judgment issue, and is fixed: see `src/generator/sql_fixups.py`.
+
+### CP1 baseline — actually run
+
+`scripts/run_baseline.py` (codegen-350M, no SchemaLinker/SAR/POSG/fine-tuning) scored **0.0% EX zero-shot** and **3.0% EX few-shot** (`--k_shot 3`, n=100) — both far below the plan's ~45–55% estimate. Not a harness bug: manual inspection of raw completions shows the model echoing the schema's own `(col:TYPE, examples:...)` comment syntax back as if it were the SQL answer, or degenerating into repeated-token loops, rather than producing malformed-but-plausible SQL. codegen-350M is small and not instruction-tuned; three diverse few-shot exemplars weren't enough to reliably separate "schema description" from "answer" at this scale. The finding — that the SchemaRAG architecture's components (SchemaLinker + SAR + POSG + fine-tuning) take the same base capability from ~3% to 80%+ EX — is the deliverable here, not a fixed baseline number.
+
+## Running the Streamlit demo (Phase 20A)
+
+`app.py` wraps `src/router/langgraph_router.py`'s `Router` directly — same pipeline `scripts/run_router.py` drives, with a UI instead of a CLI:
+
+```bash
+pip install streamlit
+streamlit run app.py
+```
+
+Sidebar controls: track (SQL/NoSQL), POSG strategy, max retries, and **candidates (k)** — defaults to **k=1** per the plan's demo latency target (<8s; confirmed 2.7s on a real question at k=1 on Colab A100). Bump it to 3–5 to demo POSG's candidate ranking instead of greedy decoding, at the cost of latency. The `Router` is cached per settings combination so the 7B Generator and SAR encoder load once per session, not per question.
+
+Needs (all gitignored, produced on Colab): `models/generator_{sql,nosql}/`, `models/sar_{sql,nosql}/sar_model.pt`, `Data/Spider/database/` for the SQL track to execute (not just generate) a query, `DEEPSEEK_API_KEY` in `.env`, and a live `mongod` for the NoSQL track.
+
+On Colab, `notebooks/phase20a_streamlit_demo.ipynb` sets up the same Drive checkpoint/database layout as `phase18_eval_ablation_res.ipynb`, then exposes the app via a `cloudflared` quick tunnel (`npx --yes cloudflared tunnel --url http://127.0.0.1:8501`) — no signup, no browser interstitial (switched from `localtunnel` after its interstitial page was found to intermittently serve HTML in place of Streamlit's JS chunks, breaking the app with a "Failed to load module script" error).
 
 ## Training scripts (run on Colab)
 
@@ -278,6 +311,12 @@ python -m src.generator.train \
 ## Project structure
 
 ```
+app.py                        Phase 20A Streamlit demo — wraps router.langgraph_router.Router with a UI
+
+datasets/
+  spider/README.md            Pointer to the flight_2-fixed Spider database zip on Drive
+                               (Data/Spider/database/ itself stays gitignored, ~870MB)
+
 src/                          reusable library code
   device.py                   MPS / CUDA / CPU detection
   fk_graph.py                 FK graph builder (Phase 5A)
@@ -308,7 +347,9 @@ src/                          reusable library code
   pipeline_nosql.py            SchemaLinker → SAR → Generator → POSG library for NoSQL — run_pipeline() (Phase 16)
   eval/
     exec_eval.py              EX metric — column-permutation-aware result comparison
-    harness.py                Ablation-aware evaluation + reporting (Phase 18)
+    harness.py                Ablation-aware evaluation + reporting (Phase 18); walks ranked
+                               candidates on execution failure instead of scoring only
+                               ranked[0] (Phase 19 fix)
   router/
     langgraph_router.py       LangGraph state machine — Router, execute + retry ladder (Phase 17)
 
@@ -342,7 +383,9 @@ notebooks/
   phase13_chroma_index.ipynb            ChromaDB index building on Colab (Phase 13) ✅
   phase14a_generator_sql_train.ipynb    SQL Generator fine-tuning on Colab A100 (Phase 14A) ✅
   phase14b_generator_nosql_train.ipynb  NoSQL Generator fine-tuning on Colab A100 (Phase 14B) ✅
-  phase18_eval_ablation.ipynb           CP1 baseline + full Table 5 ablation sweep, both tracks, on Colab A100 (Phase 18) ✅
+  phase18_eval_ablation_res.ipynb       CP1 baseline + full Table 5 ablation sweep, both tracks, on Colab A100 (Phase 18) ✅
+                                         includes the flight_2 TRIM() fix (Phase 19), applied fresh every run
+  phase20a_streamlit_demo.ipynb         Launches app.py on Colab GPU via a cloudflared tunnel (Phase 20A) ✅
 
 Data/
   Spider/                 7000 Q-SQL pairs + 166 SQLite databases
