@@ -270,6 +270,35 @@ class EvalHarness:
                         if ex["question"].strip() != entry["question"].strip()][:3]
         return schema, key_fields, sar_examples
 
+    def _pick_executable(self, ranked: list, db_name: str):
+        """
+        First candidate in `ranked` that executes without error, falling back
+        to ranked[1], ranked[2], ... on failure.
+
+        Mirrors the Router's retry ladder (langgraph_router.py's
+        _after_execute/_node_next_candidate): a failed top-ranked candidate
+        shouldn't sink the question when a lower-ranked one -- already
+        generated in the same batched `generate()` call -- would have worked.
+        Scoring only ranked[0] measures a stricter, single-shot pipeline than
+        what's actually shipped; the Router (and the Streamlit demo) already
+        walks this same list on execution failure.
+
+        Deliberately checks *executability* only, never correctness against
+        gold -- exactly what the Router does, since it has no gold at
+        runtime either. Picking whichever candidate happens to match gold
+        would leak the answer into selection; this does not do that.
+
+        Falls back to ranked[0] if nothing executes (including the "no local
+        database" case, where every candidate reports error=None and rows=None
+        alike -- see _SqlTrack.execute's docstring on why that isn't worth
+        walking further for).
+        """
+        for candidate in ranked:
+            _, error = self.scorer.adapter.execute(candidate, db_name)
+            if error is None:
+                return candidate
+        return ranked[0]
+
     def _run_question(self, entry: dict, ablations: list) -> dict:
         schema, key_fields, sar_examples = self._inputs_for(entry)
         db_name = entry["db_name"]
@@ -297,7 +326,8 @@ class EvalHarness:
                     if ranked is None:
                         ranked = self.scorer.adapter.rank_candidates(
                             raw, kf, ex, db_name, self.strategy)
-                    pred = ranked[0] if ranked else self.scorer.adapter.parse_candidates(raw)[0]
+                    pred = (self._pick_executable(ranked, db_name) if ranked
+                            else self.scorer.adapter.parse_candidates(raw)[0])
 
                 scored = self.scorer.compare(pred, gold, db_name)
                 scored["query"] = pred
