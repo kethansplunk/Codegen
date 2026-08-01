@@ -1,5 +1,5 @@
 # CodeGen Architecture Document
-## Updated through Phase 15 — POSG wired and validated end-to-end (SQL + NoSQL)
+## Updated through Phase 20C — full pipeline, evaluation, and deployment (SQL + NoSQL)
 
 ---
 
@@ -28,9 +28,12 @@
    - [9.5 POSG — Pareto-Optimal Generator](#95-posg--pareto-optimal-generator)
    - [9.5.1 Phase 15 wiring and validation results](#951-phase-15-wiring-and-validation-results)
    - [9.6 EX Evaluation Metric](#96-ex-evaluation-metric)
-10. [Key Design Decisions and Why](#10-key-design-decisions-and-why)
-11. [Data Flow — End to End](#11-data-flow--end-to-end)
-12. [File and Folder Structure](#12-file-and-folder-structure)
+10. [LangGraph Router & Self-Correction (Phase 17)](#10-langgraph-router--self-correction-phase-17)
+11. [Evaluation, Ablation & Error Analysis (Phase 18–19)](#11-evaluation-ablation--error-analysis-phase-1819)
+12. [Demo & Deployment (Phase 20A–20C)](#12-demo--deployment-phase-20a20c)
+13. [Key Design Decisions and Why](#13-key-design-decisions-and-why)
+14. [Data Flow — End to End](#14-data-flow--end-to-end)
+15. [File and Folder Structure](#15-file-and-folder-structure)
 
 ---
 
@@ -784,7 +787,120 @@ score = evaluate_ex(
 
 ---
 
-## 10. Key Design Decisions and Why
+## 10. LangGraph Router & Self-Correction (Phase 17)
+
+**File**: `src/router/langgraph_router.py`
+
+Through Phase 15, POSG picked a "best" candidate by static scoring, but nothing actually *ran* it. The Router closes that gap — it wraps the Phase 16 pipeline (`src/pipeline_sql.py` / `src/pipeline_nosql.py`, a straight extraction of the Phase 15 scripts into a reusable `run_pipeline()`) in a LangGraph state machine that executes the selected query and retries on failure:
+
+```
+schema_link → retrieve → generate → select → execute ─┬─→ [ok] → END
+                                       ^                │
+                                       └────────────────┘ [next candidate]
+                                       │                │
+                                  self_correct ◄─────────┘ [candidates exhausted]
+```
+
+**Session-based routing ("Option A")**: the track (SQL/NoSQL) is fixed once when the `Router` is constructed, not classified per question. A developer works against one database type at a time in practice, so a per-query classifier would just be a new failure point (a wrong classification) for no real benefit.
+
+**Retry ladder** (`max_retries=3` by default), spent in this order:
+1. **Next POSG candidate** — already generated in the same batched `generate()` call, so this costs no extra GPU time and stays fully in-distribution for the fine-tuned adapter. Because POSG's executability dimension already runs every candidate once during ranking, a batch containing any working query typically gets it ranked first and this rung of the ladder never actually fires in practice — it mainly matters when the Pareto front came back empty.
+2. **Generator re-prompt (self-correction)** — reserved for last, and only spent once ranked candidates are exhausted. The failing query and its execution error are fed back via `GeneratorInfer.generate(previous_attempt=..., error=...)`. This is the expensive, out-of-distribution path: the corrective-prompt sections aren't in the Phase 14 SFT format, so it leans on the base instruct model's general instruction-following rather than the fine-tuned distribution.
+
+**Track adapters** (`_SqlTrack`, `_NoSqlTrack`) hide everything that differs between SQL and MongoDB behind one shared interface: `format_schema()`, `parse_candidates()`, `rank_candidates()`, `execute()`, `render()`. SQL's `parse_candidates()` also runs `fix_ambiguous_columns()` (Phase 19, §11) before ranking — a candidate that would have crashed on an ambiguous-column error gets mechanically fixed before it's ever scored or executed.
+
+**Components are lazy, injectable properties.** `linker` / `sar` / `generator` build on first access — or accept pre-built instances via the constructor, which is how tests drive the graph without loading a 7B model — and are built once per `Router`, reused for every question in the session. This is what makes `app.py` / `api.py` (§12) fast after the first question: the 7B model and SAR encoder load once, not per request.
+
+19 tests (`tests/test_router.py`) run on Mac with no GPU/checkpoints — a real LangGraph graph, real POSG evaluation, and a real temp SQLite database (so execution failures are genuine `sqlite3` errors, not mocked ones); only SchemaLinker/SAR/Generator are stubbed.
+
+---
+
+## 11. Evaluation, Ablation & Error Analysis (Phase 18–19)
+
+### Evaluation harness (`src/eval/harness.py`)
+
+Replicates SchemaRAG's Table 5 ablation on a held-out set, driven by `scripts/run_eval.py`:
+
+| Configuration | What changes |
+|---|---|
+| `full` | SchemaLinker + SAR + POSG — the shipped pipeline |
+| `no_schema_linker` | `key_fields` forced to `[]` — Generator sees "N/A", POSG's schema-conformity dimension goes flat |
+| `no_sar` | `sar_examples` forced to `[]` — Generator sees "N/A", POSG's example-consistency dimension goes flat |
+| `no_posg` | POSG selection replaced by the greedy top-1 candidate |
+
+`full` and `no_posg` feed the Generator identically and differ only in how a candidate is *picked*, so they share one generation pass — `plan_generation_passes()` makes this grouping explicit, and the four-way sweep costs 3 generation passes per question, not 4.
+
+EX is the mean over questions whose *gold* query executed — a missing local `.sqlite` (SQL) or a NoSQL gold pipeline returning 0 rows (meaning the database was never loaded into Mongo) is excluded and reported separately rather than scored wrong, which would silently deflate EX by however many databases happen to be absent.
+
+**Results** (n=100, Colab A100):
+
+| Track | `full` EX | Target | `no_schema_linker` | `no_sar` | `no_posg` |
+|---|---|---|---|---|---|
+| SQL | 80–81% (post-fix; see below) | >82% — **below** | −6.0% | −1.0% | −2.0% |
+| NoSQL | 84.2% (train split) | >60% — **meets** | +0.0% | **−20.0%** | −1.1% |
+
+SAR's contribution is sharply track-dependent: negligible for SQL, but the single largest ablation lever for NoSQL (−20 points) — likely because MongoDB's less-regular aggregation-pipeline syntax leans on SAR's retrieved few-shot examples far more than SQL's more standardized grammar does. Don't generalize either track's finding to the other. The >82% target itself isn't arbitrary — it's set a couple points above the SchemaRAG paper's comparable-size baseline (Qwen-7B, 80.4% Spider EX), reflecting the expected headroom from a higher LoRA rank (r=64 vs. the paper's r=16) and Qwen3-8B's native reasoning format.
+
+### CP1 baseline (`scripts/run_baseline.py`)
+
+codegen-350M — no SchemaLinker, no SAR, no POSG, no fine-tuning — the "without schema-awareness" floor the full pipeline is measured against. Actually run: **0.0% EX zero-shot, 3.0% EX few-shot** (3 structurally-diverse exemplars), both far below the plan's ~45–55% estimate. Not a harness bug: raw completions show the model echoing the schema's own `(col:TYPE, examples:...)` annotation syntax back as if it were the SQL answer, or degenerating into repeated-token loops, rather than producing malformed-but-plausible SQL. The finding itself — that SchemaRAG's architecture takes the *same* base model capability from ~3% to 80%+ EX — is the deliverable here, not a fixed baseline number.
+
+### Phase 19 — error analysis and fixes
+
+Per-question analysis of a full ablation report (`evaluation/results/phase18_sql_full.json`) bucketed 19/100 misses in one run by root cause (hard-query bucket — JOIN/subquery/GROUP BY — landed at 71.2% EX vs. 95.1% on easy questions):
+
+| Category | Count | Mechanically fixable? |
+|---|---|---|
+| Missing `DISTINCT` after a one-to-many JOIN | 4 | Only 2/4 share a provably-safe shape (see below) |
+| Gold query itself looks questionable | 3+ | No — a data-quality thread, not a model bug |
+| Wrong column/table picked (schema-linking) | 3–4 | No — needs better retrieval/linking |
+| Hallucinated `EXCEPT`/`INTERSECT` chain | 2 | No — traced to SAR retrieving directionally-biased examples in one case |
+| Genuine comprehension error (e.g. MIN/MAX confusion on "greater than **any**", literal match instead of counting) | 2 | No — a real NL-understanding gap |
+| Ties collapsed by `ORDER BY ... LIMIT 1` | 1 | No — needs the `WHERE x = (SELECT MIN/MAX...)` rewrite, changes result shape |
+
+Three fixes have landed out of this analysis so far:
+
+**1. `src/generator/sql_fixups.py`** — `fix_ambiguous_columns()` deterministically qualifies a bare column reference that's ambiguous under a JOIN (`SELECT owner_id FROM owners JOIN dogs ON owners.owner_id = dogs.owner_id` crashes with `ambiguous column name: owner_id`), using the `ON` clause's own equality to pick the correct side. Provably safe: the join condition guarantees both sides are equal for every row in the result, for both `INNER` and `LEFT JOIN`. Splits on top-level set operators (`UNION`/`EXCEPT`/`INTERSECT`, respecting parenthesis depth) before fixing each branch independently — a naive whole-string substitution was confirmed in practice to leak a qualification across a set-operator boundary into a sibling `SELECT` that never defined that alias.
+
+**2. The `flight_2` database bug** (found live via the Phase 20A demo, not the offline analysis) — `Flights.SourceAirport`/`DestAirport` are stored with a leading space that `Airports.AirportCode` and every gold-query literal lack, so any `WHERE`/`JOIN` comparing them silently returned 0/empty instead of erroring. **Gold itself** was scoring wrong on 42/1034 held-out questions (4.1%), not just predictions — a data-quality bug masquerading as a model-correctness gap. Scanning all 166 Spider databases confirmed `flight_2` is the only one where this reaches a column the held-out dev set actually filters/joins on. Fixed via `TRIM()` on the 6 affected columns, applied fresh inside `notebooks/phase18_eval_ablation_res.ipynb` right after the Spider DB unzip step — self-applying on every Colab run, no Drive re-upload required. Verified via controlled before/after execution: of 6 `flight_2` questions sampled into one run, exactly 1 genuinely flipped from wrong to right because of the fix; the other 3 "affected" ones had already been scoring correct *before* the fix too, because the predicted query happened to replicate gold's identical (also-broken) comparison style — both sides equally wrong, and therefore coincidentally matching.
+
+**3. `src/eval/harness.py`'s `_pick_executable()`** — the harness previously scored only `ranked[0]`, the single top-ranked POSG candidate; a failed top candidate sank the question even when a lower-ranked one — already generated in the same batched call, no extra GPU cost — would have executed fine. Now walks `ranked[]` on execution failure, mirroring the Router's own retry ladder (§10). Checks executability only, **never** compares to gold mid-selection — an oracle-aware fallback would leak the answer into selection and invalidate the EX metric; this mirrors exactly what a production system could know at inference time. Applies to `full`/`no_sar`/`no_schema_linker`; `no_posg` stays pure greedy top-1 by design, since it's meant to isolate what POSG selection alone contributes.
+
+Combined, these moved SQL EX from 79–80% to 80–81% — real, but modest, and still short of the >82% target. The missing-`DISTINCT` pattern was scoped but **deliberately not built** this round: only 2 of the 4 found cases share a shape that's actually safe to fix mechanically — a bare `SELECT` (no aggregate, no `GROUP BY`) joining a "one" table to a "many" table while selecting only "one"-side columns. That's provably lossless to `DISTINCT` (nothing from the "many" side is displayed, so the JOIN can only produce identical fanned-out copies of the same row — same proof structure as `fix_ambiguous_columns()`, just for a different failure class). The other 2 cases need real restructuring: one has an aggregate (`AVG`) where naively adding `DISTINCT` to the wrong column would itself introduce a bug; the other has no JOIN at all and needs schema knowledge of which column means "name."
+
+19 tests (`tests/test_eval_harness.py`) for ablation grouping/EX semantics/reporting, plus a dedicated suite for the ambiguous-column fixup's correctness and set-operator scoping (`tests/test_sql_fixups.py`).
+
+---
+
+## 12. Demo & Deployment (Phase 20A–20C)
+
+All three wrap the same underlying pipeline — the Router (§10) — behind a different interface, for a different consumer:
+
+| | Phase 20A | Phase 20B | Phase 20C |
+|---|---|---|---|
+| File | `app.py` | `api.py` | `scripts/migrate_sql_to_nosql.py` |
+| Interface | Streamlit UI | REST (FastAPI) | CLI |
+| Consumer | A human, interactively | Another program/service | An operator, one-shot |
+
+### Streamlit demo (`app.py`)
+
+Sidebar controls: track, POSG strategy, max retries, and **candidates (k)** — defaults to **k=1**, overriding `config.yaml`'s eval-tuned `n_candidates=5` in an in-memory copy of the config only (the file on disk, and `run_eval.py`/`run_baseline.py` which read it directly, are untouched). This directly targets the plan's demo latency goal: confirmed **2.7s** for a real question at k=1 on Colab A100, versus the 5-candidate eval setting, which routinely exceeds the <8s target — especially if self-correction triggers a second full generation pass.
+
+`Router` is cached per `(track, strategy, max_retries, n_candidates)`, and `linker`/`sar`/`generator` are forced to build eagerly during that caching step rather than lazily on first `.run()` — otherwise the one-time warm-up cost (SAR corpus encoding, ~30s; the Generator's 7B checkpoint load, which can run 60–90s when reading LoRA shards over a Google Drive FUSE mount on Colab) gets misattributed to whichever question happens to be first, rather than shown honestly as pipeline loading.
+
+On Colab, `notebooks/phase20a_streamlit_demo.ipynb` exposes the app via a `cloudflared` quick tunnel rather than `localtunnel` — `localtunnel`'s browser interstitial page was found to intermittently serve HTML in place of Streamlit's JS chunks (a MIME-type mismatch producing a "Failed to load module script" error in the browser); `cloudflared` has no such interstitial, so there's nothing to serve the wrong content type.
+
+### FastAPI backend (`api.py`)
+
+Same `Router`, same per-settings caching strategy, exposed as `GET /health`, `GET /databases`, `POST /query` instead of a UI — for programmatic/service-to-service use. 5 tests (`tests/test_api.py`) insert a stub `Router` directly into the module-level cache dict keyed by request settings, bypassing the real config/checkpoint-loading path entirely (no real Mongo or GPU needed to test the endpoint contract).
+
+### SQL-to-NoSQL migration utility (`scripts/migrate_sql_to_nosql.py`)
+
+A thin CLI over `MongoDBConverter.convert_database()` (§8.2, Phase 5B) — no new conversion logic, just points the existing per-database converter at one `db_name` instead of `convert_all()`'s loop over all 166. Requires the target database to already have an FK graph and NoSQL PromptSchema (true for all 166 Spider databases, so migrating any of them needs no extra setup). `--verify` runs one real question through the NoSQL Router afterward, confirming the migration produced a genuinely queryable database rather than just rows sitting in Mongo disconnected from anything. Verified for real, not just via unit tests: a local `mongod` instance, `concert_singer` migrated, 31 documents landed correctly across 4 collections, confirmed via a direct `pymongo` query. 3 tests (`tests/test_migrate_sql_to_nosql.py`) against a stub converter, same injectable-dependency rationale as the Router's `linker`/`sar`/`generator`.
+
+---
+
+## 13. Key Design Decisions and Why
 
 ### Session-based routing instead of per-query routing
 The LangGraph router asks the user at session start whether they are working with PostgreSQL or MongoDB. Per-query detection would require a classifier that can make mistakes. Sessions are natural — a developer works with one database type at a time. Eliminates one failure point.
@@ -821,9 +937,15 @@ Phase 8B cannot use sqlglot for entity validation because sqlglot is an SQL pars
 ### Separate CoT datasets per track (SQL and NoSQL)
 The SQL and NoSQL SchemaLinkers are different model checkpoints trained on different CoT data. Merging them into one dataset would force the model to learn two incompatible schema-linking languages simultaneously. Keeping them separate means each model can specialize: SQL model reasons about `table.column` and JOINs; NoSQL model reasons about `collection.field` and `$lookup`. The CoT format contract (key field line, `<think>` tags) is shared so validation code is reused verbatim.
 
+### Candidate fallback checks executability only, never gold
+Both the Router's retry ladder (§10) and the eval harness's `_pick_executable()` (§11) walk past a failed candidate by checking whether the *next* one executes — never by checking which one matches the correct answer. A gold-aware fallback would leak the answer into selection and make the EX metric meaningless as an estimate of real behavior; an executability-only check mirrors exactly what a production system can actually know at inference time, since gold is never available there either.
+
+### Data-quality bugs get fixed in the data, not worked around in scoring
+The `flight_2` whitespace bug (§11) could have been patched by special-casing the eval harness to strip whitespace before comparison. It was fixed in the SQLite file itself via `TRIM()` instead — the bug is in the data, not in how correctness is measured, so every consumer (eval, the demo, the API, a human running raw SQL against the file) sees consistent, correct data, rather than only the eval path getting a silent workaround nothing else benefits from.
+
 ---
 
-## 11. Data Flow — End to End
+## 14. Data Flow — End to End
 
 ```
 Spider Dataset (Phase 4)
@@ -885,32 +1007,72 @@ PromptSchema + SchemaLinker + SAR ──► Generator Fine-tuning
    SQL   (Phase 14A) ──► generator_sql/   ✅
    NoSQL (Phase 14B, warm-start from 14A) ──► generator_nosql/  ✅
 
-─── INFERENCE PIPELINE ─────────────────────────────────────────
+─── INFERENCE PIPELINE (Phase 16 assembly) ─────────────────────
 
 Question
    │
    ├─ schema_utils.py (query-time BM25S)
    ├─ schema_linker/linker.py (ApiSchemaLinker or ModelSchemaLinker) → fix.py
    ├─ sar/infer.py → SARRetriever (memory) or ChromaSARRetriever → top-3 examples
-   ├─ generator/infer.py → 5 candidates
-   └─ posg/posg_sql.py or posg_nosql.py → final query   ✅ wired + validated (Phase 15, scripts/run_posg_*.py)
+   ├─ generator/infer.py → 5 candidates → sql_fixups.py (ambiguous columns, Phase 19)
+   └─ posg/posg_sql.py or posg_nosql.py → ranked candidates   ✅ wired + validated (Phase 15)
+
+src/pipeline_sql.py / src/pipeline_nosql.py — run_pipeline() wraps the chain
+above into one reusable call, accepting injected linker/sar/generator  ✅ Phase 16
+
+─── EXECUTION + SELF-CORRECTION (Phase 17) ─────────────────────
+
+run_pipeline() ──► LangGraph Router (src/router/langgraph_router.py)
+   │                  execute ranked[0] on the real DB/mongod
+   │                  ├─ ok → done
+   │                  ├─ fails → try ranked[1], ranked[2], ... (free, already generated)
+   │                  └─ all ranked candidates exhausted → self_correct
+   │                        (Generator re-prompt with the error, last retry only)
+   └──► {status, query, rows, retries, history}
+
+─── EVALUATION + ERROR ANALYSIS (Phase 18–19) ──────────────────
+
+sql_dev_eval_full.json (held-out) ──► src/eval/harness.py ──► Table 5 ablation
+   │                                        (walks ranked[] on execution
+   │                                         failure, Phase 19 fix)
+   └──► evaluation/results/*.json ──► Phase 19 per-question root-cause analysis
+              │                            │
+              │                            ├─► src/generator/sql_fixups.py (landed)
+              │                            └─► flight_2 TRIM() fix (landed, in-notebook)
+              └──► CP1 baseline (scripts/run_baseline.py, codegen-350M floor)
+
+─── DEMO + DEPLOYMENT (Phase 20A–20C) ──────────────────────────
+
+Router ──┬──► app.py           Streamlit UI, k=1 default          (20A)
+         ├──► api.py           FastAPI /query /databases /health  (20B)
+         └──► MongoDBConverter ──► scripts/migrate_sql_to_nosql.py (20C)
+              (Phase 5B, reused directly — no new conversion logic)
 ```
 
-This inference chain is exercised end-to-end today by `scripts/run_posg_sql.py` / `scripts/run_posg_nosql.py` (Phase 15); it is not yet wrapped in a reusable `src/pipeline_*.py` module — that assembly is Phase 16.
+This inference chain is exercised end-to-end via `src/pipeline_sql.py` / `src/pipeline_nosql.py` (Phase 16), wrapped in a LangGraph state machine that actually executes and retries (Phase 17, §10), scored at scale by the eval harness (Phase 18, §11), and served three ways (Phase 20A–C, §12).
 
 ---
 
-## 12. File and Folder Structure
+## 15. File and Folder Structure
 
 ```
 Codegen/
+├── app.py                             ✅ Phase 20A Streamlit demo — wraps Router with a UI
+├── api.py                             ✅ Phase 20B FastAPI backend — /query /databases /health
+│
+├── datasets/
+│   └── spider/README.md               ✅ Pointer to the flight_2-fixed Spider DB zip on Drive
+│                                          (Data/Spider/database/ itself stays gitignored, ~870MB)
+│
 ├── src/                               ← importable library code
 │   ├── device.py                      ✅ MPS/CUDA/CPU detection
 │   ├── fk_graph.py                    ✅ FK graph builder (Phase 5A)
-│   ├── mongodb_converter.py           ✅ SQLite → MongoDB (Phase 5B)
+│   ├── mongodb_converter.py           ✅ SQLite → MongoDB (Phase 5B) — reused directly by 20C
 │   ├── prompt_schema.py               ✅ BM25S build-time annotation (Phase 6)
 │   ├── schema_utils.py                ✅ BM25S query-time annotation (SchemaRAG)
 │   ├── model_interface.py             ✅ Qwen inference wrapper (SchemaRAG)
+│   ├── pipeline_sql.py                ✅ run_pipeline() — SchemaLinker→SAR→Generator→POSG (Phase 16)
+│   ├── pipeline_nosql.py              ✅ Same, for MQL (Phase 16)
 │   ├── schema_linker/
 │   │   ├── linker.py                  ✅ ApiSchemaLinker + ModelSchemaLinker (switchable)
 │   │   ├── train_stage1.py            ✅ CoT SFT — LoRA r=64, Qwen-7B (deferred)
@@ -925,15 +1087,17 @@ Codegen/
 │   │   └── format_schema.py           ✅ Schema text → parsed dict
 │   ├── generator/
 │   │   ├── train.py                   ✅ LoRA SFT (14A/14B) — warm-start, auto-resume
-│   │   └── infer.py                   ✅ GeneratorInfer — track-aware (sql/nosql)
+│   │   ├── infer.py                   ✅ GeneratorInfer — track-aware (sql/nosql)
+│   │   └── sql_fixups.py              ✅ fix_ambiguous_columns() — Phase 19 fix, §11
 │   ├── posg/
 │   │   ├── posg_sql.py                ✅ ASTProcessor + Pareto front (SQL) — wired + validated (15A)
 │   │   └── posg_nosql.py              ✅ Stage-type similarity + Pareto front (MQL) — wired + validated (15B)
 │   ├── eval/
 │   │   ├── exec_eval.py               ✅ EX metric — permutation-aware result eq
-│   │   └── harness.py                 ✅ Ablation-aware eval + reporting (Phase 18)
+│   │   └── harness.py                 ✅ Ablation-aware eval + reporting (Phase 18) +
+│   │                                      executable-candidate fallback (Phase 19, §11)
 │   └── router/
-│       └── langgraph_router.py        ✅ Router state machine + retry ladder (Phase 17)
+│       └── langgraph_router.py        ✅ Router state machine + retry ladder (Phase 17, §10)
 │
 ├── scripts/
 │   ├── validate_spider.py             ✅ Spider download validation (Phase 4)
@@ -948,7 +1112,11 @@ Codegen/
 │   ├── build_generator_training_data.py  ✅ Generator training data builder — --track sql|nosql (14A/14B)
 │   ├── build_dev_eval_set.py          ✅ Held-out Spider dev-split eval set via live SchemaLinker (Phase 15A)
 │   ├── run_posg_sql.py                ✅ SAR → Generator → POSG → EX pipeline, SQL (Phase 15A)
-│   └── run_posg_nosql.py              ✅ SAR → Generator → POSG → EX pipeline, NoSQL (Phase 15B)
+│   ├── run_posg_nosql.py              ✅ SAR → Generator → POSG → EX pipeline, NoSQL (Phase 15B)
+│   ├── run_router.py                  ✅ Router session CLI — single/interactive/batch (Phase 17, §10)
+│   ├── run_eval.py                    ✅ Evaluation + Table 5 ablation driver (Phase 18, §11)
+│   ├── run_baseline.py                ✅ CP1 baseline — codegen-350M EX floor (Phase 18C, §11)
+│   └── migrate_sql_to_nosql.py        ✅ SQL-to-NoSQL migration utility (Phase 20C, §12)
 │
 ├── notebooks/
 │   ├── phase9a_sl_train.ipynb         ✅ SchemaLinker SQL training on Colab (preserved, deferred)
@@ -956,10 +1124,20 @@ Codegen/
 │   ├── phase12b_sar_nosql_train.ipynb ✅ SAR NoSQL training on Colab T4 (Phase 12B)
 │   ├── phase13_chroma_index.ipynb     ✅ ChromaDB index building on Colab (Phase 13)
 │   ├── phase14a_generator_sql_train.ipynb    ✅ SQL Generator fine-tuning on Colab A100 (Phase 14A)
-│   └── phase14b_generator_nosql_train.ipynb  ✅ NoSQL Generator fine-tuning on Colab A100 (Phase 14B)
+│   ├── phase14b_generator_nosql_train.ipynb  ✅ NoSQL Generator fine-tuning on Colab A100 (Phase 14B)
+│   ├── phase18_eval_ablation_res.ipynb       ✅ CP1 baseline + Table 5 ablation, both tracks (Phase 18)
+│   │                                            includes the flight_2 TRIM() fix (Phase 19, §11)
+│   └── phase20a_streamlit_demo.ipynb  ✅ Launches app.py on Colab GPU via a cloudflared tunnel (20A)
+│
+├── tests/
+│   ├── test_router.py                 ✅ Router graph + retry ladder, stubbed models (Phase 17)
+│   ├── test_eval_harness.py           ✅ Ablation grouping + EX semantics + reporting (Phase 18)
+│   ├── test_sql_fixups.py             ✅ Ambiguous-column fixup — correctness + set-op scoping (Phase 19)
+│   ├── test_api.py                    ✅ FastAPI endpoints, stubbed models (Phase 20B)
+│   └── test_migrate_sql_to_nosql.py   ✅ Migration utility, stub converter (Phase 20C)
 │
 ├── Data/                              ← gitignored
-│   ├── Spider/                        ✅ 7000 Q-SQL + 166 SQLite DBs
+│   ├── Spider/                        ✅ 7000 Q-SQL + 166 SQLite DBs; flight_2 fixed (Phase 19, §11)
 │   ├── fk_graphs/                     ✅ 166 FK graph JSON files
 │   ├── mongodb/                       ✅ 166 MongoDB schema JSONs
 │   ├── prompt_schema/
@@ -999,4 +1177,4 @@ Codegen/
 
 ---
 
-*Last updated: Phase 15 complete. Data pipeline (5A–8B) done. SchemaLinker using DeepSeek API (training deferred). SAR trained both tracks (12A/12B). ChromaDB indexes built (13). Generators trained: SQL (14A, 6748 examples) and NoSQL (14B, 5410 examples, warm-started from 14A) — both LoRA on Qwen2.5-Coder-7B-Instruct, validated end-to-end. POSG wired and validated both tracks (15A/15B): SAR → Generator → Pareto selection → EX, beating greedy candidate-0 selection on Spider dev (SQL, 63.3% vs 60.0% EX) and train-split MQL (NoSQL, 76.7% vs 73.3% EX); see `docs/phase15_posg_findings.md`. Next: Phase 16 end-to-end pipeline assembly (`src/pipeline_sql.py` / `src/pipeline_nosql.py`).*
+*Last updated: Phase 20C complete — every CP4 deliverable except the formal "final evaluation report" writeup is done. Data pipeline (5A–8B), SAR (12A/12B), ChromaDB indexes (13), and both Generators (14A/14B) unchanged since Phase 15. POSG wired and validated both tracks (15A/15B). Phase 16 wrapped the inference chain into reusable `run_pipeline()` calls; Phase 17 added the LangGraph Router with an execute-and-retry ladder (§10). Phase 18 built the evaluation harness and ran the SchemaRAG Table 5 ablation — SQL 80–81% EX (target >82%), NoSQL 84.2% EX (target >60%) — and the CP1 baseline (§11). Phase 19's error analysis categorized 19/100 misses by root cause and landed two fixes (the `flight_2` database bug, the eval harness's executable-candidate fallback), moving SQL EX from 79–80% to 80–81%; a third fix (`sql_fixups.py`'s ambiguous-column qualification) landed alongside them. Phase 20 shipped all three demo/deployment surfaces — Streamlit (20A), FastAPI (20B), and the SQL-to-NoSQL migration utility (20C) — each a thin wrapper over the same Router or converter, not new pipeline logic (§12). Remaining: the missing-`DISTINCT` mechanical fixup (scoped, not built — only 2/4 found cases are provably safe) and a formal written evaluation report consolidating what's already documented here and in README.md.*
