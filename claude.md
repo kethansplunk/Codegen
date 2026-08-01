@@ -7,7 +7,7 @@ An AIML Capstone (Project 6) building a dual-track natural language to query sys
 - Orchestrated by LangGraph with session-based routing (Option A)
 
 ## Current Phase
-Phase 19 error analysis is done; Phase 20A (Streamlit demo) is done. **SQL**: 80–81% EX (n=100, held-out `sql_dev_eval_full.json`, Colab A100) — still below the >82% target, up from the original 79–80% after two fixes landed (see below). **NoSQL**: 84.2% EX (n=100, train split — no held-out NoSQL set exists) — meets the >60% target, unaffected by this round of fixes. Full ablation + root-cause breakdown in README.md's "Evaluation + ablation" section. **CP1 baseline has now actually been run**: zero-shot 0.0% EX, few-shot (`--k_shot 3`) 3.0% EX (n=100) — both well below the plan's ~45–55% estimate; diagnosed as codegen-350M being too small/undertrained to produce coherent SQL from a schema-comment-style prompt (it echoes the schema's own `(col:TYPE, examples:...)` annotation syntax back as if it were the answer), not a bug in the harness or prompt. 70 tests green on Mac (`pytest tests/`).
+Phase 19 error analysis is done; Phase 20A (Streamlit demo) and 20B (FastAPI backend) are done. **SQL**: 80–81% EX (n=100, held-out `sql_dev_eval_full.json`, Colab A100) — still below the >82% target, up from the original 79–80% after two fixes landed (see below). **NoSQL**: 84.2% EX (n=100, train split — no held-out NoSQL set exists) — meets the >60% target, unaffected by this round of fixes. Full ablation + root-cause breakdown in README.md's "Evaluation + ablation" section. **CP1 baseline has now actually been run**: zero-shot 0.0% EX, few-shot (`--k_shot 3`) 3.0% EX (n=100) — both well below the plan's ~45–55% estimate; diagnosed as codegen-350M being too small/undertrained to produce coherent SQL from a schema-comment-style prompt (it echoes the schema's own `(col:TYPE, examples:...)` annotation syntax back as if it were the answer), not a bug in the harness or prompt. 70 tests green on Mac (`pytest tests/`).
 
 Two fixes landed out of the Phase 19 error analysis:
 - `src/generator/sql_fixups.py` deterministically qualifies columns that are ambiguous under a JOIN but were crashing execution outright (safe because the JOIN's `ON` equality already guarantees both sides are equal).
@@ -40,6 +40,7 @@ Deliberately does NOT attempt the other found issues (missing `DISTINCT` after o
 - `docs/` — architecture doc + reference papers
 - `models/`, `indexes/`, `external/SchemaRAG/` — checkpoints, ChromaDB indexes, reference implementation (gitignored)
 - `app.py` — Phase 20A Streamlit demo (wraps `src/router/langgraph_router.py`'s `Router`); `notebooks/phase20a_streamlit_demo.ipynb` launches it on Colab via a `cloudflared` tunnel
+- `api.py` — Phase 20B FastAPI backend, same `Router`, as `/query` `/databases` `/health` endpoints instead of a UI
 
 ## Architecture (SchemaRAG-based)
 BM25S PromptSchema → SchemaLinker (DeepSeek API / Qwen3-8B, 3-stage, currently API mode) → SAR (bge-large + Transformer, both tracks trained)
@@ -63,9 +64,10 @@ BM25S PromptSchema → SchemaLinker (DeepSeek API / Qwen3-8B, 3-stage, currently
 - Phase 18: eval harness + ablation, results produced (`src/eval/harness.py`, `scripts/run_eval.py`, `scripts/run_baseline.py`, `notebooks/phase18_eval_ablation_res.ipynb`) — SQL 80–81% EX (below >82% target, up from 79–80% after the `flight_2` + harness-fallback fixes), NoSQL 84.2% EX (meets >60% target). Ambiguous-column fixup (`src/generator/sql_fixups.py`) landed as a result of the error analysis. CP1 baseline actually run: 3.0% EX few-shot (below the ~45–55% plan estimate, diagnosed as a codegen-350M capacity limitation).
 - Phase 19: error analysis done. 19/100 misses in the latest run categorized by root cause (see README's "Evaluation + ablation" section for the full breakdown with counts) — biggest actionable category was missing `DISTINCT` after one-to-many JOINs (4 cases, only 2 safely fixable), followed by hallucinated set-op chains, `ORDER BY...LIMIT 1` ties, wrong-column schema-linking errors, genuine ANY/ALL comprehension confusion, and several likely Spider gold-label quality issues.
 - Phase 20A: Streamlit demo (`app.py`) built and verified end-to-end (SQL track, k=1 candidates per the plan's <8s latency target — confirmed 2.7s for a real question). Launches on Colab via `notebooks/phase20a_streamlit_demo.ipynb` + a `cloudflared` quick tunnel.
+- Phase 20B: FastAPI backend (`api.py`) — same `Router`, same per-settings caching model as `app.py`, as `/query` `/databases` `/health` endpoints for programmatic use. 5 tests (`tests/test_api.py`), same stub-model approach as `test_router.py`.
 
 ## Testing
-`pytest tests/` — 70 tests, all run on Mac with no GPU and no checkpoints (SchemaLinker/SAR/Generator stubbed; real LangGraph graph, real POSG, real temp SQLite DBs, real regex-based SQL fixup logic). Needs `pytest`, `sqlparse`, `langgraph` installed.
+`pytest tests/` — 75 tests, all run on Mac with no GPU and no checkpoints (SchemaLinker/SAR/Generator stubbed; real LangGraph graph, real POSG, real temp SQLite DBs, real regex-based SQL fixup logic). Needs `pytest`, `sqlparse`, `langgraph`, `fastapi` installed.
 
 ## Known Gaps
 - SAR schema fusion gap (Phase 12): SAR never fuses real table/column data into retrieval. **Closed for SQL** — reconfirmed on Phase 18's SQL ablation (0% EX delta from removing SAR, across 3 separate n=100 runs); not worth fixing there. **Open/load-bearing for NoSQL** — Phase 18's NoSQL ablation found the opposite: removing SAR costs 20 points of EX (84.2% → 64.2%), the largest ablation effect in either track. Don't generalize the SQL "not worth fixing" conclusion to NoSQL. See memory note `sar_schema_fusion_gap` for the full evidence trail.
