@@ -49,7 +49,8 @@ Given a natural language question and a database, the system produces the correc
 | 18 | Evaluation harness + SchemaRAG Table 5 ablation — **SQL 80–81% EX** (target >82%, up from 79–80% after two Phase 19 fixes; root causes below), **NoSQL 84.2% EX** (meets >60% target); CP1 baseline run — 3.0% EX few-shot, 0.0% zero-shot, both well below the ~45–55% plan estimate | ✅ Done |
 | 19 | Error analysis — 19/100 misses in the latest run categorized by root cause; two fixes landed (`flight_2` DB fix, eval harness candidate fallback); several patterns scoped but deliberately left unfixed (see below) | ✅ Done |
 | 20A | Streamlit demo (`app.py`) — verified end-to-end on the SQL track, k=1 candidates per the plan's <8s target (confirmed 2.7s); launches on Colab via `notebooks/phase20a_streamlit_demo.ipynb` + `cloudflared` | ✅ Done |
-| 20B/20C | FastAPI backend, SQL-to-NoSQL migration utility | ⏳ Pending |
+| 20B | FastAPI backend (`api.py`) — `/query`, `/databases`, `/health`; same `Router`, cached per settings combo like `app.py`; 5 tests (`tests/test_api.py`) | ✅ Done |
+| 20C | SQL-to-NoSQL migration utility | ⏳ Pending |
 
 ## Setup
 
@@ -249,6 +250,29 @@ Needs (all gitignored, produced on Colab): `models/generator_{sql,nosql}/`, `mod
 
 On Colab, `notebooks/phase20a_streamlit_demo.ipynb` sets up the same Drive checkpoint/database layout as `phase18_eval_ablation_res.ipynb`, then exposes the app via a `cloudflared` quick tunnel (`npx --yes cloudflared tunnel --url http://127.0.0.1:8501`) — no signup, no browser interstitial (switched from `localtunnel` after its interstitial page was found to intermittently serve HTML in place of Streamlit's JS chunks, breaking the app with a "Failed to load module script" error).
 
+## Running the FastAPI backend (Phase 20B)
+
+`api.py` wraps the same `Router` as a REST API instead of a UI, for programmatic/service-to-service use:
+
+```bash
+pip install fastapi uvicorn
+uvicorn api:app --reload
+```
+
+| Endpoint | Purpose |
+|---|---|
+| `GET /health` | Liveness check |
+| `GET /databases` | Lists `Data/Spider/database/`'s available `db_name`s for the SQL track |
+| `POST /query` | `{track, question, db_name, schema_text?, strategy?, max_retries?, n_candidates?}` → `{status, query, rows, retries, error, history}` |
+
+Same caching model as `app.py`: one `Router` per unique `(track, strategy, max_retries, n_candidates)` combination, built (and warmed up — SchemaLinker/SAR/Generator forced to load immediately rather than on first request) on first use and reused after. Same requirements as the Streamlit demo (checkpoints, Spider databases, `DEEPSEEK_API_KEY`, live `mongod` for NoSQL).
+
+```bash
+pytest tests/test_api.py -v
+```
+
+Tests run on Mac with no GPU/checkpoints — same stubbing approach as `test_router.py` (real LangGraph graph, real POSG, a real temp SQLite DB; SchemaLinker/SAR/Generator stubbed and inserted directly into `api._router_cache`, bypassing the real config/checkpoint-loading path entirely).
+
 ## Training scripts (run on Colab)
 
 ```bash
@@ -312,6 +336,7 @@ python -m src.generator.train \
 
 ```
 app.py                        Phase 20A Streamlit demo — wraps router.langgraph_router.Router with a UI
+api.py                        Phase 20B FastAPI backend — same Router, /query /databases /health endpoints
 
 datasets/
   spider/README.md            Pointer to the flight_2-fixed Spider database zip on Drive
@@ -375,6 +400,7 @@ tests/
   test_router.py                        Router graph + retry ladder, stubbed models (Phase 17)
   test_eval_harness.py                  Ablation grouping + EX semantics + reporting (Phase 18)
   test_sql_fixups.py                    Ambiguous-column fixup — correctness + set-operator scoping (Phase 18)
+  test_api.py                           FastAPI endpoints, stubbed models (Phase 20B)
 
 notebooks/
   phase9a_sl_train.ipynb                SchemaLinker SQL SFT on Colab (Phase 9A, deferred)
