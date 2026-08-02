@@ -48,23 +48,24 @@ def _spider_db_names(db_dir: str) -> list[str]:
 
 
 @st.cache_resource(show_spinner=False)
-def _get_router(track: str, strategy: str, max_retries: int, n_candidates: int) -> Router:
-    # Cached per (track, strategy, max_retries, n_candidates) so the 7B generator
-    # and SAR encoder load exactly once per session, matching the Router
-    # docstring's "built once, reused every question" design.
+def _get_router(track: str) -> Router:
+    # Cached on `track` ALONE. Everything else the sidebar exposes -- strategy,
+    # max_retries, n_candidates -- is applied per question by _apply_settings()
+    # instead of being part of the cache key.
     #
-    # n_candidates overrides configs/config.yaml's generator.n_candidates (5,
-    # tuned for Phase 18's offline POSG eval fidelity) down to the Phase 20A
-    # plan's demo target of k=1 by default -- every extra candidate is another
-    # parallel sequence the 7B model has to decode, and a failed first attempt
-    # can trigger a second full generation pass via self-correction, so 5
-    # candidates routinely blows past the <8s demo latency target. The override
-    # is applied to an in-memory copy only, so configs/config.yaml on disk (and
-    # scripts/run_eval.py / run_baseline.py, which read it directly) are untouched.
+    # This matters a lot in practice. Those three are pure runtime parameters:
+    # the LangGraph graph reads self.strategy / self.max_retries at node-execution
+    # time and never bakes them in, and n_candidates is read inside
+    # GeneratorInfer.generate(). Keying the cache on them meant nudging any slider
+    # evicted the entry and rebuilt the whole pipeline -- re-fetching the ~15GB
+    # Qwen2.5-Coder-7B base model that AutoPeftModelForCausalLM.from_pretrained()
+    # pulls for the LoRA adapter, and re-encoding SAR's corpus. That is minutes of
+    # reload as the price of changing a number the loaded model does not depend on.
+    #
+    # Track genuinely does select different checkpoints, so it stays in the key.
     config = _load_config()
-    config = {**config, "generator": {**config["generator"], "n_candidates": n_candidates}}
-    router = Router(track=track, config=config, strategy=strategy,
-                     max_retries=max_retries, seed=0, verbose=False)
+    router = Router(track=track, config=config, strategy="balanced",
+                    max_retries=3, seed=0, verbose=False)
 
     # linker/sar/generator are lazy @property on Router -- left alone, they'd
     # build on the *first* router.run() call instead of here, so SAR's corpus
@@ -76,6 +77,18 @@ def _get_router(track: str, strategy: str, max_retries: int, n_candidates: int) 
     router.sar
     router.generator
     return router
+
+
+def _apply_settings(router: Router, strategy: str, max_retries: int, n_candidates: int):
+    """Re-parameterize a cached Router in place, without rebuilding it.
+
+    Safe because none of these are captured at construction time: the graph
+    reads self.strategy / self.max_retries when the node runs, and
+    GeneratorInfer reads self.n_candidates inside generate().
+    """
+    router.strategy = strategy
+    router.max_retries = max_retries
+    router.generator.n_candidates = n_candidates
 
 
 def _render_rows(rows: list | None):
@@ -146,23 +159,21 @@ def _resolve_db(track: str, question: str) -> tuple[str | None, list]:
     try:
         selector = get_db_selector(track)
     except Exception as e:
-        st.error(f"Database auto-detect unavailable: {e}")
-        return None, []
+        return None, [], f"Database auto-detect unavailable: {e}"
     ranked = selector.rank(question, k=3)
     # An all-zero BM25 score means the question shares no schema vocabulary with
     # any database -- picking the arbitrary first one would silently produce a
     # confident answer from the wrong database, so make the caller choose.
     if not ranked or ranked[0][1] <= 0:
-        st.warning("No database matched this question — pick one in the sidebar "
-                   "(turn off Auto-detect).")
-        return None, ranked
+        return None, ranked, ("No database matched this question — pick one in "
+                              "the sidebar (turn off Auto-detect).")
 
     # An override belongs to the question it was made for. Without this check a
     # correction on one question would silently redirect the next one.
     override = st.session_state.get("db_override")
     if override and st.session_state.get("db_override_for") == question:
-        return override, ranked
-    return ranked[0][0], ranked
+        return override, ranked, None
+    return ranked[0][0], ranked, None
 
 
 def _render_db_choice(ranked: list, chosen: str, question: str, track: str):
@@ -173,9 +184,8 @@ def _render_db_choice(ranked: list, chosen: str, question: str, track: str):
         label += f" (next best: {', '.join(others)})"
     st.caption(label)
 
-    # Lexical field match, available before the pipeline runs. SchemaLinker's
-    # key_fields (rendered after the run) is the authoritative answer; this is
-    # here to explain the database choice up front.
+    # Lexical field match, computed without the pipeline. SchemaLinker's
+    # key_fields is the authoritative answer; this explains the database choice.
     try:
         matched = get_db_selector(track).fields(question, chosen)
     except Exception:
@@ -220,17 +230,22 @@ def main():
     if not question:
         return
 
+    # Resolve the database first, without rendering: everything the pipeline
+    # needs is computed before anything is drawn, so the answer can be shown
+    # above the diagnostics that explain it.
+    ranked = []
     if opts["auto_db"]:
-        db_name, ranked = _resolve_db(track, question)
+        db_name, ranked, problem = _resolve_db(track, question)
         if db_name is None:
+            st.warning(problem)
             return
-        _render_db_choice(ranked, db_name, question, track)
     else:
         db_name = opts["db_name"]
 
     try:
         with st.spinner(f"Loading {track} pipeline (first run only) ..."):
-            router = _get_router(track, strategy, max_retries, n_candidates)
+            router = _get_router(track)
+        _apply_settings(router, strategy, max_retries, n_candidates)
     except Exception as e:
         st.error(f"Failed to build the {track} pipeline: {e}")
         st.info("Most likely a missing checkpoint under models/ or indexes/, or a "
@@ -247,15 +262,43 @@ def main():
         return
     elapsed = time.perf_counter() - start
 
-    _render_result(result, track, elapsed)
+    _render_result(result, track, elapsed,
+                   db_name=db_name, ranked=ranked, question=question,
+                   auto_db=opts["auto_db"])
 
 
-def _render_result(result: dict, track: str, elapsed: float):
-    status = result["status"]
+def _render_result(result: dict, track: str, elapsed: float, *, db_name: str,
+                   ranked: list, question: str, auto_db: bool):
+    """Answer first, then the evidence for it.
+
+    Query and rows lead, because they are what the demo is actually showing.
+    Everything below explains how they were produced.
+    """
+    query = result["query"]
+    st.subheader("Query")
+    if isinstance(query, str):
+        st.code(query, language="sql" if track == "sql" else "text")
+    else:
+        st.code(json.dumps(query, indent=2, default=str), language="json")
+
+    if result["status"] == "ok":
+        st.subheader("Rows")
+        _render_rows(result["rows"])
+    else:
+        st.subheader("Error")
+        st.error(result["error"])
+
+    st.divider()
+
     cols = st.columns(3)
-    cols[0].metric("Status", "ok" if status == "ok" else "failed")
+    cols[0].metric("Status", "ok" if result["status"] == "ok" else "failed")
     cols[1].metric("Retries", result["retries"])
     cols[2].metric("Latency", f"{elapsed:.1f}s")
+
+    if auto_db and ranked:
+        _render_db_choice(ranked, db_name, question, track)
+    else:
+        st.caption(f"Database: **{db_name}** — chosen in the sidebar")
 
     # SchemaLinker's own field identification. An empty list is not cosmetic:
     # it means the DeepSeek call failed every retry, which silently degrades the
@@ -266,20 +309,6 @@ def _render_result(result: dict, track: str, elapsed: float):
     else:
         st.warning("SchemaLinker returned no fields — the generator ran without "
                    "schema linking (check DEEPSEEK_API_KEY).")
-
-    st.subheader("Query")
-    query = result["query"]
-    if isinstance(query, str):
-        st.code(query, language="sql" if track == "sql" else "text")
-    else:
-        st.code(json.dumps(query, indent=2, default=str), language="json")
-
-    if status == "ok":
-        st.subheader("Rows")
-        _render_rows(result["rows"])
-    else:
-        st.subheader("Error")
-        st.error(result["error"])
 
     if len(result["history"]) > 1:
         with st.expander(f"Retry history ({len(result['history'])} attempts)"):
