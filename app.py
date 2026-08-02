@@ -165,13 +165,24 @@ def _resolve_db(track: str, question: str) -> tuple[str | None, list]:
     return ranked[0][0], ranked
 
 
-def _render_db_choice(ranked: list, chosen: str, question: str):
-    """Show which database was picked and why, with one-click override."""
+def _render_db_choice(ranked: list, chosen: str, question: str, track: str):
+    """Show which database was picked, which fields matched, and offer an override."""
     others = [n for n, _ in ranked if n != chosen]
     label = f"Database: **{chosen}** — auto-detected"
     if others:
         label += f" (next best: {', '.join(others)})"
     st.caption(label)
+
+    # Lexical field match, available before the pipeline runs. SchemaLinker's
+    # key_fields (rendered after the run) is the authoritative answer; this is
+    # here to explain the database choice up front.
+    try:
+        matched = get_db_selector(track).fields(question, chosen)
+    except Exception:
+        matched = []
+    if matched:
+        st.caption("Matched fields: " + ", ".join(f"`{f}`" for f in matched))
+
     if not others:
         return
     cols = st.columns(len(others) + 1)
@@ -213,7 +224,7 @@ def main():
         db_name, ranked = _resolve_db(track, question)
         if db_name is None:
             return
-        _render_db_choice(ranked, db_name, question)
+        _render_db_choice(ranked, db_name, question, track)
     else:
         db_name = opts["db_name"]
 
@@ -236,11 +247,25 @@ def main():
         return
     elapsed = time.perf_counter() - start
 
+    _render_result(result, track, elapsed)
+
+
+def _render_result(result: dict, track: str, elapsed: float):
     status = result["status"]
     cols = st.columns(3)
     cols[0].metric("Status", "ok" if status == "ok" else "failed")
     cols[1].metric("Retries", result["retries"])
     cols[2].metric("Latency", f"{elapsed:.1f}s")
+
+    # SchemaLinker's own field identification. An empty list is not cosmetic:
+    # it means the DeepSeek call failed every retry, which silently degrades the
+    # run to the no_schema_linker ablation (-6% EX) with no other visible sign.
+    key_fields = result.get("key_fields") or []
+    if key_fields:
+        st.caption("SchemaLinker fields: " + ", ".join(f"`{f}`" for f in key_fields))
+    else:
+        st.warning("SchemaLinker returned no fields — the generator ran without "
+                   "schema linking (check DEEPSEEK_API_KEY).")
 
     st.subheader("Query")
     query = result["query"]
