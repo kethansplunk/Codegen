@@ -73,9 +73,14 @@ def _get_router(track: str) -> Router:
     # Drive-mounted symlink) would get counted as that question's latency
     # instead of one-time warm-up. Touching them now keeps the "Loading
     # pipeline" spinner honest and the reported per-query latency real.
-    router.linker
-    router.sar
-    router.generator
+    #
+    # Assigned rather than left bare on purpose: Streamlit rewrites this
+    # script's AST and wraps standalone expressions in st.write(), so
+    # `router.linker` on its own line dumps the whole ApiSchemaLinker /
+    # SARRetriever repr into the page above the results. An assignment is a
+    # statement, not an expression, so magic leaves it alone.
+    _warm = (router.linker, router.sar, router.generator)
+    del _warm
     return router
 
 
