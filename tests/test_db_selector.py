@@ -95,6 +95,35 @@ def test_document_contains_name_tables_and_columns():
     assert "ahf" not in doc           # sample values deliberately excluded
 
 
+def test_primary_keys_are_added_to_the_document():
+    # PK terms are worth +1.3 points of top-1 (17 fixed / 3 broken over the dev
+    # set, McNemar p=0.003), so their presence is pinned rather than incidental.
+    schema = {"singer.Singer_ID": {}, "singer.Name": {}}
+    plain = _db_document("concert_singer", schema)
+    with_pk = _db_document("concert_singer", schema, ["Singer_ID"])
+    assert with_pk.lower().count("singer id") == plain.lower().count("singer id") + 1
+
+
+def test_fields_ranks_question_overlap(schema_dir):
+    sel = DBSelector(schema_dir=schema_dir)
+    fields = sel.fields("What are the names and countries of singers?", "concert_singer")
+    assert "singer.Name" in fields
+    assert "singer.Country" in fields
+    # A column sharing no word with the question must not be reported.
+    assert "concert.Year" not in fields
+
+
+def test_fields_matches_camelcase_column(schema_dir):
+    fields = DBSelector(schema_dir=schema_dir).fields("list every airport code", "flight_2")
+    assert "airports.AirportCode" in fields
+
+
+def test_fields_respects_k_and_unknown_db(schema_dir):
+    sel = DBSelector(schema_dir=schema_dir)
+    assert len(sel.fields("name country singer stadium concert", "concert_singer", k=2)) == 2
+    assert sel.fields("anything", "no_such_db") == []
+
+
 def test_words_splits_camel_and_snake():
     assert _words("AirportCode") == "Airport Code"
     assert _words("Staring_Date") == "Staring Date"

@@ -256,12 +256,17 @@ Accuracy, measured over all 1034 gold-labelled Spider dev questions (`Data/cot_d
 
 | | top-1 | top-3 | top-5 |
 |---|---|---|---|
-| BM25 + stemming | **80.9%** | 91.1% | 95.0% |
+| BM25 + stemming + primary keys | **82.2%** | 91.7% | 95.0% |
+| BM25 + stemming | 80.9% | 91.1% | 95.0% |
 | BM25, no stemming | 65.3% | 79.4% | 84.1% |
 
-Stemming is what makes this work at all — without it, "how many **singers**" never matches a table called `singer`. Sample values were tried in the corpus and left out: they cost ~1 point of top-1 by drowning the schema signal in incidental text. Weights (name ×2, tables ×1, columns ×1) were swept; everything in the 79–81% band was within noise, so the simplest configuration at the top of that band was kept rather than a tuned optimum.
+Stemming is what makes this work at all — without it, "how many **singers**" never matches a table called `singer`. Adding **primary-key column names** (from the Phase 5A FK graphs) is worth a further +1.3 points: paired over the 1034 questions it fixes 17 and breaks 3, exact McNemar p = 0.003, so unlike the weight sweep it is a real effect rather than noise — a PK is usually the entity its table is *about* (`singer.Singer_ID`), so it echoes the noun the question asks about. Foreign keys were tried the same way and **hurt** (−1.3), since serializing them mostly re-repeats table names already present and skews length normalization. Sample values were also tried and left out (−1 point).
 
-**The 81% top-1 / 91% top-3 gap drives the UI.** A wrong database guarantees a wrong answer, so the demo does not silently guess: it shows the chosen database with the next-best alternatives and a one-click override, and refuses to pick at all when every BM25 score is 0 (a question sharing no vocabulary with any schema). Reranking the top-5 with an LLM is the obvious way to close the gap toward that 95% ceiling — deliberately **not** built, since it needs a DeepSeek call per question and no `.env` key was available to measure it honestly.
+Weights (name ×2, tables ×1, columns ×1) were swept; everything in the 79–81% band was within noise, so the simplest configuration at the top of that band was kept rather than a tuned optimum.
+
+**The 82% top-1 / 92% top-3 gap drives the UI.** A wrong database guarantees a wrong answer, so the demo does not silently guess: it shows the chosen database with the next-best alternatives and a one-click override, and refuses to pick at all when every BM25 score is 0 (a question sharing no vocabulary with any schema). The demo also shows **which fields** matched — a cheap lexical overlap up front to explain the database choice, then SchemaLinker's authoritative `key_fields` with the result. An empty `key_fields` now raises a visible warning, since it silently degrades the run to the `no_schema_linker` ablation (−6% EX).
+
+Reranking the top-5 with an LLM is the obvious way to close the gap toward that 95% ceiling — deliberately **not** built, since it needs a DeepSeek call per question and no `.env` key was available to measure it honestly.
 
 ```bash
 pytest tests/test_db_selector.py -v
@@ -389,7 +394,7 @@ datasets/
 
 src/                          reusable library code
   device.py                   MPS / CUDA / CPU detection
-  db_selector.py              Question → db_name via BM25 over PromptSchema (Phase 20A demo auto-detect)
+  db_selector.py              Question → db_name + matched fields, BM25 over PromptSchema + PKs (Phase 20A)
   fk_graph.py                 FK graph builder (Phase 5A)
   prompt_schema.py            BM25S column annotation — build time (Phase 6)
   schema_utils.py             BM25S column annotation — query time (inference)
@@ -442,6 +447,7 @@ scripts/
   run_eval.py                           Evaluation + Table 5 ablation driver (Phase 18)
   run_baseline.py                       CP1 baseline — codegen-350M EX floor (Phase 18C)
   migrate_sql_to_nosql.py               SQL-to-NoSQL migration utility — reuses MongoDBConverter (Phase 20C)
+  build_schema_catalog.py               Regenerates docs/schema_catalog*.md — all schemas + confusable clusters
 
 tests/
   test_router.py                        Router graph + retry ladder, stubbed models (Phase 17)
@@ -481,6 +487,7 @@ The `external/SchemaRAG/` directory contains the SchemaRAG reference implementat
 
 ## Reference documents
 
+- `docs/schema_catalog.md` / `docs/schema_catalog_nosql.md` — every database's tables, columns, PKs and FKs, plus the confusable-database clusters (generated, see `scripts/build_schema_catalog.py`)
 - `docs/architecture.md` — full architecture with design decisions and component deep dives
 - `docs/phase15_posg_findings.md` — POSG wiring methodology, EX results, and known limitations (SQL + NoSQL)
 - `CodeGen_Plan_v6_DualTrack.md` — full 20-phase implementation plan (latest)
