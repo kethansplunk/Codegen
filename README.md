@@ -56,7 +56,7 @@ Given a natural language question and a database, the system produces the correc
 
 ```bash
 conda activate text2sql
-pip install torch transformers datasets peft trl langgraph chromadb pymongo rapidfuzz bm25s sqlglot sqlparse networkx FlagEmbedding bitsandbytes
+pip install torch transformers datasets peft trl langgraph chromadb pymongo rapidfuzz bm25s PyStemmer sqlglot sqlparse networkx FlagEmbedding bitsandbytes
 pip install pytest          # tests/ only
 ```
 
@@ -244,7 +244,28 @@ pip install streamlit
 streamlit run app.py
 ```
 
-Sidebar controls: track (SQL/NoSQL), POSG strategy, max retries, and **candidates (k)** — defaults to **k=1** per the plan's demo latency target (<8s; confirmed 2.7s on a real question at k=1 on Colab A100). Bump it to 3–5 to demo POSG's candidate ranking instead of greedy decoding, at the cost of latency. The `Router` is cached per settings combination so the 7B Generator and SAR encoder load once per session, not per question.
+Sidebar controls: track (SQL/NoSQL), POSG strategy, max retries, **candidates (k)**, and **auto-detect database**. `k` defaults to **1** per the plan's demo latency target (<8s; confirmed 2.7s on a real question at k=1 on Colab A100); bump it to 3–5 to demo POSG's candidate ranking instead of greedy decoding, at the cost of latency. The `Router` is cached per settings combination so the 7B Generator and SAR encoder load once per session, not per question.
+
+### Database auto-detection
+
+**Auto-detect database** (on by default) picks the database from the question itself, so the demo takes a question and nothing else — previously the user had to choose from a 166-entry dropdown, which is backwards for a demo. Turn it off to get the explicit picker back (still what `scripts/run_router.py`, `api.py`, and the eval harness use — none of those changed).
+
+`src/db_selector.py` runs BM25 over a one-document-per-database corpus built from the Phase 6 PromptSchema files (database name, table names, column names). No model, no API call, no GPU: the index builds in ~0.1s and a lookup costs ~0.2ms, so it adds nothing measurable to demo latency.
+
+Accuracy, measured over all 1034 gold-labelled Spider dev questions (`Data/cot_data/sql_dev_eval_full.json`):
+
+| | top-1 | top-3 | top-5 |
+|---|---|---|---|
+| BM25 + stemming | **80.9%** | 91.1% | 95.0% |
+| BM25, no stemming | 65.3% | 79.4% | 84.1% |
+
+Stemming is what makes this work at all — without it, "how many **singers**" never matches a table called `singer`. Sample values were tried in the corpus and left out: they cost ~1 point of top-1 by drowning the schema signal in incidental text. Weights (name ×2, tables ×1, columns ×1) were swept; everything in the 79–81% band was within noise, so the simplest configuration at the top of that band was kept rather than a tuned optimum.
+
+**The 81% top-1 / 91% top-3 gap drives the UI.** A wrong database guarantees a wrong answer, so the demo does not silently guess: it shows the chosen database with the next-best alternatives and a one-click override, and refuses to pick at all when every BM25 score is 0 (a question sharing no vocabulary with any schema). Reranking the top-5 with an LLM is the obvious way to close the gap toward that 95% ceiling — deliberately **not** built, since it needs a DeepSeek call per question and no `.env` key was available to measure it honestly.
+
+```bash
+pytest tests/test_db_selector.py -v
+```
 
 Needs (all gitignored, produced on Colab): `models/generator_{sql,nosql}/`, `models/sar_{sql,nosql}/sar_model.pt`, `Data/Spider/database/` for the SQL track to execute (not just generate) a query, `DEEPSEEK_API_KEY` in `.env`, and a live `mongod` for the NoSQL track.
 
@@ -368,6 +389,7 @@ datasets/
 
 src/                          reusable library code
   device.py                   MPS / CUDA / CPU detection
+  db_selector.py              Question → db_name via BM25 over PromptSchema (Phase 20A demo auto-detect)
   fk_graph.py                 FK graph builder (Phase 5A)
   prompt_schema.py            BM25S column annotation — build time (Phase 6)
   schema_utils.py             BM25S column annotation — query time (inference)
@@ -427,6 +449,7 @@ tests/
   test_sql_fixups.py                    Ambiguous-column fixup — correctness + set-operator scoping (Phase 18)
   test_api.py                           FastAPI endpoints, stubbed models (Phase 20B)
   test_migrate_sql_to_nosql.py          Migration utility — orchestration logic against a stub converter (Phase 20C)
+  test_db_selector.py                   Question → db_name BM25 selection, hermetic temp schema dir (Phase 20A)
 
 notebooks/
   phase9a_sl_train.ipynb                SchemaLinker SQL SFT on Colab (Phase 9A, deferred)

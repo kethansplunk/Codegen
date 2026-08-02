@@ -27,6 +27,7 @@ import time
 import streamlit as st
 import yaml
 
+from src.db_selector import get_db_selector
 from src.router.langgraph_router import Router
 
 st.set_page_config(page_title="CodeGen — NL to Query", page_icon="🗄️", layout="wide")
@@ -91,49 +92,130 @@ def _render_rows(rows: list | None):
         st.write(rows)
 
 
+def _manual_db_choice(config: dict, track: str) -> str:
+    """Sidebar database picker, used when auto-detect is off."""
+    if track == "sql":
+        db_dir = config["dataset"]["db_path"]
+        names = _spider_db_names(db_dir)
+        if names:
+            return st.selectbox("Database", names)
+        db_name = st.text_input("Database (db_name)")
+        st.warning(f"No databases found under {db_dir} — the query will "
+                   f"still be generated but not executed.")
+        return db_name
+    return st.text_input(
+        "Database (db_name)",
+        help="Mongo database name; needs a live mongod on localhost:27017.")
+
+
+def _sidebar(config: dict) -> dict:
+    st.header("Session")
+    track = st.radio("Track", ["sql", "nosql"], horizontal=True)
+    strategy = st.selectbox(
+        "POSG strategy", ["balanced", "schema_priority", "example_priority"])
+    max_retries = st.slider("Max retries", 0, 5, 3)
+    n_candidates = st.slider(
+        "Candidates (k)", 1, 5, 1,
+        help="Generator candidates per attempt. Phase 20A's demo target is "
+             "k=1 (<8s latency); config.yaml's eval default is 5, which is "
+             "accurate but noticeably slower, especially if self-correction "
+             "triggers a second full generation pass.")
+
+    auto_db = st.toggle(
+        "Auto-detect database", value=True,
+        help="Pick the database from the question itself (BM25 over the Phase 6 "
+             "PromptSchema table/column names). Measured on the 1034-question "
+             "Spider dev set: 80.9% top-1, 91.1% top-3.")
+
+    if auto_db:
+        db_name = None  # resolved per question in _resolve_db()
+        st.caption("Database chosen per question — the top matches are shown "
+                   "with the result, and can be overridden there.")
+    else:
+        db_name = _manual_db_choice(config, track)
+
+    st.divider()
+    st.caption("Needs models/ + indexes/ checkpoints (gitignored, from the Colab "
+               "run) and DEEPSEEK_API_KEY in .env for SchemaLinker API mode.")
+    return {"track": track, "strategy": strategy, "max_retries": max_retries,
+            "n_candidates": n_candidates, "auto_db": auto_db, "db_name": db_name}
+
+
+def _resolve_db(track: str, question: str) -> tuple[str | None, list]:
+    """Auto-detect mode: rank databases against the question. (winner, ranked)."""
+    try:
+        selector = get_db_selector(track)
+    except Exception as e:
+        st.error(f"Database auto-detect unavailable: {e}")
+        return None, []
+    ranked = selector.rank(question, k=3)
+    # An all-zero BM25 score means the question shares no schema vocabulary with
+    # any database -- picking the arbitrary first one would silently produce a
+    # confident answer from the wrong database, so make the caller choose.
+    if not ranked or ranked[0][1] <= 0:
+        st.warning("No database matched this question — pick one in the sidebar "
+                   "(turn off Auto-detect).")
+        return None, ranked
+
+    # An override belongs to the question it was made for. Without this check a
+    # correction on one question would silently redirect the next one.
+    override = st.session_state.get("db_override")
+    if override and st.session_state.get("db_override_for") == question:
+        return override, ranked
+    return ranked[0][0], ranked
+
+
+def _render_db_choice(ranked: list, chosen: str, question: str):
+    """Show which database was picked and why, with one-click override."""
+    others = [n for n, _ in ranked if n != chosen]
+    label = f"Database: **{chosen}** — auto-detected"
+    if others:
+        label += f" (next best: {', '.join(others)})"
+    st.caption(label)
+    if not others:
+        return
+    cols = st.columns(len(others) + 1)
+    cols[0].caption("Wrong database?")
+    for col, name in zip(cols[1:], others):
+        if col.button(f"Use {name}", key=f"ov_{name}"):
+            st.session_state["db_override"] = name
+            st.session_state["db_override_for"] = question
+            st.rerun()
+
+
 def main():
     st.title("CodeGen — Natural Language to Query")
     st.caption("SchemaRAG (SQL) / SMART-TEND (NoSQL), routed by LangGraph — Phase 20A demo")
 
     config = _load_config()
-
     with st.sidebar:
-        st.header("Session")
-        track = st.radio("Track", ["sql", "nosql"], horizontal=True)
-        strategy = st.selectbox(
-            "POSG strategy", ["balanced", "schema_priority", "example_priority"])
-        max_retries = st.slider("Max retries", 0, 5, 3)
-        n_candidates = st.slider(
-            "Candidates (k)", 1, 5, 1,
-            help="Generator candidates per attempt. Phase 20A's demo target is "
-                 "k=1 (<8s latency); config.yaml's eval default is 5, which is "
-                 "accurate but noticeably slower, especially if self-correction "
-                 "triggers a second full generation pass.")
-
-        if track == "sql":
-            db_dir = config["dataset"]["db_path"]
-            names = _spider_db_names(db_dir)
-            if names:
-                db_name = st.selectbox("Database", names)
-            else:
-                db_name = st.text_input("Database (db_name)")
-                st.warning(f"No databases found under {db_dir} — the query will "
-                           f"still be generated but not executed.")
-        else:
-            db_name = st.text_input(
-                "Database (db_name)",
-                help="Mongo database name; needs a live mongod on localhost:27017.")
-
-        st.divider()
-        st.caption("Needs models/ + indexes/ checkpoints (gitignored, from the Colab "
-                   "run) and DEEPSEEK_API_KEY in .env for SchemaLinker API mode.")
+        opts = _sidebar(config)
+    track, strategy = opts["track"], opts["strategy"]
+    max_retries, n_candidates = opts["max_retries"], opts["n_candidates"]
 
     question = st.text_area(
         "Question", placeholder="e.g. How many singers are there?", height=80)
-    run = st.button("Run", type="primary", disabled=not question or not db_name)
 
-    if not run:
+    # In auto-detect mode the database comes from the question, so Run only needs
+    # a question; in manual mode it still needs an explicitly chosen database.
+    ready = bool(question) and (opts["auto_db"] or bool(opts["db_name"]))
+    if st.button("Run", type="primary", disabled=not ready):
+        st.session_state["submitted"] = question
+
+    # Read from session state rather than the button: the override buttons below
+    # call st.rerun(), on which the Run button reads False and the whole result
+    # would otherwise vanish mid-correction.
+    question = st.session_state.get("submitted")
+    if not question:
         return
+
+    if opts["auto_db"]:
+        db_name, ranked = _resolve_db(track, question)
+        if db_name is None:
+            return
+        _render_db_choice(ranked, db_name, question)
+    else:
+        db_name = opts["db_name"]
 
     try:
         with st.spinner(f"Loading {track} pipeline (first run only) ..."):
