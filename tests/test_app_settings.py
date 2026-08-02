@@ -36,6 +36,28 @@ def test_apply_settings_mutates_in_place():
     assert r.generator is before
 
 
+def test_no_bare_expressions_for_streamlit_magic():
+    """No standalone expression statements anywhere in app.py.
+
+    Streamlit rewrites the app script's AST and wraps standalone expressions in
+    st.write(). The lazy-property warm-up in _get_router() was written as bare
+    `router.linker` / `router.sar` / `router.generator` lines, which dumped the
+    full ApiSchemaLinker and SARRetriever reprs into the page above the results.
+    Calls and docstrings are legitimate; anything else is almost certainly an
+    accidental render.
+    """
+    import ast
+    import pathlib
+
+    tree = ast.parse(pathlib.Path(app.__file__).read_text())
+    bare = [n for n in ast.walk(tree)
+            if isinstance(n, ast.Expr)
+            and not isinstance(n.value, (ast.Call, ast.Constant, ast.Await))]
+    assert not bare, ("bare expressions in app.py will be rendered by Streamlit "
+                      "magic: " + ", ".join(f"line {n.lineno}: {ast.unparse(n)}"
+                                            for n in bare))
+
+
 def test_get_router_is_keyed_on_track_only():
     # The cache key is the function signature; anything beyond `track` would
     # evict the cached 7B model whenever a slider moved.
